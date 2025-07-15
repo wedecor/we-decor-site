@@ -21,6 +21,7 @@ export default function Layout({ children, seo }) {
         target="_blank"
         rel="noopener"
         id="whatsapp-cta" // For GTM/Google Ads event tracking
+        data-gtm="click-whatsapp"
       >
         {/* WhatsApp SVG icon for visual cue */}
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -33,6 +34,7 @@ export default function Layout({ children, seo }) {
         href="tel:+919999999999"
         className="fixed bottom-20 right-6 bg-blue-600 text-white px-4 py-2 rounded-full shadow-lg z-50 flex items-center gap-2"
         id="callnow-cta" // For GTM/Google Ads event tracking
+        data-gtm="click-callnow"
       >
         <span role="img" aria-label="Call">
           📞

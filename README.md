@@ -67,3 +67,29 @@ Starting Price: ₹2999 for birthday setups
 ---
 
 _All content and gallery images can be updated without coding knowledge!_
+
+## 📄 Editing Guide (For Non-Developers)
+
+**You can update almost all content on this website without coding!**
+
+### Editing Service Pages
+- Go to `/pages/services/` and open any `.mdx` file (e.g. `birthday-decoration.mdx`).
+- Change the text, headings, or bullet points as needed.
+- Update the `title`, `description`, or `image` in the frontmatter (the section between `---` at the top).
+- Save the file and redeploy (or commit changes if using Git).
+
+### Replacing Gallery Images
+- Add or remove images in `/public/gallery/`.
+- Use `.webp` or `.jpg` files for best performance.
+- (Optional) Edit `/data/gallery.json` to add captions for each image.
+
+### Updating Pricing or About Page
+- Edit `/pages/pricing.mdx` or `/pages/about.mdx` just like a Word document.
+- Change tables, text, or headings as needed.
+
+### Changing Phone Number or WhatsApp CTA
+- Open `/components/Layout.tsx`.
+- Update the phone number in the WhatsApp and Call Now button links.
+- Save and redeploy.
+
+**No coding knowledge is required for these changes!**

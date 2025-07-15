@@ -1,0 +1,6 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/services/wedding-stage-decor": "pages/services/wedding-stage-decor.js"
+}
