@@ -1,1 +1,17 @@
-{}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/pricing": "pages/pricing.js",
+  "/": "pages/index.js",
+  "/gallery": "pages/gallery.js",
+  "/about": "pages/about.js",
+  "/contact": "pages/contact.js",
+  "/services/wedding-stage-decor": "pages/services/wedding-stage-decor.js",
+  "/services/haldi-backdrop-decor": "pages/services/haldi-backdrop-decor.js",
+  "/services/birthday-home-decoration": "pages/services/birthday-home-decoration.js",
+  "/services/wedding-setup": "pages/services/wedding-setup.js",
+  "/services/haldi-decoration": "pages/services/haldi-decoration.js",
+  "/services/birthday-decoration": "pages/services/birthday-decoration.js",
+  "/services/tent-balloon-setup": "pages/services/tent-balloon-setup.js"
+}

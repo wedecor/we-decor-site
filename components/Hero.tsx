@@ -4,27 +4,22 @@ import Link from "next/link";
 export default function Hero() {
   return (
     // Section with gradient background and centered content
-    <section className="bg-gradient-to-br from-pink-100 to-blue-100 py-16 text-center">
+    <section className="bg-gradient-to-br from-green-500 to-blue-500 py-20 text-center text-white animate-fadeIn transition-opacity font-sans">
       {/* Main headline for brand positioning */}
-      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-        Bringing Dreams to Life
-      </h1>
+      <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">Bringing Dreams to Life</h1>
       {/* Tagline for trust and context */}
-      <p className="text-lg md:text-xl mb-8">
-        Bangalore’s trusted event decor experts for weddings, birthdays, haldi,
-        and more.
-      </p>
+      <p className="text-xl md:text-2xl mb-10 font-medium opacity-90">Bangalore’s trusted event decor experts for weddings, birthdays, haldi, and more.</p>
       {/* CTA buttons for conversion: Get a Quote and View Gallery */}
-      <div className="flex flex-col md:flex-row gap-4 justify-center">
+      <div className="flex flex-col md:flex-row gap-6 justify-center">
         <Link
           href="/contact"
-          className="bg-pink-600 text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-pink-700"
+          className="bg-gradient-to-r from-green-500 to-blue-500 text-white px-8 py-4 rounded-full font-bold shadow-md hover:scale-105 transition transform duration-200 hover:shadow-xl"
         >
           Get a Quote
         </Link>
         <Link
           href="/gallery"
-          className="bg-white border border-pink-600 text-pink-600 px-6 py-3 rounded-full font-semibold shadow hover:bg-pink-50"
+          className="bg-white border-2 border-blue-500 text-blue-600 px-8 py-4 rounded-full font-bold shadow-md hover:bg-blue-50 hover:scale-105 transition transform duration-200"
         >
           View Gallery
         </Link>
