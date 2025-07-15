@@ -1,23 +1,47 @@
-## <!-- mdx -->
-
+---
 title: "Pricing"
 description: "Affordable event decor packages in Bangalore. Starting at ₹2999."
-
 ---
 
-<!-- mdx --> Main pricing section, fully editable by non-technical users
-
-# Pricing
-
-<!-- mdx --> Editable pricing table for all service tiers
-
-| Package              | Description                     | Price |
-| -------------------- | ------------------------------- | ----- |
-| Birthday Basic       | Balloons, banners, table decor  | ₹2999 |
-| Haldi Special        | Floral backdrop, seating, props | ₹4999 |
-| Wedding Premium      | Stage, entrance, table decor    | ₹9999 |
-| Tent & Balloon Combo | Tent setup, balloon arches      | ₹3999 |
-
-<!-- mdx --> Note for custom packages and lead generation
-
-_All packages are customizable. Contact us for a quote!_
+[//]: # (UI polish) Section wrapper and font
+<section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
+  [//]: # (UI polish) Heading style
+  <h1 className="text-3xl md:text-5xl font-bold text-center mb-8">Pricing</h1>
+  [//]: # (UI polish) Table style
+  <div className="overflow-x-auto mb-8">
+    <table className="min-w-full bg-white rounded-lg shadow border text-lg text-gray-700">
+      <thead>
+        <tr className="bg-gray-100">
+          <th className="py-3 px-4 text-left font-bold">Package</th>
+          <th className="py-3 px-4 text-left font-bold">Description</th>
+          <th className="py-3 px-4 text-left font-bold">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="py-2 px-4">Birthday Basic</td>
+          <td className="py-2 px-4">Balloons, banners, table decor</td>
+          <td className="py-2 px-4">₹2999</td>
+        </tr>
+        <tr className="bg-gray-50">
+          <td className="py-2 px-4">Haldi Special</td>
+          <td className="py-2 px-4">Floral backdrop, seating, props</td>
+          <td className="py-2 px-4">₹4999</td>
+        </tr>
+        <tr>
+          <td className="py-2 px-4">Wedding Premium</td>
+          <td className="py-2 px-4">Stage, entrance, table decor</td>
+          <td className="py-2 px-4">₹9999</td>
+        </tr>
+        <tr className="bg-gray-50">
+          <td className="py-2 px-4">Tent & Balloon Combo</td>
+          <td className="py-2 px-4">Tent setup, balloon arches</td>
+          <td className="py-2 px-4">₹3999</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  [//]: # (UI polish) Note and CTA
+  <p className="text-lg text-gray-700 leading-relaxed mb-8">_All packages are customizable. Contact us for a quote!_</p>
+  <a href="/contact" className="bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full px-6 py-3 shadow-lg hover:scale-105 transition font-bold inline-block">Get a Custom Quote</a>
+</section>
