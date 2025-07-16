@@ -1,16 +1,17 @@
-import { useState } from "react";
+import React, { useState, FormEvent } from "react";
 
 export default function ContactForm() {
   const [status, setStatus] = useState("");
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("Sending...");
+    const target = e.target as HTMLFormElement;
     const res = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify({
-        name: e.target.name.value,
-        phone: e.target.phone.value,
-        message: e.target.message.value,
+        name: (target.elements.namedItem('name') as HTMLInputElement)?.value,
+        phone: (target.elements.namedItem('phone') as HTMLInputElement)?.value,
+        message: (target.elements.namedItem('message') as HTMLInputElement)?.value,
       }),
       headers: { "Content-Type": "application/json" },
     });
