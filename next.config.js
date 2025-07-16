@@ -1,14 +1,13 @@
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    providerImportSource: "@mdx-js/react"
-  }
-})
-
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['res.cloudinary.com'],
+  },
+  trailingSlash: false,
   experimental: {
-    mdxRs: false
-  }
-})
+    serverActions: true,
+  },
+};
+
+module.exports = nextConfig;
