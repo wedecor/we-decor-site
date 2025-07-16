@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^20.4.2",
     "@types/react": "^18.2.14",
+    "lighthouse": "^12.8.0",
     "typescript": "^5.2.2"
   }
 }
