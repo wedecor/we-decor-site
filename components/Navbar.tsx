@@ -1,37 +1,32 @@
 import Link from "next/link";
 import { useState } from "react";
 import DarkModeToggle from "./DarkModeToggle";
+import Image from "next/image";
 
-// Navbar provides site-wide navigation with mobile and desktop layouts
 export default function Navbar() {
-  // State to control mobile menu open/close
   const [open, setOpen] = useState(false);
   return (
-    // 🎨 UI Upgrade: Brand gradient, shadow, font, spacing
-    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-green-500 to-blue-500 shadow-lg z-40 font-sans">
+    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-green-100 via-pink-100 to-blue-100 shadow-lg z-40 font-sans backdrop-blur-md">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo/brand link to homepage */}
-        <Link href="/" className="font-bold text-2xl text-white tracking-wide">
-          We Decor
+        <Link href="/" className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-green-500 rounded">
+          <Image src="/logo.png" alt="We Decor Logo" width={36} height={36} className="rounded-full shadow" />
+          <span className="font-bold text-2xl text-green-700 tracking-wide group-hover:text-pink-500 transition">We Decor</span>
         </Link>
-        
         {/* Desktop navigation and dark mode toggle */}
         <div className="hidden md:flex items-center gap-6">
-          {/* Main navigation links */}
-          <Link href="/about" className="px-4 py-2 text-white font-medium hover:underline hover:decoration-2 transition">About</Link>
-          <Link href="/services/birthday-decoration" className="px-4 py-2 text-white font-medium hover:underline hover:decoration-2 transition">Services</Link>
-          <Link href="/gallery" className="px-4 py-2 text-white font-medium hover:underline hover:decoration-2 transition">Gallery</Link>
-          <Link href="/pricing" className="px-4 py-2 text-white font-medium hover:underline hover:decoration-2 transition">Pricing</Link>
-          <Link href="/contact" className="px-4 py-2 text-white font-medium hover:underline hover:decoration-2 transition">Contact</Link>
-          
-          {/* Dark mode toggle */}
+          <Link href="/about" className="px-4 py-2 text-green-700 font-medium rounded hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 transition">About</Link>
+          <Link href="/services/birthday-decoration" className="px-4 py-2 text-green-700 font-medium rounded hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Services</Link>
+          <Link href="/gallery" className="px-4 py-2 text-green-700 font-medium rounded hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Gallery</Link>
+          <Link href="/pricing" className="px-4 py-2 text-green-700 font-medium rounded hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Pricing</Link>
+          <Link href="/faq" className="px-4 py-2 text-green-700 font-medium rounded hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 transition">FAQ</Link>
+          <Link href="/contact" className="px-4 py-2 text-green-700 font-medium rounded hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Contact</Link>
           <DarkModeToggle />
         </div>
-
         {/* Mobile menu button and dark mode toggle */}
         <div className="md:hidden flex items-center gap-3">
           <DarkModeToggle />
-          <button className="text-white" onClick={() => setOpen(!open)}>
+          <button className="text-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 rounded" onClick={() => setOpen(!open)}>
             <span className="sr-only">Open menu</span>
             <svg
               className="w-7 h-7"
@@ -48,17 +43,16 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
-
         {/* Mobile menu */}
         <div
-          className={`flex-col md:hidden gap-4 ${open ? "flex" : "hidden"} bg-white dark:bg-gray-800 absolute top-16 left-0 w-full shadow-lg transition-all duration-300 rounded-b-xl border border-gray-200 dark:border-gray-700`}
+          className={`flex-col md:hidden gap-4 ${open ? "flex" : "hidden"} bg-white/95 dark:bg-gray-800/95 absolute top-16 left-0 w-full shadow-lg transition-all duration-300 rounded-b-xl border border-gray-200 dark:border-gray-700`}
         >
-          {/* Mobile navigation links */}
-          <Link href="/about" className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">About</Link>
-          <Link href="/services/birthday-decoration" className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">Services</Link>
-          <Link href="/gallery" className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">Gallery</Link>
-          <Link href="/pricing" className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">Pricing</Link>
-          <Link href="/contact" className="px-4 py-2 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition">Contact</Link>
+          <Link href="/about" className="px-4 py-2 text-green-700 dark:text-gray-300 font-medium hover:bg-green-50 dark:hover:bg-gray-700 rounded transition">About</Link>
+          <Link href="/services/birthday-decoration" className="px-4 py-2 text-green-700 dark:text-gray-300 font-medium hover:bg-green-50 dark:hover:bg-gray-700 rounded transition">Services</Link>
+          <Link href="/gallery" className="px-4 py-2 text-green-700 dark:text-gray-300 font-medium hover:bg-green-50 dark:hover:bg-gray-700 rounded transition">Gallery</Link>
+          <Link href="/pricing" className="px-4 py-2 text-green-700 dark:text-gray-300 font-medium hover:bg-green-50 dark:hover:bg-gray-700 rounded transition">Pricing</Link>
+          <Link href="/faq" className="px-4 py-2 text-green-700 dark:text-gray-300 font-medium hover:bg-green-50 dark:hover:bg-gray-700 rounded transition">FAQ</Link>
+          <Link href="/contact" className="px-4 py-2 text-green-700 dark:text-gray-300 font-medium hover:bg-green-50 dark:hover:bg-gray-700 rounded transition">Contact</Link>
         </div>
       </div>
     </nav>
