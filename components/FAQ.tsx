@@ -28,9 +28,9 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="max-w-4xl mx-auto py-16 px-6 bg-gradient-to-br from-green-50 to-pink-50 rounded-2xl shadow-lg">
+    <section className="max-w-4xl mx-auto py-16 px-6 bg-gradient-to-br from-green-50 to-pink-50 dark:from-gray-900 dark:to-gray-900 rounded-2xl shadow-lg">
       <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-700 dark:text-white">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 text-green-700 dark:text-green-200">
           Frequently Asked Questions
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -42,12 +42,12 @@ export default function FAQ() {
           <Disclosure key={index}>
             {({ open }) => (
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
-                <Disclosure.Button className="flex w-full justify-between items-center px-6 py-4 text-left hover:bg-green-50 dark:hover:bg-gray-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400 rounded-t-lg">
-                  <span className="text-lg font-semibold text-gray-900 dark:text-white">
+                <Disclosure.Button className="flex w-full justify-between items-center px-6 py-4 text-left hover:bg-green-50 dark:hover:bg-gray-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400 rounded-t-lg">
+                  <span className="text-lg font-semibold text-gray-900 dark:text-green-200">
                     {faq.question}
                   </span>
                   <ChevronDownIcon
-                    className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-green-500 dark:text-green-400 transition-transform duration-200`}
+                    className={`${open ? 'transform rotate-180' : ''} w-5 h-5 text-green-500 dark:text-green-300 transition-transform duration-200`}
                   />
                 </Disclosure.Button>
                 <Transition
