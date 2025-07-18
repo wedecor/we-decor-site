@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
+import Image from 'next/image';
 
 export default function Contact() {
   return (
@@ -11,8 +12,11 @@ export default function Contact() {
         image: "/logo.png",
       }}
     >
-      <div className="max-w-2xl mx-auto py-12 px-4">
-        <h1 className="text-2xl font-bold mb-6 text-center">Contact Us</h1>
+      <div className="max-w-xl mx-auto py-16">
+        <div className="flex flex-col items-center mb-8">
+          <Image src="/logo.png" alt="We Decor Logo" width={48} height={48} className="mb-2 rounded-full shadow" />
+          <h1 className="text-3xl font-bold text-green-700">Contact We Decor</h1>
+        </div>
         <ContactForm />
         <div className="mt-8">
           <iframe

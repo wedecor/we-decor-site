@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import Gallery from "../components/Gallery";
+import Image from 'next/image';
 
 // GalleryPage renders the gallery grid with SEO meta
 export default function GalleryPage() {
@@ -12,9 +13,11 @@ export default function GalleryPage() {
         image: "/logo.png",
       }}
     >
-      {/* Main gallery section with heading */}
-      <div className="max-w-6xl mx-auto py-12 px-4">
-        <h1 className="text-2xl font-bold mb-6 text-center">Gallery</h1>
+      <div className="max-w-6xl mx-auto py-16 px-4">
+        <div className="flex flex-col items-center mb-8">
+          <Image src="/logo.png" alt="We Decor Logo" width={48} height={48} className="mb-2 rounded-full shadow" />
+          <h1 className="text-3xl font-bold text-green-700">Gallery</h1>
+        </div>
         {/* Gallery component renders image grid and lightbox */}
         <Gallery />
       </div>
