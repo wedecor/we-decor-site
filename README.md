@@ -93,3 +93,27 @@ _All content and gallery images can be updated without coding knowledge!_
 - Save and redeploy.
 
 **No coding knowledge is required for these changes!**
+
+## Google Reviews Integration
+
+To enable Google Reviews on your site:
+
+1. Get your Google Places API key and Place ID (see GOOGLE_REVIEWS_SETUP.md for details).
+2. Add the following to your `.env.local` file:
+
+```
+GOOGLE_PLACES_API_KEY=your_api_key_here
+NEXT_PUBLIC_GOOGLE_PLACE_ID=your_place_id_here
+```
+
+For this project, use:
+```
+GOOGLE_PLACES_API_KEY=AIzaSyB2NoVlr6Calqwi8qMFZY4yOxlAQPghny4
+NEXT_PUBLIC_GOOGLE_PLACE_ID=ChIJCac5p8MVrjsRge3h_FhBR70
+```
+
+3. Add the same variables to your Vercel project settings for production.
+4. Restart your dev server after making changes.
+
+See `GOOGLE_REVIEWS_SETUP.md` for full setup instructions.
+ 
