@@ -37,12 +37,12 @@ function toAltText(filename) {
   const images = await fetchAllImages();
   const galleryMap = {};
   images.forEach(img => {
-    if (!img.folder || !img.folder.startsWith('we-decor/')) return; // skip images without a valid folder
-    const folder = img.folder.replace('we-decor/', '');
+    if (!img.asset_folder || !img.asset_folder.startsWith('we-decor/')) return; // skip images without a valid folder
+    const folder = img.asset_folder.replace('we-decor/', '');
     if (!galleryMap[folder]) galleryMap[folder] = [];
     galleryMap[folder].push({
       src: img.secure_url,
-      alt: toAltText(path.basename(img.secure_url)),
+      alt: toAltText(img.filename || path.basename(img.secure_url)),
     });
   });
   const fileContent =
