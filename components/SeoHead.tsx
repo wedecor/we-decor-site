@@ -70,7 +70,7 @@ export default function SeoHead({
               addressRegion: "Karnataka",
               addressCountry: "IN",
             },
-            telephone: "+918880544452",
+            telephone: "+917019169442",
             url: canonical,
             description: description,
             areaServed: {

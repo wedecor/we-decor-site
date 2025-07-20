@@ -18,7 +18,7 @@ export default function Page() {
         "addressLocality": "Bangalore",
         "addressCountry": "IN"
       },
-      "telephone": "+918880544452"
+              "telephone": "+917019169442"
     },
     "areaServed": {
       "@type": "City",
