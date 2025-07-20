@@ -63,11 +63,26 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <motion.div
+            className="mb-4"
+            initial={{ y: -30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.1, duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-3xl md:text-5xl font-bold text-yellow-300 mb-2"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              We Decor
+            </motion.h2>
+          </motion.div>
           <motion.h1 
             className="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
             Bringing Dreams to Life
           </motion.h1>
@@ -75,7 +90,7 @@ export default function HomePage() {
             className="text-xl md:text-2xl mb-8 opacity-90 animate-fadeInUp animation-delay-200"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
           >
             Bangalore's trusted decor experts for weddings, birthdays, haldi, and more.
           </motion.p>
@@ -83,7 +98,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animation-delay-400"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
           >
             <Link
               href="/contact"
