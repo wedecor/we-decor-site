@@ -64,13 +64,13 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.div
-            className="mb-4"
+            className="mb-6"
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.8 }}
           >
             <motion.h2 
-              className="text-3xl md:text-5xl font-bold text-yellow-300 mb-2"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 drop-shadow-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
