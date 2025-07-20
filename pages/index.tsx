@@ -64,25 +64,31 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.div
-            className="mb-6"
+            className="mb-8"
             initial={{ y: -30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1, duration: 0.8 }}
           >
             <motion.h2 
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 drop-shadow-lg"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-300 mb-2 drop-shadow-lg tracking-wider"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              We Decor
+              WE DECOR
             </motion.h2>
+            <motion.div 
+              className="w-24 h-1 bg-yellow-300 mx-auto rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: "6rem" }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            />
           </motion.div>
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fadeIn text-white drop-shadow-2xl"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
           >
             Bringing Dreams to Life
           </motion.h1>
