@@ -63,35 +63,22 @@ export default function HomePage() {
       >
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <motion.div
-            className="mb-8"
-            initial={{ y: -30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1, duration: 0.8 }}
-          >
-            <motion.h2 
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-300 mb-2 drop-shadow-lg tracking-wider"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              WE DECOR
-            </motion.h2>
-            <motion.div 
-              className="w-24 h-1 bg-yellow-300 mx-auto rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: "6rem" }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            />
-          </motion.div>
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fadeIn text-white drop-shadow-2xl"
+            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4 text-white drop-shadow-2xl"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            We Decor
+          </motion.h1>
+          <motion.h2 
+            className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-6 tracking-wide"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
           >
             Bringing Dreams to Life
-          </motion.h1>
+          </motion.h2>
           <motion.p 
             className="text-xl md:text-2xl mb-8 opacity-90 animate-fadeInUp animation-delay-200"
             initial={{ y: 30, opacity: 0 }}
