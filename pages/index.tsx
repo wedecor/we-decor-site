@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black bg-opacity-20"></div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.h1 
-            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4 text-white drop-shadow-2xl"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -72,7 +72,7 @@ export default function HomePage() {
             We Decor
           </motion.h1>
           <motion.h2 
-            className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-200 mb-6 tracking-wide"
+            className="text-3xl md:text-4xl lg:text-5xl font-medium text-gray-100 mb-6 tracking-wide"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
