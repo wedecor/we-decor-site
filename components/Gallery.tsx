@@ -17,7 +17,100 @@ interface ImageModalProps {
   category: string;
 }
 
+interface FullSizeImageModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  image: any;
+  onPrevious: () => void;
+  onNext: () => void;
+  hasPrevious: boolean;
+  hasNext: boolean;
+}
+
+function FullSizeImageModal({ isOpen, onClose, image, onPrevious, onNext, hasPrevious, hasNext }: FullSizeImageModalProps) {
+  if (!isOpen) return null;
+
+  const handleBackdropClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      onClose();
+    } else if (e.key === 'ArrowLeft' && hasPrevious) {
+      onPrevious();
+    } else if (e.key === 'ArrowRight' && hasNext) {
+      onNext();
+    }
+  };
+
+  return (
+    <div 
+      className="fixed inset-0 z-[60] flex items-center justify-center bg-black bg-opacity-90"
+      onClick={handleBackdropClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
+    >
+      {/* Close Button */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+      >
+        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Navigation Buttons */}
+      {hasPrevious && (
+        <button
+          onClick={onPrevious}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 text-white hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      )}
+
+      {hasNext && (
+        <button
+          onClick={onNext}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-3 text-white hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      )}
+
+      {/* Full Size Image */}
+      <div className="relative max-w-[95vw] max-h-[95vh] flex items-center justify-center">
+        <Image
+          src={image.src}
+          alt={image.alt || image.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
+          width={1920}
+          height={1080}
+          className="max-w-full max-h-full object-contain"
+          placeholder="empty"
+          priority
+          draggable={false}
+        />
+      </div>
+
+      {/* Image Info */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center">
+        <p className="text-sm opacity-90">{image.alt}</p>
+      </div>
+    </div>
+  );
+}
+
 function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
   if (!isOpen) return null;
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -32,53 +125,97 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
     }
   };
 
+  const openFullSizeImage = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const closeFullSizeImage = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const goToPrevious = () => {
+    if (selectedImageIndex !== null && selectedImageIndex > 0) {
+      setSelectedImageIndex(selectedImageIndex - 1);
+    }
+  };
+
+  const goToNext = () => {
+    if (selectedImageIndex !== null && selectedImageIndex < images.length - 1) {
+      setSelectedImageIndex(selectedImageIndex + 1);
+    }
+  };
+
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
-      onClick={handleBackdropClick}
-      onKeyDown={handleKeyDown}
-      tabIndex={-1}
-    >
-      <div className="relative w-full max-w-6xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-lg overflow-hidden">
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-          <h2 className="text-xl font-bold text-green-700 dark:text-green-200">
-            {toTitleCase(category)}
-          </h2>
-          <button
-            onClick={onClose}
-            className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        
-        {/* Images Grid */}
-        <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {images.map((img, i) => (
-              <div
-                key={img.src}
-                className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt || img.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  placeholder="empty"
-                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-                  loading="lazy"
-                  draggable={false}
-                />
-              </div>
-            ))}
+    <>
+      <div 
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75"
+        onClick={handleBackdropClick}
+        onKeyDown={handleKeyDown}
+        tabIndex={-1}
+      >
+        <div className="relative w-full max-w-6xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-lg overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+            <h2 className="text-xl font-bold text-green-700 dark:text-green-200">
+              {toTitleCase(category)}
+            </h2>
+            <button
+              onClick={onClose}
+              className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          {/* Images Grid */}
+          <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+              {images.map((img, i) => (
+                <div
+                  key={img.src}
+                  className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group cursor-pointer"
+                  onClick={() => openFullSizeImage(i)}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt || img.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    placeholder="empty"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                  {/* Click indicator */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Full Size Image Modal */}
+      {selectedImageIndex !== null && (
+        <FullSizeImageModal
+          isOpen={true}
+          onClose={closeFullSizeImage}
+          image={images[selectedImageIndex]}
+          onPrevious={goToPrevious}
+          onNext={goToNext}
+          hasPrevious={selectedImageIndex > 0}
+          hasNext={selectedImageIndex < images.length - 1}
+        />
+      )}
+    </>
   );
 }
 
