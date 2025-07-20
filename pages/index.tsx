@@ -59,39 +59,71 @@ export default function HomePage() {
         className="min-h-screen bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center text-white relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+        {/* Animated background elements */}
+        <motion.div 
+          className="absolute inset-0 bg-black bg-opacity-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+        />
+        
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.h1 
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
+            initial={{ y: 50, opacity: 0, scale: 0.9 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ 
+              delay: 0.3, 
+              duration: 1.2, 
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 100,
+              damping: 15
+            }}
           >
             We Decor
           </motion.h1>
+          
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-medium text-gray-100 mb-6 tracking-wide"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            initial={{ y: 40, opacity: 0, scale: 0.95 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ 
+              delay: 0.6, 
+              duration: 1.0, 
+              ease: "easeOut",
+              type: "spring",
+              stiffness: 80,
+              damping: 12
+            }}
           >
             Bringing Dreams to Life
           </motion.h2>
+          
           <motion.p 
-            className="text-xl md:text-2xl mb-8 opacity-90 animate-fadeInUp animation-delay-200"
+            className="text-xl md:text-2xl mb-8 opacity-90"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+            transition={{ 
+              delay: 0.9, 
+              duration: 0.8, 
+              ease: "easeOut"
+            }}
           >
             Bangalore's trusted decor experts for weddings, birthdays, haldi, and more.
           </motion.p>
+          
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp animation-delay-400"
-            initial={{ y: 30, opacity: 0 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
+            transition={{ 
+              delay: 1.2, 
+              duration: 0.8, 
+              ease: "easeOut"
+            }}
           >
             <Link
               href="/contact"
