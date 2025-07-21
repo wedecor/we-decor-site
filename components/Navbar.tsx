@@ -16,7 +16,7 @@ export default function Navbar() {
         {/* Desktop navigation and dark mode toggle */}
         <div className="hidden md:flex items-center gap-6">
           <Link href="/about" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">About</Link>
-          <Link href="/services/birthday-decoration" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Services</Link>
+          <Link href="/services" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Services</Link>
           <Link href="/gallery" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Gallery</Link>
           <Link href="/pricing" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Pricing</Link>
           <Link href="/faq" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">FAQ</Link>

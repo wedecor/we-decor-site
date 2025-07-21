@@ -1,6 +1,84 @@
 import Layout from '../../components/Layout'
 import Link from 'next/link'
 
+const services = [
+  {
+    name: 'Decoration',
+    description: 'Event planning and party decor for all occasions. From theme-based to floral and stage decorations.',
+    subServices: [
+      { name: 'Birthday Decoration', href: '/services/birthday-decoration' },
+      { name: 'Wedding Decoration', href: '/services/wedding-setup' },
+      { name: 'Haldi Decoration', href: '/services/haldi-decoration' },
+      { name: 'Stage Decoration', href: '/services/wedding-stage-decor' },
+      { name: 'Party Decoration', href: '/services/birthday-home-decoration' },
+      { name: 'Devotional Decoration', href: '#' },
+      { name: 'Floral Decoration', href: '#' },
+      { name: 'Corporate Event Decoration', href: '/services/tent-balloon-setup' },
+      { name: 'Room Decoration', href: '#' },
+      { name: 'Tent & Balloon Setup', href: '/services/tent-balloon-setup' },
+      { name: 'Baby Shower Decoration', href: '#' },
+      { name: 'Inauguration Ceremonies', href: '#' },
+    ],
+  },
+  {
+    name: 'Catering',
+    description: 'Diverse cuisines, menu planning, and food & beverage management for all events.',
+    subServices: [
+      { name: 'Veg Catering', href: '#' },
+      { name: 'Non-Veg Catering', href: '#' },
+      { name: 'Sweets & Desserts', href: '#' },
+      { name: 'Regional/Custom Menus', href: '#' },
+    ],
+  },
+  {
+    name: 'Make-up Artists',
+    description: 'Professional make-up for weddings, parties, and corporate events.',
+    subServices: [
+      { name: 'Wedding Make-up', href: '/services/makeup-artists' },
+      { name: 'Classic/Party Make-up', href: '/services/makeup-artists' },
+      { name: 'Celebrity/Corporate Looks', href: '/services/makeup-artists' },
+    ],
+  },
+  {
+    name: 'Hair Stylists',
+    description: 'Expert hair styling for your special day or event.',
+    subServices: [
+      { name: 'Haircut & Styling', href: '/services/hair-stylists' },
+      { name: 'Braids, Weaves, Bleach, Dye', href: '/services/hair-stylists' },
+      { name: 'Event-specific Styling', href: '/services/hair-stylists' },
+    ],
+  },
+  {
+    name: 'Mehndi Artists',
+    description: 'Intricate mehndi designs for all events and festivals.',
+    subServices: [
+      { name: 'Bridal Mehndi', href: '/services/mehndi-artists' },
+      { name: 'Arabic Mehndi', href: '/services/mehndi-artists' },
+      { name: 'Jewellery Mehndi', href: '/services/mehndi-artists' },
+      { name: 'Simple/Traditional Designs', href: '/services/mehndi-artists' },
+    ],
+  },
+  {
+    name: 'Photographers',
+    description: 'Capture your most important moments with our professional photographers.',
+    subServices: [
+      { name: 'Wedding Photography', href: '/services/photographers' },
+      { name: 'Event Photography', href: '/services/photographers' },
+      { name: 'Baby Shoots', href: '/services/photographers' },
+      { name: 'Corporate Shoots', href: '/services/photographers' },
+    ],
+  },
+  {
+    name: 'Videographers',
+    description: 'Dynamic, impactful event videos for weddings, parties, and more.',
+    subServices: [
+      { name: 'Wedding Videography', href: '/services/videographers' },
+      { name: 'Event Videography', href: '/services/videographers' },
+      { name: 'Corporate Videos', href: '/services/videographers' },
+    ],
+  },
+];
+
 export default function ServicesPage() {
   return (
     <Layout
@@ -13,46 +91,25 @@ export default function ServicesPage() {
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Our Services
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Decoration</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Event planning and party decor for all occasions. <Link href="/services/decoration" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Catering</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Tempting, diverse dishes for every event. <Link href="/services/catering" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Make-up Artists</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Professional make-up for every occasion. <Link href="/services/makeup-artists" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Hair Stylists</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Expert hair styling for your special day. <Link href="/services/hair-stylists" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Mehndi Artists</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Intricate mehndi designs for all events. <Link href="/services/mehndi-artists" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Photographers</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Capture your memories with our professionals. <Link href="/services/photographers" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Videographers</h2>
-            <p className="mb-2 text-gray-800 dark:text-white">Dynamic, impactful event videos. <Link href="/services/videographers" className="text-blue-600 hover:underline">Learn more</Link></p>
-          </div>
+        <div className="space-y-12">
+          {services.map((service) => (
+            <div key={service.name}>
+              <h2 className="text-2xl font-bold mb-2 text-green-700 dark:text-green-200">{service.name}</h2>
+              <p className="mb-2 text-gray-800 dark:text-gray-300">{service.description}</p>
+              <ul className="list-disc pl-6 space-y-1 text-lg text-gray-700 dark:text-gray-200">
+                {service.subServices.map((sub) => (
+                  <li key={sub.name}>
+                    {sub.href !== '#' ? (
+                      <Link href={sub.href} className="text-blue-600 hover:underline">{sub.name}</Link>
+                    ) : (
+                      <span>{sub.name}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Other Popular Services</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg text-gray-800 dark:text-white mb-8">
-          <li><Link href="/services/birthday-decoration" className="text-blue-600 hover:underline">Birthday Decoration</Link></li>
-          <li><Link href="/services/haldi-decoration" className="text-blue-600 hover:underline">Haldi Decoration</Link></li>
-          <li><Link href="/services/wedding-setup" className="text-blue-600 hover:underline">Wedding Setup</Link></li>
-          <li><Link href="/services/tent-balloon-setup" className="text-blue-600 hover:underline">Tent & Balloon Setup</Link></li>
-          <li><Link href="/services/birthday-home-decoration" className="text-blue-600 hover:underline">Birthday Home Decoration</Link></li>
-          <li><Link href="/services/haldi-backdrop-decor" className="text-blue-600 hover:underline">Haldi Backdrop Decor</Link></li>
-          <li><Link href="/services/wedding-stage-decor" className="text-blue-600 hover:underline">Wedding Stage Decor</Link></li>
-        </ul>
       </section>
     </Layout>
   )
