@@ -3,17 +3,34 @@ import React, { useState, FormEvent } from "react";
 export default function ContactForm() {
   const [status, setStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; message?: string }>({});
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus("Preparing WhatsApp message...");
+    setStatus("");
+    setErrors({});
     
     const target = e.target as HTMLFormElement;
+    const name = (target.elements.namedItem('name') as HTMLInputElement)?.value;
+    const phone = (target.elements.namedItem('phone') as HTMLInputElement)?.value;
+    const message = (target.elements.namedItem('message') as HTMLInputElement)?.value;
+    const newErrors: { name?: string; phone?: string; message?: string } = {};
+    if (!name) newErrors.name = 'Name is required';
+    if (!phone) newErrors.phone = 'Phone is required';
+    if (!message) newErrors.message = 'Message is required';
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      setIsSubmitting(false);
+      return;
+    }
+
+    setStatus("Preparing WhatsApp message...");
+    
     const formData = {
-      name: (target.elements.namedItem('name') as HTMLInputElement)?.value,
-      phone: (target.elements.namedItem('phone') as HTMLInputElement)?.value,
-      message: (target.elements.namedItem('message') as HTMLInputElement)?.value,
+      name: name,
+      phone: phone,
+      message: message,
     };
 
     try {
@@ -50,25 +67,28 @@ export default function ContactForm() {
         placeholder="Your Name"
         className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
       />
+      {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
       <input
         name="phone"
         required
         placeholder="Your Phone Number"
         className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
       />
+      {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
       <textarea
         name="message"
         required
-        placeholder="Your Message (Event details, date, requirements)"
-        rows={4}
+        placeholder="Your Message"
         className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        rows={4}
       />
+      {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
       <button
         type="submit"
+        className="w-full bg-gradient-to-r from-green-500 to-pink-500 text-white font-bold py-3 rounded-lg shadow-lg hover:from-green-600 hover:to-pink-600 transition-colors duration-200 disabled:opacity-60"
         disabled={isSubmitting}
-        className="w-full bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-700 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? "Preparing..." : "Send via WhatsApp"}
+        {isSubmitting ? 'Submitting...' : 'Send via WhatsApp'}
       </button>
       
       <div className="text-center">
@@ -84,13 +104,7 @@ export default function ContactForm() {
         </a>
       </div>
       
-      {status && (
-        <div className={`text-center p-3 rounded-lg ${
-          status.includes('Error') ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
-        }`}>
-          {status}
-        </div>
-      )}
+      {status && <p className="text-center text-sm mt-2 text-gray-700">{status}</p>}
     </form>
   );
 }

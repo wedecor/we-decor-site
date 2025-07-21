@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { fallbackTestimonials } from '../utils/googleReviews';
+import Image from "next/image";
 
 interface GoogleReview {
   author_name: string;
@@ -130,9 +131,11 @@ export default function Testimonials() {
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 h-full border border-gray-200 dark:border-gray-700">
               <div className="flex items-center mb-4">
                 {testimonial.profile_photo_url ? (
-                  <img 
+                  <Image 
                     src={testimonial.profile_photo_url} 
                     alt={testimonial.name}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full mr-3 object-cover"
                   />
                 ) : (

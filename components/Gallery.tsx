@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import gallery from "../utils/gallery";
 
 function toTitleCase(str: string) {
@@ -192,8 +192,27 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
 
 
 export default function Gallery() {
+  const [loading, setLoading] = useState(true);
+  const [images, setImages] = useState<any>({});
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedImages, setSelectedImages] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Simulate async loading for demonstration
+    setTimeout(() => {
+      setImages(gallery);
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-16">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-500"></div>
+        <span className="ml-4 text-lg text-gray-600">Loading gallery...</span>
+      </div>
+    );
+  }
 
   const handleCategoryClick = (category: string, images: any[]) => {
     setSelectedCategory(category);
