@@ -74,7 +74,7 @@ export default function FAQ() {
           Still have questions?
         </p>
         <a
-                      href="https://wa.me/917019169442"
+          href="https://wa.me/918880544452"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-400 to-pink-400 hover:from-green-500 hover:to-pink-500 text-white font-semibold rounded-full shadow-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-400"

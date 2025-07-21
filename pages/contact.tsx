@@ -8,7 +8,7 @@ export default function Contact() {
       seo={{
         title: "Contact",
         description:
-          "Contact We Decor for event decor in Bangalore. WhatsApp: +91-9999999999",
+          "Contact We Decor for event decor in Bangalore. WhatsApp: +91-8880544452",
         image: "/logo.png",
       }}
     >

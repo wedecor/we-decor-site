@@ -32,7 +32,16 @@
   "devDependencies": {
     "@types/node": "^20.4.2",
     "@types/react": "^18.2.14",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@typescript-eslint/parser": "^8.38.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.3",
+    "husky": "^9.1.7",
     "lighthouse": "^12.8.0",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "react-intersection-observer": "^9.16.0",
     "typescript": "^5.2.2"
   }
 }
