@@ -41,18 +41,23 @@ export default function DecorationServicePage() {
       >
         <section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-8 text-gray-800 dark:text-white">Decoration Services</h1>
-          <p className="text-lg text-gray-800 dark:text-white leading-relaxed mb-8">Explore event planning and party decor with We Decor. Discover unparalleled event ideas, organized and well planned by our experts. Beauty lies in the eyes of the beholder, but at We Decor we make beauty come alive with our intricate array of decoration.</p>
-          <p className="text-gray-800 dark:text-white mb-4">Whether you’re looking for a humble garnish or an elaborate royal adornment, we bring your vision to life. We handle decorations for weddings, corporate events, inaugurations, baby showers, and more. Our categories include:</p>
+          <p className="text-lg text-gray-800 dark:text-white leading-relaxed mb-8">We Decor offers a complete range of decoration services for every occasion. Whether you’re planning a birthday, wedding, haldi, or corporate event, our team brings your vision to life with creativity and attention to detail.</p>
+          <p className="text-gray-800 dark:text-white mb-4">Our decoration services include:</p>
           <ul className="list-disc pl-6 space-y-2 text-gray-800 dark:text-white mb-8">
-            <li>Theme-based decorations</li>
-            <li>Wedding decorations</li>
-            <li>Party decorations</li>
-            <li>Stage decorations</li>
-            <li>Birthday decorations</li>
-            <li>Devotional decorations</li>
-            <li>Floral decorations</li>
+            <li>Birthday Decoration</li>
+            <li>Wedding Decoration</li>
+            <li>Haldi Decoration</li>
+            <li>Stage Decoration</li>
+            <li>Party Decoration</li>
+            <li>Devotional Decoration</li>
+            <li>Floral Decoration</li>
+            <li>Corporate Event Decoration</li>
+            <li>Room Decoration</li>
+            <li>Tent & Balloon Setup</li>
+            <li>Baby Shower Decoration</li>
+            <li>Inauguration Ceremonies</li>
           </ul>
-          <p className="text-gray-800 dark:text-white mb-8">For each category, we focus on the finest details to create the most exquisite and grand event you’re looking forward to. Rest assured as we set the pace based on your demand and our creative proposals—all within your budget.</p>
+          <p className="text-gray-800 dark:text-white mb-8">From simple and elegant to grand and thematic, we tailor our decorations to your preferences and budget. Let us transform your event space into something truly memorable!</p>
           <div className="text-center">
             <Link href="/services" className="text-blue-600 hover:underline">Back to Services</Link>
           </div>

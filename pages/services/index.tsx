@@ -4,80 +4,49 @@ import Link from 'next/link'
 const services = [
   {
     name: 'Decoration',
-    description: 'Event planning and party decor for all occasions. From theme-based to floral and stage decorations.',
-    subServices: [
-      { name: 'Birthday Decoration', href: '/services/birthday-decoration' },
-      { name: 'Wedding Decoration', href: '/services/wedding-setup' },
-      { name: 'Haldi Decoration', href: '/services/haldi-decoration' },
-      { name: 'Stage Decoration', href: '/services/wedding-stage-decor' },
-      { name: 'Party Decoration', href: '/services/birthday-home-decoration' },
-      { name: 'Devotional Decoration', href: '#' },
-      { name: 'Floral Decoration', href: '#' },
-      { name: 'Corporate Event Decoration', href: '/services/tent-balloon-setup' },
-      { name: 'Room Decoration', href: '#' },
-      { name: 'Tent & Balloon Setup', href: '/services/tent-balloon-setup' },
-      { name: 'Baby Shower Decoration', href: '#' },
-      { name: 'Inauguration Ceremonies', href: '#' },
-    ],
+    description: 'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+    href: '/services/decoration',
+    image: '/services/room decor.jpg',
   },
   {
     name: 'Catering',
-    description: 'Diverse cuisines, menu planning, and food & beverage management for all events.',
-    subServices: [
-      { name: 'Veg Catering', href: '#' },
-      { name: 'Non-Veg Catering', href: '#' },
-      { name: 'Sweets & Desserts', href: '#' },
-      { name: 'Regional/Custom Menus', href: '#' },
-    ],
+    description: 'All types of food services—veg, non-veg, desserts, regional cuisines, and more.',
+    href: '/services/catering',
+    image: '/services/birthday.JPG',
   },
   {
     name: 'Make-up Artists',
     description: 'Professional make-up for weddings, parties, and corporate events.',
-    subServices: [
-      { name: 'Wedding Make-up', href: '/services/makeup-artists' },
-      { name: 'Classic/Party Make-up', href: '/services/makeup-artists' },
-      { name: 'Celebrity/Corporate Looks', href: '/services/makeup-artists' },
-    ],
+    href: '/services/makeup-artists',
+    image: '/gallery/hero1.webp',
   },
   {
     name: 'Hair Stylists',
     description: 'Expert hair styling for your special day or event.',
-    subServices: [
-      { name: 'Haircut & Styling', href: '/services/hair-stylists' },
-      { name: 'Braids, Weaves, Bleach, Dye', href: '/services/hair-stylists' },
-      { name: 'Event-specific Styling', href: '/services/hair-stylists' },
-    ],
+    href: '/services/hair-stylists',
+    image: '/services/engagement.jpg',
   },
   {
     name: 'Mehndi Artists',
     description: 'Intricate mehndi designs for all events and festivals.',
-    subServices: [
-      { name: 'Bridal Mehndi', href: '/services/mehndi-artists' },
-      { name: 'Arabic Mehndi', href: '/services/mehndi-artists' },
-      { name: 'Jewellery Mehndi', href: '/services/mehndi-artists' },
-      { name: 'Simple/Traditional Designs', href: '/services/mehndi-artists' },
-    ],
+    href: '/services/mehndi-artists',
+    image: '/services/haldi.jpg',
   },
   {
     name: 'Photographers',
     description: 'Capture your most important moments with our professional photographers.',
-    subServices: [
-      { name: 'Wedding Photography', href: '/services/photographers' },
-      { name: 'Event Photography', href: '/services/photographers' },
-      { name: 'Baby Shoots', href: '/services/photographers' },
-      { name: 'Corporate Shoots', href: '/services/photographers' },
-    ],
+    href: '/services/photographers',
+    image: '/services/corporate.JPG',
   },
   {
     name: 'Videographers',
     description: 'Dynamic, impactful event videos for weddings, parties, and more.',
-    subServices: [
-      { name: 'Wedding Videography', href: '/services/videographers' },
-      { name: 'Event Videography', href: '/services/videographers' },
-      { name: 'Corporate Videos', href: '/services/videographers' },
-    ],
+    href: '/services/videographers',
+    image: '/services/tent and baloon.jpg',
   },
 ];
+
+import Image from 'next/image';
 
 export default function ServicesPage() {
   return (
@@ -91,23 +60,26 @@ export default function ServicesPage() {
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Our Services
         </h1>
-        <div className="space-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service) => (
-            <div key={service.name}>
-              <h2 className="text-2xl font-bold mb-2 text-green-700 dark:text-green-200">{service.name}</h2>
-              <p className="mb-2 text-gray-800 dark:text-gray-300">{service.description}</p>
-              <ul className="list-disc pl-6 space-y-1 text-lg text-gray-700 dark:text-gray-200">
-                {service.subServices.map((sub) => (
-                  <li key={sub.name}>
-                    {sub.href !== '#' ? (
-                      <Link href={sub.href} className="text-blue-600 hover:underline">{sub.name}</Link>
-                    ) : (
-                      <span>{sub.name}</span>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Link
+              key={service.name}
+              href={service.href}
+              className="block bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 overflow-hidden group border border-gray-200 dark:border-gray-700"
+            >
+              <div className="relative h-40 w-full">
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-6">
+                <h2 className="text-xl font-bold mb-2 text-green-700 dark:text-green-200">{service.name}</h2>
+                <p className="text-gray-700 dark:text-gray-300 text-base">{service.description}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
