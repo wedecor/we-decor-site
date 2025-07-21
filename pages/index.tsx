@@ -11,7 +11,7 @@ const services = [
     title: "Birthday Decoration",
     description: "Creative and vibrant birthday decorations for all ages. From themed parties to elegant celebrations, we bring your birthday vision to life with stunning decor arrangements.",
     image: "/services/birthday.JPG",
-    href: "/services/birthday-decoration",
+    href: "/services",
   },
   {
     title: "Haldi Decoration",

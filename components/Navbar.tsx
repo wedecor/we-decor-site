@@ -48,7 +48,7 @@ export default function Navbar() {
           className={`flex-col md:hidden gap-4 ${open ? "flex" : "hidden"} bg-white/95 dark:bg-gray-900/95 absolute top-16 left-0 w-full shadow-lg transition-all duration-300 rounded-b-xl border border-gray-200 dark:border-gray-700`}
         >
           <Link href="/about" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">About</Link>
-          <Link href="/services/birthday-decoration" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Services</Link>
+          <Link href="/services" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Services</Link>
           <Link href="/gallery" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Gallery</Link>
           <Link href="/pricing" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Pricing</Link>
           <Link href="/faq" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">FAQ</Link>

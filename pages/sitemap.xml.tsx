@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '/gallery',
     '/pricing',
     '/reviews',
-    '/services/birthday-decoration',
+    '/services',
     '/services/haldi-decoration',
     '/services/wedding-setup',
     '/services/tent-balloon-setup',
