@@ -38,6 +38,9 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
     if (isOpen && modalRef.current) {
       modalRef.current.focus();
     }
+    if (isOpen) {
+      setView('grid'); // Always reset to grid view when modal opens
+    }
   }, [category, isOpen]);
 
   useEffect(() => {
