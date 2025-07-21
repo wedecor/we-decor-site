@@ -56,7 +56,7 @@ export default function HomePage() {
     >
       {/* Hero Section */}
       <motion.section 
-        className="min-h-screen bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center text-white relative overflow-hidden"
+        className="min-h-[60vh] py-8 md:py-16 bg-gradient-to-br from-green-500 to-blue-500 flex items-center justify-center text-white relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
