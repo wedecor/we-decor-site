@@ -2,6 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
   const gaId = process.env.NEXT_PUBLIC_GA_ID || 'G-84ZEGJ7DD1';
+  const isProduction = process.env.NODE_ENV === 'production';
   
   return (
     <Html lang="en">
@@ -48,23 +49,28 @@ export default function Document() {
             `,
           }}
         />
-        {/* Sentry Browser SDK */}
-        <script
-          src="https://browser.sentry-cdn.com/7.92.0/bundle.tracing.min.js"
-          integrity="sha384-+Qw6Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw=="
-          crossOrigin="anonymous"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              Sentry.init({
-                dsn: 'https://your-sentry-dsn@sentry.io/project-id',
-                tracesSampleRate: 1.0,
-                environment: 'production',
-              });
-            `,
-          }}
-        />
+        
+        {/* Sentry Browser SDK - Only in production */}
+        {isProduction && (
+          <>
+            <script
+              src="https://browser.sentry-cdn.com/7.92.0/bundle.tracing.min.js"
+              integrity="sha384-+Qw6Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw1Qw=="
+              crossOrigin="anonymous"
+            ></script>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  Sentry.init({
+                    dsn: 'https://your-sentry-dsn@sentry.io/project-id',
+                    tracesSampleRate: 1.0,
+                    environment: 'production',
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
         
         {/* Base meta tags */}
         <meta name="description" content="We Decor – Bangalore's trusted wedding and event decorators. Elegant haldi, birthday, and stage decor starting from ₹2999." />
