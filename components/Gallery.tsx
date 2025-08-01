@@ -24,7 +24,7 @@ type ModalView = 'grid' | 'fullsize';
 function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
   const [view, setView] = useState<ModalView>('grid');
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
-  const [visibleCount, setVisibleCount] = useState(12);
+  const [visibleCount, setVisibleCount] = useState(8); // Reduced from 12 to 8
   const [imgLoading, setImgLoading] = useState(true);
   const modalRef = useRef<HTMLDivElement>(null);
   const [showShortcuts, setShowShortcuts] = useState(false);
@@ -33,7 +33,7 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
   const focusTrapRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setVisibleCount(12);
+    setVisibleCount(8); // Reduced initial load
     setImgLoading(true);
     if (isOpen && modalRef.current) {
       modalRef.current.focus();
@@ -284,7 +284,7 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
                 {visibleCount < images.length && (
                   <div className="flex justify-center mt-6">
                     <button
-                      onClick={() => setVisibleCount((c) => c + 12)}
+                      onClick={() => setVisibleCount((c) => c + 8)} // Load 8 more instead of 12
                       className="px-6 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full font-semibold shadow hover:scale-105 transition focus:outline-none focus:ring-2 focus:ring-green-400"
                       aria-label="Load more images"
                     >
@@ -379,10 +379,11 @@ export default function Gallery() {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
+    // Reduced timeout for faster loading
     setTimeout(() => {
       setImages(gallery);
       setLoading(false);
-    }, 500);
+    }, 200); // Reduced from 500ms to 200ms
   }, []);
 
   const allCategories = Object.keys(gallery);
