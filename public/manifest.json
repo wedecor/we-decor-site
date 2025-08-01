@@ -1,27 +1,29 @@
 {
   "name": "We Decor - Event Decoration Services",
   "short_name": "We Decor",
-  "description": "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more",
+  "description": "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#10b981",
-  "theme_color": "#10b981",
+  "background_color": "#ffffff",
+  "theme_color": "#10B981",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
     }
   ],
   "categories": ["business", "lifestyle", "events"],
   "lang": "en",
-  "dir": "ltr"
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
 } 
