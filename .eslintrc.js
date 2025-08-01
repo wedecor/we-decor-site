@@ -25,9 +25,6 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 'error',
     'jsx-a11y/role-has-required-aria-props': 'error',
     'jsx-a11y/role-supports-aria-props': 'error',
-    // Import optimization
-    'import/no-unused-modules': 'warn',
-    'import/no-duplicates': 'error',
   },
   settings: {
     react: {
