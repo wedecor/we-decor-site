@@ -50,7 +50,6 @@ export default function Document() {
         {/* Base meta tags */}
         <meta name="description" content="We Decor – Bangalore's trusted wedding and event decorators. Elegant haldi, birthday, and stage decor starting from ₹2999." />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="We Decor" />
         <meta name="theme-color" content="#10B981" />
         
