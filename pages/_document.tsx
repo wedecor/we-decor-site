@@ -11,6 +11,25 @@ export default function Document() {
         <link rel="preconnect" href="https://browser.sentry-cdn.com" />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         
+        {/* Service Worker */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
+        
         {/* Google Analytics */}
         <script
           async
@@ -81,6 +100,9 @@ export default function Document() {
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo.png" />
+        
+        {/* Manifest for PWA */}
+        <link rel="manifest" href="/manifest.json" />
       </Head>
       <body>
         <Main />
