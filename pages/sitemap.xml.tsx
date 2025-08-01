@@ -3,7 +3,7 @@ import { GetServerSideProps } from 'next';
 const Sitemap = () => null;
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const baseUrl = 'https://we-decor.vercel.app';
+  const baseUrl = 'https://www.wedecorevents.com';
   
   const pages = [
     '',
@@ -19,6 +19,17 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '/services/birthday-home-decoration',
     '/services/haldi-backdrop-decor',
     '/services/wedding-stage-decor',
+    '/services/engagement-decoration',
+    '/services/corporate-decoration',
+    '/services/room-decoration',
+    '/services/birthday-decoration',
+    '/services/catering',
+    '/services/hair-stylists',
+    '/services/makeup-artists',
+    '/services/mehndi-artists',
+    '/services/photographers',
+    '/services/videographers',
+    '/faq',
   ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -30,7 +41,7 @@ ${pages
     <loc>${baseUrl}${page}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>${page === '' ? 'daily' : 'weekly'}</changefreq>
-    <priority>${page === '' ? '1.0' : '0.8'}</priority>
+    <priority>${page === '' ? '1.0' : page.startsWith('/services') ? '0.9' : '0.8'}</priority>
   </url>`;
   })
   .join('')}
