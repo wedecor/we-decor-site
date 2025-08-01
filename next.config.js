@@ -23,22 +23,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion', 'react-icons'],
   },
-  webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-        },
-      };
-    }
-    return config;
-  },
   headers: async () => {
     return [
       {
