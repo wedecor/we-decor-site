@@ -17,7 +17,7 @@ export default function SeoHead({
   type = "website",
 }: SeoHeadProps) {
   const siteName = "We Decor";
-  const canonical = url || "https://wedecor.in";
+  const canonical = url || "https://www.wedecorevents.com";
   // 🔄 Newly Added: Use metaImage for consistent image usage across all meta tags
   const metaImage = image || "/logo.png";
   return (

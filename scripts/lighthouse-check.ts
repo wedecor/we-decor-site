@@ -1,6 +1,6 @@
 import { execSync } from "child_process";
 
-const siteUrl = "https://we-decor-site.vercel.app";
+const siteUrl = "https://www.wedecorevents.com";
 
 console.log("Running Lighthouse audit...");
 
