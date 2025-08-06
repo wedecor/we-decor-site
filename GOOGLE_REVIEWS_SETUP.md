@@ -30,7 +30,7 @@ This guide will help you integrate Google Reviews into your We Decor website. We
 4. **Important**: Restrict the API key:
    - Click on the API key
    - Under "Application restrictions" select "HTTP referrers"
-   - Add your domain: `https://wedecor.in/*`
+   - Add your domain: `https://www.wedecorevents.com/*`
    - Under "API restrictions" select "Restrict key"
    - Select "Places API"
 

@@ -7,4 +7,4 @@ Sitemap: https://www.wedecorevents.com/sitemap.xml
 # Disallow admin and private areas
 Disallow: /api/
 Disallow: /_next/
-Disallow: /monitoring/ 
+Disallow: /monitoring/

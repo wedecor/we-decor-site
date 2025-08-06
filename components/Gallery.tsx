@@ -46,18 +46,18 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        if (view === 'fullsize') {
-          setView('grid');
-        } else {
-          onClose();
-        }
-      } else if (view === 'fullsize') {
-        if (e.key === 'ArrowLeft' && selectedImageIndex > 0) {
-          setSelectedImageIndex(selectedImageIndex - 1);
-        } else if (e.key === 'ArrowRight' && selectedImageIndex < images.length - 1) {
-          setSelectedImageIndex(selectedImageIndex + 1);
-        }
+    if (e.key === 'Escape') {
+      if (view === 'fullsize') {
+        setView('grid');
+      } else {
+        onClose();
+      }
+    } else if (view === 'fullsize') {
+      if (e.key === 'ArrowLeft' && selectedImageIndex > 0) {
+        setSelectedImageIndex(selectedImageIndex - 1);
+      } else if (e.key === 'ArrowRight' && selectedImageIndex < images.length - 1) {
+        setSelectedImageIndex(selectedImageIndex + 1);
+      }
       }
       if (e.key === '?') setShowShortcuts((v) => !v);
       if (e.key.toLowerCase() === 's') handleShare();
@@ -186,14 +186,14 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
         exit={{ opacity: 0, scale: 0.95 }}
         transition={{ duration: 0.2 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gradient-to-br from-black/80 via-green-900/80 to-black/80"
-        onClick={handleBackdropClick}
-        tabIndex={-1}
+      onClick={handleBackdropClick}
+      tabIndex={-1}
         aria-modal="true"
         role="dialog"
         aria-labelledby="gallery-modal-title"
         aria-describedby="gallery-modal-desc"
         ref={modalRef}
-      >
+    >
         <div ref={focusTrapRef} className="relative w-full max-w-6xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-lg overflow-hidden outline-none focus:ring-4 focus:ring-green-400">
           {/* ARIA live region */}
           <div className="sr-only" aria-live="polite">{ariaMessage}</div>
@@ -211,25 +211,25 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
               </ul>
             </div>
           )}
-          {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+        {/* Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-2">
               <span className="text-2xl">{categoryBadges[category?.toLowerCase() || ''] || '📷'}</span>
               <h2 id="gallery-modal-title" className="text-xl font-bold text-green-700 dark:text-green-200">
-                {toTitleCase(category)}
-              </h2>
+            {toTitleCase(category)}
+          </h2>
               <span className="text-xs text-gray-500 dark:text-gray-400 ml-2">{images.length} images</span>
             </div>
-            <button
-              onClick={closeModal}
+          <button
+            onClick={closeModal}
               className="p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400 rounded"
               aria-label="Close gallery modal"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
           {/* Back to Gallery (mobile) */}
           <div className="block sm:hidden px-4 pt-2">
             <button
@@ -240,46 +240,46 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
               Back to Gallery
             </button>
           </div>
-          {/* Content */}
-          <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
-            {view === 'grid' ? (
+        {/* Content */}
+        <div className="p-4 overflow-y-auto max-h-[calc(90vh-80px)]">
+          {view === 'grid' ? (
               <div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                   {images.slice(0, visibleCount).map((img, i) => (
-                    <div
-                      key={img.src}
+                <div
+                  key={img.src}
                       className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-400"
-                      onClick={() => openFullSize(i)}
+                  onClick={() => openFullSize(i)}
                       tabIndex={0}
                       aria-label={`View image ${i + 1} of ${images.length}`}
-                    >
+                >
                       {imgLoading && (
                         <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 animate-pulse">
                           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-400 to-blue-400 opacity-40" />
                         </div>
                       )}
-                      <Image
-                        src={img.src}
-                        alt={img.alt || img.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  <Image
+                    src={img.src}
+                    alt={img.alt || img.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                         placeholder={img.blurDataURL ? 'blur' : 'empty'}
                         blurDataURL={img.blurDataURL || undefined}
-                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-                        loading="lazy"
-                        draggable={false}
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
+                    loading="lazy"
+                    draggable={false}
                         onLoad={() => setImgLoading(false)}
-                      />
-                      {/* Click indicator */}
-                      <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                        <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                          </svg>
-                        </div>
-                      </div>
+                  />
+                  {/* Click indicator */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
                     </div>
-                  ))}
+                  </div>
+                </div>
+              ))}
                 </div>
                 {visibleCount < images.length && (
                   <div className="flex justify-center mt-6">
@@ -292,63 +292,63 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
                     </button>
                   </div>
                 )}
-              </div>
-            ) : (
-              // Full Size View
-              <div className="relative h-full">
-                {/* Back to Grid Button */}
-                <button
-                  onClick={() => setView('grid')}
+            </div>
+          ) : (
+            // Full Size View
+            <div className="relative h-full">
+              {/* Back to Grid Button */}
+              <button
+                onClick={() => setView('grid')}
                   className="absolute top-2 left-2 z-10 p-2 bg-black bg-opacity-50 text-white rounded-full hover:bg-opacity-70 transition-colors focus:outline-none focus:ring-2 focus:ring-green-400"
                   aria-label="Back to gallery grid"
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                  </svg>
-                </button>
-                {/* Navigation Buttons */}
-                {selectedImageIndex > 0 && (
-                  <button
-                    onClick={goToPrevious}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              </button>
+              {/* Navigation Buttons */}
+              {selectedImageIndex > 0 && (
+                <button
+                  onClick={goToPrevious}
                     className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 p-3 text-white hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-green-400"
                     aria-label="Previous image"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                )}
-                {selectedImageIndex < images.length - 1 && (
-                  <button
-                    onClick={goToNext}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+              )}
+              {selectedImageIndex < images.length - 1 && (
+                <button
+                  onClick={goToNext}
                     className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 p-3 text-white hover:text-gray-300 transition-colors bg-black bg-opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-green-400"
                     aria-label="Next image"
-                  >
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                )}
-                {/* Full Size Image */}
-                <div className="flex items-center justify-center h-full">
-                  <Image
-                    src={images[selectedImageIndex].src}
-                    alt={images[selectedImageIndex].alt || images[selectedImageIndex].src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
-                    width={1920}
-                    height={1080}
-                    className="max-w-full max-h-full object-contain"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              )}
+              {/* Full Size Image */}
+              <div className="flex items-center justify-center h-full">
+                <Image
+                  src={images[selectedImageIndex].src}
+                  alt={images[selectedImageIndex].alt || images[selectedImageIndex].src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
+                  width={1920}
+                  height={1080}
+                  className="max-w-full max-h-full object-contain"
                     placeholder={images[selectedImageIndex].blurDataURL ? 'blur' : 'empty'}
                     blurDataURL={images[selectedImageIndex].blurDataURL || undefined}
-                    priority
-                    draggable={false}
-                  />
-                </div>
-                {/* Image Counter */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black bg-opacity-50 px-3 py-1 rounded-full">
-                  <p className="text-sm">
-                    {selectedImageIndex + 1} of {images.length}
-                  </p>
-                </div>
+                  priority
+                  draggable={false}
+                />
+              </div>
+              {/* Image Counter */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-center bg-black bg-opacity-50 px-3 py-1 rounded-full">
+                <p className="text-sm">
+                  {selectedImageIndex + 1} of {images.length}
+                </p>
+              </div>
                 {/* Share/Download Buttons */}
                 <div className="absolute top-4 right-4 flex gap-2 z-20">
                   <button onClick={handleShare} className="p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow hover:bg-green-100 dark:hover:bg-green-900 transition" aria-label="Share image">
@@ -358,10 +358,10 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
                     <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" /></svg>
                   </button>
                 </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
+      </div>
       </motion.div>
     </AnimatePresence>
   );
@@ -490,15 +490,15 @@ export default function Gallery() {
         </div>
       )}
       {layout === "grid" && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCategories.map(folder => {
             const imageArray = galleryRecord[folder];
             const thumbnailImage = imageArray[0];
-            return (
-              <div
-                key={folder}
-                className="group cursor-pointer bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-105"
-                onClick={() => handleCategoryClick(folder, imageArray)}
+          return (
+            <div
+              key={folder}
+              className="group cursor-pointer bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-105"
+              onClick={() => handleCategoryClick(folder, imageArray)}
                 tabIndex={0}
                 aria-label={`View ${folder} gallery`}
               >
@@ -548,38 +548,38 @@ export default function Gallery() {
                 tabIndex={0}
                 aria-label={`View ${folder} gallery`}
               >
-                <div className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800">
-                  {thumbnailImage && (
-                    <Image
-                      src={thumbnailImage.src}
+              <div className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800">
+                {thumbnailImage && (
+                  <Image
+                    src={thumbnailImage.src}
                       alt={thumbnailImage.alt || folder}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
-                      placeholder="empty"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      loading="lazy"
-                      draggable={false}
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-center text-white">
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    placeholder="empty"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                )}
+                <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                  <div className="text-center text-white">
                       <h3 className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
                         <span>{categoryBadges[folder.toLowerCase()] || '📷'}</span>
                         {folder}
                       </h3>
-                      <p className="text-sm opacity-90">
-                        {imageArray.length} image{imageArray.length !== 1 ? "s" : ""}
-                      </p>
-                      <div className="mt-3 px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">
-                        Click to View All
-                      </div>
+                    <p className="text-sm opacity-90">
+                      {imageArray.length} image{imageArray.length !== 1 ? "s" : ""}
+                    </p>
+                    <div className="mt-3 px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">
+                      Click to View All
                     </div>
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
+      </div>
       )}
       {/* Modal */}
       <ImageModal
