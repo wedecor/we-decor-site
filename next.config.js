@@ -28,6 +28,35 @@ const nextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
+  async redirects() {
+    // Only apply redirects in production
+    if (process.env.NODE_ENV !== 'production') {
+      return [];
+    }
+    
+    return [
+      // Force www
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'wedecorevents.com' }],
+        destination: 'https://www.wedecorevents.com/:path*',
+        permanent: true,
+      },
+      // Force prod domain (no vercel preview in index)
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: '(.*)vercel\\.app' }],
+        destination: 'https://www.wedecorevents.com/:path*',
+        permanent: true,
+      },
+      // Strip trailing slash
+      {
+        source: '/:path*/',
+        destination: '/:path*',
+        permanent: true,
+      },
+    ];
+  },
   headers: async () => {
     return [
       {
@@ -88,7 +117,7 @@ const nextConfig = {
     return [
       {
         source: '/sitemap.xml',
-        destination: '/api/sitemap',
+        destination: '/api/sitemap.xml',
       },
     ];
   },

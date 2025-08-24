@@ -25,6 +25,14 @@ module.exports = {
     'jsx-a11y/aria-unsupported-elements': 'error',
     'jsx-a11y/role-has-required-aria-props': 'error',
     'jsx-a11y/role-supports-aria-props': 'error',
+    // Prevent misuse of next/document components
+    'no-restricted-imports': [
+      'error',
+      {
+        name: 'next/document',
+        message: 'Import from next/document is only allowed in pages/_document.*'
+        }
+      ],
   },
   settings: {
     react: {
