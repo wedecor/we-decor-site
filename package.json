@@ -2,11 +2,21 @@
   "name": "we-decor",
   "version": "1.0.0",
   "private": true,
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "audit:links": "ts-node scripts/audit-links.ts",
+    "predeploy:validate": "ts-node scripts/validate-sitemap-urls.ts",
+    "audit:env": "ts-node scripts/audit-env.ts",
+    "audit:vercel": "ts-node scripts/audit-vercel-references.ts",
+    "audit:seo": "ts-node scripts/audit-seo-tags.ts",
+    "audit:robots": "ts-node scripts/audit-robots-sitemap.ts",
+    "audit:structured-data": "ts-node scripts/audit-structured-data.ts",
+    "audit:performance": "ts-node scripts/lighthouse-audit.ts",
+    "audit:production": "ts-node scripts/production-readiness-audit.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",

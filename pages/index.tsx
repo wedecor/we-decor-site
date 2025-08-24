@@ -52,9 +52,9 @@ const structuredData = {
   "@type": "LocalBusiness",
   "name": "We Decor",
   "description": "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999.",
-  "url": "https://www.wedecorevents.com",
-  "logo": "https://www.wedecorevents.com/logo.png",
-  "image": "https://www.wedecorevents.com/og-banner.jpg",
+  "url": "/",
+  "logo": "/logo.png",
+  "image": "/og-banner.jpg",
   "telephone": "+91-8880544452",
   "address": {
     "@type": "PostalAddress",

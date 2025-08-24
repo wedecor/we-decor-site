@@ -81,8 +81,8 @@ export default function Document() {
         {/* Open Graph */}
         <meta property="og:title" content="We Decor - Bringing Dreams to Life" />
         <meta property="og:description" content="Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999." />
-        <meta property="og:image" content="https://www.wedecorevents.com/og-banner.jpg" />
-        <meta property="og:url" content="https://www.wedecorevents.com" />
+        <meta property="og:image" content="/og-banner.jpg" />
+        <meta property="og:url" content="/" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="We Decor" />
         <meta property="og:locale" content="en_US" />
@@ -91,7 +91,7 @@ export default function Document() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="We Decor - Bringing Dreams to Life" />
         <meta name="twitter:description" content="Bangalore's trusted decor experts for weddings, birthdays, haldi, and more." />
-        <meta name="twitter:image" content="https://www.wedecorevents.com/og-banner.jpg" />
+        <meta name="twitter:image" content="/og-banner.jpg" />
         
         {/* Additional SEO */}
         <meta name="keywords" content="wedding decoration, birthday decoration, haldi decoration, event decorators, Bangalore decorators, stage decoration, tent setup, balloon decoration" />
@@ -101,7 +101,7 @@ export default function Document() {
         <meta name="ICBM" content="12.9716, 77.5946" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://www.wedecorevents.com" />
+        <link rel="canonical" href="/" />
         
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />

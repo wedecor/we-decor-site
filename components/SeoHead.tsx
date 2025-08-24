@@ -1,31 +1,40 @@
 import Head from "next/head";
+import { SITE_URL } from "../lib/site";
 
 interface SeoHeadProps {
   title?: string;
   description?: string;
-  url?: string;
+  // canonicalPath should begin with "/", no trailing slash
+  canonicalPath?: string; // e.g. "/locations/whitefield"
   image?: string;
   type?: string;
+  schemaMarkup?: any;
 }
 
 // SeoHead injects SEO meta tags, Open Graph, Twitter cards, and JSON-LD for each page
 export default function SeoHead({
   title,
   description,
-  url,
+  canonicalPath,
   image,
   type = "website",
+  schemaMarkup,
 }: SeoHeadProps) {
   const siteName = "We Decor";
-  const canonical = url || "https://www.wedecorevents.com";
+  // Build canonical URL using SITE_URL and canonicalPath, ensuring no trailing slash
+  const canonical = canonicalPath 
+    ? `${SITE_URL}${canonicalPath.replace(/\/+$/, '')}` 
+    : SITE_URL;
+  
   // 🔄 Newly Added: Use metaImage for consistent image usage across all meta tags
   const metaImage = image || "/logo.png";
+  
   return (
     <Head>
       {/* Page title for browser and SEO */}
       <title>{title ? `${title} | ${siteName}` : siteName}</title>
       {/* Meta description for SEO */}
-      <meta name="description" content={description} />
+      {description && <meta name="description" content={description} />}
       {/* Canonical URL for duplicate content avoidance */}
       <link rel="canonical" href={canonical} />
       
@@ -55,11 +64,11 @@ export default function SeoHead({
       <meta name="twitter:description" content={description} />
       {/* 🔄 Newly Added: twitter:image uses metaImage for consistency */}
       <meta name="twitter:image" content={metaImage} />
-      {/* 🔄 Newly Added: JSON-LD structured data for LocalBusiness, used by Google for rich results */}
+      {/* JSON-LD structured data - use custom schema if provided, otherwise default */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: JSON.stringify(schemaMarkup || {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             name: "We Decor",

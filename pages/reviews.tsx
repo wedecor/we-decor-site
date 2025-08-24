@@ -14,6 +14,7 @@ export default function ReviewsPage({ placeId }: ReviewsPageProps) {
       <SeoHead 
         title="Customer Reviews - We Decor Bangalore"
         description="Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services."
+        canonicalPath="/reviews"
         image="/images/reviews-og.jpg"
       />
       

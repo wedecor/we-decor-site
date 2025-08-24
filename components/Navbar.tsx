@@ -18,6 +18,7 @@ export default function Navbar() {
           <Link href="/about" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">About</Link>
           <Link href="/services" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Services</Link>
           <Link href="/gallery" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Gallery</Link>
+          <Link href="/locations" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Locations</Link>
           <Link href="/pricing" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Pricing</Link>
           <Link href="/faq" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">FAQ</Link>
           <Link href="/contact" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition">Contact</Link>
@@ -50,6 +51,7 @@ export default function Navbar() {
           <Link href="/about" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">About</Link>
           <Link href="/services" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Services</Link>
           <Link href="/gallery" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Gallery</Link>
+          <Link href="/locations" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Locations</Link>
           <Link href="/pricing" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Pricing</Link>
           <Link href="/faq" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">FAQ</Link>
           <Link href="/contact" className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition">Contact</Link>
