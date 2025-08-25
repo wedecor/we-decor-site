@@ -9,13 +9,19 @@ import { getLocationBySlug, getAllLocationSlugs, getRandomNearbyLocations } from
 import type { LocationPage } from '../../lib/data/locationPages';
 import { getGalleryImages } from '../../utils/gallery';
 import { getLocationImages } from '../../lib/data/gallery-map';
+import { SITE_PHONE, getCanonicalUrl } from '../../lib/site';
 
 interface LocationPageProps {
   location: LocationPage;
   locationImages: any[];
+  nearbyLocations: string[];
+  pageTitle: string;
+  pageDescription: string;
+  canonicalPath: string;
+  schemaMarkup: any;
 }
 
-const LocationPage: NextPage<LocationPageProps> = ({ location, locationImages }) => {
+const LocationPage: NextPage<LocationPageProps> = ({ location, locationImages, nearbyLocations }) => {
   const pageTitle = `Event Decoration in ${location.locationName} | We Decor Bangalore`;
   const pageDescription = `Looking for birthday, haldi, or room decor in ${location.locationName}, Bangalore? We Decor brings your vision to life. Book Now.`;
   const canonicalPath = `/locations/${location.slug}`;
@@ -175,7 +181,7 @@ const LocationPage: NextPage<LocationPageProps> = ({ location, locationImages })
               Also Serving Nearby Areas
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {getRandomNearbyLocations(location.locationName, 4).map((nearbyLocation, index) => (
+              {nearbyLocations.map((nearbyLocation, index) => (
                 <a
                   key={index}
                   href={`/locations/${nearbyLocation.toLowerCase().replace(/\s+/g, '-')}`}
@@ -218,53 +224,112 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Get images that match the location using the proper function
   const locationImages = getLocationImages(slug);
 
-  // If no specific location images found, get images by category tags and location relevance
-  let fallbackImages: any[] = [];
-  if (locationImages.length === 0) {
-    const allImages = getGalleryImages();
+  // Get a curated selection of relevant images for this location
+  let curatedImages: any[] = [];
+  const allImages = getGalleryImages();
+  
+  if (locationImages.length > 0) {
+    // Use location-specific images as primary
+    curatedImages = locationImages.slice(0, 12); // Limit to 12 images
+  } else {
+    // Create a curated selection based on location characteristics
+    const relevantImages: any[] = [];
     
-    // First priority: images with matching location tags
+    // Priority 1: Images with matching location tags
     const locationTagMatches = allImages.filter(image => 
-      image.locationTags?.some(locTag => 
-        locTag.toLowerCase().includes(slug.toLowerCase()) ||
-        slug.toLowerCase().includes(locTag.toLowerCase())
+      image.locationTags?.some(tag => 
+        tag.toLowerCase().includes(location.locationName.toLowerCase()) ||
+        location.locationName.toLowerCase().includes(tag.toLowerCase())
       )
     );
-
-    // Second priority: images with matching category tags
+    
+    // Priority 2: Images with matching category tags from location
     const categoryMatches = allImages.filter(image => 
       location.galleryTags.some(tag => 
         image.category?.toLowerCase().includes(tag.toLowerCase()) ||
         image.tags?.some(imgTag => imgTag.toLowerCase().includes(tag.toLowerCase()))
       )
     );
-
-    // Third priority: images with general relevance to the location's event types
-    const eventTypeMatches = allImages.filter(image => 
-      location.eventTypes.some(eventType => 
-        image.category?.toLowerCase().includes(eventType.toLowerCase().replace(/\s+/g, '')) ||
-        image.tags?.some(tag => tag.toLowerCase().includes(eventType.toLowerCase().replace(/\s+/g, '')))
+    
+    // Priority 3: Popular event types for this area
+    const popularEventTypes = ['birthday', 'corporate', 'engagement', 'wedding'];
+    const popularMatches = allImages.filter(image => 
+      popularEventTypes.some(eventType => 
+        image.category?.toLowerCase().includes(eventType) ||
+        image.tags?.some(tag => tag.toLowerCase().includes(eventType))
       )
     );
-
-    // Combine all matches, prioritizing location-specific ones
-    const allMatches = [...locationTagMatches, ...categoryMatches, ...eventTypeMatches];
     
-    // Remove duplicates and limit results
-    const uniqueMatches = allMatches.filter((image, index, self) => 
+    // Combine and deduplicate, prioritizing location-specific matches
+    const allRelevant = [...locationTagMatches, ...categoryMatches, ...popularMatches];
+    const uniqueImages = allRelevant.filter((image, index, self) => 
       index === self.findIndex(img => img.src === image.src)
     );
-
-    fallbackImages = uniqueMatches;
+    
+    // Take a diverse selection (max 15 images)
+    curatedImages = uniqueImages.slice(0, 15);
+    
+    // If still not enough, add some high-quality images from different categories
+    if (curatedImages.length < 8) {
+      const remainingImages = allImages.filter(img => 
+        !curatedImages.some(curated => curated.src === img.src)
+      );
+      const additionalImages = remainingImages
+        .filter(img => img.category && ['birthday', 'corporate', 'engagement', 'wedding'].includes(img.category))
+        .slice(0, 8 - curatedImages.length);
+      curatedImages = [...curatedImages, ...additionalImages];
+    }
   }
 
-  // Use location-specific images if available, otherwise use fallback
-  const finalImages = locationImages.length > 0 ? locationImages : fallbackImages;
+  // Get nearby locations for the sidebar
+  const nearbyLocations = getRandomNearbyLocations(slug, 5);
+
+  // Build SEO data
+  const pageTitle = `Event Decoration in ${location.locationName}, Bangalore | We Decor`;
+  const pageDescription = `Professional event decoration services in ${location.locationName}, Bangalore. Birthday, wedding, corporate event decorations. Call ${SITE_PHONE} for free consultation.`;
+  const canonicalPath = `/locations/${slug}`;
+  
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "We Decor",
+    "description": `Event decoration services in ${location.locationName}, Bangalore`,
+    "url": getCanonicalUrl(canonicalPath),
+    "telephone": SITE_PHONE,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": location.locationName,
+      "addressRegion": "Bangalore",
+      "addressCountry": "IN"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": location.locationName
+    },
+    "serviceType": "Event Decoration",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Event Decoration Services",
+      "itemListElement": location.eventTypes.map((eventType: string) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": eventType,
+          "description": `${eventType} in ${location.locationName}`
+        }
+      }))
+    }
+  };
 
   return {
     props: {
       location,
-      locationImages: finalImages.slice(0, 12), // Limit to 12 images
+      locationImages: curatedImages,
+      nearbyLocations,
+      pageTitle,
+      pageDescription,
+      canonicalPath,
+      schemaMarkup,
     },
     revalidate: 3600, // Revalidate every hour
   };
