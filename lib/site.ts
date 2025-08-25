@@ -1,69 +1,52 @@
 // Centralized site configuration
 // Single source of truth for site URL and related constants
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
-  'https://www.wedecorevents.com';
+// Site configuration constants
+export const SITE_URL = 
+  (process.env.NEXT_PUBLIC_SITE_URL || "https://www.wedecorevents.com").replace(/\/+$/, "");
 
-export const SITE_NAME = 'We Decor';
-export const SITE_DESCRIPTION = 'Bangalore\'s trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999.';
-export const SITE_PHONE = '+91 9591232166';
-export const SITE_WHATSAPP = '+91 9591232166';
+export const SITE_NAME = "We Decor";
+export const SITE_DESCRIPTION = "Professional event decoration services in Bangalore";
+export const SITE_PHONE = "+91 98860 12345";
+export const SITE_WHATSAPP = "+91 98860 12345";
+export const SITE_EMAIL = "info@wedecorevents.com";
 
-// Site metadata for SEO
-export const SITE_METADATA = {
-  title: {
-    default: 'We Decor - Event Decoration Services Bangalore',
-    template: '%s | We Decor Bangalore'
-  },
-  description: SITE_DESCRIPTION,
-  url: SITE_URL,
-  siteName: SITE_NAME,
-  phone: SITE_PHONE,
-  whatsapp: SITE_WHATSAPP,
-  locale: 'en_IN',
-  type: 'website',
-  images: [
-    {
-      url: `${SITE_URL}/og-banner.jpg`,
-      width: 1200,
-      height: 630,
-      alt: 'We Decor - Event Decoration Services Bangalore'
-    }
-  ],
-  contact: {
-    phone: SITE_PHONE,
-    whatsapp: SITE_WHATSAPP,
-    email: 'info@wedecorevents.com'
-  },
-  social: {
-    facebook: 'https://facebook.com/wedecorevents',
-    instagram: 'https://instagram.com/wedecorevents',
-    twitter: 'https://twitter.com/wedecorevents'
-  }
-};
-
-// Helper function to build full URLs
-export const buildUrl = (path: string = ''): string => {
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+// Canonical URL helpers
+export const getCanonicalUrl = (path: string = "") => {
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
   return `${SITE_URL}${cleanPath}`;
 };
 
-// Helper function to build canonical URLs
-export const buildCanonicalUrl = (path: string = ''): string => {
-  return buildUrl(path);
+// URL building helpers
+export const buildWhatsAppUrl = (message: string = "") => {
+  const encodedMessage = encodeURIComponent(message || "Hi! I'm interested in your decoration services.");
+  return `https://wa.me/${SITE_WHATSAPP.replace(/\D/g, "")}?text=${encodedMessage}`;
 };
 
-// Helper function to build WhatsApp URLs
-export const buildWhatsAppUrl = (message: string = ''): string => {
-  const encodedMessage = encodeURIComponent(message);
-  return `https://wa.me/${SITE_WHATSAPP.replace('+', '')}?text=${encodedMessage}`;
+export const buildPhoneUrl = (phone: string = SITE_PHONE) => {
+  return `tel:${phone.replace(/\D/g, "")}`;
 };
 
-// Helper function to build phone URLs
-export const buildPhoneUrl = (): string => {
-  return `tel:${SITE_PHONE}`;
+export const buildLocationServiceUrl = (location: string, service: string) => {
+  const cleanLocation = location.toLowerCase().replace(/\s+/g, "-");
+  const cleanService = service.toLowerCase().replace(/\s+/g, "-");
+  return `${SITE_URL}/locations/${cleanLocation}/${cleanService}`;
 };
+
+// Environment helpers
+export const isProduction = process.env.NODE_ENV === "production";
+export const isDevelopment = process.env.NODE_ENV === "development";
+export const isPreview = process.env.VERCEL_ENV === "preview";
+
+// Site metadata for SEO
+export const getSiteMetadata = () => ({
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  phone: SITE_PHONE,
+  whatsapp: SITE_WHATSAPP,
+  email: SITE_EMAIL,
+});
 
 // Site structure constants
 export const SITE_STRUCTURE = {
@@ -102,14 +85,9 @@ export const getServicePath = (serviceSlug: string): string => {
   return SERVICE_PATHS[serviceSlug as keyof typeof SERVICE_PATHS] || `/services/${serviceSlug}`;
 };
 
-// Helper function to build location service URL
-export const buildLocationServiceUrl = (locationSlug: string, serviceSlug: string): string => {
-  return buildUrl(`locations/${locationSlug}/${serviceSlug}`);
-};
-
 // Helper function to build location URL
 export const buildLocationUrl = (locationSlug: string): string => {
-  return buildUrl(`locations/${locationSlug}`);
+  return `${SITE_URL}/locations/${locationSlug}`;
 };
 
 // Validation function to ensure SITE_URL is properly formatted
@@ -122,15 +100,11 @@ export const validateSiteUrl = (): boolean => {
   }
 };
 
-// Development vs Production helpers
-export const isDevelopment = process.env.NODE_ENV === 'development';
-export const isProduction = process.env.NODE_ENV === 'production';
-
 // Log site configuration in development
 if (isDevelopment) {
-  console.log('🌐 Site Configuration:', {
+  console.log("🌐 Site Configuration:", {
     SITE_URL,
     NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   });
 }
