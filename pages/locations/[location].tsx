@@ -8,6 +8,7 @@ import CTA from '../../components/CTA';
 import { getLocationBySlug, getAllLocationSlugs, getRandomNearbyLocations } from '../../lib/data/locationPages';
 import type { LocationPage } from '../../lib/data/locationPages';
 import { getGalleryImages } from '../../utils/gallery';
+import { getLocationImages } from '../../lib/data/gallery-map';
 
 interface LocationPageProps {
   location: LocationPage;
@@ -214,19 +215,56 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  // Get images that match the location tags
-  const allImages = getGalleryImages();
-  const locationImages = allImages.filter(image => 
-    location.galleryTags.some(tag => 
-      image.tags?.includes(tag) || 
-      image.category?.toLowerCase().includes(tag.toLowerCase())
-    )
-  );
+  // Get images that match the location using the proper function
+  const locationImages = getLocationImages(slug);
+
+  // If no specific location images found, get images by category tags and location relevance
+  let fallbackImages: any[] = [];
+  if (locationImages.length === 0) {
+    const allImages = getGalleryImages();
+    
+    // First priority: images with matching location tags
+    const locationTagMatches = allImages.filter(image => 
+      image.locationTags?.some(locTag => 
+        locTag.toLowerCase().includes(slug.toLowerCase()) ||
+        slug.toLowerCase().includes(locTag.toLowerCase())
+      )
+    );
+
+    // Second priority: images with matching category tags
+    const categoryMatches = allImages.filter(image => 
+      location.galleryTags.some(tag => 
+        image.category?.toLowerCase().includes(tag.toLowerCase()) ||
+        image.tags?.some(imgTag => imgTag.toLowerCase().includes(tag.toLowerCase()))
+      )
+    );
+
+    // Third priority: images with general relevance to the location's event types
+    const eventTypeMatches = allImages.filter(image => 
+      location.eventTypes.some(eventType => 
+        image.category?.toLowerCase().includes(eventType.toLowerCase().replace(/\s+/g, '')) ||
+        image.tags?.some(tag => tag.toLowerCase().includes(eventType.toLowerCase().replace(/\s+/g, '')))
+      )
+    );
+
+    // Combine all matches, prioritizing location-specific ones
+    const allMatches = [...locationTagMatches, ...categoryMatches, ...eventTypeMatches];
+    
+    // Remove duplicates and limit results
+    const uniqueMatches = allMatches.filter((image, index, self) => 
+      index === self.findIndex(img => img.src === image.src)
+    );
+
+    fallbackImages = uniqueMatches;
+  }
+
+  // Use location-specific images if available, otherwise use fallback
+  const finalImages = locationImages.length > 0 ? locationImages : fallbackImages;
 
   return {
     props: {
       location,
-      locationImages: locationImages.slice(0, 12), // Limit to 12 images
+      locationImages: finalImages.slice(0, 12), // Limit to 12 images
     },
     revalidate: 3600, // Revalidate every hour
   };
