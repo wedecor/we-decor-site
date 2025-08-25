@@ -49,10 +49,10 @@ const nextConfig = {
         destination: 'https://www.wedecorevents.com/:path*',
         permanent: true,
       },
-      // Strip trailing slash
+      // Strip trailing slash, but exclude homepage to prevent redirect loop
       {
-        source: '/:path*/',
-        destination: '/:path*',
+        source: '/:path+/',
+        destination: '/:path+',
         permanent: true,
       },
     ];
