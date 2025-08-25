@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextPage } from 'next';
 import React from 'react';
+import Layout from '../../components/Layout';
 import SeoHead from '../../components/SeoHead';
 import LocationGallery from '../../components/LocationGallery';
 import CTA from '../../components/CTA';
@@ -65,14 +66,12 @@ const LocationPage: NextPage<LocationPageProps> = ({ location, locationImages })
   };
 
   return (
-    <>
-      <SeoHead
-        title={pageTitle}
-        description={pageDescription}
-        canonicalPath={canonicalPath}
-        schemaMarkup={schemaMarkup}
-      />
-      
+    <Layout seo={{
+      title: pageTitle,
+      description: pageDescription,
+      canonicalPath: canonicalPath,
+      schemaMarkup: schemaMarkup
+    }}>
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
         {/* Hero Section */}
         <div className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
@@ -115,7 +114,7 @@ const LocationPage: NextPage<LocationPageProps> = ({ location, locationImages })
             
             {/* Event Types */}
             <div className="mb-8">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
+              <h3 className="text-3xl font-semibold text-gray-800 mb-4">
                 Our Services in {location.locationName}
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -188,7 +187,7 @@ const LocationPage: NextPage<LocationPageProps> = ({ location, locationImages })
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 
