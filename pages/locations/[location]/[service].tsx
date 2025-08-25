@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { NextPage } from 'next';
 import React from 'react';
+import Layout from '../../../components/Layout';
 import SeoHead from '../../../components/SeoHead';
 import LocationServicePage from '../../../components/LocationServicePage';
 import { locations } from '../../../lib/data/locations';
@@ -44,59 +45,57 @@ const LocationServicePageRoute: NextPage<LocationServicePageProps> = ({
   const canonicalPath = `/locations/${location.slug}/${service.slug}`;
 
   return (
-    <>
-      <SeoHead
-        title={pageTitle}
-        description={pageDescription}
-        canonicalPath={canonicalPath}
-        schemaMarkup={{
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-                    "name": "We Decor",
-          "description": `${service.name} services in ${location.displayName}, Bangalore`,
-          "url": SITE_URL,
-          "telephone": SITE_PHONE,
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": location.displayName,
-            "addressRegion": "Bangalore",
-            "addressCountry": "IN"
-          },
-          "areaServed": {
-            "@type": "City",
-            "name": location.displayName
-          },
-          "serviceType": service.name,
-          "priceRange": "₹₹",
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "150+"
-          },
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": `${service.name} Services`,
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": service.name,
-                  "description": service.blurb
-                }
+    <Layout seo={{
+      title: pageTitle,
+      description: pageDescription,
+      canonicalPath: canonicalPath,
+      schemaMarkup: {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "We Decor",
+        "description": `${service.name} services in ${location.displayName}, Bangalore`,
+        "url": SITE_URL,
+        "telephone": SITE_PHONE,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": location.displayName,
+          "addressRegion": "Bangalore",
+          "addressCountry": "IN"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": location.displayName
+        },
+        "serviceType": service.name,
+        "priceRange": "₹₹",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "150+"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": `${service.name} Services`,
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": service.name,
+                "description": service.blurb
               }
-            ]
-          }
-        }}
-      />
-      
+            }
+          ]
+        }
+      }
+    }}>
       <LocationServicePage
         location={location}
         service={service}
         images={images}
         nearby={nearby}
       />
-    </>
+    </Layout>
   );
 };
 
