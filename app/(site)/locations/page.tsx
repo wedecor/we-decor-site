@@ -1,180 +1,151 @@
-import { Metadata } from 'next';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+import { CLUSTERS } from '../_data/clusters';
 import { AREAS, SITE, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
+import Navbar from '../../../components/Navbar';
+import Footer from '../../../components/Footer';
 
 export const metadata: Metadata = {
-  title: `Event Decoration Services Across ${CITY} | ${BUSINESS_NAME}`,
-  description: `Find professional event decoration services in your area. We serve ${AREAS.length} areas across ${CITY}. Book now!`,
-  alternates: {
-    canonical: `${SITE}/locations`,
-  },
+  title: 'Areas We Serve | We Decor — Event Decorators in Bangalore',
+  description:
+    'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
+  alternates: { canonical: `${SITE}/locations` }
 };
 
-export default function LocationsPage() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Event Decoration Across {CITY}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
-            Professional decoration services in your neighborhood. From birthday parties to weddings, we bring creativity to every celebration.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
-            >
-              📞 Call Now {PHONE_DISPLAY}
-            </a>
-            <a
-              href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors"
-            >
-              💬 WhatsApp Us to Book
-            </a>
-          </div>
-        </div>
-      </div>
+// Map slug → area name for quick lookups
+const areaNameBySlug = new Map(AREAS.map(a => [a.slug, a.name]));
 
-      {/* Locations Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">
-          Our Service Areas in {CITY}
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {AREAS.map((area) => (
-            <div
-              key={area.slug}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
-            >
-              <div className="p-6">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                  {area.name}
-                </h3>
-                {area.vibe && (
-                  <p className="text-pink-600 font-medium mb-3">
-                    {area.vibe}
-                  </p>
-                )}
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  Professional event decoration services in {area.name}. From birthday parties to weddings, we bring creativity and style to every celebration.
-                </p>
-                
-                {area.landmarks && area.landmarks.length > 0 && (
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-800 mb-3">
-                      Popular Venues:
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {area.landmarks.slice(0, 3).map((landmark, index) => (
-                        <span
-                          key={index}
-                          className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-medium"
-                        >
-                          {landmark}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-                
-                <div className="flex flex-col gap-3">
-                  <a
-                    href={`/locations/${area.slug}`}
-                    className="bg-pink-600 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-pink-700 transition-colors"
-                  >
-                    View Services in {area.name}
-                  </a>
-                  <a
-                    href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${area.name}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-500 text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-green-600 transition-colors"
-                  >
-                    WhatsApp for {area.name}
-                  </a>
-                </div>
+function ClusterSection({ keyId, title, blurb, areaSlugs, mentions }:{
+  keyId: string, title: string, blurb: string, areaSlugs: string[], mentions: string[]
+}) {
+  return (
+    <section id={keyId} className="scroll-mt-24">
+      <div className="mb-4 flex items-baseline justify-between gap-3">
+        <h2 className="text-2xl font-semibold">{title}</h2>
+        <Link href="#top" className="text-sm underline opacity-70">Back to top</Link>
+      </div>
+      <p className="mb-5 opacity-90">{blurb}</p>
+
+      {/* Linked major areas */}
+      <ul className="mb-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+        {areaSlugs.map(slug => {
+          const areaName = areaNameBySlug.get(slug);
+          if (!areaName) return null; // Skip if area doesn't exist
+          
+          return (
+            <li key={slug} className="rounded-2xl border p-4">
+              <div className="flex items-center justify-between gap-3">
+                <Link href={`/locations/${slug}`} className="font-medium hover:underline">
+                  {areaName}
+                </Link>
+                <Link href={`/locations/${slug}`} className="rounded-xl border px-3 py-1 text-sm">
+                  View
+                </Link>
               </div>
-            </div>
+              <p className="mt-2 text-sm opacity-70">
+                Serving home, apartment, clubhouse and venue decor in {areaName}.
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* Mentions: plain text (no pages) */}
+      {mentions?.length ? (
+        <p className="mb-10 text-sm">
+          <span className="font-medium">We also serve:</span>{' '}
+          {mentions.join(', ')}.
+        </p>
+      ) : null}
+    </section>
+  );
+}
+
+export default function LocationsHubPage() {
+  return (
+    <>
+      <Navbar />
+      <main id="top" className="mx-auto max-w-6xl px-4 py-10 md:py-12 pt-20">
+        {/* Hero */}
+        <header className="mb-8 md:mb-12">
+          <h1 className="text-3xl font-semibold">Event Decoration Across Bangalore — Areas We Serve</h1>
+          <p className="mt-2 text-lg opacity-90">
+            Explore our coverage across North, South, East, Central and West Bengaluru.
+            Each area page includes local service details, photos and quick booking options.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="rounded-xl border px-4 py-2">Call</a>
+            <a href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`} target="_blank" className="rounded-xl border px-4 py-2">WhatsApp</a>
+            <Link href="/services" className="rounded-xl border px-4 py-2">See Services</Link>
+          </div>
+        </header>
+
+        {/* In-page TOC */}
+        <nav aria-label="Clusters" className="mb-8 rounded-2xl border p-4">
+          <p className="mb-2 text-sm font-medium">Jump to a region:</p>
+          <ul className="flex flex-wrap gap-3">
+            {CLUSTERS.map(c => (
+              <li key={c.key}>
+                <a href={`#${c.key}`} className="rounded-full border px-3 py-1 text-sm hover:bg-neutral-50">
+                  {c.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Cluster sections */}
+        <div className="space-y-10">
+          {CLUSTERS.map(c => (
+            <ClusterSection
+              key={c.key}
+              keyId={c.key}
+              title={c.title}
+              blurb={c.blurb}
+              areaSlugs={c.areaSlugs}
+              mentions={c.mentions}
+            />
           ))}
         </div>
-      </div>
 
-      {/* Why Choose We Decor */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">
-            Why Choose {BUSINESS_NAME} Across {CITY}?
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Local Expertise</h3>
-              <p className="text-gray-600">We understand the unique needs and preferences of each {CITY} neighborhood.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Quick Response</h3>
-              <p className="text-gray-600">Fast setup and takedown with our experienced local teams across all areas.</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-pink-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Personalized Service</h3>
-              <p className="text-gray-600">Custom decoration designs that reflect your style and the local culture.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Contact CTA */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl text-white text-center p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Transform Your Event?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Contact us today for a free consultation and quote for your area
+        {/* Contact CTA */}
+        <section className="mt-12 rounded-2xl border p-6">
+          <h2 className="text-xl font-semibold mb-2">Ready to book Bangalore decor?</h2>
+          <p className="mb-4 opacity-90">
+            Tell us your area and event date — we'll share themes and pricing right away.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-              className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
-            >
-              📞 Call {PHONE_DISPLAY}
-            </a>
-            <a
-              href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors"
-            >
-              💬 WhatsApp Us
-            </a>
+          <div className="flex flex-wrap gap-3">
+            <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="rounded-xl border px-4 py-2">Call</a>
+            <a href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`} target="_blank" className="rounded-xl border px-4 py-2">WhatsApp</a>
+            <Link href="/contact" className="rounded-xl border px-4 py-2">Get a Quote</Link>
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
+
+        {/* JSON-LD: CollectionPage */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'CollectionPage',
+              name: 'Areas We Serve — Bangalore',
+              hasPart: CLUSTERS.flatMap(c =>
+                c.areaSlugs.map(slug => {
+                  const areaName = areaNameBySlug.get(slug);
+                  if (!areaName) return null;
+                  
+                  return {
+                    '@type': 'WebPage',
+                    url: `${SITE}/locations/${slug}`,
+                    name: areaName
+                  };
+                }).filter(Boolean)
+              )
+            })
+          }}
+        />
+      </main>
+      <Footer />
+    </>
   );
 } 
