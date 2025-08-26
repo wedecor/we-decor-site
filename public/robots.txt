@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Explicitly allow the sitemap API endpoint
+Allow: /api/sitemap.xml
+
 # Sitemap
 Sitemap: https://www.wedecorevents.com/api/sitemap.xml
 
