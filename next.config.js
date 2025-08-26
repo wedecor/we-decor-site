@@ -31,6 +31,11 @@ const nextConfig = {
         destination: 'https://www.wedecorevents.com/:path*',
         permanent: true,
       },
+      {
+        source: '/api/sitemap.xml',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
     ];
   },
   async headers() {

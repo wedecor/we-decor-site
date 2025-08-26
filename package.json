@@ -19,7 +19,8 @@
     "audit:robots": "ts-node scripts/audit-robots-sitemap.ts",
     "audit:structured-data": "ts-node scripts/audit-structured-data.ts",
     "audit:performance": "ts-node scripts/lighthouse-audit.ts",
-    "audit:production": "ts-node scripts/production-readiness-audit.ts"
+    "audit:production": "ts-node scripts/production-readiness-audit.ts",
+    "seo:audit:quick": "node scripts/seo-quick-audit.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
