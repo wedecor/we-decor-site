@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.wedecorevents.com/sitemap
+Sitemap: https://www.wedecorevents.com/api/sitemap.xml
 
 # Disallow admin and private areas
 Disallow: /api/
