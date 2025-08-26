@@ -64,18 +64,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   // Log total pages for verification
   console.log(`Sitemap generated with ${allPages.length} total URLs (including ${locationServicePages.length} location-service combinations)`);
 
-  // Generate XML sitemap
+  // Generate XML sitemap with proper structure
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allPages
-  .map(({ path, priority, changefreq }) => `
-  <url>
+  .map(({ path, priority, changefreq }) => `  <url>
     <loc>${url(path)}</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`)
-  .join('')}
+  .join('\n')}
 </urlset>`;
 
   res.status(200).send(xml);
