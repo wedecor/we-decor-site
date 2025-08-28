@@ -1,4 +1,13 @@
 import type { Metadata } from "next";
+import GalleryStrip from "@/components/areas/GalleryStrip";
+import Breadcrumbs from "@/components/areas/Breadcrumbs";
+import NearbyChips from "@/components/areas/NearbyChips";
+import FAQAccordion from "@/components/areas/FAQAccordion";
+import CTAStickyBar from "@/components/areas/CTAStickyBar";
+import ContactCard from "@/components/areas/ContactCard";
+import ServicesGrid from "@/components/areas/ServicesGrid";
+import AreaHero from "@/components/areas/AreaHero";
+import AreaPageShell from "@/components/areas/AreaPageShell";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -40,47 +49,16 @@ export default function Page() {
 
   return (
     <main className="prose prose-invert max-w-none">
-      <h1>Event Decoration in Bellandur – We Decor Bangalore</h1>
-
-      <p>{intro}</p>
-
-      <h2>Our Event Decoration Services in {locality}</h2>
-      <ul>
-        {services.map((s, i) => <li key={i}>{s}</li>)}
-      </ul>
-
-      <h2>Why Choose We Decor in {locality}?</h2>
-      <p>{why}</p>
-
-      {nearby.length ? (
-        <>
-          <h2>Nearby Areas We Also Serve</h2>
-          <ul>
-            {nearby.map((nb) => (
-              <li key={nb.slug}>
-                <Link href={"/areas/" + nb.slug}>{nb.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : null}
-
-      <h2>FAQs – {locality}</h2>
-      {faqs.map((f, i) => (
-        <section key={i}>
-          <h3>{f.q}</h3>
-          <p>{f.a}</p>
-        </section>
-      ))}
-
-      <hr className="my-8" />
-
-      <h3>Ready to book decoration in {locality}?</h3>
-      <ul>
-        <li><a href="tel:+919591232166">Call Now</a></li>
-        <li><a href="https://wa.me/919591232166?text=">WhatsApp</a></li>
-        <li><Link href={"/contact?area=bellandur"}>Get a Quote</Link></li>
-      </ul>
-    </main>
+  <AreaPageShell>
+    <Breadcrumbs locality={locality} />
+    <AreaHero title={metadata?.title as string ?? "Event Decoration"} intro={intro} />
+    <ServicesGrid locality={locality} services={services} />
+    <GalleryStrip />
+    
+    <FAQAccordion faqs={faqs} />
+    <ContactCard locality={locality} />
+    <CTAStickyBar locality={locality} />
+  </AreaPageShell>
+</main>
   );
 }
