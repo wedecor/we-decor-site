@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Event Decoration in Sahakarnagar – We Decor Bangalore",
-  description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Premium home,",
+  description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Premium home, banquet & corporate event décor. Call now for quick booking.",
   alternates: { canonical: "https://wedecor.in/areas/sahakarnagar" },
   openGraph: {
     title: "Event Decoration in Sahakarnagar – We Decor Bangalore",
-    description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Premium home,",
+    description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Premium home, banquet & corporate event décor. Call now for quick booking.",
     url: "https://wedecor.in/areas/sahakarnagar",
     type: "article",
     siteName: "We Decor",
@@ -15,43 +15,28 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     title: "Event Decoration in Sahakarnagar – We Decor Bangalore",
-    description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Premium home,",
+    description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Premium home, banquet & corporate event décor. Call now for quick booking.",
   },
 };
 
 export default function Page() {
   const locality = "Sahakarnagar";
-  const intro = `banquet & corporate event décor. Call now for quick booking.
-Looking for birthday, wedding, haldi or anniversary decoration in Sahakarnagar? At We Decor, we
-bring stunning décor to homes, apartments, villas, clubhouses and banquet halls across
-Sahakarnagar. From balloon backdrops to floral wedding stages, our team designs and sets up
-everything so you can enjoy stress-free celebrations.`;
+  const intro = `Looking for birthday, wedding, haldi or anniversary decoration in Sahakarnagar? At We Decor, we bring stunning décor to homes, apartments, villas, clubhouses and banquet halls across Sahakarnagar. From balloon backdrops to floral wedding stages, our team designs and sets up everything so you can enjoy stress-free celebrations.`;
   const services: string[] = [
-  "n Birthday Decoration in Sahakarnagar — Theme balloons, LED backdrops, kids’ parties,",
-  "milestone birthdays.",
-  "n Wedding & Engagement Décor in Sahakarnagar — Floral mandaps, stage setups, bridal room",
-  "décor.",
-  "n Haldi & Mehendi Decoration in Sahakarnagar — Yellow floral stage, marigold backdrop,",
-  "traditional props.",
-  "n Balloon Decoration in Sahakarnagar — At home, clubhouses & banquet halls.",
-  "n Corporate Event Decoration in Sahakarnagar — Office parties, team events, festive décor."
+  "Birthday Decoration in Sahakarnagar — Theme balloons, LED backdrops, kids’ parties, milestone birthdays.",
+  "Wedding & Engagement Décor in Sahakarnagar — Floral mandaps, stage setups, bridal room décor.",
+  "Haldi & Mehendi Decoration in Sahakarnagar — Yellow floral stage, marigold backdrop, traditional props.",
+  "Balloon Decoration in Sahakarnagar — At home, clubhouses & banquet halls.",
+  "Corporate Event Decoration in Sahakarnagar — Office parties, team events, festive décor."
 ];
-  const why = `4 Local team covering all of Sahakarnagar and nearby areas. 4 Quick setup at homes, apartments & community halls. 4 Custom themes & budget-friendly packages. 4 500+ events decorated in Bangalore.`;
-  const nearby: {name: string; slug: string}[] = [];
-  const faqs: {q: string; a: string}[] = [
+  const why = `Local team covering all of Sahakarnagar. Quick setup at homes, apartments & community halls. Custom themes & budget-friendly packages.`;
+  const nearby: {name: string; slug: string}[] = [
   {
-    "q": "Do you provide home birthday decoration?",
-    "a": "Yes, we specialize in home and apartment decoration in Sahakarnagar — perfect for intimate"
-  },
-  {
-    "q": "Can you set up décor in banquet halls or clubhouses?",
-    "a": "Absolutely! We’ve worked in several Sahakarnagar venues, apartments and community halls."
-  },
-  {
-    "q": "How much does decoration cost?",
-    "a": "Birthday décor starts at n2,999. Wedding and engagement packages are customized based on"
+    "name": "FAQ:",
+    "slug": "faq"
   }
 ];
+  const faqs: {q: string; a: string}[] = [];
 
   return (
     <main className="prose prose-invert max-w-none">
@@ -93,35 +78,9 @@ everything so you can enjoy stress-free celebrations.`;
       <h3>Ready to book decoration in {locality}?</h3>
       <ul>
         <li><a href="tel:+919591232166">Call Now</a></li>
-        <li><a href="https://wa.me/919591232166">WhatsApp</a></li>
+        <li><a href="https://wa.me/919591232166?text=">WhatsApp</a></li>
         <li><Link href={"/contact?area=sahakarnagar"}>Get a Quote</Link></li>
       </ul>
-
-      <p className="mt-6 text-sm opacity-70">
-        We Decor – Bringing Dreams to Life across Bangalore.{" "}
-        <a href="https://instagram.com/wedecorbangalore" target="_blank" rel="noopener noreferrer">
-          @wedecorbangalore
-        </a>
-      </p>
-
-      <p className="mt-6 text-sm opacity-70">
-        <Link href="/areas" className="underline">Areas</Link> / {locality}
-      </p>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map((f: any) => ({
-              "@type": "Question",
-              "name": f.q,
-              "acceptedAnswer": { "@type": "Answer", "text": f.a }
-            }))
-          })
-        }}
-      />
     </main>
   );
 }
