@@ -29,7 +29,9 @@
     "qa:robots": "node scripts/check-robots.mjs",
     "qa:clusters": "node scripts/validate-clusters.mjs",
     "qa:gallery": "node scripts/check-gallery-content.mjs",
-    "qa:all": "npm-run-all -p qa:robots qa:sitemap && npm-run-all qa:pages && npm run qa:links"
+    "qa:all": "npm-run-all -p qa:robots qa:sitemap && npm-run-all qa:pages && npm run qa:links",
+    "gen:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts",
+    "gen:areas:dry": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts --dry-run"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -53,7 +55,8 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.19.11",
+    "@types/pdf-parse": "^1.1.5",
     "@types/react": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^8.38.0",
     "@typescript-eslint/parser": "^8.38.0",
@@ -66,10 +69,12 @@
     "lighthouse": "^12.8.0",
     "lint-staged": "^16.1.2",
     "npm-run-all": "^4.1.5",
+    "pdf-parse": "^1.1.1",
     "prettier": "^3.6.2",
     "react-intersection-observer": "^9.16.0",
-    "typescript": "^5.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
     "undici": "^7.15.0",
-    "vercel": "^44.6.6"
+    "vercel": "^44.7.3"
   }
 }
