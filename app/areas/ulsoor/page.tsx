@@ -48,7 +48,7 @@ export default function Page() {
   const faqs: {q: string; a: string}[] = [];
 
   return (
-    <main className="prose prose-invert max-w-none">
+    <main className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200">
   <AreaPageShell>
     <Breadcrumbs locality={locality} />
     <AreaHero title={metadata?.title as string ?? "Event Decoration"} intro={intro} />
