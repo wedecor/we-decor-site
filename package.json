@@ -39,7 +39,9 @@
     "ui:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/upgrade-areas-ui.ts",
     "qa:seo": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/qa-seo-monitoring.ts",
     "qa:seo:check": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/qa-seo-monitoring.ts",
-    "merge:localities": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/merge-localities.ts"
+    "merge:localities": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/merge-localities.ts",
+    "gen:areas:master": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas-from-master.ts",
+    "update:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/update-all-areas.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
