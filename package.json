@@ -31,7 +31,9 @@
     "qa:gallery": "node scripts/check-gallery-content.mjs",
     "qa:all": "npm-run-all -p qa:robots qa:sitemap && npm-run-all qa:pages && npm run qa:links",
     "gen:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts",
-    "gen:areas:dry": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts --dry-run"
+    "gen:areas:dry": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts --dry-run",
+    "patch:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/patch-areas.ts",
+    "test:e2e": "playwright test --reporter=line"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -55,6 +57,7 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "@types/node": "^20.19.11",
     "@types/pdf-parse": "^1.1.5",
     "@types/react": "^18.2.14",
