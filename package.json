@@ -32,6 +32,8 @@
     "qa:all": "npm-run-all -p qa:robots qa:sitemap && npm-run-all qa:pages && npm run qa:links",
     "gen:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts",
     "gen:areas:dry": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts --dry-run",
+    "gen:areas:txt": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas-from-text.ts",
+    "gen:areas:txt:dry": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas-from-text.ts --dry-run",
     "patch:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/patch-areas.ts",
     "test:e2e": "playwright test --reporter=line",
     "ui:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/upgrade-areas-ui.ts"
