@@ -57,6 +57,19 @@ export default function LocationPage({ params }: LocationPageProps) {
         answer: f.a 
       }))} />
       
+      {/* BreadcrumbList Schema */}
+      <script 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{__html: JSON.stringify({
+          '@context':'https://schema.org',
+          '@type':'BreadcrumbList',
+          itemListElement:[
+            { '@type':'ListItem', position:1, name:'Locations', item:'https://www.wedecorevents.com/locations'},
+            { '@type':'ListItem', position:2, name:areaName, item:`https://www.wedecorevents.com/locations/${params.slug}`}
+          ]
+        })}}
+      />
+      
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 pt-20">
         <div className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
