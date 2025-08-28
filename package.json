@@ -33,7 +33,8 @@
     "gen:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts",
     "gen:areas:dry": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/generate-areas.ts --dry-run",
     "patch:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/patch-areas.ts",
-    "test:e2e": "playwright test --reporter=line"
+    "test:e2e": "playwright test --reporter=line",
+    "ui:areas": "ts-node --compiler-options '{\"module\":\"commonjs\"}' scripts/upgrade-areas-ui.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
