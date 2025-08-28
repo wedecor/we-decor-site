@@ -9,7 +9,9 @@ const nextConfig = {
   },
   experimental: {
     instrumentationHook: true,
+    mdxRs: true,
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async redirects() {
     // Only apply redirects in production
     if (process.env.NODE_ENV !== 'production') {
