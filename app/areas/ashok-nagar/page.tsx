@@ -11,6 +11,7 @@ import ServicesGrid from "@/components/areas/ServicesGrid";
 import AreaHero from "@/components/areas/AreaHero";
 import AreaPageShell from "@/components/areas/AreaPageShell";
 import Link from "next/link";
+import { GENERATED_LOCATIONS } from "@/app/(site)/_data/locations.generated";
 
 export const metadata: Metadata = {
   title: "Event Decoration in Ashok Nagar – We Decor Bangalore",
@@ -59,40 +60,12 @@ export default function Page() {
     { "name": "Brigade Road", "slug": "brigade-road" }
   ];
   
-  const faqs: {q: string; a: string}[] = [
-    {
-      "q": "Do you provide home birthday decoration in Ashok Nagar?",
-      "a": "Yes, do you provide home birthday decoration in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "Can you handle wedding or engagement stage décor in Ashok Nagar?",
-      "a": "Yes, can you handle wedding or engagement stage décor in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "How much does event decoration cost in Ashok Nagar?",
-      "a": "Yes, how much does event decoration cost in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "Do you offer baby shower and naming ceremony décor in Ashok Nagar?",
-      "a": "Yes, do you offer baby shower and naming ceremony décor in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "Can you decorate apartments and clubhouses in Ashok Nagar?",
-      "a": "Yes, can you decorate apartments and clubhouses in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "How early should we book event decoration in Ashok Nagar?",
-      "a": "Yes, how early should we book event decoration in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "Do you provide festival and corporate décor services in Ashok Nagar?",
-      "a": "Yes, do you provide festival and corporate décor services in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    },
-    {
-      "q": "Can the décor be customized based on budget in Ashok Nagar?",
-      "a": "Yes, can the décor be customized based on budget in ashok nagar? Our team specializes in tailoring decorations for homes, apartments and banquet halls in Ashok Nagar. We ensure high-quality materials, unique themes, and timely setup. Prices start from ₹2,999 for birthdays and scale up depending on the size and theme."
-    }
-  ];
+  // Get the generated data for Ashok Nagar
+  const areaData = GENERATED_LOCATIONS.find(loc => loc.slug === "ashok-nagar");
+  const faqs = (areaData?.uniqueFAQ || []).map(faq => ({
+    q: faq.q,
+    a: faq.a
+  }));
 
   return (
     <>
