@@ -29,11 +29,15 @@ function looksLikeSitemap(xml: string) {
 }
 
 function extractUrls(xml: string): string[] {
-  // naive, but robust enough for validation
+  // Handle line breaks/whitespace inside <loc> … </loc>
   const urls: string[] = [];
-  const urlRegex = /<loc>\s*([^<\s]+)\s*<\/loc>/gi;
+  const urlRegex = /<loc>([\s\S]*?)<\/loc>/gi;
   let m: RegExpExecArray | null;
-  while ((m = urlRegex.exec(xml))) urls.push(m[1].trim());
+  while ((m = urlRegex.exec(xml))) {
+    // Collapse internal whitespace; sitemap URLs must not contain raw spaces/newlines
+    const cleaned = m[1].trim().replace(/\s+/g, "");
+    if (cleaned) urls.push(cleaned);
+  }
   return urls;
 }
 

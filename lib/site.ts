@@ -4,7 +4,14 @@
 import { env, isProduction, isDevelopment, isPreview } from './env';
 
 // Site configuration constants
-export const SITE_URL = env.SITE_URL.replace(/\/+$/, "");
+/**
+ * Canonical site URL, sanitized:
+ * - trim() removes stray newlines/spaces from env
+ * - replace(/\/+$/, "") removes trailing slashes
+ */
+export const SITE_URL = (env.SITE_URL ?? "https://www.wedecorevents.com")
+  .trim()
+  .replace(/\/+$/, "");
 
 export const SITE_NAME = "We Decor";
 export const SITE_DESCRIPTION = "Professional event decoration services in Bangalore";
