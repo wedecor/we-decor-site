@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in BTM Layout – We Decor Bangalore",
   description: "Professional birthday, wedding, haldi & balloon decoration in BTM Layout. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/btm-layout" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/btm-layout" },
   openGraph: {
     title: "Event Decoration in BTM Layout – We Decor Bangalore",
     description: "Professional birthday, wedding, haldi & balloon decoration in BTM Layout. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-    url: "https://wedecor.in/areas/btm-layout",
+    url: "https://www.wedecorevents.com/areas/btm-layout",
     type: "article",
     siteName: "We Decor",
   },

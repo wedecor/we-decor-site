@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Bellandur – We Decor Bangalore",
   description: "Professional birthday, wedding, haldi & balloon decoration in Bellandur. Décor for apartments, gated communities, villas & corporate venues. Book We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/bellandur" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/bellandur" },
   openGraph: {
     title: "Event Decoration in Bellandur – We Decor Bangalore",
     description: "Professional birthday, wedding, haldi & balloon decoration in Bellandur. Décor for apartments, gated communities, villas & corporate venues. Book We Decor today.",
-    url: "https://wedecor.in/areas/bellandur",
+    url: "https://www.wedecorevents.com/areas/bellandur",
     type: "article",
     siteName: "We Decor",
   },

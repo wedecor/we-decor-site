@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Sahakarnagar – We Decor Bangalore",
   description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/sahakarnagar" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/sahakarnagar" },
   openGraph: {
     title: "Event Decoration in Sahakarnagar – We Decor Bangalore",
     description: "Birthday, wedding, haldi & balloon decoration in Sahakarnagar. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-    url: "https://wedecor.in/areas/sahakarnagar",
+    url: "https://www.wedecorevents.com/areas/sahakarnagar",
     type: "article",
     siteName: "We Decor",
   },

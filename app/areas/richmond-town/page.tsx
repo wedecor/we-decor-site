@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Richmond Town – We Decor Bangalore",
   description: "Premium birthday, wedding, haldi & balloon decoration in Richmond Town. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/richmond-town" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/richmond-town" },
   openGraph: {
     title: "Event Decoration in Richmond Town – We Decor Bangalore",
     description: "Premium birthday, wedding, haldi & balloon decoration in Richmond Town. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-    url: "https://wedecor.in/areas/richmond-town",
+    url: "https://www.wedecorevents.com/areas/richmond-town",
     type: "article",
     siteName: "We Decor",
   },

@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Mathikere – We Decor Bangalore",
   description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Mathikere. Décor for community halls, homes and banquet venues. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/mathikere" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/mathikere" },
   openGraph: {
     title: "Event Decoration in Mathikere – We Decor Bangalore",
     description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Mathikere. Décor for community halls, homes and banquet venues. Book today.",
-    url: "https://wedecor.in/areas/mathikere",
+    url: "https://www.wedecorevents.com/areas/mathikere",
     type: "article",
     siteName: "We Decor",
   },

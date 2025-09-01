@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Ashok Nagar – We Decor Bangalore",
   description: "Professional birthday, wedding, haldi & balloon decoration in Ashok Nagar. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/ashok-nagar" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/ashok-nagar" },
   openGraph: {
     title: "Event Decoration in Ashok Nagar – We Decor Bangalore",
     description: "Professional birthday, wedding, haldi & balloon decoration in Ashok Nagar. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-    url: "https://wedecor.in/areas/ashok-nagar",
+    url: "https://www.wedecorevents.com/areas/ashok-nagar",
     type: "article",
     siteName: "We Decor",
   },

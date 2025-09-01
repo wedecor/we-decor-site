@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Kanakapura Road – We Decor Bangalore",
   description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Kanakapura Road. Décor for community halls, homes and banquet venues. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/kanakapura-road" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/kanakapura-road" },
   openGraph: {
     title: "Event Decoration in Kanakapura Road – We Decor Bangalore",
     description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Kanakapura Road. Décor for community halls, homes and banquet venues. Book today.",
-    url: "https://wedecor.in/areas/kanakapura-road",
+    url: "https://www.wedecorevents.com/areas/kanakapura-road",
     type: "article",
     siteName: "We Decor",
   },

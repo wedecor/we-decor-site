@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Sarjapur Road – We Decor Bangalore",
   description: "Professional birthday, wedding, haldi & balloon decoration in Sarjapur Road. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/sarjapur-road" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/sarjapur-road" },
   openGraph: {
     title: "Event Decoration in Sarjapur Road – We Decor Bangalore",
     description: "Professional birthday, wedding, haldi & balloon decoration in Sarjapur Road. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-    url: "https://wedecor.in/areas/sarjapur-road",
+    url: "https://www.wedecorevents.com/areas/sarjapur-road",
     type: "article",
     siteName: "We Decor",
   },

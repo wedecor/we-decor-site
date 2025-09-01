@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Whitefield – We Decor Bangalore",
   description: "Professional birthday, wedding, haldi & balloon decoration in Whitefield. Décor for apartments, gated communities, villas & corporate venues. Book We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/whitefield" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/whitefield" },
   openGraph: {
     title: "Event Decoration in Whitefield – We Decor Bangalore",
     description: "Professional birthday, wedding, haldi & balloon decoration in Whitefield. Décor for apartments, gated communities, villas & corporate venues. Book We Decor today.",
-    url: "https://wedecor.in/areas/whitefield",
+    url: "https://www.wedecorevents.com/areas/whitefield",
     type: "article",
     siteName: "We Decor",
   },
