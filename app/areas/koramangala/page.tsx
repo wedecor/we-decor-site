@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Koramangala – We Decor Bangalore",
   description: "Premium birthday, wedding, haldi & balloon decoration in Koramangala. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/koramangala" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/koramangala" },
   openGraph: {
     title: "Event Decoration in Koramangala – We Decor Bangalore",
     description: "Premium birthday, wedding, haldi & balloon decoration in Koramangala. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-    url: "https://wedecor.in/areas/koramangala",
+    url: "https://www.wedecorevents.com/areas/koramangala",
     type: "article",
     siteName: "We Decor",
   },

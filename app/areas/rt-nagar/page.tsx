@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in RT Nagar – We Decor Bangalore",
   description: "Birthday, wedding, haldi & balloon decoration in RT Nagar. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/rt-nagar" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/rt-nagar" },
   openGraph: {
     title: "Event Decoration in RT Nagar – We Decor Bangalore",
     description: "Birthday, wedding, haldi & balloon decoration in RT Nagar. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-    url: "https://wedecor.in/areas/rt-nagar",
+    url: "https://www.wedecorevents.com/areas/rt-nagar",
     type: "article",
     siteName: "We Decor",
   },

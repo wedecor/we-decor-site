@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Banashankari – We Decor Bangalore",
   description: "Professional birthday, wedding, haldi & balloon decoration in Banashankari. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/banashankari" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/banashankari" },
   openGraph: {
     title: "Event Decoration in Banashankari – We Decor Bangalore",
     description: "Professional birthday, wedding, haldi & balloon decoration in Banashankari. Décor for homes, apartments, banquet halls & rooftops. Book We Decor today.",
-    url: "https://wedecor.in/areas/banashankari",
+    url: "https://www.wedecorevents.com/areas/banashankari",
     type: "article",
     siteName: "We Decor",
   },

@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Hebbal – We Decor Bangalore",
   description: "Birthday, wedding, haldi & balloon decoration in Hebbal. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/hebbal" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/hebbal" },
   openGraph: {
     title: "Event Decoration in Hebbal – We Decor Bangalore",
     description: "Birthday, wedding, haldi & balloon decoration in Hebbal. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-    url: "https://wedecor.in/areas/hebbal",
+    url: "https://www.wedecorevents.com/areas/hebbal",
     type: "article",
     siteName: "We Decor",
   },

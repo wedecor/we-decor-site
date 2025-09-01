@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Yeshwanthpur – We Decor Bangalore",
   description: "Birthday, wedding, haldi & balloon decoration in Yeshwanthpur. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/yeshwanthpur" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/yeshwanthpur" },
   openGraph: {
     title: "Event Decoration in Yeshwanthpur – We Decor Bangalore",
     description: "Birthday, wedding, haldi & balloon decoration in Yeshwanthpur. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-    url: "https://wedecor.in/areas/yeshwanthpur",
+    url: "https://www.wedecorevents.com/areas/yeshwanthpur",
     type: "article",
     siteName: "We Decor",
   },

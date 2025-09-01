@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Peenya – We Decor Bangalore",
   description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Peenya. Décor for community halls, homes and banquet venues. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/peenya" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/peenya" },
   openGraph: {
     title: "Event Decoration in Peenya – We Decor Bangalore",
     description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Peenya. Décor for community halls, homes and banquet venues. Book today.",
-    url: "https://wedecor.in/areas/peenya",
+    url: "https://www.wedecorevents.com/areas/peenya",
     type: "article",
     siteName: "We Decor",
   },

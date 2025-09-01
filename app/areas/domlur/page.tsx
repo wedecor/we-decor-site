@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Domlur – We Decor Bangalore",
   description: "Premium birthday, wedding, haldi & balloon decoration in Domlur. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/domlur" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/domlur" },
   openGraph: {
     title: "Event Decoration in Domlur – We Decor Bangalore",
     description: "Premium birthday, wedding, haldi & balloon decoration in Domlur. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-    url: "https://wedecor.in/areas/domlur",
+    url: "https://www.wedecorevents.com/areas/domlur",
     type: "article",
     siteName: "We Decor",
   },

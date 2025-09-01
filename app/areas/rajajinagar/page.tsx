@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Rajajinagar – We Decor Bangalore",
   description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Rajajinagar. Décor for community halls, homes and banquet venues. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/rajajinagar" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/rajajinagar" },
   openGraph: {
     title: "Event Decoration in Rajajinagar – We Decor Bangalore",
     description: "Traditional and modern birthday, wedding, haldi & balloon decoration in Rajajinagar. Décor for community halls, homes and banquet venues. Book today.",
-    url: "https://wedecor.in/areas/rajajinagar",
+    url: "https://www.wedecorevents.com/areas/rajajinagar",
     type: "article",
     siteName: "We Decor",
   },

@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Ulsoor – We Decor Bangalore",
   description: "Premium birthday, wedding, haldi & balloon decoration in Ulsoor. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-  alternates: { canonical: "https://wedecor.in/areas/ulsoor" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/ulsoor" },
   openGraph: {
     title: "Event Decoration in Ulsoor – We Decor Bangalore",
     description: "Premium birthday, wedding, haldi & balloon decoration in Ulsoor. Décor for rooftops, apartments, restaurants and banquet halls. Book today.",
-    url: "https://wedecor.in/areas/ulsoor",
+    url: "https://www.wedecorevents.com/areas/ulsoor",
     type: "article",
     siteName: "We Decor",
   },

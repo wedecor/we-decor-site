@@ -15,11 +15,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Event Decoration in Yelahanka – We Decor Bangalore",
   description: "Birthday, wedding, haldi & balloon decoration in Yelahanka. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-  alternates: { canonical: "https://wedecor.in/areas/yelahanka" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/yelahanka" },
   openGraph: {
     title: "Event Decoration in Yelahanka – We Decor Bangalore",
     description: "Birthday, wedding, haldi & balloon decoration in Yelahanka. Décor for homes, lakeside layouts, banquet halls and corporate venues. Book with We Decor today.",
-    url: "https://wedecor.in/areas/yelahanka",
+    url: "https://www.wedecorevents.com/areas/yelahanka",
     type: "article",
     siteName: "We Decor",
   },
