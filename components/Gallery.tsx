@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import gallery from "../utils/gallery";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { galleryThumbnail, heroImage, optimizeImageUrl } from "@/lib/image";
 
 function toTitleCase(str: string) {
   return str
@@ -259,7 +260,7 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
                         </div>
                       )}
                   <Image
-                    src={img.src}
+                    src={optimizeImageUrl(img.src, { width: 300, height: 200, quality: 'auto', format: 'auto' })}
                     alt={img.alt || img.src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -332,7 +333,7 @@ function ImageModal({ isOpen, onClose, images, category }: ImageModalProps) {
               {/* Full Size Image */}
               <div className="flex items-center justify-center h-full">
                 <Image
-                  src={images[selectedImageIndex].src}
+                  src={optimizeImageUrl(images[selectedImageIndex].src, { width: 1920, height: 1080, quality: 'auto', format: 'auto' })}
                   alt={images[selectedImageIndex].alt || images[selectedImageIndex].src.split('/').pop()?.replace(/[-_]/g, ' ').split('.')[0] || 'Gallery Image'}
                   width={1920}
                   height={1080}
