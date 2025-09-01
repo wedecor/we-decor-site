@@ -20,12 +20,14 @@ jobs:
 
       - run: npm ci
 
+      # ✅ Only wait for prod when NOT a PR
       - name: Wait for production to update (robots contains canonical sitemap)
+        if: github.event_name != 'pull_request'
         env:
           PROD: https://www.wedecorevents.com/robots.txt
         run: |
           set -e
-          echo "Polling production robots for canonical sitemap up to ~10 min..."
+          echo "Polling production robots up to ~10 min..."
           for i in $(seq 1 20); do
             body=$(curl -fsSL "$PROD" || true)
             if echo "$body" | grep -qi 'Sitemap:\s*https://www\.wedecorevents\.com/sitemap\.xml'; then
@@ -36,13 +38,16 @@ jobs:
           done
           echo "Timed out waiting for canonical robots"; exit 1
 
+      # ✅ Live sitemap verification only on main (push/schedule), not on PRs
       - name: Verify sitemap (status, XML, URL heads)
+        if: github.event_name != 'pull_request'
         env:
           BASE_URL: https://www.wedecorevents.com
           SITEMAP_CHECK_LIMIT: '25'
         run: npm run verify:sitemap
 
       - name: Legacy safety check (/api/sitemap.xml redirects)
+        if: github.event_name != 'pull_request'
         run: |
           code=$(curl -s -o /dev/null -w "%{http_code}" -L https://www.wedecorevents.com/api/sitemap.xml)
           test "$code" = "200" || (echo "Legacy redirect path not ending 200" && exit 1)

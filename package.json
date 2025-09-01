@@ -2,6 +2,9 @@
   "name": "we-decor",
   "version": "2025.9.1",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -42,7 +45,8 @@
     "merge:localities": "tsx scripts/merge-localities.ts",
     "gen:areas:master": "tsx scripts/generate-areas-from-master.ts",
     "update:areas": "tsx scripts/update-all-areas.ts",
-    "verify:sitemap": "tsx scripts/verify-sitemap.ts"
+    "verify:sitemap": "tsx scripts/verify-sitemap.ts",
+    "verify:local": "tsx scripts/verify-local.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
