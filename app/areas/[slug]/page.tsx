@@ -6,7 +6,7 @@ import AreaHero from "@/components/areas/AreaHero";
 import ServicesGrid from "@/components/areas/ServicesGrid";
 import FAQAccordion from "@/components/areas/FAQAccordion";
 import ContactCard from "@/components/areas/ContactCard";
-import { FaqPageJsonLd } from "../../../components/seo/FaqJsonLd";
+import { FaqPageJsonLd } from "@/components/seo/FaqJsonLd";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
