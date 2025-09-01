@@ -1,12 +1,12 @@
 ✓ /sitemap.xml returns 200 (got 200)
 ✓ content-type is XML (got "application/xml")
 ✓ XML contains <urlset> or <sitemapindex>
-✗ extracted URLs > 0 (found 0)
+✓ extracted URLs > 0 (found 68)
 ✓ all <loc> start with https://www.wedecorevents.com (non-canonical: 0)
 ✓ /api/sitemap.xml redirects (got 308)
-✓ first 0 URLs return 200 (bad: 0)
-✓ URL count <= 50,000 (found 0)
+✓ first 25 URLs return 200 (bad: 0)
+✓ URL count <= 50,000 (found 68)
 
 Checked: https://www.wedecorevents.com/sitemap.xml
-Status: 200, Content-Type: application/xml, Length: 11744
-URL Count: 0
+Status: 200, Content-Type: application/xml, Length: 11676
+URL Count: 68

@@ -1,5 +1,5 @@
-#!/usr/bin/env node
-// Fail CI if both Pages and App define the same route (e.g., "/" via pages/index.tsx and app/page.tsx)
+// scripts/check-route-collisions.js
+// Fails CI if both Pages and App define the same route
 const { globSync } = require('glob');
 
 const toRoute = (p) =>
@@ -9,17 +9,15 @@ const toRoute = (p) =>
    .replace(/\.tsx?$/, '')
    .replace(/index$/, '');
 
-const pages = globSync('pages/**/*.{ts,tsx}').map(toRoute);
-const app = globSync('app/**/*.{ts,tsx}').map(toRoute);
+const pages = globSync('pages/**/*.{ts,tsx}', { nodir: true }).map(toRoute);
+const app = globSync('app/**/*.{ts,tsx}', { nodir: true }).map(toRoute);
 const dupes = [...new Set(pages)].filter((r) => app.includes(r));
 
 if (dupes.length) {
-  console.error('❌ Route collisions found:\n' + dupes.join('\n'));
-  console.error('\n💡 Fix by removing one of the conflicting routes');
-  console.error('   - Pages Router: pages/ directory');
-  console.error('   - App Router: app/ directory');
+  console.error('❌ Route collisions found:');
+  dupes.forEach(route => console.error(`  ${route}`));
+  console.error('\nBoth Pages and App routers define these routes. Fix by removing one.');
   process.exit(1);
 }
 console.log('✅ No route collisions.');
-console.log(`📁 Pages routes: ${pages.length}`);
-console.log(`📁 App routes: ${app.length}`); 
+console.log(`Pages routes: ${pages.length}, App routes: ${app.length}`); 
