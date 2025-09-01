@@ -1,23 +1,12 @@
 ✓ /sitemap.xml returns 200 (got 200)
 ✓ content-type is XML (got "application/xml")
 ✓ XML contains <urlset> or <sitemapindex>
-✓ extracted URLs > 0 (found 67)
-✗ all <loc> start with https://www.wedecorevents.com (non-canonical: 67)
+✗ extracted URLs > 0 (found 0)
+✓ all <loc> start with https://www.wedecorevents.com (non-canonical: 0)
 ✓ /api/sitemap.xml redirects (got 308)
-✗ first 20 URLs return 200 (bad: 20)
-✓ URL count <= 50,000 (found 67)
+✓ first 0 URLs return 200 (bad: 0)
+✓ URL count <= 50,000 (found 0)
 
 Checked: https://www.wedecorevents.com/sitemap.xml
-Status: 200, Content-Type: application/xml, Length: 11236
-URL Count: 67
-Bad URLs:
- - https://wedecorevents.com/ -> 308
- - https://wedecorevents.com/services -> 308
- - https://wedecorevents.com/gallery -> 308
- - https://wedecorevents.com/pricing -> 308
- - https://wedecorevents.com/faq -> 308
- - https://wedecorevents.com/contact -> 308
- - https://wedecorevents.com/locations -> 308
- - https://wedecorevents.com/areas -> 308
- - https://wedecorevents.com/locations/ashok-nagar -> 308
- - https://wedecorevents.com/locations/banashankari -> 308
+Status: 200, Content-Type: application/xml, Length: 11744
+URL Count: 0
