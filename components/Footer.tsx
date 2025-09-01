@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CONTACT } from "@/lib/contact";
 
 export default function Footer() {
+  const telLinks = CONTACT.telLinks();
+  
   return (
     <footer className="bg-gradient-to-br from-green-50 to-pink-50 dark:from-gray-900 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700 py-12 text-gray-600 dark:text-gray-300 font-sans">
       <div className="max-w-6xl mx-auto px-6">
@@ -45,7 +48,11 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-500 dark:text-green-300" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" /></svg>
-                <a href="tel:+918880544452" className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200">+91 8880544452</a>
+                <a href={`tel:${telLinks[0].raw}`} className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200">{telLinks[0].label}</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-green-500 dark:text-green-300" fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" /></svg>
+                <a href={`tel:${telLinks[1].raw}`} className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200">{telLinks[1].label}</a>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-500 dark:text-green-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
