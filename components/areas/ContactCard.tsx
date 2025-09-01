@@ -1,10 +1,16 @@
 "use client";
 import { CONTACT } from "@/lib/contact";
+import { AREAS } from "@/app/(site)/_data/locations";
 
 type Props = { locality: string };
 
 export default function ContactCard({ locality }: Props) {
-  const wa = CONTACT.waUrlForLocality(locality);
+  // Find the area data to get locality-specific WhatsApp prefill
+  const areaData = AREAS.find(area => area.name.toLowerCase() === locality.toLowerCase());
+  const waPrefill = areaData?.waPrefill;
+  
+  // Use locality-specific prefill if available, otherwise use default
+  const wa = waPrefill ? CONTACT.waUrl(waPrefill) : CONTACT.waUrlForLocality(locality);
   const telLinks = CONTACT.telLinks();
   
   return (
