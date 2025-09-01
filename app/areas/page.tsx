@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { GENERATED_LOCATIONS } from "@/app/(site)/_data/locations.generated";
+import { AREAS } from "@/app/(site)/_data/locations";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function AreasIndexPage() {
   };
 
   // Simple A→Z
-  const areas = [...GENERATED_LOCATIONS].sort((a, b) => a.name.localeCompare(b.name));
+  const areas = [...AREAS].sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <>
