@@ -6,7 +6,7 @@ export const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD || "dux
 export interface ImageTransformOptions {
   width?: number;
   height?: number;
-  quality?: number;
+  quality?: number | 'auto';
   format?: 'auto' | 'webp' | 'jpg' | 'png' | 'avif';
   crop?: 'fill' | 'fit' | 'scale' | 'thumb';
   gravity?: 'auto' | 'face' | 'center' | 'top' | 'bottom' | 'left' | 'right';
