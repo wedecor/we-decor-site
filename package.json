@@ -46,7 +46,8 @@
     "gen:areas:master": "tsx scripts/generate-areas-from-master.ts",
     "update:areas": "tsx scripts/update-all-areas.ts",
     "verify:sitemap": "tsx scripts/verify-sitemap.ts",
-    "verify:local": "tsx scripts/verify-local.ts"
+    "verify:local": "tsx scripts/verify-local.ts",
+    "check:routes": "node scripts/check-route-collisions.js"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",

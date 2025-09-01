@@ -20,6 +20,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Route collision check
+        run: npm run check:routes
+
       # ✅ Only wait for prod when NOT a PR
       - name: Wait for production to update (robots contains canonical sitemap)
         if: github.event_name != 'pull_request'
