@@ -1,9 +1,10 @@
 // Centralized site configuration
 // Single source of truth for site URL and related constants
 
+import { env, isProduction, isDevelopment, isPreview } from './env';
+
 // Site configuration constants
-export const SITE_URL = 
-  (process.env.NEXT_PUBLIC_SITE_URL || "https://www.wedecorevents.com").replace(/\/+$/, "");
+export const SITE_URL = env.SITE_URL.replace(/\/+$/, "");
 
 export const SITE_NAME = "We Decor";
 export const SITE_DESCRIPTION = "Professional event decoration services in Bangalore";
@@ -34,9 +35,7 @@ export const buildLocationServiceUrl = (location: string, service: string) => {
 };
 
 // Environment helpers
-export const isProduction = process.env.NODE_ENV === "production";
-export const isDevelopment = process.env.NODE_ENV === "development";
-export const isPreview = process.env.VERCEL_ENV === "preview";
+export { isProduction, isDevelopment, isPreview };
 
 // Site metadata for SEO
 export const getSiteMetadata = () => ({
