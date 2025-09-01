@@ -80,4 +80,55 @@ Add these records to your domain registrar's DNS settings:
 ### Environment Variables
 - **`NEXT_PUBLIC_SITE_URL`** must be set to `https://www.wedecorevents.com` for both Production and Preview environments on Vercel
 - This ensures proper canonical URLs and redirects across all environments
+
+## Production Readiness Smoke Checklist
+
+### Pre-Deployment Checks
+- [ ] **TypeScript**: `npx tsc --noEmit` passes with no errors
+- [ ] **Environment**: `npm run audit:env` passes all checks
+- [ ] **SEO**: `npm run audit:seo` - review and fix any issues
+- [ ] **Links**: `npm run audit:links` - ensure no broken links
+- [ ] **Robots & Sitemap**: `npm run audit:robots` - verify SEO files
+- [ ] **Structured Data**: `npm run audit:structured-data` - check JSON-LD
+- [ ] **Production Build**: `npm run build` completes successfully
+- [ ] **Lighthouse**: `npm run audit:performance` - review performance scores
+
+### Domain & SEO Verification
+- [ ] **Domain Canonicalization**: All URLs use `wedecorevents.com`
+- [ ] **Phone Numbers**: WhatsApp uses `+91 8880544452`, display shows both numbers
+- [ ] **Contact Centralization**: All components use `lib/contact.ts`
+- [ ] **Image Optimization**: Cloudinary transformations applied
+- [ ] **Area Pages**: All 29 area pages have locality-specific content
+- [ ] **Routing**: App Router and Pages Router properly configured
+
+### Manual Testing Checklist
+- [ ] **Homepage**: Loads correctly with proper metadata
+- [ ] **Area Pages**: Each area page displays locality-specific content
+- [ ] **Contact Forms**: WhatsApp and phone links work correctly
+- [ ] **Gallery**: Images load with Cloudinary optimization
+- [ ] **Navigation**: All menu items work and redirect properly
+- [ ] **Mobile Responsive**: Site works on mobile devices
+- [ ] **Dark Mode**: Theme switching works correctly
+- [ ] **Performance**: Pages load within 3 seconds
+
+### Post-Deployment Verification
+- [ ] **Live Site**: `https://www.wedecorevents.com` loads correctly
+- [ ] **SSL Certificate**: HTTPS works without warnings
+- [ ] **Redirects**: Apex domain redirects to www
+- [ ] **Analytics**: Google Analytics tracking working
+- [ ] **Search Console**: Submit sitemap and verify indexing
+- [ ] **Social Media**: OpenGraph and Twitter cards display correctly
+
+### Monitoring & Maintenance
+- [ ] **Error Tracking**: Sentry integration working
+- [ ] **Performance Monitoring**: Lighthouse scores tracked
+- [ ] **SEO Monitoring**: Regular audit reports generated
+- [ ] **Content Updates**: Area-specific content maintained
+- [ ] **Security**: Dependencies updated regularly
+
+### Emergency Contacts
+- **Primary Phone**: +91 8880544452
+- **Secondary Phone**: +91 9591232166
+- **WhatsApp**: +91 8880544452
+- **Domain**: wedecorevents.com
  
