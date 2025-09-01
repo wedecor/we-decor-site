@@ -7,8 +7,8 @@ export const SITE_URL =
 
 export const SITE_NAME = "We Decor";
 export const SITE_DESCRIPTION = "Professional event decoration services in Bangalore";
-export const SITE_PHONE = "+91 98860 12345";
-export const SITE_WHATSAPP = "+91 98860 12345";
+export const SITE_PHONE = "+91 8880544452";
+export const SITE_WHATSAPP = "+91 8880544452";
 export const SITE_EMAIL = "info@wedecorevents.com";
 
 // Canonical URL helpers

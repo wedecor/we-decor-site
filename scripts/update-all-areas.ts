@@ -173,11 +173,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "${data.title}",
   description: "${data.meta}",
-  alternates: { canonical: "https://wedecor.in/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}" },
+  alternates: { canonical: "https://www.wedecorevents.com/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}" },
   openGraph: {
     title: "${data.title}",
     description: "${data.meta}",
-    url: "https://wedecor.in/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}",
+    url: "https://www.wedecorevents.com/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}",
     type: "article",
     siteName: "We Decor",
   },

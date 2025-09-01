@@ -47,7 +47,7 @@ type LocalityDoc = {
 
 const TXT_PATH = "content/we_decor_bangalore_localities.txt";
 const AREAS_DIR = "app/areas";
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://wedecor.in";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.wedecorevents.com";
 const PHONE = "+919591232166";
 const WA = "https://wa.me/919591232166";
 

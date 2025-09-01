@@ -35,8 +35,8 @@ function patchFile(filePath: string) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Areas", "item": "https://wedecor.in/areas" },
-              { "@type": "ListItem", "position": 2, "name": locality, "item": "https://wedecor.in/areas/" + locality.toLowerCase().replace(/[^a-z0-9]+/g, "-") }
+              { "@type": "ListItem", "position": 1, "name": "Areas", "item": "https://www.wedecorevents.com/areas" },
+              { "@type": "ListItem", "position": 2, "name": locality, "item": "https://www.wedecorevents.com/areas/" + locality.toLowerCase().replace(/[^a-z0-9]+/g, "-") }
             ]
           })
         }}
