@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import { writeFileSync } from "node:fs";
 
-const BASE = "https://www.wedecorevents.com";
+const BASE = process.env.BASE_URL || "https://www.wedecorevents.com";
 const REPORT = "reports/sitemap-diagnosis.txt";
 const LIMIT = Number(process.env.SITEMAP_CHECK_LIMIT ?? 20);
 
