@@ -41,7 +41,8 @@
     "qa:seo:check": "tsx scripts/qa-seo-monitoring.ts",
     "merge:localities": "tsx scripts/merge-localities.ts",
     "gen:areas:master": "tsx scripts/generate-areas-from-master.ts",
-    "update:areas": "tsx scripts/update-all-areas.ts"
+    "update:areas": "tsx scripts/update-all-areas.ts",
+    "verify:sitemap": "tsx scripts/verify-sitemap.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -65,7 +66,6 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.55.0",
     "@types/node": "^20.19.11",
     "@types/pdf-parse": "^1.1.5",
@@ -80,12 +80,13 @@
     "husky": "^9.1.7",
     "lighthouse": "^12.8.0",
     "lint-staged": "^16.1.2",
+    "lighthouse-ci": "^0.15.0",
     "npm-run-all": "^4.1.5",
     "pdf-parse": "^1.1.1",
     "prettier": "^3.6.2",
     "react-intersection-observer": "^9.16.0",
     "ts-node": "^10.9.2",
-    "tsx": "^4.20.5",
+    "tsx": "^4.19.2",
     "typescript": "^5.8.3",
     "undici": "^7.15.0",
     "vercel": "^44.7.3"
