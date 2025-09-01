@@ -1,0 +1,85 @@
+GREP MATRIX SUMMARY - REGRESSION CHECK
+=====================================
+
+Date: 2025-09-01
+Time: 06:00 UTC
+
+1. DOMAIN CANONICALIZATION CHECK
+===============================
+✅ No "wedecor.in" references found
+✅ All domain references use "wedecorevents.com"
+
+2. ENVIRONMENT VARIABLE USAGE CHECK
+==================================
+⚠️  Direct process.env usage found (should use lib/env.ts):
+
+Files with direct process.env usage:
+- app/(site)/_data/locations.ts: SITE constant
+- app/image-sitemap/route.ts: SITE constant  
+- tests/areas.spec.ts: PREVIEW_URL
+- lib/image.ts: CLOUDINARY_CLOUD
+- lib/site.ts: Environment access (expected)
+- components/ErrorBoundary.tsx: NODE_ENV check
+- components/Testimonials.tsx: GOOGLE_PLACE_ID
+- utils/googleReviews.ts: GOOGLE_PLACES_API_KEY
+- next.config.js: NODE_ENV check (expected)
+
+3. PHONE NUMBER HARDCODING CHECK
+================================
+⚠️  Hardcoded phone numbers found:
+
+Files with hardcoded numbers:
+- app/layout.tsx: +91 8880544452 in description
+- app/page.tsx: +91 8880544452 in descriptions
+- app/(site)/_components/LocalBizJsonLd.tsx: +91 9591232166
+- app/(site)/locations/[slug]/page.tsx: 918880544452 in WhatsApp links
+- app/(site)/locations/page.tsx: 918880544452 in WhatsApp links
+
+4. CONTACT CENTRALIZATION CHECK
+==============================
+✅ lib/contact.ts exists and is used in:
+- components/areas/ContactCard.tsx
+- components/areas/CTAStickyBar.tsx
+- components/Footer.tsx
+- components/Layout.tsx
+
+5. IMAGE OPTIMIZATION CHECK
+==========================
+✅ lib/image.ts exists with Cloudinary helpers
+✅ Gallery component uses optimizeImageUrl
+✅ ImageTransformOptions supports 'auto' quality
+
+6. AREA PAGES CHECK
+==================
+✅ All 29 area pages have locality prop
+✅ AreaHero and FAQAccordion components updated
+✅ TypeScript errors resolved
+
+7. AUDIT SCRIPTS CHECK
+======================
+✅ All audit scripts use tsx instead of ts-node
+✅ audit-env.ts uses lib/env.ts
+✅ Reports directory exists
+
+8. ROUTING CHECK
+================
+✅ App Router homepage exists (app/page.tsx)
+✅ Mixed routing redirects configured
+✅ Areas use App Router structure
+
+RECOMMENDATIONS:
+================
+
+1. HIGH PRIORITY:
+   - Update remaining hardcoded phone numbers to use CONTACT from lib/contact.ts
+   - Replace direct process.env usage with lib/env.ts where appropriate
+
+2. MEDIUM PRIORITY:
+   - Update metadata descriptions to use dynamic phone numbers
+   - Standardize WhatsApp link generation across all components
+
+3. LOW PRIORITY:
+   - Consider updating test files to use centralized environment config
+   - Review and update any remaining hardcoded URLs
+
+STATUS: ✅ MOSTLY COMPLIANT - Minor regressions found, mostly in metadata and some components 
