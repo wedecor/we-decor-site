@@ -1,0 +1,71 @@
+SITEMAP DIAGNOSIS FINAL REPORT
+==============================
+
+Date: 2025-09-01
+Time: 07:40 UTC
+
+ISSUE FOUND & FIXED
+==================
+Google Search Console reported "Couldn't fetch" for /api/sitemap.xml
+Root cause: Legacy sitemap URL was being submitted incorrectly
+
+FIXES IMPLEMENTED
+================
+
+1. ✅ app/robots.ts - Updated to canonical domain
+   - Host: https://www.wedecorevents.com (was: https://wedecorevents.com)
+   - Sitemap: https://www.wedecorevents.com/sitemap.xml (was: multiple sitemaps)
+   - Removed: image-sitemap reference
+
+2. ✅ app/sitemap.ts - Normalized for deterministic canonical URLs
+   - All URLs now use: https://www.wedecorevents.com/ (with www)
+   - Removed file system scanning for deterministic generation
+   - Uses AREAS data for consistent location/area page generation
+
+3. ✅ next.config.js - Safety redirect already present
+   - /api/sitemap.xml → /sitemap.xml (308 permanent redirect)
+
+4. ✅ scripts/verify-sitemap.ts - Added comprehensive verifier
+   - Checks: status 200, XML content-type, valid XML structure
+   - Validates: canonical URLs, redirect safety, URL count limits
+   - HEAD tests: first 20 URLs for accessibility
+
+VERIFICATION RESULTS
+===================
+
+LIVE PRODUCTION (Current - needs deployment):
+✓ /sitemap.xml returns 200 with application/xml
+✓ /api/sitemap.xml redirects 308 → /sitemap.xml → 200
+✗ URLs still use https://wedecorevents.com (no www) - 67 URLs
+✗ robots.txt still references old format
+✗ All URLs return 308 (redirect to www) - expected until deploy
+
+LOCAL BUILD (After our changes):
+✓ /sitemap.xml returns 200 with application/xml
+✓ /api/sitemap.xml redirects 308 → /sitemap.xml → 200  
+✓ URLs use https://www.wedecorevents.com (canonical with www) - 68 URLs
+✓ robots.txt points to canonical sitemap only
+✓ All URLs return 200 (no redirects needed)
+
+DEPLOYMENT STATUS
+================
+⚠️  Changes committed but deployment failed due to network issues
+✅ Local build and test successful - changes verified working
+📋 Next: Re-deploy to production
+
+POST-DEPLOYMENT ACTIONS
+=======================
+1. Re-run: npm run verify:sitemap (should show all ✓)
+2. Google Search Console:
+   - Remove: https://www.wedecorevents.com/api/sitemap.xml
+   - Submit: https://www.wedecorevents.com/sitemap.xml
+   - URL Inspect: Request indexing for / and key /areas/* pages
+
+SUMMARY
+=======
+✅ Root cause identified and fixed
+✅ Canonical domain (www) enforced in sitemap and robots  
+✅ Legacy API redirect safety maintained
+✅ Comprehensive verification tool created
+✅ Local testing confirms fixes work correctly
+⏳ Awaiting production deployment
