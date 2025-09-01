@@ -11,7 +11,7 @@ import ServicesGrid from "@/components/areas/ServicesGrid";
 import AreaHero from "@/components/areas/AreaHero";
 import AreaPageShell from "@/components/areas/AreaPageShell";
 import Link from "next/link";
-import { GENERATED_LOCATIONS } from "@/app/(site)/_data/locations.generated";
+import { GENERATED_LOCATIONS } from "../../../app/(site)/_data/locations.generated";
 
 export const metadata: Metadata = {
   title: "Event Decoration in Ashok Nagar – We Decor Bangalore",
