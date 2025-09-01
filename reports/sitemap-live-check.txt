@@ -1,0 +1,47 @@
+SITEMAP LIVE CHECK REPORT
+=========================
+
+Date: 2025-09-01
+Time: 07:48 UTC
+Status: AWAITING DEPLOYMENT
+
+CURRENT PRODUCTION STATE:
+========================
+
+✅ Sitemap accessible: HTTP/2 200, application/xml
+✅ Apex → www redirect working: 308 redirect from wedecorevents.com
+✅ Legacy API redirect working: /api/sitemap.xml → /sitemap.xml (308)
+⚠️  Cache headers: Not yet deployed (still showing old cache-control)
+⚠️  Robots.txt: Still references old format (multiple sitemaps, no www)
+⚠️  Sitemap URLs: Still using apex domain (67 URLs → 308 redirects)
+
+LOCAL BUILD VERIFICATION:
+========================
+
+✅ Cache headers: Working correctly
+✅ Robots.txt: Canonical format (single sitemap, www domain)
+✅ Sitemap URLs: Canonical format (www domain, 68 URLs)
+✅ All redirects: Working as expected
+
+DEPLOYMENT STATUS:
+=================
+
+⚠️  Vercel deployment failed due to npm install issues
+✅ Code changes committed and verified locally
+📋 Next: Re-deploy when build issues resolve
+
+EXPECTED POST-DEPLOYMENT:
+=========================
+
+✅ Cache headers: public, max-age=300, s-maxage=300, stale-while-revalidate=86400
+✅ Robots.txt: Single canonical sitemap reference
+✅ Sitemap URLs: All canonical with www prefix
+✅ GSC indexing: Faster due to cache headers and canonical URLs
+
+VERIFICATION COMMANDS:
+=====================
+
+# After deployment, run:
+curl -I https://www.wedecorevents.com/sitemap.xml  # Check cache headers
+curl -s https://www.wedecorevents.com/robots.txt   # Check canonical format
+BASE_URL=https://www.wedecorevents.com npm run verify:sitemap  # Full verification 
