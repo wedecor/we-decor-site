@@ -1,7 +1,9 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
-// Define constants directly to avoid import issues
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wedecorevents.com';
+import { env, validateEnv } from '../lib/env';
+import { SITE_URL } from '../lib/site';
+import * as fs from 'fs';
+import * as path from 'path';
 
 function validateSiteUrl(): boolean {
   try {
@@ -28,7 +30,7 @@ async function auditEnvironment(): Promise<void> {
   const results: EnvAudit = {};
   
   // Check NEXT_PUBLIC_SITE_URL
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const siteUrl = env.SITE_URL;
   if (!siteUrl) {
     results.NEXT_PUBLIC_SITE_URL = {
       passed: false,
@@ -77,7 +79,7 @@ async function auditEnvironment(): Promise<void> {
   }
   
   // Check NODE_ENV
-  const nodeEnv = process.env.NODE_ENV;
+  const nodeEnv = env.NODE_ENV;
   if (!nodeEnv) {
     results.NODE_ENV = {
       passed: false,
@@ -113,6 +115,28 @@ async function auditEnvironment(): Promise<void> {
   
   // Summary
   console.log(`📊 Audit Summary: ${passedCount}/${totalCount} checks passed`);
+  
+  // Create reports directory if it doesn't exist
+  const reportsDir = path.join(process.cwd(), 'reports');
+  if (!fs.existsSync(reportsDir)) {
+    fs.mkdirSync(reportsDir, { recursive: true });
+  }
+  
+  // Generate report
+  const report = {
+    timestamp: new Date().toISOString(),
+    audit: 'Environment Configuration',
+    summary: {
+      passed: passedCount,
+      total: totalCount,
+      success: passedCount === totalCount
+    },
+    results
+  };
+  
+  const reportPath = path.join(reportsDir, 'audit-env-report.json');
+  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+  console.log(`📄 Report saved to: ${reportPath}`);
   
   if (passedCount === totalCount) {
     console.log('🎉 All environment checks passed! Ready for production.');

@@ -1,0 +1,49 @@
+# Step 1: Domain Canonicalization & SEO Consistency - VERIFICATION REPORT
+
+## ✅ COMPLETED SUCCESSFULLY
+
+### Changes Made:
+1. Updated all area pages to use `https://www.wedecorevents.com` instead of `wedecor.in`
+2. Updated `lib/site.ts` to use `wedecorevents.com` as canonical domain
+3. Updated `app/robots.ts` to use centralized `SITE_URL` from `lib/site.ts`
+4. Updated `app/sitemap.ts` to use centralized `SITE_URL` from `lib/site.ts`
+5. Fixed all script files to use correct domain
+
+### Verification Results:
+
+#### Robots.txt ✅
+```
+User-Agent: *
+Allow: /
+
+Host: https://www.wedecorevents.com
+Sitemap: https://www.wedecorevents.com/sitemap.xml
+Sitemap: https://www.wedecorevents.com/image-sitemap
+```
+
+#### Sitemap.xml ✅
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://www.wedecorevents.com/</loc>
+<lastmod>2025-09-01T05:08:43.504Z</lastmod>
+<priority>1</priority>
+</url>
+```
+
+#### Homepage Title ✅
+```html
+<title>We Decor - Bringing Dreams to Life | Bangalore's Trusted Event Decorators | We Decor</title>
+```
+
+### Files Modified:
+- `lib/site.ts` - Updated SITE_URL and contact numbers
+- `app/robots.ts` - Now uses centralized SITE_URL
+- `app/sitemap.ts` - Now uses centralized SITE_URL
+- `app/areas/*/page.tsx` - All 29 area pages updated
+- `scripts/*.ts` - All script files updated
+
+### Commit: `feat(seo): canonicalize domain to wedecorevents.com and fix robots/sitemap`
+
+## STATUS: ✅ PASSED 

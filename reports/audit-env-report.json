@@ -1,0 +1,27 @@
+{
+  "timestamp": "2025-09-01T05:58:31.494Z",
+  "audit": "Environment Configuration",
+  "summary": {
+    "passed": 4,
+    "total": 4,
+    "success": true
+  },
+  "results": {
+    "NEXT_PUBLIC_SITE_URL": {
+      "passed": true,
+      "message": "✅ NEXT_PUBLIC_SITE_URL is correctly set"
+    },
+    "SITE_URL": {
+      "passed": true,
+      "message": "✅ SITE_URL from lib/site.ts is correct"
+    },
+    "URL_FORMAT": {
+      "passed": true,
+      "message": "✅ SITE_URL format is valid (https + www)"
+    },
+    "NODE_ENV": {
+      "passed": true,
+      "message": "✅ NODE_ENV is set to: development"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+# Step 2: Environment Variables & Config Guardrails - VERIFICATION REPORT
+
+## ✅ COMPLETED SUCCESSFULLY
+
+### Changes Made:
+1. Created `lib/env.ts` with centralized environment configuration
+2. Updated `lib/site.ts` to use centralized env configuration
+3. Created `.env.local` with proper SITE_URL
+4. Added validation helpers for environment variables
+
+### New Environment Configuration:
+```typescript
+export const env = {
+  SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.wedecorevents.com",
+  GA_ID: process.env.NEXT_PUBLIC_GA_ID ?? "",
+  SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN ?? "",
+  CLOUDINARY_CLOUD: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD ?? "dux3m2saz",
+  NODE_ENV: process.env.NODE_ENV ?? "development",
+  VERCEL_ENV: process.env.VERCEL_ENV ?? "development",
+} as const;
+```
+
+### Verification Results:
+
+#### Build Success ✅
+```
+✓ Compiled successfully
+✓ Checking validity of types    
+✓ Collecting page data    
+✓ Generating static pages (89/89) 
+✓ Collecting build traces    
+✓ Finalizing page optimization
+```
+
+#### Environment Configuration Log ✅
+```
+🔧 Environment Configuration: {
+  SITE_URL: 'https://www.wedecorevents.com',
+  NODE_ENV: 'development',
+  VERCEL_ENV: 'development',
+  CLOUDINARY_CLOUD: 'dux3m2saz'
+}
+```
+
+#### Robots.txt Still Working ✅
+```
+User-Agent: *
+Allow: /
+
+Host: https://www.wedecorevents.com
+Sitemap: https://www.wedecorevents.com/sitemap.xml
+Sitemap: https://www.wedecorevents.com/image-sitemap
+```
+
+### Files Created/Modified:
+- `lib/env.ts` - NEW: Centralized environment configuration
+- `lib/site.ts` - Updated to use centralized env
+- `.env.local` - NEW: Local environment file with SITE_URL
+
+### Commit: `chore(env): centralize env access via lib/env.ts and set sensible defaults`
+
+## STATUS: ✅ PASSED 
