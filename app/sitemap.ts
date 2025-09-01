@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { SITE, AREAS } from './(site)/_data/locations';
+import { SITE_URL } from '@/lib/site';
+import { AREAS } from './(site)/_data/locations';
 import fs from 'fs';
 import path from 'path';
 
@@ -7,18 +8,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${SITE}/`, lastModified: now, priority: 1.0 },
-    { url: `${SITE}/services`, lastModified: now, priority: 0.9 },
-    { url: `${SITE}/gallery`, lastModified: now, priority: 0.8 },
-    { url: `${SITE}/pricing`, lastModified: now, priority: 0.7 },
-    { url: `${SITE}/faq`, lastModified: now, priority: 0.6 },
-    { url: `${SITE}/contact`, lastModified: now, priority: 0.5 },
-    { url: `${SITE}/locations`, lastModified: now, priority: 0.6 },
-    { url: `${SITE}/areas`, lastModified: now, priority: 0.7 },
+    { url: `${SITE_URL}/`, lastModified: now, priority: 1.0 },
+    { url: `${SITE_URL}/services`, lastModified: now, priority: 0.9 },
+    { url: `${SITE_URL}/gallery`, lastModified: now, priority: 0.8 },
+    { url: `${SITE_URL}/pricing`, lastModified: now, priority: 0.7 },
+    { url: `${SITE_URL}/faq`, lastModified: now, priority: 0.6 },
+    { url: `${SITE_URL}/contact`, lastModified: now, priority: 0.5 },
+    { url: `${SITE_URL}/locations`, lastModified: now, priority: 0.6 },
+    { url: `${SITE_URL}/areas`, lastModified: now, priority: 0.7 },
   ];
 
   const locationPages: MetadataRoute.Sitemap = AREAS.map(a => ({
-    url: `${SITE}/locations/${a.slug}`,
+    url: `${SITE_URL}/locations/${a.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: a.slug === 'bangalore' ? 0.8 : 0.7,
@@ -35,7 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         const pageMdx = path.join(areasDir, slug, "page.mdx");
         if (fs.existsSync(pageTsx) || fs.existsSync(pageMdx)) {
           areasPages.push({
-            url: `${SITE}/areas/${slug}`,
+            url: `${SITE_URL}/areas/${slug}`,
             lastModified: now,
             changeFrequency: 'monthly',
             priority: 0.6,

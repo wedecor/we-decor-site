@@ -27,7 +27,7 @@ const PDF_PATH = "content/we_decor_bangalore_localities.pdf";
 const AREAS_DIR = "app/areas";
 const PHONE = "+919591232166";
 const WA = "https://wa.me/919591232166";
-const SITE = "https://wedecor.in";
+const SITE = "https://www.wedecorevents.com";
 
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
