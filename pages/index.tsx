@@ -132,6 +132,45 @@ export default function HomePage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        {/* Organization (logo/sameAs) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "@id": "https://www.wedecorevents.com/#org",
+              "name": "We Decor",
+              "url": "https://www.wedecorevents.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.wedecorevents.com/logo.png"
+              },
+              "sameAs": [
+                "https://www.instagram.com/wedecorevents",
+                "https://www.facebook.com/wedecorevents"
+              ]
+            })
+          }}
+        />
+        {/* WebSite (SearchAction) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://www.wedecorevents.com/#website",
+              "url": "https://www.wedecorevents.com/",
+              "name": "We Decor",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://www.wedecorevents.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
       </Head>
       <Layout
         seo={{

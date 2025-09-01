@@ -1,53 +1,45 @@
 import Link from "next/link";
-import { AREAS } from "@/app/(site)/_data/locations";
 import type { Metadata } from "next";
+import { GENERATED_LOCATIONS } from "@/app/(site)/_data/locations.generated";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Areas We Serve | We Decor Events",
-  description: "We Decor Events — premium decor services across Bangalore neighborhoods.",
-  alternates: { canonical: "/areas" },
+  title: "Service Areas | We Decor",
+  description: "Browse all neighborhoods and localities We Decor serves for birthdays, engagements, baby showers and more.",
+  alternates: { canonical: "/areas" }
 };
 
-export default function AreasPage() {
+export default function AreasIndexPage() {
+  const base = SITE_URL.replace(/\/+$/, "");
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${base}/` },
+      { "@type": "ListItem", position: 2, name: "Areas", item: `${base}/areas` }
+    ]
+  };
+
+  // Simple A→Z
+  const areas = [...GENERATED_LOCATIONS].sort((a, b) => a.name.localeCompare(b.name));
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-          Areas We Serve
-        </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Explore our services across popular neighborhoods in Bangalore.
-        </p>
-      </div>
-      
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {AREAS.map((area) => (
-          <Link 
-            key={area.slug} 
-            href={`/areas/${area.slug}`} 
-            className="group bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200"
-          >
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                {area.name}
-              </h3>
-              {area.vibe && (
-                <p className="mt-2 text-sm text-gray-600">
-                  {area.vibe}
-                </p>
-              )}
-              {area.landmarks && area.landmarks.length > 0 && (
-                <p className="mt-2 text-xs text-gray-500">
-                  Near {area.landmarks.slice(0, 2).join(', ')}
-                </p>
-              )}
-              <span className="mt-4 inline-block text-blue-600 group-hover:underline">
-                View services →
-              </span>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </div>
+    <>
+      <main className="prose max-w-3xl mx-auto px-4 py-12">
+        <h1 className="mb-2">Service Areas</h1>
+        <p className="mb-6">Explore all neighborhoods we cover in and around Bengaluru.</p>
+        <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
+          {areas.map((a) => (
+            <li key={a.slug}>
+              <Link className="underline" href={`/areas/${a.slug}`}>{a.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
+    </>
   );
 }

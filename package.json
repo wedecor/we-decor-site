@@ -48,7 +48,21 @@
     "verify:sitemap": "tsx scripts/verify-sitemap.ts",
     "verify:local": "tsx scripts/verify-local.ts",
     "check:routes": "node scripts/check-route-collisions.js",
-    "check:canonical": "node scripts/check-canonical-base.js"
+    "check:canonical": "node scripts/check-canonical-base.js",
+    "content:generate": "tsx scripts/generate-locality-content.ts",
+    "content:uniqueness": "tsx scripts/check-uniqueness.ts",
+    "seo:jsonld": "tsx scripts/validate-jsonld.ts",
+    "seo:phones": "tsx scripts/audit-phones.ts",
+    "seo:jsonld:new": "tsx scripts/seo/jsonld-validate.ts",
+    "seo:phones:new": "tsx scripts/seo/phone-audit.ts",
+    "seo:all": "npm run seo:jsonld:new && npm run seo:phones:new",
+    "seo:add-faq": "tsx scripts/seo/add-faq-jsonld.ts",
+    "seo:update-pages": "tsx scripts/seo/update-area-pages.ts",
+    "seo:areas": "tsx scripts/seo/check-area-urls.ts",
+    "seo:assert-jsonld": "tsx scripts/seo/assert-jsonld.ts",
+    "seo:assert-phones": "tsx scripts/seo/assert-phones.ts",
+    "seo:assert-sitemap": "tsx scripts/seo/assert-sitemap.ts",
+    "seo:assert-breadcrumbs": "tsx scripts/seo/assert-breadcrumbs.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
