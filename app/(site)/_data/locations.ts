@@ -17,6 +17,10 @@ export type Area = {
   landmarks?: string[];
   venueTypes?: string[];
   serviceDescriptions?: Record<ServiceKey, string>;
+  // Locality-specific content to reduce duplication
+  heroTagline?: string;
+  uniqueFAQ?: Array<{q: string; a: string}>;
+  waPrefill?: string;
 };
 
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com';
@@ -350,7 +354,23 @@ export const AREAS: Area[] = [
       "apartments",
       "lounges",
       "cafes"
-    ]
+    ],
+    "heroTagline": "Premium birthday & engagement decor in Koramangala",
+    "uniqueFAQ": [
+      {
+        "q": "Do you serve rooftop restaurants in Koramangala?",
+        "a": "Yes, we specialize in rooftop venues across Koramangala. We coordinate with venue managers for setup timing and ensure proper anchoring for outdoor decor."
+      },
+      {
+        "q": "Can you handle last-minute bookings in Koramangala?",
+        "a": "Absolutely! We offer same-day setup services in Koramangala for urgent events. Our team is familiar with the area's venues and can work efficiently."
+      },
+      {
+        "q": "What's your experience with Koramangala's café culture?",
+        "a": "We've decorated dozens of Koramangala cafés and lounges. We understand the space constraints and create compact, Instagram-worthy setups."
+      }
+    ],
+    "waPrefill": "Hi! I'm planning an event in Koramangala."
   },
   {
     "slug": "malleshwaram",

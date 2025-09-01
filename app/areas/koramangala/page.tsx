@@ -100,11 +100,11 @@ export default function Page() {
   <main id="top" className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200">
     <AreaPageShell>
       <Breadcrumbs locality={locality} />
-      <AreaHero title={metadata?.title as string ?? "Event Decoration"} intro={intro} />
+      <AreaHero title={metadata?.title as string ?? "Event Decoration"} intro={intro} locality={locality} />
       <ServicesGrid locality={locality} services={services} />
       <GalleryStrip />
       <NearbyChips nearby={nearby} />
-      <FAQAccordion faqs={faqs} />
+      <FAQAccordion faqs={faqs} locality={locality} />
       <ContactCard locality={locality} />
       <CTAStickyBar locality={locality} />
     </AreaPageShell>
