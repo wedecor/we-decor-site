@@ -35,7 +35,10 @@ export default function AreaPage({ params }: { params: { slug: string } }) {
   const area = AREAS.find((a) => a.slug === params.slug) as any;
   if (!area) return notFound();
   const base = SITE_URL.replace(/\/+$/, "");
-  const faqs = area.uniqueFAQ || [];
+  const faqs = (area.uniqueFAQ || []).map((faq: {q: string; a: string}) => ({
+    question: faq.q,
+    answer: faq.a
+  }));
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
