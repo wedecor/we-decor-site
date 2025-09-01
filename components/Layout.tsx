@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SeoHead from "./SeoHead";
 import { ReactNode } from "react";
+import { CONTACT } from "@/lib/contact";
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,7 +18,7 @@ export default function Layout({ children, seo }: LayoutProps) {
       <Footer />
       {/* Sticky WhatsApp CTA */}
       <a
-        href="https://wa.me/918880544452"
+        href={CONTACT.waUrl()}
         className="fixed bottom-6 right-6 bg-gradient-to-r from-green-400 to-pink-400 text-white px-6 py-3 rounded-full shadow-xl z-50 flex items-center gap-3 hover:from-green-500 hover:to-pink-500 hover:scale-105 transition transform duration-200 animate-pulse hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400"
         target="_blank"
         rel="noopener"
@@ -32,7 +33,7 @@ export default function Layout({ children, seo }: LayoutProps) {
       </a>
       {/* Sticky Call Now CTA */}
       <a
-        href="tel:+918880544452"
+        href={`tel:${CONTACT.PRIMARY_NUMBER}`}
         className="fixed bottom-24 right-6 bg-gradient-to-r from-pink-400 to-green-400 text-white px-6 py-3 rounded-full shadow-xl z-50 flex items-center gap-3 hover:from-pink-500 hover:to-green-500 hover:scale-105 transition transform duration-200 animate-pulse hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400"
         id="callnow-cta"
         data-gtm="click-callnow"
