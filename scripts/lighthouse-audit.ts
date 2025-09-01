@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
 import { execSync } from 'child_process';
 import { SITE_URL } from '../lib/site';
