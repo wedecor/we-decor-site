@@ -1,0 +1,55 @@
+name: Verify Production Sitemap & Robots
+
+on:
+  push: { branches: [ main ] }
+  pull_request: { branches: [ main ] }
+  schedule:
+    - cron: '30 3 * * *'   # daily 09:00 IST
+  workflow_dispatch:
+
+permissions: { contents: read }
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: 'npm' }
+
+      - run: npm ci
+
+      - name: Wait for production to update (robots contains canonical sitemap)
+        env:
+          PROD: https://www.wedecorevents.com/robots.txt
+        run: |
+          set -e
+          echo "Polling production robots for canonical sitemap up to ~10 min..."
+          for i in $(seq 1 20); do
+            body=$(curl -fsSL "$PROD" || true)
+            if echo "$body" | grep -qi 'Sitemap:\s*https://www\.wedecorevents\.com/sitemap\.xml'; then
+              echo "Canonical robots detected"; exit 0
+            fi
+            echo "Not yet updated (attempt $i). Sleeping 30s..."
+            sleep 30
+          done
+          echo "Timed out waiting for canonical robots"; exit 1
+
+      - name: Verify sitemap (status, XML, URL heads)
+        env:
+          BASE_URL: https://www.wedecorevents.com
+          SITEMAP_CHECK_LIMIT: '25'
+        run: npm run verify:sitemap
+
+      - name: Legacy safety check (/api/sitemap.xml redirects)
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" -L https://www.wedecorevents.com/api/sitemap.xml)
+          test "$code" = "200" || (echo "Legacy redirect path not ending 200" && exit 1)
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: sitemap-reports
+          path: reports/
+          if-no-files-found: warn 

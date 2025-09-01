@@ -2,9 +2,9 @@
 /* eslint-disable no-console */
 import { writeFileSync } from "node:fs";
 
-const BASE = process.env.BASE_URL || "https://www.wedecorevents.com";
+const BASE = process.env.BASE_URL ?? "https://www.wedecorevents.com";
 const REPORT = "reports/sitemap-diagnosis.txt";
-const LIMIT = Number(process.env.SITEMAP_CHECK_LIMIT ?? 20);
+const LIMIT = Number(process.env.SITEMAP_CHECK_LIMIT ?? 25);
 
 type FetchInfo = { url: string; status: number; contentType?: string; len?: number; note?: string };
 
