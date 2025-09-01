@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { AREAS } from "@/app/(site)/_data/locations";
 import { SITE_URL } from "@/lib/site";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Service Areas | We Decor",
@@ -26,17 +28,36 @@ export default function AreasIndexPage() {
 
   return (
     <>
-      <main className="prose max-w-3xl mx-auto px-4 py-12">
-        <h1 className="mb-2">Service Areas</h1>
-        <p className="mb-6">Explore all neighborhoods we cover in and around Bengaluru.</p>
-        <ul className="grid sm:grid-cols-2 gap-2 list-none pl-0">
-          {areas.map((a) => (
-            <li key={a.slug}>
-              <Link className="underline" href={`/areas/${a.slug}`}>{a.name}</Link>
-            </li>
-          ))}
-        </ul>
+      <Navbar />
+      <main id="top" className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-12">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Service Areas
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+              Explore all neighborhoods we cover in and around Bengaluru.
+            </p>
+          </div>
+          
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {areas.map((a) => (
+                <Link 
+                  key={a.slug}
+                  href={`/areas/${a.slug}`}
+                  className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group"
+                >
+                  <span className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                    {a.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </main>
+      <Footer />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
