@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function AreasIndexPage() {
+  // Force rebuild for Vercel deployment
   const base = SITE_URL.replace(/\/+$/, "");
   const breadcrumbLd = {
     "@context": "https://schema.org",
