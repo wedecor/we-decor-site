@@ -18,6 +18,14 @@ const nextConfig = {
     instrumentationHook: true,
     mdxRs: true,
   },
+  webpack: (config, { isServer }) => {
+    // Exclude scripts directory from webpack compilation
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'scripts': false,
+    };
+    return config;
+  },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async redirects() {
     const redirects = [
