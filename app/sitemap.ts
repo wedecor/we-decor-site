@@ -1,50 +1,35 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 import { AREAS } from './(site)/_data/locations';
-import fs from 'fs';
-import path from 'path';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const base = SITE_URL.replace(/\/+$/, '');
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: now, priority: 1.0 },
-    { url: `${SITE_URL}/services`, lastModified: now, priority: 0.9 },
-    { url: `${SITE_URL}/gallery`, lastModified: now, priority: 0.8 },
-    { url: `${SITE_URL}/pricing`, lastModified: now, priority: 0.7 },
-    { url: `${SITE_URL}/faq`, lastModified: now, priority: 0.6 },
-    { url: `${SITE_URL}/contact`, lastModified: now, priority: 0.5 },
-    { url: `${SITE_URL}/locations`, lastModified: now, priority: 0.6 },
-    { url: `${SITE_URL}/areas`, lastModified: now, priority: 0.7 },
+    { url: `${base}/`, lastModified: now, priority: 1.0 },
+    { url: `${base}/services`, lastModified: now, priority: 0.9 },
+    { url: `${base}/gallery`, lastModified: now, priority: 0.8 },
+    { url: `${base}/pricing`, lastModified: now, priority: 0.7 },
+    { url: `${base}/faq`, lastModified: now, priority: 0.6 },
+    { url: `${base}/contact`, lastModified: now, priority: 0.5 },
+    { url: `${base}/locations`, lastModified: now, priority: 0.6 },
+    { url: `${base}/areas`, lastModified: now, priority: 0.7 },
   ];
 
   const locationPages: MetadataRoute.Sitemap = AREAS.map(a => ({
-    url: `${SITE_URL}/locations/${a.slug}`,
+    url: `${base}/locations/${a.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: a.slug === 'bangalore' ? 0.8 : 0.7,
   }));
 
-  // Add areas pages dynamically
-  const areasPages: MetadataRoute.Sitemap = [];
-  const areasDir = path.join(process.cwd(), "app", "areas");
-  if (fs.existsSync(areasDir)) {
-    for (const entry of fs.readdirSync(areasDir, { withFileTypes: true })) {
-      if (entry.isDirectory()) {
-        const slug = entry.name;
-        const pageTsx = path.join(areasDir, slug, "page.tsx");
-        const pageMdx = path.join(areasDir, slug, "page.mdx");
-        if (fs.existsSync(pageTsx) || fs.existsSync(pageMdx)) {
-          areasPages.push({
-            url: `${SITE_URL}/areas/${slug}`,
-            lastModified: now,
-            changeFrequency: 'monthly',
-            priority: 0.6,
-          });
-        }
-      }
-    }
-  }
+  const areasPages: MetadataRoute.Sitemap = AREAS.map(a => ({
+    url: `${base}/areas/${a.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  }));
 
   return [...staticPages, ...locationPages, ...areasPages];
 }
