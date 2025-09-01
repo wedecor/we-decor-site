@@ -1,0 +1,106 @@
+STEP 10 VERIFICATION: Final Manual Smoke Checklist (Document in README)
+======================================================================
+
+✅ COMPLETED: Added comprehensive production readiness smoke checklist to README.md
+
+VERIFICATION RESULTS:
+--------------------
+
+1. ✅ README.md Updated:
+   - Added "Production Readiness Smoke Checklist" section
+   - Comprehensive checklist covering all hardening steps
+   - Organized into logical categories for easy reference
+   - Includes emergency contact information
+
+2. ✅ Pre-Deployment Checks:
+   - TypeScript validation
+   - Environment configuration audit
+   - SEO audit and fixes
+   - Link validation
+   - Robots and sitemap verification
+   - Structured data validation
+   - Production build test
+   - Lighthouse performance audit
+
+3. ✅ Domain & SEO Verification:
+   - Domain canonicalization check
+   - Phone number standardization
+   - Contact centralization verification
+   - Image optimization validation
+   - Area pages locality-specific content
+   - Routing configuration check
+
+4. ✅ Manual Testing Checklist:
+   - Homepage functionality
+   - Area pages content
+   - Contact forms and links
+   - Gallery image optimization
+   - Navigation functionality
+   - Mobile responsiveness
+   - Dark mode functionality
+   - Performance benchmarks
+
+5. ✅ Post-Deployment Verification:
+   - Live site accessibility
+   - SSL certificate validation
+   - Domain redirects
+   - Analytics integration
+   - Search console setup
+   - Social media cards
+
+6. ✅ Monitoring & Maintenance:
+   - Error tracking setup
+   - Performance monitoring
+   - SEO monitoring
+   - Content maintenance
+   - Security updates
+
+7. ✅ Emergency Contacts:
+   - Primary phone: +91 8880544452
+   - Secondary phone: +91 9591232166
+   - WhatsApp: +91 8880544452
+   - Domain: wedecorevents.com
+
+CHECKLIST FEATURES:
+------------------
+- ✅ Checkbox format for easy tracking
+- ✅ Organized by deployment phase
+- ✅ Covers all 10 hardening steps
+- ✅ Includes manual testing procedures
+- ✅ Emergency contact information
+- ✅ Monitoring and maintenance tasks
+
+FILES MODIFIED:
+---------------
+- README.md: Added comprehensive smoke checklist section
+
+COMMIT: docs(readme): add comprehensive production readiness smoke checklist
+
+COMPLETED HARDENING STEPS:
+--------------------------
+1. ✅ Domain Canonicalization & SEO Consistency
+2. ✅ Environment Variables & Config Guardrails
+3. ✅ Phone Numbers Policy (Single Source of Truth)
+4. ✅ Content Duplication & Locality Specificity
+5. ✅ Image Optimization via Cloudinary Transformations
+6. ✅ Mixed Routing Cleanup (App Router vs Pages Router)
+7. ✅ QA/Audit Scripts Stabilization
+8. ✅ Lint, Type, and Performance Pass
+9. ✅ Grep Matrix to Ensure No Regressions
+10. ✅ Final Manual Smoke Checklist (Document in README)
+
+FINAL STATUS:
+-------------
+🎉 ALL 10 HARDENING STEPS COMPLETED SUCCESSFULLY!
+
+The We Decor website has been comprehensively hardened and is ready for production deployment. All major issues have been addressed, and a complete smoke checklist is now documented in the README for ongoing maintenance and deployment verification.
+
+NEXT STEPS:
+-----------
+1. Run through the smoke checklist before each deployment
+2. Monitor performance and SEO metrics regularly
+3. Update area-specific content as needed
+4. Maintain security and dependency updates
+5. Use audit scripts for ongoing quality assurance
+
+STATUS: ✅ COMPLETE - All hardening steps finished, smoke checklist documented 
