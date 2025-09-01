@@ -62,7 +62,8 @@
     "seo:assert-jsonld": "tsx scripts/seo/assert-jsonld.ts",
     "seo:assert-phones": "tsx scripts/seo/assert-phones.ts",
     "seo:assert-sitemap": "tsx scripts/seo/assert-sitemap.ts",
-    "seo:assert-breadcrumbs": "tsx scripts/seo/assert-breadcrumbs.ts"
+    "seo:assert-breadcrumbs": "tsx scripts/seo/assert-breadcrumbs.ts",
+    "seo:assert-no-static-areas": "tsx scripts/seo/assert-no-static-areas.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",

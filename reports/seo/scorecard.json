@@ -1,0 +1,19 @@
+{
+  "overall": 78,
+  "grade": "B+",
+  "pillars": {
+    "technical": 23.5,
+    "on_page": 19.0,
+    "local_seo": 16.0,
+    "performance": 11.5,
+    "analytics": 8.0
+  },
+  "notes": [
+    "Strong technical foundation with canonical URLs and proper redirects",
+    "Good meta tags and structured data implementation",
+    "Content uniqueness issues in area pages (template-based content)",
+    "Missing breadcrumb schema and some structured data opportunities",
+    "Phone number consistency needs improvement",
+    "Image optimization could be enhanced with better sizing hints"
+  ]
+} 
