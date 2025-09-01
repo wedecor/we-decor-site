@@ -20,12 +20,7 @@ const nextConfig = {
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async redirects() {
-    // Only apply redirects in production
-    if (process.env.NODE_ENV !== 'production') {
-      return [];
-    }
-    
-    return [
+    const redirects = [
       // Force www
       {
         source: '/:path*',
@@ -46,6 +41,20 @@ const nextConfig = {
         permanent: true,
       },
     ];
+
+    // Add redirects for mixed routing cleanup
+    if (process.env.NODE_ENV === 'production') {
+      redirects.push(
+        // Redirect old pages to new App Router pages
+        {
+          source: '/pages/:path*',
+          destination: '/:path*',
+          permanent: true,
+        }
+      );
+    }
+    
+    return redirects;
   },
   async headers() {
     return [
