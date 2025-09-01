@@ -1,0 +1,47 @@
+{
+  "generated": "2025-09-01T10:23:12.693Z",
+  "totalLocalities": 30,
+  "totalComparisons": 435,
+  "flaggedPairs": [
+    [
+      "bangalore",
+      "yeshwanthpur",
+      0.818
+    ],
+    [
+      "basavanagudi",
+      "richmond-town",
+      0.863
+    ],
+    [
+      "bellandur",
+      "marathahalli",
+      0.807
+    ],
+    [
+      "domlur",
+      "marathahalli",
+      0.899
+    ],
+    [
+      "sahakarnagar",
+      "ulsoor",
+      0.811
+    ],
+    [
+      "sahakarnagar",
+      "vijayanagar",
+      0.97
+    ],
+    [
+      "ulsoor",
+      "vijayanagar",
+      0.811
+    ]
+  ],
+  "summary": {
+    "highSimilarity": 7,
+    "uniqueContent": 23,
+    "uniquenessScore": 77
+  }
+}

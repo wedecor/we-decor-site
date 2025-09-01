@@ -1,0 +1,40 @@
+name: Comment Sitemap Summary
+on:
+  workflow_run:
+    workflows: ["Verify Production Sitemap & Robots"]
+    types: [completed]
+
+jobs:
+  comment:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Extract last lines
+        run: |
+          if [ -f "reports/sitemap-diagnosis.txt" ]; then
+            echo "📊 **Production Sitemap Summary**" > summary.txt
+            echo "" >> summary.txt
+            echo "**Last 25 lines of verification report:**" >> summary.txt
+            echo "\`\`\`" >> summary.txt
+            tail -n 25 reports/sitemap-diagnosis.txt >> summary.txt
+            echo "\`\`\`" >> summary.txt
+            echo "" >> summary.txt
+            echo "✅ **Production verification completed successfully**" >> summary.txt
+            echo "🔍 **Full report:** Check the [workflow run](${{ github.event.workflow_run.html_url }}) for complete details" >> summary.txt
+          else
+            echo "📊 **Production Sitemap Summary**" > summary.txt
+            echo "" >> summary.txt
+            echo "⚠️ **No detailed report found**" >> summary.txt
+            echo "The verification completed successfully, but no detailed report was generated." >> summary.txt
+            echo "" >> summary.txt
+            echo "🔍 **Check the workflow run:** [View Details](${{ github.event.workflow_run.html_url }})" >> summary.txt
+          fi
+      
+      - name: Post PR comment (if available)
+        uses: mshick/add-pr-comment@v2
+        with:
+          message-path: summary.txt
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          allow-repeats: false 
