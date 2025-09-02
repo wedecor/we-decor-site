@@ -1,0 +1,41 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Verify SEO config
+        run: npm run verify:seo
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      - name: Build (capture log)
+        run: npm run build:log
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+      - name: Deny deprecated warnings
+        run: npm run verify:deprecations
+      - name: Start server
+        run: npm run start:testenv &
+      - name: Locality verification
+        run: npm run verify:localities
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Install browsers
+        run: npx playwright install --with-deps
+      - name: E2E + axe
+        run: npm run test:e2e
+      - name: Lighthouse thresholds
+        run: npm run lh
+        env:
+          LH_BASE: http://localhost:3000
