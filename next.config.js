@@ -1,4 +1,15 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+const csp = [
+  "default-src 'self'",
+  "img-src 'self' https: data:",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+  "style-src 'self' 'unsafe-inline' https:",
+  "connect-src 'self' https:",
+  "font-src 'self' https: data:",
+  "frame-ancestors 'none'"
+].join("; ");
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -88,6 +99,16 @@ const nextConfig = {
             value: 'noindex, nofollow',
           },
         ],
+      },
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "geolocation=(), camera=(), microphone=()" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: isProd ? "Content-Security-Policy" : "Content-Security-Policy-Report-Only", value: csp },
+          { key: "X-Content-Type-Options", value: "nosniff" }
+        ]
       },
       {
         source: "/(sitemap\\.xml|api/sitemap\\.xml)",
