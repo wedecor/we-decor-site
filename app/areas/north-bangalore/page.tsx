@@ -8,9 +8,7 @@ export default async function Page() {
   const { caseStudy, cta } = parseContent("north_bangalore.txt");
   return (
     <main className="container mx-auto px-4 py-10 space-y-10">
-      <section>
-        <h1 className="text-3xl font-semibold">North Bangalore</h1>
-      </section>
+      <header><h1 className="text-3xl font-semibold">North Bangalore</h1></header>
       <section>
         <h2 className="text-2xl font-semibold">Case Study</h2>
         <article className="prose max-w-none whitespace-pre-wrap">{caseStudy}</article>
@@ -21,9 +19,8 @@ export default async function Page() {
       </section>
       <aside className="space-y-6">
         <GalleryStrip />
-        <ContactCard locality="North Bangalore" />
+        <ContactCard />
       </aside>
     </main>
   );
 }
-
