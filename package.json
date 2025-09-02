@@ -73,7 +73,8 @@
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "verify:generated": "node scripts/verify-generated-output.cjs",
-    "lh": "node scripts/lh.mjs"
+    "lh": "node scripts/lh.mjs",
+    "validate:sitemap": "tsx scripts/validate-sitemap-urls.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
