@@ -6,6 +6,7 @@ import Testimonials from "../components/Testimonials";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import { SITE_URL, getCanonicalUrl } from "../lib/site";
+import { JsonLd } from "../lib/seo";
 
 // List of services to display on the homepage
 const services = [
@@ -129,49 +130,36 @@ export default function HomePage() {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <JsonLd data={structuredData} />
         {/* Organization (logo/sameAs) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "@id": `${SITE_URL}/#org`,
-              "name": "We Decor",
-              "url": SITE_URL,
-              "logo": {
-                "@type": "ImageObject",
-                "url": `${SITE_URL}/logo.png`
-              },
-              "sameAs": [
-                "https://www.instagram.com/wedecorevents",
-                "https://www.facebook.com/wedecorevents"
-              ]
-            })
-          }}
-        />
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#org`,
+          "name": "We Decor",
+          "url": SITE_URL,
+          "logo": {
+            "@type": "ImageObject",
+            "url": `${SITE_URL}/logo.png`
+          },
+          "sameAs": [
+            "https://www.instagram.com/wedecorevents",
+            "https://www.facebook.com/wedecorevents"
+          ]
+        }} />
         {/* WebSite (SearchAction) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "@id": `${SITE_URL}/#website`,
-              "url": SITE_URL,
-              "name": "We Decor",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": `${SITE_URL}/search?q={search_term_string}`,
-                "query-input": "required name=search_term_string"
-              }
-            })
-          }}
-        />
+        <JsonLd data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          "url": SITE_URL,
+          "name": "We Decor",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": `${SITE_URL}/search?q={search_term_string}`,
+            "query-input": "required name=search_term_string"
+          }
+        }} />
       </Head>
       <Layout
         seo={{
