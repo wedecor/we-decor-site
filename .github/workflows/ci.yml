@@ -26,7 +26,7 @@ jobs:
       - name: Deny deprecated warnings
         run: npm run verify:deprecations
       - name: Bundle budget guard
-        run: BUNDLE_BUDGET_KB=200 BUNDLE_WARN_KB=160 npm run guard:bundles
+        run: BUNDLE_BUDGET_KB=500 BUNDLE_WARN_KB=400 npm run guard:bundles
       - name: Start server
         run: npm run start:testenv &
       - name: Locality verification

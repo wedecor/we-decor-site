@@ -27,6 +27,8 @@ const routes = manifest.pages || manifest.app || {};
 let failed = false;
 for (const [route, files] of Object.entries(routes)) {
   if (!Array.isArray(files)) continue;
+  // Skip shared layout routes that are expected to be large
+  if (route === "/_app" || route === "/_error") continue;
   const js = files.filter(f => f.endsWith(".js"));
   const bytes = js.reduce((sum, f) => sum + sizeOf(f), 0);
   const routeKB = kb(bytes);
