@@ -25,10 +25,14 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
       - name: Deny deprecated warnings
         run: npm run verify:deprecations
+      - name: Bundle budget guard
+        run: BUNDLE_BUDGET_KB=200 BUNDLE_WARN_KB=160 npm run guard:bundles
       - name: Start server
         run: npm run start:testenv &
       - name: Locality verification
         run: npm run verify:localities
+      - name: Verify security headers
+        run: HEADERS_BASE=http://localhost:3000 npm run verify:headers
       - name: Unit tests
         run: npm run test:unit
       - name: Install browsers
