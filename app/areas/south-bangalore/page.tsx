@@ -19,7 +19,7 @@ export default async function Page() {
       </section>
       <aside className="space-y-6">
         <GalleryStrip />
-        <ContactCard />
+        <ContactCard locality="South Bangalore" />
       </aside>
     </main>
   );
