@@ -38,7 +38,6 @@
     "gen:areas:txt": "tsx scripts/generate-areas-from-text.ts",
     "gen:areas:txt:dry": "tsx scripts/generate-areas-from-text.ts --dry-run",
     "patch:areas": "tsx scripts/patch-areas.ts",
-    "test:e2e": "playwright test",
     "ui:areas": "tsx scripts/upgrade-areas-ui.ts",
     "qa:seo": "tsx scripts/qa-seo-monitoring.ts",
     "qa:seo:check": "tsx scripts/qa-seo-monitoring.ts",

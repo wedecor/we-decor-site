@@ -23,6 +23,20 @@ const nextConfig = {
       ...config.resolve.alias,
       'scripts': false,
     };
+    
+    // Exclude MDX files from Sentry wrapping
+    if (config.module && config.module.rules) {
+      config.module.rules.push({
+        test: /\.mdx$/,
+        use: {
+          loader: '@mdx-js/loader',
+          options: {
+            providerImportSource: '@mdx-js/react',
+          },
+        },
+      });
+    }
+    
     return config;
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
@@ -130,5 +144,9 @@ module.exports = withSentryConfig(
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
     automaticVercelMonitors: true,
+
+    // Exclude MDX files from Sentry wrapping
+    excludeServerRoutes: [/\.mdx$/],
+    excludeClientRoutes: [/\.mdx$/],
   }
 );

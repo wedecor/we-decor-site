@@ -1,5 +1,5 @@
-import { lighthouse } from 'lighthouse';
-import chromeLauncher from 'chrome-launcher';
+import lighthouse from 'lighthouse';
+import * as chromeLauncher from 'chrome-launcher';
 
 const base = process.env.LH_BASE || "http://localhost:3000";
 const urls = ["/", "/areas/east-bangalore"];
