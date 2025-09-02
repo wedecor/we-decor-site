@@ -8,9 +8,6 @@ const routes = [
   "/areas/north-bangalore",
   "/areas/south-bangalore",
   "/areas/central-bangalore",
-  "/areas/basavanagudi",
-  "/areas/whitefield",
-  "/areas/koramangala",
 ];
 const hasSections = (html) => /<h2[^>]*>\s*Case Study\s*<\/h2>/i.test(html) && /<h2[^>]*>\s*Call to Action\s*<\/h2>/i.test(html);
 (async () => {
