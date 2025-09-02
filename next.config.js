@@ -6,7 +6,6 @@ const nextConfig = {
   eslint: { ignoreDuringBuilds: true }, // unblock prod build
   typescript: { ignoreBuildErrors: false },
   images: {
-    domains: ['res.cloudinary.com'],
     formats: ['image/webp', 'image/avif'],
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/dux3m2saz/**' },

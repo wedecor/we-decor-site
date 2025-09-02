@@ -63,7 +63,12 @@
     "seo:assert-phones": "tsx scripts/seo/assert-phones.ts",
     "seo:assert-sitemap": "tsx scripts/seo/assert-sitemap.ts",
     "seo:assert-breadcrumbs": "tsx scripts/seo/assert-breadcrumbs.ts",
-    "seo:assert-no-static-areas": "tsx scripts/seo/assert-no-static-areas.ts"
+    "seo:assert-no-static-areas": "tsx scripts/seo/assert-no-static-areas.ts",
+    "verify:localities": "node scripts/verify-localities.cjs",
+    "start:testenv": "cross-env NODE_ENV=production PORT=3000 next start",
+    "verify:seo": "node scripts/verify-seo-config.cjs",
+    "build:log": "NEXT_TELEMETRY_DISABLED=1 next build | tee .next/build-log.txt",
+    "verify:deprecations": "node scripts/deny-deprecations.cjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
