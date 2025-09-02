@@ -107,7 +107,13 @@ const nextConfig = {
           { key: "Permissions-Policy", value: "geolocation=(), camera=(), microphone=()" },
           { key: "X-Frame-Options", value: "DENY" },
           { key: isProd ? "Content-Security-Policy" : "Content-Security-Policy-Report-Only", value: csp },
-          { key: "X-Content-Type-Options", value: "nosniff" }
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // HSTS only in production
+          ...(
+            isProd
+              ? [{ key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" }]
+              : []
+          )
         ]
       },
       {

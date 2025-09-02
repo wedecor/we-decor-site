@@ -67,7 +67,13 @@
     "start:testenv": "NODE_ENV=production PORT=3000 next start",
     "verify:seo": "node scripts/verify-seo-config.cjs",
     "guard:bundles": "node scripts/guard-bundles.mjs",
-    "build:guarded": "npm run build:log && npm run guard:bundles",
+    "build:guarded": "node -e \"if(!process.env.NEXT_PUBLIC_SITE_URL){console.error('NEXT_PUBLIC_SITE_URL missing');process.exit(2)}\" && npm run build:log && npm run guard:bundles",
+    "serve:prod": "next start -p 3001",
+    "images:convert": "node scripts/convert-images.mjs",
+    "verify:headers": "node scripts/verify-headers.mjs",
+    "verify:seo": "node scripts/verify-seo.mjs",
+    "verify:lh": "node scripts/verify-lh.mjs",
+    "hygiene": "npm prune --production && depcheck || true",
     "build:log": "NEXT_TELEMETRY_DISABLED=1 next build | tee .next/build-log.txt",
     "verify:deprecations": "node scripts/deny-deprecations.cjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -78,7 +84,9 @@
     "validate:sitemap": "tsx scripts/validate-sitemap-urls.ts",
     "verify:headers": "node scripts/verify-headers.cjs",
     "start:prod": "next start -p 3000",
-    "verify:all": "npm run verify:seo && npm run build:guarded && npm run start:prod & sleep 4 && npm run verify:headers && npm run verify:localities && npm run lh && pkill -f \"next start\" || true"
+    "verify:all": "npm run verify:seo && npm run build:guarded && npm run start:prod & sleep 4 && npm run verify:headers && npm run verify:localities && npm run lh && pkill -f \"next start\" || true",
+    "check:env-prepush": "node scripts/check-env-prepush.mjs",
+    "check:image-alt": "node scripts/find-missing-alt.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -102,6 +110,11 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
+    "@babel/parser": "^7.25.8",
+    "@babel/traverse": "^7.25.7",
+    "depcheck": "^1.4.7",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "sharp": "^0.33.4",
     "@axe-core/playwright": "^4.10.2",
     "@lhci/cli": "^0.12.0",
     "@playwright/test": "^1.55.0",

@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import ThemeProvider from '@/components/ThemeProvider';
 import './env-guard';
+import Script from 'next/script';
+import { GA_ID } from '@/lib/gtag';
 
 
 export const metadata: Metadata = {
@@ -21,6 +23,19 @@ export default function RootLayout({
         <ThemeProvider>
           {children}
         </ThemeProvider>
+        {GA_ID && (
+          <>
+            <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);} 
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', { anonymize_ip: true });
+              `}
+            </Script>
+          </>
+        )}
       </body>
     </html>
   );

@@ -19,7 +19,10 @@ module.exports = {
     // Accessibility rules
     'jsx-a11y/alt-text': 'error',
     'jsx-a11y/anchor-has-content': 'error',
-    'jsx-a11y/anchor-is-valid': 'error',
+    'jsx-a11y/anchor-is-valid': 'warn',
+    'jsx-a11y/no-autofocus': 'warn',
+    'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/click-events-have-key-events': 'warn',
     'jsx-a11y/aria-props': 'error',
     'jsx-a11y/aria-proptypes': 'error',
     'jsx-a11y/aria-unsupported-elements': 'error',

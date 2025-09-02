@@ -1,0 +1,36 @@
+name: readiness
+on:
+  pull_request:
+    branches: [ main ]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Build (guarded)
+        run: |
+          echo "NEXT_PUBLIC_SITE_URL=https://www.wedecorevents.com" >> $GITHUB_ENV
+          npm run build:guarded
+      - name: Start prod
+        run: nohup npm run serve:prod & sleep 4
+      - name: Headers
+        run: HEADERS_BASE=http://localhost:3001 npm run verify:headers
+      - name: SEO
+        run: SEO_BASE=http://localhost:3001 npm run verify:seo
+      - name: Enforce <Image alt>
+        run: node scripts/find-missing-alt.mjs
+      - name: Lighthouse
+        run: LH_BASE=http://localhost:3001 npm run verify:lh
+      - name: A11y smoke
+        run: |
+          npx playwright install --with-deps
+          npx playwright test tests/a11y.spec.ts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lh-reports
+          path: artifacts/lh/
+
