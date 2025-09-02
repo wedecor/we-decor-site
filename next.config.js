@@ -90,16 +90,14 @@ const nextConfig = {
         ],
       },
       {
-        source: '/sitemap.xml',
+        source: "/(sitemap\\.xml|api/sitemap\\.xml)",
         headers: [
-          { key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300, stale-while-revalidate=86400' }
-        ],
+          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" }
+        ]
       },
       {
-        source: '/robots.txt',
-        headers: [
-          { key: 'Cache-Control', value: 'public, max-age=300, s-maxage=300, stale-while-revalidate=86400' }
-        ],
+        source: "/robots.txt",
+        headers: [{ key: "Cache-Control", value: "public, max-age=3600" }]
       },
     ];
   },
