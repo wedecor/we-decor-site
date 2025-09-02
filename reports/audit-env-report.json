@@ -1,26 +1,23 @@
 {
-  "timestamp": "2025-09-02T11:20:05.034Z",
+  "timestamp": "2025-09-02T11:23:24.645Z",
   "audit": "Environment Configuration",
   "summary": {
-    "passed": 1,
+    "passed": 4,
     "total": 4,
-    "success": false
+    "success": true
   },
   "results": {
     "NEXT_PUBLIC_SITE_URL": {
-      "passed": false,
-      "message": "❌ NEXT_PUBLIC_SITE_URL has incorrect value",
-      "details": "Expected: https://www.wedecorevents.com, Got: http://localhost:3000"
+      "passed": true,
+      "message": "✅ NEXT_PUBLIC_SITE_URL is correctly set"
     },
     "SITE_URL": {
-      "passed": false,
-      "message": "❌ SITE_URL from lib/site.ts is incorrect",
-      "details": "Expected: https://www.wedecorevents.com, Got: http://localhost:3000"
+      "passed": true,
+      "message": "✅ SITE_URL from lib/site.ts is correct"
     },
     "URL_FORMAT": {
-      "passed": false,
-      "message": "❌ SITE_URL format is invalid",
-      "details": "URL must be https://www.wedecorevents.com"
+      "passed": true,
+      "message": "✅ SITE_URL format is valid (https + www)"
     },
     "NODE_ENV": {
       "passed": true,
