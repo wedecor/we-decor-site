@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { inter } from './fonts';
 import './globals.css';
 import ThemeProvider from '@/components/ThemeProvider';
 import './env-guard';
 
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'We Decor - Event Decoration Services in Bangalore',
