@@ -2,6 +2,8 @@
 import fs from "fs";
 import path from "path";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com';
+
 const AREAS_DIR = path.join(process.cwd(), "app", "areas");
 
 const encodeJs = (s: string) =>
@@ -35,8 +37,8 @@ function patchFile(filePath: string) {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Areas", "item": "https://www.wedecorevents.com/areas" },
-              { "@type": "ListItem", "position": 2, "name": locality, "item": "https://www.wedecorevents.com/areas/" + locality.toLowerCase().replace(/[^a-z0-9]+/g, "-") }
+              { "@type": "ListItem", "position": 1, "name": "Areas", "item": SITE_URL + "/areas" },
+              { "@type": "ListItem", "position": 2, "name": locality, "item": SITE_URL + "/areas/" + locality.toLowerCase().replace(/[^a-z0-9]+/g, "-") }
             ]
           })
         }}
