@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { parseContent } from "../_lib/parseContent";
+import ClientVisible from "@/components/ClientVisible";
 
 const ContactCard = dynamic(() => import("@/components/areas/ContactCard").then(m => m.default ?? m), { ssr: false });
 const GalleryStrip = dynamic(() => import("@/components/areas/GalleryStrip").then(m => m.default ?? m), { ssr: false });
@@ -18,8 +19,8 @@ export default async function Page() {
         <article className="prose max-w-none whitespace-pre-wrap">{cta}</article>
       </section>
       <aside className="space-y-6">
-        <GalleryStrip />
-        <ContactCard locality="North Bangalore" />
+        <ClientVisible><GalleryStrip /></ClientVisible>
+        <ClientVisible><ContactCard locality="North Bangalore" /></ClientVisible>
       </aside>
     </main>
   );
