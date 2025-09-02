@@ -66,6 +66,8 @@
     "verify:localities": "node scripts/verify-localities.cjs",
     "start:testenv": "NODE_ENV=production PORT=3000 next start",
     "verify:seo": "node scripts/verify-seo-config.cjs",
+    "guard:bundles": "node scripts/guard-bundles.mjs",
+    "build:guarded": "npm run build:log && npm run guard:bundles",
     "build:log": "NEXT_TELEMETRY_DISABLED=1 next build | tee .next/build-log.txt",
     "verify:deprecations": "node scripts/deny-deprecations.cjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
