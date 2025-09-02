@@ -5,6 +5,8 @@ import ClientVisible from "@/components/ClientVisible";
 const ContactCard = dynamic(() => import("@/components/areas/ContactCard").then(m => m.default ?? m), { ssr: false });
 const GalleryStrip = dynamic(() => import("@/components/areas/GalleryStrip").then(m => m.default ?? m), { ssr: false });
 
+export const revalidate = 3600; // 1 hour
+
 export default async function Page() {
   const { caseStudy, cta } = parseContent("north_bangalore.txt");
   return (
