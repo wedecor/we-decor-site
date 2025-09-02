@@ -27,7 +27,18 @@ const routes = manifest.pages || manifest.app || {};
 let failed = false;
 for (const [route, files] of Object.entries(routes)) {
   // Ignore shared layouts / root app bootstrap to avoid double-penalizing shared JS
-  if (route === "/" || route === "/_app" || /\/\_app(\/|$)/.test(route) || String(route).includes("(app-client)")) continue;
+  const skip =
+    route === "/" ||
+    route === "/_app" ||
+    route === "/_document" ||
+    route === "/_error" ||
+    /\/\_app(\/|$)/.test(route) ||
+    String(route).startsWith("/api") ||
+    String(route).startsWith("/_next") ||
+    String(route).includes("(app-client)") ||
+    String(route).includes("(app-internals)") ||
+    String(route).includes("middleware");
+  if (skip) continue;
   if (!Array.isArray(files)) continue;
   const js = files.filter(f => f.endsWith(".js"));
   const bytes = js.reduce((sum, f) => sum + sizeOf(f), 0);
