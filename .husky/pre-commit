@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+# block problematic file names in /public/services
+node scripts/check-service-filenames.mjs || exit 1
+
+# run staged linters/tests quickly
+npx lint-staged
+

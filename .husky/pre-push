@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Ensure env is present locally before pushing (prevents broken previews)
+node scripts/check-env-prepush.mjs || exit 1
+
+# Optional: quick sanity build to catch obvious issues fast (comment out if slow)
+# npm run -s build:guarded || exit 1
+
