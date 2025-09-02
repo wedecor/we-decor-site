@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.wedecorevents.com/api/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+
+# Allow important pages
+Allow: /
+Allow: /areas/
+Allow: /services/
+Allow: /gallery/
+Allow: /contact/
+Allow: /about/
+Allow: /locations/

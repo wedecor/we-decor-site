@@ -5,6 +5,7 @@ import FAQ from "../components/FAQ";
 import Testimonials from "../components/Testimonials";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { SITE_URL, getCanonicalUrl } from "../lib/site";
 
 // List of services to display on the homepage
 const services = [
@@ -139,12 +140,12 @@ export default function HomePage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "@id": "https://www.wedecorevents.com/#org",
+              "@id": `${SITE_URL}/#org`,
               "name": "We Decor",
-              "url": "https://www.wedecorevents.com/",
+              "url": SITE_URL,
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.wedecorevents.com/logo.png"
+                "url": `${SITE_URL}/logo.png`
               },
               "sameAs": [
                 "https://www.instagram.com/wedecorevents",
@@ -160,12 +161,12 @@ export default function HomePage() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "@id": "https://www.wedecorevents.com/#website",
-              "url": "https://www.wedecorevents.com/",
+              "@id": `${SITE_URL}/#website`,
+              "url": SITE_URL,
               "name": "We Decor",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://www.wedecorevents.com/search?q={search_term_string}",
+                "target": `${SITE_URL}/search?q={search_term_string}`,
                 "query-input": "required name=search_term_string"
               }
             })

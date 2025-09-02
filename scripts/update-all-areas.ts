@@ -3,6 +3,8 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com';
+
 interface LocalityData {
   title: string;
   meta: string;
@@ -173,11 +175,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "${data.title}",
   description: "${data.meta}",
-  alternates: { canonical: "https://www.wedecorevents.com/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}" },
+  alternates: { canonical: "${SITE_URL}/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}" },
   openGraph: {
     title: "${data.title}",
     description: "${data.meta}",
-    url: "https://www.wedecorevents.com/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}",
+    url: "${SITE_URL}/areas/${data.locality.toLowerCase().replace(/\s+/g, '-')}",
     type: "article",
     siteName: "We Decor",
   },

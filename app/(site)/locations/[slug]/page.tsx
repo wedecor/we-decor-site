@@ -64,8 +64,8 @@ export default function LocationPage({ params }: LocationPageProps) {
           '@context':'https://schema.org',
           '@type':'BreadcrumbList',
           itemListElement:[
-            { '@type':'ListItem', position:1, name:'Locations', item:'https://www.wedecorevents.com/locations'},
-            { '@type':'ListItem', position:2, name:areaName, item:`https://www.wedecorevents.com/locations/${params.slug}`}
+            { '@type':'ListItem', position:1, name:'Locations', item:`${SITE}/locations`},
+            { '@type':'ListItem', position:2, name:areaName, item:`${SITE}/locations/${params.slug}`}
           ]
         })}}
       />

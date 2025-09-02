@@ -91,7 +91,7 @@ HOST=http://localhost:3000 npm run qa:links
 HOST=https://www.wedecorevents.com npm run qa:all
 
 # Test staging/preview
-HOST=https://your-preview-url.vercel.app npm run qa:all
+HOST=https://your-preview-url.example.com npm run qa:all
 ```
 
 ---
