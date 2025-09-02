@@ -1,0 +1,90 @@
+
+> we-decor@2025.9.1 build
+> next build
+
+   ▲ Next.js 14.1.0
+   - Environments: .env.local, .env.production
+   - Experiments (use at your own risk):
+     · instrumentationHook
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Skipping linting
+   Checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/95) ...
+   Generating static pages (23/95) 
+   Generating static pages (47/95) 
+   Generating static pages (71/95) 
+ ✓ Generating static pages (95/95) 
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                Size     First Load JS
+┌ ○ /_not-found                            1.04 kB         196 kB
+├ ○ /areas                                 1.82 kB         205 kB
+├ ● /areas/[slug]                          985 B           200 kB
+├   ├ /areas/ashok-nagar
+├   ├ /areas/banashankari
+├   ├ /areas/bangalore
+├   └ [+27 more paths]
+├ ○ /areas/central-bangalore               805 B           200 kB
+├ ○ /areas/east-bangalore                  804 B           200 kB
+├ ○ /areas/north-bangalore                 805 B           200 kB
+├ ○ /areas/south-bangalore                 805 B           200 kB
+├ ○ /areas/west-bangalore                  806 B           200 kB
+├ ○ /image-sitemap                         0 B                0 B
+├ ○ /locations                             1.82 kB         205 kB
+├ ● /locations/[slug]                      2.36 kB         206 kB
+├   ├ /locations/ashok-nagar
+├   ├ /locations/banashankari
+├   ├ /locations/bangalore
+├   └ [+27 more paths]
+├ ○ /robots.txt                            0 B                0 B
+└ ○ /sitemap.xml                           0 B                0 B
++ First Load JS shared by all              195 kB
+  ├ chunks/4547-329126581e87fa7c.js        101 kB
+  ├ chunks/52774a7f-b9cff2888b3e2d2d.js    37.5 kB
+  ├ chunks/fd9d1056-a389d942353528b2.js    53.5 kB
+  └ other shared chunks (total)            2.8 kB
+
+Route (pages)                              Size     First Load JS
+┌ ○ /                                      7.02 kB         268 kB
+├   /_app                                  0 B             209 kB
+├ ○ /404                                   1.03 kB         214 kB
+├ ○ /about                                 1.39 kB         219 kB
+├ λ /api/contact                           0 B             209 kB
+├ λ /api/google-reviews                    0 B             209 kB
+├ λ /api/sentry-example-api                0 B             209 kB
+├ ○ /contact                               2.5 kB          221 kB
+├ ○ /faq                                   2.43 kB         232 kB
+├ ○ /gallery                               6.74 kB         225 kB
+├ ○ /pricing                               1.07 kB         219 kB
+├ ● /reviews (ISR: 3600 Seconds)           4.84 kB         254 kB
+├ ○ /sentry-example-page                   2.67 kB         212 kB
+├ ○ /services                              3.21 kB         221 kB
+├ ○ /services/birthday-decoration          1.05 kB         219 kB
+├ ○ /services/birthday-home-decoration     790 B           219 kB
+├ ○ /services/catering                     1.35 kB         219 kB
+├ ○ /services/decoration                   1.47 kB         219 kB
+├ ○ /services/hair-stylists                1.33 kB         219 kB
+├ ○ /services/haldi-backdrop-decor         775 B           219 kB
+├ ○ /services/haldi-decoration             725 B           219 kB
+├ ○ /services/makeup-artists               1.33 kB         219 kB
+├ ○ /services/mehndi-artists               1.29 kB         219 kB
+├ ○ /services/photographers                1.27 kB         219 kB
+├ ○ /services/tent-balloon-setup           720 B           219 kB
+├ ○ /services/videographers                1.28 kB         219 kB
+├ ○ /services/wedding-setup                706 B           219 kB
+└ ○ /services/wedding-stage-decor          766 B           219 kB
++ First Load JS shared by all              216 kB
+  ├ chunks/framework-d52bab97823921f9.js   45.3 kB
+  ├ chunks/main-2cef47def9ad8092.js        36.8 kB
+  ├ chunks/pages/_app-4f9db320950446d1.js  125 kB
+  └ other shared chunks (total)            8.91 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+   (ISR)      incremental static regeneration (uses revalidate in getStaticProps)
+λ  (Dynamic)  server-rendered on demand using Node.js
+
