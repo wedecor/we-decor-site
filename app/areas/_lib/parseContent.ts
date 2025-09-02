@@ -9,4 +9,3 @@ export function parseContent(file: string): { caseStudy: string; cta: string } {
   const cta = (ctaMatch || [])[1]?.trim() ?? "";
   return { caseStudy, cta };
 }
-
