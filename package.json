@@ -65,7 +65,7 @@
     "seo:assert-breadcrumbs": "tsx scripts/seo/assert-breadcrumbs.ts",
     "seo:assert-no-static-areas": "tsx scripts/seo/assert-no-static-areas.ts",
     "verify:localities": "node scripts/verify-localities.cjs",
-    "start:testenv": "cross-env NODE_ENV=production PORT=3000 next start",
+    "start:testenv": "NODE_ENV=production PORT=3000 next start",
     "verify:seo": "node scripts/verify-seo-config.cjs",
     "build:log": "NEXT_TELEMETRY_DISABLED=1 next build | tee .next/build-log.txt",
     "verify:deprecations": "node scripts/deny-deprecations.cjs"
