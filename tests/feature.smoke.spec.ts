@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { silenceExpectedConsole } from './utils/console-filter';
 
 // Routes we consider core
 const ROUTES = ['/', '/gallery', '/services', '/pricing', '/faq', '/contact', '/areas', '/locations'] as const;
@@ -15,6 +16,7 @@ const EXPECTED = {
 test.describe('feature-smoke', () => {
   test.beforeEach(async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    await silenceExpectedConsole(page);
   });
 
   test('no console errors on key pages @smoke', async ({ page }) => {

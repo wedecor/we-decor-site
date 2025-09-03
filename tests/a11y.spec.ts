@@ -1,7 +1,12 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { silenceExpectedConsole } from './utils/console-filter';
 
 test.describe('Accessibility Tests', () => {
+  test.beforeEach(async ({ page }) => {
+    await silenceExpectedConsole(page);
+  });
+
   test('homepage should have proper heading structure', async ({ page }) => {
     await page.goto('/');
     
