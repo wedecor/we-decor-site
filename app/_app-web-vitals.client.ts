@@ -1,18 +1,30 @@
 "use client";
-import { onCLS, onFID, onLCP, onINP, onTTFB } from "web-vitals";
-import { event } from "@/lib/gtag";
 
-const send = (name: string, value: number, id: string) =>
+import { getCLS, getFID, getLCP, getINP, getTTFB, type Metric } from "web-vitals";
+import { event, GA_ID } from "@/lib/gtag";
+
+function send(name: string, value: number, id: string) {
+  // GA4 expects integers; scale CLS for readability like Lighthouse does.
+  const v = name === "CLS" ? Math.round(value * 1000) : Math.round(value);
   event("web-vitals", {
     event_category: "Web Vitals",
     event_label: id,
-    value: Math.round(name === "CLS" ? value * 1000 : value),
+    value: v,
     name,
   });
+}
 
-onCLS(({ value, id }) => send("CLS", value, id));
-onFID(({ value, id }) => send("FID", value, id));
-onLCP(({ value, id }) => send("LCP", value, id));
-onINP(({ value, id }) => send("INP", value, id));
-onTTFB(({ value, id }) => send("TTFB", value, id));
+function handler(metric: Metric) {
+  // metric.name is one of 'CLS','FID','LCP','INP','TTFB'
+  send(metric.name, metric.value, metric.id);
+}
+
+// Only run when GA is configured
+if (GA_ID) {
+  getCLS(handler);
+  getFID(handler);
+  getLCP(handler);
+  getINP(handler);
+  getTTFB(handler);
+}
 
