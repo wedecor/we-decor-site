@@ -4,6 +4,7 @@ import ThemeProvider from '@/components/ThemeProvider';
 import './env-guard';
 import Script from 'next/script';
 import { GA_ID } from '@/lib/gtag';
+import './_app-web-vitals.client';
 
 
 export const metadata: Metadata = {
