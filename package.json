@@ -68,6 +68,7 @@
     "verify:seo": "node scripts/verify-seo.mjs",
     "guard:bundles": "node scripts/guard-bundles.mjs",
     "build:guarded": "node -e \"if(!process.env.NEXT_PUBLIC_SITE_URL){console.error('NEXT_PUBLIC_SITE_URL missing');process.exit(2)}\" && npm run build:log && npm run guard:bundles",
+    "build:check": "node -e \"if(!process.env.NEXT_PUBLIC_SITE_URL){console.error('NEXT_PUBLIC_SITE_URL missing');process.exit(2)}\" && npm run build",
     "serve:prod": "next start -p 3001",
     "images:convert": "node scripts/convert-images.mjs",
     "verify:headers": "node scripts/verify-headers.mjs",
@@ -97,7 +98,8 @@
     "validate:sitemap": "tsx scripts/validate-sitemap-urls.ts",
     "verify:all": "npm run verify:seo && npm run build:guarded && npm run start:prod & sleep 4 && npm run verify:headers && npm run verify:localities && npm run lh && pkill -f \"next start\" || true",
     "check:env-prepush": "node scripts/check-env-prepush.mjs",
-    "check:image-alt": "node scripts/find-missing-alt.mjs"
+    "check:image-alt": "node scripts/find-missing-alt.mjs",
+    "preflight": "npm run lint && npm run typecheck && npm run build:check && npm run test:smoke"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
