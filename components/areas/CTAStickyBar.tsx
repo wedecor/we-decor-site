@@ -1,6 +1,6 @@
-"use client";
-import { useEffect, useState } from "react";
-import { CONTACT } from "@/lib/contact";
+'use client';
+import { useEffect, useState } from 'react';
+import { CONTACT } from '@/lib/contact';
 
 export default function CTAStickyBar({ locality }: { locality: string }) {
   const [visible, setVisible] = useState(false);
@@ -11,8 +11,8 @@ export default function CTAStickyBar({ locality }: { locality: string }) {
       setVisible(scrollY > 300);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   if (!visible) return null;
@@ -24,7 +24,9 @@ export default function CTAStickyBar({ locality }: { locality: string }) {
     <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 z-40 shadow-lg">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="text-center sm:text-left">
-          <h3 className="font-semibold text-gray-900 dark:text-white">Ready to book decoration in {locality}?</h3>
+          <h3 className="font-semibold text-gray-900 dark:text-white">
+            Ready to book decoration in {locality}?
+          </h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">Get instant quotes and themes</p>
         </div>
         <div className="flex gap-3">
@@ -52,4 +54,4 @@ export default function CTAStickyBar({ locality }: { locality: string }) {
       </div>
     </div>
   );
-} 
+}

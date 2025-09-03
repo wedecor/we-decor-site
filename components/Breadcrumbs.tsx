@@ -8,26 +8,24 @@ interface BreadcrumbItem {
 
 export default function Breadcrumbs() {
   const router = useRouter();
-  
+
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
-    const pathSegments = router.asPath.split('/').filter(segment => segment);
-    const breadcrumbs: BreadcrumbItem[] = [
-      { label: 'Home', href: '/' }
-    ];
+    const pathSegments = router.asPath.split('/').filter((segment) => segment);
+    const breadcrumbs: BreadcrumbItem[] = [{ label: 'Home', href: '/' }];
 
     let currentPath = '';
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
-      
+
       // Convert segment to readable label
       const label = segment
         .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
-      
+
       // Don't add href for current page
       const href = index === pathSegments.length - 1 ? undefined : currentPath;
-      
+
       breadcrumbs.push({ label, href });
     });
 
@@ -63,13 +61,11 @@ export default function Breadcrumbs() {
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-600 dark:text-gray-300 font-medium">
-                {item.label}
-              </span>
+              <span className="text-gray-600 dark:text-gray-300 font-medium">{item.label}</span>
             )}
           </li>
         ))}
       </ol>
     </nav>
   );
-} 
+}

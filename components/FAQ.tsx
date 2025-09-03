@@ -5,25 +5,30 @@ import { ChevronDownIcon } from '@heroicons/react/24/outline';
 
 const faqs = [
   {
-    question: "What are your pricing packages?",
-    answer: "Our pricing starts from ₹2,999 for basic decorations and goes up to ₹25,000+ for premium wedding setups. We offer custom quotes based on your specific requirements, venue size, and decoration complexity. Contact us for a detailed quote!"
+    question: 'What are your pricing packages?',
+    answer:
+      'Our pricing starts from ₹2,999 for basic decorations and goes up to ₹25,000+ for premium wedding setups. We offer custom quotes based on your specific requirements, venue size, and decoration complexity. Contact us for a detailed quote!',
   },
   {
-    question: "How long does setup and decoration take?",
-    answer: "Setup time varies by event type: Birthday decorations (2-3 hours), Wedding setups (4-6 hours), and large events (6-8 hours). We always arrive early to ensure everything is perfect before your guests arrive."
+    question: 'How long does setup and decoration take?',
+    answer:
+      'Setup time varies by event type: Birthday decorations (2-3 hours), Wedding setups (4-6 hours), and large events (6-8 hours). We always arrive early to ensure everything is perfect before your guests arrive.',
   },
   {
-    question: "Which areas in Bangalore do you serve?",
-    answer: "We serve all areas of Bangalore including Whitefield, Koramangala, Indiranagar, Jayanagar, Malleshwaram, and surrounding areas. We also travel up to 50km from Bangalore city center for special events."
+    question: 'Which areas in Bangalore do you serve?',
+    answer:
+      'We serve all areas of Bangalore including Whitefield, Koramangala, Indiranagar, Jayanagar, Malleshwaram, and surrounding areas. We also travel up to 50km from Bangalore city center for special events.',
   },
   {
-    question: "Can you customize decorations for specific themes?",
-    answer: "Absolutely! We specialize in custom themes - from Bollywood glamour to rustic garden parties, Disney themes to traditional Indian celebrations. We work closely with you to bring your vision to life with unique, personalized decorations."
+    question: 'Can you customize decorations for specific themes?',
+    answer:
+      'Absolutely! We specialize in custom themes - from Bollywood glamour to rustic garden parties, Disney themes to traditional Indian celebrations. We work closely with you to bring your vision to life with unique, personalized decorations.',
   },
   {
     question: "What's the booking process?",
-    answer: "Booking is simple: 1) Contact us via WhatsApp or call, 2) Share your event details and requirements, 3) Get a custom quote, 4) Confirm with a 50% advance payment, 5) We handle everything on your special day!"
-  }
+    answer:
+      'Booking is simple: 1) Contact us via WhatsApp or call, 2) Share your event details and requirements, 3) Get a custom quote, 4) Confirm with a 50% advance payment, 5) We handle everything on your special day!',
+  },
 ];
 
 export default function FAQ() {
@@ -59,9 +64,7 @@ export default function FAQ() {
                   leaveTo="transform scale-95 opacity-0"
                 >
                   <Disclosure.Panel className="px-6 pb-4">
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{faq.answer}</p>
                   </Disclosure.Panel>
                 </Transition>
               </div>
@@ -70,9 +73,7 @@ export default function FAQ() {
         ))}
       </div>
       <div className="text-center mt-8">
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Still have questions?
-        </p>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">Still have questions?</p>
         <a
           href="https://wa.me/918880544452"
           target="_blank"
@@ -87,4 +88,4 @@ export default function FAQ() {
       </div>
     </section>
   );
-} 
+}

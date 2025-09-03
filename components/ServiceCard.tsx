@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 interface ServiceCardProps {
   title: string;
@@ -23,7 +23,7 @@ export default function ServiceCard({ title, description, image, href }: Service
         width={400}
         height={160}
         className="w-full h-40 object-cover rounded-t-lg"
-        style={{ objectFit: "cover" }}
+        style={{ objectFit: 'cover' }}
       />
       <div className="p-6 flex flex-col gap-2">
         {/* Service title and description for quick scan */}

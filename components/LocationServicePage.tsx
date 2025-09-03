@@ -3,7 +3,13 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaPhone, FaWhatsapp, FaStar, FaCheckCircle, FaMapMarkerAlt } from 'react-icons/fa';
 import { MdPhone, MdWhatsapp } from 'react-icons/md';
-import { buildLocationServiceUrl, SITE_PHONE, SITE_WHATSAPP, buildWhatsAppUrl, buildPhoneUrl } from '../lib/site';
+import {
+  buildLocationServiceUrl,
+  SITE_PHONE,
+  SITE_WHATSAPP,
+  buildWhatsAppUrl,
+  buildPhoneUrl,
+} from '../lib/site';
 
 interface LocationServicePageProps {
   location: {
@@ -34,85 +40,85 @@ export default function LocationServicePage({
   location,
   service,
   images,
-  nearby
+  nearby,
 }: LocationServicePageProps) {
-    const pageTitle = `${service.name} in ${location.displayName} | We Decor Bangalore`;
+  const pageTitle = `${service.name} in ${location.displayName} | We Decor Bangalore`;
   const pageDescription = `Professional ${service.name.toLowerCase()} services in ${location.displayName}, Bangalore. ${service.blurb} Book now for your special occasion.`;
   const pageUrl = buildLocationServiceUrl(location.slug, service.slug);
 
   // JSON-LD Schema for LocalBusiness and Service
   const schemaMarkup = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "We Decor",
-    "description": `${service.name} services in ${location.displayName}, Bangalore`,
-    "url": "/",
-    "telephone": "+91 9591232166",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": location.displayName,
-      "addressRegion": "Bangalore",
-      "addressCountry": "IN"
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'We Decor',
+    description: `${service.name} services in ${location.displayName}, Bangalore`,
+    url: '/',
+    telephone: '+91 9591232166',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: location.displayName,
+      addressRegion: 'Bangalore',
+      addressCountry: 'IN',
     },
-    "areaServed": {
-      "@type": "City",
-      "name": location.displayName
+    areaServed: {
+      '@type': 'City',
+      name: location.displayName,
     },
-    "serviceType": service.name,
-    "priceRange": "₹₹",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "150+"
+    serviceType: service.name,
+    priceRange: '₹₹',
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '150+',
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": `${service.name} Services`,
-      "itemListElement": [
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `${service.name} Services`,
+      itemListElement: [
         {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": service.name,
-            "description": service.blurb
-          }
-        }
-      ]
-    }
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service.name,
+            description: service.blurb,
+          },
+        },
+      ],
+    },
   };
 
   // Reasons to choose We Decor
   const reasonsToChoose = [
     {
-      icon: "🎨",
-      title: "Creative Excellence",
-      description: "Unique and innovative decoration designs that make your event memorable"
+      icon: '🎨',
+      title: 'Creative Excellence',
+      description: 'Unique and innovative decoration designs that make your event memorable',
     },
     {
-      icon: "⚡",
-      title: "Same Day Setup",
-      description: "Quick and efficient decoration services with professional quality"
+      icon: '⚡',
+      title: 'Same Day Setup',
+      description: 'Quick and efficient decoration services with professional quality',
     },
     {
-      icon: "👥",
-      title: "Expert Team",
-      description: "Experienced decorators with attention to every detail"
+      icon: '👥',
+      title: 'Expert Team',
+      description: 'Experienced decorators with attention to every detail',
     },
     {
-      icon: "💰",
-      title: "Affordable Pricing",
-      description: "Premium quality decorations starting from ₹2999"
+      icon: '💰',
+      title: 'Affordable Pricing',
+      description: 'Premium quality decorations starting from ₹2999',
     },
     {
-      icon: "📱",
-      title: "24/7 Support",
-      description: "Round the clock customer support for all your queries"
+      icon: '📱',
+      title: '24/7 Support',
+      description: 'Round the clock customer support for all your queries',
     },
     {
-      icon: "⭐",
-      title: "150+ Reviews",
-      description: "Trusted by hundreds of satisfied customers across Bangalore"
-    }
+      icon: '⭐',
+      title: '150+ Reviews',
+      description: 'Trusted by hundreds of satisfied customers across Bangalore',
+    },
   ];
 
   return (
@@ -128,7 +134,7 @@ export default function LocationServicePage({
         <div className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
           <div className="absolute inset-0 bg-black opacity-20"></div>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h1 
+            <motion.h1
               className="text-4xl md:text-6xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -136,7 +142,7 @@ export default function LocationServicePage({
             >
               {service.name} in {location.displayName}
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,9 +150,9 @@ export default function LocationServicePage({
             >
               {service.blurb}
             </motion.p>
-            
+
             {/* CTA Buttons */}
-            <motion.div 
+            <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -160,7 +166,9 @@ export default function LocationServicePage({
                 Call Now {SITE_PHONE}
               </a>
               <a
-                href={buildWhatsAppUrl(`Hi! I need ${service.name.toLowerCase()} services in ${location.displayName}`)}
+                href={buildWhatsAppUrl(
+                  `Hi! I need ${service.name.toLowerCase()} services in ${location.displayName}`
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
@@ -205,11 +213,11 @@ export default function LocationServicePage({
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-4 left-4 text-white">
                         <p className="font-semibold text-sm">{image.alt}</p>
-                        {image.category && (
+                        {image.category ? (
                           <span className="text-xs bg-pink-500 px-2 py-1 rounded-full">
                             {image.category}
                           </span>
-                        )}
+                        ) : null}
                       </div>
                     </div>
                   </motion.div>
@@ -239,12 +247,8 @@ export default function LocationServicePage({
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 >
                   <div className="text-4xl mb-4">{reason.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                    {reason.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {reason.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{reason.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{reason.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -262,10 +266,8 @@ export default function LocationServicePage({
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
                 About Our {service.name} Services
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed mb-8">
-                {service.blurb}
-              </p>
-              
+              <p className="text-lg text-gray-600 leading-relaxed mb-8">{service.blurb}</p>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
@@ -273,14 +275,15 @@ export default function LocationServicePage({
                     Service Area
                   </h3>
                   <p className="text-gray-600 mb-4">
-                    We provide {service.name.toLowerCase()} services across {location.displayName} and surrounding areas in Bangalore.
+                    We provide {service.name.toLowerCase()} services across {location.displayName}{' '}
+                    and surrounding areas in Bangalore.
                   </p>
                   <div className="flex items-center gap-2 text-pink-600 font-medium">
                     <FaCheckCircle />
                     Same day setup available
                   </div>
                 </div>
-                
+
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center gap-2">
                     <FaStar className="text-pink-500" />
@@ -356,7 +359,8 @@ export default function LocationServicePage({
               Ready to Book Your {service.name} in {location.displayName}?
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Contact us today to discuss your requirements and get a free quote for your special occasion.
+              Contact us today to discuss your requirements and get a free quote for your special
+              occasion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -367,7 +371,9 @@ export default function LocationServicePage({
                 Call {SITE_PHONE}
               </a>
               <a
-                href={buildWhatsAppUrl(`Hi! I need ${service.name.toLowerCase()} services in ${location.displayName}. Can you provide a quote?`)}
+                href={buildWhatsAppUrl(
+                  `Hi! I need ${service.name.toLowerCase()} services in ${location.displayName}. Can you provide a quote?`
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
@@ -381,6 +387,4 @@ export default function LocationServicePage({
       </div>
     </>
   );
-};
-
-
+}

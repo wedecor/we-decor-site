@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 // Hero is the main entry section for the homepage, with headline and CTAs
 export default function Hero() {
@@ -6,9 +6,13 @@ export default function Hero() {
     // Section with gradient background and centered content
     <section className="bg-gradient-to-br from-green-500 to-blue-500 py-20 text-center text-white animate-fadeIn transition-opacity font-sans">
       {/* Main headline for brand positioning */}
-      <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">Bringing Dreams to Life</h1>
+      <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+        Bringing Dreams to Life
+      </h1>
       {/* Tagline for trust and context */}
-      <p className="text-xl md:text-2xl mb-10 font-medium opacity-90">Bangalore’s trusted event decor experts for weddings, birthdays, haldi, and more.</p>
+      <p className="text-xl md:text-2xl mb-10 font-medium opacity-90">
+        Bangalore’s trusted event decor experts for weddings, birthdays, haldi, and more.
+      </p>
       {/* CTA buttons for conversion: Get a Quote and View Gallery */}
       <div className="flex flex-col md:flex-row gap-6 justify-center">
         <Link

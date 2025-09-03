@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 type QA = { question: string; answer: string };
 
@@ -10,14 +10,14 @@ export interface FaqJsonLdProps {
 
 function buildFaqLd(faqs: QA[], url?: string) {
   return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    ...(url ? { "@id": `${url.replace(/\/+$/, "")}#faq` } : {}),
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    ...(url ? { '@id': `${url.replace(/\/+$/, '')}#faq` } : {}),
     mainEntity: faqs.map((qa) => ({
-      "@type": "Question",
+      '@type': 'Question',
       name: qa.question,
       acceptedAnswer: {
-        "@type": "Answer",
+        '@type': 'Answer',
         text: qa.answer,
       },
     })),
@@ -28,10 +28,7 @@ function InnerFaqJsonLd({ faqs, url }: FaqJsonLdProps) {
   if (!faqs || faqs.length === 0) return null;
   const json = buildFaqLd(faqs, url);
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />
   );
 }
 
@@ -39,4 +36,4 @@ function InnerFaqJsonLd({ faqs, url }: FaqJsonLdProps) {
 export default InnerFaqJsonLd;
 
 // Named alias (covers: `import { FaqPageJsonLd } from '.../FaqJsonLd'`)
-export const FaqPageJsonLd = InnerFaqJsonLd; 
+export const FaqPageJsonLd = InnerFaqJsonLd;
