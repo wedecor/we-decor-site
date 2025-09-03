@@ -17,7 +17,7 @@ export default function Navbar() {
         >
           <Image
             src="/logo.png"
-            alt="We Decor Logo"
+            alt="We Decor Logo - Event Decoration Services in Bangalore"
             width={36}
             height={36}
             className="rounded-full shadow"
