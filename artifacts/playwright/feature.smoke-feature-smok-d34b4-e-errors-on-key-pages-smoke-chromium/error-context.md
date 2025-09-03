@@ -28,155 +28,448 @@
         - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
           - img [ref=e17] [cursor=pointer]
   - main [ref=e19]:
-    - generic [ref=e21]:
-      - generic [ref=e22]:
-        - heading "Service Areas" [level=1] [ref=e23]
-        - paragraph [ref=e24]: Explore all neighborhoods we cover in and around Bengaluru.
-      - generic [ref=e26]:
-        - link "Ashok Nagar" [ref=e27] [cursor=pointer]:
-          - /url: /areas/ashok-nagar
-          - generic [ref=e28] [cursor=pointer]: Ashok Nagar
-        - link "Banashankari" [ref=e29] [cursor=pointer]:
-          - /url: /areas/banashankari
-          - generic [ref=e30] [cursor=pointer]: Banashankari
-        - link "Bangalore" [ref=e31] [cursor=pointer]:
-          - /url: /areas/bangalore
-          - generic [ref=e32] [cursor=pointer]: Bangalore
-        - link "Bannerghatta Road" [ref=e33] [cursor=pointer]:
-          - /url: /areas/bannerghatta-road
-          - generic [ref=e34] [cursor=pointer]: Bannerghatta Road
-        - link "Basavanagudi" [ref=e35] [cursor=pointer]:
-          - /url: /areas/basavanagudi
-          - generic [ref=e36] [cursor=pointer]: Basavanagudi
-        - link "Bellandur" [ref=e37] [cursor=pointer]:
-          - /url: /areas/bellandur
-          - generic [ref=e38] [cursor=pointer]: Bellandur
-        - link "BTM Layout" [ref=e39] [cursor=pointer]:
-          - /url: /areas/btm-layout
-          - generic [ref=e40] [cursor=pointer]: BTM Layout
-        - link "Domlur" [ref=e41] [cursor=pointer]:
-          - /url: /areas/domlur
-          - generic [ref=e42] [cursor=pointer]: Domlur
-        - link "Electronic City" [ref=e43] [cursor=pointer]:
-          - /url: /areas/electronic-city
-          - generic [ref=e44] [cursor=pointer]: Electronic City
-        - link "Hebbal" [ref=e45] [cursor=pointer]:
-          - /url: /areas/hebbal
-          - generic [ref=e46] [cursor=pointer]: Hebbal
-        - link "HSR Layout" [ref=e47] [cursor=pointer]:
-          - /url: /areas/hsr-layout
-          - generic [ref=e48] [cursor=pointer]: HSR Layout
-        - link "Indiranagar" [ref=e49] [cursor=pointer]:
-          - /url: /areas/indiranagar
-          - generic [ref=e50] [cursor=pointer]: Indiranagar
-        - link "Jayanagar" [ref=e51] [cursor=pointer]:
-          - /url: /areas/jayanagar
-          - generic [ref=e52] [cursor=pointer]: Jayanagar
-        - link "JP Nagar" [ref=e53] [cursor=pointer]:
-          - /url: /areas/jp-nagar
-          - generic [ref=e54] [cursor=pointer]: JP Nagar
-        - link "Kanakapura Road" [ref=e55] [cursor=pointer]:
-          - /url: /areas/kanakapura-road
-          - generic [ref=e56] [cursor=pointer]: Kanakapura Road
-        - link "Koramangala" [ref=e57] [cursor=pointer]:
-          - /url: /areas/koramangala
-          - generic [ref=e58] [cursor=pointer]: Koramangala
-        - link "Malleshwaram" [ref=e59] [cursor=pointer]:
-          - /url: /areas/malleshwaram
-          - generic [ref=e60] [cursor=pointer]: Malleshwaram
-        - link "Marathahalli" [ref=e61] [cursor=pointer]:
-          - /url: /areas/marathahalli
-          - generic [ref=e62] [cursor=pointer]: Marathahalli
-        - link "Mathikere" [ref=e63] [cursor=pointer]:
-          - /url: /areas/mathikere
-          - generic [ref=e64] [cursor=pointer]: Mathikere
-        - link "Peenya" [ref=e65] [cursor=pointer]:
-          - /url: /areas/peenya
-          - generic [ref=e66] [cursor=pointer]: Peenya
-        - link "Rajajinagar" [ref=e67] [cursor=pointer]:
-          - /url: /areas/rajajinagar
-          - generic [ref=e68] [cursor=pointer]: Rajajinagar
-        - link "Richmond Town" [ref=e69] [cursor=pointer]:
-          - /url: /areas/richmond-town
-          - generic [ref=e70] [cursor=pointer]: Richmond Town
-        - link "RT Nagar" [ref=e71] [cursor=pointer]:
-          - /url: /areas/rt-nagar
-          - generic [ref=e72] [cursor=pointer]: RT Nagar
-        - link "Sahakarnagar" [ref=e73] [cursor=pointer]:
-          - /url: /areas/sahakarnagar
-          - generic [ref=e74] [cursor=pointer]: Sahakarnagar
-        - link "Sarjapur Road" [ref=e75] [cursor=pointer]:
-          - /url: /areas/sarjapur-road
-          - generic [ref=e76] [cursor=pointer]: Sarjapur Road
-        - link "Ulsoor" [ref=e77] [cursor=pointer]:
-          - /url: /areas/ulsoor
-          - generic [ref=e78] [cursor=pointer]: Ulsoor
-        - link "Vijayanagar" [ref=e79] [cursor=pointer]:
-          - /url: /areas/vijayanagar
-          - generic [ref=e80] [cursor=pointer]: Vijayanagar
-        - link "Whitefield" [ref=e81] [cursor=pointer]:
-          - /url: /areas/whitefield
-          - generic [ref=e82] [cursor=pointer]: Whitefield
-        - link "Yelahanka" [ref=e83] [cursor=pointer]:
-          - /url: /areas/yelahanka
-          - generic [ref=e84] [cursor=pointer]: Yelahanka
-        - link "Yeshwanthpur" [ref=e85] [cursor=pointer]:
-          - /url: /areas/yeshwanthpur
-          - generic [ref=e86] [cursor=pointer]: Yeshwanthpur
-  - contentinfo [ref=e87]:
-    - generic [ref=e88]:
-      - generic [ref=e89]:
-        - generic [ref=e90]:
-          - img "We Decor Logo" [ref=e91]
-          - generic [ref=e92]:
-            - generic [ref=e93]: We Decor
-            - generic [ref=e94]: Bringing Dreams to Life in Bangalore
-        - link "Follow us on Instagram" [ref=e95] [cursor=pointer]:
+    - navigation [ref=e20]:
+      - generic [ref=e21]:
+        - link "We Decor Logo We Decor" [ref=e22] [cursor=pointer]:
+          - /url: /
+          - img "We Decor Logo" [ref=e23] [cursor=pointer]
+          - generic [ref=e24] [cursor=pointer]: We Decor
+        - generic [ref=e25]:
+          - link "About" [ref=e26] [cursor=pointer]:
+            - /url: /about
+          - link "Services" [ref=e27] [cursor=pointer]:
+            - /url: /services
+          - link "Gallery" [ref=e28] [cursor=pointer]:
+            - /url: /gallery
+          - link "Areas" [ref=e29] [cursor=pointer]:
+            - /url: /areas
+          - link "Locations" [ref=e30] [cursor=pointer]:
+            - /url: /locations
+          - link "Pricing" [ref=e31] [cursor=pointer]:
+            - /url: /pricing
+          - link "FAQ" [ref=e32] [cursor=pointer]:
+            - /url: /faq
+          - link "Contact" [ref=e33] [cursor=pointer]:
+            - /url: /contact
+          - button "Toggle dark mode" [ref=e34] [cursor=pointer]:
+            - img [ref=e35] [cursor=pointer]
+    - main [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - heading "Event Decoration Across Bangalore — Areas We Serve" [level=1] [ref=e40]
+          - paragraph [ref=e41]: Explore our coverage across North, South, East, Central and West Bengaluru. Each area page includes local service details, photos and quick booking options.
+          - generic [ref=e42]:
+            - link "Call" [ref=e43] [cursor=pointer]:
+              - /url: tel:+918880544452
+            - link "WhatsApp" [ref=e44] [cursor=pointer]:
+              - /url: https://wa.me/918880544452?text=Hi! I need decoration services in Bengaluru
+            - link "See Services" [ref=e45] [cursor=pointer]:
+              - /url: /services
+        - navigation "Clusters" [ref=e46]:
+          - paragraph [ref=e47]: "Jump to a region:"
+          - list [ref=e48]:
+            - listitem [ref=e49]:
+              - link "South Bangalore" [ref=e50] [cursor=pointer]:
+                - /url: "#south"
+            - listitem [ref=e51]:
+              - link "East & South-East Bangalore" [ref=e52] [cursor=pointer]:
+                - /url: "#east"
+            - listitem [ref=e53]:
+              - link "North Bangalore" [ref=e54] [cursor=pointer]:
+                - /url: "#north"
+            - listitem [ref=e55]:
+              - link "Central & Inner-City Bangalore" [ref=e56] [cursor=pointer]:
+                - /url: "#central"
+            - listitem [ref=e57]:
+              - link "West Bangalore" [ref=e58] [cursor=pointer]:
+                - /url: "#west"
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - heading "South Bangalore" [level=2] [ref=e62]
+              - link "Back to top" [ref=e63] [cursor=pointer]:
+                - /url: "#top"
+            - paragraph [ref=e64]: Family neighbourhoods and banquet halls across South Bengaluru — ideal for birthdays, haldi, weddings and intimate engagements.
+            - list [ref=e65]:
+              - listitem [ref=e66]:
+                - generic [ref=e67]:
+                  - link "Jayanagar" [ref=e68] [cursor=pointer]:
+                    - /url: /locations/jayanagar
+                  - link "View" [ref=e69] [cursor=pointer]:
+                    - /url: /locations/jayanagar
+                - paragraph [ref=e70]: Serving home, apartment, clubhouse and venue decor in Jayanagar.
+              - listitem [ref=e71]:
+                - generic [ref=e72]:
+                  - link "JP Nagar" [ref=e73] [cursor=pointer]:
+                    - /url: /locations/jp-nagar
+                  - link "View" [ref=e74] [cursor=pointer]:
+                    - /url: /locations/jp-nagar
+                - paragraph [ref=e75]: Serving home, apartment, clubhouse and venue decor in JP Nagar.
+              - listitem [ref=e76]:
+                - generic [ref=e77]:
+                  - link "Banashankari" [ref=e78] [cursor=pointer]:
+                    - /url: /locations/banashankari
+                  - link "View" [ref=e79] [cursor=pointer]:
+                    - /url: /locations/banashankari
+                - paragraph [ref=e80]: Serving home, apartment, clubhouse and venue decor in Banashankari.
+              - listitem [ref=e81]:
+                - generic [ref=e82]:
+                  - link "Basavanagudi" [ref=e83] [cursor=pointer]:
+                    - /url: /locations/basavanagudi
+                  - link "View" [ref=e84] [cursor=pointer]:
+                    - /url: /locations/basavanagudi
+                - paragraph [ref=e85]: Serving home, apartment, clubhouse and venue decor in Basavanagudi.
+              - listitem [ref=e86]:
+                - generic [ref=e87]:
+                  - link "BTM Layout" [ref=e88] [cursor=pointer]:
+                    - /url: /locations/btm-layout
+                  - link "View" [ref=e89] [cursor=pointer]:
+                    - /url: /locations/btm-layout
+                - paragraph [ref=e90]: Serving home, apartment, clubhouse and venue decor in BTM Layout.
+              - listitem [ref=e91]:
+                - generic [ref=e92]:
+                  - link "HSR Layout" [ref=e93] [cursor=pointer]:
+                    - /url: /locations/hsr-layout
+                  - link "View" [ref=e94] [cursor=pointer]:
+                    - /url: /locations/hsr-layout
+                - paragraph [ref=e95]: Serving home, apartment, clubhouse and venue decor in HSR Layout.
+              - listitem [ref=e96]:
+                - generic [ref=e97]:
+                  - link "Sarjapur Road" [ref=e98] [cursor=pointer]:
+                    - /url: /locations/sarjapur-road
+                  - link "View" [ref=e99] [cursor=pointer]:
+                    - /url: /locations/sarjapur-road
+                - paragraph [ref=e100]: Serving home, apartment, clubhouse and venue decor in Sarjapur Road.
+              - listitem [ref=e101]:
+                - generic [ref=e102]:
+                  - link "Electronic City" [ref=e103] [cursor=pointer]:
+                    - /url: /locations/electronic-city
+                  - link "View" [ref=e104] [cursor=pointer]:
+                    - /url: /locations/electronic-city
+                - paragraph [ref=e105]: Serving home, apartment, clubhouse and venue decor in Electronic City.
+              - listitem [ref=e106]:
+                - generic [ref=e107]:
+                  - link "Bannerghatta Road" [ref=e108] [cursor=pointer]:
+                    - /url: /locations/bannerghatta-road
+                  - link "View" [ref=e109] [cursor=pointer]:
+                    - /url: /locations/bannerghatta-road
+                - paragraph [ref=e110]: Serving home, apartment, clubhouse and venue decor in Bannerghatta Road.
+              - listitem [ref=e111]:
+                - generic [ref=e112]:
+                  - link "Ashok Nagar" [ref=e113] [cursor=pointer]:
+                    - /url: /locations/ashok-nagar
+                  - link "View" [ref=e114] [cursor=pointer]:
+                    - /url: /locations/ashok-nagar
+                - paragraph [ref=e115]: Serving home, apartment, clubhouse and venue decor in Ashok Nagar.
+            - paragraph [ref=e116]:
+              - generic [ref=e117]: "We also serve:"
+              - text: Arekere, Gottigere, Hulimavu, HSR Sector 2–7, Kudlu Gate, Kasavanahalli.
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - heading "East & South-East Bangalore" [level=2] [ref=e120]
+              - link "Back to top" [ref=e121] [cursor=pointer]:
+                - /url: "#top"
+            - paragraph [ref=e122]: Villas, gated communities and tech hubs — popular for home events, proposals and corporate decor.
+            - list [ref=e123]:
+              - listitem [ref=e124]:
+                - generic [ref=e125]:
+                  - link "Whitefield" [ref=e126] [cursor=pointer]:
+                    - /url: /locations/whitefield
+                  - link "View" [ref=e127] [cursor=pointer]:
+                    - /url: /locations/whitefield
+                - paragraph [ref=e128]: Serving home, apartment, clubhouse and venue decor in Whitefield.
+              - listitem [ref=e129]:
+                - generic [ref=e130]:
+                  - link "Marathahalli" [ref=e131] [cursor=pointer]:
+                    - /url: /locations/marathahalli
+                  - link "View" [ref=e132] [cursor=pointer]:
+                    - /url: /locations/marathahalli
+                - paragraph [ref=e133]: Serving home, apartment, clubhouse and venue decor in Marathahalli.
+              - listitem [ref=e134]:
+                - generic [ref=e135]:
+                  - link "Bellandur" [ref=e136] [cursor=pointer]:
+                    - /url: /locations/bellandur
+                  - link "View" [ref=e137] [cursor=pointer]:
+                    - /url: /locations/bellandur
+                - paragraph [ref=e138]: Serving home, apartment, clubhouse and venue decor in Bellandur.
+            - paragraph [ref=e139]:
+              - generic [ref=e140]: "We also serve:"
+              - text: KR Puram, Varthur, Hoodi, Seegehalli, Kadugodi, Panathur, Haralur, Hosa Road.
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - heading "North Bangalore" [level=2] [ref=e143]
+              - link "Back to top" [ref=e144] [cursor=pointer]:
+                - /url: "#top"
+            - paragraph [ref=e145]: Lakeside layouts and major business parks — great for baby showers, birthdays and office events.
+            - list [ref=e146]:
+              - listitem [ref=e147]:
+                - generic [ref=e148]:
+                  - link "Hebbal" [ref=e149] [cursor=pointer]:
+                    - /url: /locations/hebbal
+                  - link "View" [ref=e150] [cursor=pointer]:
+                    - /url: /locations/hebbal
+                - paragraph [ref=e151]: Serving home, apartment, clubhouse and venue decor in Hebbal.
+              - listitem [ref=e152]:
+                - generic [ref=e153]:
+                  - link "Yelahanka" [ref=e154] [cursor=pointer]:
+                    - /url: /locations/yelahanka
+                  - link "View" [ref=e155] [cursor=pointer]:
+                    - /url: /locations/yelahanka
+                - paragraph [ref=e156]: Serving home, apartment, clubhouse and venue decor in Yelahanka.
+              - listitem [ref=e157]:
+                - generic [ref=e158]:
+                  - link "RT Nagar" [ref=e159] [cursor=pointer]:
+                    - /url: /locations/rt-nagar
+                  - link "View" [ref=e160] [cursor=pointer]:
+                    - /url: /locations/rt-nagar
+                - paragraph [ref=e161]: Serving home, apartment, clubhouse and venue decor in RT Nagar.
+              - listitem [ref=e162]:
+                - generic [ref=e163]:
+                  - link "Sahakarnagar" [ref=e164] [cursor=pointer]:
+                    - /url: /locations/sahakarnagar
+                  - link "View" [ref=e165] [cursor=pointer]:
+                    - /url: /locations/sahakarnagar
+                - paragraph [ref=e166]: Serving home, apartment, clubhouse and venue decor in Sahakarnagar.
+              - listitem [ref=e167]:
+                - generic [ref=e168]:
+                  - link "Yeshwanthpur" [ref=e169] [cursor=pointer]:
+                    - /url: /locations/yeshwanthpur
+                  - link "View" [ref=e170] [cursor=pointer]:
+                    - /url: /locations/yeshwanthpur
+                - paragraph [ref=e171]: Serving home, apartment, clubhouse and venue decor in Yeshwanthpur.
+            - paragraph [ref=e172]:
+              - generic [ref=e173]: "We also serve:"
+              - text: Jakkur, Thanisandra, Hennur, Babusaheb Palya, Kothanur.
+          - generic [ref=e174]:
+            - generic [ref=e175]:
+              - heading "Central & Inner-City Bangalore" [level=2] [ref=e176]
+              - link "Back to top" [ref=e177] [cursor=pointer]:
+                - /url: "#top"
+            - paragraph [ref=e178]: Chic restaurants, rooftops and heritage streets — perfect for engagements, proposals and anniversaries.
+            - list [ref=e179]:
+              - listitem [ref=e180]:
+                - generic [ref=e181]:
+                  - link "Indiranagar" [ref=e182] [cursor=pointer]:
+                    - /url: /locations/indiranagar
+                  - link "View" [ref=e183] [cursor=pointer]:
+                    - /url: /locations/indiranagar
+                - paragraph [ref=e184]: Serving home, apartment, clubhouse and venue decor in Indiranagar.
+              - listitem [ref=e185]:
+                - generic [ref=e186]:
+                  - link "Ulsoor" [ref=e187] [cursor=pointer]:
+                    - /url: /locations/ulsoor
+                  - link "View" [ref=e188] [cursor=pointer]:
+                    - /url: /locations/ulsoor
+                - paragraph [ref=e189]: Serving home, apartment, clubhouse and venue decor in Ulsoor.
+              - listitem [ref=e190]:
+                - generic [ref=e191]:
+                  - link "Richmond Town" [ref=e192] [cursor=pointer]:
+                    - /url: /locations/richmond-town
+                  - link "View" [ref=e193] [cursor=pointer]:
+                    - /url: /locations/richmond-town
+                - paragraph [ref=e194]: Serving home, apartment, clubhouse and venue decor in Richmond Town.
+              - listitem [ref=e195]:
+                - generic [ref=e196]:
+                  - link "Koramangala" [ref=e197] [cursor=pointer]:
+                    - /url: /locations/koramangala
+                  - link "View" [ref=e198] [cursor=pointer]:
+                    - /url: /locations/koramangala
+                - paragraph [ref=e199]: Serving home, apartment, clubhouse and venue decor in Koramangala.
+              - listitem [ref=e200]:
+                - generic [ref=e201]:
+                  - link "Bangalore" [ref=e202] [cursor=pointer]:
+                    - /url: /locations/bangalore
+                  - link "View" [ref=e203] [cursor=pointer]:
+                    - /url: /locations/bangalore
+                - paragraph [ref=e204]: Serving home, apartment, clubhouse and venue decor in Bangalore.
+              - listitem [ref=e205]:
+                - generic [ref=e206]:
+                  - link "Domlur" [ref=e207] [cursor=pointer]:
+                    - /url: /locations/domlur
+                  - link "View" [ref=e208] [cursor=pointer]:
+                    - /url: /locations/domlur
+                - paragraph [ref=e209]: Serving home, apartment, clubhouse and venue decor in Domlur.
+            - paragraph [ref=e210]:
+              - generic [ref=e211]: "We also serve:"
+              - text: Brigade Road, Residency Road, Shivajinagar, HAL 2nd & 3rd Stage.
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - heading "West Bangalore" [level=2] [ref=e214]
+              - link "Back to top" [ref=e215] [cursor=pointer]:
+                - /url: "#top"
+            - paragraph [ref=e216]: Heritage pockets and large community halls — ideal for traditional functions and corporate townhalls.
+            - list [ref=e217]:
+              - listitem [ref=e218]:
+                - generic [ref=e219]:
+                  - link "Malleshwaram" [ref=e220] [cursor=pointer]:
+                    - /url: /locations/malleshwaram
+                  - link "View" [ref=e221] [cursor=pointer]:
+                    - /url: /locations/malleshwaram
+                - paragraph [ref=e222]: Serving home, apartment, clubhouse and venue decor in Malleshwaram.
+              - listitem [ref=e223]:
+                - generic [ref=e224]:
+                  - link "Rajajinagar" [ref=e225] [cursor=pointer]:
+                    - /url: /locations/rajajinagar
+                  - link "View" [ref=e226] [cursor=pointer]:
+                    - /url: /locations/rajajinagar
+                - paragraph [ref=e227]: Serving home, apartment, clubhouse and venue decor in Rajajinagar.
+              - listitem [ref=e228]:
+                - generic [ref=e229]:
+                  - link "Peenya" [ref=e230] [cursor=pointer]:
+                    - /url: /locations/peenya
+                  - link "View" [ref=e231] [cursor=pointer]:
+                    - /url: /locations/peenya
+                - paragraph [ref=e232]: Serving home, apartment, clubhouse and venue decor in Peenya.
+              - listitem [ref=e233]:
+                - generic [ref=e234]:
+                  - link "Vijayanagar" [ref=e235] [cursor=pointer]:
+                    - /url: /locations/vijayanagar
+                  - link "View" [ref=e236] [cursor=pointer]:
+                    - /url: /locations/vijayanagar
+                - paragraph [ref=e237]: Serving home, apartment, clubhouse and venue decor in Vijayanagar.
+              - listitem [ref=e238]:
+                - generic [ref=e239]:
+                  - link "Mathikere" [ref=e240] [cursor=pointer]:
+                    - /url: /locations/mathikere
+                  - link "View" [ref=e241] [cursor=pointer]:
+                    - /url: /locations/mathikere
+                - paragraph [ref=e242]: Serving home, apartment, clubhouse and venue decor in Mathikere.
+              - listitem [ref=e243]:
+                - generic [ref=e244]:
+                  - link "Kanakapura Road" [ref=e245] [cursor=pointer]:
+                    - /url: /locations/kanakapura-road
+                  - link "View" [ref=e246] [cursor=pointer]:
+                    - /url: /locations/kanakapura-road
+                - paragraph [ref=e247]: Serving home, apartment, clubhouse and venue decor in Kanakapura Road.
+            - paragraph [ref=e248]:
+              - generic [ref=e249]: "We also serve:"
+              - text: Basaveshwaranagar, Nandini Layout, Magadi Road.
+        - generic [ref=e250]:
+          - heading "Ready to book Bangalore decor?" [level=2] [ref=e251]
+          - paragraph [ref=e252]: Tell us your area and event date — we'll share themes and pricing right away.
+          - generic [ref=e253]:
+            - link "Call" [ref=e254] [cursor=pointer]:
+              - /url: tel:+918880544452
+            - link "WhatsApp" [ref=e255] [cursor=pointer]:
+              - /url: https://wa.me/918880544452?text=Hi! I need decoration services in Bengaluru
+            - link "Get a Quote" [ref=e256] [cursor=pointer]:
+              - /url: /contact
+    - generic [ref=e258]:
+      - generic [ref=e259]:
+        - generic [ref=e260]:
+          - img "We Decor Logo" [ref=e261]
+          - generic [ref=e262]:
+            - generic [ref=e263]: We Decor
+            - generic [ref=e264]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e265] [cursor=pointer]:
           - /url: https://instagram.com/wedecorbangalore
-          - img [ref=e96] [cursor=pointer]
-          - generic [ref=e98] [cursor=pointer]: "@wedecorbangalore"
-      - generic [ref=e99]:
-        - navigation "Footer quick links" [ref=e100]:
-          - heading "Quick Links" [level=2] [ref=e101]
-          - list [ref=e102]:
-            - listitem [ref=e103]:
-              - link "About Us" [ref=e104] [cursor=pointer]:
+          - img [ref=e266] [cursor=pointer]
+          - generic [ref=e268] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e269]:
+        - navigation "Footer quick links" [ref=e270]:
+          - heading "Quick Links" [level=2] [ref=e271]
+          - list [ref=e272]:
+            - listitem [ref=e273]:
+              - link "About Us" [ref=e274] [cursor=pointer]:
                 - /url: /about
-            - listitem [ref=e105]:
-              - link "Services" [ref=e106] [cursor=pointer]:
+            - listitem [ref=e275]:
+              - link "Services" [ref=e276] [cursor=pointer]:
                 - /url: /services
-            - listitem [ref=e107]:
-              - link "Gallery" [ref=e108] [cursor=pointer]:
+            - listitem [ref=e277]:
+              - link "Gallery" [ref=e278] [cursor=pointer]:
                 - /url: /gallery
-            - listitem [ref=e109]:
-              - link "Pricing" [ref=e110] [cursor=pointer]:
+            - listitem [ref=e279]:
+              - link "Pricing" [ref=e280] [cursor=pointer]:
                 - /url: /pricing
-            - listitem [ref=e111]:
-              - link "FAQ" [ref=e112] [cursor=pointer]:
+            - listitem [ref=e281]:
+              - link "FAQ" [ref=e282] [cursor=pointer]:
                 - /url: /faq
-            - listitem [ref=e113]:
-              - link "Contact" [ref=e114] [cursor=pointer]:
+            - listitem [ref=e283]:
+              - link "Contact" [ref=e284] [cursor=pointer]:
                 - /url: /contact
-        - generic [ref=e115]:
-          - heading "Contact Info" [level=4] [ref=e116]
-          - generic [ref=e117]:
-            - generic [ref=e118]:
-              - img [ref=e119]
-              - link "+91 88805 44452" [ref=e121] [cursor=pointer]:
+        - generic [ref=e285]:
+          - heading "Contact Info" [level=4] [ref=e286]
+          - generic [ref=e287]:
+            - generic [ref=e288]:
+              - img [ref=e289]
+              - link "+91 88805 44452" [ref=e291] [cursor=pointer]:
                 - /url: tel:+919880544452
-            - generic [ref=e122]:
-              - img [ref=e123]
-              - link "+91 95912 32166" [ref=e125] [cursor=pointer]:
+            - generic [ref=e292]:
+              - img [ref=e293]
+              - link "+91 95912 32166" [ref=e295] [cursor=pointer]:
                 - /url: tel:+919591232166
-            - generic [ref=e126]:
-              - img [ref=e127]
-              - generic [ref=e129]: Bangalore, India
-            - generic [ref=e130]:
-              - img [ref=e131]
-              - generic [ref=e133]: Mon–Sun, 9am–9pm
-      - paragraph [ref=e135]:
+            - generic [ref=e296]:
+              - img [ref=e297]
+              - generic [ref=e299]: Bangalore, India
+            - generic [ref=e300]:
+              - img [ref=e301]
+              - generic [ref=e303]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e305]:
         - text: © 2025
-        - generic [ref=e136]: We Decor
+        - generic [ref=e306]: We Decor
         - text: ", Bangalore. All rights reserved."
-  - alert [ref=e137]
+    - link "Contact us on WhatsApp" [ref=e307] [cursor=pointer]:
+      - /url: https://wa.me/918880544452
+      - img [ref=e308] [cursor=pointer]
+      - generic [ref=e310] [cursor=pointer]: WhatsApp Us
+    - link "Call us now" [ref=e311] [cursor=pointer]:
+      - /url: tel:+918880544452
+      - img [ref=e312] [cursor=pointer]
+      - generic [ref=e314] [cursor=pointer]: Call Now
+  - contentinfo [ref=e315]:
+    - generic [ref=e316]:
+      - generic [ref=e317]:
+        - generic [ref=e318]:
+          - img "We Decor Logo" [ref=e319]
+          - generic [ref=e320]:
+            - generic [ref=e321]: We Decor
+            - generic [ref=e322]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e323] [cursor=pointer]:
+          - /url: https://instagram.com/wedecorbangalore
+          - img [ref=e324] [cursor=pointer]
+          - generic [ref=e326] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e327]:
+        - navigation "Footer quick links" [ref=e328]:
+          - heading "Quick Links" [level=2] [ref=e329]
+          - list [ref=e330]:
+            - listitem [ref=e331]:
+              - link "About Us" [ref=e332] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e333]:
+              - link "Services" [ref=e334] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e335]:
+              - link "Gallery" [ref=e336] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=e337]:
+              - link "Pricing" [ref=e338] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e339]:
+              - link "FAQ" [ref=e340] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e341]:
+              - link "Contact" [ref=e342] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e343]:
+          - heading "Contact Info" [level=4] [ref=e344]
+          - generic [ref=e345]:
+            - generic [ref=e346]:
+              - img [ref=e347]
+              - link "+91 88805 44452" [ref=e349] [cursor=pointer]:
+                - /url: tel:+919880544452
+            - generic [ref=e350]:
+              - img [ref=e351]
+              - link "+91 95912 32166" [ref=e353] [cursor=pointer]:
+                - /url: tel:+919591232166
+            - generic [ref=e354]:
+              - img [ref=e355]
+              - generic [ref=e357]: Bangalore, India
+            - generic [ref=e358]:
+              - img [ref=e359]
+              - generic [ref=e361]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e363]:
+        - text: © 2025
+        - generic [ref=e364]: We Decor
+        - text: ", Bangalore. All rights reserved."
+  - alert [ref=e365]
 ```
