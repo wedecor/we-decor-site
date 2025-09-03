@@ -21,7 +21,7 @@ import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
 import Link from 'next/link';
 
 interface LocationPageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
@@ -29,7 +29,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: LocationPageProps): Promise<Metadata> {
-  const area = getAreaBySlug(params.slug);
+  const { slug } = await params;
+  const area = getAreaBySlug(slug);
   if (!area) return { title: 'Location Not Found' };
 
   return {
@@ -39,8 +40,9 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
   };
 }
 
-export default function LocationPage({ params }: LocationPageProps) {
-  const area = getAreaBySlug(params.slug);
+export default async function LocationPage({ params }: LocationPageProps) {
+  const { slug } = await params;
+  const area = getAreaBySlug(slug);
   if (!area) notFound();
 
   // Get area name for display
@@ -50,12 +52,12 @@ export default function LocationPage({ params }: LocationPageProps) {
   const localizedItems = GALLERY_ITEMS.map((m) => ({ ...m, ...localize(m, area) }));
 
   // Find nearby area from the same cluster
-  const currentCluster = CLUSTERS.find((c) => c.areaSlugs.includes(params.slug));
-  const nearbyArea = currentCluster?.areaSlugs.find((slug) => slug !== params.slug);
+  const currentCluster = CLUSTERS.find((c) => c.areaSlugs.includes(slug));
+  const nearbyArea = currentCluster?.areaSlugs.find((areaSlug) => areaSlug !== slug);
   const nearbyAreaName = nearbyArea ? getAreaBySlug(nearbyArea)?.name : null;
 
   // Get FAQ items for this area
-  const faqItems = faqsForArea(params.slug, areaName);
+  const faqItems = faqsForArea(slug, areaName);
 
   return (
     <>
@@ -81,7 +83,7 @@ export default function LocationPage({ params }: LocationPageProps) {
                 '@type': 'ListItem',
                 position: 2,
                 name: areaName,
-                item: `${SITE}/locations/${params.slug}`,
+                item: `${SITE}/locations/${slug}`,
               },
             ],
           }),
@@ -151,7 +153,7 @@ export default function LocationPage({ params }: LocationPageProps) {
             </h2>
             <div className="max-w-4xl mx-auto">
               <dl className="space-y-6">
-                {faqsForArea(params.slug, areaName).map((faq, index) => (
+                {faqsForArea(slug, areaName).map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0">
                     <dt className="text-lg font-semibold text-gray-800 mb-3">{faq.q}</dt>
                     <dd className="text-gray-600 leading-relaxed">{faq.a}</dd>

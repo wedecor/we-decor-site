@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import FAQ from '@/components/FAQ';
@@ -6,7 +8,6 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { SITE_URL } from '@/lib/site';
 import { JsonLd } from '@/lib/seo';
-import type { Metadata } from 'next';
 
 // List of services to display on the homepage
 const services = [
@@ -130,30 +131,7 @@ const structuredData = {
   sameAs: ['https://www.facebook.com/wedecorevents', 'https://www.instagram.com/wedecorevents'],
 };
 
-export const metadata: Metadata = {
-  title: "We Decor - Bringing Dreams to Life | Bangalore's Trusted Event Decorators",
-  description:
-    "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999. Call +91 8880544452.",
-  openGraph: {
-    title: "We Decor - Bringing Dreams to Life | Bangalore's Trusted Event Decorators",
-    description:
-      "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999. Call +91 8880544452.",
-    images: ['/og-banner.jpg'],
-    url: SITE_URL,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: "We Decor - Bringing Dreams to Life | Bangalore's Trusted Event Decorators",
-    description:
-      "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999. Call +91 8880544452.",
-    images: ['/og-banner.jpg'],
-  },
-  alternates: {
-    canonical: SITE_URL,
-  },
-};
-
-export const dynamic = 'force-static';
+// Note: Metadata is handled in app/layout.tsx for client components
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
