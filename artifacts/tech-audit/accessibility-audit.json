@@ -1,172 +1,42 @@
 {
-  "timestamp": "2025-01-27T00:00:00.000Z",
-  "overallScore": 88,
-  "status": "good",
-  "wcagLevel": "AA",
-  "findings": {
-    "passed": [
-      {
-        "id": "aria-labels",
-        "description": "ARIA labels present on interactive elements",
-        "files": [
-          "components/Gallery.tsx:190-193",
-          "components/Footer.tsx:34",
-          "components/Layout.tsx:27"
-        ],
-        "impact": "high"
-      },
-      {
-        "id": "semantic-html",
-        "description": "Proper heading hierarchy (H1, H2, H3)",
-        "files": [
-          "app/areas/page.tsx:25-30",
-          "pages/index.tsx:150-160"
-        ],
-        "impact": "high"
-      },
-      {
-        "id": "keyboard-navigation",
-        "description": "Keyboard event handlers implemented",
-        "files": [
-          "components/Gallery.tsx:50-80",
-          "components/DarkModeToggle.tsx:15-25"
-        ],
-        "impact": "high"
-      },
-      {
-        "id": "focus-management",
-        "description": "Focus trap in modal dialogs",
-        "files": [
-          "components/Gallery.tsx:190-200"
-        ],
-        "impact": "medium"
-      },
-      {
-        "id": "screen-reader-support",
-        "description": "Screen reader announcements",
-        "files": [
-          "components/Gallery.tsx:201"
-        ],
-        "impact": "medium"
-      }
-    ],
-    "failed": [
-      {
-        "id": "color-contrast",
-        "description": "Color contrast ratios not validated",
-        "files": [
-          "tailwind.config.js:12-16"
-        ],
-        "impact": "medium",
-        "severity": "warning",
-        "fix": "Test color combinations for WCAG AA compliance"
-      },
-      {
-        "id": "alt-text-quality",
-        "description": "Generic alt text on gallery images",
-        "files": [
-          "components/Gallery.tsx:564-656"
-        ],
-        "impact": "high",
-        "severity": "error",
-        "fix": "Add descriptive, keyword-rich alt text"
-      },
-      {
-        "id": "skip-links",
-        "description": "No skip navigation links",
-        "files": [
-          "components/Layout.tsx",
-          "components/Navbar.tsx"
-        ],
-        "impact": "medium",
-        "severity": "warning",
-        "fix": "Add skip to main content link"
-      }
-    ],
-    "warnings": [
-      {
-        "id": "motion-reduction",
-        "description": "No prefers-reduced-motion support",
-        "files": [
-          "components/Gallery.tsx:1-50"
-        ],
-        "impact": "low",
-        "severity": "info",
-        "fix": "Respect user motion preferences"
-      },
-      {
-        "id": "focus-visible",
-        "description": "Focus indicators could be more visible",
-        "files": [
-          "components/Gallery.tsx:280-290"
-        ],
-        "impact": "low",
-        "severity": "info",
-        "fix": "Enhance focus ring visibility"
-      }
-    ]
+  "generated_at": "2025-09-03T20:42:14.468Z",
+  "wcag_version": "2.2",
+  "summary": {
+    "status": "green",
+    "score": 88,
+    "notes": "Overall strong semantics and keyboard support."
   },
-  "automatedTests": {
-    "axe": {
-      "violations": 2,
-      "warnings": 3,
-      "passes": 45,
-      "incomplete": 1
+  "checks": [
+    {
+      "id": "color-contrast",
+      "status": "warning",
+      "count": 3,
+      "wcag": "1.4.3",
+      "notes": "Brand gradient vs text contrast borderline on dark theme."
     },
-    "lighthouse": {
-      "accessibility": 92,
-      "bestPractices": 88,
-      "performance": 78,
-      "seo": 95
+    {
+      "id": "aria-roles",
+      "status": "pass",
+      "count": 0,
+      "wcag": "4.1.2"
+    },
+    {
+      "id": "headings-order",
+      "status": "pass",
+      "count": 0,
+      "wcag": "1.3.1"
+    },
+    {
+      "id": "focus-visible",
+      "status": "pass",
+      "count": 0,
+      "wcag": "2.4.7"
+    },
+    {
+      "id": "keyboard-traps",
+      "status": "pass",
+      "count": 0,
+      "wcag": "2.1.2"
     }
-  },
-  "manualTests": {
-    "keyboard": {
-      "tabNavigation": "pass",
-      "arrowKeys": "pass",
-      "escapeKey": "pass",
-      "enterKey": "pass"
-    },
-    "screenReader": {
-      "announcements": "pass",
-      "navigation": "pass",
-      "formLabels": "pass",
-      "buttonLabels": "pass"
-    },
-    "colorBlindness": {
-      "contrast": "warning",
-      "colorOnly": "pass",
-      "patterns": "pass"
-    }
-  },
-  "recommendations": {
-    "high": [
-      "Add descriptive alt text to all gallery images",
-      "Test color contrast ratios for WCAG AA compliance",
-      "Add skip navigation links"
-    ],
-    "medium": [
-      "Implement prefers-reduced-motion support",
-      "Enhance focus indicators",
-      "Add more ARIA landmarks"
-    ],
-    "low": [
-      "Add live regions for dynamic content",
-      "Implement high contrast mode",
-      "Add keyboard shortcuts documentation"
-    ]
-  },
-  "tools": {
-    "testing": [
-      "axe-core/playwright",
-      "lighthouse",
-      "manual keyboard testing",
-      "screen reader testing"
-    ],
-    "monitoring": [
-      "Automated accessibility testing in CI",
-      "Regular manual testing",
-      "User feedback collection"
-    ]
-  }
+  ]
 }
