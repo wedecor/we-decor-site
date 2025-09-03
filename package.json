@@ -89,7 +89,7 @@
     "verify:lighthouse": "node scripts/lighthouse.mjs",
     "verify:licenses": "node scripts/licenses.mjs",
     "verify:secrets": "node scripts/secrets-scan.mjs",
-    "test:smoke": "playwright test -g @smoke",
+    "test:smoke": "PLAYWRIGHT_JSON_OUTPUT_NAME=artifacts/playwright.json playwright test --reporter=list",
     "verify:links": "node scripts/crawl-links.mjs",
     "verify:generated": "node scripts/verify-generated-output.cjs",
     "lh": "node scripts/lh.mjs",
