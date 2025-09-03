@@ -57,6 +57,6 @@ export default function PricingPage() {
           Contact us for custom quotes and special requirements.
         </p>
       </div>
-    </section>
+    </main>
   );
 }
