@@ -109,6 +109,19 @@ export const metadata: Metadata = {
 - **Recommendation**: Use `next-intl` for locale management
 - **Implementation**: Route groups, metadata per locale, content translation
 
+## Tech & SEO Audit Artifacts
+
+Regenerate supporting JSON/CSV files:
+
+```bash
+npm run audit:generate
+```
+
+Artifacts are written to `artifacts/tech-audit/`.
+
+To override versions/labels in CI, use ENV vars like:
+`NEXT_CURRENT`, `NEXT_LATEST`, `REACT_CURRENT`, `REACT_LATEST`, `TW_CURRENT`, `TW_LATEST`, `TS_CURRENT`, `TS_LATEST`, `AUDIT_PROJECT`.
+
 ## Vercel CLI: Setup → Deploy → Verify
 
 ### Quick Start
