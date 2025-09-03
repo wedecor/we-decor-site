@@ -26,35 +26,34 @@ export const CLUSTERS: Cluster[] = [
       'sarjapur-road',
       'electronic-city',
       'bannerghatta-road',
-      'ashok-nagar'
+      'ashok-nagar',
     ],
-    mentions: ['Arekere', 'Gottigere', 'Hulimavu', 'HSR Sector 2–7', 'Kudlu Gate', 'Kasavanahalli']
+    mentions: ['Arekere', 'Gottigere', 'Hulimavu', 'HSR Sector 2–7', 'Kudlu Gate', 'Kasavanahalli'],
   },
   {
     key: 'east',
     title: 'East & South-East Bangalore',
     blurb:
       'Villas, gated communities and tech hubs — popular for home events, proposals and corporate decor.',
-    areaSlugs: [
-      'whitefield',
-      'marathahalli',
-      'bellandur'
+    areaSlugs: ['whitefield', 'marathahalli', 'bellandur'],
+    mentions: [
+      'KR Puram',
+      'Varthur',
+      'Hoodi',
+      'Seegehalli',
+      'Kadugodi',
+      'Panathur',
+      'Haralur',
+      'Hosa Road',
     ],
-    mentions: ['KR Puram', 'Varthur', 'Hoodi', 'Seegehalli', 'Kadugodi', 'Panathur', 'Haralur', 'Hosa Road']
   },
   {
     key: 'north',
     title: 'North Bangalore',
     blurb:
       'Lakeside layouts and major business parks — great for baby showers, birthdays and office events.',
-    areaSlugs: [
-      'hebbal',
-      'yelahanka',
-      'rt-nagar',
-      'sahakarnagar',
-      'yeshwanthpur'
-    ],
-    mentions: ['Jakkur', 'Thanisandra', 'Hennur', 'Babusaheb Palya', 'Kothanur']
+    areaSlugs: ['hebbal', 'yelahanka', 'rt-nagar', 'sahakarnagar', 'yeshwanthpur'],
+    mentions: ['Jakkur', 'Thanisandra', 'Hennur', 'Babusaheb Palya', 'Kothanur'],
   },
   {
     key: 'central',
@@ -67,16 +66,23 @@ export const CLUSTERS: Cluster[] = [
       'richmond-town',
       'koramangala',
       'bangalore', // catch-all city page
-      'domlur'
+      'domlur',
     ],
-    mentions: ['Brigade Road', 'Residency Road', 'Shivajinagar', 'HAL 2nd & 3rd Stage']
+    mentions: ['Brigade Road', 'Residency Road', 'Shivajinagar', 'HAL 2nd & 3rd Stage'],
   },
   {
     key: 'west',
     title: 'West Bangalore',
     blurb:
       'Heritage pockets and large community halls — ideal for traditional functions and corporate townhalls.',
-    areaSlugs: ['malleshwaram', 'rajajinagar', 'peenya', 'vijayanagar', 'mathikere', 'kanakapura-road'],
-    mentions: ['Basaveshwaranagar', 'Nandini Layout', 'Magadi Road']
-  }
-]; 
+    areaSlugs: [
+      'malleshwaram',
+      'rajajinagar',
+      'peenya',
+      'vijayanagar',
+      'mathikere',
+      'kanakapura-road',
+    ],
+    mentions: ['Basaveshwaranagar', 'Nandini Layout', 'Magadi Road'],
+  },
+];

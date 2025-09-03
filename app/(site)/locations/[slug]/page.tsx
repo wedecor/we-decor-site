@@ -1,6 +1,15 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { AREAS, SITE, BUSINESS_NAME, CITY, PHONE_DISPLAY, getAreaBySlug, SERVICES, AREAS_WITH_DESCRIPTIONS } from '../../_data/locations';
+import {
+  AREAS,
+  SITE,
+  BUSINESS_NAME,
+  CITY,
+  PHONE_DISPLAY,
+  getAreaBySlug,
+  SERVICES,
+  AREAS_WITH_DESCRIPTIONS,
+} from '../../_data/locations';
 import { GALLERY_ITEMS, localize } from '../../_data/gallery';
 import { CLUSTERS } from '../../_data/clusters';
 import { faqsForArea } from '../../_data/faqs';
@@ -12,7 +21,7 @@ import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
 import Link from 'next/link';
 
 interface LocationPageProps {
-  params: { slug: string; };
+  params: { slug: string };
 }
 
 export async function generateStaticParams() {
@@ -38,11 +47,11 @@ export default function LocationPage({ params }: LocationPageProps) {
   const areaName = area.name;
 
   // Create localized gallery items
-  const localizedItems = GALLERY_ITEMS.map(m => ({ ...m, ...localize(m, area) }));
+  const localizedItems = GALLERY_ITEMS.map((m) => ({ ...m, ...localize(m, area) }));
 
   // Find nearby area from the same cluster
-  const currentCluster = CLUSTERS.find(c => c.areaSlugs.includes(params.slug));
-  const nearbyArea = currentCluster?.areaSlugs.find(slug => slug !== params.slug);
+  const currentCluster = CLUSTERS.find((c) => c.areaSlugs.includes(params.slug));
+  const nearbyArea = currentCluster?.areaSlugs.find((slug) => slug !== params.slug);
   const nearbyAreaName = nearbyArea ? getAreaBySlug(nearbyArea)?.name : null;
 
   // Get FAQ items for this area
@@ -52,24 +61,33 @@ export default function LocationPage({ params }: LocationPageProps) {
     <>
       {/* JSON-LD Schema */}
       <LocalBizJsonLd areaName={areaName} />
-      <FAQJsonLd items={faqItems.map(f => ({ 
-        question: f.q, 
-        answer: f.a 
-      }))} />
-      
-      {/* BreadcrumbList Schema */}
-      <script 
-        type="application/ld+json" 
-        dangerouslySetInnerHTML={{__html: JSON.stringify({
-          '@context':'https://schema.org',
-          '@type':'BreadcrumbList',
-          itemListElement:[
-            { '@type':'ListItem', position:1, name:'Locations', item:`${SITE}/locations`},
-            { '@type':'ListItem', position:2, name:areaName, item:`${SITE}/locations/${params.slug}`}
-          ]
-        })}}
+      <FAQJsonLd
+        items={faqItems.map((f) => ({
+          question: f.q,
+          answer: f.a,
+        }))}
       />
-      
+
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Locations', item: `${SITE}/locations` },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: areaName,
+                item: `${SITE}/locations/${params.slug}`,
+              },
+            ],
+          }),
+        }}
+      />
+
       <Navbar />
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 pt-20">
         <div className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
@@ -78,7 +96,8 @@ export default function LocationPage({ params }: LocationPageProps) {
               Event Decoration in {area.name}, {CITY}
             </h1>
             <p className="text-xl md:text-2xl mb-8">
-              Professional decoration services in {area.name}. From birthday parties to weddings, we bring creativity to every celebration.
+              Professional decoration services in {area.name}. From birthday parties to weddings, we
+              bring creativity to every celebration.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
@@ -98,25 +117,23 @@ export default function LocationPage({ params }: LocationPageProps) {
             </div>
           </div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">
             Our Services in {area.name}
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.map((service) => (
               <div key={service} className="bg-white rounded-2xl shadow-xl p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">{service}</h3>
-                {area.serviceDescriptions && (
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {area.serviceDescriptions[service]}
-                  </p>
-                )}
-                <a 
-                  href={`https://wa.me/918880544452?text=Hi! I need ${service} in ${area.name}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                {area.serviceDescriptions ? (
+                  <p className="text-gray-600 mb-4 text-sm">{area.serviceDescriptions[service]}</p>
+                ) : null}
+                <a
+                  href={`https://wa.me/918880544452?text=Hi! I need ${service} in ${area.name}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
                 >
                   Get Quote
@@ -136,39 +153,35 @@ export default function LocationPage({ params }: LocationPageProps) {
               <dl className="space-y-6">
                 {faqsForArea(params.slug, areaName).map((faq, index) => (
                   <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0">
-                    <dt className="text-lg font-semibold text-gray-800 mb-3">
-                      {faq.q}
-                    </dt>
-                    <dd className="text-gray-600 leading-relaxed">
-                      {faq.a}
-                    </dd>
+                    <dt className="text-lg font-semibold text-gray-800 mb-3">{faq.q}</dt>
+                    <dd className="text-gray-600 leading-relaxed">{faq.a}</dd>
                   </div>
                 ))}
               </dl>
-              
+
               {/* FAQ Internal Links */}
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
-                  <Link 
-                    href="/services" 
+                  <Link
+                    href="/services"
                     className="text-pink-600 hover:text-pink-700 font-medium underline"
                   >
                     View All Services →
                   </Link>
-                  <Link 
-                    href="/gallery" 
+                  <Link
+                    href="/gallery"
                     className="text-green-600 hover:text-green-700 font-medium underline"
                   >
                     Browse Gallery →
                   </Link>
-                  {nearbyAreaName && (
-                    <Link 
+                  {nearbyAreaName ? (
+                    <Link
                       href={`/locations/${nearbyArea}`}
                       className="text-blue-600 hover:text-blue-700 font-medium underline"
                     >
                       Also serving {nearbyAreaName} →
                     </Link>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -176,7 +189,7 @@ export default function LocationPage({ params }: LocationPageProps) {
         </div>
 
         {/* Area-specific information */}
-        {area.landmarks && area.landmarks.length > 0 && (
+        {area.landmarks && area.landmarks.length > 0 ? (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
@@ -192,7 +205,7 @@ export default function LocationPage({ params }: LocationPageProps) {
               </div>
             </div>
           </div>
-        )}
+        ) : null}
 
         {/* CTA Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -229,28 +242,29 @@ export default function LocationPage({ params }: LocationPageProps) {
               Recent Setups in {areaName}
             </h2>
             <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-              Browse our recent setups across {areaName} — from apartments and rooftops to clubhouses and banquet halls.
+              Browse our recent setups across {areaName} — from apartments and rooftops to
+              clubhouses and banquet halls.
             </p>
-            
+
             <LocationGallery items={localizedItems} />
-            
+
             {/* Internal Links */}
             <div className="mt-12 pt-8 border-t border-gray-200">
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link 
-                  href="/services" 
+                <Link
+                  href="/services"
                   className="text-pink-600 hover:text-pink-700 font-medium underline"
                 >
                   View All Services →
                 </Link>
-                {nearbyAreaName && (
-                  <Link 
+                {nearbyAreaName ? (
+                  <Link
                     href={`/locations/${nearbyArea}`}
                     className="text-green-600 hover:text-green-700 font-medium underline"
                   >
                     Also serving {nearbyAreaName} →
                   </Link>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
@@ -259,4 +273,4 @@ export default function LocationPage({ params }: LocationPageProps) {
       <Footer />
     </>
   );
-} 
+}
