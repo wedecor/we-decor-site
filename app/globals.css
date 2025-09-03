@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Focus-visible styles for better accessibility */
+@layer base {
+  *:focus-visible {
+    outline: 2px solid theme('colors.green.500');
+    outline-offset: 2px;
+  }
+  
+  /* Ensure focus-visible works with existing focus styles */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid theme('colors.green.500');
+    outline-offset: 2px;
+  }
+}
+
 /* Reduced motion safety net */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

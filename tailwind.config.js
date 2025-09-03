@@ -20,6 +20,11 @@ module.exports = {
         'brand-start': '#22d3ee', // teal-400
         'brand-end': '#2563eb', // blue-600
       },
+      // High contrast text colors for better accessibility
+      textColor: {
+        'high-contrast': '#1f2937', // gray-800
+        'high-contrast-light': '#f9fafb', // gray-50
+      },
     },
   },
   plugins: [],
