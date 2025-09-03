@@ -1,7 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
-import type { Metadata } from 'next';
 
 const services = [
   {
@@ -56,27 +57,7 @@ const services = [
   },
 ];
 
-export const metadata: Metadata = {
-  title: 'Our Services | We Decor Event Management Bangalore',
-  description:
-    "Discover We Decor's full range of event services in Bangalore: Decoration, Catering, Make-up Artists, Hair Stylists, Mehndi Artists, Photographers, Videographers, and more.",
-  openGraph: {
-    title: 'Our Services | We Decor Event Management Bangalore',
-    description:
-      "Discover We Decor's full range of event services in Bangalore: Decoration, Catering, Make-up Artists, Hair Stylists, Mehndi Artists, Photographers, Videographers, and more.",
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Our Services | We Decor Event Management Bangalore',
-    description:
-      "Discover We Decor's full range of event services in Bangalore: Decoration, Catering, Make-up Artists, Hair Stylists, Mehndi Artists, Photographers, Videographers, and more.",
-  },
-  alternates: {
-    canonical: '/services',
-  },
-};
-
-export const dynamic = 'force-static';
+// Note: Metadata is handled in app/layout.tsx for client components
 
 export default function ServicesPage() {
   return (

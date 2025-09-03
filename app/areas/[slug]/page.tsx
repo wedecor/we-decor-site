@@ -17,9 +17,10 @@ export const dynamicParams = false;
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const area = AREAS.find((a) => a.slug === params.slug);
+  const { slug } = await params;
+  const area = AREAS.find((a) => a.slug === slug);
   if (!area) return {};
   const base = SITE_URL.replace(/\/+$/, '');
   const title = `${area.name} Event Decoration | We Decor Events`;
@@ -32,8 +33,9 @@ export async function generateMetadata({
   };
 }
 
-export default function AreaPage({ params }: { params: { slug: string } }) {
-  const area = AREAS.find((a) => a.slug === params.slug) as any;
+export default async function AreaPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const area = AREAS.find((a) => a.slug === slug) as any;
   if (!area) return notFound();
   const base = SITE_URL.replace(/\/+$/, '');
   const faqs = (area.uniqueFAQ || []).map((faq: { q: string; a: string }) => ({
