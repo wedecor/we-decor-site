@@ -98,9 +98,9 @@ export default function Footer() {
           </nav>
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold text-green-700 dark:text-green-200 mb-4">
+            <h3 className="text-lg font-semibold text-green-700 dark:text-green-200 mb-4">
               Contact Info
-            </h4>
+            </h3>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
                 <svg

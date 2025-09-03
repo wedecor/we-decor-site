@@ -66,36 +66,60 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <input
-        name="name"
-        required
-        placeholder="Your Name"
-        className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-      />
-      {errors.name ? <p className="text-red-500 text-sm">{errors.name}</p> : null}
-      <input
-        name="phone"
-        required
-        placeholder="Your Phone Number"
-        className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-      />
-      {errors.phone ? <p className="text-red-500 text-sm">{errors.phone}</p> : null}
-      <input
-        name="email"
-        type="email"
-        required
-        placeholder="Your Email Address"
-        className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-      />
-      {errors.email ? <p className="text-red-500 text-sm">{errors.email}</p> : null}
-      <textarea
-        name="message"
-        required
-        placeholder="Your Message"
-        className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-        rows={4}
-      />
-      {errors.message ? <p className="text-red-500 text-sm">{errors.message}</p> : null}
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Your Name *
+        </label>
+        <input
+          id="name"
+          name="name"
+          required
+          placeholder="Enter your full name"
+          className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        />
+        {errors.name ? <p className="text-red-500 text-sm">{errors.name}</p> : null}
+      </div>
+      <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Phone Number *
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          required
+          placeholder="Enter your phone number"
+          className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        />
+        {errors.phone ? <p className="text-red-500 text-sm">{errors.phone}</p> : null}
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Email Address *
+        </label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          placeholder="Enter your email address"
+          className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        />
+        {errors.email ? <p className="text-red-500 text-sm">{errors.email}</p> : null}
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+          Your Message *
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Tell us about your event requirements"
+          className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+          rows={4}
+        />
+        {errors.message ? <p className="text-red-500 text-sm">{errors.message}</p> : null}
+      </div>
       <button
         type="submit"
         className="w-full bg-gradient-to-r from-green-500 to-pink-500 text-white font-bold py-3 rounded-lg shadow-lg hover:from-green-600 hover:to-pink-600 transition-colors duration-200 disabled:opacity-60"
