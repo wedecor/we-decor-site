@@ -100,7 +100,9 @@
     "check:env-prepush": "node scripts/check-env-prepush.mjs",
     "check:image-alt": "node scripts/find-missing-alt.mjs",
     "preflight": "npm run lint && npm run typecheck && npm run build:check && npm run test:smoke",
-    "check:bundle": "node scripts/check-bundle-size.mjs"
+    "check:bundle": "node scripts/check-bundle-size.mjs",
+    "audit:generate": "node scripts/generate-tech-audit.mjs",
+    "audit:show": "ls -la artifacts/tech-audit && (head -n 5 artifacts/tech-audit/performance-metrics.csv || true)"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
