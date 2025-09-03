@@ -25,7 +25,7 @@ export default class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Error caught by boundary:', error, errorInfo);
     this.setState({ error, errorInfo });
-    
+
     // Log to Sentry if available
     if (typeof window !== 'undefined' && (window as any).Sentry) {
       (window as any).Sentry.captureException(error, {
@@ -63,15 +63,16 @@ export default class ErrorBoundary extends Component<Props, State> {
                 />
               </svg>
             </div>
-            
+
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
               Oops! Something went wrong
             </h1>
-            
+
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              We're sorry, but something unexpected happened. Our team has been notified and is working to fix this issue.
+              We're sorry, but something unexpected happened. Our team has been notified and is
+              working to fix this issue.
             </p>
-            
+
             <div className="space-y-3">
               <Link
                 href="/"
@@ -79,7 +80,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               >
                 Go to Homepage
               </Link>
-              
+
               <button
                 onClick={() => window.location.reload()}
                 className="block w-full px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
@@ -87,8 +88,8 @@ export default class ErrorBoundary extends Component<Props, State> {
                 Try Again
               </button>
             </div>
-            
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+
+            {process.env.NODE_ENV === 'development' && this.state.error ? (
               <details className="mt-6 text-left">
                 <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
                   Error Details (Development)
@@ -98,7 +99,7 @@ export default class ErrorBoundary extends Component<Props, State> {
                   {this.state.errorInfo?.componentStack}
                 </pre>
               </details>
-            )}
+            ) : null}
           </div>
         </div>
       );
@@ -106,4 +107,4 @@ export default class ErrorBoundary extends Component<Props, State> {
 
     return this.props.children;
   }
-} 
+}

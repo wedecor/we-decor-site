@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Image from "next/image";
-import { useState } from "react";
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface GalleryItem {
   src: string;
@@ -64,7 +64,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
       </div>
 
       {/* Modal */}
-      {selectedImage && (
+      {selectedImage ? (
         <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
           onClick={closeModal}
@@ -94,7 +94,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
             </div>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
