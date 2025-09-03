@@ -24,7 +24,7 @@ export default function NotFound() {
         />
         <h1 className="text-5xl font-bold text-green-700 mb-4">404</h1>
         <p className="text-lg text-gray-600 mb-4 text-center max-w-md">
-          Oops! The page you are looking for does not exist.
+          Oops! The page you are looking for was not found.
         </p>
         <p className="text-sm text-gray-500 mb-8 text-center max-w-md">
           Don't worry, you can still explore our beautiful event decorations and services.

@@ -3,13 +3,14 @@ const isProd = process.env.NODE_ENV === 'production';
 const csp = [
   "default-src 'self'",
   "img-src 'self' https: data: blob:",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://browser.sentry-cdn.com",
   "style-src 'self' 'unsafe-inline' https:",
   "connect-src 'self' https: wss:",
   "font-src 'self' https: data:",
   "object-src 'none'",
   "base-uri 'self'",
   "frame-ancestors 'none'",
+  "frame-src 'self' https://www.google.com",
   "form-action 'self'",
   "upgrade-insecure-requests",
 ].join('; ');
