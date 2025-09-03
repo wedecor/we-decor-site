@@ -1,28 +1,19 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pricing - We Decor Event Decoration Services in Bangalore',
-  description: 'Affordable event decor packages in Bangalore. Starting at ₹2999. Professional birthday, wedding, and party decorations.',
-  openGraph: {
-    title: 'Pricing - We Decor Event Decoration Services in Bangalore',
-    description: 'Affordable event decor packages in Bangalore. Starting at ₹2999.',
-    images: ['/logo.png'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Pricing - We Decor Event Decoration Services in Bangalore',
-    description: 'Affordable event decor packages in Bangalore. Starting at ₹2999.',
-    images: ['/logo.png'],
-  },
-  alternates: {
-    canonical: '/pricing',
-  },
+  title: "Pricing | We Decor Events",
+  description: "Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.",
+  alternates: { canonical: "/pricing" },
+  openGraph: { title: "Pricing | We Decor Events", url: "/pricing" }
 };
 
 export default function PricingPage() {
   return (
-    <section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
-      <h1 className="text-3xl md:text-5xl font-bold text-center mb-8">Pricing</h1>
+    <main className="mx-auto max-w-5xl px-6 py-16">
+      <h1 className="text-3xl font-bold">Pricing</h1>
+      <p className="mt-2 text-muted-foreground">
+        Clear packages with room for customization. Contact us for tailored quotes.
+      </p>
 
       <div className="overflow-x-auto mb-8">
         <table className="min-w-full bg-white rounded-lg shadow border text-lg text-gray-700">
