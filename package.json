@@ -99,7 +99,8 @@
     "verify:all": "npm run verify:seo && npm run build:guarded && npm run start:prod & sleep 4 && npm run verify:headers && npm run verify:localities && npm run lh && pkill -f \"next start\" || true",
     "check:env-prepush": "node scripts/check-env-prepush.mjs",
     "check:image-alt": "node scripts/find-missing-alt.mjs",
-    "preflight": "npm run lint && npm run typecheck && npm run build:check && npm run test:smoke"
+    "preflight": "npm run lint && npm run typecheck && npm run build:check && npm run test:smoke",
+    "check:bundle": "node scripts/check-bundle-size.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
