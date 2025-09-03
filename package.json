@@ -80,6 +80,7 @@
     "test": "playwright test",
     "test:unit": "vitest run --coverage",
     "test:e2e": "playwright test",
+    "test:a11y": "playwright test tests/a11y.spec.ts",
     "build:prod": "NEXT_TELEMETRY_DISABLED=1 next build",
     "start:prod": "next start -p 3001",
     "analyze:bundle": "ANALYZE=true next build",

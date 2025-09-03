@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import axe from '@axe-core/playwright';
 
 test.describe('Accessibility Tests', () => {
   test('homepage should have proper heading structure', async ({ page }) => {
@@ -75,4 +76,21 @@ test.describe('Accessibility Tests', () => {
     const form = page.locator('form');
     await expect(form).toBeVisible();
   });
+
+  // Axe-core accessibility tests
+  const routes = ['/', '/gallery', '/areas', '/contact'];
+
+  for (const route of routes) {
+    test(`axe: ${route}`, async ({ page }) => {
+      await page.goto(route, { waitUntil: 'networkidle' });
+      const results = await axe(page).analyze();
+      
+      // Allow known contrast warnings if documented; otherwise expect none
+      const violations = results.violations.filter(v => 
+        v.id !== 'color-contrast' || v.impact === 'serious' || v.impact === 'critical'
+      );
+      
+      expect(violations, JSON.stringify(violations, null, 2)).toHaveLength(0);
+    });
+  }
 });
