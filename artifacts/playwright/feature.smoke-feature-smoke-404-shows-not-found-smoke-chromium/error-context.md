@@ -2,8 +2,89 @@
 
 ```yaml
 - generic [active] [ref=e1]:
-  - generic [ref=e3]:
-    - heading "404" [level=1] [ref=e4]
-    - heading "This page could not be found." [level=2] [ref=e6]
-  - alert [ref=e7]
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "We Decor Logo We Decor" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "We Decor Logo" [ref=e5] [cursor=pointer]
+        - generic [ref=e6] [cursor=pointer]: We Decor
+      - generic [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "Gallery" [ref=e10] [cursor=pointer]:
+          - /url: /gallery
+        - link "Areas" [ref=e11] [cursor=pointer]:
+          - /url: /areas
+        - link "Locations" [ref=e12] [cursor=pointer]:
+          - /url: /locations
+        - link "Pricing" [ref=e13] [cursor=pointer]:
+          - /url: /pricing
+        - link "FAQ" [ref=e14] [cursor=pointer]:
+          - /url: /faq
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+        - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
+          - img [ref=e17] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - heading "404" [level=1] [ref=e22]
+      - heading "This page could not be found." [level=2] [ref=e24]
+  - contentinfo [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - img "We Decor Logo" [ref=e29]
+          - generic [ref=e30]:
+            - generic [ref=e31]: We Decor
+            - generic [ref=e32]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e33] [cursor=pointer]:
+          - /url: https://instagram.com/wedecorbangalore
+          - img [ref=e34] [cursor=pointer]
+          - generic [ref=e36] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e37]:
+        - navigation "Footer quick links" [ref=e38]:
+          - heading "Quick Links" [level=2] [ref=e39]
+          - list [ref=e40]:
+            - listitem [ref=e41]:
+              - link "About Us" [ref=e42] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e43]:
+              - link "Services" [ref=e44] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e45]:
+              - link "Gallery" [ref=e46] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=e47]:
+              - link "Pricing" [ref=e48] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e49]:
+              - link "FAQ" [ref=e50] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e51]:
+              - link "Contact" [ref=e52] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e53]:
+          - heading "Contact Info" [level=4] [ref=e54]
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - img [ref=e57]
+              - link "+91 88805 44452" [ref=e59] [cursor=pointer]:
+                - /url: tel:+919880544452
+            - generic [ref=e60]:
+              - img [ref=e61]
+              - link "+91 95912 32166" [ref=e63] [cursor=pointer]:
+                - /url: tel:+919591232166
+            - generic [ref=e64]:
+              - img [ref=e65]
+              - generic [ref=e67]: Bangalore, India
+            - generic [ref=e68]:
+              - img [ref=e69]
+              - generic [ref=e71]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e73]:
+        - text: © 2025
+        - generic [ref=e74]: We Decor
+        - text: ", Bangalore. All rights reserved."
+  - alert [ref=e75]
 ```

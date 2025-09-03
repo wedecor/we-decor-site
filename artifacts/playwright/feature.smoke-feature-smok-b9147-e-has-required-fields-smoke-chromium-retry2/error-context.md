@@ -2,113 +2,103 @@
 
 ```yaml
 - generic [active] [ref=e1]:
-  - generic [ref=e4]:
-    - navigation [ref=e5]:
-      - generic [ref=e6]:
-        - link "We Decor Logo We Decor" [ref=e7] [cursor=pointer]:
-          - /url: /
-          - img "We Decor Logo" [ref=e8] [cursor=pointer]
-          - generic [ref=e9] [cursor=pointer]: We Decor
-        - generic [ref=e10]:
-          - link "About" [ref=e11] [cursor=pointer]:
-            - /url: /about
-          - link "Services" [ref=e12] [cursor=pointer]:
-            - /url: /services
-          - link "Gallery" [ref=e13] [cursor=pointer]:
-            - /url: /gallery
-          - link "Areas" [ref=e14] [cursor=pointer]:
-            - /url: /areas
-          - link "Locations" [ref=e15] [cursor=pointer]:
-            - /url: /locations
-          - link "Pricing" [ref=e16] [cursor=pointer]:
-            - /url: /pricing
-          - link "FAQ" [ref=e17] [cursor=pointer]:
-            - /url: /faq
-          - link "Contact" [ref=e18] [cursor=pointer]:
-            - /url: /contact
-          - button "Toggle dark mode" [ref=e19] [cursor=pointer]:
-            - img [ref=e20] [cursor=pointer]
-    - main [ref=e22]:
-      - generic [ref=e23]:
-        - generic [ref=e24]:
-          - img "We Decor Logo" [ref=e25]
-          - heading "Contact We Decor" [level=1] [ref=e26]
-        - generic [ref=e27]:
-          - textbox "Your Name" [ref=e28]
-          - textbox "Your Phone Number" [ref=e29]
-          - textbox "Your Message" [ref=e30]
-          - button "Send via WhatsApp" [ref=e31] [cursor=pointer]
-          - generic [ref=e32]:
-            - paragraph [ref=e33]: "Or contact directly:"
-            - link "WhatsApp Us Directly" [ref=e34] [cursor=pointer]:
-              - /url: https://wa.me/917019169442
-              - img [ref=e35] [cursor=pointer]
-              - text: WhatsApp Us Directly
-        - iframe [ref=e38]:
-          
-      - link "Contact us on WhatsApp" [ref=e39] [cursor=pointer]:
-        - /url: https://wa.me/919880544452
-        - img [ref=e40] [cursor=pointer]
-        - generic [ref=e42] [cursor=pointer]: WhatsApp Us
-      - link "Call us now" [ref=e43] [cursor=pointer]:
-        - /url: tel:+919880544452
-        - img [ref=e44] [cursor=pointer]
-        - generic [ref=e46] [cursor=pointer]: Call Now
-      - paragraph [ref=e47]: We do not collect or store your data. Contact us via WhatsApp or phone only.
-    - contentinfo [ref=e48]:
-      - generic [ref=e49]:
-        - generic [ref=e50]:
-          - generic [ref=e51]:
-            - img "We Decor Logo" [ref=e52]
-            - generic [ref=e53]:
-              - generic [ref=e54]: We Decor
-              - generic [ref=e55]: Bringing Dreams to Life in Bangalore
-          - link "Follow us on Instagram" [ref=e56] [cursor=pointer]:
-            - /url: https://instagram.com/wedecorbangalore
-            - img [ref=e57] [cursor=pointer]
-            - generic [ref=e59] [cursor=pointer]: "@wedecorbangalore"
-        - generic [ref=e60]:
-          - navigation "Footer quick links" [ref=e61]:
-            - heading "Quick Links" [level=2] [ref=e62]
-            - list [ref=e63]:
-              - listitem [ref=e64]:
-                - link "About Us" [ref=e65] [cursor=pointer]:
-                  - /url: /about
-              - listitem [ref=e66]:
-                - link "Services" [ref=e67] [cursor=pointer]:
-                  - /url: /services
-              - listitem [ref=e68]:
-                - link "Gallery" [ref=e69] [cursor=pointer]:
-                  - /url: /gallery
-              - listitem [ref=e70]:
-                - link "Pricing" [ref=e71] [cursor=pointer]:
-                  - /url: /pricing
-              - listitem [ref=e72]:
-                - link "FAQ" [ref=e73] [cursor=pointer]:
-                  - /url: /faq
-              - listitem [ref=e74]:
-                - link "Contact" [ref=e75] [cursor=pointer]:
-                  - /url: /contact
-          - generic [ref=e76]:
-            - heading "Contact Info" [level=4] [ref=e77]
-            - generic [ref=e78]:
-              - generic [ref=e79]:
-                - img [ref=e80]
-                - link "+91 88805 44452" [ref=e82] [cursor=pointer]:
-                  - /url: tel:+919880544452
-              - generic [ref=e83]:
-                - img [ref=e84]
-                - link "+91 95912 32166" [ref=e86] [cursor=pointer]:
-                  - /url: tel:+919591232166
-              - generic [ref=e87]:
-                - img [ref=e88]
-                - generic [ref=e90]: Bangalore, India
-              - generic [ref=e91]:
-                - img [ref=e92]
-                - generic [ref=e94]: Mon–Sun, 9am–9pm
-        - paragraph [ref=e96]:
-          - text: © 2025
-          - generic [ref=e97]: We Decor
-          - text: ", Bangalore. All rights reserved."
-  - alert [ref=e98]
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "We Decor Logo We Decor" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "We Decor Logo" [ref=e5] [cursor=pointer]
+        - generic [ref=e6] [cursor=pointer]: We Decor
+      - generic [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "Gallery" [ref=e10] [cursor=pointer]:
+          - /url: /gallery
+        - link "Areas" [ref=e11] [cursor=pointer]:
+          - /url: /areas
+        - link "Locations" [ref=e12] [cursor=pointer]:
+          - /url: /locations
+        - link "Pricing" [ref=e13] [cursor=pointer]:
+          - /url: /pricing
+        - link "FAQ" [ref=e14] [cursor=pointer]:
+          - /url: /faq
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+        - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
+          - img [ref=e17] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - img "We Decor Logo - Contact for Event Decoration Services" [ref=e22]
+        - heading "Contact We Decor" [level=1] [ref=e23]
+      - generic [ref=e24]:
+        - textbox "Your Name" [ref=e25]
+        - textbox "Your Phone Number" [ref=e26]
+        - textbox "Your Message" [ref=e27]
+        - button "Send via WhatsApp" [ref=e28] [cursor=pointer]
+        - generic [ref=e29]:
+          - paragraph [ref=e30]: "Or contact directly:"
+          - link "WhatsApp Us Directly" [ref=e31] [cursor=pointer]:
+            - /url: https://wa.me/917019169442
+            - img [ref=e32] [cursor=pointer]
+            - text: WhatsApp Us Directly
+      - iframe [ref=e35]:
+        
+  - contentinfo [ref=e36]:
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - img "We Decor Logo" [ref=e40]
+          - generic [ref=e41]:
+            - generic [ref=e42]: We Decor
+            - generic [ref=e43]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e44] [cursor=pointer]:
+          - /url: https://instagram.com/wedecorbangalore
+          - img [ref=e45] [cursor=pointer]
+          - generic [ref=e47] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e48]:
+        - navigation "Footer quick links" [ref=e49]:
+          - heading "Quick Links" [level=2] [ref=e50]
+          - list [ref=e51]:
+            - listitem [ref=e52]:
+              - link "About Us" [ref=e53] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e54]:
+              - link "Services" [ref=e55] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e56]:
+              - link "Gallery" [ref=e57] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=e58]:
+              - link "Pricing" [ref=e59] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e60]:
+              - link "FAQ" [ref=e61] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e62]:
+              - link "Contact" [ref=e63] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e64]:
+          - heading "Contact Info" [level=4] [ref=e65]
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - img [ref=e68]
+              - link "+91 88805 44452" [ref=e70] [cursor=pointer]:
+                - /url: tel:+919880544452
+            - generic [ref=e71]:
+              - img [ref=e72]
+              - link "+91 95912 32166" [ref=e74] [cursor=pointer]:
+                - /url: tel:+919591232166
+            - generic [ref=e75]:
+              - img [ref=e76]
+              - generic [ref=e78]: Bangalore, India
+            - generic [ref=e79]:
+              - img [ref=e80]
+              - generic [ref=e82]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e84]:
+        - text: © 2025
+        - generic [ref=e85]: We Decor
+        - text: ", Bangalore. All rights reserved."
+  - alert [ref=e86]
 ```

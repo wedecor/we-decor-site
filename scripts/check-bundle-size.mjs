@@ -5,7 +5,7 @@ import { join } from 'path';
 
 const BUNDLE_SIZE_LIMIT = 1024 * 1024; // 1MB in bytes
 
-function checkBundleSize() {
+async function checkBundleSize() {
   console.log('🔍 Checking bundle size...');
   
   const buildDir = '.next/static/chunks';
@@ -18,7 +18,7 @@ function checkBundleSize() {
   
   try {
     // Find the main chunk file
-    const { readdirSync } = require('fs');
+    const { readdirSync, statSync } = await import('fs');
     const chunks = readdirSync(buildDir);
     const mainChunk = chunks.find(file => file.startsWith('main-') && file.endsWith('.js'));
     
@@ -28,7 +28,7 @@ function checkBundleSize() {
     }
     
     const chunkPath = join(buildDir, mainChunk);
-    const stats = require('fs').statSync(chunkPath);
+    const stats = statSync(chunkPath);
     const sizeInMB = (stats.size / (1024 * 1024)).toFixed(2);
     
     console.log(`📦 Main bundle size: ${sizeInMB}MB`);
@@ -46,4 +46,4 @@ function checkBundleSize() {
   }
 }
 
-checkBundleSize();
+checkBundleSize().catch(console.error);
