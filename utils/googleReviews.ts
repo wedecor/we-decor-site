@@ -22,7 +22,7 @@ export async function fetchGoogleReviews(placeId: string): Promise<GooglePlaceDe
     // You'll need to set up a Google Cloud Project and enable Places API
     // Then get an API key from Google Cloud Console
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
-    
+
     if (!apiKey) {
       console.warn('Google Places API key not found. Using fallback data.');
       return null;
@@ -37,7 +37,7 @@ export async function fetchGoogleReviews(placeId: string): Promise<GooglePlaceDe
     }
 
     const data = await response.json();
-    
+
     if (data.status === 'OK') {
       return data.result;
     } else {
@@ -53,43 +53,48 @@ export async function fetchGoogleReviews(placeId: string): Promise<GooglePlaceDe
 // Fallback testimonials data (your current data)
 export const fallbackTestimonials = [
   {
-    name: "Priya & Rahul",
-    event: "Wedding Reception",
-    feedback: "We Decor transformed our wedding reception into a magical evening! The stage decoration was absolutely stunning and all our guests couldn't stop complimenting. Highly recommended!",
-    avatar: "👰‍♀️🤵‍♂️",
+    name: 'Priya & Rahul',
+    event: 'Wedding Reception',
+    feedback:
+      "We Decor transformed our wedding reception into a magical evening! The stage decoration was absolutely stunning and all our guests couldn't stop complimenting. Highly recommended!",
+    avatar: '👰‍♀️🤵‍♂️',
     rating: 5,
-    date: "2 weeks ago"
+    date: '2 weeks ago',
   },
   {
-    name: "Anjali Sharma",
+    name: 'Anjali Sharma',
     event: "Daughter's Birthday",
-    feedback: "The birthday decoration was beyond our expectations! My daughter was so happy seeing her favorite Disney theme come to life. The team was professional and punctual.",
-    avatar: "🎂",
+    feedback:
+      'The birthday decoration was beyond our expectations! My daughter was so happy seeing her favorite Disney theme come to life. The team was professional and punctual.',
+    avatar: '🎂',
     rating: 5,
-    date: "1 month ago"
+    date: '1 month ago',
   },
   {
-    name: "Rajesh & Meera",
-    event: "Haldi Ceremony",
-    feedback: "Beautiful traditional haldi setup with modern touches. The colors were vibrant and the backdrop was perfect for our photos. Thank you We Decor team!",
-    avatar: "🌻",
+    name: 'Rajesh & Meera',
+    event: 'Haldi Ceremony',
+    feedback:
+      'Beautiful traditional haldi setup with modern touches. The colors were vibrant and the backdrop was perfect for our photos. Thank you We Decor team!',
+    avatar: '🌻',
     rating: 5,
-    date: "3 weeks ago"
+    date: '3 weeks ago',
   },
   {
-    name: "Suresh Kumar",
-    event: "Corporate Event",
-    feedback: "We hired We Decor for our company's annual party and they delivered excellence. The tent setup and balloon decorations created the perfect festive atmosphere.",
-    avatar: "🏢",
+    name: 'Suresh Kumar',
+    event: 'Corporate Event',
+    feedback:
+      "We hired We Decor for our company's annual party and they delivered excellence. The tent setup and balloon decorations created the perfect festive atmosphere.",
+    avatar: '🏢',
     rating: 5,
-    date: "1 month ago"
+    date: '1 month ago',
   },
   {
-    name: "Divya & Arjun",
-    event: "Engagement Party",
-    feedback: "Amazing work! The romantic setup with fairy lights and flower arrangements was exactly what we wanted. The team understood our vision perfectly.",
-    avatar: "💍",
+    name: 'Divya & Arjun',
+    event: 'Engagement Party',
+    feedback:
+      'Amazing work! The romantic setup with fairy lights and flower arrangements was exactly what we wanted. The team understood our vision perfectly.',
+    avatar: '💍',
     rating: 5,
-    date: "2 months ago"
-  }
-]; 
+    date: '2 months ago',
+  },
+];

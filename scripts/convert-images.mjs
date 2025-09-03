@@ -1,9 +1,9 @@
-import { readdir } from "fs/promises";
-import path from "path";
-import sharp from "sharp";
+import { readdir } from 'fs/promises';
+import path from 'path';
+import sharp from 'sharp';
 
 const ROOT = process.cwd();
-const BASE = path.join(ROOT, "public", "services");
+const BASE = path.join(ROOT, 'public', 'services');
 
 async function* walk(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -21,7 +21,7 @@ function badName(name) {
   try {
     for await (const file of walk(BASE)) {
       const ext = path.extname(file).toLowerCase();
-      if (![".jpg", ".jpeg", ".png"].includes(ext)) continue;
+      if (!['.jpg', '.jpeg', '.png'].includes(ext)) continue;
 
       if (badName(file)) {
         console.warn(`WARN: Suspicious filename (spaces/specials): ${file}`);
@@ -29,8 +29,8 @@ function badName(name) {
 
       const img = sharp(file).rotate();
 
-      const webpOut = file.replace(ext, ".webp");
-      const avifOut = file.replace(ext, ".avif");
+      const webpOut = file.replace(ext, '.webp');
+      const avifOut = file.replace(ext, '.avif');
 
       await img.webp({ quality: 82 }).toFile(webpOut);
       await img.avif({ quality: 50 }).toFile(avifOut);
@@ -42,4 +42,3 @@ function badName(name) {
     process.exit(1);
   }
 })();
-

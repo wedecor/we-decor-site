@@ -1,16 +1,15 @@
 // scripts/patch-areas.ts
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com';
 
-const AREAS_DIR = path.join(process.cwd(), "app", "areas");
+const AREAS_DIR = path.join(process.cwd(), 'app', 'areas');
 
-const encodeJs = (s: string) =>
-  s.replace(/`/g, "\\`").replace(/\$/g, "\\$");
+const encodeJs = (s: string) => s.replace(/`/g, '\\`').replace(/\$/g, '\\$');
 
 function patchFile(filePath: string) {
-  let src = fs.readFileSync(filePath, "utf-8");
+  let src = fs.readFileSync(filePath, 'utf-8');
   let modified = false;
 
   // 1) Upgrade WhatsApp CTA
@@ -59,13 +58,13 @@ function patchFile(filePath: string) {
       />`;
 
     // Insert both right before closing </main> or end of file
-    if (src.includes("</main>")) {
+    if (src.includes('</main>')) {
       // Find the closing main tag and insert before it
-      const mainEndIndex = src.lastIndexOf("</main>");
+      const mainEndIndex = src.lastIndexOf('</main>');
       if (mainEndIndex !== -1) {
         const beforeMain = src.substring(0, mainEndIndex);
         const afterMain = src.substring(mainEndIndex);
-        src = beforeMain + breadcrumbLD + "\n" + serviceLD + "\n" + afterMain;
+        src = beforeMain + breadcrumbLD + '\n' + serviceLD + '\n' + afterMain;
       }
     } else {
       // Append at end if main not found (unlikely)
@@ -75,26 +74,26 @@ function patchFile(filePath: string) {
   }
 
   if (modified) {
-    fs.writeFileSync(filePath, src, "utf-8");
-    console.log("✔ patched", filePath);
+    fs.writeFileSync(filePath, src, 'utf-8');
+    console.log('✔ patched', filePath);
   } else {
-    console.log("• no changes", filePath);
+    console.log('• no changes', filePath);
   }
 }
 
 function run() {
   if (!fs.existsSync(AREAS_DIR)) {
-    console.error("❌ app/areas not found.");
+    console.error('❌ app/areas not found.');
     process.exit(1);
   }
 
   for (const entry of fs.readdirSync(AREAS_DIR, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;
-    const tsx = path.join(AREAS_DIR, entry.name, "page.tsx");
+    const tsx = path.join(AREAS_DIR, entry.name, 'page.tsx');
     if (fs.existsSync(tsx)) {
       patchFile(tsx);
     }
   }
-  console.log("✅ Patch complete");
+  console.log('✅ Patch complete');
 }
-run(); 
+run();

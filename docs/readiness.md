@@ -1,4 +1,5 @@
 ## One-shot local verification
+
 ```
 export NEXT_PUBLIC_SITE_URL="https://www.wedecorevents.com"
 npm run build:guarded
@@ -10,6 +11,7 @@ npx playwright test tests/a11y.spec.ts
 ```
 
 Git steps (atomic commits)
+
 ```
 git checkout -b chore/readiness-fixes
 npm i -D sharp depcheck eslint-plugin-jsx-a11y @axe-core/playwright
@@ -22,6 +24,7 @@ git commit -m "chore(verify): add headers/seo/lighthouse scripts + docs"
 ```
 
 Run locally
+
 ```
 export NEXT_PUBLIC_SITE_URL="https://www.wedecorevents.com"
 # optional GA:
@@ -36,4 +39,3 @@ SEO_BASE=http://localhost:3001 npm run verify:seo
 LH_BASE=http://localhost:3001 npm run verify:lh
 npx playwright test tests/a11y.spec.ts
 ```
-

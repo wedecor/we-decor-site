@@ -1,14 +1,13 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { MDXProvider } from '@mdx-js/react'
-import Head from 'next/head'
-import { ThemeProvider } from 'next-themes'
-import { AnimatePresence, motion } from 'framer-motion'
-import WhyChooseUs from '../components/WhyChooseUs'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { MDXProvider } from '@mdx-js/react';
+import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
+import { AnimatePresence, motion } from 'framer-motion';
+import WhyChooseUs from '../components/WhyChooseUs';
 import ErrorBoundary from '../components/ErrorBoundary';
 
-
-const components = { WhyChooseUs }
+const components = { WhyChooseUs };
 
 export default function App({ Component, pageProps, router }: AppProps) {
   return (
@@ -19,20 +18,20 @@ export default function App({ Component, pageProps, router }: AppProps) {
         </Head>
         <MDXProvider components={components}>
           <ErrorBoundary>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={router.route}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Component {...pageProps} />
-            </motion.div>
-          </AnimatePresence>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={router.route}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <Component {...pageProps} />
+              </motion.div>
+            </AnimatePresence>
           </ErrorBoundary>
         </MDXProvider>
       </div>
     </ThemeProvider>
-  )
-} 
+  );
+}

@@ -1,29 +1,29 @@
-import Layout from '../../components/Layout'
-import Head from 'next/head'
-import Script from 'next/script'
+import Layout from '../../components/Layout';
+import Head from 'next/head';
+import Script from 'next/script';
 
 export default function Page() {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Birthday Decoration",
-    "name": "Birthday Decoration Services",
-    "description": "Make birthdays unforgettable with our creative decor services in Bangalore.",
-    "provider": {
-      "@type": "Organization",
-      "name": "We Decor",
-      "areaServed": "Bangalore, India",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Bangalore",
-        "addressCountry": "IN"
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Birthday Decoration',
+    name: 'Birthday Decoration Services',
+    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
+    provider: {
+      '@type': 'Organization',
+      name: 'We Decor',
+      areaServed: 'Bangalore, India',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bangalore',
+        addressCountry: 'IN',
       },
-              "telephone": "+917019169442"
+      telephone: '+917019169442',
     },
-    "areaServed": {
-      "@type": "City",
-      "name": "Bangalore"
-    }
+    areaServed: {
+      '@type': 'City',
+      name: 'Bangalore',
+    },
   };
 
   return (
@@ -36,9 +36,10 @@ export default function Page() {
       </Head>
       <Layout
         seo={{
-          title: "Birthday Decoration",
-          description: "Make birthdays unforgettable with our creative decor services in Bangalore.",
-          image: "/gallery/birthday1.webp",
+          title: 'Birthday Decoration',
+          description:
+            'Make birthdays unforgettable with our creative decor services in Bangalore.',
+          image: '/gallery/birthday1.webp',
         }}
       >
         <section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
@@ -47,10 +48,11 @@ export default function Page() {
           </h1>
 
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-            We Decor specializes in vibrant, creative birthday decorations for all ages. From balloon arches to themed setups, we make your celebration memorable.
+            We Decor specializes in vibrant, creative birthday decorations for all ages. From
+            balloon arches to themed setups, we make your celebration memorable.
           </p>
         </section>
       </Layout>
     </>
-  )
-} 
+  );
+}

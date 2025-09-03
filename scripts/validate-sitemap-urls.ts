@@ -1,16 +1,10 @@
-import assert from "node:assert/strict";
-import fetch from "node-fetch";
-import { SITE_URL } from "../lib/site";
+import assert from 'node:assert/strict';
+import fetch from 'node-fetch';
+import { SITE_URL } from '../lib/site';
 
 const base = process.env.NEXT_PUBLIC_SITE_URL!;
 const PROD_URL = SITE_URL;
-const want = [
-  "/",
-  "/services",
-  "/gallery",
-  "/areas",
-  "/locations",
-];
+const want = ['/', '/services', '/gallery', '/areas', '/locations'];
 
 (async () => {
   const xml = await (await fetch(`${base}/sitemap.xml`)).text();
@@ -20,5 +14,5 @@ const want = [
     const prodUrl = `${PROD_URL}${u}`;
     assert(xml.includes(localUrl) || xml.includes(prodUrl), `Missing ${u} in sitemap`);
   }
-  console.log("sitemap validation OK");
+  console.log('sitemap validation OK');
 })();

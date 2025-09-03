@@ -1,14 +1,14 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
 
 // Run middleware only when explicitly enabled OR in dev. In prod, rely on next.config.js headers() (faster, simpler).
 const SHOULD_APPLY =
-  process.env.FORCE_LOCAL_HEADERS === "1" || process.env.NODE_ENV !== "production";
+  process.env.FORCE_LOCAL_HEADERS === '1' || process.env.NODE_ENV !== 'production';
 
 export const config = {
   // Exclude Next internals & common static assets
   matcher: [
-    "/((?!_next/|favicon\\.ico$|robots\\.txt$|sitemap\\.xml$|.*\\.(?:png|jpe?g|webp|avif|gif|svg|ico|txt|xml)$).*)",
+    '/((?!_next/|favicon\\.ico$|robots\\.txt$|sitemap\\.xml$|.*\\.(?:png|jpe?g|webp|avif|gif|svg|ico|txt|xml)$).*)',
   ],
 };
 
@@ -32,13 +32,12 @@ export default function middleware(req: NextRequest) {
     "font-src 'self' https: data:; " +
     "frame-ancestors 'none'";
 
-  setIfEmpty("Referrer-Policy", "strict-origin-when-cross-origin");
-  setIfEmpty("Permissions-Policy", "geolocation=(), camera=(), microphone=()");
-  setIfEmpty("X-Frame-Options", "DENY");
-  setIfEmpty("X-Content-Type-Options", "nosniff");
+  setIfEmpty('Referrer-Policy', 'strict-origin-when-cross-origin');
+  setIfEmpty('Permissions-Policy', 'geolocation=(), camera=(), microphone=()');
+  setIfEmpty('X-Frame-Options', 'DENY');
+  setIfEmpty('X-Content-Type-Options', 'nosniff');
   // Important: don’t send both CSP and CSP-Report-Only together.
-  setIfEmpty("Content-Security-Policy-Report-Only", csp);
+  setIfEmpty('Content-Security-Policy-Report-Only', csp);
 
   return res;
 }
-

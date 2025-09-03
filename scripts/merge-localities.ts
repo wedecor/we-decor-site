@@ -17,7 +17,7 @@ async function mergeLocalities(): Promise<void> {
       { name: 'East Bangalore', path: 'content/east_bangalore.txt', order: 2 },
       { name: 'North Bangalore', path: 'content/north_bangalore.txt', order: 3 },
       { name: 'Central Bangalore', path: 'content/central_bangalore.txt', order: 4 },
-      { name: 'West Bangalore', path: 'content/west_bangalore.txt', order: 5 }
+      { name: 'West Bangalore', path: 'content/west_bangalore.txt', order: 5 },
     ];
 
     // Sort by order to ensure correct sequence
@@ -33,21 +33,20 @@ async function mergeLocalities(): Promise<void> {
     for (const region of regionFiles) {
       try {
         console.log(`📖 Reading ${region.name}...`);
-        
+
         // Read the region file
         const content = await fs.readFile(region.path, 'utf-8');
-        
+
         // Add region header and content
         if (mergedContent) {
           mergedContent += '\n\n'; // Add blank line separator
         }
-        
+
         mergedContent += `# ${region.name}\n`;
         mergedContent += content.trim();
-        
+
         processedCount++;
         console.log(`✅ ${region.name} processed (${content.split('\n').length} lines)`);
-        
       } catch (error) {
         console.error(`❌ Error reading ${region.name}:`, error);
         throw new Error(`Failed to read ${region.path}: ${error}`);
@@ -57,21 +56,22 @@ async function mergeLocalities(): Promise<void> {
     // Write the merged content to the output file
     const outputPath = 'content/we_decor_bangalore_localities_full.txt';
     console.log(`\n💾 Writing merged content to ${outputPath}...`);
-    
+
     await fs.writeFile(outputPath, mergedContent, 'utf-8');
-    
+
     // Verify the file was written successfully
     const stats = await fs.stat(outputPath);
     const lineCount = mergedContent.split('\n').length;
-    
+
     console.log(`\n🎉 Successfully merged ${processedCount} region files!`);
     console.log(`📊 Output file: ${outputPath}`);
     console.log(`📏 Total lines: ${lineCount}`);
     console.log(`💾 File size: ${(stats.size / 1024).toFixed(2)} KB`);
-    
-    // Log the success message as required
-    console.log(`\n✅ Merged ${processedCount} region files into we_decor_bangalore_localities_full.txt`);
 
+    // Log the success message as required
+    console.log(
+      `\n✅ Merged ${processedCount} region files into we_decor_bangalore_localities_full.txt`
+    );
   } catch (error) {
     console.error('\n❌ Merge process failed:', error);
     process.exit(1);
@@ -86,4 +86,4 @@ if (require.main === module) {
   });
 }
 
-export { mergeLocalities }; 
+export { mergeLocalities };

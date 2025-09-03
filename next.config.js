@@ -1,18 +1,21 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
+const isProd = process.env.NODE_ENV === 'production';
 const csp = [
   "default-src 'self'",
-  "img-src 'self' https: data:",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+  "img-src 'self' https: data: blob:",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net",
   "style-src 'self' 'unsafe-inline' https:",
-  "connect-src 'self' https:",
+  "connect-src 'self' https: wss:",
   "font-src 'self' https: data:",
-  "frame-ancestors 'none'"
-].join("; ");
+  "object-src 'none'",
+  "base-uri 'self'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "upgrade-insecure-requests",
+].join('; ');
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   trailingSlash: false,
   eslint: { ignoreDuringBuilds: true }, // unblock prod build
   typescript: { ignoreBuildErrors: false },
@@ -21,20 +24,19 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/dux3m2saz/**' },
       { protocol: 'https', hostname: 'wedecorevents.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'www.wedecorevents.com', pathname: '/**' }
+      { protocol: 'https', hostname: 'www.wedecorevents.com', pathname: '/**' },
     ],
   },
   experimental: {
-    instrumentationHook: true,
     mdxRs: true,
   },
   webpack: (config, { isServer }) => {
     // Exclude scripts directory from webpack compilation
     config.resolve.alias = {
       ...config.resolve.alias,
-      'scripts': false,
+      scripts: false,
     };
-    
+
     // Exclude MDX files from Sentry wrapping
     if (config.module && config.module.rules) {
       config.module.rules.push({
@@ -47,7 +49,7 @@ const nextConfig = {
         },
       });
     }
-    
+
     return config;
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
@@ -85,7 +87,7 @@ const nextConfig = {
         }
       );
     }
-    
+
     return redirects;
   },
   async headers() {
@@ -101,30 +103,36 @@ const nextConfig = {
         ],
       },
       {
-        source: "/(.*)",
+        source: '/(.*)',
         headers: [
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "geolocation=(), camera=(), microphone=()" },
-          { key: "X-Frame-Options", value: "DENY" },
-          { key: isProd ? "Content-Security-Policy" : "Content-Security-Policy-Report-Only", value: csp },
-          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          {
+            key: isProd ? 'Content-Security-Policy' : 'Content-Security-Policy-Report-Only',
+            value: csp,
+          },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
           // HSTS only in production
-          ...(
-            isProd
-              ? [{ key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains; preload" }]
-              : []
-          )
-        ]
+          ...(isProd
+            ? [
+                {
+                  key: 'Strict-Transport-Security',
+                  value: 'max-age=31536000; includeSubDomains; preload',
+                },
+              ]
+            : []),
+        ],
       },
       {
-        source: "/(sitemap\\.xml|api/sitemap\\.xml)",
+        source: '/(sitemap\\.xml|api/sitemap\\.xml)',
         headers: [
-          { key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400" }
-        ]
+          { key: 'Cache-Control', value: 'public, s-maxage=3600, stale-while-revalidate=86400' },
+        ],
       },
       {
-        source: "/robots.txt",
-        headers: [{ key: "Cache-Control", value: "public, max-age=3600" }]
+        source: '/robots.txt',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }],
       },
     ];
   },
@@ -132,46 +140,42 @@ const nextConfig = {
 
 module.exports = nextConfig;
 
-
 // Injected content via Sentry wizard below
 
-const { withSentryConfig } = require("@sentry/nextjs");
+const { withSentryConfig } = require('@sentry/nextjs');
 
-module.exports = withSentryConfig(
-  module.exports,
-  {
-    // For all available options, see:
-    // https://www.npmjs.com/package/@sentry/webpack-plugin#options
+module.exports = withSentryConfig(module.exports, {
+  // For all available options, see:
+  // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
-    org: "we-decor",
-    project: "javascript-nextjs",
+  org: 'we-decor',
+  project: 'javascript-nextjs',
 
-    // Only print logs for uploading source maps in CI
-    silent: !process.env.CI,
+  // Only print logs for uploading source maps in CI
+  silent: !process.env.CI,
 
-    // For all available options, see:
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+  // For all available options, see:
+  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
-    // Upload a larger set of source maps for prettier stack traces (increases build time)
-    widenClientFileUpload: true,
+  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  widenClientFileUpload: true,
 
-    // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-    // This can increase your server load as well as your hosting bill.
-    // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-    // side errors will fail.
-    tunnelRoute: "/monitoring",
+  // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
+  // This can increase your server load as well as your hosting bill.
+  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
+  // side errors will fail.
+  tunnelRoute: '/monitoring',
 
-    // Automatically tree-shake Sentry logger statements to reduce bundle size
-    disableLogger: true,
+  // Automatically tree-shake Sentry logger statements to reduce bundle size
+  disableLogger: true,
 
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    // See the following for more information:
-    // https://docs.sentry.io/product/crons/
-    // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
+  // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
+  // See the following for more information:
+  // https://docs.sentry.io/product/crons/
+  // https://vercel.com/docs/cron-jobs
+  automaticVercelMonitors: true,
 
-    // Exclude MDX files from Sentry wrapping
-    excludeServerRoutes: [/\.mdx$/],
-    excludeClientRoutes: [/\.mdx$/],
-  }
-);
+  // Exclude MDX files from Sentry wrapping
+  excludeServerRoutes: [/\.mdx$/],
+  excludeClientRoutes: [/\.mdx$/],
+});

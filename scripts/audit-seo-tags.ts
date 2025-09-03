@@ -20,10 +20,10 @@ let issues: SeoIssue[] = [];
 
 function walk(dir: string): void {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
-  
+
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
-    
+
     if (entry.isDirectory()) {
       if (['node_modules', '.next', '.git', 'dist', 'build'].includes(entry.name)) {
         continue;
@@ -39,11 +39,11 @@ function auditFile(filePath: string): void {
   try {
     const src = fs.readFileSync(filePath, 'utf8');
     const lines = src.split('\n');
-    
+
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
       const lineNum = i + 1;
-      
+
       // Check for hardcoded absolute URLs (but exclude redirect configurations)
       const hardcodedUrlMatch = line.match(/["'`](https?:\/\/[^"'`]+)["'`]/g);
       if (hardcodedUrlMatch) {
@@ -59,12 +59,12 @@ function auditFile(filePath: string): void {
               line: lineNum,
               type: 'hardcoded_url',
               content: line.trim(),
-              expected: 'Use relative paths or lib/site.ts helpers'
+              expected: 'Use relative paths or lib/site.ts helpers',
             });
           }
         }
       }
-      
+
       // Check for canonical tags
       if (line.includes('canonical') || line.includes('canonicalPath')) {
         // Look for hardcoded canonical URLs
@@ -74,11 +74,11 @@ function auditFile(filePath: string): void {
             line: lineNum,
             type: 'canonical',
             content: line.trim(),
-            expected: 'Use canonicalPath prop with SeoHead component'
+            expected: 'Use canonicalPath prop with SeoHead component',
           });
         }
       }
-      
+
       // Check for Open Graph URLs
       if (line.includes('og:url') || line.includes('og:url')) {
         if (line.includes('https://') && line.includes('wedecorevents.com')) {
@@ -87,11 +87,11 @@ function auditFile(filePath: string): void {
             line: lineNum,
             type: 'og_url',
             content: line.trim(),
-            expected: 'Use relative paths or lib/site.ts helpers'
+            expected: 'Use relative paths or lib/site.ts helpers',
           });
         }
       }
-      
+
       // Check for Twitter Card URLs
       if (line.includes('twitter:url') || line.includes('twitter:url')) {
         if (line.includes('https://') && line.includes('wedecorevents.com')) {
@@ -100,7 +100,7 @@ function auditFile(filePath: string): void {
             line: lineNum,
             type: 'twitter_url',
             content: line.trim(),
-            expected: 'Use relative paths or lib/site.ts helpers'
+            expected: 'Use relative paths or lib/site.ts helpers',
           });
         }
       }
@@ -112,24 +112,27 @@ function auditFile(filePath: string): void {
 
 async function main(): Promise<void> {
   console.log('🔍 Auditing SEO tags and canonical URLs...\n');
-  
+
   walk(ROOT);
-  
+
   if (issues.length === 0) {
     console.log('✅ No SEO tag issues found.');
     console.log('🎉 All canonical tags and OG URLs are properly configured!');
     process.exit(0);
   }
-  
+
   console.log(`❌ Found ${issues.length} SEO tag issue(s):\n`);
-  
+
   // Group by type
-  const byType = issues.reduce((acc, issue) => {
-    if (!acc[issue.type]) acc[issue.type] = [];
-    acc[issue.type].push(issue);
-    return acc;
-  }, {} as Record<string, SeoIssue[]>);
-  
+  const byType = issues.reduce(
+    (acc, issue) => {
+      if (!acc[issue.type]) acc[issue.type] = [];
+      acc[issue.type].push(issue);
+      return acc;
+    },
+    {} as Record<string, SeoIssue[]>
+  );
+
   for (const [type, typeIssues] of Object.entries(byType)) {
     console.log(`📁 ${type.toUpperCase()} issues:`);
     for (const issue of typeIssues) {
@@ -139,13 +142,13 @@ async function main(): Promise<void> {
       console.log('');
     }
   }
-  
+
   console.log('🚨 SEO Issues Found:');
   console.log('💡 Use relative paths (/) instead of absolute URLs');
   console.log('💡 Use canonicalPath prop with SeoHead component');
   console.log('💡 Use lib/site.ts helpers for dynamic URLs');
   console.log('🔧 Fix these before production deployment!');
-  
+
   process.exit(1);
 }
 

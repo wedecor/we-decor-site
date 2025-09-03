@@ -1,7 +1,7 @@
 // Centralized image optimization utilities
 // Provides Cloudinary URL helpers with automatic format and quality optimization
 
-export const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD || "dux3m2saz";
+export const CLOUDINARY_CLOUD = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD || 'dux3m2saz';
 
 export interface ImageTransformOptions {
   width?: number;
@@ -20,10 +20,7 @@ export interface ImageTransformOptions {
 /**
  * Builds a Cloudinary URL with optimization transformations
  */
-export function buildCloudinaryUrl(
-  publicId: string,
-  options: ImageTransformOptions = {}
-): string {
+export function buildCloudinaryUrl(publicId: string, options: ImageTransformOptions = {}): string {
   const {
     width,
     height,
@@ -35,7 +32,7 @@ export function buildCloudinaryUrl(
     blur,
     brightness,
     contrast,
-    saturation
+    saturation,
   } = options;
 
   const transformations: string[] = [];
@@ -62,7 +59,7 @@ export function buildCloudinaryUrl(
   if (saturation) transformations.push(`e_saturation:${saturation}`);
 
   const transformString = transformations.join('/');
-  
+
   return `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/upload/${transformString}/${publicId}`;
 }
 
@@ -76,7 +73,7 @@ export function galleryThumbnail(publicId: string, width = 300, height = 200): s
     crop: 'fill',
     gravity: 'auto',
     quality: 'auto',
-    format: 'auto'
+    format: 'auto',
   });
 }
 
@@ -90,7 +87,7 @@ export function heroImage(publicId: string, width = 1200, height = 600): string 
     crop: 'fill',
     gravity: 'auto',
     quality: 'auto',
-    format: 'auto'
+    format: 'auto',
   });
 }
 
@@ -105,7 +102,7 @@ export function avatarImage(publicId: string, size = 150): string {
     gravity: 'face',
     quality: 'auto',
     format: 'auto',
-    radius: size / 2
+    radius: size / 2,
   });
 }
 
@@ -119,7 +116,7 @@ export function serviceCardImage(publicId: string, width = 400, height = 300): s
     crop: 'fill',
     gravity: 'auto',
     quality: 'auto',
-    format: 'auto'
+    format: 'auto',
   });
 }
 
@@ -135,14 +132,14 @@ export function responsiveImage(
   sizes: string;
 } {
   const { sm = 640, md = 768, lg = 1024, xl = 1280 } = sizes;
-  
+
   const src = buildCloudinaryUrl(publicId, { width: lg, quality: 'auto', format: 'auto' });
-  
+
   const srcSet = [
     `${buildCloudinaryUrl(publicId, { width: sm, quality: 'auto', format: 'auto' })} ${sm}w`,
     `${buildCloudinaryUrl(publicId, { width: md, quality: 'auto', format: 'auto' })} ${md}w`,
     `${buildCloudinaryUrl(publicId, { width: lg, quality: 'auto', format: 'auto' })} ${lg}w`,
-    `${buildCloudinaryUrl(publicId, { width: xl, quality: 'auto', format: 'auto' })} ${xl}w`
+    `${buildCloudinaryUrl(publicId, { width: xl, quality: 'auto', format: 'auto' })} ${xl}w`,
   ].join(', ');
 
   const sizesAttr = `(max-width: ${sm}px) ${sm}px, (max-width: ${md}px) ${md}px, (max-width: ${lg}px) ${lg}px, ${xl}px`;
@@ -160,7 +157,7 @@ export function lazyImage(publicId: string, width = 50, height = 50): string {
     crop: 'fill',
     quality: 10,
     format: 'auto',
-    blur: 1000
+    blur: 1000,
   });
 }
 
@@ -176,21 +173,22 @@ export function isCloudinaryUrl(url: string): boolean {
  */
 export function extractPublicId(url: string): string | null {
   if (!isCloudinaryUrl(url)) return null;
-  
+
   try {
     const urlObj = new URL(url);
     const pathParts = urlObj.pathname.split('/');
-    const uploadIndex = pathParts.findIndex(part => part === 'upload');
-    
+    const uploadIndex = pathParts.findIndex((part) => part === 'upload');
+
     if (uploadIndex === -1) return null;
-    
+
     // Get everything after 'upload' and before any transformations
     const afterUpload = pathParts.slice(uploadIndex + 1);
-    const publicIdParts = afterUpload.filter(part => 
-      !part.includes('_') || 
-      !['f_', 'q_', 'w_', 'h_', 'c_', 'g_', 'r_', 'e_'].some(prefix => part.startsWith(prefix))
+    const publicIdParts = afterUpload.filter(
+      (part) =>
+        !part.includes('_') ||
+        !['f_', 'q_', 'w_', 'h_', 'c_', 'g_', 'r_', 'e_'].some((prefix) => part.startsWith(prefix))
     );
-    
+
     return publicIdParts.join('/');
   } catch {
     return null;
@@ -200,10 +198,7 @@ export function extractPublicId(url: string): string | null {
 /**
  * Convert any image URL to optimized Cloudinary URL
  */
-export function optimizeImageUrl(
-  originalUrl: string,
-  options: ImageTransformOptions = {}
-): string {
+export function optimizeImageUrl(originalUrl: string, options: ImageTransformOptions = {}): string {
   // If already a Cloudinary URL, apply transformations
   if (isCloudinaryUrl(originalUrl)) {
     const publicId = extractPublicId(originalUrl);
@@ -211,8 +206,8 @@ export function optimizeImageUrl(
       return buildCloudinaryUrl(publicId, options);
     }
   }
-  
+
   // For non-Cloudinary URLs, return as-is for now
   // In production, you might want to upload to Cloudinary first
   return originalUrl;
-} 
+}

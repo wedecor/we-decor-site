@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '/areas',
     '/reviews',
     '/faq',
-    '/pricing'
+    '/pricing',
   ];
 
   // Service pages
@@ -38,7 +38,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '/services/wedding-stage-decor',
     '/services/haldi-backdrop-decor',
     '/services/birthday-home-decoration',
-    '/services/room-decor'
+    '/services/room-decor',
   ];
 
   // Area pages
@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     '/areas/west-bangalore',
     '/areas/north-bangalore',
     '/areas/south-bangalore',
-    '/areas/central-bangalore'
+    '/areas/central-bangalore',
   ];
 
   // Generate sitemap XML

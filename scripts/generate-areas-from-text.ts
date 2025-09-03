@@ -29,8 +29,8 @@
  * Creates /app/areas/page.tsx index if missing.
  */
 
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
 
 type FAQ = { q: string; a: string };
 type LocalityDoc = {
@@ -45,30 +45,30 @@ type LocalityDoc = {
   faqs: FAQ[];
 };
 
-const TXT_PATH = "content/we_decor_bangalore_localities.txt";
-const AREAS_DIR = "app/areas";
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.wedecorevents.com";
-const PHONE = "+919591232166";
-const WA = "https://wa.me/919591232166";
+const TXT_PATH = 'content/we_decor_bangalore_localities.txt';
+const AREAS_DIR = 'app/areas';
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wedecorevents.com';
+const PHONE = '+919591232166';
+const WA = 'https://wa.me/919591232166';
 
 const args = process.argv.slice(2);
-const DRY_RUN = args.includes("--dry-run");
+const DRY_RUN = args.includes('--dry-run');
 
 function slugify(input: string): string {
   return input
     .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/-{2,}/g, "-")
-    .replace(/^-|-$/g, "");
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-{2,}/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 function readTxt(filepath: string): string {
   if (!fs.existsSync(filepath)) {
     throw new Error(`TXT not found at ${filepath}`);
   }
-  return fs.readFileSync(filepath, "utf-8");
+  return fs.readFileSync(filepath, 'utf-8');
 }
 
 function splitBlocks(txt: string): string[] {
@@ -88,9 +88,9 @@ function splitBlocks(txt: string): string[] {
 }
 
 function pickLine(block: string, key: string): string {
-  const re = new RegExp("^" + key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + ":\\s*(.+)$", "m");
+  const re = new RegExp('^' + key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':\\s*(.+)$', 'm');
   const m = block.match(re);
-  return m ? m[1].trim() : "";
+  return m ? m[1].trim() : '';
 }
 
 function pickSection(block: string, key: string): string {
@@ -98,10 +98,10 @@ function pickSection(block: string, key: string): string {
   // Capture from KEY: until next ALL-CAPS KEY or end
   const re = new RegExp(
     `^${key}:\\s*\\n([\\s\\S]*?)(?=^([A-Z]{3,}|NEARBY:|FAQ:|INTRO:|SERVICES:|WHY:|TITLE:|META:|LOCALITY_NAME:)\\s*\\n|\\Z)`,
-    "m"
+    'm'
   );
   const m = block.match(re);
-  return m ? m[1].trim() : "";
+  return m ? m[1].trim() : '';
 }
 
 function parseNearby(line: string): { name: string; slug: string }[] {
@@ -116,15 +116,15 @@ function parseNearby(line: string): { name: string; slug: string }[] {
 function parseFaq(section: string): FAQ[] {
   const lines = section.split(/\r?\n/).map((l) => l.trim());
   const faqs: FAQ[] = [];
-  let q = "";
+  let q = '';
   for (const l of lines) {
     if (/^Q\.\s*/i.test(l)) {
-      q = l.replace(/^Q\.\s*/i, "").trim();
+      q = l.replace(/^Q\.\s*/i, '').trim();
     } else if (/^A\.\s*/i.test(l)) {
-      const a = l.replace(/^A\.\s*/i, "").trim();
+      const a = l.replace(/^A\.\s*/i, '').trim();
       if (q) {
         faqs.push({ q, a });
-        q = "";
+        q = '';
       }
     }
   }
@@ -134,30 +134,32 @@ function parseFaq(section: string): FAQ[] {
 function parseServices(section: string): string[] {
   return section
     .split(/\r?\n/)
-    .map((l) => l.replace(/^[-•●]\s*/, "").trim())
+    .map((l) => l.replace(/^[-•●]\s*/, '').trim())
     .filter(Boolean);
 }
 
 function parseWhy(section: string): string {
   return section
     .split(/\r?\n/)
-    .map((l) => l.replace(/^[✔✓]\s*/, "").trim())
+    .map((l) => l.replace(/^[✔✓]\s*/, '').trim())
     .filter(Boolean)
-    .join(" ");
+    .join(' ');
 }
 
 function parseBlock(block: string): LocalityDoc | null {
-  const locality = pickLine(block, "LOCALITY_NAME");
+  const locality = pickLine(block, 'LOCALITY_NAME');
   if (!locality) return null;
 
-  const title = pickLine(block, "TITLE") || `Event Decoration in ${locality} – We Decor Bangalore`;
-  const meta = pickLine(block, "META") || `Premium event decoration in ${locality}: birthdays, weddings, haldi & corporate. Call now.`;
+  const title = pickLine(block, 'TITLE') || `Event Decoration in ${locality} – We Decor Bangalore`;
+  const meta =
+    pickLine(block, 'META') ||
+    `Premium event decoration in ${locality}: birthdays, weddings, haldi & corporate. Call now.`;
 
-  const intro = pickSection(block, "INTRO");
-  const services = parseServices(pickSection(block, "SERVICES"));
-  const why = parseWhy(pickSection(block, "WHY"));
-  const nearby = parseNearby(pickLine(block, "NEARBY"));
-  const faqs = parseFaq(pickSection(block, "FAQ"));
+  const intro = pickSection(block, 'INTRO');
+  const services = parseServices(pickSection(block, 'SERVICES'));
+  const why = parseWhy(pickSection(block, 'WHY'));
+  const nearby = parseNearby(pickLine(block, 'NEARBY'));
+  const faqs = parseFaq(pickSection(block, 'FAQ'));
 
   const slug = slugify(locality);
 
@@ -167,21 +169,23 @@ function parseBlock(block: string): LocalityDoc | null {
     titleH1: title,
     metaDescription: meta,
     intro,
-    services: services.length ? services : [
-      `Birthday Decoration in ${locality} — Theme balloons, LED backdrops.`,
-      `Wedding & Engagement Décor in ${locality} — Floral mandaps, stage setups.`,
-      `Haldi & Mehendi Decoration in ${locality} — Marigold backdrops, traditional props.`,
-      `Balloon Decoration in ${locality} — Home, clubhouses & banquet halls.`,
-      `Corporate Event Decoration in ${locality} — Office parties, team events.`
-    ],
+    services: services.length
+      ? services
+      : [
+          `Birthday Decoration in ${locality} — Theme balloons, LED backdrops.`,
+          `Wedding & Engagement Décor in ${locality} — Floral mandaps, stage setups.`,
+          `Haldi & Mehendi Decoration in ${locality} — Marigold backdrops, traditional props.`,
+          `Balloon Decoration in ${locality} — Home, clubhouses & banquet halls.`,
+          `Corporate Event Decoration in ${locality} — Office parties, team events.`,
+        ],
     why: why || `Local team in ${locality}. Quick setup. Custom themes & budget-friendly packages.`,
     nearby,
-    faqs
+    faqs,
   };
 }
 
 function buildTSX(doc: LocalityDoc): string {
-  const esc = (s: string) => s.replace(/`/g, "\\`");
+  const esc = (s: string) => s.replace(/`/g, '\\`');
   const servicesArray = JSON.stringify(doc.services, null, 2);
   const nearbyArray = JSON.stringify(doc.nearby, null, 2);
   const faqsArray = JSON.stringify(doc.faqs, null, 2);
@@ -266,21 +270,21 @@ export default function Page() {
 
 function writePage(doc: LocalityDoc) {
   const dir = path.join(AREAS_DIR, doc.slug);
-  const tsxPath = path.join(dir, "page.tsx");
+  const tsxPath = path.join(dir, 'page.tsx');
 
   if (DRY_RUN) {
     console.log(`[dry] ${doc.locality} -> ${tsxPath}`);
-    return { path: tsxPath, type: "tsx" as const };
+    return { path: tsxPath, type: 'tsx' as const };
   }
 
   fs.mkdirSync(dir, { recursive: true });
   const tsx = buildTSX(doc);
-  fs.writeFileSync(tsxPath, tsx, "utf-8");
-  return { path: tsxPath, type: "tsx" as const };
+  fs.writeFileSync(tsxPath, tsx, 'utf-8');
+  return { path: tsxPath, type: 'tsx' as const };
 }
 
 function ensureAreasIndex(docs: LocalityDoc[]) {
-  const indexPath = path.join(AREAS_DIR, "page.tsx");
+  const indexPath = path.join(AREAS_DIR, 'page.tsx');
   if (DRY_RUN) {
     console.log(`[dry] would ensure index at ${indexPath}`);
     return;
@@ -290,7 +294,7 @@ function ensureAreasIndex(docs: LocalityDoc[]) {
   const list = docs
     .sort((a, b) => a.locality.localeCompare(b.locality))
     .map((d) => `{"name":"${d.locality}","slug":"${d.slug}"}`)
-    .join(",");
+    .join(',');
 
   const file = `import Link from "next/link";
 
@@ -312,7 +316,7 @@ export default function AreasIndex() {
 }
 `;
   fs.mkdirSync(AREAS_DIR, { recursive: true });
-  fs.writeFileSync(indexPath, file, "utf-8");
+  fs.writeFileSync(indexPath, file, 'utf-8');
 }
 
 (function run() {
@@ -325,7 +329,7 @@ export default function AreasIndex() {
     const raw = readTxt(TXT_PATH);
     const blocks = splitBlocks(raw);
     if (!blocks.length) {
-      console.error("❌ No locality blocks found. Check TXT formatting.");
+      console.error('❌ No locality blocks found. Check TXT formatting.');
       process.exit(1);
     }
 
@@ -335,11 +339,11 @@ export default function AreasIndex() {
       if (doc) docs.push(doc);
     }
     if (!docs.length) {
-      console.error("❌ Could not parse any locality sections.");
+      console.error('❌ Could not parse any locality sections.');
       process.exit(1);
     }
 
-    const summary: Array<{ locality: string; slug: string; path: string; type: "tsx" }> = [];
+    const summary: Array<{ locality: string; slug: string; path: string; type: 'tsx' }> = [];
     for (const doc of docs) {
       const out = writePage(doc);
       summary.push({ locality: doc.locality, slug: doc.slug, path: out.path, type: out.type });
@@ -347,7 +351,7 @@ export default function AreasIndex() {
 
     ensureAreasIndex(docs);
 
-    console.log("\\n✅ Generation complete (TXT):");
+    console.log('\\n✅ Generation complete (TXT):');
     console.table(
       summary.map((s) => ({
         Locality: s.locality,
@@ -357,7 +361,7 @@ export default function AreasIndex() {
       }))
     );
   } catch (e: any) {
-    console.error("❌ Error:", e?.message || e);
+    console.error('❌ Error:', e?.message || e);
     process.exit(1);
   }
-})(); 
+})();

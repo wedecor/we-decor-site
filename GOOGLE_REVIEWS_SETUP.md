@@ -1,6 +1,7 @@
 # Google Reviews Integration Setup Guide
 
 ## Overview
+
 This guide will help you integrate Google Reviews into your We Decor website. We've implemented two approaches:
 
 1. **Google Places API Integration** (Recommended) - Fetches real reviews and displays them on your site
@@ -9,6 +10,7 @@ This guide will help you integrate Google Reviews into your We Decor website. We
 ## Option 1: Google Places API Integration
 
 ### Step 1: Get Your Google Place ID
+
 1. Go to [Google Maps](https://maps.google.com)
 2. Search for your business "We Decor Bangalore"
 3. Click on your business listing
@@ -16,6 +18,7 @@ This guide will help you integrate Google Reviews into your We Decor website. We
 5. The Place ID is the long string after `1s0x` and before `!8m2` (e.g., `3bae1234567890ab:0x1234567890abcdef`)
 
 ### Step 2: Set Up Google Cloud Project
+
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project or select existing one
 3. Enable the **Places API**:
@@ -24,6 +27,7 @@ This guide will help you integrate Google Reviews into your We Decor website. We
    - Click "Enable"
 
 ### Step 3: Create API Key
+
 1. Go to "APIs & Services" > "Credentials"
 2. Click "Create Credentials" > "API Key"
 3. Copy the API key
@@ -35,7 +39,9 @@ This guide will help you integrate Google Reviews into your We Decor website. We
    - Select "Places API"
 
 ### Step 4: Add Environment Variables
+
 Add these to your `.env.local` file:
+
 ```env
 # Google Places API
 GOOGLE_PLACES_API_KEY=your_api_key_here
@@ -43,11 +49,13 @@ NEXT_PUBLIC_GOOGLE_PLACE_ID=your_place_id_here
 ```
 
 For Vercel deployment, add these in your Vercel dashboard:
+
 1. Go to your project settings
 2. Navigate to "Environment Variables"
 3. Add both variables
 
 ### Step 5: Test the Integration
+
 1. Run your development server: `npm run dev`
 2. Visit `/reviews` page
 3. Check the browser console for any errors
@@ -56,6 +64,7 @@ For Vercel deployment, add these in your Vercel dashboard:
 ## Option 2: Google Reviews Widget (Simpler)
 
 ### Step 1: Get Embed Code
+
 1. Go to [Google My Business](https://business.google.com)
 2. Select your business
 3. Go to "Reviews" section
@@ -63,22 +72,26 @@ For Vercel deployment, add these in your Vercel dashboard:
 5. Copy the embed code
 
 ### Step 2: Add to Your Site
+
 You can add the embed code to any page or use our `GoogleReviewsWidget` component.
 
 ## Files Created/Modified
 
 ### New Files:
+
 - `utils/googleReviews.ts` - API utility functions
 - `pages/api/google-reviews.ts` - Server-side API route
 - `components/GoogleReviewsWidget.tsx` - Widget component
 - `pages/reviews.tsx` - Dedicated reviews page
 
 ### Modified Files:
+
 - `components/Testimonials.tsx` - Now fetches Google Reviews
 
 ## Features Implemented
 
 ### ✅ What's Working:
+
 - **Real Google Reviews**: Fetches actual reviews from Google Places API
 - **Fallback System**: Shows static testimonials if API fails
 - **Responsive Design**: Works on all devices
@@ -89,6 +102,7 @@ You can add the embed code to any page or use our `GoogleReviewsWidget` componen
 - **Dark Mode Support**: Works with your existing dark mode
 
 ### 🎨 UI Features:
+
 - **Profile Photos**: Shows reviewer profile pictures
 - **Star Ratings**: Dynamic star display based on actual ratings
 - **Review Dates**: Shows when reviews were posted
@@ -115,6 +129,7 @@ You can add the embed code to any page or use our `GoogleReviewsWidget` componen
    - Test with a known working Place ID
 
 ### Testing:
+
 ```bash
 # Test API route directly
 curl "http://localhost:3000/api/google-reviews?placeId=YOUR_PLACE_ID"
@@ -144,9 +159,10 @@ curl "http://localhost:3000/api/google-reviews?placeId=YOUR_PLACE_ID"
 ## Support
 
 If you encounter issues:
+
 1. Check the troubleshooting section above
 2. Verify your Google Cloud Console settings
 3. Test with the provided fallback system
 4. Check browser console for detailed error messages
 
-The integration is designed to be robust with fallbacks, so your site will always show testimonials even if Google Reviews fail to load. 
+The integration is designed to be robust with fallbacks, so your site will always show testimonials even if Google Reviews fail to load.

@@ -26,10 +26,15 @@ async function text(url) {
   if (!sm.ok) throw new Error('❌ sitemap.xml not reachable');
 
   const $ = cheerio.load(sm.body, { xmlMode: true });
-  const urls = $('url > loc').map((i, el) => $(el).text()).get();
+  const urls = $('url > loc')
+    .map((i, el) => $(el).text())
+    .get();
   if (urls.length === 0) {
     throw new Error('❌ sitemap.xml has no <url><loc> entries');
   }
   console.log('sample urls:', urls.slice(0, 10));
   console.log('✅ audit passed (basic checks)');
-})().catch(e => { console.error(e); process.exit(1); });
+})().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

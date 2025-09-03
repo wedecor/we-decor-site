@@ -2,9 +2,16 @@ import { fetch } from 'undici';
 import * as cheerio from 'cheerio';
 
 const HOST = process.env.HOST || 'http://localhost:3000';
-const PAGES = ['/locations', '/locations/koramangala', '/locations/whitefield', '/locations/indiranagar'];
+const PAGES = [
+  '/locations',
+  '/locations/koramangala',
+  '/locations/whitefield',
+  '/locations/indiranagar',
+];
 
-function textLen(s) { return (s || '').trim().length; }
+function textLen(s) {
+  return (s || '').trim().length;
+}
 
 console.log(`🔍 Checking ${PAGES.length} pages for navbar, footer, and SEO elements...`);
 
@@ -12,7 +19,7 @@ let totalProblems = 0;
 
 for (const p of PAGES) {
   console.log(`\n📄 Checking ${p}...`);
-  
+
   try {
     const res = await fetch(HOST + p);
     if (!res.ok) {
@@ -20,7 +27,7 @@ for (const p of PAGES) {
       totalProblems++;
       continue;
     }
-    
+
     const html = await res.text();
     const $ = cheerio.load(html);
 
@@ -44,7 +51,7 @@ for (const p of PAGES) {
 
     if (problems.length) {
       console.log(`❌ ${p} - ${problems.length} issues:`);
-      problems.forEach(p => console.log(`   - ${p}`));
+      problems.forEach((p) => console.log(`   - ${p}`));
       totalProblems += problems.length;
     } else {
       console.log(`✅ ${p} OK (title/desc/canonical/H1/nav/footer)`);
@@ -63,4 +70,4 @@ if (totalProblems > 0) {
   process.exitCode = 1;
 } else {
   console.log('🎉 All pages passed checks!');
-} 
+}

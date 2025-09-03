@@ -1,7 +1,7 @@
 name: Comment Sitemap Summary
 on:
   workflow_run:
-    workflows: ["Verify Production Sitemap & Robots"]
+    workflows: ['Verify Production Sitemap & Robots']
     types: [completed]
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Extract last lines
         run: |
           if [ -f "reports/sitemap-diagnosis.txt" ]; then
@@ -31,10 +31,10 @@ jobs:
             echo "" >> summary.txt
             echo "🔍 **Check the workflow run:** [View Details](${{ github.event.workflow_run.html_url }})" >> summary.txt
           fi
-      
+
       - name: Post PR comment (if available)
         uses: mshick/add-pr-comment@v2
         with:
           message-path: summary.txt
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          allow-repeats: false 
+          allow-repeats: false

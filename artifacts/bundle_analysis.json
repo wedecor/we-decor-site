@@ -1,0 +1,172 @@
+{
+  "timestamp": "2025-09-03T11:29:15.617Z",
+  "budgets": {
+    "main": 1536000,
+    "main_warning": 1228800,
+    "page": 1228800,
+    "chunk": 307200
+  },
+  "analysis": {
+    "totalRoutes": 17,
+    "totalSize": 2421292,
+    "totalFirstLoad": 2421292,
+    "violations": [],
+    "warnings": [],
+    "summary": {
+      "main": {
+        "size": 1210646,
+        "firstLoad": 1210646,
+        "routes": [
+          {
+            "type": "page",
+            "route": "/",
+            "sizeKB": 1182.271484375,
+            "firstLoadKB": 1182.271484375,
+            "sizeBytes": 1210646,
+            "firstLoadBytes": 1210646
+          }
+        ]
+      },
+      "pages": {
+        "size": 1210646,
+        "firstLoad": 1210646,
+        "routes": [
+          {
+            "type": "chunk",
+            "route": "/static/chunks/2071-12ca7512b271ac89.js",
+            "sizeKB": 18.7109375,
+            "firstLoadKB": 18.7109375,
+            "sizeBytes": 19160,
+            "firstLoadBytes": 19160
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/4096-2a783ef82198bc66.js",
+            "sizeKB": 104.234375,
+            "firstLoadKB": 104.234375,
+            "sizeBytes": 106736,
+            "firstLoadBytes": 106736
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/4547-7f65768d20020173.js",
+            "sizeKB": 338.80859375,
+            "firstLoadKB": 338.80859375,
+            "sizeBytes": 346940,
+            "firstLoadBytes": 346940
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/4591-5624cfa1226795df.js",
+            "sizeKB": 32.232421875,
+            "firstLoadKB": 32.232421875,
+            "sizeBytes": 33006,
+            "firstLoadBytes": 33006
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/5250-cda801cfdc4bd7dd.js",
+            "sizeKB": 5.6142578125,
+            "firstLoadKB": 5.6142578125,
+            "sizeBytes": 5749,
+            "firstLoadBytes": 5749
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/52774a7f-b9cff2888b3e2d2d.js",
+            "sizeKB": 117.806640625,
+            "firstLoadKB": 117.806640625,
+            "sizeBytes": 120634,
+            "firstLoadBytes": 120634
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/5582-229b44dfd9fe66de.js",
+            "sizeKB": 16.75390625,
+            "firstLoadKB": 16.75390625,
+            "sizeBytes": 17156,
+            "firstLoadBytes": 17156
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/5675-367f8e6a215ff703.js",
+            "sizeKB": 9.3046875,
+            "firstLoadKB": 9.3046875,
+            "sizeBytes": 9528,
+            "firstLoadBytes": 9528
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/6295-480f35e1629cacb8.js",
+            "sizeKB": 12.578125,
+            "firstLoadKB": 12.578125,
+            "sizeBytes": 12880,
+            "firstLoadBytes": 12880
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/cb355538-da78c376ce4f9ec7.js",
+            "sizeKB": 0.869140625,
+            "firstLoadKB": 0.869140625,
+            "sizeBytes": 890,
+            "firstLoadBytes": 890
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/fd9d1056-0d855c71e7c7e55e.js",
+            "sizeKB": 168.490234375,
+            "firstLoadKB": 168.490234375,
+            "sizeBytes": 172534,
+            "firstLoadBytes": 172534
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/framework-d52bab97823921f9.js",
+            "sizeKB": 138.0615234375,
+            "firstLoadKB": 138.0615234375,
+            "sizeBytes": 141375,
+            "firstLoadBytes": 141375
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/main-7494e9d438f3690f.js",
+            "sizeKB": 122.6591796875,
+            "firstLoadKB": 122.6591796875,
+            "sizeBytes": 125603,
+            "firstLoadBytes": 125603
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/main-app-b784cfc891dc150a.js",
+            "sizeKB": 2.7333984375,
+            "firstLoadKB": 2.7333984375,
+            "sizeBytes": 2799,
+            "firstLoadBytes": 2799
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/polyfills-c67a75d1b6f99dc8.js",
+            "sizeKB": 89.31640625,
+            "firstLoadKB": 89.31640625,
+            "sizeBytes": 91460,
+            "firstLoadBytes": 91460
+          },
+          {
+            "type": "chunk",
+            "route": "/static/chunks/webpack-2546ff773ed476b1.js",
+            "sizeKB": 4.09765625,
+            "firstLoadKB": 4.09765625,
+            "sizeBytes": 4196,
+            "firstLoadBytes": 4196
+          }
+        ]
+      },
+      "chunks": {
+        "size": 0,
+        "firstLoad": 0,
+        "routes": []
+      }
+    }
+  },
+  "status": "PASS"
+}

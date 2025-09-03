@@ -5,11 +5,13 @@ This testing suite validates the locations experience for consistency, SEO, and 
 ## 🎯 What We Test
 
 ### 1. **Link Validation** (`qa:links`)
+
 - Checks all links on `/locations` page
 - Ensures no broken links exist
 - Validates both internal and external URLs
 
 ### 2. **Page Structure & SEO** (`qa:pages`)
+
 - Verifies Navbar/Footer presence on all location pages
 - Checks basic SEO elements:
   - Title tags (minimum 20 chars)
@@ -18,11 +20,13 @@ This testing suite validates the locations experience for consistency, SEO, and 
   - H1 headings (minimum 5 chars)
 
 ### 3. **Sitemap Validation** (`qa:sitemap`)
+
 - Confirms all location URLs are in `sitemap.xml`
 - Cross-references with `locations.ts` data
 - Ensures complete coverage of service areas
 
 ### 4. **Robots.txt Check** (`qa:robots`)
+
 - Validates `robots.txt` accessibility
 - Confirms sitemap reference exists
 - Checks for overly restrictive blocking rules
@@ -30,16 +34,19 @@ This testing suite validates the locations experience for consistency, SEO, and 
 ## 🚀 Quick Start
 
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Run All Tests
+
 ```bash
 npm run qa:all
 ```
 
 ### Run Individual Tests
+
 ```bash
 npm run qa:links      # Check links on /locations
 npm run qa:pages      # Validate page structure & SEO
@@ -50,6 +57,7 @@ npm run qa:robots     # Check robots.txt configuration
 ## 🔧 Local Development Testing
 
 ### 1. Start Development Server
+
 ```bash
 npm run qa:dev
 # or
@@ -57,6 +65,7 @@ npm run dev
 ```
 
 ### 2. Run Tests Against Localhost
+
 ```bash
 # Set environment variable for local testing
 export HOST=http://localhost:3000
@@ -72,6 +81,7 @@ npm run qa:all
 ```
 
 ### 3. Test Specific Pages
+
 ```bash
 # Test links on a specific page
 PAGE=/locations/koramangala npm run qa:links
@@ -83,11 +93,13 @@ HOST=http://localhost:3001 npm run qa:all
 ## 🌐 Production Testing
 
 ### Test Live Site
+
 ```bash
 HOST=https://www.wedecorevents.com npm run qa:all
 ```
 
 ### Test Staging/Preview
+
 ```bash
 HOST=https://your-preview-url.vercel.app npm run qa:all
 ```
@@ -95,12 +107,14 @@ HOST=https://your-preview-url.vercel.app npm run qa:all
 ## 📊 Test Coverage
 
 ### Pages Tested
+
 - `/locations` - Main locations page
 - `/locations/koramangala` - Sample area page
-- `/locations/whitefield` - Sample area page  
+- `/locations/whitefield` - Sample area page
 - `/locations/indiranagar` - Sample area page
 
 ### What Passes ✅
+
 - All links return 2xx/3xx status codes
 - Navbar and Footer present on all pages
 - SEO elements meet minimum requirements
@@ -108,6 +122,7 @@ HOST=https://your-preview-url.vercel.app npm run qa:all
 - Robots.txt references sitemap and doesn't block
 
 ### What Fails ❌
+
 - Broken links (4xx/5xx status codes)
 - Missing navigation components
 - Incomplete SEO metadata
@@ -119,6 +134,7 @@ HOST=https://your-preview-url.vercel.app npm run qa:all
 ### Common Issues
 
 #### 1. **Port Already in Use**
+
 ```bash
 # Kill existing process
 lsof -ti:3000 | xargs kill -9
@@ -127,6 +143,7 @@ HOST=http://localhost:3001 npm run qa:all
 ```
 
 #### 2. **Network Errors**
+
 ```bash
 # Check if dev server is running
 curl http://localhost:3000/locations
@@ -135,6 +152,7 @@ curl http://localhost:3000/locations
 ```
 
 #### 3. **Permission Issues**
+
 ```bash
 # Make scripts executable
 chmod +x scripts/*.mjs
@@ -144,6 +162,7 @@ node --version  # Should be 18+
 ```
 
 #### 4. **Dependency Issues**
+
 ```bash
 # Clear node_modules and reinstall
 rm -rf node_modules package-lock.json
@@ -151,6 +170,7 @@ npm install
 ```
 
 ### Debug Mode
+
 ```bash
 # Add debug logging
 DEBUG=* npm run qa:all
@@ -162,6 +182,7 @@ npm run qa:pages 2>&1 | tee qa-pages.log
 ## 📈 Continuous Integration
 
 ### GitHub Actions Example
+
 ```yaml
 name: QA Tests
 on: [push, pull_request]
@@ -181,6 +202,7 @@ jobs:
 ```
 
 ### Pre-commit Hook
+
 ```bash
 # Add to package.json scripts
 "precommit": "npm run qa:all"
@@ -193,25 +215,30 @@ npx husky add .husky/pre-commit "npm run precommit"
 ## 🔍 Customization
 
 ### Test Different Pages
+
 Edit `scripts/check-pages.mjs`:
+
 ```javascript
 const PAGES = [
-  '/locations', 
+  '/locations',
   '/locations/koramangala',
   '/locations/whitefield',
   '/locations/indiranagar',
-  '/locations/your-custom-area'  // Add more
+  '/locations/your-custom-area', // Add more
 ];
 ```
 
 ### Adjust SEO Thresholds
+
 Edit `scripts/check-pages.mjs`:
+
 ```javascript
-if (textLen(title) < 25) problems.push('Short <title>');  // Increase from 20
-if (textLen(desc) < 80) problems.push('Short <meta description>');  // Increase from 60
+if (textLen(title) < 25) problems.push('Short <title>'); // Increase from 20
+if (textLen(desc) < 80) problems.push('Short <meta description>'); // Increase from 60
 ```
 
 ### Add Custom Checks
+
 ```javascript
 // Add to check-pages.mjs
 const hasSchema = $('script[type="application/ld+json"]').length > 0;
@@ -228,12 +255,14 @@ if (!hasSchema) problems.push('Missing structured data');
 ## 🤝 Contributing
 
 ### Adding New Tests
+
 1. Create new script in `scripts/` directory
 2. Add npm script to `package.json`
 3. Update this README
 4. Test locally before committing
 
 ### Reporting Issues
+
 - Check existing issues first
 - Provide error logs and environment details
 - Include steps to reproduce
@@ -242,4 +271,4 @@ if (!hasSchema) problems.push('Missing structured data');
 
 **Last Updated**: $(date)
 **Version**: 1.0.0
-**Maintainer**: We Decor Development Team 
+**Maintainer**: We Decor Development Team
