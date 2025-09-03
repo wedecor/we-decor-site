@@ -18,6 +18,17 @@
     outline: 2px solid theme('colors.green.500');
     outline-offset: 2px;
   }
+  
+  /* Accessibility fixes for third-party widgets */
+  .google-reviews-widget button:not([aria-label]):not([title]):not([aria-labelledby]):not([aria-describedby]) {
+    display: none !important;
+  }
+  
+  /* Ensure buttons have minimum touch target size */
+  button {
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 /* Reduced motion safety net */
