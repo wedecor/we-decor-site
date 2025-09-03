@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Script from 'next/script';
 
 // Extend Window interface for eapps
 declare global {
@@ -19,32 +20,21 @@ interface GoogleReviewsWidgetProps {
 export default function GoogleReviewsWidget({ placeId, className = '' }: GoogleReviewsWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Load Google Reviews widget script
-    const script = document.createElement('script');
-    script.src = 'https://static.elfsight.com/platform/platform.js';
-    script.setAttribute('data-use-service-core', '');
-    script.async = true;
-
-    script.onload = () => {
-      // Initialize the widget after script loads
-      if (window.eapps && containerRef.current) {
-        window.eapps.init();
-      }
-    };
-
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
-    };
-  }, []);
+  const handleScriptLoad = () => {
+    // Initialize the widget after script loads
+    if (window.eapps && containerRef.current) {
+      window.eapps.init();
+    }
+  };
 
   return (
     <div className={`google-reviews-widget ${className}`}>
+      <Script
+        src="https://static.elfsight.com/platform/platform.js"
+        data-use-service-core=""
+        strategy="lazyOnload"
+        onLoad={handleScriptLoad}
+      />
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">Google Reviews</h2>
         <p className="text-lg text-gray-600 dark:text-gray-300">
