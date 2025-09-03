@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
+// Accessibility tests for key pages
 const routes = ["/", "/gallery"];
 test.describe("a11y", () => {
   for (const r of routes) {
