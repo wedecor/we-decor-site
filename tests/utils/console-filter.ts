@@ -17,7 +17,11 @@ export async function silenceExpectedConsole(page: Page) {
       text.includes("request_denied") ||
       (text.includes("400") && (text.includes("googleapis") || text.includes("gtag") || text.includes("maps")));
 
-    if (is404TestRoute || isExternalApiNoise) return; // ignore expected
+    const isMimeTypeError =
+      text.includes("mime type") && text.includes("text/html") && 
+      (text.includes("not executable") || text.includes("not a supported stylesheet"));
+
+    if (is404TestRoute || isExternalApiNoise || isMimeTypeError) return; // ignore expected
     // Uncomment next line if you want to fail on unexpected errors:
     // throw new Error(`Unexpected console error: ${msg.text()}`);
   });
