@@ -1,5 +1,4 @@
 #!/usr/bin/env tsx
-/* eslint-disable no-console */
 
 import { execSync } from 'child_process';
 import { SITE_URL } from '../lib/site';
@@ -19,10 +18,13 @@ try {
 // Check 2: No wedecor.in references
 console.log('2️⃣  Checking for wedecor.in references...');
 try {
-  const result = execSync('grep -R "wedecor\\.in" -n . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.next || true', { 
-    encoding: 'utf8' 
-  });
-  
+  const result = execSync(
+    'grep -R "wedecor\\.in" -n . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=.next || true',
+    {
+      encoding: 'utf8',
+    }
+  );
+
   if (result.trim()) {
     console.log('❌ Found wedecor.in references:');
     console.log(result);
@@ -55,7 +57,7 @@ try {
     console.log('❌ Cache headers missing for sitemap.xml');
     process.exit(1);
   }
-  
+
   if (config.includes('Cache-Control') && config.includes('robots.txt')) {
     console.log('✅ Cache headers found for robots.txt\n');
   } else {
@@ -87,4 +89,4 @@ console.log('\n📋 Next steps:');
 console.log('1. Create PR on GitHub');
 console.log('2. Ensure CI workflow passes (will skip prod checks on PR)');
 console.log('3. Merge to main when ready');
-console.log('4. CI will verify production after deployment'); 
+console.log('4. CI will verify production after deployment');

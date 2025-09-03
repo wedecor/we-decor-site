@@ -1,0 +1,182 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "We Decor Logo We Decor" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "We Decor Logo" [ref=e5] [cursor=pointer]
+        - generic [ref=e6] [cursor=pointer]: We Decor
+      - generic [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "Gallery" [ref=e10] [cursor=pointer]:
+          - /url: /gallery
+        - link "Areas" [ref=e11] [cursor=pointer]:
+          - /url: /areas
+        - link "Locations" [ref=e12] [cursor=pointer]:
+          - /url: /locations
+        - link "Pricing" [ref=e13] [cursor=pointer]:
+          - /url: /pricing
+        - link "FAQ" [ref=e14] [cursor=pointer]:
+          - /url: /faq
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+        - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
+          - img [ref=e17] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - heading "Service Areas" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Explore all neighborhoods we cover in and around Bengaluru.
+      - generic [ref=e26]:
+        - link "Ashok Nagar" [ref=e27] [cursor=pointer]:
+          - /url: /areas/ashok-nagar
+          - generic [ref=e28] [cursor=pointer]: Ashok Nagar
+        - link "Banashankari" [ref=e29] [cursor=pointer]:
+          - /url: /areas/banashankari
+          - generic [ref=e30] [cursor=pointer]: Banashankari
+        - link "Bangalore" [ref=e31] [cursor=pointer]:
+          - /url: /areas/bangalore
+          - generic [ref=e32] [cursor=pointer]: Bangalore
+        - link "Bannerghatta Road" [ref=e33] [cursor=pointer]:
+          - /url: /areas/bannerghatta-road
+          - generic [ref=e34] [cursor=pointer]: Bannerghatta Road
+        - link "Basavanagudi" [ref=e35] [cursor=pointer]:
+          - /url: /areas/basavanagudi
+          - generic [ref=e36] [cursor=pointer]: Basavanagudi
+        - link "Bellandur" [ref=e37] [cursor=pointer]:
+          - /url: /areas/bellandur
+          - generic [ref=e38] [cursor=pointer]: Bellandur
+        - link "BTM Layout" [ref=e39] [cursor=pointer]:
+          - /url: /areas/btm-layout
+          - generic [ref=e40] [cursor=pointer]: BTM Layout
+        - link "Domlur" [ref=e41] [cursor=pointer]:
+          - /url: /areas/domlur
+          - generic [ref=e42] [cursor=pointer]: Domlur
+        - link "Electronic City" [ref=e43] [cursor=pointer]:
+          - /url: /areas/electronic-city
+          - generic [ref=e44] [cursor=pointer]: Electronic City
+        - link "Hebbal" [ref=e45] [cursor=pointer]:
+          - /url: /areas/hebbal
+          - generic [ref=e46] [cursor=pointer]: Hebbal
+        - link "HSR Layout" [ref=e47] [cursor=pointer]:
+          - /url: /areas/hsr-layout
+          - generic [ref=e48] [cursor=pointer]: HSR Layout
+        - link "Indiranagar" [ref=e49] [cursor=pointer]:
+          - /url: /areas/indiranagar
+          - generic [ref=e50] [cursor=pointer]: Indiranagar
+        - link "Jayanagar" [ref=e51] [cursor=pointer]:
+          - /url: /areas/jayanagar
+          - generic [ref=e52] [cursor=pointer]: Jayanagar
+        - link "JP Nagar" [ref=e53] [cursor=pointer]:
+          - /url: /areas/jp-nagar
+          - generic [ref=e54] [cursor=pointer]: JP Nagar
+        - link "Kanakapura Road" [ref=e55] [cursor=pointer]:
+          - /url: /areas/kanakapura-road
+          - generic [ref=e56] [cursor=pointer]: Kanakapura Road
+        - link "Koramangala" [ref=e57] [cursor=pointer]:
+          - /url: /areas/koramangala
+          - generic [ref=e58] [cursor=pointer]: Koramangala
+        - link "Malleshwaram" [ref=e59] [cursor=pointer]:
+          - /url: /areas/malleshwaram
+          - generic [ref=e60] [cursor=pointer]: Malleshwaram
+        - link "Marathahalli" [ref=e61] [cursor=pointer]:
+          - /url: /areas/marathahalli
+          - generic [ref=e62] [cursor=pointer]: Marathahalli
+        - link "Mathikere" [ref=e63] [cursor=pointer]:
+          - /url: /areas/mathikere
+          - generic [ref=e64] [cursor=pointer]: Mathikere
+        - link "Peenya" [ref=e65] [cursor=pointer]:
+          - /url: /areas/peenya
+          - generic [ref=e66] [cursor=pointer]: Peenya
+        - link "Rajajinagar" [ref=e67] [cursor=pointer]:
+          - /url: /areas/rajajinagar
+          - generic [ref=e68] [cursor=pointer]: Rajajinagar
+        - link "Richmond Town" [ref=e69] [cursor=pointer]:
+          - /url: /areas/richmond-town
+          - generic [ref=e70] [cursor=pointer]: Richmond Town
+        - link "RT Nagar" [ref=e71] [cursor=pointer]:
+          - /url: /areas/rt-nagar
+          - generic [ref=e72] [cursor=pointer]: RT Nagar
+        - link "Sahakarnagar" [ref=e73] [cursor=pointer]:
+          - /url: /areas/sahakarnagar
+          - generic [ref=e74] [cursor=pointer]: Sahakarnagar
+        - link "Sarjapur Road" [ref=e75] [cursor=pointer]:
+          - /url: /areas/sarjapur-road
+          - generic [ref=e76] [cursor=pointer]: Sarjapur Road
+        - link "Ulsoor" [ref=e77] [cursor=pointer]:
+          - /url: /areas/ulsoor
+          - generic [ref=e78] [cursor=pointer]: Ulsoor
+        - link "Vijayanagar" [ref=e79] [cursor=pointer]:
+          - /url: /areas/vijayanagar
+          - generic [ref=e80] [cursor=pointer]: Vijayanagar
+        - link "Whitefield" [ref=e81] [cursor=pointer]:
+          - /url: /areas/whitefield
+          - generic [ref=e82] [cursor=pointer]: Whitefield
+        - link "Yelahanka" [ref=e83] [cursor=pointer]:
+          - /url: /areas/yelahanka
+          - generic [ref=e84] [cursor=pointer]: Yelahanka
+        - link "Yeshwanthpur" [ref=e85] [cursor=pointer]:
+          - /url: /areas/yeshwanthpur
+          - generic [ref=e86] [cursor=pointer]: Yeshwanthpur
+  - contentinfo [ref=e87]:
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]:
+          - img "We Decor Logo" [ref=e91]
+          - generic [ref=e92]:
+            - generic [ref=e93]: We Decor
+            - generic [ref=e94]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e95] [cursor=pointer]:
+          - /url: https://instagram.com/wedecorbangalore
+          - img [ref=e96] [cursor=pointer]
+          - generic [ref=e98] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e99]:
+        - navigation "Footer quick links" [ref=e100]:
+          - heading "Quick Links" [level=2] [ref=e101]
+          - list [ref=e102]:
+            - listitem [ref=e103]:
+              - link "About Us" [ref=e104] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e105]:
+              - link "Services" [ref=e106] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e107]:
+              - link "Gallery" [ref=e108] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=e109]:
+              - link "Pricing" [ref=e110] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e111]:
+              - link "FAQ" [ref=e112] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e113]:
+              - link "Contact" [ref=e114] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e115]:
+          - heading "Contact Info" [level=4] [ref=e116]
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - img [ref=e119]
+              - link "+91 88805 44452" [ref=e121] [cursor=pointer]:
+                - /url: tel:+919880544452
+            - generic [ref=e122]:
+              - img [ref=e123]
+              - link "+91 95912 32166" [ref=e125] [cursor=pointer]:
+                - /url: tel:+919591232166
+            - generic [ref=e126]:
+              - img [ref=e127]
+              - generic [ref=e129]: Bangalore, India
+            - generic [ref=e130]:
+              - img [ref=e131]
+              - generic [ref=e133]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e135]:
+        - text: © 2025
+        - generic [ref=e136]: We Decor
+        - text: ", Bangalore. All rights reserved."
+  - alert [ref=e137]
+```

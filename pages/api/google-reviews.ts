@@ -19,10 +19,7 @@ interface GooglePlaceDetails {
   reviews: GoogleReview[];
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -35,11 +32,11 @@ export default async function handler(
 
   try {
     const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    
+
     if (!apiKey) {
-      return res.status(500).json({ 
+      return res.status(500).json({
         message: 'Google Places API key not configured',
-        error: 'API_KEY_MISSING'
+        error: 'API_KEY_MISSING',
       });
     }
 
@@ -52,23 +49,23 @@ export default async function handler(
     }
 
     const data = await response.json();
-    
+
     if (data.status === 'OK') {
       // Cache the response for 1 hour
       res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
       return res.status(200).json(data.result);
     } else {
       console.error('Google Places API error:', data.status);
-      return res.status(400).json({ 
+      return res.status(400).json({
         message: 'Failed to fetch reviews',
-        error: data.status 
+        error: data.status,
       });
     }
   } catch (error) {
     console.error('Error fetching Google reviews:', error);
-    return res.status(500).json({ 
+    return res.status(500).json({
       message: 'Internal server error',
-      error: 'FETCH_ERROR'
+      error: 'FETCH_ERROR',
     });
   }
-} 
+}

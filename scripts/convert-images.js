@@ -30,9 +30,9 @@ async function convertImageToJpg(publicId) {
       type: 'upload',
       format: 'jpg',
       quality: 'auto',
-      fetch_format: 'jpg'
+      fetch_format: 'jpg',
     });
-    
+
     console.log(`✅ Converted: ${publicId} -> ${result.secure_url}`);
     return result.secure_url;
   } catch (error) {
@@ -43,15 +43,14 @@ async function convertImageToJpg(publicId) {
 
 async function convertHeicImages() {
   const images = await fetchAllImages();
-  const heicImages = images.filter(img => 
-    img.format?.toLowerCase() === 'heic' && 
-    img.asset_folder?.startsWith('we-decor/')
+  const heicImages = images.filter(
+    (img) => img.format?.toLowerCase() === 'heic' && img.asset_folder?.startsWith('we-decor/')
   );
-  
+
   console.log(`Found ${heicImages.length} HEIC images to convert:`);
-  
+
   const convertedUrls = [];
-  
+
   for (const img of heicImages) {
     console.log(`Converting: ${img.filename} (${img.asset_folder})`);
     const convertedUrl = await convertImageToJpg(img.public_id);
@@ -60,65 +59,63 @@ async function convertHeicImages() {
         original: img.secure_url,
         converted: convertedUrl,
         filename: img.filename,
-        folder: img.asset_folder.replace('we-decor/', '')
+        folder: img.asset_folder.replace('we-decor/', ''),
       });
     }
     // Add a small delay to avoid rate limiting
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  
+
   console.log('\n✅ Conversion complete!');
   console.log(`Successfully converted ${convertedUrls.length} images`);
-  
+
   return convertedUrls;
 }
 
 // Alternative approach: Create transformed URLs
 async function createTransformedUrls() {
   const images = await fetchAllImages();
-  const heicImages = images.filter(img => 
-    img.format?.toLowerCase() === 'heic' && 
-    img.asset_folder?.startsWith('we-decor/')
+  const heicImages = images.filter(
+    (img) => img.format?.toLowerCase() === 'heic' && img.asset_folder?.startsWith('we-decor/')
   );
-  
+
   console.log(`Found ${heicImages.length} HEIC images. Creating transformed URLs...`);
-  
-  const transformedUrls = heicImages.map(img => {
+
+  const transformedUrls = heicImages.map((img) => {
     // Create a transformed URL that converts HEIC to JPG on-the-fly
     const transformedUrl = cloudinary.url(img.public_id, {
       format: 'jpg',
       quality: 'auto',
-      fetch_format: 'jpg'
+      fetch_format: 'jpg',
     });
-    
+
     return {
       original: img.secure_url,
       transformed: transformedUrl,
       filename: img.filename,
-      folder: img.asset_folder.replace('we-decor/', '')
+      folder: img.asset_folder.replace('we-decor/', ''),
     };
   });
-  
+
   console.log('\n✅ Transformed URLs created!');
-  transformedUrls.forEach(item => {
+  transformedUrls.forEach((item) => {
     console.log(`${item.filename}: ${item.transformed}`);
   });
-  
+
   return transformedUrls;
 }
 
 // Run the conversion
 (async () => {
   console.log('Starting HEIC to JPG conversion...\n');
-  
+
   try {
     // Option 1: Convert images (creates new versions)
     // await convertHeicImages();
-    
+
     // Option 2: Create transformed URLs (on-the-fly conversion)
     await createTransformedUrls();
-    
   } catch (error) {
     console.error('Error during conversion:', error);
   }
-})(); 
+})();

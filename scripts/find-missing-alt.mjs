@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import { readdirSync, readFileSync } from "fs";
-import path from "path";
-import { parse } from "@babel/parser";
-import traverse from "@babel/traverse";
+import { readdirSync, readFileSync } from 'fs';
+import path from 'path';
+import { parse } from '@babel/parser';
+import traverse from '@babel/traverse';
 
 const ROOT = process.cwd();
-const SRC_DIRS = ["app", "components", "pages", "src"].map((d) => path.join(ROOT, d));
-const exts = new Set([".tsx", ".jsx", ".ts", ".js"]);
+const SRC_DIRS = ['app', 'components', 'pages', 'src'].map((d) => path.join(ROOT, d));
+const exts = new Set(['.tsx', '.jsx', '.ts', '.js']);
 const files = [];
 
 function walk(dir) {
@@ -25,12 +25,12 @@ SRC_DIRS.forEach(walk);
 
 const offenders = [];
 for (const f of files) {
-  const code = readFileSync(f, "utf8");
+  const code = readFileSync(f, 'utf8');
   let ast;
   try {
     ast = parse(code, {
-      sourceType: "module",
-      plugins: ["typescript", "jsx"],
+      sourceType: 'module',
+      plugins: ['typescript', 'jsx'],
     });
   } catch {
     continue;
@@ -38,14 +38,14 @@ for (const f of files) {
   traverse(ast, {
     JSXOpeningElement(pathEl) {
       const name = pathEl.node.name;
-      const tag = name.type === "JSXIdentifier" ? name.name : null;
+      const tag = name.type === 'JSXIdentifier' ? name.name : null;
       if (!tag) return;
-      if (tag.toLowerCase() !== "image" && tag !== "Image") return;
+      if (tag.toLowerCase() !== 'image' && tag !== 'Image') return;
 
       const hasAlt = pathEl.node.attributes.some((attr) => {
-        if (attr.type !== "JSXAttribute") return false;
+        if (attr.type !== 'JSXAttribute') return false;
         const id = attr.name && attr.name.name;
-        return id === "alt";
+        return id === 'alt';
       });
 
       if (!hasAlt) {
@@ -56,10 +56,9 @@ for (const f of files) {
 }
 
 if (offenders.length) {
-  console.error("❌ <Image> without `alt` found in:");
+  console.error('❌ <Image> without `alt` found in:');
   const uniq = [...new Set(offenders)];
-  for (const f of uniq) console.error("  -", path.relative(ROOT, f));
+  for (const f of uniq) console.error('  -', path.relative(ROOT, f));
   process.exit(2);
 }
-console.log("✅ All <Image> elements include an `alt` prop.");
-
+console.log('✅ All <Image> elements include an `alt` prop.');

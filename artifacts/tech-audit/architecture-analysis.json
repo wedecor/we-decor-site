@@ -1,0 +1,210 @@
+{
+  "timestamp": "2025-01-27T00:00:00.000Z",
+  "overallScore": 85,
+  "status": "good",
+  "analysis": {
+    "framework": {
+      "name": "Next.js",
+      "version": "14.1.0",
+      "router": "mixed",
+      "appRouter": "partial",
+      "pagesRouter": "active",
+      "recommendation": "Complete migration to App Router"
+    },
+    "structure": {
+      "organization": "excellent",
+      "separation": "good",
+      "scalability": "good",
+      "maintainability": "excellent"
+    }
+  },
+  "directories": {
+    "app": {
+      "purpose": "App Router pages and layouts",
+      "files": 15,
+      "status": "active",
+      "migration": "incomplete",
+      "issues": [
+        "Mixed with Pages Router",
+        "Some routes still in pages/"
+      ]
+    },
+    "pages": {
+      "purpose": "Pages Router (legacy)",
+      "files": 25,
+      "status": "legacy",
+      "migration": "required",
+      "issues": [
+        "Should be migrated to App Router",
+        "Creates confusion with dual routing"
+      ]
+    },
+    "components": {
+      "purpose": "Reusable UI components",
+      "files": 25,
+      "status": "excellent",
+      "organization": "good",
+      "issues": []
+    },
+    "lib": {
+      "purpose": "Utility functions and configurations",
+      "files": 8,
+      "status": "good",
+      "organization": "excellent",
+      "issues": []
+    },
+    "styles": {
+      "purpose": "Global styles and CSS",
+      "files": 2,
+      "status": "minimal",
+      "organization": "good",
+      "issues": []
+    }
+  },
+  "components": {
+    "analysis": {
+      "total": 25,
+      "clientComponents": 8,
+      "serverComponents": 17,
+      "mixedComponents": 0
+    },
+    "issues": [
+      {
+        "file": "components/Gallery.tsx",
+        "issue": "Large client component (701 lines)",
+        "impact": "bundle size",
+        "recommendation": "Split into smaller components"
+      },
+      {
+        "file": "components/Layout.tsx",
+        "issue": "Good separation of concerns",
+        "impact": "positive",
+        "recommendation": "Continue current pattern"
+      }
+    ]
+  },
+  "routing": {
+    "appRouter": {
+      "routes": [
+        "/",
+        "/areas",
+        "/locations",
+        "/api/*"
+      ],
+      "status": "partial",
+      "migration": "incomplete"
+    },
+    "pagesRouter": {
+      "routes": [
+        "/",
+        "/services",
+        "/gallery",
+        "/contact",
+        "/pricing",
+        "/faq"
+      ],
+      "status": "active",
+      "migration": "required"
+    },
+    "conflicts": [
+      "Root route (/) exists in both routers",
+      "Potential routing conflicts",
+      "Inconsistent patterns"
+    ]
+  },
+  "dataFlow": {
+    "fetching": {
+      "patterns": [
+        "Static generation (SSG)",
+        "Server-side rendering (SSR)",
+        "Client-side fetching"
+      ],
+      "optimization": "good",
+      "caching": "implemented"
+    },
+    "state": {
+      "management": "minimal",
+      "patterns": [
+        "React state",
+        "URL state",
+        "Server state"
+      ],
+      "complexity": "low"
+    }
+  },
+  "performance": {
+    "bundling": {
+      "strategy": "webpack",
+      "optimization": "good",
+      "splitting": "basic",
+      "issues": [
+        "Large main bundle (1.18MB)",
+        "Limited code splitting"
+      ]
+    },
+    "caching": {
+      "static": "implemented",
+      "dynamic": "basic",
+      "cdn": "vercel",
+      "optimization": "good"
+    }
+  },
+  "scalability": {
+    "horizontal": "excellent",
+    "vertical": "good",
+    "database": "n/a",
+    "api": "minimal",
+    "concerns": [
+      "Bundle size growth",
+      "Component complexity"
+    ]
+  },
+  "maintainability": {
+    "codeQuality": "excellent",
+    "documentation": "good",
+    "testing": "comprehensive",
+    "tooling": "excellent",
+    "issues": []
+  },
+  "recommendations": {
+    "high": [
+      "Complete App Router migration",
+      "Implement code splitting",
+      "Split large components"
+    ],
+    "medium": [
+      "Optimize bundle size",
+      "Improve caching strategy",
+      "Add performance monitoring"
+    ],
+    "low": [
+      "Add component documentation",
+      "Implement design system",
+      "Add automated testing"
+    ]
+  },
+  "migration": {
+    "appRouter": {
+      "priority": "high",
+      "effort": "medium",
+      "risk": "medium",
+      "steps": [
+        "Migrate remaining pages/ routes",
+        "Update routing patterns",
+        "Test all functionality",
+        "Remove pages/ directory"
+      ]
+    },
+    "performance": {
+      "priority": "high",
+      "effort": "medium",
+      "risk": "low",
+      "steps": [
+        "Implement dynamic imports",
+        "Optimize images",
+        "Add bundle analysis",
+        "Monitor Core Web Vitals"
+      ]
+    }
+  }
+}

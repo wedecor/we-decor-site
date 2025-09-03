@@ -17,30 +17,30 @@ function walk(dir: string) {
 
 function auditFile(fp: string) {
   const src = fs.readFileSync(fp, 'utf8');
-  
+
   // Check for href attributes in both Link and anchor tags
   // Updated regex to better handle template literals and avoid false positives
   const regex = /href\s*=\s*{?\s*["'`]([^"'`}]*)["'`]/g;
   let m;
-  
+
   while ((m = regex.exec(src))) {
     const href = m[1];
-    
+
     // Skip template literals with JavaScript expressions
     if (href.includes('${') || href.includes('`')) {
       continue;
     }
-    
+
     const hasTrailing = href.length > 1 && href.endsWith('/');
     const hasUpper = /[A-Z]/.test(href);
-    
+
     if (hasTrailing || hasUpper) {
       issues++;
       const suggested = href.replace(/\/+$/, '').toLowerCase();
       console.log(`⚠ ${fp}: ${href} -> ${suggested}`);
     }
   }
-  
+
   // Also check for hardcoded URLs that might have issues
   const urlRegex = /["'`](https?:\/\/[^"'`]+)["'`]/g;
   while ((m = urlRegex.exec(src))) {

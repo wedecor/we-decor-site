@@ -5,17 +5,10 @@
       "name": "@lhci/cli",
       "severity": "low",
       "isDirect": true,
-      "via": [
-        "@lhci/utils",
-        "inquirer",
-        "lighthouse",
-        "tmp"
-      ],
+      "via": ["@lhci/utils", "inquirer", "lighthouse", "tmp"],
       "effects": [],
       "range": "*",
-      "nodes": [
-        "node_modules/@lhci/cli"
-      ],
+      "nodes": ["node_modules/@lhci/cli"],
       "fixAvailable": {
         "name": "@lhci/cli",
         "version": "0.1.0",
@@ -26,16 +19,10 @@
       "name": "@lhci/utils",
       "severity": "low",
       "isDirect": false,
-      "via": [
-        "lighthouse"
-      ],
-      "effects": [
-        "@lhci/cli"
-      ],
+      "via": ["lighthouse"],
+      "effects": ["@lhci/cli"],
       "range": "0.11.0 - 0.14.0",
-      "nodes": [
-        "node_modules/@lhci/utils"
-      ],
+      "nodes": ["node_modules/@lhci/utils"],
       "fixAvailable": {
         "name": "@lhci/cli",
         "version": "0.1.0",
@@ -46,12 +33,8 @@
       "name": "@puppeteer/browsers",
       "severity": "high",
       "isDirect": false,
-      "via": [
-        "tar-fs"
-      ],
-      "effects": [
-        "puppeteer-core"
-      ],
+      "via": ["tar-fs"],
+      "effects": ["puppeteer-core"],
       "range": "<=1.4.1",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/@puppeteer/browsers",
@@ -67,12 +50,8 @@
       "name": "@sentry/node",
       "severity": "low",
       "isDirect": false,
-      "via": [
-        "cookie"
-      ],
-      "effects": [
-        "lighthouse"
-      ],
+      "via": ["cookie"],
+      "effects": ["lighthouse"],
       "range": "4.0.0-beta.0 - 7.74.2-alpha.1",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/@sentry/node",
@@ -88,16 +67,10 @@
       "name": "@vercel/gatsby-plugin-vercel-builder",
       "severity": "moderate",
       "isDirect": false,
-      "via": [
-        "esbuild"
-      ],
-      "effects": [
-        "@vercel/static-build"
-      ],
+      "via": ["esbuild"],
+      "effects": ["@vercel/static-build"],
       "range": "*",
-      "nodes": [
-        "node_modules/@vercel/gatsby-plugin-vercel-builder"
-      ],
+      "nodes": ["node_modules/@vercel/gatsby-plugin-vercel-builder"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -108,16 +81,10 @@
       "name": "@vercel/hono",
       "severity": "moderate",
       "isDirect": false,
-      "via": [
-        "@vercel/node"
-      ],
-      "effects": [
-        "vercel"
-      ],
+      "via": ["@vercel/node"],
+      "effects": ["vercel"],
       "range": "*",
-      "nodes": [
-        "node_modules/@vercel/hono"
-      ],
+      "nodes": ["node_modules/@vercel/hono"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -128,19 +95,10 @@
       "name": "@vercel/node",
       "severity": "high",
       "isDirect": false,
-      "via": [
-        "esbuild",
-        "path-to-regexp",
-        "undici"
-      ],
-      "effects": [
-        "@vercel/hono",
-        "vercel"
-      ],
+      "via": ["esbuild", "path-to-regexp", "undici"],
+      "effects": ["@vercel/hono", "vercel"],
       "range": ">=2.3.1",
-      "nodes": [
-        "node_modules/@vercel/node"
-      ],
+      "nodes": ["node_modules/@vercel/node"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -151,16 +109,10 @@
       "name": "@vercel/remix-builder",
       "severity": "high",
       "isDirect": false,
-      "via": [
-        "path-to-regexp"
-      ],
-      "effects": [
-        "vercel"
-      ],
+      "via": ["path-to-regexp"],
+      "effects": ["vercel"],
       "range": "<=2.0.3 || >=5.2.4",
-      "nodes": [
-        "node_modules/@vercel/remix-builder"
-      ],
+      "nodes": ["node_modules/@vercel/remix-builder"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -171,16 +123,10 @@
       "name": "@vercel/static-build",
       "severity": "moderate",
       "isDirect": false,
-      "via": [
-        "@vercel/gatsby-plugin-vercel-builder"
-      ],
-      "effects": [
-        "vercel"
-      ],
+      "via": ["@vercel/gatsby-plugin-vercel-builder"],
+      "effects": ["vercel"],
       "range": ">=1.3.0",
-      "nodes": [
-        "node_modules/@vercel/static-build"
-      ],
+      "nodes": ["node_modules/@vercel/static-build"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -199,9 +145,7 @@
           "title": "cookie accepts cookie name, path, and domain with out of bounds characters",
           "url": "https://github.com/advisories/GHSA-pxg6-pf52-xh8x",
           "severity": "low",
-          "cwe": [
-            "CWE-74"
-          ],
+          "cwe": ["CWE-74"],
           "cvss": {
             "score": 0,
             "vectorString": null
@@ -209,9 +153,7 @@
           "range": "<0.7.0"
         }
       ],
-      "effects": [
-        "@sentry/node"
-      ],
+      "effects": ["@sentry/node"],
       "range": "<0.7.0",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/cookie",
@@ -235,9 +177,7 @@
           "title": "esbuild enables any website to send any requests to the development server and read the response",
           "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
           "severity": "moderate",
-          "cwe": [
-            "CWE-346"
-          ],
+          "cwe": ["CWE-346"],
           "cvss": {
             "score": 5.3,
             "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
@@ -245,14 +185,9 @@
           "range": "<=0.24.2"
         }
       ],
-      "effects": [
-        "@vercel/gatsby-plugin-vercel-builder",
-        "@vercel/node"
-      ],
+      "effects": ["@vercel/gatsby-plugin-vercel-builder", "@vercel/node"],
       "range": "<=0.24.2",
-      "nodes": [
-        "node_modules/esbuild"
-      ],
+      "nodes": ["node_modules/esbuild"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -263,16 +198,10 @@
       "name": "external-editor",
       "severity": "low",
       "isDirect": false,
-      "via": [
-        "tmp"
-      ],
-      "effects": [
-        "inquirer"
-      ],
+      "via": ["tmp"],
+      "effects": ["inquirer"],
       "range": ">=1.1.1",
-      "nodes": [
-        "node_modules/external-editor"
-      ],
+      "nodes": ["node_modules/external-editor"],
       "fixAvailable": {
         "name": "@lhci/cli",
         "version": "0.1.0",
@@ -283,16 +212,10 @@
       "name": "inquirer",
       "severity": "low",
       "isDirect": false,
-      "via": [
-        "external-editor"
-      ],
-      "effects": [
-        "@lhci/cli"
-      ],
+      "via": ["external-editor"],
+      "effects": ["@lhci/cli"],
       "range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
-      "nodes": [
-        "node_modules/inquirer"
-      ],
+      "nodes": ["node_modules/inquirer"],
       "fixAvailable": {
         "name": "@lhci/cli",
         "version": "0.1.0",
@@ -303,14 +226,8 @@
       "name": "lighthouse",
       "severity": "high",
       "isDirect": false,
-      "via": [
-        "@sentry/node",
-        "puppeteer-core"
-      ],
-      "effects": [
-        "@lhci/cli",
-        "@lhci/utils"
-      ],
+      "via": ["@sentry/node", "puppeteer-core"],
+      "effects": ["@lhci/cli", "@lhci/utils"],
       "range": "9.4.0-dev.20220216 - 12.2.1",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/lighthouse",
@@ -334,9 +251,7 @@
           "title": "Next.js Server-Side Request Forgery in Server Actions",
           "url": "https://github.com/advisories/GHSA-fr5h-rqp8-mj6g",
           "severity": "high",
-          "cwe": [
-            "CWE-918"
-          ],
+          "cwe": ["CWE-918"],
           "cvss": {
             "score": 7.5,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
@@ -350,10 +265,7 @@
           "title": "Next.js Cache Poisoning",
           "url": "https://github.com/advisories/GHSA-gp8f-8m3g-qvj9",
           "severity": "high",
-          "cwe": [
-            "CWE-349",
-            "CWE-639"
-          ],
+          "cwe": ["CWE-349", "CWE-639"],
           "cvss": {
             "score": 7.5,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
@@ -367,9 +279,7 @@
           "title": "Denial of Service condition in Next.js image optimization",
           "url": "https://github.com/advisories/GHSA-g77x-44xx-532m",
           "severity": "moderate",
-          "cwe": [
-            "CWE-674"
-          ],
+          "cwe": ["CWE-674"],
           "cvss": {
             "score": 5.9,
             "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
@@ -383,9 +293,7 @@
           "title": "Next.js authorization bypass vulnerability",
           "url": "https://github.com/advisories/GHSA-7gfc-8cq8-jh5f",
           "severity": "high",
-          "cwe": [
-            "CWE-285"
-          ],
+          "cwe": ["CWE-285"],
           "cvss": {
             "score": 7.5,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
@@ -399,9 +307,7 @@
           "title": "Next.js Allows a Denial of Service (DoS) with Server Actions",
           "url": "https://github.com/advisories/GHSA-7m27-7ghc-44w9",
           "severity": "moderate",
-          "cwe": [
-            "CWE-770"
-          ],
+          "cwe": ["CWE-770"],
           "cvss": {
             "score": 5.3,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
@@ -415,9 +321,7 @@
           "title": "Next.js Race Condition to Cache Poisoning",
           "url": "https://github.com/advisories/GHSA-qpjv-v59x-3qc4",
           "severity": "low",
-          "cwe": [
-            "CWE-362"
-          ],
+          "cwe": ["CWE-362"],
           "cvss": {
             "score": 3.7,
             "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N"
@@ -431,9 +335,7 @@
           "title": "Information exposure in Next.js dev server due to lack of origin verification",
           "url": "https://github.com/advisories/GHSA-3h52-269p-cp9r",
           "severity": "low",
-          "cwe": [
-            "CWE-1385"
-          ],
+          "cwe": ["CWE-1385"],
           "cvss": {
             "score": 0,
             "vectorString": null
@@ -447,9 +349,7 @@
           "title": "Authorization Bypass in Next.js Middleware",
           "url": "https://github.com/advisories/GHSA-f82v-jwr5-mffw",
           "severity": "critical",
-          "cwe": [
-            "CWE-285"
-          ],
+          "cwe": ["CWE-285"],
           "cvss": {
             "score": 9.1,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
@@ -463,9 +363,7 @@
           "title": "Next.js Affected by Cache Key Confusion for Image Optimization API Routes",
           "url": "https://github.com/advisories/GHSA-g5qg-72qw-gw5v",
           "severity": "moderate",
-          "cwe": [
-            "CWE-524"
-          ],
+          "cwe": ["CWE-524"],
           "cvss": {
             "score": 6.2,
             "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
@@ -479,9 +377,7 @@
           "title": "Next.js Content Injection Vulnerability for Image Optimization",
           "url": "https://github.com/advisories/GHSA-xv57-4mr9-wg8v",
           "severity": "moderate",
-          "cwe": [
-            "CWE-20"
-          ],
+          "cwe": ["CWE-20"],
           "cvss": {
             "score": 4.3,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:N"
@@ -495,9 +391,7 @@
           "title": "Next.js Improper Middleware Redirect Handling Leads to SSRF",
           "url": "https://github.com/advisories/GHSA-4342-x723-ch2f",
           "severity": "moderate",
-          "cwe": [
-            "CWE-918"
-          ],
+          "cwe": ["CWE-918"],
           "cvss": {
             "score": 6.5,
             "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N"
@@ -507,9 +401,7 @@
       ],
       "effects": [],
       "range": "<=14.2.31",
-      "nodes": [
-        "node_modules/next"
-      ],
+      "nodes": ["node_modules/next"],
       "fixAvailable": {
         "name": "next",
         "version": "14.2.32",
@@ -528,9 +420,7 @@
           "title": "path-to-regexp outputs backtracking regular expressions",
           "url": "https://github.com/advisories/GHSA-9wv6-86v2-598j",
           "severity": "high",
-          "cwe": [
-            "CWE-1333"
-          ],
+          "cwe": ["CWE-1333"],
           "cvss": {
             "score": 7.5,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
@@ -538,14 +428,9 @@
           "range": ">=4.0.0 <6.3.0"
         }
       ],
-      "effects": [
-        "@vercel/node",
-        "@vercel/remix-builder"
-      ],
+      "effects": ["@vercel/node", "@vercel/remix-builder"],
       "range": "4.0.0 - 6.2.2",
-      "nodes": [
-        "node_modules/path-to-regexp"
-      ],
+      "nodes": ["node_modules/path-to-regexp"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -556,14 +441,8 @@
       "name": "puppeteer-core",
       "severity": "high",
       "isDirect": false,
-      "via": [
-        "@puppeteer/browsers",
-        "tar-fs",
-        "ws"
-      ],
-      "effects": [
-        "lighthouse"
-      ],
+      "via": ["@puppeteer/browsers", "tar-fs", "ws"],
+      "effects": ["lighthouse"],
       "range": "10.0.0 - 22.11.1",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/puppeteer-core",
@@ -587,9 +466,7 @@
           "title": "tar-fs Vulnerable to Link Following and Path Traversal via Extracting a Crafted tar File",
           "url": "https://github.com/advisories/GHSA-pq67-2wwv-3xjx",
           "severity": "high",
-          "cwe": [
-            "CWE-22"
-          ],
+          "cwe": ["CWE-22"],
           "cvss": {
             "score": 7.5,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
@@ -603,9 +480,7 @@
           "title": "tar-fs can extract outside the specified dir with a specific tarball",
           "url": "https://github.com/advisories/GHSA-8cj5-5rvv-wf4v",
           "severity": "high",
-          "cwe": [
-            "CWE-22"
-          ],
+          "cwe": ["CWE-22"],
           "cvss": {
             "score": 0,
             "vectorString": null
@@ -613,10 +488,7 @@
           "range": ">=2.0.0 <2.1.3"
         }
       ],
-      "effects": [
-        "@puppeteer/browsers",
-        "puppeteer-core"
-      ],
+      "effects": ["@puppeteer/browsers", "puppeteer-core"],
       "range": "2.0.0 - 2.1.2",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/tar-fs",
@@ -640,9 +512,7 @@
           "title": "tmp allows arbitrary temporary file / directory write via symbolic link `dir` parameter",
           "url": "https://github.com/advisories/GHSA-52f5-9888-hmc6",
           "severity": "low",
-          "cwe": [
-            "CWE-59"
-          ],
+          "cwe": ["CWE-59"],
           "cvss": {
             "score": 2.5,
             "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N"
@@ -650,15 +520,9 @@
           "range": "<=0.2.3"
         }
       ],
-      "effects": [
-        "@lhci/cli",
-        "external-editor"
-      ],
+      "effects": ["@lhci/cli", "external-editor"],
       "range": "<=0.2.3",
-      "nodes": [
-        "node_modules/external-editor/node_modules/tmp",
-        "node_modules/tmp"
-      ],
+      "nodes": ["node_modules/external-editor/node_modules/tmp", "node_modules/tmp"],
       "fixAvailable": {
         "name": "@lhci/cli",
         "version": "0.1.0",
@@ -677,9 +541,7 @@
           "title": "Use of Insufficiently Random Values in undici",
           "url": "https://github.com/advisories/GHSA-c76h-2ccp-4975",
           "severity": "moderate",
-          "cwe": [
-            "CWE-330"
-          ],
+          "cwe": ["CWE-330"],
           "cvss": {
             "score": 6.8,
             "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
@@ -693,9 +555,7 @@
           "title": "undici Denial of Service attack via bad certificate data",
           "url": "https://github.com/advisories/GHSA-cxrh-j4jr-qwg3",
           "severity": "low",
-          "cwe": [
-            "CWE-401"
-          ],
+          "cwe": ["CWE-401"],
           "cvss": {
             "score": 3.1,
             "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:N/I:N/A:L"
@@ -703,13 +563,9 @@
           "range": "<5.29.0"
         }
       ],
-      "effects": [
-        "@vercel/node"
-      ],
+      "effects": ["@vercel/node"],
       "range": "<=5.28.5",
-      "nodes": [
-        "node_modules/@vercel/node/node_modules/undici"
-      ],
+      "nodes": ["node_modules/@vercel/node/node_modules/undici"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -720,17 +576,10 @@
       "name": "vercel",
       "severity": "high",
       "isDirect": true,
-      "via": [
-        "@vercel/hono",
-        "@vercel/node",
-        "@vercel/remix-builder",
-        "@vercel/static-build"
-      ],
+      "via": ["@vercel/hono", "@vercel/node", "@vercel/remix-builder", "@vercel/static-build"],
       "effects": [],
       "range": "28.12.3 || >=28.14.0",
-      "nodes": [
-        "node_modules/vercel"
-      ],
+      "nodes": ["node_modules/vercel"],
       "fixAvailable": {
         "name": "vercel",
         "version": "32.0.1",
@@ -749,9 +598,7 @@
           "title": "ws affected by a DoS when handling a request with many HTTP headers",
           "url": "https://github.com/advisories/GHSA-3h5v-q93c-6h6q",
           "severity": "high",
-          "cwe": [
-            "CWE-476"
-          ],
+          "cwe": ["CWE-476"],
           "cvss": {
             "score": 7.5,
             "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
@@ -759,9 +606,7 @@
           "range": ">=8.0.0 <8.17.1"
         }
       ],
-      "effects": [
-        "puppeteer-core"
-      ],
+      "effects": ["puppeteer-core"],
       "range": "8.0.0 - 8.17.0",
       "nodes": [
         "node_modules/@lhci/cli/node_modules/puppeteer-core/node_modules/ws",

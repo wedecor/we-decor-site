@@ -302,7 +302,7 @@ export default function HomePage() {
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={service.image}
-                        alt={service.title}
+                        alt={`${service.title} decoration services in Bangalore - We Decor`}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-300"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

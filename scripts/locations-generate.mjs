@@ -7,16 +7,19 @@ const raw = await readFile(csvPath, 'utf8');
 const lines = raw.trim().split('\n');
 
 // Skip header
-const rows = lines.slice(1).map(line => {
+const rows = lines.slice(1).map((line) => {
   const [slug, name, landmarks, venue_types, vibe, local_notes] = line.split('|');
   return { slug, name, landmarks, venue_types, vibe, local_notes };
 });
 
 function toArray(csvField) {
-  return csvField.split(',').map(s => s.trim()).filter(Boolean);
+  return csvField
+    .split(',')
+    .map((s) => s.trim())
+    .filter(Boolean);
 }
 
-const AREAS = rows.map(r => ({
+const AREAS = rows.map((r) => ({
   slug: r.slug.trim(),
   name: r.name.trim(),
   vibe: (r.vibe || '').trim() || undefined,
@@ -139,4 +142,4 @@ export const AREAS_WITH_DESCRIPTIONS: Area[] = AREAS.map(a => ({ ...a, serviceDe
 `;
 
 await writeFile(outPath, file, 'utf8');
-console.log('✅ Wrote', outPath, 'from', csvPath); 
+console.log('✅ Wrote', outPath, 'from', csvPath);

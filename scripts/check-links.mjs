@@ -14,8 +14,19 @@ if (!res.ok) {
 
 const html = await res.text();
 const $ = cheerio.load(html);
-const links = [...new Set($('a[href]').map((_, el) => $(el).attr('href')).get())]
-  .filter(h => !h.startsWith('mailto:') && !h.startsWith('tel:') && !h.startsWith('#') && !h.includes('instagram.com'));
+const links = [
+  ...new Set(
+    $('a[href]')
+      .map((_, el) => $(el).attr('href'))
+      .get()
+  ),
+].filter(
+  (h) =>
+    !h.startsWith('mailto:') &&
+    !h.startsWith('tel:') &&
+    !h.startsWith('#') &&
+    !h.includes('instagram.com')
+);
 
 console.log(`📊 Found ${links.length} links to check...`);
 
@@ -46,4 +57,4 @@ if (fails) {
   process.exit(1);
 } else {
   console.log(`✅ No broken links on ${page} (${links.length} checked)`);
-} 
+}

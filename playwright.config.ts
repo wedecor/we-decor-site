@@ -2,15 +2,17 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  testMatch: ['**/*.e2e.spec.ts', '**/e2e.spec.ts', '**/a11y.spec.ts'],
+  testMatch: ['**/*.e2e.spec.ts', '**/e2e.spec.ts', '**/a11y.spec.ts', '**/*.smoke.spec.ts'],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: 2,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [['html', { open: 'never' }], ['list']],
   use: {
-    baseURL: 'http://localhost:3000',
-    trace: 'on-first-retry',
+    baseURL: 'http://localhost:3001',
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
   projects: [
     {
@@ -19,8 +21,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run start:testenv',
-    url: 'http://localhost:3000',
+    command: 'npm run start:prod',
+    url: 'http://localhost:3001',
     reuseExistingServer: !process.env.CI,
   },
+  outputDir: 'artifacts/playwright/',
 });

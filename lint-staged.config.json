@@ -1,17 +1,6 @@
 {
-  "*.{js,jsx,ts,tsx,md,mdx,json}": [
-    "eslint --fix",
-    "prettier --write"
-  ],
-  "app/**/*.{ts,tsx,js,jsx}": [
-    "node scripts/find-missing-alt.mjs",
-    "git add"
-  ],
-  "components/**/*.{ts,tsx,js,jsx}": [
-    "node scripts/find-missing-alt.mjs",
-    "git add"
-  ],
-  "public/services/**/*": [
-    "git add"
-  ]
+  "*.{js,jsx,ts,tsx,md,mdx,json}": ["eslint --fix", "prettier --write"],
+  "app/**/*.{ts,tsx,js,jsx}": ["node scripts/find-missing-alt.mjs", "git add"],
+  "components/**/*.{ts,tsx,js,jsx}": ["node scripts/find-missing-alt.mjs", "git add"],
+  "public/services/**/*": ["git add"]
 }

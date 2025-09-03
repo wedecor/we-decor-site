@@ -1,11 +1,11 @@
-import Layout from '../components/Layout'
+import Layout from '../components/Layout';
 
 export default function Page() {
   return (
     <Layout
       seo={{
-        title: "Pricing",
-        description: "Affordable event decor packages in Bangalore. Starting at ₹2999.",
+        title: 'Pricing',
+        description: 'Affordable event decor packages in Bangalore. Starting at ₹2999.',
       }}
     >
       <section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
@@ -45,9 +45,16 @@ export default function Page() {
           </table>
         </div>
 
-        <p className="text-lg text-gray-700 leading-relaxed mb-8">All packages are customizable. Contact us for a quote!</p>
-        <a href="/contact" className="bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full px-6 py-3 shadow-lg hover:scale-105 transition font-bold inline-block">Get a Custom Quote</a>
+        <p className="text-lg text-gray-700 leading-relaxed mb-8">
+          All packages are customizable. Contact us for a quote!
+        </p>
+        <a
+          href="/contact"
+          className="bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-full px-6 py-3 shadow-lg hover:scale-105 transition font-bold inline-block"
+        >
+          Get a Custom Quote
+        </a>
       </section>
     </Layout>
-  )
-} 
+  );
+}

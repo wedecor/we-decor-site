@@ -6,9 +6,9 @@
  * Also creates /app/areas/page.tsx index if missing.
  */
 
-import fs from "fs";
-import path from "path";
-import pdf from "pdf-parse";
+import fs from 'fs';
+import path from 'path';
+import pdf from 'pdf-parse';
 
 type FAQ = { q: string; a: string };
 type LocalityDoc = {
@@ -23,38 +23,38 @@ type LocalityDoc = {
   faqs: FAQ[];
 };
 
-const PDF_PATH = "content/we_decor_bangalore_localities.pdf";
-const AREAS_DIR = "app/areas";
-const PHONE = "+919591232166";
-const WA = "https://wa.me/919591232166";
-const SITE = "https://www.wedecorevents.com";
+const PDF_PATH = 'content/we_decor_bangalore_localities.pdf';
+const AREAS_DIR = 'app/areas';
+const PHONE = '+919591232166';
+const WA = 'https://wa.me/919591232166';
+const SITE = 'https://www.wedecorevents.com';
 
 const args = process.argv.slice(2);
-const DRY_RUN = args.includes("--dry-run");
+const DRY_RUN = args.includes('--dry-run');
 
 /** Basic slugify (no extra deps) */
 function slugify(input: string): string {
   return input
     .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/-{2,}/g, "-")
-    .replace(/^-|-$/g, "");
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/-{2,}/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 /** Escape MDX special braces and angle brackets */
 function escapeMDX(s: string): string {
   return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/{/g, "&#123;")
-    .replace(/}/g, "&#125;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/{/g, '&#123;')
+    .replace(/}/g, '&#125;');
 }
 
 function normalizeLine(line: string): string {
-  return line.replace(/\s+/g, " ").trim();
+  return line.replace(/\s+/g, ' ').trim();
 }
 
 /** Split text into blocks starting with "Event Decoration in X – We Decor Bangalore" */
@@ -63,18 +63,17 @@ function splitIntoLocalityBlocks(text: string): string[] {
   const blocks: string[] = [];
   let current: string[] = [];
 
-  const isLocalityHeader = (l: string) =>
-    /^Event Decoration in .+ – We Decor Bangalore$/.test(l);
+  const isLocalityHeader = (l: string) => /^Event Decoration in .+ – We Decor Bangalore$/.test(l);
 
   for (const line of lines) {
     if (isLocalityHeader(line)) {
-      if (current.length) blocks.push(current.join("\n"));
+      if (current.length) blocks.push(current.join('\n'));
       current = [line];
     } else {
       if (current.length) current.push(line);
     }
   }
-  if (current.length) blocks.push(current.join("\n"));
+  if (current.length) blocks.push(current.join('\n'));
 
   return blocks;
 }
@@ -82,7 +81,7 @@ function splitIntoLocalityBlocks(text: string): string[] {
 function parseBlock(block: string): LocalityDoc | null {
   const getMatch = (re: RegExp) => {
     const m = block.match(re);
-    return m ? m[1].trim() : "";
+    return m ? m[1].trim() : '';
   };
 
   const titleH1Locality = getMatch(/^Event Decoration in (.+) – We Decor Bangalore$/m);
@@ -102,51 +101,56 @@ function parseBlock(block: string): LocalityDoc | null {
   const idxFaq = block.search(faqAnchor);
 
   const titleLineIdx = block.search(/^Event Decoration in .+ – We Decor Bangalore$/m);
-  let intro = "";
+  let intro = '';
   if (idxServices > -1) {
     intro = block
       .slice(titleLineIdx)
-      .split("\n")
+      .split('\n')
       .slice(1)
-      .join("\n")
-      .split("Our Event Decoration Services:")[0]
+      .join('\n')
+      .split('Our Event Decoration Services:')[0]
       .trim();
   }
 
   let services: string[] = [];
   if (idxServices > -1) {
-    const after = block.slice(idxServices).split("\n").slice(1);
+    const after = block.slice(idxServices).split('\n').slice(1);
     let take: string[] = [];
     for (const l of after) {
-      if (/^Why Choose We Decor\?/.test(l) || /^Nearby Areas We Also Serve:/.test(l) || /^FAQs:/.test(l)) break;
+      if (
+        /^Why Choose We Decor\?/.test(l) ||
+        /^Nearby Areas We Also Serve:/.test(l) ||
+        /^FAQs:/.test(l)
+      )
+        break;
       if (!l.trim()) continue;
-      take.push(normalizeLine(l.replace(/^[-•●]+\s*/, "")));
+      take.push(normalizeLine(l.replace(/^[-•●]+\s*/, '')));
     }
     services = take.filter(Boolean);
   }
 
-  let why = "";
+  let why = '';
   if (idxWhy > -1) {
-    const after = block.slice(idxWhy).split("\n").slice(1);
+    const after = block.slice(idxWhy).split('\n').slice(1);
     const lines: string[] = [];
     for (const l of after) {
       if (/^Nearby Areas We Also Serve:/.test(l) || /^FAQs:/.test(l)) break;
       if (!l.trim()) continue;
-      lines.push(normalizeLine(l.replace(/[✔✓]+\s*/g, "")));
+      lines.push(normalizeLine(l.replace(/[✔✓]+\s*/g, '')));
     }
-    why = lines.join(" ");
+    why = lines.join(' ');
   }
 
   let nearby: string[] = [];
   if (idxNearby > -1) {
-    const after = block.slice(idxNearby).split("\n").slice(1);
+    const after = block.slice(idxNearby).split('\n').slice(1);
     const lines: string[] = [];
     for (const l of after) {
       if (/^FAQs:/.test(l)) break;
       if (!l.trim()) continue;
       lines.push(l);
     }
-    const joined = lines.join(" ");
+    const joined = lines.join(' ');
     nearby = joined
       .split(/[,•|]/)
       .map((x) => x.trim())
@@ -155,17 +159,17 @@ function parseBlock(block: string): LocalityDoc | null {
 
   let faqs: FAQ[] = [];
   if (idxFaq > -1) {
-    const after = block.slice(idxFaq).split("\n").slice(1);
-    let q = "";
+    const after = block.slice(idxFaq).split('\n').slice(1);
+    let q = '';
     for (const l of after) {
       if (!l.trim()) continue;
       if (/^Q\.\s*/i.test(l)) {
-        q = normalizeLine(l.replace(/^Q\.\s*/i, ""));
+        q = normalizeLine(l.replace(/^Q\.\s*/i, ''));
       } else if (/^A\.\s*/i.test(l)) {
-        const a = normalizeLine(l.replace(/^A\.\s*/i, ""));
+        const a = normalizeLine(l.replace(/^A\.\s*/i, ''));
         if (q) {
           faqs.push({ q, a });
-          q = "";
+          q = '';
         }
       } else {
         if (/Call Now:/i.test(l)) break;
@@ -173,7 +177,7 @@ function parseBlock(block: string): LocalityDoc | null {
     }
   }
 
-  intro = intro.replace(/^Meta Description:.*$/m, "").trim();
+  intro = intro.replace(/^Meta Description:.*$/m, '').trim();
 
   const slug = slugify(localityName);
 
@@ -181,24 +185,30 @@ function parseBlock(block: string): LocalityDoc | null {
     locality: localityName,
     slug,
     titleH1: `Event Decoration in ${localityName} – We Decor Bangalore`,
-    metaDescription: metaDescription || `Premium event decoration in ${localityName}: birthdays, weddings, haldi, and corporate setups. Call now for quick booking.`,
+    metaDescription:
+      metaDescription ||
+      `Premium event decoration in ${localityName}: birthdays, weddings, haldi, and corporate setups. Call now for quick booking.`,
     intro,
-    services: services.length ? services : [
-      `Birthday Decoration in ${localityName} — Theme balloons, LED backdrops, kids' parties, milestone birthdays.`,
-      `Wedding & Engagement Décor in ${localityName} — Floral mandaps, stage setups, bridal room décor.`,
-      `Haldi & Mehendi Decoration in ${localityName} — Marigold backdrops, traditional props.`,
-      `Balloon Decoration in ${localityName} — Home, clubhouses & banquet halls.`,
-      `Corporate Event Decoration in ${localityName} — Office parties, team events, festive décor.`
-    ],
-    why: why || `Local team in ${localityName}. Quick setup at homes, apartments & community halls. Custom themes & budget-friendly packages.`,
+    services: services.length
+      ? services
+      : [
+          `Birthday Decoration in ${localityName} — Theme balloons, LED backdrops, kids' parties, milestone birthdays.`,
+          `Wedding & Engagement Décor in ${localityName} — Floral mandaps, stage setups, bridal room décor.`,
+          `Haldi & Mehendi Decoration in ${localityName} — Marigold backdrops, traditional props.`,
+          `Balloon Decoration in ${localityName} — Home, clubhouses & banquet halls.`,
+          `Corporate Event Decoration in ${localityName} — Office parties, team events, festive décor.`,
+        ],
+    why:
+      why ||
+      `Local team in ${localityName}. Quick setup at homes, apartments & community halls. Custom themes & budget-friendly packages.`,
     nearby,
-    faqs: faqs.slice(0, 3)
+    faqs: faqs.slice(0, 3),
   };
 }
 
 function buildMDX(doc: LocalityDoc): string {
   const esc = escapeMDX;
-  const servicesList = doc.services.map((s) => `- ${esc(s)}`).join("\n");
+  const servicesList = doc.services.map((s) => `- ${esc(s)}`).join('\n');
   const nearbyList =
     doc.nearby.length > 0
       ? doc.nearby
@@ -206,8 +216,8 @@ function buildMDX(doc: LocalityDoc): string {
             const s = slugify(n);
             return `- [${esc(n)}](/areas/${s})`;
           })
-          .join("\n")
-      : "";
+          .join('\n')
+      : '';
 
   const faqVar = `const faqs = ${JSON.stringify(doc.faqs, null, 2)};`;
 
@@ -242,17 +252,21 @@ ${servicesList}
 ## Why Choose We Decor in ${esc(doc.locality)}?
 ${esc(doc.why)}
 
-${doc.nearby.length ? `## Nearby Areas We Also Serve
+${
+  doc.nearby.length
+    ? `## Nearby Areas We Also Serve
 ${nearbyList}
 
-` : ""}## FAQs – ${esc(doc.locality)}
+`
+    : ''
+}## FAQs – ${esc(doc.locality)}
 ${doc.faqs
   .map(
     (f) =>
       `### ${esc(f.q)}
 ${esc(f.a)}`
   )
-  .join("\n\n")}
+  .join('\n\n')}
 
 ---
 
@@ -288,7 +302,7 @@ ${faqVar}
 }
 
 function buildTSX(doc: LocalityDoc): string {
-  const esc = (s: string) => s.replace(/`/g, "\\`");
+  const esc = (s: string) => s.replace(/`/g, '\\`');
   const servicesArray = JSON.stringify(doc.services, null, 2);
   const nearbyArray = JSON.stringify(
     doc.nearby.map((n) => ({ name: n, slug: slugify(n) })),
@@ -403,12 +417,12 @@ export default function Page() {
 
 function writePage(doc: LocalityDoc) {
   const dir = path.join(AREAS_DIR, doc.slug);
-  const mdxPath = path.join(dir, "page.mdx");
-  const tsxPath = path.join(dir, "page.tsx");
+  const mdxPath = path.join(dir, 'page.mdx');
+  const tsxPath = path.join(dir, 'page.tsx');
 
   if (DRY_RUN) {
     console.log(`[dry] ${doc.locality} -> ${mdxPath}`);
-    return { path: mdxPath, type: "mdx" as const };
+    return { path: mdxPath, type: 'mdx' as const };
   }
 
   fs.mkdirSync(dir, { recursive: true });
@@ -418,22 +432,22 @@ function writePage(doc: LocalityDoc) {
 
   try {
     if (!looksRisky) {
-      fs.writeFileSync(mdxPath, mdx, "utf-8");
-      return { path: mdxPath, type: "mdx" as const };
+      fs.writeFileSync(mdxPath, mdx, 'utf-8');
+      return { path: mdxPath, type: 'mdx' as const };
     } else {
       const tsx = buildTSX(doc);
-      fs.writeFileSync(tsxPath, tsx, "utf-8");
-      return { path: tsxPath, type: "tsx" as const };
+      fs.writeFileSync(tsxPath, tsx, 'utf-8');
+      return { path: tsxPath, type: 'tsx' as const };
     }
   } catch (e) {
     const tsx = buildTSX(doc);
-    fs.writeFileSync(tsxPath, tsx, "utf-8");
-    return { path: tsxPath, type: "tsx" as const };
+    fs.writeFileSync(tsxPath, tsx, 'utf-8');
+    return { path: tsxPath, type: 'tsx' as const };
   }
 }
 
 function ensureAreasIndex(docs: LocalityDoc[]) {
-  const indexPath = path.join(AREAS_DIR, "page.tsx");
+  const indexPath = path.join(AREAS_DIR, 'page.tsx');
   if (DRY_RUN) {
     console.log(`[dry] would ensure index at ${indexPath}`);
     return;
@@ -443,7 +457,7 @@ function ensureAreasIndex(docs: LocalityDoc[]) {
   const list = docs
     .sort((a, b) => a.locality.localeCompare(b.locality))
     .map((d) => `{"name":"${d.locality}","slug":"${d.slug}"}`)
-    .join(",");
+    .join(',');
 
   const file = `import Link from "next/link";
 
@@ -465,7 +479,7 @@ export default function AreasIndex() {
 }
 `;
   fs.mkdirSync(AREAS_DIR, { recursive: true });
-  fs.writeFileSync(indexPath, file, "utf-8");
+  fs.writeFileSync(indexPath, file, 'utf-8');
 }
 
 (async function run() {
@@ -480,7 +494,7 @@ export default function AreasIndex() {
 
   const blocks = splitIntoLocalityBlocks(text);
   if (!blocks.length) {
-    console.error("❌ No locality blocks found. Check PDF formatting.");
+    console.error('❌ No locality blocks found. Check PDF formatting.');
     process.exit(1);
   }
 
@@ -491,11 +505,11 @@ export default function AreasIndex() {
   }
 
   if (!docs.length) {
-    console.error("❌ Could not parse any locality sections.");
+    console.error('❌ Could not parse any locality sections.');
     process.exit(1);
   }
 
-  const summary: Array<{ locality: string; slug: string; path: string; type: "mdx" | "tsx" }> = [];
+  const summary: Array<{ locality: string; slug: string; path: string; type: 'mdx' | 'tsx' }> = [];
 
   for (const doc of docs) {
     const res = writePage(doc);
@@ -504,7 +518,7 @@ export default function AreasIndex() {
 
   ensureAreasIndex(docs);
 
-  console.log("\n✅ Generation complete:");
+  console.log('\n✅ Generation complete:');
   console.table(
     summary.map((s) => ({
       Locality: s.locality,
@@ -513,4 +527,4 @@ export default function AreasIndex() {
       Format: s.type.toUpperCase(),
     }))
   );
-})(); 
+})();

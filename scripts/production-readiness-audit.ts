@@ -14,9 +14,9 @@ interface AuditResult {
 async function runProductionReadinessAudit(): Promise<void> {
   console.log('🚀 Production Readiness Audit for We Decor Website\n');
   console.log(`🌐 Target Domain: ${SITE_URL}\n`);
-  
+
   const results: AuditResult[] = [];
-  
+
   // 1. Environment Variables Audit
   console.log('1️⃣  Checking Environment Variables...');
   try {
@@ -24,17 +24,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Environment Variables',
       passed: true,
-      message: '✅ All environment variables are properly configured'
+      message: '✅ All environment variables are properly configured',
     });
   } catch (error) {
     results.push({
       name: 'Environment Variables',
       passed: false,
       message: '❌ Environment variables have issues',
-      details: 'Run "npm run audit:env" for details'
+      details: 'Run "npm run audit:env" for details',
     });
   }
-  
+
   // 2. Vercel.app References Audit
   console.log('2️⃣  Checking for .vercel.app References...');
   try {
@@ -42,17 +42,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Vercel.app References',
       passed: true,
-      message: '✅ No .vercel.app references found'
+      message: '✅ No .vercel.app references found',
     });
   } catch (error) {
     results.push({
       name: 'Vercel.app References',
       passed: false,
       message: '❌ .vercel.app references found',
-      details: 'Run "npm run audit:vercel" for details'
+      details: 'Run "npm run audit:vercel" for details',
     });
   }
-  
+
   // 3. SEO Tags Audit
   console.log('3️⃣  Checking SEO Tags and Canonical URLs...');
   try {
@@ -60,17 +60,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'SEO Tags',
       passed: true,
-      message: '✅ All SEO tags are properly configured'
+      message: '✅ All SEO tags are properly configured',
     });
   } catch (error) {
     results.push({
       name: 'SEO Tags',
       passed: false,
       message: '❌ SEO tag issues found',
-      details: 'Run "npm run audit:seo" for details'
+      details: 'Run "npm run audit:seo" for details',
     });
   }
-  
+
   // 4. Robots.txt and Sitemap Audit
   console.log('4️⃣  Checking Robots.txt and Sitemap...');
   try {
@@ -78,17 +78,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Robots.txt & Sitemap',
       passed: true,
-      message: '✅ Robots.txt and sitemap are properly configured'
+      message: '✅ Robots.txt and sitemap are properly configured',
     });
   } catch (error) {
     results.push({
       name: 'Robots.txt & Sitemap',
       passed: false,
       message: '❌ Robots.txt or sitemap issues found',
-      details: 'Run "npm run audit:robots" for details'
+      details: 'Run "npm run audit:robots" for details',
     });
   }
-  
+
   // 5. Structured Data Audit
   console.log('5️⃣  Checking Structured Data and Meta Tags...');
   try {
@@ -96,17 +96,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Structured Data',
       passed: true,
-      message: '✅ All structured data is properly configured'
+      message: '✅ All structured data is properly configured',
     });
   } catch (error) {
     results.push({
       name: 'Structured Data',
       passed: false,
       message: '❌ Structured data issues found',
-      details: 'Run "npm run audit:structured-data" for details'
+      details: 'Run "npm run audit:structured-data" for details',
     });
   }
-  
+
   // 6. Internal Links Audit
   console.log('6️⃣  Checking Internal Links...');
   try {
@@ -114,17 +114,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Internal Links',
       passed: true,
-      message: '✅ All internal links are properly formatted'
+      message: '✅ All internal links are properly formatted',
     });
   } catch (error) {
     results.push({
       name: 'Internal Links',
       passed: false,
       message: '❌ Internal link issues found',
-      details: 'Run "npm run audit:links" for details'
+      details: 'Run "npm run audit:links" for details',
     });
   }
-  
+
   // 7. Sitemap URL Validation
   console.log('7️⃣  Validating Sitemap URLs...');
   try {
@@ -132,17 +132,17 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Sitemap URLs',
       passed: true,
-      message: '✅ All sitemap URLs return 200 OK'
+      message: '✅ All sitemap URLs return 200 OK',
     });
   } catch (error) {
     results.push({
       name: 'Sitemap URLs',
       passed: false,
       message: '❌ Some sitemap URLs have issues',
-      details: 'Run "npm run predeploy:validate" for details'
+      details: 'Run "npm run predeploy:validate" for details',
     });
   }
-  
+
   // 8. Build Test
   console.log('8️⃣  Testing Build Process...');
   try {
@@ -150,24 +150,24 @@ async function runProductionReadinessAudit(): Promise<void> {
     results.push({
       name: 'Build Process',
       passed: true,
-      message: '✅ Build process completes successfully'
+      message: '✅ Build process completes successfully',
     });
   } catch (error) {
     results.push({
       name: 'Build Process',
       passed: false,
       message: '❌ Build process fails',
-      details: 'Run "npm run build" for details'
+      details: 'Run "npm run build" for details',
     });
   }
-  
+
   // Display Results
   console.log('\n📊 Production Readiness Audit Results\n');
   console.log('='.repeat(60));
-  
+
   let passedCount = 0;
   let totalCount = results.length;
-  
+
   for (const result of results) {
     const status = result.passed ? '✅' : '❌';
     console.log(`${status} ${result.name}`);
@@ -176,13 +176,15 @@ async function runProductionReadinessAudit(): Promise<void> {
       console.log(`   💡 ${result.details}`);
     }
     console.log('');
-    
+
     if (result.passed) passedCount++;
   }
-  
+
   console.log('='.repeat(60));
-  console.log(`📈 Overall Score: ${passedCount}/${totalCount} (${Math.round((passedCount/totalCount)*100)}%)`);
-  
+  console.log(
+    `📈 Overall Score: ${passedCount}/${totalCount} (${Math.round((passedCount / totalCount) * 100)}%)`
+  );
+
   if (passedCount === totalCount) {
     console.log('\n🎉 CONGRATULATIONS! Your website is production-ready!');
     console.log('🚀 You can deploy with confidence.');

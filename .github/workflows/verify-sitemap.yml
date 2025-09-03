@@ -1,10 +1,10 @@
 name: Verify Production Sitemap & Robots
 
 on:
-  push: { branches: [ main ] }
-  pull_request: { branches: [ main ] }
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
   schedule:
-    - cron: '30 3 * * *'   # daily 09:00 IST
+    - cron: '30 3 * * *' # daily 09:00 IST
   workflow_dispatch:
 
 permissions: { contents: read }
@@ -63,4 +63,4 @@ jobs:
         with:
           name: sitemap-reports
           path: reports/
-          if-no-files-found: warn 
+          if-no-files-found: warn

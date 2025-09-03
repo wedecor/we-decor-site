@@ -71,9 +71,9 @@ import { SITE_URL, SITE_PHONE } from '../../lib/site';
 
 // JSON-LD Schema
 const schemaMarkup = {
-  "@type": "LocalBusiness",
-  "url": SITE_URL,
-  "telephone": SITE_PHONE,
+  '@type': 'LocalBusiness',
+  url: SITE_URL,
+  telephone: SITE_PHONE,
   // ... other properties
 };
 ```
@@ -134,12 +134,14 @@ export const validateSiteUrl = (): boolean => {
 ## 📝 Migration Notes
 
 ### Before (Hardcoded)
+
 ```typescript
 const pageUrl = 'https://www.wedecorevents.com/locations/whitefield';
 const phone = '+91 9591232166';
 ```
 
 ### After (Centralized)
+
 ```typescript
 import { buildLocationUrl, SITE_PHONE } from '../lib/site';
 
@@ -171,7 +173,7 @@ if (isDevelopment) {
   console.log('🌐 Site Configuration:', {
     SITE_URL,
     NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   });
 }
 ```

@@ -9,35 +9,37 @@ import { env, isProduction, isDevelopment, isPreview } from './env';
  * - trim() removes stray newlines/spaces from env
  * - replace(/\/+$/, "") removes trailing slashes
  */
-export const SITE_URL = (env.SITE_URL ?? "https://www.wedecorevents.com")
+export const SITE_URL = (env.SITE_URL ?? 'https://www.wedecorevents.com')
   .trim()
-  .replace(/\/+$/, "");
+  .replace(/\/+$/, '');
 
-export const SITE_NAME = "We Decor";
-export const SITE_DESCRIPTION = "Professional event decoration services in Bangalore";
-export const SITE_PHONE = "+91 8880544452";
-export const SITE_WHATSAPP = "+91 8880544452";
-export const SITE_EMAIL = "info@wedecorevents.com";
+export const SITE_NAME = 'We Decor';
+export const SITE_DESCRIPTION = 'Professional event decoration services in Bangalore';
+export const SITE_PHONE = '+91 8880544452';
+export const SITE_WHATSAPP = '+91 8880544452';
+export const SITE_EMAIL = 'info@wedecorevents.com';
 
 // Canonical URL helpers
-export const getCanonicalUrl = (path: string = "") => {
-  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+export const getCanonicalUrl = (path: string = '') => {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
   return `${SITE_URL}${cleanPath}`;
 };
 
 // URL building helpers
-export const buildWhatsAppUrl = (message: string = "") => {
-  const encodedMessage = encodeURIComponent(message || "Hi! I'm interested in your decoration services.");
-  return `https://wa.me/${SITE_WHATSAPP.replace(/\D/g, "")}?text=${encodedMessage}`;
+export const buildWhatsAppUrl = (message: string = '') => {
+  const encodedMessage = encodeURIComponent(
+    message || "Hi! I'm interested in your decoration services."
+  );
+  return `https://wa.me/${SITE_WHATSAPP.replace(/\D/g, '')}?text=${encodedMessage}`;
 };
 
 export const buildPhoneUrl = (phone: string = SITE_PHONE) => {
-  return `tel:${phone.replace(/\D/g, "")}`;
+  return `tel:${phone.replace(/\D/g, '')}`;
 };
 
 export const buildLocationServiceUrl = (location: string, service: string) => {
-  const cleanLocation = location.toLowerCase().replace(/\s+/g, "-");
-  const cleanService = service.toLowerCase().replace(/\s+/g, "-");
+  const cleanLocation = location.toLowerCase().replace(/\s+/g, '-');
+  const cleanService = service.toLowerCase().replace(/\s+/g, '-');
   return `${SITE_URL}/locations/${cleanLocation}/${cleanService}`;
 };
 
@@ -65,7 +67,7 @@ export const SITE_STRUCTURE = {
   services: '/services',
   locations: '/locations',
   sitemap: '/sitemap.xml',
-  robots: '/robots.txt'
+  robots: '/robots.txt',
 } as const;
 
 // Service paths for dynamic generation
@@ -77,13 +79,13 @@ export const SERVICE_PATHS = {
   'birthday-home-decoration': '/services/birthday-home-decoration',
   'haldi-backdrop-decor': '/services/haldi-backdrop-decor',
   'wedding-stage-decor': '/services/wedding-stage-decor',
-  'decoration': '/services/decoration',
-  'catering': '/services/catering',
+  decoration: '/services/decoration',
+  catering: '/services/catering',
   'hair-stylists': '/services/hair-stylists',
   'makeup-artists': '/services/makeup-artists',
   'mehndi-artists': '/services/mehndi-artists',
-  'photographers': '/services/photographers',
-  'videographers': '/services/videographers'
+  photographers: '/services/photographers',
+  videographers: '/services/videographers',
 } as const;
 
 // Helper function to get service path
@@ -108,7 +110,7 @@ export const validateSiteUrl = (): boolean => {
 
 // Log site configuration in development
 if (isDevelopment) {
-  console.log("🌐 Site Configuration:", {
+  console.log('🌐 Site Configuration:', {
     SITE_URL,
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,

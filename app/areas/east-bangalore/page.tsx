@@ -3,12 +3,10 @@ import { parseContent } from '../_lib/parseContent';
 import ClientVisible from '@/components/ClientVisible';
 
 const ContactCard = dynamic(
-  () => import('@/components/areas/ContactCard').then((m) => m.default ?? m),
-  { ssr: false }
+  () => import('@/components/areas/ContactCard').then((m) => m.default ?? m)
 );
 const GalleryStrip = dynamic(
-  () => import('@/components/areas/GalleryStrip').then((m) => m.default ?? m),
-  { ssr: false }
+  () => import('@/components/areas/GalleryStrip').then((m) => m.default ?? m)
 );
 
 export const revalidate = 3600; // 1 hour

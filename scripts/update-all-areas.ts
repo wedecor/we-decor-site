@@ -18,19 +18,15 @@ interface LocalityData {
   locality: string;
 }
 
-function getSection(
-  src: string,
-  label: string,
-  nextLabels: string[]
-): string {
+function getSection(src: string, label: string, nextLabels: string[]): string {
   // Build a "stop" alternation like: ^(SERVICES:|WHY:|NEARBY:|FAQ:|CASE STUDY:|CTA:)\s*$
   const stop = nextLabels.length
-    ? `^(${nextLabels.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')}):\\s*$`
+    ? `^(${nextLabels.map((l) => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')}):\\s*$`
     : `$^`; // matches nothing
 
   // For sections that should always be multi-line (contain newlines), only try multi-line format
   const multiLineOnlySections = ['INTRO', 'SERVICES', 'WHY', 'FAQ', 'CASE STUDY', 'CTA'];
-  
+
   if (multiLineOnlySections.includes(label)) {
     // For FAQ specifically, use a more robust pattern that captures until the next section header
     if (label === 'FAQ') {
@@ -38,54 +34,54 @@ function getSection(
         String.raw`(?:^|\n)FAQ:\s*\r?\n([\s\S]*?)(?=\r?\n(?:^CASE STUDY:|^CTA:)\s*$)`,
         'm'
       );
-      
+
       const m = src.match(faqRe);
       if (m) return m[1].trim();
       return '';
     }
-    
+
     // For SERVICES specifically, use a more robust pattern that captures until the next section header
     if (label === 'SERVICES') {
       const servicesRe = new RegExp(
         String.raw`(?:^|\n)SERVICES:\s*\r?\n([\s\S]*?)(?=\r?\n(?:^WHY:|^NEARBY:|^FAQ:|^CASE STUDY:|^CTA:)\s*$)`,
         'm'
       );
-      
+
       const m = src.match(servicesRe);
       if (m) return m[1].trim();
       return '';
     }
-    
+
     // For other multi-line sections, use the standard pattern
     const multiLineRe = new RegExp(
       String.raw`(?:^|\n)${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\s*\r?\n([\s\S]*?)(?=\r?\n${stop}|\r?\n?$)`,
       'm'
     );
-    
+
     const m = src.match(multiLineRe);
     if (m) return m[1].trim();
     return '';
   }
-  
+
   // For sections that might be single-line (like NEARBY), try both formats
   // First try: multi-line format (LABEL:\ncontent)
   const multiLineRe = new RegExp(
     String.raw`(?:^|\n)${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\s*\r?\n([\s\S]*?)(?=\r?\n${stop}|\r?\n?$)`,
     'm'
   );
-  
+
   let m = src.match(multiLineRe);
   if (m) return m[1].trim();
-  
+
   // Second try: single-line format (LABEL: content)
   const singleLineRe = new RegExp(
     String.raw`(?:^|\n)${label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\s*([^\n]*?)(?=\r?\n${stop}|\r?\n?$)`,
     'm'
   );
-  
+
   m = src.match(singleLineRe);
   if (m) return m[1].trim();
-  
+
   return '';
 }
 
@@ -97,23 +93,30 @@ function parseLocalityBlock(block: string): LocalityData | null {
       console.warn(`⚠️  Could not extract locality name from block`);
       return null;
     }
-    
+
     const data: Partial<LocalityData> = {
-      locality: localityMatch[1].trim()
+      locality: localityMatch[1].trim(),
     };
-    
+
     // Use the robust getSection helper for all sections
     const TITLE = (block.match(/^TITLE:\s*(.+)$/m)?.[1] || '').trim();
     const META = (block.match(/^META:\s*(.+)$/m)?.[1] || '').trim();
-    
-    const INTRO = getSection(block, 'INTRO', ['SERVICES','WHY','NEARBY','FAQ','CASE STUDY','CTA']);
-    const SERVICES = getSection(block, 'SERVICES', ['WHY','NEARBY','FAQ','CASE STUDY','CTA']);
-    const WHY = getSection(block, 'WHY', ['NEARBY','FAQ','CASE STUDY','CTA']);
-    const NEARBY = getSection(block, 'NEARBY', ['FAQ','CASE STUDY','CTA']);
-    const FAQ = getSection(block, 'FAQ', ['CASE STUDY','CTA']);
+
+    const INTRO = getSection(block, 'INTRO', [
+      'SERVICES',
+      'WHY',
+      'NEARBY',
+      'FAQ',
+      'CASE STUDY',
+      'CTA',
+    ]);
+    const SERVICES = getSection(block, 'SERVICES', ['WHY', 'NEARBY', 'FAQ', 'CASE STUDY', 'CTA']);
+    const WHY = getSection(block, 'WHY', ['NEARBY', 'FAQ', 'CASE STUDY', 'CTA']);
+    const NEARBY = getSection(block, 'NEARBY', ['FAQ', 'CASE STUDY', 'CTA']);
+    const FAQ = getSection(block, 'FAQ', ['CASE STUDY', 'CTA']);
     const CASE_STUDY = getSection(block, 'CASE STUDY', ['CTA']);
     const CTA = getSection(block, 'CTA', []);
-    
+
     // Assign to data object
     data.title = TITLE;
     data.meta = META;
@@ -124,7 +127,7 @@ function parseLocalityBlock(block: string): LocalityData | null {
     data.faq = FAQ;
     data.caseStudy = CASE_STUDY;
     data.cta = CTA;
-    
+
     return data as LocalityData;
   } catch (error) {
     console.error(`❌ Error parsing locality block:`, error);
@@ -134,14 +137,16 @@ function parseLocalityBlock(block: string): LocalityData | null {
 
 function generateUpdatedTSXContent(data: LocalityData): string {
   // Split services into array items
-  const servicesArray = data.services.split('\n').filter(line => line.trim()).map(line => 
-    `    "${line.trim()}"`
-  ).join(',\n');
+  const servicesArray = data.services
+    .split('\n')
+    .filter((line) => line.trim())
+    .map((line) => `    "${line.trim()}"`)
+    .join(',\n');
 
   // Split FAQ into array items
-  const faqLines = data.faq.split('\n').filter(line => line.trim());
+  const faqLines = data.faq.split('\n').filter((line) => line.trim());
   const faqsArray = [];
-  
+
   for (let i = 0; i < faqLines.length; i += 2) {
     if (faqLines[i] && faqLines[i + 1]) {
       const question = faqLines[i].replace(/^Q\.\s*/, '').trim();
@@ -154,9 +159,13 @@ function generateUpdatedTSXContent(data: LocalityData): string {
   }
 
   // Split nearby into array items
-  const nearbyArray = data.nearby.split(',').map(area => 
-    `    { "name": "${area.trim()}", "slug": "${area.trim().toLowerCase().replace(/\s+/g, '-')}" }`
-  ).join(',\n');
+  const nearbyArray = data.nearby
+    .split(',')
+    .map(
+      (area) =>
+        `    { "name": "${area.trim()}", "slug": "${area.trim().toLowerCase().replace(/\s+/g, '-')}" }`
+    )
+    .join(',\n');
 
   return `import type { Metadata } from "next";
 import Footer from "@/components/Footer";
@@ -247,44 +256,47 @@ ${faqsArray.join(',\n')}
 async function updateAllAreas(): Promise<void> {
   try {
     console.log('🔄 Starting to update all area pages...');
-    
+
     // Read the master file
-    const masterFilePath = path.join(__dirname, '../content/we_decor_bangalore_localities_full.txt');
+    const masterFilePath = path.join(
+      __dirname,
+      '../content/we_decor_bangalore_localities_full.txt'
+    );
     const content = await fs.readFile(masterFilePath, 'utf-8');
-    
+
     // Split by locality delimiter and filter out empty blocks
-    const localityBlocks = content.split('=== LOCALITY:').filter(block => block.trim());
-    
+    const localityBlocks = content.split('=== LOCALITY:').filter((block) => block.trim());
+
     console.log(`📁 Found ${localityBlocks.length} locality blocks to process...`);
-    
+
     // Ensure the areas directory exists
     const areasDir = path.join(__dirname, '../app/areas');
-    
+
     let successCount = 0;
     let skipCount = 0;
-    
+
     for (let i = 0; i < localityBlocks.length; i++) {
       try {
         const block = localityBlocks[i];
-        
+
         // Skip the first block if it's just a region header
         if (i === 0 && block.trim().startsWith('#')) {
           console.log(`⏭️  Skipping region header block`);
           continue;
         }
-        
+
         // Add back the delimiter for parsing
         const fullBlock = `=== LOCALITY:${block}`;
         const localityData = parseLocalityBlock(fullBlock);
-        
+
         if (!localityData) {
           skipCount++;
           continue;
         }
-        
+
         // Generate slug
         const slug = localityData.locality.toLowerCase().replace(/\s+/g, '-');
-        
+
         // Check if the .tsx file exists
         const tsxPath = path.join(areasDir, slug, 'page.tsx');
         try {
@@ -294,13 +306,13 @@ async function updateAllAreas(): Promise<void> {
           skipCount++;
           continue;
         }
-        
+
         // Generate updated TSX content
         const updatedContent = generateUpdatedTSXContent(localityData);
-        
+
         // Write the updated TSX file
         await fs.writeFile(tsxPath, updatedContent, 'utf-8');
-        
+
         // Remove the duplicate .mdx file if it exists
         const mdxPath = path.join(areasDir, slug, 'page.mdx');
         try {
@@ -309,27 +321,25 @@ async function updateAllAreas(): Promise<void> {
         } catch {
           // .mdx file doesn't exist, that's fine
         }
-        
+
         console.log(`✅ Updated: ${localityData.locality} → /app/areas/${slug}/page.tsx`);
         successCount++;
-        
       } catch (error) {
         console.error(`❌ Error processing locality block ${i + 1}:`, error);
         skipCount++;
       }
     }
-    
+
     console.log('\n🎉 All area pages updated!');
     console.log(`📊 Summary:`);
     console.log(`   ✅ Successfully updated: ${successCount} pages`);
     console.log(`   ⚠️  Skipped: ${skipCount} pages`);
     console.log(`   🗑️  Removed duplicate .mdx files`);
-    
+
     if (successCount > 0) {
       console.log(`\n🚀 You can now test your updated area pages!`);
       console.log(`   Visit: http://localhost:3000/areas/[slug]`);
     }
-    
   } catch (error) {
     console.error('❌ Fatal error during update:', error);
     process.exit(1);
@@ -344,4 +354,4 @@ if (require.main === module) {
   });
 }
 
-export { updateAllAreas, parseLocalityBlock, generateUpdatedTSXContent }; 
+export { updateAllAreas, parseLocalityBlock, generateUpdatedTSXContent };

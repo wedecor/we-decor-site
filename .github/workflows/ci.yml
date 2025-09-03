@@ -1,45 +1,129 @@
-name: CI
+name: Production Readiness CI
+
 on:
   push:
-    branches: [main]
+    branches: [ main, develop ]
   pull_request:
+    branches: [ main, develop ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '20'
+  NEXT_PUBLIC_SITE_URL: 'http://localhost:3001'
 
 jobs:
-  build-test:
+  production-readiness:
+    name: Production Readiness Checks
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm ci
-      - name: Typecheck
-        run: npm run typecheck
-      - name: Verify SEO config
-        run: npm run verify:seo
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run Production Readiness Checks
+        run: npm run build:guarded
         env:
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-      - name: Build (capture log)
-        run: npm run build:log
+          NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
+          
+      - name: Run Smoke Tests
+        run: npm run test:smoke
         env:
-          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
-      - name: Deny deprecated warnings
-        run: npm run verify:deprecations
-      - name: Bundle budget guard
-        run: BUNDLE_BUDGET_KB=500 BUNDLE_WARN_KB=400 npm run guard:bundles
-      - name: Start server
-        run: npm run start:testenv &
-      - name: Locality verification
-        run: npm run verify:localities
-      - name: Verify security headers
-        run: HEADERS_BASE=http://localhost:3000 npm run verify:headers
-      - name: Unit tests
-        run: npm run test:unit
-      - name: Install browsers
-        run: npx playwright install --with-deps
-      - name: E2E + axe
-        run: npm run test:e2e
-      - name: Lighthouse thresholds
-        run: npm run lh
+          NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
+          
+      - name: Verify Internal Links
+        run: BASE=http://localhost:3001 npm run verify:links
+        
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: production-readiness-artifacts
+          path: |
+            artifacts/**
+            .next/build-log.txt
+            test-results/**
+          retention-days: 30
+          
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            let comment = '## 🚀 Production Readiness Check Results\n\n';
+            
+            // Try to read the production readiness report
+            const reportPath = path.join('artifacts', 'production_readiness_report.md');
+            if (fs.existsSync(reportPath)) {
+              const report = fs.readFileSync(reportPath, 'utf8');
+              comment += report;
+            } else {
+              comment += 'Production readiness report not available. Check the workflow logs for details.\n';
+            }
+            
+            // Add artifact links
+            comment += '\n\n📄 **Artifacts:**\n';
+            comment += '- [Download all artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})\n';
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run npm audit
+        run: npm audit --audit-level=high
+        
+      - name: Run Snyk security scan
+        uses: snyk/actions/node@master
+        continue-on-error: true
         env:
-          LH_BASE: http://localhost:3000
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
