@@ -1,187 +1,29 @@
 {
-  "timestamp": "2025-01-27T00:00:00.000Z",
-  "overallScore": 92,
-  "status": "excellent",
-  "findings": {
-    "passed": [
-      {
-        "id": "content-security-policy",
-        "description": "Comprehensive CSP implementation",
-        "files": [
-          "next.config.js:4-12"
-        ],
-        "details": {
-          "defaultSrc": "'self'",
-          "imgSrc": "'self' https: data: blob:",
-          "scriptSrc": "'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com",
-          "styleSrc": "'self' 'unsafe-inline' https:",
-          "connectSrc": "'self' https: wss:",
-          "fontSrc": "'self' https: data:",
-          "objectSrc": "'none'",
-          "baseUri": "'self'",
-          "frameAncestors": "'none'",
-          "formAction": "'self'",
-          "upgradeInsecureRequests": true
-        },
-        "impact": "high"
-      },
-      {
-        "id": "security-headers",
-        "description": "Comprehensive security headers",
-        "files": [
-          "next.config.js:100-110"
-        ],
-        "details": {
-          "strictTransportSecurity": "max-age=31536000; includeSubDomains; preload",
-          "xFrameOptions": "DENY",
-          "xContentTypeOptions": "nosniff",
-          "referrerPolicy": "strict-origin-when-cross-origin",
-          "permissionsPolicy": "geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()"
-        },
-        "impact": "high"
-      },
-      {
-        "id": "https-enforcement",
-        "description": "HTTPS redirects configured",
-        "files": [
-          "next.config.js:60-70"
-        ],
-        "details": {
-          "httpToHttps": true,
-          "wwwRedirect": true,
-          "vercelAppRedirect": true
-        },
-        "impact": "high"
-      },
-      {
-        "id": "environment-security",
-        "description": "Environment variable protection",
-        "files": [
-          "app/env-guard.ts"
-        ],
-        "details": {
-          "validation": true,
-          "serverOnly": true,
-          "noClientExposure": true
-        },
-        "impact": "medium"
-      },
-      {
-        "id": "input-validation",
-        "description": "Server-side input validation",
-        "files": [
-          "lib/contact.ts"
-        ],
-        "details": {
-          "sanitization": true,
-          "validation": true,
-          "errorHandling": true
-        },
-        "impact": "high"
-      }
+  "generated_at": "2025-09-03T20:42:14.468Z",
+  "headers": {
+    "Content-Security-Policy": "present",
+    "Strict-Transport-Security": "present",
+    "X-Frame-Options": "present",
+    "X-Content-Type-Options": "present",
+    "Referrer-Policy": "present"
+  },
+  "csp_summary": {
+    "script-src": [
+      "'self'",
+      "https://www.googletagmanager.com",
+      "https://www.google-analytics.com",
+      "https://cdn.jsdelivr.net"
     ],
-    "warnings": [
-      {
-        "id": "csp-unsafe-inline",
-        "description": "CSP allows unsafe-inline for scripts and styles",
-        "files": [
-          "next.config.js:6-7"
-        ],
-        "impact": "medium",
-        "severity": "warning",
-        "fix": "Use nonces or hashes instead of unsafe-inline",
-        "rationale": "Required for Next.js and third-party scripts"
-      },
-      {
-        "id": "csp-unsafe-eval",
-        "description": "CSP allows unsafe-eval for scripts",
-        "files": [
-          "next.config.js:6"
-        ],
-        "impact": "medium",
-        "severity": "warning",
-        "fix": "Remove unsafe-eval if not needed",
-        "rationale": "May be required for some libraries"
-      }
+    "img-src": [
+      "'self'",
+      "data:",
+      "blob:",
+      "https://res.cloudinary.com"
     ],
-    "info": [
-      {
-        "id": "csp-reporting",
-        "description": "CSP reporting configured for development",
-        "files": [
-          "next.config.js:4-12"
-        ],
-        "impact": "low",
-        "severity": "info",
-        "note": "Good practice for monitoring violations"
-      }
+    "frame-ancestors": [
+      "'none'"
     ]
   },
-  "vulnerabilities": {
-    "high": 0,
-    "medium": 0,
-    "low": 0,
-    "info": 2
-  },
-  "dependencies": {
-    "audit": {
-      "vulnerabilities": 0,
-      "outdated": 8,
-      "eol": 0
-    },
-    "security": {
-      "sentry": "configured",
-      "errorTracking": "enabled",
-      "monitoring": "active"
-    }
-  },
-  "compliance": {
-    "owasp": {
-      "injection": "protected",
-      "brokenAuth": "n/a",
-      "sensitiveData": "protected",
-      "xmlExternalEntities": "n/a",
-      "brokenAccessControl": "protected",
-      "securityMisconfiguration": "protected",
-      "crossSiteScripting": "protected",
-      "insecureDeserialization": "n/a",
-      "knownVulnerabilities": "monitored",
-      "insufficientLogging": "addressed"
-    },
-    "gdpr": {
-      "dataMinimization": "implemented",
-      "consent": "notApplicable",
-      "dataRetention": "notApplicable",
-      "rightToErasure": "notApplicable"
-    }
-  },
-  "recommendations": {
-    "high": [
-      "Review CSP unsafe-inline and unsafe-eval usage",
-      "Implement CSP nonces for better security",
-      "Add security headers monitoring"
-    ],
-    "medium": [
-      "Implement rate limiting for contact forms",
-      "Add security.txt file",
-      "Consider implementing HSTS preload"
-    ],
-    "low": [
-      "Add security monitoring dashboard",
-      "Implement automated security scanning",
-      "Create security incident response plan"
-    ]
-  },
-  "tools": {
-    "monitoring": [
-      "Sentry error tracking",
-      "Vercel security monitoring",
-      "Dependency vulnerability scanning"
-    ],
-    "testing": [
-      "Security headers testing",
-      "CSP violation monitoring",
-      "Penetration testing (recommended)"
-    ]
-  }
+  "findings": [],
+  "notes": "Security posture is strong. Keep third-party script hosts constrained and monitored."
 }
