@@ -21,6 +21,7 @@ export default function Navbar() {
             width={36}
             height={36}
             className="rounded-full shadow"
+            priority
           />
           <span className="font-bold text-2xl text-green-700 dark:text-green-200 tracking-wide group-hover:text-pink-500 dark:group-hover:text-pink-300 transition">
             We Decor
