@@ -21,9 +21,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run start:prod',
+    command: 'npm run build:prod && npm run start:prod',
     url: 'http://localhost:3001',
-    reuseExistingServer: !process.env.CI,
+    timeout: 120000,
+    reuseExistingServer: !process.env.CI
   },
   outputDir: 'artifacts/playwright/',
 });
