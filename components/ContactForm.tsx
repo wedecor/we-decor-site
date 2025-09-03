@@ -5,7 +5,7 @@ import React, { useState, FormEvent } from 'react';
 export default function ContactForm() {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<{ name?: string; phone?: string; message?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; phone?: string; email?: string; message?: string }>({});
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -16,10 +16,12 @@ export default function ContactForm() {
     const target = e.target as HTMLFormElement;
     const name = (target.elements.namedItem('name') as HTMLInputElement)?.value;
     const phone = (target.elements.namedItem('phone') as HTMLInputElement)?.value;
+    const email = (target.elements.namedItem('email') as HTMLInputElement)?.value;
     const message = (target.elements.namedItem('message') as HTMLInputElement)?.value;
-    const newErrors: { name?: string; phone?: string; message?: string } = {};
+    const newErrors: { name?: string; phone?: string; email?: string; message?: string } = {};
     if (!name) newErrors.name = 'Name is required';
     if (!phone) newErrors.phone = 'Phone is required';
+    if (!email) newErrors.email = 'Email is required';
     if (!message) newErrors.message = 'Message is required';
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -32,6 +34,7 @@ export default function ContactForm() {
     const formData = {
       name: name,
       phone: phone,
+      email: email,
       message: message,
     };
 
@@ -77,6 +80,14 @@ export default function ContactForm() {
         className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
       />
       {errors.phone ? <p className="text-red-500 text-sm">{errors.phone}</p> : null}
+      <input
+        name="email"
+        type="email"
+        required
+        placeholder="Your Email Address"
+        className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+      />
+      {errors.email ? <p className="text-red-500 text-sm">{errors.email}</p> : null}
       <textarea
         name="message"
         required
