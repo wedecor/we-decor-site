@@ -1,286 +1,92 @@
 {
-  "timestamp": "2025-01-27T00:00:00.000Z",
-  "overallScore": 90,
-  "status": "excellent",
+  "generated_at": "2025-09-03T20:42:14.468Z",
   "routes": [
     {
       "path": "/",
-      "title": "We Decor - Bringing Dreams to Life | Bangalore's Trusted Event Decorators",
-      "description": "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999. Call +91 8880544452.",
-      "seo": {
-        "title": {
-          "present": true,
-          "length": 89,
-          "optimal": true,
-          "brandIncluded": true
-        },
-        "description": {
-          "present": true,
-          "length": 156,
-          "optimal": true,
-          "keywords": ["Bangalore", "event decoration", "weddings", "birthdays"]
-        },
-        "canonical": {
-          "present": true,
-          "correct": true,
-          "https": true
-        },
-        "openGraph": {
-          "title": true,
-          "description": true,
-          "image": true,
-          "url": true,
-          "type": true
-        },
-        "twitter": {
-          "card": true,
-          "title": true,
-          "description": true,
-          "image": true
-        },
-        "structuredData": {
-          "localBusiness": true,
-          "organization": true,
-          "website": true,
-          "valid": true
-        },
-        "images": {
-          "altText": true,
-          "optimized": true,
-          "priority": false
-        }
-      },
       "score": 95,
-      "issues": [
-        {
-          "type": "performance",
-          "severity": "medium",
-          "message": "Hero images missing priority attribute",
-          "fix": "Add priority={true} to above-fold images"
-        }
-      ]
+      "title": true,
+      "description": true,
+      "canonical": true,
+      "open_graph": true,
+      "twitter": true,
+      "json_ld": [
+        "LocalBusiness",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "issues": []
+    },
+    {
+      "path": "/services",
+      "score": 92,
+      "title": true,
+      "description": true,
+      "canonical": true,
+      "open_graph": true,
+      "twitter": true,
+      "json_ld": [
+        "BreadcrumbList"
+      ],
+      "issues": []
     },
     {
       "path": "/gallery",
-      "title": "Gallery | We Decor",
-      "description": "See our event decor gallery - We Decor Bangalore.",
-      "seo": {
-        "title": {
-          "present": true,
-          "length": 22,
-          "optimal": false,
-          "brandIncluded": true
-        },
-        "description": {
-          "present": true,
-          "length": 45,
-          "optimal": false,
-          "keywords": ["gallery", "event decor", "Bangalore"]
-        },
-        "canonical": {
-          "present": true,
-          "correct": true,
-          "https": true
-        },
-        "openGraph": {
-          "title": true,
-          "description": true,
-          "image": true,
-          "url": true,
-          "type": true
-        },
-        "twitter": {
-          "card": true,
-          "title": true,
-          "description": true,
-          "image": true
-        },
-        "structuredData": {
-          "breadcrumbs": true,
-          "valid": true
-        },
-        "images": {
-          "altText": false,
-          "optimized": true,
-          "priority": false
-        }
-      },
-      "score": 75,
+      "score": 90,
+      "title": true,
+      "description": true,
+      "canonical": true,
+      "open_graph": true,
+      "twitter": true,
+      "json_ld": [
+        "BreadcrumbList"
+      ],
       "issues": [
-        {
-          "type": "content",
-          "severity": "medium",
-          "message": "Title and description too short",
-          "fix": "Expand to 50-60 chars for title, 140-160 for description"
-        },
-        {
-          "type": "accessibility",
-          "severity": "high",
-          "message": "Gallery images missing descriptive alt text",
-          "fix": "Add keyword-rich alt text for each image"
-        }
+        "Alt text too generic on some images"
       ]
     },
     {
+      "path": "/contact",
+      "score": 91,
+      "title": true,
+      "description": true,
+      "canonical": true,
+      "open_graph": true,
+      "twitter": true,
+      "json_ld": [
+        "BreadcrumbList"
+      ],
+      "issues": []
+    },
+    {
       "path": "/areas",
-      "title": "Service Areas | We Decor",
-      "description": "Browse all neighborhoods and localities We Decor serves for birthdays, engagements, baby showers and more.",
-      "seo": {
-        "title": {
-          "present": true,
-          "length": 28,
-          "optimal": true,
-          "brandIncluded": true
-        },
-        "description": {
-          "present": true,
-          "length": 108,
-          "optimal": true,
-          "keywords": ["service areas", "neighborhoods", "birthdays", "engagements"]
-        },
-        "canonical": {
-          "present": true,
-          "correct": true,
-          "https": true
-        },
-        "openGraph": {
-          "title": true,
-          "description": true,
-          "image": true,
-          "url": true,
-          "type": true
-        },
-        "twitter": {
-          "card": true,
-          "title": true,
-          "description": true,
-          "image": true
-        },
-        "structuredData": {
-          "breadcrumbs": true,
-          "valid": true
-        },
-        "images": {
-          "altText": true,
-          "optimized": true,
-          "priority": false
-        }
-      },
-      "score": 90,
+      "score": 93,
+      "title": true,
+      "description": true,
+      "canonical": true,
+      "open_graph": true,
+      "twitter": true,
+      "json_ld": [
+        "BreadcrumbList",
+        "FAQPage"
+      ],
       "issues": []
     },
     {
       "path": "/locations",
-      "title": "Areas We Serve | We Decor — Event Decorators in Bangalore",
-      "description": "We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.",
-      "seo": {
-        "title": {
-          "present": true,
-          "length": 75,
-          "optimal": true,
-          "brandIncluded": true
-        },
-        "description": {
-          "present": true,
-          "length": 175,
-          "optimal": true,
-          "keywords": ["Bengaluru", "North", "South", "East", "Central", "West", "Koramangala", "Whitefield"]
-        },
-        "canonical": {
-          "present": true,
-          "correct": true,
-          "https": true
-        },
-        "openGraph": {
-          "title": true,
-          "description": true,
-          "image": true,
-          "url": true,
-          "type": true
-        },
-        "twitter": {
-          "card": true,
-          "title": true,
-          "description": true,
-          "image": true
-        },
-        "structuredData": {
-          "collectionPage": true,
-          "valid": true
-        },
-        "images": {
-          "altText": true,
-          "optimized": true,
-          "priority": false
-        }
-      },
-      "score": 95,
+      "score": 90,
+      "title": true,
+      "description": true,
+      "canonical": true,
+      "open_graph": true,
+      "twitter": true,
+      "json_ld": [
+        "BreadcrumbList"
+      ],
       "issues": []
     }
   ],
-  "technicalSeo": {
-    "sitemap": {
-      "present": true,
-      "valid": true,
-      "urls": 70,
-      "lastModified": true
-    },
-    "robots": {
-      "present": true,
-      "valid": true,
-      "sitemapReference": true,
-      "userAgentRules": true
-    },
-    "structuredData": {
-      "localBusiness": true,
-      "organization": true,
-      "website": true,
-      "faqPage": true,
-      "breadcrumbs": true,
-      "collectionPage": true,
-      "valid": true
-    },
-    "metaTags": {
-      "viewport": true,
-      "themeColor": true,
-      "geoRegion": true,
-      "geoPlacename": true,
-      "geoPosition": true
-    }
-  },
-  "performance": {
-    "images": {
-      "nextImage": true,
-      "webp": true,
-      "avif": true,
-      "lazyLoading": true,
-      "priority": false
-    },
-    "fonts": {
-      "systemFallback": true,
-      "preload": false,
-      "display": "swap"
-    },
-    "scripts": {
-      "deferred": false,
-      "strategy": "afterInteractive"
-    }
-  },
-  "recommendations": {
-    "high": [
-      "Add priority attribute to hero images",
-      "Improve gallery image alt text",
-      "Expand gallery page title and description"
-    ],
-    "medium": [
-      "Add font preloading for critical fonts",
-      "Implement script optimization strategy",
-      "Add more specific structured data"
-    ],
-    "low": [
-      "Consider adding FAQ structured data to more pages",
-      "Add review structured data",
-      "Implement breadcrumbs on all pages"
-    ]
-  }
+  "recommendations": [
+    "Improve image alt text on gallery items with descriptive, location-rich phrases.",
+    "Ensure canonical base URL is from NEXT_PUBLIC_SITE_URL and fail build if missing."
+  ]
 }

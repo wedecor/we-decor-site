@@ -1,160 +1,50 @@
 {
-  "timestamp": "2025-01-27T00:00:00.000Z",
-  "analysis": {
-    "totalDependencies": 25,
-    "outdatedDependencies": 8,
-    "criticalUpdates": 2,
-    "securityVulnerabilities": 0,
-    "eolRisk": 1
+  "generated_at": "2025-09-03T20:42:14.468Z",
+  "project": "We Decor Events Website",
+  "summary": {
+    "overall_status": "attention",
+    "notes": "Next.js and React require major upgrades. Tailwind v4 migration planned as a follow-up."
   },
-  "dependencies": {
-    "production": [
-      {
-        "name": "next",
-        "current": "14.1.0",
-        "latest": "15.5.2",
-        "status": "critical",
-        "priority": "P0",
-        "impact": "high",
-        "breakingChanges": true,
-        "migrationRequired": true,
-        "notes": "Major version upgrade with App Router improvements"
-      },
-      {
-        "name": "react",
-        "current": "18.2.0",
-        "latest": "19.1.1",
-        "status": "critical",
-        "priority": "P0",
-        "impact": "high",
-        "breakingChanges": true,
-        "migrationRequired": true,
-        "notes": "React 19 with new features and performance improvements"
-      },
-      {
-        "name": "react-dom",
-        "current": "18.2.0",
-        "latest": "19.1.1",
-        "status": "critical",
-        "priority": "P0",
-        "impact": "high",
-        "breakingChanges": true,
-        "migrationRequired": true,
-        "notes": "Must match React version"
-      },
-      {
-        "name": "tailwindcss",
-        "current": "3.4.1",
-        "latest": "4.1.12",
-        "status": "warning",
-        "priority": "P2",
-        "impact": "medium",
-        "breakingChanges": true,
-        "migrationRequired": false,
-        "notes": "Major version with new features, not critical"
-      },
-      {
-        "name": "@sentry/nextjs",
-        "current": "9.40.0",
-        "latest": "10.8.0",
-        "status": "warning",
-        "priority": "P2",
-        "impact": "low",
-        "breakingChanges": false,
-        "migrationRequired": false,
-        "notes": "Minor version with bug fixes"
-      },
-      {
-        "name": "framer-motion",
-        "current": "12.23.6",
-        "latest": "12.23.12",
-        "status": "info",
-        "priority": "P3",
-        "impact": "low",
-        "breakingChanges": false,
-        "migrationRequired": false,
-        "notes": "Patch version with bug fixes"
-      }
-    ],
-    "development": [
-      {
-        "name": "typescript",
-        "current": "5.8.3",
-        "latest": "5.9.2",
-        "status": "info",
-        "priority": "P3",
-        "impact": "low",
-        "breakingChanges": false,
-        "migrationRequired": false,
-        "notes": "Minor version with improvements"
-      },
-      {
-        "name": "eslint",
-        "current": "9.31.0",
-        "latest": "9.34.0",
-        "status": "info",
-        "priority": "P3",
-        "impact": "low",
-        "breakingChanges": false,
-        "migrationRequired": false,
-        "notes": "Patch version with bug fixes"
-      },
-      {
-        "name": "playwright",
-        "current": "1.55.0",
-        "latest": "1.55.0",
-        "status": "current",
-        "priority": "none",
-        "impact": "none",
-        "breakingChanges": false,
-        "migrationRequired": false,
-        "notes": "Already up to date"
-      }
-    ]
-  },
-  "recommendations": {
-    "immediate": [
-      "Upgrade Next.js to 15.5.2 with App Router migration",
-      "Upgrade React and React-DOM to 19.1.1",
-      "Test all functionality after major upgrades"
-    ],
-    "shortTerm": [
-      "Update Tailwind CSS to 4.x for new features",
-      "Update Sentry for better error tracking",
-      "Update TypeScript for latest language features"
-    ],
-    "longTerm": [
-      "Implement automated dependency updates",
-      "Set up security vulnerability scanning",
-      "Create dependency update runbook"
-    ]
-  },
-  "riskAssessment": {
-    "high": [
-      {
-        "package": "next",
-        "risk": "Breaking changes in App Router",
-        "mitigation": "Thorough testing, gradual migration"
-      },
-      {
-        "package": "react",
-        "risk": "New concurrent features",
-        "mitigation": "Update components to use new patterns"
-      }
-    ],
-    "medium": [
-      {
-        "package": "tailwindcss",
-        "risk": "CSS class changes",
-        "mitigation": "Update utility classes"
-      }
-    ],
-    "low": [
-      {
-        "package": "typescript",
-        "risk": "Type checking changes",
-        "mitigation": "Update type definitions"
-      }
-    ]
-  }
+  "packages": [
+    {
+      "name": "next",
+      "current": "14.1.0",
+      "latest": "15.5.2",
+      "status": "critical",
+      "priority": "P0",
+      "recommendation": "Upgrade to 15.5.2 and complete App Router migration."
+    },
+    {
+      "name": "react",
+      "current": "18.2.0",
+      "latest": "19.1.0",
+      "status": "critical",
+      "priority": "P0",
+      "recommendation": "Upgrade to 19.1.0 along with react-dom."
+    },
+    {
+      "name": "react-dom",
+      "current": "18.2.0",
+      "latest": "19.1.0",
+      "status": "critical",
+      "priority": "P0",
+      "recommendation": "Upgrade with React."
+    },
+    {
+      "name": "tailwindcss",
+      "current": "3.4.x",
+      "latest": "4.0.x",
+      "status": "warning",
+      "priority": "P2",
+      "recommendation": "Plan migration to v4 in a separate PR."
+    },
+    {
+      "name": "typescript",
+      "current": "5.8.3",
+      "latest": "5.9.x",
+      "status": "warning",
+      "priority": "P3",
+      "recommendation": "Upgrade to latest 5.9.x."
+    }
+  ]
 }
