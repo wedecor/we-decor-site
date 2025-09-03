@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { getCLS, getFID, getLCP, getINP, getTTFB, type Metric } from "web-vitals";
-import { event, GA_ID } from "@/lib/gtag";
+import { getCLS, getFID, getLCP, getINP, getTTFB, type Metric } from 'web-vitals';
+import { event, GA_ID } from '@/lib/gtag';
 
 function send(name: string, value: number, id: string) {
   // GA4 expects integers; scale CLS for readability like Lighthouse does.
-  const v = name === "CLS" ? Math.round(value * 1000) : Math.round(value);
-  event("web-vitals", {
-    event_category: "Web Vitals",
+  const v = name === 'CLS' ? Math.round(value * 1000) : Math.round(value);
+  event('web-vitals', {
+    event_category: 'Web Vitals',
     event_label: id,
     value: v,
     name,
@@ -27,4 +27,3 @@ if (GA_ID) {
   getINP(handler);
   getTTFB(handler);
 }
-

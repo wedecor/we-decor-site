@@ -17,14 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/areas`, lastModified: now, priority: 0.7 },
   ];
 
-  const locationPages: MetadataRoute.Sitemap = AREAS.map(a => ({
+  const locationPages: MetadataRoute.Sitemap = AREAS.map((a) => ({
     url: `${base}/locations/${a.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: a.slug === 'bangalore' ? 0.8 : 0.7,
   }));
 
-  const areasPages: MetadataRoute.Sitemap = AREAS.map(a => ({
+  const areasPages: MetadataRoute.Sitemap = AREAS.map((a) => ({
     url: `${base}/areas/${a.slug}`,
     lastModified: now,
     changeFrequency: 'monthly',

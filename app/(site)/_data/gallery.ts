@@ -16,16 +16,17 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Birthday balloon arch decoration with fairy lights',
     captionBase: 'Colorful balloon arch with fairy lights — perfect for birthday celebrations',
     serviceTag: 'Birthday',
-    category: 'birthday'
+    category: 'birthday',
   },
   {
     src: '/gallery/haldi-marigold-stage.webp',
     width: 1600,
     height: 1066,
     altBase: 'Haldi ceremony stage decoration',
-    captionBase: 'Traditional marigold and yellow drapes setup — compact haldi stage with floor protection',
+    captionBase:
+      'Traditional marigold and yellow drapes setup — compact haldi stage with floor protection',
     serviceTag: 'Haldi',
-    category: 'haldi'
+    category: 'haldi',
   },
   {
     src: '/gallery/wedding-mandap-floral.webp',
@@ -34,7 +35,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Wedding mandap decoration',
     captionBase: 'Elegant floral mandap with drapes — timeless wedding ceremony setup',
     serviceTag: 'Wedding',
-    category: 'wedding'
+    category: 'wedding',
   },
   {
     src: '/gallery/tent-balloon-outdoor.webp',
@@ -43,7 +44,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Tent and balloon decoration setup',
     captionBase: 'Outdoor tent with balloon arrangements — weather-proof outdoor event decoration',
     serviceTag: 'Tent Setup',
-    category: 'tent'
+    category: 'tent',
   },
   {
     src: '/gallery/baby-shower-pastel-setup.webp',
@@ -52,7 +53,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Baby shower decoration',
     captionBase: 'Soft pastel baby shower setup — gentle colors for precious moments',
     serviceTag: 'Baby Shower',
-    category: 'baby-shower'
+    category: 'baby-shower',
   },
   {
     src: '/gallery/engagement-floral-romantic.webp',
@@ -61,7 +62,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Engagement ceremony decoration',
     captionBase: 'Romantic engagement setup with flowers — intimate celebration decoration',
     serviceTag: 'Engagement',
-    category: 'engagement'
+    category: 'engagement',
   },
   {
     src: '/gallery/corporate-event-professional.webp',
@@ -70,7 +71,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Corporate event decoration',
     captionBase: 'Professional corporate event setup — clean and elegant business celebration',
     serviceTag: 'Corporate',
-    category: 'corporate'
+    category: 'corporate',
   },
   {
     src: '/gallery/home-decor-interior.webp',
@@ -79,7 +80,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Home decoration setup',
     captionBase: 'Elegant home interior decoration — transform your living space',
     serviceTag: 'Home Decor',
-    category: 'home-decor'
+    category: 'home-decor',
   },
   {
     src: '/gallery/anniversary-candle-romantic.webp',
@@ -88,7 +89,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Anniversary decoration with candles',
     captionBase: 'Romantic anniversary setup with candles and subtle florals',
     serviceTag: 'Anniversary',
-    category: 'anniversary'
+    category: 'anniversary',
   },
   {
     src: '/gallery/proposal-fairy-lights.webp',
@@ -97,7 +98,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Romantic proposal decoration setup',
     captionBase: 'Dreamy proposal setup with fairy lights and flowers',
     serviceTag: 'Proposal',
-    category: 'proposal'
+    category: 'proposal',
   },
   {
     src: '/gallery/balloon-backdrop-celebration.webp',
@@ -106,7 +107,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Balloon backdrop decoration',
     captionBase: 'Stunning balloon backdrop for any celebration',
     serviceTag: 'Balloon Decoration',
-    category: 'balloon'
+    category: 'balloon',
   },
   {
     src: '/gallery/floral-arrangement-centerpiece.webp',
@@ -115,13 +116,13 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     altBase: 'Floral arrangement and centerpiece',
     captionBase: 'Beautiful floral arrangements and table centerpieces',
     serviceTag: 'Floral Decoration',
-    category: 'floral'
-  }
+    category: 'floral',
+  },
 ];
 
 export function localize(media: GalleryItem, area: { name: string }) {
   return {
     alt: `${media.altBase} in ${area.name}, Bengaluru`,
-    caption: `${media.captionBase} — ${area.name} ${media.serviceTag ? '(' + media.serviceTag + ')' : ''}`
+    caption: `${media.captionBase} — ${area.name} ${media.serviceTag ? '(' + media.serviceTag + ')' : ''}`,
   };
-} 
+}
