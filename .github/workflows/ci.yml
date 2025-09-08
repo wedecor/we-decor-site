@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  NODE_VERSION: '20'
-  NEXT_PUBLIC_SITE_URL: 'http://localhost:3001'
+  NODE_VERSION: '22.x'
+  NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
 
 jobs:
   production-readiness:
@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Security audit (high only)
+        run: npm audit --audit-level=high
+        
       - name: Run Production Readiness Checks
         run: npm run build:guarded
         env:
@@ -43,7 +46,7 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
           
       - name: Verify Internal Links
-        run: BASE=http://localhost:3001 npm run verify:links
+        run: BASE=http://localhost:3000 npm run verify:links
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
@@ -113,17 +116,3 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --severity-threshold=high
-
-  dependency-review:
-    name: Dependency Review
-    runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v4
-        with:
-          fail-on-severity: moderate

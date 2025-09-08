@@ -1,0 +1,270 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "We Decor Logo - Event Decoration Services in Bangalore We Decor" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "We Decor Logo - Event Decoration Services in Bangalore" [ref=e5] [cursor=pointer]
+        - generic [ref=e6] [cursor=pointer]: We Decor
+      - generic [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "Gallery" [ref=e10] [cursor=pointer]:
+          - /url: /gallery
+        - link "Areas" [ref=e11] [cursor=pointer]:
+          - /url: /areas
+        - link "Locations" [ref=e12] [cursor=pointer]:
+          - /url: /locations
+        - link "Pricing" [ref=e13] [cursor=pointer]:
+          - /url: /pricing
+        - link "FAQ" [ref=e14] [cursor=pointer]:
+          - /url: /faq
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+        - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
+          - img [ref=e17] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e22]:
+      - heading "We Decor" [level=1] [ref=e23]
+      - heading "Bringing Dreams to Life" [level=2] [ref=e24]
+      - paragraph [ref=e25]: Bangalore's trusted decor experts for weddings, birthdays, haldi, and more.
+      - generic [ref=e26]:
+        - link "Get a Quote" [ref=e27] [cursor=pointer]:
+          - /url: /contact
+        - link "View Gallery" [ref=e28] [cursor=pointer]:
+          - /url: /gallery
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - heading "Our Services" [level=2] [ref=e32]
+        - paragraph [ref=e33]: Professional decoration services for all your special occasions
+      - generic [ref=e34]:
+        - link "Birthday Decoration decoration services in Bangalore - We Decor Birthday Decoration Creative and vibrant birthday decorations for all ages. From themed parties to elegant celebrations, we bring your birthday vision to life with stunning decor arrangements." [ref=e36] [cursor=pointer]:
+          - /url: /services
+          - generic [ref=e37] [cursor=pointer]:
+            - img "Birthday Decoration decoration services in Bangalore - We Decor" [ref=e39] [cursor=pointer]
+            - generic [ref=e40] [cursor=pointer]:
+              - heading "Birthday Decoration" [level=3] [ref=e41] [cursor=pointer]
+              - paragraph [ref=e42] [cursor=pointer]: Creative and vibrant birthday decorations for all ages. From themed parties to elegant celebrations, we bring your birthday vision to life with stunning decor arrangements.
+        - link "Haldi Decoration decoration services in Bangalore - We Decor Haldi Decoration Traditional and modern haldi ceremony decorations. Beautiful yellow-themed setups with traditional elements and contemporary touches for your special pre-wedding celebration." [ref=e44] [cursor=pointer]:
+          - /url: /services/haldi-decoration
+          - generic [ref=e45] [cursor=pointer]:
+            - img "Haldi Decoration decoration services in Bangalore - We Decor" [ref=e47] [cursor=pointer]
+            - generic [ref=e48] [cursor=pointer]:
+              - heading "Haldi Decoration" [level=3] [ref=e49] [cursor=pointer]
+              - paragraph [ref=e50] [cursor=pointer]: Traditional and modern haldi ceremony decorations. Beautiful yellow-themed setups with traditional elements and contemporary touches for your special pre-wedding celebration.
+        - link "Engagement Decoration decoration services in Bangalore - We Decor Engagement Decoration Romantic and elegant engagement party decorations. Create the perfect atmosphere for your special moment with our professional decor services and stunning arrangements." [ref=e52] [cursor=pointer]:
+          - /url: /services/engagement-decoration
+          - generic [ref=e53] [cursor=pointer]:
+            - img "Engagement Decoration decoration services in Bangalore - We Decor" [ref=e55] [cursor=pointer]
+            - generic [ref=e56] [cursor=pointer]:
+              - heading "Engagement Decoration" [level=3] [ref=e57] [cursor=pointer]
+              - paragraph [ref=e58] [cursor=pointer]: Romantic and elegant engagement party decorations. Create the perfect atmosphere for your special moment with our professional decor services and stunning arrangements.
+        - link "Corporate Event Decoration decoration services in Bangalore - We Decor Corporate Event Decoration Professional corporate event decorations for meetings, conferences, and celebrations. Impress your clients and team with our sophisticated corporate decor solutions." [ref=e60] [cursor=pointer]:
+          - /url: /services/corporate-decoration
+          - generic [ref=e61] [cursor=pointer]:
+            - img "Corporate Event Decoration decoration services in Bangalore - We Decor" [ref=e63] [cursor=pointer]
+            - generic [ref=e64] [cursor=pointer]:
+              - heading "Corporate Event Decoration" [level=3] [ref=e65] [cursor=pointer]
+              - paragraph [ref=e66] [cursor=pointer]: Professional corporate event decorations for meetings, conferences, and celebrations. Impress your clients and team with our sophisticated corporate decor solutions.
+        - link "Tent & Balloon Setup decoration services in Bangalore - We Decor Tent & Balloon Setup Professional tent and balloon arrangements for outdoor events. From elegant balloon arches to complete tent setups, we handle all your outdoor decoration needs." [ref=e68] [cursor=pointer]:
+          - /url: /services/tent-balloon-setup
+          - generic [ref=e69] [cursor=pointer]:
+            - img "Tent & Balloon Setup decoration services in Bangalore - We Decor" [ref=e71] [cursor=pointer]
+            - generic [ref=e72] [cursor=pointer]:
+              - heading "Tent & Balloon Setup" [level=3] [ref=e73] [cursor=pointer]
+              - paragraph [ref=e74] [cursor=pointer]: Professional tent and balloon arrangements for outdoor events. From elegant balloon arches to complete tent setups, we handle all your outdoor decoration needs.
+        - link "Room Decoration decoration services in Bangalore - We Decor Room Decoration Transform any space with our room decoration services. From intimate gatherings to large celebrations, we create beautiful and personalized room decor arrangements." [ref=e76] [cursor=pointer]:
+          - /url: /services/room-decoration
+          - generic [ref=e77] [cursor=pointer]:
+            - img "Room Decoration decoration services in Bangalore - We Decor" [ref=e79] [cursor=pointer]
+            - generic [ref=e80] [cursor=pointer]:
+              - heading "Room Decoration" [level=3] [ref=e81] [cursor=pointer]
+              - paragraph [ref=e82] [cursor=pointer]: Transform any space with our room decoration services. From intimate gatherings to large celebrations, we create beautiful and personalized room decor arrangements.
+    - generic [ref=e84]:
+      - heading "Ready to Decorate Your Event?" [level=2] [ref=e85]
+      - paragraph [ref=e86]: Let us transform your vision into reality with our professional decoration services.
+      - link "Get a Quote" [ref=e87] [cursor=pointer]:
+        - /url: /contact
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - heading "What Our Clients Say" [level=2] [ref=e90]
+        - paragraph [ref=e91]: Real feedback from happy customers across Bangalore
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - generic [ref=e97]: 👰‍♀️🤵‍♂️
+              - generic [ref=e98]:
+                - heading "Priya & Rahul" [level=3] [ref=e99]
+                - paragraph [ref=e100]: Wedding Reception
+                - paragraph [ref=e101]: 2 weeks ago
+            - img [ref=e103]
+            - paragraph [ref=e105]: "\"We Decor transformed our wedding reception into a magical evening! The stage decoration was absolutely stunning and all our guests couldn't stop complimenting. Highly recommended!\""
+            - generic [ref=e106]:
+              - img [ref=e107]
+              - img [ref=e109]
+              - img [ref=e111]
+              - img [ref=e113]
+              - img [ref=e115]
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]: 🎂
+              - generic [ref=e121]:
+                - heading "Anjali Sharma" [level=3] [ref=e122]
+                - paragraph [ref=e123]: Daughter's Birthday
+                - paragraph [ref=e124]: 1 month ago
+            - img [ref=e126]
+            - paragraph [ref=e128]: "\"The birthday decoration was beyond our expectations! My daughter was so happy seeing her favorite Disney theme come to life. The team was professional and punctual.\""
+            - generic [ref=e129]:
+              - img [ref=e130]
+              - img [ref=e132]
+              - img [ref=e134]
+              - img [ref=e136]
+              - img [ref=e138]
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - generic [ref=e143]: 🌻
+              - generic [ref=e144]:
+                - heading "Rajesh & Meera" [level=3] [ref=e145]
+                - paragraph [ref=e146]: Haldi Ceremony
+                - paragraph [ref=e147]: 3 weeks ago
+            - img [ref=e149]
+            - paragraph [ref=e151]: "\"Beautiful traditional haldi setup with modern touches. The colors were vibrant and the backdrop was perfect for our photos. Thank you We Decor team!\""
+            - generic [ref=e152]:
+              - img [ref=e153]
+              - img [ref=e155]
+              - img [ref=e157]
+              - img [ref=e159]
+              - img [ref=e161]
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - generic [ref=e166]: 🏢
+              - generic [ref=e167]:
+                - heading "Suresh Kumar" [level=3] [ref=e168]
+                - paragraph [ref=e169]: Corporate Event
+                - paragraph [ref=e170]: 1 month ago
+            - img [ref=e172]
+            - paragraph [ref=e174]: "\"We hired We Decor for our company's annual party and they delivered excellence. The tent setup and balloon decorations created the perfect festive atmosphere.\""
+            - generic [ref=e175]:
+              - img [ref=e176]
+              - img [ref=e178]
+              - img [ref=e180]
+              - img [ref=e182]
+              - img [ref=e184]
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e189]: 💍
+              - generic [ref=e190]:
+                - heading "Divya & Arjun" [level=3] [ref=e191]
+                - paragraph [ref=e192]: Engagement Party
+                - paragraph [ref=e193]: 2 months ago
+            - img [ref=e195]
+            - paragraph [ref=e197]: "\"Amazing work! The romantic setup with fairy lights and flower arrangements was exactly what we wanted. The team understood our vision perfectly.\""
+            - generic [ref=e198]:
+              - img [ref=e199]
+              - img [ref=e201]
+              - img [ref=e203]
+              - img [ref=e205]
+              - img [ref=e207]
+        - generic [ref=e209] [cursor=pointer]: prev
+        - generic: next
+    - generic [ref=e215]:
+      - heading "Get in Touch" [level=2] [ref=e216]
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - heading "Primary Contact" [level=3] [ref=e219]
+          - paragraph [ref=e220]: +91 88805 44452
+          - link "WhatsApp" [ref=e221] [cursor=pointer]:
+            - /url: https://wa.me/919880544452
+        - generic [ref=e222]:
+          - heading "Secondary Contact" [level=3] [ref=e223]
+          - paragraph [ref=e224]: +91 95912 32166
+          - link "Call Now" [ref=e225] [cursor=pointer]:
+            - /url: tel:+919591232166
+    - generic [ref=e226]:
+      - generic [ref=e227]:
+        - heading "Frequently Asked Questions" [level=2] [ref=e228]
+        - paragraph [ref=e229]: Everything you need to know about our decoration services
+      - generic [ref=e230]:
+        - button "What are your pricing packages?" [ref=e232] [cursor=pointer]:
+          - generic [ref=e233] [cursor=pointer]: What are your pricing packages?
+          - img [ref=e234] [cursor=pointer]
+        - button "How long does setup and decoration take?" [ref=e237] [cursor=pointer]:
+          - generic [ref=e238] [cursor=pointer]: How long does setup and decoration take?
+          - img [ref=e239] [cursor=pointer]
+        - button "Which areas in Bangalore do you serve?" [ref=e242] [cursor=pointer]:
+          - generic [ref=e243] [cursor=pointer]: Which areas in Bangalore do you serve?
+          - img [ref=e244] [cursor=pointer]
+        - button "Can you customize decorations for specific themes?" [ref=e247] [cursor=pointer]:
+          - generic [ref=e248] [cursor=pointer]: Can you customize decorations for specific themes?
+          - img [ref=e249] [cursor=pointer]
+        - button "What's the booking process?" [ref=e252] [cursor=pointer]:
+          - generic [ref=e253] [cursor=pointer]: What's the booking process?
+          - img [ref=e254] [cursor=pointer]
+      - generic [ref=e256]:
+        - paragraph [ref=e257]: Still have questions?
+        - link "Ask on WhatsApp" [ref=e258] [cursor=pointer]:
+          - /url: https://wa.me/918880544452
+          - img [ref=e259] [cursor=pointer]
+          - text: Ask on WhatsApp
+  - contentinfo [ref=e261]:
+    - generic [ref=e262]:
+      - generic [ref=e263]:
+        - generic [ref=e264]:
+          - img "We Decor Logo" [ref=e265]
+          - generic [ref=e266]:
+            - generic [ref=e267]: We Decor
+            - generic [ref=e268]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e269] [cursor=pointer]:
+          - /url: https://instagram.com/wedecorbangalore
+          - img [ref=e270] [cursor=pointer]
+          - generic [ref=e272] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e273]:
+        - navigation "Footer quick links" [ref=e274]:
+          - heading "Quick Links" [level=2] [ref=e275]
+          - list [ref=e276]:
+            - listitem [ref=e277]:
+              - link "About Us" [ref=e278] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e279]:
+              - link "Services" [ref=e280] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e281]:
+              - link "Gallery" [ref=e282] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=e283]:
+              - link "Pricing" [ref=e284] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e285]:
+              - link "FAQ" [ref=e286] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e287]:
+              - link "Contact" [ref=e288] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e289]:
+          - heading "Contact Info" [level=3] [ref=e290]
+          - generic [ref=e291]:
+            - generic [ref=e292]:
+              - img [ref=e293]
+              - link "+91 88805 44452" [ref=e295] [cursor=pointer]:
+                - /url: tel:+919880544452
+            - generic [ref=e296]:
+              - img [ref=e297]
+              - link "+91 95912 32166" [ref=e299] [cursor=pointer]:
+                - /url: tel:+919591232166
+            - generic [ref=e300]:
+              - img [ref=e301]
+              - generic [ref=e303]: Bangalore, India
+            - generic [ref=e304]:
+              - img [ref=e305]
+              - generic [ref=e307]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e309]:
+        - text: © 2025
+        - generic [ref=e310]: We Decor
+        - text: ", Bangalore. All rights reserved."
+  - alert [ref=e311]
+```
