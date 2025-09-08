@@ -67,7 +67,7 @@
     "start:testenv": "NODE_ENV=production PORT=3000 next start",
     "verify:seo": "node scripts/verify-seo.mjs",
     "guard:bundles": "node scripts/guard-bundles.mjs",
-    "build:guarded": "node scripts/verify.sh",
+    "build:guarded": "bash scripts/verify.sh",
     "build:check": "node -e \"if(!process.env.NEXT_PUBLIC_SITE_URL){console.error('NEXT_PUBLIC_SITE_URL missing');process.exit(2)}\" && npm run build",
     "serve:prod": "next start -p 3001",
     "images:convert": "node scripts/convert-images.mjs",
