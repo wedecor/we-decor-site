@@ -18,6 +18,10 @@ jobs:
           cache: 'npm'
       - run: npm ci
 
+      # Security audit (production deps only)
+      - name: Security audit
+        run: npm run audit:prod
+
       # Build & boot local server for PR checks
       - name: Build
         run: npm run build
