@@ -1,0 +1,147 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "We Decor Logo - Event Decoration Services in Bangalore We Decor" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "We Decor Logo - Event Decoration Services in Bangalore" [ref=e5] [cursor=pointer]
+        - generic [ref=e6] [cursor=pointer]: We Decor
+      - generic [ref=e7]:
+        - link "About" [ref=e8] [cursor=pointer]:
+          - /url: /about
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /services
+        - link "Gallery" [ref=e10] [cursor=pointer]:
+          - /url: /gallery
+        - link "Areas" [ref=e11] [cursor=pointer]:
+          - /url: /areas
+        - link "Locations" [ref=e12] [cursor=pointer]:
+          - /url: /locations
+        - link "Pricing" [ref=e13] [cursor=pointer]:
+          - /url: /pricing
+        - link "FAQ" [ref=e14] [cursor=pointer]:
+          - /url: /faq
+        - link "Contact" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+        - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
+          - img [ref=e17] [cursor=pointer]
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - img "We Decor Logo - Professional Event Decoration Services in Bangalore" [ref=e22]
+        - heading "Gallery" [level=1] [ref=e23]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - textbox "Search categories" [ref=e26]
+          - generic [ref=e27]:
+            - button "Switch to masonry layout" [pressed] [ref=e28] [cursor=pointer]: Masonry
+            - button "Switch to grid layout" [ref=e29] [cursor=pointer]: Grid
+            - button "Switch to list layout" [ref=e30] [cursor=pointer]: List
+        - generic [ref=e31]:
+          - generic [ref=e33] [cursor=pointer]:
+            - img "corporate event decoration showcase - We Decor Bangalore" [ref=e34] [cursor=pointer]
+            - generic [ref=e36] [cursor=pointer]:
+              - heading "🏢 corporate event" [level=3] [ref=e37] [cursor=pointer]:
+                - generic [ref=e38] [cursor=pointer]: 🏢
+                - text: corporate event
+              - paragraph [ref=e39] [cursor=pointer]: 13 images
+              - generic [ref=e40] [cursor=pointer]: Click to View All
+          - generic [ref=e42] [cursor=pointer]:
+            - img "engagement decoration showcase - We Decor Bangalore" [ref=e43] [cursor=pointer]
+            - generic [ref=e45] [cursor=pointer]:
+              - heading "💑 engagement" [level=3] [ref=e46] [cursor=pointer]:
+                - generic [ref=e47] [cursor=pointer]: 💑
+                - text: engagement
+              - paragraph [ref=e48] [cursor=pointer]: 11 images
+              - generic [ref=e49] [cursor=pointer]: Click to View All
+          - generic [ref=e51] [cursor=pointer]:
+            - img "birthday decoration showcase - We Decor Bangalore" [ref=e52] [cursor=pointer]
+            - generic [ref=e54] [cursor=pointer]:
+              - heading "🎂 birthday" [level=3] [ref=e55] [cursor=pointer]:
+                - generic [ref=e56] [cursor=pointer]: 🎂
+                - text: birthday
+              - paragraph [ref=e57] [cursor=pointer]: 37 images
+              - generic [ref=e58] [cursor=pointer]: Click to View All
+          - generic [ref=e60] [cursor=pointer]:
+            - img "haldi decoration showcase - We Decor Bangalore" [ref=e61] [cursor=pointer]
+            - generic [ref=e63] [cursor=pointer]:
+              - heading "🌼 haldi" [level=3] [ref=e64] [cursor=pointer]:
+                - generic [ref=e65] [cursor=pointer]: 🌼
+                - text: haldi
+              - paragraph [ref=e66] [cursor=pointer]: 4 images
+              - generic [ref=e67] [cursor=pointer]: Click to View All
+          - generic [ref=e69] [cursor=pointer]:
+            - img "baby shower decoration showcase - We Decor Bangalore" [ref=e70] [cursor=pointer]
+            - generic [ref=e72] [cursor=pointer]:
+              - heading "👶 baby shower" [level=3] [ref=e73] [cursor=pointer]:
+                - generic [ref=e74] [cursor=pointer]: 👶
+                - text: baby shower
+              - paragraph [ref=e75] [cursor=pointer]: 6 images
+              - generic [ref=e76] [cursor=pointer]: Click to View All
+          - generic [ref=e78] [cursor=pointer]:
+            - img "room decor decoration showcase - We Decor Bangalore" [ref=e79] [cursor=pointer]
+            - generic [ref=e81] [cursor=pointer]:
+              - heading "🛏️ room decor" [level=3] [ref=e82] [cursor=pointer]:
+                - generic [ref=e83] [cursor=pointer]: 🛏️
+                - text: room decor
+              - paragraph [ref=e84] [cursor=pointer]: 2 images
+              - generic [ref=e85] [cursor=pointer]: Click to View All
+  - contentinfo [ref=e86]:
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - generic [ref=e89]:
+          - img "We Decor Logo" [ref=e90]
+          - generic [ref=e91]:
+            - generic [ref=e92]: We Decor
+            - generic [ref=e93]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e94] [cursor=pointer]:
+          - /url: https://instagram.com/wedecorbangalore
+          - img [ref=e95] [cursor=pointer]
+          - generic [ref=e97] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e98]:
+        - navigation "Footer quick links" [ref=e99]:
+          - heading "Quick Links" [level=2] [ref=e100]
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - link "About Us" [ref=e103] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e104]:
+              - link "Services" [ref=e105] [cursor=pointer]:
+                - /url: /services
+            - listitem [ref=e106]:
+              - link "Gallery" [ref=e107] [cursor=pointer]:
+                - /url: /gallery
+            - listitem [ref=e108]:
+              - link "Pricing" [ref=e109] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e110]:
+              - link "FAQ" [ref=e111] [cursor=pointer]:
+                - /url: /faq
+            - listitem [ref=e112]:
+              - link "Contact" [ref=e113] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e114]:
+          - heading "Contact Info" [level=3] [ref=e115]
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - img [ref=e118]
+              - link "+91 88805 44452" [ref=e120] [cursor=pointer]:
+                - /url: tel:+919880544452
+            - generic [ref=e121]:
+              - img [ref=e122]
+              - link "+91 95912 32166" [ref=e124] [cursor=pointer]:
+                - /url: tel:+919591232166
+            - generic [ref=e125]:
+              - img [ref=e126]
+              - generic [ref=e128]: Bangalore, India
+            - generic [ref=e129]:
+              - img [ref=e130]
+              - generic [ref=e132]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e134]:
+        - text: © 2025
+        - generic [ref=e135]: We Decor
+        - text: ", Bangalore. All rights reserved."
+  - alert [ref=e136]
+```

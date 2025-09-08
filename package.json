@@ -3,7 +3,7 @@
   "version": "2025.9.1",
   "private": true,
   "engines": {
-    "node": ">=20.0.0"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -100,7 +100,8 @@
     "check:bundle": "node scripts/check-bundle-size.mjs",
     "audit:generate": "node scripts/generate-tech-audit.mjs",
     "audit:show": "ls -la artifacts/tech-audit && (head -n 5 artifacts/tech-audit/performance-metrics.csv || true)",
-    "audit:prod": "npm audit --omit=dev --audit-level=high"
+    "audit:prod": "npm audit --omit=dev --audit-level=high",
+    "audit:high": "npm audit --audit-level=high"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -161,7 +162,16 @@
     "tsx": "^4.19.2",
     "typescript": "^5.9.2",
     "undici": "^7.15.0",
-    "vercel": "^44.7.3",
-    "vitest": "^3.2.4"
+    "vercel": "latest",
+    "vitest": "^3.2.4",
+    "@vercel/node": "latest",
+    "@vercel/static-build": "latest"
+  },
+  "overrides": {
+    "esbuild": "^0.25.2",
+    "path-to-regexp": "^8.3.0",
+    "@vercel/node": {
+      "undici": "5.28.5"
+    }
   }
 }
