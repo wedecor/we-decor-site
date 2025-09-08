@@ -20,7 +20,6 @@
     "audit:seo": "tsx scripts/audit-seo-tags.ts",
     "audit:robots": "tsx scripts/audit-robots-sitemap.ts",
     "audit:structured-data": "tsx scripts/audit-structured-data.ts",
-    "audit:performance": "tsx scripts/lighthouse-audit.ts",
     "audit:production": "tsx scripts/production-readiness-audit.ts",
     "seo:audit:quick": "node scripts/seo-quick-audit.mjs",
     "locations:validate": "node scripts/locations-validate.mjs",
@@ -100,7 +99,8 @@
     "preflight": "npm run lint && npm run typecheck && npm run build:check && npm run test:smoke",
     "check:bundle": "node scripts/check-bundle-size.mjs",
     "audit:generate": "node scripts/generate-tech-audit.mjs",
-    "audit:show": "ls -la artifacts/tech-audit && (head -n 5 artifacts/tech-audit/performance-metrics.csv || true)"
+    "audit:show": "ls -la artifacts/tech-audit && (head -n 5 artifacts/tech-audit/performance-metrics.csv || true)",
+    "audit:prod": "npm audit --omit=dev --audit-level=high"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -129,7 +129,6 @@
     "@babel/parser": "^7.25.8",
     "@babel/traverse": "^7.25.7",
     "@eslint/js": "^9.34.0",
-    "@lhci/cli": "^0.12.0",
     "@playwright/test": "^1.55.0",
     "@types/node": "^22.10.2",
     "@types/pdf-parse": "^1.1.5",
