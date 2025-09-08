@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings=0",
+    "lint": "eslint . --max-warnings=0 -f unix",
     "vercel:setup": "bash scripts/vercel-setup.sh",
     "vercel:deploy": "bash scripts/vercel-deploy.sh",
     "vercel:verify": "bash scripts/vercel-verify.sh",
