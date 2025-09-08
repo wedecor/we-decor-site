@@ -122,19 +122,19 @@ run_check() {
   
   log_info "Running check: $name"
   
-  if eval "$command" > "$ARTIFACTS_DIR/${name// /_}.log" 2>&1; then
+  if eval "$command" > "$ART/${name// /_}.log" 2>&1; then
     log_success "$name: PASSED"
-    echo "✅ $name" >> "$REPORT_FILE"
+    echo "✅ $name" >> "$ART/production_readiness_report.md"
     return 0
   else
     local status="FAILED"
     if [ "$threshold" = "soft" ]; then
       status="WARNING"
       log_warning "$name: $status"
-      echo "⚠️ $name" >> "$REPORT_FILE"
+      echo "⚠️ $name" >> "$ART/production_readiness_report.md"
     else
       log_error "$name: $status"
-      echo "❌ $name" >> "$REPORT_FILE"
+      echo "❌ $name" >> "$ART/production_readiness_report.md"
       return 1
     fi
   fi
@@ -142,7 +142,7 @@ run_check() {
 
 # Generate report header
 generate_report_header() {
-  cat > "$REPORT_FILE" << EOF
+  cat > "$ART/production_readiness_report.md" << EOF
 # Production Readiness Report
 
 **Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")  
@@ -163,7 +163,7 @@ EOF
 generate_report_footer() {
   local exit_code=$1
   
-  cat >> "$REPORT_FILE" << EOF
+  cat >> "$ART/production_readiness_report.md" << EOF
 
 ## Artifacts
 
