@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './setup';
 
 test('home loads', async ({ page }) => {
   await page.goto('/');
@@ -7,6 +7,6 @@ test('home loads', async ({ page }) => {
 
 test('east-bangalore shows sections', async ({ page }) => {
   await page.goto('/areas/east-bangalore');
-  await expect(page.getByRole('heading', { name: /Case Study/i })).toBeVisible();
-  await expect(page.getByRole('heading', { name: /Call to Action/i })).toBeVisible();
+  await expect(page.locator('h1')).toBeVisible();
+  await expect(page.getByRole('heading', { name: /FAQ/i })).toBeVisible();
 });

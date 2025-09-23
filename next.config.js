@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
+// Content Security Policy
+// Note: Removed 'unsafe-eval' to harden security. If a library requires it,
+// re-introduce selectively and document the blocker.
 const csp = [
   "default-src 'self'",
   "img-src 'self' https: data: blob:",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://browser.sentry-cdn.com https://static.elfsight.com",
+  "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://browser.sentry-cdn.com https://static.elfsight.com",
   "style-src 'self' 'unsafe-inline' https:",
   "connect-src 'self' https: wss:",
   "font-src 'self' https: data:",
@@ -12,12 +15,14 @@ const csp = [
   "frame-ancestors 'none'",
   "frame-src 'self' https://www.google.com",
   "form-action 'self'",
-  "upgrade-insecure-requests",
+  'upgrade-insecure-requests',
 ].join('; ');
 
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
+  // Silence workspace root inference warnings in monorepos
+  outputFileTracingRoot: __dirname,
   eslint: { ignoreDuringBuilds: true }, // unblock prod build
   typescript: { ignoreBuildErrors: false },
   images: {
@@ -26,6 +31,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/dux3m2saz/**' },
       { protocol: 'https', hostname: 'wedecorevents.com', pathname: '/**' },
       { protocol: 'https', hostname: 'www.wedecorevents.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'lh3.googleusercontent.com', pathname: '/**' },
     ],
   },
   experimental: {
@@ -107,7 +113,11 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()' },
+          {
+            key: 'Permissions-Policy',
+            value:
+              'geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()',
+          },
           { key: 'X-Frame-Options', value: 'DENY' },
           {
             key: isProd ? 'Content-Security-Policy' : 'Content-Security-Policy-Report-Only',

@@ -4,11 +4,29 @@
 
 /* Focus-visible styles for better accessibility */
 @layer base {
+  :root {
+    --brand-emerald: #0f3d3e;
+    --brand-gold: #ffd700;
+    --brand-cream: #faf7f2;
+  }
+
+  html,
+  body {
+    background-color: var(--brand-cream);
+    color: var(--brand-emerald);
+  }
+
+  .dark html,
+  .dark body {
+    background-color: var(--brand-emerald);
+    color: var(--brand-cream);
+  }
+
   *:focus-visible {
     outline: 2px solid theme('colors.green.500');
     outline-offset: 2px;
   }
-  
+
   /* Ensure focus-visible works with existing focus styles */
   button:focus-visible,
   a:focus-visible,
@@ -18,12 +36,13 @@
     outline: 2px solid theme('colors.green.500');
     outline-offset: 2px;
   }
-  
+
   /* Accessibility fixes for third-party widgets */
-  .google-reviews-widget button:not([aria-label]):not([title]):not([aria-labelledby]):not([aria-describedby]) {
+  .google-reviews-widget
+    button:not([aria-label]):not([title]):not([aria-labelledby]):not([aria-describedby]) {
     display: none !important;
   }
-  
+
   /* Ensure buttons have minimum touch target size */
   button {
     min-width: 44px;
@@ -33,7 +52,9 @@
 
 /* Reduced motion safety net */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;

@@ -18,7 +18,7 @@ const ImageModal = dynamic(() => import('./ImageModal'), {
 });
 
 const LAYOUTS = ['masonry', 'grid', 'list'] as const;
-type Layout = typeof LAYOUTS[number];
+type Layout = (typeof LAYOUTS)[number];
 
 export default function Gallery() {
   const [layout, setLayout] = useState<Layout>('masonry');
@@ -32,9 +32,7 @@ export default function Gallery() {
   const filteredCategories = useMemo(() => {
     const categories = Object.keys(galleryRecord);
     if (!filter) return categories;
-    return categories.filter((category) =>
-      category.toLowerCase().includes(filter.toLowerCase())
-    );
+    return categories.filter((category) => category.toLowerCase().includes(filter.toLowerCase()));
   }, [galleryRecord, filter]);
 
   const handleCategoryClick = (category: string, images: any[]) => {
@@ -68,7 +66,8 @@ export default function Gallery() {
           placeholder="Search categories..."
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="px-4 py-2 border rounded focus:ring-2 focus:ring-green-400 text-gray-800 placeholder-gray-700"
+          className="px-4 py-2 border rounded focus:ring-2 focus:ring-green-400 text-gray-800 placeholder-gray-700 bg-white
+                     dark:text-gray-100 dark:placeholder-gray-400 dark:bg-gray-900 dark:border-gray-700"
           aria-label="Search categories"
         />
         <div className="flex gap-2 ml-auto">
@@ -119,10 +118,10 @@ export default function Gallery() {
                   ) : null}
                   <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center text-white">
-                      <h3 className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <span className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
                         <span>{categoryBadges[folder.toLowerCase()] || '📷'}</span>
                         {folder}
-                      </h3>
+                      </span>
                       <p className="text-sm opacity-90">
                         {imageArray.length} image{imageArray.length !== 1 ? 's' : ''}
                       </p>
@@ -166,10 +165,10 @@ export default function Gallery() {
                   ) : null}
                   <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                     <div className="text-center text-white">
-                      <h3 className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
+                      <span className="text-xl font-bold mb-2 flex items-center justify-center gap-2">
                         <span>{categoryBadges[folder.toLowerCase()] || '📷'}</span>
                         {folder}
-                      </h3>
+                      </span>
                       <p className="text-sm opacity-90">
                         {imageArray.length} image{imageArray.length !== 1 ? 's' : ''}
                       </p>
@@ -214,17 +213,22 @@ export default function Gallery() {
                     ) : null}
                   </div>
                   <div className="ml-4 flex-1">
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+                    <span className="text-lg font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2">
                       <span>{categoryBadges[folder.toLowerCase()] || '📷'}</span>
                       {folder}
-                    </h3>
+                    </span>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       {imageArray.length} image{imageArray.length !== 1 ? 's' : ''}
                     </p>
                   </div>
                   <div className="text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -235,14 +239,14 @@ export default function Gallery() {
       )}
 
       {/* Modal */}
-      {selectedCategory && (
+      {selectedCategory ? (
         <ImageModal
           isOpen={!!selectedCategory}
           onClose={closeModal}
           images={selectedImages}
           category={selectedCategory}
         />
-      )}
+      ) : null}
     </div>
   );
 }

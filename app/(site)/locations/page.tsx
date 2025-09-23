@@ -91,36 +91,36 @@ export default function LocationsHubPage() {
       <Navbar />
       <main
         id="top"
-        className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200"
+        className="pt-16 pb-16 min-h-screen bg-[#faf7f2] dark:bg-[#0f3d3e] transition-colors duration-200"
       >
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
           {/* Hero */}
           <header className="mb-8 md:mb-12">
-            <h1 className="text-3xl font-semibold text-gray-900 dark:text-white">
+            <h1 className="text-3xl font-semibold text-[#0f3d3e] dark:text-[#faf7f2]">
               Event Decoration Across Bangalore — Areas We Serve
             </h1>
-            <p className="mt-2 text-lg opacity-90 text-gray-700 dark:text-gray-300">
+            <p className="mt-2 text-lg opacity-90 text-[#0f3d3e]/80 dark:text-[#faf7f2]/80">
               Explore our coverage across North, South, East, Central and West Bengaluru. Each area
               page includes local service details, photos and quick booking options.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <a
                 href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="rounded-xl border border-[#0f3d3e33] dark:border-white/20 px-4 py-2 bg-[#ffd70014] dark:bg-white/10 text-[#0f3d3e] dark:text-[#faf7f2] hover:bg-[#ffd70022] dark:hover:bg-white/15 transition-colors"
               >
                 Call
               </a>
               <a
                 href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
                 target="_blank"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="rounded-xl border border[#0f3d3e33] dark:border-white/20 px-4 py-2 bg-[#ffd70014] dark:bg-white/10 text-[#0f3d3e] dark:text-[#faf7f2] hover:bg-[#ffd70022] dark:hover:bg-white/15 transition-colors"
                 rel="noreferrer"
               >
                 WhatsApp
               </a>
               <Link
                 href="/services"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="rounded-xl border border-[#0f3d3e33] dark:border-white/20 px-4 py-2 bg-[#ffd70014] dark:bg-white/10 text-[#0f3d3e] dark:text-[#faf7f2] hover:bg-[#ffd70022] dark:hover:bg-white/15 transition-colors"
               >
                 See Services
               </Link>

@@ -1,13 +1,6 @@
-'use client';
-
-import Image from 'next/image';
-import Link from 'next/link';
-import FAQ from '@/components/FAQ';
-import Testimonials from '@/components/Testimonials';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { SITE_URL } from '@/lib/site';
 import { JsonLd } from '@/lib/seo';
+import HomePageClient from '@/components/HomePageClient';
 
 // List of services to display on the homepage
 const services = [
@@ -138,240 +131,31 @@ const structuredData = {
   sameAs: ['https://www.facebook.com/wedecorevents', 'https://www.instagram.com/wedecorevents'],
 };
 
-// Note: Metadata is handled in app/layout.tsx for client components
+export const metadata = {
+  title: 'We Decor | Wedding & Birthday Decor in Bangalore',
+  description:
+    "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Call +91 8880544452.",
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    title: 'We Decor | Wedding & Birthday Decor in Bangalore',
+    description: 'Trusted event decorators in Bangalore',
+    images: [{ url: '/og/home.jpg', width: 1200, height: 630, alt: 'We Decor Bangalore' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'We Decor | Bangalore Decorators',
+    description: 'Weddings, birthdays, haldi, more.',
+    images: ['/og/home.jpg'],
+  },
+};
 
 export default function HomePage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <>
       <JsonLd data={structuredData} />
-      {/* Organization (logo/sameAs) */}
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          '@id': `${SITE_URL}/#org`,
-          name: 'We Decor',
-          url: SITE_URL,
-          logo: {
-            '@type': 'ImageObject',
-            url: `${SITE_URL}/logo.png`,
-          },
-          sameAs: [
-            'https://www.instagram.com/wedecorevents',
-            'https://www.facebook.com/wedecorevents',
-          ],
-        }}
-      />
-      {/* WebSite (SearchAction) */}
-      <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          '@id': `${SITE_URL}/#website`,
-          url: SITE_URL,
-          name: 'We Decor',
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: `${SITE_URL}/search?q={search_term_string}`,
-            'query-input': 'required name=search_term_string',
-          },
-        }}
-      />
-
-      {/* Hero Section (mount-based animation; no SSR opacity:0) */}
-      <section
-        className={
-          `min-h-[60vh] py-8 md:py-16 bg-white dark:bg-gray-900 ` +
-          `flex items-center justify-center relative overflow-hidden ` +
-          `text-gray-900 dark:text-white ` +
-          `motion-safe:transition-all motion-safe:duration-700 ` +
-          `${mounted ? 'motion-safe:opacity-100 motion-safe:translate-y-0' : 'motion-safe:opacity-0 motion-safe:translate-y-6'}`
-        }
-      >
-        {/* Animated background elements */}
-        {/* Optional background overlay disabled to avoid contrast issues */}
-        <div className="absolute inset-0" />
-
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <h1
-            className={
-              `text-5xl md:text-6xl lg:text-7xl font-bold mb-6 ` +
-              `text-gray-900 dark:text-white ` +
-              `motion-safe:transition-all motion-safe:duration-700 ` +
-              `${mounted ? 'motion-safe:opacity-100 motion-safe:translate-y-0' : 'motion-safe:opacity-0 motion-safe:translate-y-6'}`
-            }
-          >
-            We Decor
-          </h1>
-
-          <h2
-            className={
-              `text-3xl md:text-4xl lg:text-5xl font-medium mb-6 tracking-wide ` +
-              `text-gray-900 dark:text-white ` +
-              `motion-safe:transition-all motion-safe:duration-700 ` +
-              `${mounted ? 'motion-safe:opacity-100 motion-safe:translate-y-0' : 'motion-safe:opacity-0 motion-safe:translate-y-6'}`
-            }
-          >
-            Bringing Dreams to Life
-          </h2>
-
-          <p
-            className={
-              `text-xl md:text-2xl mb-8 ` +
-              `text-gray-700 dark:text-gray-200 ` +
-              `motion-safe:transition-all motion-safe:duration-700 ` +
-              `${mounted ? 'motion-safe:opacity-100 motion-safe:translate-y-0' : 'motion-safe:opacity-0 motion-safe:translate-y-6'}`
-            }
-          >
-            Bangalore's trusted decor experts for weddings, birthdays, haldi, and more.
-          </p>
-
-          <div
-            className={
-              `flex flex-col sm:flex-row gap-4 justify-center ` +
-              `motion-safe:transition-all motion-safe:duration-700 ` +
-              `${mounted ? 'motion-safe:opacity-100 motion-safe:translate-y-0' : 'motion-safe:opacity-0 motion-safe:translate-y-6'}`
-            }
-          >
-            <Link
-              href="/contact"
-              className="bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-800 transition-colors duration-200 shadow-lg hover:shadow-xl"
-            >
-              Get a Quote
-            </Link>
-            <Link
-              href="/gallery"
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-green-600 transition-colors duration-200"
-            >
-              View Gallery
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <motion.section
-        className="py-16 px-6 bg-white dark:bg-gray-900"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Our Services
-            </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-200">
-              Professional decoration services for all your special occasions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <Link href={service.href} className="block group">
-                  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group-hover:scale-105">
-                    <div className="relative h-48 overflow-hidden">
-                      <Image
-                        src={service.image}
-                        alt={`${service.title} decoration services in Bangalore - We Decor`}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-300"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={index < 3} // Priority for first 3 images
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold mb-2 dark:text-white">{service.title}</h3>
-                      <p className="text-gray-600 dark:text-gray-300">{service.description}</p>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* CTA Section */}
-      <motion.section
-        className="py-16 px-6 bg-gradient-to-r from-green-600 to-blue-600 text-white"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Decorate Your Event?</h2>
-          <p className="text-xl mb-8 opacity-90">
-            Let us transform your vision into reality with our professional decoration services.
-          </p>
-          <Link
-            href="/contact"
-            className="bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-800 transition-colors duration-200 shadow-lg hover:shadow-xl inline-block"
-          >
-            Get a Quote
-          </Link>
-        </div>
-      </motion.section>
-
-      {/* Testimonials Section */}
-      <Testimonials />
-
-      {/* Contact Section */}
-      <motion.section
-        className="py-16 px-6 bg-gray-50 dark:bg-gray-800"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white">
-            Get in Touch
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Primary Contact</h3>
-              <p className="text-lg text-gray-700 dark:text-gray-200 mb-2">+91 88805 44452</p>
-              <a
-                href="https://wa.me/919880544452"
-                className="text-green-600 hover:text-green-700 font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                WhatsApp
-              </a>
-            </div>
-            <div className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Secondary Contact</h3>
-              <p className="text-lg text-gray-700 dark:text-gray-200 mb-2">+91 95912 32166</p>
-              <a
-                href="tel:+919591232166"
-                className="text-blue-600 hover:text-blue-700 font-medium"
-              >
-                Call Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </motion.section>
-
-      {/* FAQ Section */}
-      <FAQ />
+      <HomePageClient />
     </>
   );
 }

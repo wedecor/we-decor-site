@@ -8,14 +8,7 @@
     "host": "Vercel"
   },
   "structure": {
-    "directories": [
-      "app/",
-      "components/",
-      "lib/",
-      "public/",
-      "styles/",
-      "pages/ (legacy)"
-    ],
+    "directories": ["app/", "components/", "lib/", "public/", "styles/", "pages/ (legacy)"],
     "notes": "Clear separation; recommend finishing App Router migration and removing pages/."
   },
   "hotspots": [

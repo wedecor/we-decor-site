@@ -72,10 +72,12 @@ To add a new locality page for SEO:
    - ✅ Service area specification
 
 Example:
+
 ```tsx
 export const metadata: Metadata = {
   title: 'Event Decoration in [Locality] | We Decor Bangalore',
-  description: 'Professional event decoration services in [Locality], Bangalore. Birthday, wedding, haldi decoration. Call +91 8880544452.',
+  description:
+    'Professional event decoration services in [Locality], Bangalore. Birthday, wedding, haldi decoration. Call +91 8880544452.',
   alternates: { canonical: `/areas/${slug}` },
 };
 ```
@@ -97,6 +99,7 @@ export const metadata: Metadata = {
 ## Known Issues & Future Improvements
 
 ### Tailwind CSS v4 Migration
+
 - **Current**: Tailwind CSS v3.4.1
 - **Target**: Tailwind CSS v4.x
 - **Status**: Planned for future release
@@ -104,6 +107,7 @@ export const metadata: Metadata = {
 - **Impact**: Breaking changes require careful testing
 
 ### Internationalization (i18n)
+
 - **Current**: Single language (English)
 - **Target**: Multi-language support
 - **Recommendation**: Use `next-intl` for locale management
@@ -251,6 +255,7 @@ This will execute all checks and generate a comprehensive report in `artifacts/p
 ### Individual Checks
 
 #### Code Quality
+
 ```bash
 npm run typecheck    # TypeScript type checking
 npm run lint         # ESLint with zero warnings
@@ -259,6 +264,7 @@ npm run test:e2e     # End-to-end tests
 ```
 
 #### Security & Compliance
+
 ```bash
 npm run verify:headers   # Security headers validation
 npm run verify:secrets   # Secrets scanning
@@ -266,6 +272,7 @@ npm run verify:licenses  # License compliance
 ```
 
 #### Performance & Accessibility
+
 ```bash
 npm run verify:lighthouse  # Lighthouse performance audit
 npm run verify:a11y        # Accessibility testing with axe
@@ -277,6 +284,7 @@ npm run verify:bundle      # Bundle size analysis
 The following thresholds must be met for production deployment:
 
 #### Hard Thresholds (CI will fail)
+
 - **TypeScript**: No type errors
 - **ESLint**: Zero errors, warnings allowed
 - **Tests**: All unit and e2e tests passing
@@ -288,6 +296,7 @@ The following thresholds must be met for production deployment:
 - **Lighthouse Best Practices**: ≥ 90 on mobile/desktop
 
 #### Soft Thresholds (Warnings)
+
 - **License Compliance**: No copyleft licenses
 - **Secrets**: No exposed secrets
 - **Bundle Warnings**: Main bundle > 1.2MB
@@ -320,6 +329,7 @@ npm run verify:lighthouse --url=http://localhost:3000
 Before deploying to production:
 
 1. **Run Full Verification**:
+
    ```bash
    npm run build:guarded
    ```
@@ -336,12 +346,14 @@ Before deploying to production:
 ### Monitoring & Observability
 
 #### Key Metrics
+
 - **Uptime**: >99.9% target
 - **Performance**: <2s page load (95th percentile)
 - **Accessibility**: WCAG AA compliance
 - **Security**: A+ security headers rating
 
 #### Monitoring Tools
+
 - **Sentry**: Error tracking and performance monitoring
 - **Google Analytics**: User behavior and performance
 - **Lighthouse CI**: Automated performance monitoring
@@ -361,6 +373,7 @@ Comprehensive operational documentation is available in `docs/runbooks/`:
 #### Common Issues
 
 **Build Failures**:
+
 ```bash
 # Check TypeScript errors
 npm run typecheck
@@ -374,6 +387,7 @@ npm run test:e2e
 ```
 
 **Performance Issues**:
+
 ```bash
 # Run Lighthouse audit
 npm run verify:lighthouse
@@ -386,6 +400,7 @@ npm run analyze:bundle
 ```
 
 **Accessibility Issues**:
+
 ```bash
 # Run accessibility tests
 npm run verify:a11y

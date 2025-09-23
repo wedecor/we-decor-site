@@ -9,11 +9,7 @@
       "canonical": true,
       "open_graph": true,
       "twitter": true,
-      "json_ld": [
-        "LocalBusiness",
-        "BreadcrumbList",
-        "FAQPage"
-      ],
+      "json_ld": ["LocalBusiness", "BreadcrumbList", "FAQPage"],
       "issues": []
     },
     {
@@ -24,9 +20,7 @@
       "canonical": true,
       "open_graph": true,
       "twitter": true,
-      "json_ld": [
-        "BreadcrumbList"
-      ],
+      "json_ld": ["BreadcrumbList"],
       "issues": []
     },
     {
@@ -37,12 +31,8 @@
       "canonical": true,
       "open_graph": true,
       "twitter": true,
-      "json_ld": [
-        "BreadcrumbList"
-      ],
-      "issues": [
-        "Alt text too generic on some images"
-      ]
+      "json_ld": ["BreadcrumbList"],
+      "issues": ["Alt text too generic on some images"]
     },
     {
       "path": "/contact",
@@ -52,9 +42,7 @@
       "canonical": true,
       "open_graph": true,
       "twitter": true,
-      "json_ld": [
-        "BreadcrumbList"
-      ],
+      "json_ld": ["BreadcrumbList"],
       "issues": []
     },
     {
@@ -65,10 +53,7 @@
       "canonical": true,
       "open_graph": true,
       "twitter": true,
-      "json_ld": [
-        "BreadcrumbList",
-        "FAQPage"
-      ],
+      "json_ld": ["BreadcrumbList", "FAQPage"],
       "issues": []
     },
     {
@@ -79,9 +64,7 @@
       "canonical": true,
       "open_graph": true,
       "twitter": true,
-      "json_ld": [
-        "BreadcrumbList"
-      ],
+      "json_ld": ["BreadcrumbList"],
       "issues": []
     }
   ],

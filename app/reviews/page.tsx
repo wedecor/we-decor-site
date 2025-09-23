@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Customer Reviews - We Decor Bangalore',
-  description: 'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
+  description:
+    'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
   openGraph: {
     title: 'Customer Reviews - We Decor Bangalore',
     description: 'Read authentic customer reviews and testimonials for We Decor Bangalore.',

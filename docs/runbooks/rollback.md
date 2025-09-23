@@ -1,6 +1,7 @@
 # Rollback Procedures
 
 ## Overview
+
 This document outlines the rollback procedures for the We Decor website deployed on Vercel.
 
 ## Rollback Strategies
@@ -8,6 +9,7 @@ This document outlines the rollback procedures for the We Decor website deployed
 ### 1. Vercel Git Rollback (Recommended)
 
 #### For Production Deployments
+
 ```bash
 # 1. Identify the last known good commit
 git log --oneline -10
@@ -28,6 +30,7 @@ git push origin main
 ```
 
 #### For Preview Deployments
+
 ```bash
 # 1. Go to Vercel dashboard
 # 2. Navigate to the project
@@ -66,13 +69,13 @@ npm run db:verify
 
 ## Rollback Decision Matrix
 
-| Issue Type | Rollback Method | Time to Rollback | Risk Level |
-|------------|----------------|------------------|------------|
-| Complete outage | Vercel Git | 2-5 minutes | Low |
-| Security vulnerability | Vercel Git | 2-5 minutes | Low |
-| Performance degradation | Vercel Git | 2-5 minutes | Low |
-| Data corruption | Database + Git | 10-30 minutes | Medium |
-| Feature regression | Vercel CLI | 1-2 minutes | Low |
+| Issue Type              | Rollback Method | Time to Rollback | Risk Level |
+| ----------------------- | --------------- | ---------------- | ---------- |
+| Complete outage         | Vercel Git      | 2-5 minutes      | Low        |
+| Security vulnerability  | Vercel Git      | 2-5 minutes      | Low        |
+| Performance degradation | Vercel Git      | 2-5 minutes      | Low        |
+| Data corruption         | Database + Git  | 10-30 minutes    | Medium     |
+| Feature regression      | Vercel CLI      | 1-2 minutes      | Low        |
 
 ## Pre-Rollback Checklist
 
@@ -86,18 +89,21 @@ npm run db:verify
 ## Rollback Execution Steps
 
 ### Step 1: Immediate Response
+
 1. **Acknowledge** the issue
 2. **Assess** severity and impact
 3. **Decide** on rollback necessity
 4. **Notify** team and stakeholders
 
 ### Step 2: Rollback Execution
+
 1. **Stop** any ongoing deployments
 2. **Execute** rollback procedure
 3. **Monitor** rollback deployment
 4. **Verify** site functionality
 
 ### Step 3: Post-Rollback
+
 1. **Confirm** issue is resolved
 2. **Monitor** for 30 minutes
 3. **Document** rollback details
@@ -106,6 +112,7 @@ npm run db:verify
 ## Rollback Verification
 
 ### Automated Checks
+
 ```bash
 # Run production readiness checks
 npm run build:guarded
@@ -117,6 +124,7 @@ curl -I https://www.wedecorevents.com/robots.txt
 ```
 
 ### Manual Verification
+
 - [ ] Homepage loads correctly
 - [ ] Key pages are accessible
 - [ ] Forms are working
@@ -127,6 +135,7 @@ curl -I https://www.wedecorevents.com/robots.txt
 ## Rollback Communication
 
 ### Internal Communication
+
 ```
 Subject: [URGENT] Production Rollback - We Decor Website
 
@@ -146,6 +155,7 @@ We will provide updates every 15 minutes.
 ```
 
 ### External Communication (if needed)
+
 ```
 Subject: Temporary Service Interruption - We Decor
 
@@ -161,6 +171,7 @@ The We Decor Team
 ## Rollback Recovery
 
 ### After Successful Rollback
+
 1. **Monitor** site stability for 1 hour
 2. **Investigate** root cause of original issue
 3. **Plan** fix for original issue
@@ -168,6 +179,7 @@ The We Decor Team
 5. **Schedule** re-deployment
 
 ### If Rollback Fails
+
 1. **Escalate** to senior engineer
 2. **Consider** alternative rollback methods
 3. **Implement** emergency fixes
@@ -177,6 +189,7 @@ The We Decor Team
 ## Prevention Measures
 
 ### Pre-Deployment
+
 - [ ] Run full test suite
 - [ ] Verify production readiness checks
 - [ ] Test in staging environment
@@ -184,6 +197,7 @@ The We Decor Team
 - [ ] Ensure rollback plan is ready
 
 ### Post-Deployment
+
 - [ ] Monitor key metrics
 - [ ] Verify critical functionality
 - [ ] Watch error rates
@@ -199,6 +213,6 @@ The We Decor Team
 
 ## Rollback History
 
-| Date | Issue | Rollback Method | Resolution Time | Lessons Learned |
-|------|-------|----------------|-----------------|-----------------|
-| [Date] | [Issue] | [Method] | [Time] | [Learnings] |
+| Date   | Issue   | Rollback Method | Resolution Time | Lessons Learned |
+| ------ | ------- | --------------- | --------------- | --------------- |
+| [Date] | [Issue] | [Method]        | [Time]          | [Learnings]     |

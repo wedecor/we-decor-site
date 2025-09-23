@@ -8,6 +8,7 @@ import FAQAccordion from '@/components/areas/FAQAccordion';
 import ContactCard from '@/components/areas/ContactCard';
 import { FaqPageJsonLd } from '@/components/seo/FaqJsonLd';
 import type { Metadata } from 'next';
+import { H1 } from '@/components/Heading';
 
 export async function generateStaticParams() {
   return AREAS.map((a) => ({ slug: a.slug }));
@@ -69,6 +70,9 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
   ];
   return (
     <>
+      <div className="max-w-6xl mx-auto px-4">
+        <H1>{`${area.name} — We Decor in Bengaluru`}</H1>
+      </div>
       <AreaHero
         title={`Event Decoration in ${area.name}`}
         intro={area.heroTagline || `Professional event decoration services in ${area.name}`}

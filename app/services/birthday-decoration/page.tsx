@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Birthday Decoration Services in Bangalore | We Decor',
-  description: 'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
+  description:
+    'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
   openGraph: {
     title: 'Birthday Decoration Services in Bangalore | We Decor',
     description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
@@ -63,7 +64,9 @@ export default function BirthdayDecorationPage() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6 dark:text-white">Why Choose Our Birthday Decorations?</h2>
+                <h2 className="text-3xl font-bold mb-6 dark:text-white">
+                  Why Choose Our Birthday Decorations?
+                </h2>
                 <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
                   <li className="flex items-start">
                     <span className="text-pink-500 mr-3">🎈</span>

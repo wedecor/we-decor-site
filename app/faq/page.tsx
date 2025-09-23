@@ -2,10 +2,10 @@ import FAQ from '@/components/FAQ';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "FAQ | We Decor Events",
-  description: "Answers to common questions about event decor, timelines, and customizations.",
-  alternates: { canonical: "/faq" },
-  openGraph: { title: "FAQ | We Decor Events", url: "/faq" }
+  title: 'FAQ | We Decor Events',
+  description: 'Answers to common questions about event decor, timelines, and customizations.',
+  alternates: { canonical: '/faq' },
+  openGraph: { title: 'FAQ | We Decor Events', url: '/faq' },
 };
 
 export default function FAQPage() {

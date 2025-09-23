@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Professional Photographers in Bangalore | We Decor",
-  description: "Capture your most important moments with our professional photographers. Wedding, event, and portrait photography in Bangalore.",
-  alternates: { canonical: "/services/photographers" },
+  title: 'Professional Photographers in Bangalore | We Decor',
+  description:
+    'Capture your most important moments with our professional photographers. Wedding, event, and portrait photography in Bangalore.',
+  alternates: { canonical: '/services/photographers' },
   openGraph: {
-    title: "Professional Photographers in Bangalore | We Decor",
-    description: "Capture your most important moments with our professional photographers.",
-    url: "/services/photographers",
-    images: ["/services/photography.jpg"],
+    title: 'Professional Photographers in Bangalore | We Decor',
+    description: 'Capture your most important moments with our professional photographers.',
+    url: '/services/photographers',
+    images: ['/services/photography.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Professional Photographers in Bangalore | We Decor",
-    description: "Capture your most important moments with our professional photographers.",
-    images: ["/services/photography.jpg"],
+    card: 'summary_large_image',
+    title: 'Professional Photographers in Bangalore | We Decor',
+    description: 'Capture your most important moments with our professional photographers.',
+    images: ['/services/photography.jpg'],
   },
 };
 
@@ -32,18 +33,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Photography Services',
   offers: {
     '@type': 'Offer',
-    description: 'Wedding photography, event photography, portrait sessions, and special occasions'
-  }
+    description: 'Wedding photography, event photography, portrait sessions, and special occasions',
+  },
 };
 
 export default function PhotographersPage() {
@@ -97,11 +98,14 @@ export default function PhotographersPage() {
               Professional Photography
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our professional photographers use state-of-the-art equipment and techniques to capture every precious moment. We deliver high-quality photos that you'll treasure forever.
+              Our professional photographers use state-of-the-art equipment and techniques to
+              capture every precious moment. We deliver high-quality photos that you'll treasure
+              forever.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your session</strong> and let us capture your special moments with professional expertise.
+                <strong>Book your session</strong> and let us capture your special moments with
+                professional expertise.
               </p>
             </div>
           </div>
@@ -112,7 +116,8 @@ export default function PhotographersPage() {
             Ready to Capture Memories?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your photography session and let our professionals capture your most important moments.
+            Contact us to book your photography session and let our professionals capture your most
+            important moments.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

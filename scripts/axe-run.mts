@@ -20,13 +20,7 @@ const ARTIFACTS_DIR = join(PROJECT_ROOT, 'artifacts');
 const DEFAULT_URL = 'http://localhost:3001';
 
 // Pages to test for accessibility
-const TEST_PAGES = [
-  '/',
-  '/gallery',
-  '/services',
-  '/pricing',
-  '/contact'
-];
+const TEST_PAGES = ['/', '/gallery', '/services', '/pricing', '/contact'];
 
 // Colors for console output
 const colors = {
@@ -44,44 +38,44 @@ function log(message: string, color: keyof typeof colors = 'reset') {
 function parseArgs() {
   const args = process.argv.slice(2);
   let url = DEFAULT_URL;
-  
+
   for (const arg of args) {
     if (arg.startsWith('--url=')) {
       url = arg.split('=')[1];
     }
   }
-  
+
   return { url };
 }
 
 async function runAxeOnPage(page: Page, url: string, route: string) {
   const fullUrl = `${url}${route}`;
-  
+
   try {
     log(`  Testing ${route}...`, 'blue');
-    
+
     // Set reduced motion for consistent testing
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    
+
     // Navigate to the page
     await page.goto(fullUrl, { waitUntil: 'networkidle' });
-    
+
     // Wait for network to be idle
     await page.waitForLoadState('networkidle');
-    
+
     // Ensure main content is loaded
     await page.waitForSelector('main', { state: 'attached', timeout: 10000 });
-    
+
     // Wait for fonts to load
     await page.evaluate(async () => {
       if ('fonts' in document && (document as any).fonts?.ready) {
         await (document as any).fonts.ready;
       }
     });
-    
+
     // Let layout settle
     await page.waitForTimeout(100);
-    
+
     // Run axe-core accessibility tests
     const axeResults = await page.evaluate(() => {
       return new Promise((resolve) => {
@@ -98,12 +92,12 @@ async function runAxeOnPage(page: Page, url: string, route: string) {
         }
       });
     });
-    
+
     // Filter for serious and critical violations only
-    const seriousViolations = axeResults.violations.filter((violation: any) => 
+    const seriousViolations = axeResults.violations.filter((violation: any) =>
       ['serious', 'critical'].includes(violation.impact?.toLowerCase())
     );
-    
+
     return {
       url: fullUrl,
       route,
@@ -114,11 +108,13 @@ async function runAxeOnPage(page: Page, url: string, route: string) {
       seriousViolationsList: seriousViolations,
       passes: axeResults.passes,
       incomplete: axeResults.incomplete,
-      inapplicable: axeResults.inapplicable
+      inapplicable: axeResults.inapplicable,
     };
-    
   } catch (error) {
-    log(`    ❌ Failed to test ${route}: ${error instanceof Error ? error.message : 'Unknown error'}`, 'red');
+    log(
+      `    ❌ Failed to test ${route}: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      'red'
+    );
     return {
       url: fullUrl,
       route,
@@ -130,33 +126,33 @@ async function runAxeOnPage(page: Page, url: string, route: string) {
       seriousViolationsList: [],
       passes: [],
       incomplete: [],
-      inapplicable: []
+      inapplicable: [],
     };
   }
 }
 
 async function main() {
   let browser: Browser | null = null;
-  
+
   try {
     const { url } = parseArgs();
-    
+
     log('Starting accessibility testing...', 'blue');
     log(`Target URL: ${url}`, 'blue');
-    
+
     // Launch browser
     browser = await chromium.launch({
       headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
-    
+
     const context = await browser.newContext({
       viewport: { width: 1280, height: 720 },
-      userAgent: 'Accessibility-Tester/1.0'
+      userAgent: 'Accessibility-Tester/1.0',
     });
-    
+
     const page = await context.newPage();
-    
+
     const results = {
       timestamp: new Date().toISOString(),
       url,
@@ -166,8 +162,8 @@ async function main() {
         successfulPages: 0,
         totalViolations: 0,
         totalSeriousViolations: 0,
-        status: 'PASS' as 'PASS' | 'FAIL'
-      }
+        status: 'PASS' as 'PASS' | 'FAIL',
+      },
     };
 
     // Test each page
@@ -176,7 +172,7 @@ async function main() {
       const pageResult = await runAxeOnPage(page, url, route);
       results.pages.push(pageResult);
       results.summary.totalPages++;
-      
+
       if (pageResult.success) {
         results.summary.successfulPages++;
         results.summary.totalViolations += pageResult.totalViolations;
@@ -190,20 +186,23 @@ async function main() {
     // Console output
     log('\n♿ Accessibility Analysis', 'blue');
     log('='.repeat(50), 'blue');
-    
+
     log(`\nTotal Pages Tested: ${results.summary.totalPages}`);
     log(`Successful Pages: ${results.summary.successfulPages}`);
     log(`Total Violations: ${results.summary.totalViolations}`);
     log(`Serious/Critical Violations: ${results.summary.totalSeriousViolations}`);
 
     // Show detailed results for each page
-    results.pages.forEach(pageResult => {
+    results.pages.forEach((pageResult) => {
       if (pageResult.success) {
         const status = pageResult.seriousViolations === 0 ? '✅' : '❌';
-        log(`\n${status} ${pageResult.route}:`, pageResult.seriousViolations === 0 ? 'green' : 'red');
+        log(
+          `\n${status} ${pageResult.route}:`,
+          pageResult.seriousViolations === 0 ? 'green' : 'red'
+        );
         log(`  Total violations: ${pageResult.totalViolations}`);
         log(`  Serious/Critical: ${pageResult.seriousViolations}`);
-        
+
         if (pageResult.seriousViolations > 0) {
           pageResult.seriousViolationsList.forEach((violation: any) => {
             log(`    • ${violation.id}: ${violation.description} (${violation.impact})`, 'red');
@@ -234,9 +233,11 @@ async function main() {
     }
 
     process.exit(0);
-
   } catch (error) {
-    log(`\n❌ Accessibility testing failed: ${error instanceof Error ? error.message : 'Unknown error'}`, 'red');
+    log(
+      `\n❌ Accessibility testing failed: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      'red'
+    );
     console.error(error);
     process.exit(1);
   } finally {

@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Professional Videographers in Bangalore | We Decor",
-  description: "Dynamic, impactful event videos for weddings, parties, and more. Professional videography services in Bangalore.",
-  alternates: { canonical: "/services/videographers" },
+  title: 'Professional Videographers in Bangalore | We Decor',
+  description:
+    'Dynamic, impactful event videos for weddings, parties, and more. Professional videography services in Bangalore.',
+  alternates: { canonical: '/services/videographers' },
   openGraph: {
-    title: "Professional Videographers in Bangalore | We Decor",
-    description: "Dynamic, impactful event videos for weddings, parties, and more.",
-    url: "/services/videographers",
-    images: ["/services/videography.jpg"],
+    title: 'Professional Videographers in Bangalore | We Decor',
+    description: 'Dynamic, impactful event videos for weddings, parties, and more.',
+    url: '/services/videographers',
+    images: ['/services/videography.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Professional Videographers in Bangalore | We Decor",
-    description: "Dynamic, impactful event videos for weddings, parties, and more.",
-    images: ["/services/videography.jpg"],
+    card: 'summary_large_image',
+    title: 'Professional Videographers in Bangalore | We Decor',
+    description: 'Dynamic, impactful event videos for weddings, parties, and more.',
+    images: ['/services/videography.jpg'],
   },
 };
 
@@ -32,18 +33,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Videography Services',
   offers: {
     '@type': 'Offer',
-    description: 'Wedding videography, event videos, corporate videos, and special occasions'
-  }
+    description: 'Wedding videography, event videos, corporate videos, and special occasions',
+  },
 };
 
 export default function VideographersPage() {
@@ -97,11 +98,14 @@ export default function VideographersPage() {
               Professional Videography
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our professional videographers create dynamic, cinematic videos that tell your story beautifully. We use advanced equipment and editing techniques to deliver stunning results.
+              Our professional videographers create dynamic, cinematic videos that tell your story
+              beautifully. We use advanced equipment and editing techniques to deliver stunning
+              results.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your session</strong> and let us create memorable videos of your special moments.
+                <strong>Book your session</strong> and let us create memorable videos of your
+                special moments.
               </p>
             </div>
           </div>
@@ -112,7 +116,8 @@ export default function VideographersPage() {
             Ready to Create Amazing Videos?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your videography session and let our professionals create dynamic videos of your event.
+            Contact us to book your videography session and let our professionals create dynamic
+            videos of your event.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

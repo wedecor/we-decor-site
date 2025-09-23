@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Mehndi Artists in Bangalore | We Decor",
-  description: "Intricate mehndi designs for all events and festivals. Professional mehndi artists in Bangalore.",
-  alternates: { canonical: "/services/mehndi-artists" },
+  title: 'Mehndi Artists in Bangalore | We Decor',
+  description:
+    'Intricate mehndi designs for all events and festivals. Professional mehndi artists in Bangalore.',
+  alternates: { canonical: '/services/mehndi-artists' },
   openGraph: {
-    title: "Mehndi Artists in Bangalore | We Decor",
-    description: "Intricate mehndi designs for all events and festivals.",
-    url: "/services/mehndi-artists",
-    images: ["/services/mehndi.jpg"],
+    title: 'Mehndi Artists in Bangalore | We Decor',
+    description: 'Intricate mehndi designs for all events and festivals.',
+    url: '/services/mehndi-artists',
+    images: ['/services/mehndi.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Mehndi Artists in Bangalore | We Decor",
-    description: "Intricate mehndi designs for all events and festivals.",
-    images: ["/services/mehndi.jpg"],
+    card: 'summary_large_image',
+    title: 'Mehndi Artists in Bangalore | We Decor',
+    description: 'Intricate mehndi designs for all events and festivals.',
+    images: ['/services/mehndi.jpg'],
   },
 };
 
@@ -32,18 +33,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Mehndi Art Services',
   offers: {
     '@type': 'Offer',
-    description: 'Wedding mehndi, festival designs, party mehndi, and special occasions'
-  }
+    description: 'Wedding mehndi, festival designs, party mehndi, and special occasions',
+  },
 };
 
 export default function MehndiArtistsPage() {
@@ -52,9 +53,7 @@ export default function MehndiArtistsPage() {
       <JsonLd data={structuredData} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Mehndi Artists
-          </h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Mehndi Artists</h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Intricate mehndi designs for all events and festivals.
           </p>
@@ -97,11 +96,13 @@ export default function MehndiArtistsPage() {
               Intricate Mehndi Art
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our skilled mehndi artists create beautiful, intricate designs using traditional and contemporary patterns. We use high-quality henna for long-lasting, rich color.
+              Our skilled mehndi artists create beautiful, intricate designs using traditional and
+              contemporary patterns. We use high-quality henna for long-lasting, rich color.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your session</strong> and let our artists create stunning mehndi designs for your special occasion.
+                <strong>Book your session</strong> and let our artists create stunning mehndi
+                designs for your special occasion.
               </p>
             </div>
           </div>
@@ -112,7 +113,8 @@ export default function MehndiArtistsPage() {
             Ready for Beautiful Mehndi?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your mehndi session and let our expert artists create intricate designs for your event.
+            Contact us to book your mehndi session and let our expert artists create intricate
+            designs for your event.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

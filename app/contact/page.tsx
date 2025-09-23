@@ -1,19 +1,23 @@
 import ContactForm from '@/components/ContactForm';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { playfair } from '@/app/fonts';
 
 export const metadata: Metadata = {
   title: 'Contact We Decor | Event Decoration Services in Bangalore',
-  description: 'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
+  description:
+    'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
   openGraph: {
     title: 'Contact We Decor | Event Decoration Services in Bangalore',
-    description: 'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452.',
+    description:
+      'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452.',
     images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact We Decor | Event Decoration Services in Bangalore',
-    description: 'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452.',
+    description:
+      'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452.',
     images: ['/logo.png'],
   },
   alternates: {
@@ -25,7 +29,7 @@ export const dynamic = 'force-static';
 
 export default function Contact() {
   return (
-    <div className="max-w-xl mx-auto py-16">
+    <div className="max-w-xl mx-auto py-14 md:py-16">
       <div className="flex flex-col items-center mb-8">
         <Image
           src="/logo.png"
@@ -35,7 +39,11 @@ export default function Contact() {
           className="mb-2 rounded-full shadow"
           priority
         />
-        <h1 className="text-3xl font-bold text-green-700 dark:text-green-300">Contact We Decor</h1>
+        <h1
+          className={`${playfair.className} text-4xl md:text-5xl font-bold text-[#0f3d3e] dark:text-[#faf7f2]`}
+        >
+          Contact We Decor
+        </h1>
       </div>
       <ContactForm />
       <div className="mt-8">

@@ -27,8 +27,8 @@ function isInternal(url) {
   try {
     const u = new URL(url, BASE);
     return u.origin === new URL(BASE).origin;
-  } catch { 
-    return false; 
+  } catch {
+    return false;
   }
 }
 
@@ -38,7 +38,7 @@ function log(message, type = 'info') {
     success: '\x1b[32m',
     error: '\x1b[31m',
     warning: '\x1b[33m',
-    reset: '\x1b[0m'
+    reset: '\x1b[0m',
   };
   console.log(`${colors[type]}${message}${colors.reset}`);
 }
@@ -51,7 +51,7 @@ async function crawlLinks() {
   while (queue.size && seen.size < MAX_PAGES) {
     const url = queue.values().next().value;
     queue.delete(url);
-    
+
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -59,12 +59,12 @@ async function crawlLinks() {
 
     let res;
     try {
-      res = await fetch(url, { 
+      res = await fetch(url, {
         redirect: 'manual',
         timeout: 10000,
         headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; LinkChecker/1.0)'
-        }
+          'User-Agent': 'Mozilla/5.0 (compatible; LinkChecker/1.0)',
+        },
       });
     } catch (e) {
       broken.push({ url, status: 'FETCH_ERROR', error: String(e) });
@@ -92,13 +92,13 @@ async function crawlLinks() {
       for (const a of as) {
         const href = a.getAttribute('href');
         if (!href) continue;
-        
+
         try {
           const next = new URL(href, url).toString();
           if (isInternal(next) && !seen.has(next)) {
             queue.add(next);
           }
-        } catch { 
+        } catch {
           // Ignore malformed URLs
         }
       }
@@ -114,12 +114,12 @@ async function crawlLinks() {
     checked: seen.size,
     broken: broken.length,
     brokenLinks: broken,
-    checkedUrls: Array.from(seen)
+    checkedUrls: Array.from(seen),
   };
 
   // Save report
   await writeFile(join(ARTIFACTS_DIR, 'broken_links.json'), JSON.stringify(report, null, 2));
-  
+
   // Console output
   log('\n📊 Broken Link Crawler Results', 'info');
   log('='.repeat(50), 'info');
@@ -128,7 +128,7 @@ async function crawlLinks() {
 
   if (broken.length > 0) {
     log('\n❌ Broken Links:', 'error');
-    broken.slice(0, 10).forEach(link => {
+    broken.slice(0, 10).forEach((link) => {
       log(`  • ${link.url} - Status: ${link.status}`, 'error');
     });
     if (broken.length > 10) {
@@ -143,7 +143,7 @@ async function crawlLinks() {
 }
 
 // Run the crawler
-crawlLinks().catch(error => {
+crawlLinks().catch((error) => {
   log(`💥 Crawler failed: ${error.message}`, 'error');
   process.exit(1);
 });

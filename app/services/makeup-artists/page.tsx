@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Professional Make-up Artists in Bangalore | We Decor",
-  description: "Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.",
-  alternates: { canonical: "/services/makeup-artists" },
+  title: 'Professional Make-up Artists in Bangalore | We Decor',
+  description:
+    'Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.',
+  alternates: { canonical: '/services/makeup-artists' },
   openGraph: {
-    title: "Professional Make-up Artists in Bangalore | We Decor",
-    description: "Professional make-up for weddings, parties, and corporate events.",
-    url: "/services/makeup-artists",
-    images: ["/services/makeup.jpg"],
+    title: 'Professional Make-up Artists in Bangalore | We Decor',
+    description: 'Professional make-up for weddings, parties, and corporate events.',
+    url: '/services/makeup-artists',
+    images: ['/services/makeup.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Professional Make-up Artists in Bangalore | We Decor",
-    description: "Professional make-up for weddings, parties, and corporate events.",
-    images: ["/services/makeup.jpg"],
+    card: 'summary_large_image',
+    title: 'Professional Make-up Artists in Bangalore | We Decor',
+    description: 'Professional make-up for weddings, parties, and corporate events.',
+    images: ['/services/makeup.jpg'],
   },
 };
 
@@ -32,18 +33,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Make-up Services',
   offers: {
     '@type': 'Offer',
-    description: 'Wedding make-up, party make-up, corporate events, and special occasions'
-  }
+    description: 'Wedding make-up, party make-up, corporate events, and special occasions',
+  },
 };
 
 export default function MakeupArtistsPage() {
@@ -97,11 +98,13 @@ export default function MakeupArtistsPage() {
               Expert Beauty Services
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our professional make-up artists are skilled in creating stunning looks for any occasion. We use high-quality products and stay updated with the latest beauty trends.
+              Our professional make-up artists are skilled in creating stunning looks for any
+              occasion. We use high-quality products and stay updated with the latest beauty trends.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your session</strong> and let our experts enhance your natural beauty for your special day.
+                <strong>Book your session</strong> and let our experts enhance your natural beauty
+                for your special day.
               </p>
             </div>
           </div>
@@ -112,7 +115,8 @@ export default function MakeupArtistsPage() {
             Ready to Look Your Best?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your make-up session and let our professional artists create the perfect look for your event.
+            Contact us to book your make-up session and let our professional artists create the
+            perfect look for your event.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

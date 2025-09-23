@@ -2,112 +2,116 @@
 
 ```yaml
 - generic [active] [ref=e1]:
-  - navigation [ref=e2]:
-    - generic [ref=e3]:
-      - link "We Decor Logo - Event Decoration Services in Bangalore We Decor" [ref=e4] [cursor=pointer]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "We Decor Logo - Event Decoration Services in Bangalore We Decor" [ref=e5] [cursor=pointer]:
         - /url: /
-        - img "We Decor Logo - Event Decoration Services in Bangalore" [ref=e5] [cursor=pointer]
-        - generic [ref=e6] [cursor=pointer]: We Decor
-      - generic [ref=e7]:
-        - link "About" [ref=e8] [cursor=pointer]:
+        - img "We Decor Logo - Event Decoration Services in Bangalore" [ref=e6] [cursor=pointer]
+        - generic [ref=e7] [cursor=pointer]: We Decor
+      - generic [ref=e8]:
+        - link "About" [ref=e9] [cursor=pointer]:
           - /url: /about
-        - link "Services" [ref=e9] [cursor=pointer]:
+        - link "Services" [ref=e10] [cursor=pointer]:
           - /url: /services
-        - link "Gallery" [ref=e10] [cursor=pointer]:
+        - link "Gallery" [ref=e11] [cursor=pointer]:
           - /url: /gallery
-        - link "Areas" [ref=e11] [cursor=pointer]:
+        - link "Areas" [ref=e12] [cursor=pointer]:
           - /url: /areas
-        - link "Locations" [ref=e12] [cursor=pointer]:
+        - link "Locations" [ref=e13] [cursor=pointer]:
           - /url: /locations
-        - link "Pricing" [ref=e13] [cursor=pointer]:
+        - link "Pricing" [ref=e14] [cursor=pointer]:
           - /url: /pricing
-        - link "FAQ" [ref=e14] [cursor=pointer]:
+        - link "FAQ" [ref=e15] [cursor=pointer]:
           - /url: /faq
-        - link "Contact" [ref=e15] [cursor=pointer]:
+        - link "Contact" [ref=e16] [cursor=pointer]:
           - /url: /contact
-        - button "Toggle dark mode" [ref=e16] [cursor=pointer]:
-          - img [ref=e17] [cursor=pointer]
-  - main [ref=e19]:
-    - generic [ref=e20]:
-      - generic [ref=e21]:
-        - img "We Decor Logo - Contact for Event Decoration Services" [ref=e22]
-        - heading "Contact We Decor" [level=1] [ref=e23]
-      - generic [ref=e24]:
-        - generic [ref=e25]:
-          - generic [ref=e26]: Your Name *
-          - textbox "Your Name *" [ref=e27]
-        - generic [ref=e28]:
-          - generic [ref=e29]: Phone Number *
-          - textbox "Phone Number *" [ref=e30]
-        - generic [ref=e31]:
-          - generic [ref=e32]: Email Address *
-          - textbox "Email Address *" [ref=e33]
-        - generic [ref=e34]:
-          - generic [ref=e35]: Your Message *
-          - textbox "Your Message *" [ref=e36]
-        - button "Send via WhatsApp" [ref=e37] [cursor=pointer]
-        - generic [ref=e38]:
-          - paragraph [ref=e39]: "Or contact directly:"
-          - link "WhatsApp Us Directly" [ref=e40] [cursor=pointer]:
+        - button "Toggle dark mode" [ref=e17] [cursor=pointer]:
+          - img [ref=e18] [cursor=pointer]
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e22]:
+        - img "We Decor Logo - Contact for Event Decoration Services" [ref=e23]
+        - heading "Contact We Decor" [level=1] [ref=e24]
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - generic [ref=e27]: Your Name *
+          - textbox "Your Name *" [ref=e28]
+        - generic [ref=e29]:
+          - generic [ref=e30]: Phone Number *
+          - textbox "Phone Number *" [ref=e31]
+        - generic [ref=e32]:
+          - generic [ref=e33]: Email Address *
+          - textbox "Email Address *" [ref=e34]
+        - generic [ref=e35]:
+          - generic [ref=e36]: Your Message *
+          - textbox "Your Message *" [ref=e37]
+        - button "Send via WhatsApp" [ref=e38] [cursor=pointer]
+        - generic [ref=e39]:
+          - paragraph [ref=e40]: "Or contact directly:"
+          - link "WhatsApp Us Directly" [ref=e41] [cursor=pointer]:
             - /url: https://wa.me/917019169442
-            - img [ref=e41] [cursor=pointer]
+            - img [ref=e42] [cursor=pointer]
             - text: WhatsApp Us Directly
-      - iframe [ref=e44]:
+      - iframe [ref=e45]:
         
-  - contentinfo [ref=e45]:
-    - generic [ref=e46]:
-      - generic [ref=e47]:
-        - generic [ref=e48]:
-          - img "We Decor Logo" [ref=e49]
-          - generic [ref=e50]:
-            - generic [ref=e51]: We Decor
-            - generic [ref=e52]: Bringing Dreams to Life in Bangalore
-        - link "Follow us on Instagram" [ref=e53] [cursor=pointer]:
+  - contentinfo [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - img "We Decor Logo" [ref=e50]
+          - generic [ref=e51]:
+            - generic [ref=e52]: We Decor
+            - generic [ref=e53]: Bringing Dreams to Life in Bangalore
+        - link "Follow us on Instagram" [ref=e54] [cursor=pointer]:
           - /url: https://instagram.com/wedecorbangalore
-          - img [ref=e54] [cursor=pointer]
-          - generic [ref=e56] [cursor=pointer]: "@wedecorbangalore"
-      - generic [ref=e57]:
-        - navigation "Footer quick links" [ref=e58]:
-          - heading "Quick Links" [level=2] [ref=e59]
-          - list [ref=e60]:
-            - listitem [ref=e61]:
-              - link "About Us" [ref=e62] [cursor=pointer]:
+          - img [ref=e55] [cursor=pointer]
+          - generic [ref=e57] [cursor=pointer]: "@wedecorbangalore"
+      - generic [ref=e58]:
+        - navigation "Footer quick links" [ref=e59]:
+          - heading "Quick Links" [level=2] [ref=e60]
+          - list [ref=e61]:
+            - listitem [ref=e62]:
+              - link "About Us" [ref=e63] [cursor=pointer]:
                 - /url: /about
-            - listitem [ref=e63]:
-              - link "Services" [ref=e64] [cursor=pointer]:
+            - listitem [ref=e64]:
+              - link "Services" [ref=e65] [cursor=pointer]:
                 - /url: /services
-            - listitem [ref=e65]:
-              - link "Gallery" [ref=e66] [cursor=pointer]:
+            - listitem [ref=e66]:
+              - link "Gallery" [ref=e67] [cursor=pointer]:
                 - /url: /gallery
-            - listitem [ref=e67]:
-              - link "Pricing" [ref=e68] [cursor=pointer]:
+            - listitem [ref=e68]:
+              - link "Pricing" [ref=e69] [cursor=pointer]:
                 - /url: /pricing
-            - listitem [ref=e69]:
-              - link "FAQ" [ref=e70] [cursor=pointer]:
+            - listitem [ref=e70]:
+              - link "FAQ" [ref=e71] [cursor=pointer]:
                 - /url: /faq
-            - listitem [ref=e71]:
-              - link "Contact" [ref=e72] [cursor=pointer]:
+            - listitem [ref=e72]:
+              - link "Contact" [ref=e73] [cursor=pointer]:
                 - /url: /contact
-        - generic [ref=e73]:
-          - heading "Contact Info" [level=3] [ref=e74]
-          - generic [ref=e75]:
-            - generic [ref=e76]:
-              - img [ref=e77]
-              - link "+91 88805 44452" [ref=e79] [cursor=pointer]:
+        - generic [ref=e74]:
+          - heading "Contact Info" [level=3] [ref=e75]
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - img [ref=e78]
+              - link "+91 88805 44452" [ref=e80] [cursor=pointer]:
                 - /url: tel:+919880544452
-            - generic [ref=e80]:
-              - img [ref=e81]
-              - link "+91 95912 32166" [ref=e83] [cursor=pointer]:
+            - generic [ref=e81]:
+              - img [ref=e82]
+              - link "+91 95912 32166" [ref=e84] [cursor=pointer]:
                 - /url: tel:+919591232166
-            - generic [ref=e84]:
-              - img [ref=e85]
-              - generic [ref=e87]: Bangalore, India
-            - generic [ref=e88]:
-              - img [ref=e89]
-              - generic [ref=e91]: Mon–Sun, 9am–9pm
-      - paragraph [ref=e93]:
+            - generic [ref=e85]:
+              - img [ref=e86]
+              - generic [ref=e88]: Bangalore, India
+            - generic [ref=e89]:
+              - img [ref=e90]
+              - generic [ref=e92]: Mon–Sun, 9am–9pm
+      - paragraph [ref=e94]:
         - text: © 2025
-        - generic [ref=e94]: We Decor
+        - generic [ref=e95]: We Decor
         - text: ", Bangalore. All rights reserved."
-  - alert [ref=e95]
+  - button "Open Next.js Dev Tools" [ref=e101] [cursor=pointer]:
+    - img [ref=e102] [cursor=pointer]
+  - alert [ref=e105]
 ```

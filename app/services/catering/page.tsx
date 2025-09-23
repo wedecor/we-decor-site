@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Catering Services in Bangalore | We Decor",
-  description: "We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service, so you can focus on your celebration.",
-  alternates: { canonical: "/services/catering" },
+  title: 'Catering Services in Bangalore | We Decor',
+  description:
+    'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service, so you can focus on your celebration.',
+  alternates: { canonical: '/services/catering' },
   openGraph: {
-    title: "Catering Services in Bangalore | We Decor",
-    description: "We Decor provides a full spectrum of catering services for all types of events.",
-    url: "/services/catering",
-    images: ["/services/catering.jpg"],
+    title: 'Catering Services in Bangalore | We Decor',
+    description: 'We Decor provides a full spectrum of catering services for all types of events.',
+    url: '/services/catering',
+    images: ['/services/catering.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Catering Services in Bangalore | We Decor",
-    description: "We Decor provides a full spectrum of catering services for all types of events.",
-    images: ["/services/catering.jpg"],
+    card: 'summary_large_image',
+    title: 'Catering Services in Bangalore | We Decor',
+    description: 'We Decor provides a full spectrum of catering services for all types of events.',
+    images: ['/services/catering.jpg'],
   },
 };
 
@@ -23,7 +24,8 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Catering Services',
-  description: 'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service.',
+  description:
+    'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service.',
   provider: {
     '@type': 'Organization',
     name: 'We Decor',
@@ -32,18 +34,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Catering Services',
   offers: {
     '@type': 'Offer',
-    description: 'Veg Catering, Non-Veg Catering, Sweets & Desserts, Regional and Custom Menus'
-  }
+    description: 'Veg Catering, Non-Veg Catering, Sweets & Desserts, Regional and Custom Menus',
+  },
 };
 
 export default function CateringPage() {
@@ -56,7 +58,9 @@ export default function CateringPage() {
             Catering Services
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service, so you can focus on your celebration.
+            We Decor provides a full spectrum of catering services for all types of events. Our
+            experienced team ensures delicious food and seamless service, so you can focus on your
+            celebration.
           </p>
         </div>
 
@@ -89,11 +93,14 @@ export default function CateringPage() {
               Customized Experience
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              From traditional Indian feasts to contemporary world cuisines, we tailor our menu to your preferences and dietary needs. Let us delight your guests with a memorable dining experience!
+              From traditional Indian feasts to contemporary world cuisines, we tailor our menu to
+              your preferences and dietary needs. Let us delight your guests with a memorable dining
+              experience!
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Contact us today</strong> for a personalized catering quote that fits your event perfectly.
+                <strong>Contact us today</strong> for a personalized catering quote that fits your
+                event perfectly.
               </p>
             </div>
           </div>
@@ -104,7 +111,8 @@ export default function CateringPage() {
             Ready to Plan Your Event?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us for a free consultation and let us create the perfect catering experience for your special day.
+            Contact us for a free consultation and let us create the perfect catering experience for
+            your special day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

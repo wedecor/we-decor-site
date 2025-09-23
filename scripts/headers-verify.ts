@@ -23,63 +23,55 @@ const REQUIRED_HEADERS = {
   'content-security-policy': {
     required: true,
     description: 'Content Security Policy to prevent XSS attacks',
-    severity: 'high'
+    severity: 'high',
   },
   'strict-transport-security': {
     required: true,
     description: 'HTTP Strict Transport Security to enforce HTTPS',
-    severity: 'high'
+    severity: 'high',
   },
   'x-content-type-options': {
     required: true,
     description: 'Prevents MIME type sniffing',
-    severity: 'medium'
+    severity: 'medium',
   },
   'x-frame-options': {
     required: true,
     description: 'Prevents clickjacking attacks',
-    severity: 'medium'
+    severity: 'medium',
   },
   'referrer-policy': {
     required: true,
     description: 'Controls referrer information sent with requests',
-    severity: 'medium'
+    severity: 'medium',
   },
   'permissions-policy': {
     required: true,
     description: 'Controls browser features and APIs',
-    severity: 'medium'
-  }
+    severity: 'medium',
+  },
 };
 
 // Optional but recommended headers
 const RECOMMENDED_HEADERS = {
   'x-xss-protection': {
     description: 'XSS protection (legacy browsers)',
-    severity: 'low'
+    severity: 'low',
   },
   'cache-control': {
     description: 'Caching directives for performance',
-    severity: 'low'
-  }
+    severity: 'low',
+  },
 };
 
 // Pages to test
-const TEST_PAGES = [
-  '/',
-  '/gallery',
-  '/services',
-  '/pricing',
-  '/contact',
-  '/about',
-  '/faq'
-];
+const TEST_PAGES = ['/', '/gallery', '/services', '/pricing', '/contact', '/about', '/faq'];
 
 // Special pages to test
 const SPECIAL_PAGES = [
   { path: '/robots.txt', expectedStatus: 200, description: 'Robots.txt file' },
   { path: '/sitemap.xml', expectedStatus: 200, description: 'Sitemap file' },
-  { path: '/favicon.ico', expectedStatus: 200, description: 'Favicon file' }
+  { path: '/favicon.ico', expectedStatus: 200, description: 'Favicon file' },
 ];
 
 // Colors for console output
@@ -98,37 +90,37 @@ function log(message: string, color: keyof typeof colors = 'reset') {
 function parseArgs() {
   const args = process.argv.slice(2);
   let url = DEFAULT_URL;
-  
+
   for (const arg of args) {
     if (arg.startsWith('--url=')) {
       url = arg.split('=')[1];
     }
   }
-  
+
   return { url };
 }
 
 async function fetchHeaders(url: string, path: string) {
   const fullUrl = `${url}${path}`;
-  
+
   try {
     const response = await fetch(fullUrl, {
       method: 'HEAD',
       headers: {
-        'User-Agent': 'Security-Headers-Verifier/1.0'
-      }
+        'User-Agent': 'Security-Headers-Verifier/1.0',
+      },
     });
-    
+
     const headers: Record<string, string> = {};
     response.headers.forEach((value, key) => {
       headers[key.toLowerCase()] = value;
     });
-    
+
     return {
       url: fullUrl,
       status: response.status,
       headers,
-      success: true
+      success: true,
     };
   } catch (error) {
     return {
@@ -136,7 +128,7 @@ async function fetchHeaders(url: string, path: string) {
       status: 0,
       headers: {},
       success: false,
-      error: error instanceof Error ? error.message : 'Unknown error'
+      error: error instanceof Error ? error.message : 'Unknown error',
     };
   }
 }
@@ -156,14 +148,14 @@ function validateHeaders(headers: Record<string, string>, page: string) {
       page: string;
     }>,
     present: [] as string[],
-    missing: [] as string[]
+    missing: [] as string[],
   };
 
   // Check required headers
   for (const [header, config] of Object.entries(REQUIRED_HEADERS)) {
     if (headers[header]) {
       results.present.push(header);
-      
+
       // Validate specific header values
       const value = headers[header];
       switch (header) {
@@ -173,49 +165,52 @@ function validateHeaders(headers: Record<string, string>, page: string) {
               header,
               severity: config.severity,
               message: `CSP should include 'self' or specific domains`,
-              page
+              page,
             });
           }
           break;
-          
+
         case 'strict-transport-security':
           if (!value.includes('max-age=')) {
             results.violations.push({
               header,
               severity: config.severity,
               message: `HSTS should include max-age directive`,
-              page
+              page,
             });
           }
           break;
-          
+
         case 'x-content-type-options':
           if (value !== 'nosniff') {
             results.violations.push({
               header,
               severity: config.severity,
               message: `X-Content-Type-Options should be 'nosniff'`,
-              page
+              page,
             });
           }
           break;
-          
+
         case 'x-frame-options':
           if (!['DENY', 'SAMEORIGIN'].includes(value) && !value.includes('ALLOW-FROM')) {
             results.violations.push({
               header,
               severity: config.severity,
               message: `X-Frame-Options should be 'DENY', 'SAMEORIGIN', or 'ALLOW-FROM'`,
-              page
+              page,
             });
           }
           // Check for redundancy with CSP frame-ancestors
-          if (headers['content-security-policy'] && headers['content-security-policy'].includes('frame-ancestors')) {
+          if (
+            headers['content-security-policy'] &&
+            headers['content-security-policy'].includes('frame-ancestors')
+          ) {
             results.warnings.push({
               header,
               severity: 'low',
               message: `X-Frame-Options is redundant with CSP frame-ancestors directive`,
-              page
+              page,
             });
           }
           break;
@@ -226,7 +221,7 @@ function validateHeaders(headers: Record<string, string>, page: string) {
         header,
         severity: config.severity,
         message: `Required security header '${header}' is missing`,
-        page
+        page,
       });
     }
   }
@@ -240,7 +235,7 @@ function validateHeaders(headers: Record<string, string>, page: string) {
         header,
         severity: config.severity,
         message: `Recommended header '${header}' is missing`,
-        page
+        page,
       });
     }
   }
@@ -258,7 +253,7 @@ function checkSpecialPages(url: string) {
           description: page.description,
           status: response.status,
           success: response.status === page.expectedStatus,
-          headers: Object.fromEntries(response.headers.entries())
+          headers: Object.fromEntries(response.headers.entries()),
         };
       } catch (error) {
         return {
@@ -266,7 +261,7 @@ function checkSpecialPages(url: string) {
           description: page.description,
           status: 0,
           success: false,
-          error: error instanceof Error ? error.message : 'Unknown error'
+          error: error instanceof Error ? error.message : 'Unknown error',
         };
       }
     })
@@ -276,10 +271,10 @@ function checkSpecialPages(url: string) {
 async function main() {
   try {
     const { url } = parseArgs();
-    
+
     log('Starting security headers verification...', 'blue');
     log(`Target URL: ${url}`, 'blue');
-    
+
     const results = {
       timestamp: new Date().toISOString(),
       url,
@@ -290,22 +285,22 @@ async function main() {
         pagesWithViolations: 0,
         totalViolations: 0,
         totalWarnings: 0,
-        status: 'PASS' as 'PASS' | 'FAIL'
-      }
+        status: 'PASS' as 'PASS' | 'FAIL',
+      },
     };
 
     // Test each page
     log('\n🔍 Testing security headers on pages...', 'blue');
     for (const page of TEST_PAGES) {
       log(`  Testing ${page}...`, 'blue');
-      
+
       const response = await fetchHeaders(url, page);
       if (!response.success) {
         log(`    ❌ Failed to fetch ${page}: ${response.error}`, 'red');
         results.pages.push({
           path: page,
           success: false,
-          error: response.error
+          error: response.error,
         });
         continue;
       }
@@ -316,12 +311,12 @@ async function main() {
         success: response.success,
         status: response.status,
         headers: response.headers,
-        validation
+        validation,
       };
 
       results.pages.push(pageResult);
       results.summary.totalPages++;
-      
+
       if (validation.violations.length > 0) {
         results.summary.pagesWithViolations++;
         results.summary.totalViolations += validation.violations.length;
@@ -339,7 +334,7 @@ async function main() {
     // Console output
     log('\n🛡️ Security Headers Analysis', 'blue');
     log('='.repeat(50), 'blue');
-    
+
     log(`\nTotal Pages Tested: ${results.summary.totalPages}`);
     log(`Pages with Violations: ${results.summary.pagesWithViolations}`);
     log(`Total Violations: ${results.summary.totalViolations}`);
@@ -348,7 +343,7 @@ async function main() {
     // Show violations
     if (results.summary.totalViolations > 0) {
       log('\n❌ Security Header Violations:', 'red');
-      results.pages.forEach(page => {
+      results.pages.forEach((page) => {
         if (page.validation?.violations.length > 0) {
           page.validation.violations.forEach((violation: any) => {
             log(`  • ${page.path} - ${violation.header}: ${violation.message}`, 'red');
@@ -360,7 +355,7 @@ async function main() {
     // Show warnings
     if (results.summary.totalWarnings > 0) {
       log('\n⚠️ Security Header Warnings:', 'yellow');
-      results.pages.forEach(page => {
+      results.pages.forEach((page) => {
         if (page.validation?.warnings.length > 0) {
           page.validation.warnings.forEach((warning: any) => {
             log(`  • ${page.path} - ${warning.header}: ${warning.message}`, 'yellow');
@@ -371,9 +366,12 @@ async function main() {
 
     // Show special pages status
     log('\n📄 Special Pages:', 'blue');
-    results.specialPages.forEach(page => {
+    results.specialPages.forEach((page) => {
       const status = page.success ? '✅' : '❌';
-      log(`  ${status} ${page.path} (${page.description}): ${page.status}`, page.success ? 'green' : 'red');
+      log(
+        `  ${status} ${page.path} (${page.description}): ${page.status}`,
+        page.success ? 'green' : 'red'
+      );
     });
 
     if (results.summary.status === 'PASS') {
@@ -393,9 +391,11 @@ async function main() {
     }
 
     process.exit(0);
-
   } catch (error) {
-    log(`\n❌ Security headers verification failed: ${error instanceof Error ? error.message : 'Unknown error'}`, 'red');
+    log(
+      `\n❌ Security headers verification failed: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      'red'
+    );
     console.error(error);
     process.exit(1);
   }

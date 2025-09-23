@@ -15,6 +15,13 @@ export const config = {
 export default function middleware(req: NextRequest) {
   if (!SHOULD_APPLY) return NextResponse.next();
 
+  // Trailing slash normalization: remove trailing slashes except root
+  if (req.nextUrl.pathname.length > 1 && req.nextUrl.pathname.endsWith('/')) {
+    const url = req.nextUrl.clone();
+    url.pathname = req.nextUrl.pathname.replace(/\/+$/, '');
+    return NextResponse.redirect(url);
+  }
+
   const res = NextResponse.next();
 
   // Helper: only set if not already provided by Next headers()

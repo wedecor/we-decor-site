@@ -51,11 +51,11 @@ function parseNextBuildOutput() {
   if (existsSync(buildLogPath)) {
     const buildLog = readFileSync(buildLogPath, 'utf8');
     const routes = [];
-    
+
     // Parse route information from build log
     const routeRegex = /^([├└○●λ])\s+([^\s]+)\s+([0-9.]+)\s+kB\s+([0-9.]+)\s+kB$/gm;
     let match;
-    
+
     while ((match = routeRegex.exec(buildLog)) !== null) {
       const [, type, route, size, firstLoad] = match;
       routes.push({
@@ -67,19 +67,19 @@ function parseNextBuildOutput() {
         firstLoadBytes: parseFloat(firstLoad) * 1024,
       });
     }
-    
+
     if (routes.length > 0) {
       return routes;
     }
   }
-  
+
   // Fallback: try to read from .next/static analysis
   const staticPath = join(PROJECT_ROOT, '.next', 'static');
   if (existsSync(staticPath)) {
     log('Build log not found, analyzing static files...', 'yellow');
     return analyzeStaticFiles();
   }
-  
+
   log('No build artifacts found. Run "npm run build:prod" first.', 'red');
   return null;
 }
@@ -87,18 +87,18 @@ function parseNextBuildOutput() {
 function analyzeStaticFiles() {
   const routes = [];
   const staticPath = join(PROJECT_ROOT, '.next', 'static');
-  
+
   try {
     const chunks = readdirSync(join(staticPath, 'chunks'));
     let totalSize = 0;
-    
+
     for (const chunk of chunks) {
       if (chunk.endsWith('.js')) {
         const chunkPath = join(staticPath, 'chunks', chunk);
         const stats = statSync(chunkPath);
         const sizeKB = stats.size / 1024;
         totalSize += sizeKB;
-        
+
         routes.push({
           type: 'chunk',
           route: `/static/chunks/${chunk}`,
@@ -109,7 +109,7 @@ function analyzeStaticFiles() {
         });
       }
     }
-    
+
     // Add main page estimate
     routes.push({
       type: 'page',
@@ -119,11 +119,10 @@ function analyzeStaticFiles() {
       sizeBytes: totalSize * 1024,
       firstLoadBytes: totalSize * 1024,
     });
-    
   } catch (error) {
     log(`Error analyzing static files: ${error.message}`, 'red');
   }
-  
+
   return routes;
 }
 
@@ -138,7 +137,7 @@ function analyzeBundleSizes(routes) {
       main: { size: 0, firstLoad: 0, routes: [] },
       pages: { size: 0, firstLoad: 0, routes: [] },
       chunks: { size: 0, firstLoad: 0, routes: [] },
-    }
+    },
   };
 
   for (const route of routes) {
@@ -167,7 +166,7 @@ function analyzeBundleSizes(routes) {
         route: route.route,
         size: route.firstLoadBytes,
         threshold: BUNDLE_BUDGETS.main,
-        message: `First Load JS exceeds main bundle budget (${formatBytes(route.firstLoadBytes)} > ${formatBytes(BUNDLE_BUDGETS.main)})`
+        message: `First Load JS exceeds main bundle budget (${formatBytes(route.firstLoadBytes)} > ${formatBytes(BUNDLE_BUDGETS.main)})`,
       });
     } else if (route.firstLoadBytes > BUNDLE_BUDGETS.main_warning) {
       analysis.warnings.push({
@@ -175,7 +174,7 @@ function analyzeBundleSizes(routes) {
         route: route.route,
         size: route.firstLoadBytes,
         threshold: BUNDLE_BUDGETS.main_warning,
-        message: `First Load JS exceeds warning threshold (${formatBytes(route.firstLoadBytes)} > ${formatBytes(BUNDLE_BUDGETS.main_warning)})`
+        message: `First Load JS exceeds warning threshold (${formatBytes(route.firstLoadBytes)} > ${formatBytes(BUNDLE_BUDGETS.main_warning)})`,
       });
     }
 
@@ -185,7 +184,7 @@ function analyzeBundleSizes(routes) {
         route: route.route,
         size: route.sizeBytes,
         threshold: BUNDLE_BUDGETS.page,
-        message: `Page size exceeds budget (${formatBytes(route.sizeBytes)} > ${formatBytes(BUNDLE_BUDGETS.page)})`
+        message: `Page size exceeds budget (${formatBytes(route.sizeBytes)} > ${formatBytes(BUNDLE_BUDGETS.page)})`,
       });
     }
   }
@@ -213,26 +212,32 @@ function generateReport(analysis) {
   // Console output
   log('\n📦 Bundle Size Analysis', 'blue');
   log('='.repeat(50), 'blue');
-  
+
   log(`\nTotal Routes: ${analysis.totalRoutes}`);
   log(`Total Size: ${formatBytes(analysis.totalSize)}`);
   log(`Total First Load: ${formatBytes(analysis.totalFirstLoad)}`);
-  
+
   log('\n📊 Summary by Category:', 'blue');
-  log(`Main Bundle: ${formatBytes(analysis.summary.main.firstLoad)} (${analysis.summary.main.routes.length} routes)`);
-  log(`Pages: ${formatBytes(analysis.summary.pages.firstLoad)} (${analysis.summary.pages.routes.length} routes)`);
-  log(`Chunks: ${formatBytes(analysis.summary.chunks.firstLoad)} (${analysis.summary.chunks.routes.length} routes)`);
+  log(
+    `Main Bundle: ${formatBytes(analysis.summary.main.firstLoad)} (${analysis.summary.main.routes.length} routes)`
+  );
+  log(
+    `Pages: ${formatBytes(analysis.summary.pages.firstLoad)} (${analysis.summary.pages.routes.length} routes)`
+  );
+  log(
+    `Chunks: ${formatBytes(analysis.summary.chunks.firstLoad)} (${analysis.summary.chunks.routes.length} routes)`
+  );
 
   if (analysis.violations.length > 0) {
     log('\n❌ Bundle Size Violations:', 'red');
-    analysis.violations.forEach(violation => {
+    analysis.violations.forEach((violation) => {
       log(`  • ${violation.route}: ${violation.message}`, 'red');
     });
   }
 
   if (analysis.warnings.length > 0) {
     log('\n⚠️ Bundle Size Warnings:', 'yellow');
-    analysis.warnings.forEach(warning => {
+    analysis.warnings.forEach((warning) => {
       log(`  • ${warning.route}: ${warning.message}`, 'yellow');
     });
   }
@@ -259,31 +264,39 @@ function generateMarkdownTable(analysis) {
   let table = '# Bundle Size Analysis\n\n';
   table += '| Route | Type | Size (KB) | First Load (KB) | Status |\n';
   table += '|-------|------|-----------|-----------------|--------|\n';
-  
-  analysis.summary.main.routes.forEach(route => {
-    const status = route.firstLoadBytes > BUNDLE_BUDGETS.main ? '❌' : 
-                   route.firstLoadBytes > BUNDLE_BUDGETS.main_warning ? '⚠️' : '✅';
+
+  analysis.summary.main.routes.forEach((route) => {
+    const status =
+      route.firstLoadBytes > BUNDLE_BUDGETS.main
+        ? '❌'
+        : route.firstLoadBytes > BUNDLE_BUDGETS.main_warning
+          ? '⚠️'
+          : '✅';
     table += `| ${route.route} | ${route.type} | ${route.sizeKB.toFixed(1)} | ${route.firstLoadKB.toFixed(1)} | ${status} |\n`;
   });
-  
-  analysis.summary.pages.routes.forEach(route => {
-    const status = route.firstLoadBytes > BUNDLE_BUDGETS.main ? '❌' : 
-                   route.firstLoadBytes > BUNDLE_BUDGETS.main_warning ? '⚠️' : '✅';
+
+  analysis.summary.pages.routes.forEach((route) => {
+    const status =
+      route.firstLoadBytes > BUNDLE_BUDGETS.main
+        ? '❌'
+        : route.firstLoadBytes > BUNDLE_BUDGETS.main_warning
+          ? '⚠️'
+          : '✅';
     table += `| ${route.route} | ${route.type} | ${route.sizeKB.toFixed(1)} | ${route.firstLoadKB.toFixed(1)} | ${status} |\n`;
   });
-  
+
   table += '\n## Thresholds\n';
   table += `- **Main Bundle**: ${formatBytes(BUNDLE_BUDGETS.main)} (hard limit)\n`;
   table += `- **Warning**: ${formatBytes(BUNDLE_BUDGETS.main_warning)}\n`;
   table += `- **Page Limit**: ${formatBytes(BUNDLE_BUDGETS.page)}\n`;
-  
+
   return table;
 }
 
 function main() {
   try {
     log('Starting bundle size analysis...', 'blue');
-    
+
     const routes = parseNextBuildOutput();
     if (!routes) {
       process.exit(1);
@@ -305,7 +318,6 @@ function main() {
 
     log('\n✅ Bundle size analysis passed!', 'green');
     process.exit(0);
-
   } catch (error) {
     log(`\n❌ Bundle size analysis failed: ${error.message}`, 'red');
     console.error(error);

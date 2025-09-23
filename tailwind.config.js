@@ -12,13 +12,19 @@ module.exports = {
       },
       colors: {
         brand: {
-          DEFAULT: '#22d3ee', // teal-400
-          dark: '#2563eb', // blue-600
+          DEFAULT: '#7c3aed', // violet-600
+          dark: '#6d28d9', // violet-700
+          light: '#a78bfa', // violet-400
+        },
+        accent: {
+          DEFAULT: '#10b981', // emerald-500
+          dark: '#059669', // emerald-600
+          light: '#34d399', // emerald-400
         },
       },
       gradientColorStops: {
-        'brand-start': '#22d3ee', // teal-400
-        'brand-end': '#2563eb', // blue-600
+        'brand-start': '#a78bfa',
+        'brand-end': '#6d28d9',
       },
       // High contrast text colors for better accessibility
       textColor: {

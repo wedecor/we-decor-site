@@ -13,7 +13,7 @@ export default function DarkModeToggle() {
 
   if (!mounted) {
     return (
-      <button 
+      <button
         className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center"
         aria-label="Loading dark mode toggle"
         disabled

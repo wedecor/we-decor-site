@@ -129,7 +129,12 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
               aria-label="Close gallery modal"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>
@@ -180,14 +185,22 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                   aria-label="Back to gallery grid"
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
 
                 <div className="relative max-w-full max-h-full">
                   <Image
                     src={images[selectedImageIndex]?.src}
-                    alt={images[selectedImageIndex]?.alt || `${category} decoration image ${selectedImageIndex + 1}`}
+                    alt={
+                      images[selectedImageIndex]?.alt ||
+                      `${category} decoration image ${selectedImageIndex + 1}`
+                    }
                     width={800}
                     height={600}
                     className={`object-contain max-w-full max-h-full ${zoomed ? 'scale-150' : 'scale-100'} transition-transform duration-300`}
@@ -202,7 +215,12 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                     aria-label="Previous image"
                   >
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 19l-7-7 7-7"
+                      />
                     </svg>
                   </button>
                 )}
@@ -214,14 +232,21 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                     aria-label="Next image"
                   >
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
                     </svg>
                   </button>
                 )}
               </div>
 
               <div className="flex items-center justify-between mt-4 text-white">
-                <span>{selectedImageIndex + 1} of {images.length}</span>
+                <span>
+                  {selectedImageIndex + 1} of {images.length}
+                </span>
                 <div className="flex gap-4">
                   <button
                     onClick={() => setZoomed(!zoomed)}
@@ -242,7 +267,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
             </div>
           )}
 
-          {showShortcuts && (
+          {showShortcuts ? (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -256,7 +281,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                 <div>H Toggle help</div>
               </div>
             </motion.div>
-          )}
+          ) : null}
         </motion.div>
       </div>
     </AnimatePresence>

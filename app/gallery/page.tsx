@@ -2,19 +2,23 @@ import Gallery from '@/components/Gallery';
 import { BreadcrumbsJsonLd } from '@/components/seo/JsonLd';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { playfair } from '@/app/fonts';
 
 export const metadata: Metadata = {
   title: 'Event Decoration Gallery | We Decor Bangalore - Birthday, Wedding & More',
-  description: 'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore. Professional decor services by We Decor.',
+  description:
+    'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore. Professional decor services by We Decor.',
   openGraph: {
     title: 'Event Decoration Gallery | We Decor Bangalore',
-    description: 'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore.',
+    description:
+      'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore.',
     images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Event Decoration Gallery | We Decor Bangalore',
-    description: 'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore.',
+    description:
+      'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore.',
     images: ['/logo.png'],
   },
   alternates: {
@@ -34,7 +38,7 @@ export default function GalleryPage() {
           { name: 'Gallery', url: '/gallery' },
         ]}
       />
-      <div className="max-w-6xl mx-auto py-16 px-4">
+      <div className="max-w-6xl mx-auto py-14 md:py-16 px-4">
         <div className="flex flex-col items-center mb-8">
           <Image
             src="/logo.png"
@@ -44,7 +48,11 @@ export default function GalleryPage() {
             className="mb-2 rounded-full shadow"
             priority
           />
-          <h1 className="text-3xl font-bold text-green-900 dark:text-green-100">Gallery</h1>
+          <h1
+            className={`${playfair.className} text-4xl md:text-5xl font-bold text-[#0f3d3e] dark:text-[#faf7f2]`}
+          >
+            Gallery
+          </h1>
         </div>
         {/* Gallery component renders image grid and lightbox */}
         <Gallery />

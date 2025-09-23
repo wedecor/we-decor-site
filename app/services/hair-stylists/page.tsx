@@ -1,21 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Expert Hair Stylists in Bangalore | We Decor",
-  description: "Expert hair styling for your special day or event. Professional hair services in Bangalore.",
-  alternates: { canonical: "/services/hair-stylists" },
+  title: 'Expert Hair Stylists in Bangalore | We Decor',
+  description:
+    'Expert hair styling for your special day or event. Professional hair services in Bangalore.',
+  alternates: { canonical: '/services/hair-stylists' },
   openGraph: {
-    title: "Expert Hair Stylists in Bangalore | We Decor",
-    description: "Expert hair styling for your special day or event.",
-    url: "/services/hair-stylists",
-    images: ["/services/hair.jpg"],
+    title: 'Expert Hair Stylists in Bangalore | We Decor',
+    description: 'Expert hair styling for your special day or event.',
+    url: '/services/hair-stylists',
+    images: ['/services/hair.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Expert Hair Stylists in Bangalore | We Decor",
-    description: "Expert hair styling for your special day or event.",
-    images: ["/services/hair.jpg"],
+    card: 'summary_large_image',
+    title: 'Expert Hair Stylists in Bangalore | We Decor',
+    description: 'Expert hair styling for your special day or event.',
+    images: ['/services/hair.jpg'],
   },
 };
 
@@ -32,18 +33,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Hair Styling Services',
   offers: {
     '@type': 'Offer',
-    description: 'Wedding hair styling, party hairstyles, corporate events, and special occasions'
-  }
+    description: 'Wedding hair styling, party hairstyles, corporate events, and special occasions',
+  },
 };
 
 export default function HairStylistsPage() {
@@ -97,11 +98,13 @@ export default function HairStylistsPage() {
               Professional Hair Styling
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our expert hair stylists create beautiful, long-lasting hairstyles that complement your look and occasion. We work with all hair types and lengths.
+              Our expert hair stylists create beautiful, long-lasting hairstyles that complement
+              your look and occasion. We work with all hair types and lengths.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your appointment</strong> and let our stylists create the perfect hairstyle for your special day.
+                <strong>Book your appointment</strong> and let our stylists create the perfect
+                hairstyle for your special day.
               </p>
             </div>
           </div>
@@ -112,7 +115,8 @@ export default function HairStylistsPage() {
             Ready for Perfect Hair?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your hair styling session and let our expert stylists create the perfect look for your event.
+            Contact us to book your hair styling session and let our expert stylists create the
+            perfect look for your event.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

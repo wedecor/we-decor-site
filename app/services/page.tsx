@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import { playfair, inter } from '@/app/fonts';
 
 const services = [
   {
@@ -61,8 +62,10 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+    <section className="max-w-screen-lg mx-auto py-14 md:py-16 px-6">
+      <h1
+        className={`${playfair.className} text-4xl md:text-5xl font-bold text-center mb-12 text-[#0f3d3e] dark:text-[#faf7f2]`}
+      >
         Our Services
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
@@ -70,7 +73,7 @@ export default function ServicesPage() {
           <Link
             key={service.name}
             href={service.href}
-            className="group block rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 overflow-hidden border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-400"
+            className="group block rounded-2xl shadow-[0_10px_30px_rgba(15,61,62,0.08)] hover:shadow-[0_20px_50px_rgba(15,61,62,0.12)] transition-transform duration-300 overflow-hidden border border-[#0f3d3e14] focus:outline-none focus:ring-4 focus:ring-[#ffd700]/40 hover:-translate-y-1"
             aria-label={`Learn more about ${service.name}`}
           >
             <motion.div
@@ -88,18 +91,22 @@ export default function ServicesPage() {
               </motion.span>
             </motion.div>
             <div className="p-6 flex flex-col h-full">
-              <h2 className="text-xl font-bold mb-2 text-green-700 dark:text-green-200">
+              <h2
+                className={`${playfair.className} text-xl font-bold mb-2 text-[#0f3d3e] dark:text-[#faf7f2]`}
+              >
                 {service.name}
               </h2>
-              <p className="text-gray-700 dark:text-gray-300 text-base mb-4">
+              <p
+                className={`${inter.className} text-[#0f3d3e]/80 dark:text-[#faf7f2]/80 text-base mb-4`}
+              >
                 {service.description}
               </p>
               <div className="mt-auto flex items-center justify-end">
-                <span className="text-green-600 dark:text-green-300 font-semibold mr-2">
+                <span className="text-[#0f3d3e] dark:text-[#ffd700] font-semibold mr-2">
                   Learn More
                 </span>
                 <FaArrowRight
-                  className="text-green-600 dark:text-green-300 group-hover:translate-x-1 transition-transform duration-200"
+                  className="text-[#0f3d3e] dark:text-[#ffd700] group-hover:translate-x-1 transition-transform duration-200"
                   aria-hidden="true"
                 />
               </div>

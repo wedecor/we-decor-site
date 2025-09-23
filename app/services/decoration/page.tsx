@@ -1,21 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: "Event Decoration Services in Bangalore | We Decor",
-  description: "Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bangalore.",
-  alternates: { canonical: "/services/decoration" },
+  title: 'Event Decoration Services in Bangalore | We Decor',
+  description:
+    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bangalore.',
+  alternates: { canonical: '/services/decoration' },
   openGraph: {
-    title: "Event Decoration Services in Bangalore | We Decor",
-    description: "Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.",
-    url: "/services/decoration",
-    images: ["/services/decoration.jpg"],
+    title: 'Event Decoration Services in Bangalore | We Decor',
+    description:
+      'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+    url: '/services/decoration',
+    images: ['/services/decoration.jpg'],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Event Decoration Services in Bangalore | We Decor",
-    description: "Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.",
-    images: ["/services/decoration.jpg"],
+    card: 'summary_large_image',
+    title: 'Event Decoration Services in Bangalore | We Decor',
+    description:
+      'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+    images: ['/services/decoration.jpg'],
   },
 };
 
@@ -23,7 +26,8 @@ const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Event Decoration Services',
-  description: 'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+  description:
+    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
   provider: {
     '@type': 'Organization',
     name: 'We Decor',
@@ -32,18 +36,18 @@ const structuredData = {
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
   areaServed: {
     '@type': 'City',
-    name: 'Bangalore'
+    name: 'Bangalore',
   },
   serviceType: 'Event Decoration',
   offers: {
     '@type': 'Offer',
-    description: 'Weddings, birthdays, haldi ceremonies, corporate events, and more'
-  }
+    description: 'Weddings, birthdays, haldi ceremonies, corporate events, and more',
+  },
 };
 
 export default function DecorationPage() {
@@ -97,11 +101,13 @@ export default function DecorationPage() {
               Why Choose Our Decorations?
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              We bring your vision to life with creative, elegant, and memorable decorations that make every event special. Our experienced team ensures every detail is perfect.
+              We bring your vision to life with creative, elegant, and memorable decorations that
+              make every event special. Our experienced team ensures every detail is perfect.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Custom designs</strong> tailored to your theme and budget. Contact us for a personalized quote!
+                <strong>Custom designs</strong> tailored to your theme and budget. Contact us for a
+                personalized quote!
               </p>
             </div>
           </div>
@@ -112,7 +118,8 @@ export default function DecorationPage() {
             Ready to Decorate Your Event?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Let us create the perfect atmosphere for your special occasion. Contact us for a free consultation and quote.
+            Let us create the perfect atmosphere for your special occasion. Contact us for a free
+            consultation and quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

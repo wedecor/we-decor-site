@@ -45,13 +45,13 @@ function log(message, color = 'reset') {
 function parseArgs() {
   const args = process.argv.slice(2);
   let url = DEFAULT_URL;
-  
+
   for (const arg of args) {
     if (arg.startsWith('--url=')) {
       url = arg.split('=')[1];
     }
   }
-  
+
   return { url };
 }
 
@@ -85,10 +85,10 @@ function runLighthouse(url, device = 'desktop') {
   const outputDir = join(ARTIFACTS_DIR, `lh-${device}`);
   const htmlPath = join(outputDir, 'report.html');
   const jsonPath = join(outputDir, 'report.json');
-  
+
   // Create output directory
   execSync(`mkdir -p "${outputDir}"`, { stdio: 'pipe' });
-  
+
   const command = [
     'lighthouse',
     `"${url}"`,
@@ -99,10 +99,12 @@ function runLighthouse(url, device = 'desktop') {
     '--no-enable-error-reporting',
     device === 'mobile' ? '--form-factor=mobile' : '--form-factor=desktop',
     device === 'mobile' ? '--throttling-method=devtools' : '',
-  ].filter(Boolean).join(' ');
-  
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   log(`Running Lighthouse for ${device}...`, 'blue');
-  
+
   try {
     execSync(command, { stdio: 'pipe', timeout: 120000 }); // 2 minute timeout
     return { htmlPath, jsonPath };
@@ -116,11 +118,11 @@ function parseLighthouseResults(jsonPath) {
   if (!existsSync(jsonPath)) {
     return null;
   }
-  
+
   try {
     const data = JSON.parse(readFileSync(jsonPath, 'utf8'));
     const categories = data.categories;
-    
+
     return {
       performance: Math.round(categories.performance?.score * 100) || 0,
       bestPractices: Math.round(categories['best-practices']?.score * 100) || 0,
@@ -139,18 +141,18 @@ function parseLighthouseResults(jsonPath) {
 function checkThresholds(results, device) {
   const violations = [];
   const warnings = [];
-  
+
   for (const [category, threshold] of Object.entries(THRESHOLDS)) {
     const score = results[category];
     if (score === undefined) continue;
-    
+
     if (score < threshold) {
       violations.push({
         category,
         score,
         threshold,
         device,
-        message: `${category} score ${score} is below threshold ${threshold}`
+        message: `${category} score ${score} is below threshold ${threshold}`,
       });
     } else if (score < threshold + 5) {
       warnings.push({
@@ -158,11 +160,11 @@ function checkThresholds(results, device) {
         score,
         threshold,
         device,
-        message: `${category} score ${score} is close to threshold ${threshold}`
+        message: `${category} score ${score} is close to threshold ${threshold}`,
       });
     }
   }
-  
+
   return { violations, warnings };
 }
 
@@ -176,23 +178,26 @@ function generateReport(desktopResults, mobileResults) {
       desktop: {
         violations: desktopResults?.violations || [],
         warnings: desktopResults?.warnings || [],
-        status: (desktopResults?.violations?.length || 0) === 0 ? 'PASS' : 'FAIL'
+        status: (desktopResults?.violations?.length || 0) === 0 ? 'PASS' : 'FAIL',
       },
       mobile: {
         violations: mobileResults?.violations || [],
         warnings: mobileResults?.warnings || [],
-        status: (mobileResults?.violations?.length || 0) === 0 ? 'PASS' : 'FAIL'
-      }
-    }
+        status: (mobileResults?.violations?.length || 0) === 0 ? 'PASS' : 'FAIL',
+      },
+    },
   };
-  
+
   // Overall status
-  report.status = report.summary.desktop.status === 'PASS' && report.summary.mobile.status === 'PASS' ? 'PASS' : 'FAIL';
-  
+  report.status =
+    report.summary.desktop.status === 'PASS' && report.summary.mobile.status === 'PASS'
+      ? 'PASS'
+      : 'FAIL';
+
   // Console output
   log('\n🚀 Lighthouse Performance Analysis', 'blue');
   log('='.repeat(50), 'blue');
-  
+
   if (desktopResults) {
     log('\n📊 Desktop Results:', 'blue');
     log(`  Performance: ${desktopResults.performance}/100`);
@@ -203,7 +208,7 @@ function generateReport(desktopResults, mobileResults) {
       log(`  PWA: ${desktopResults.pwa}/100`);
     }
   }
-  
+
   if (mobileResults) {
     log('\n📱 Mobile Results:', 'blue');
     log(`  Performance: ${mobileResults.performance}/100`);
@@ -214,34 +219,37 @@ function generateReport(desktopResults, mobileResults) {
       log(`  PWA: ${mobileResults.pwa}/100`);
     }
   }
-  
+
   // Show violations and warnings
-  const allViolations = [...(desktopResults?.violations || []), ...(mobileResults?.violations || [])];
+  const allViolations = [
+    ...(desktopResults?.violations || []),
+    ...(mobileResults?.violations || []),
+  ];
   const allWarnings = [...(desktopResults?.warnings || []), ...(mobileResults?.warnings || [])];
-  
+
   if (allViolations.length > 0) {
     log('\n❌ Threshold Violations:', 'red');
-    allViolations.forEach(violation => {
+    allViolations.forEach((violation) => {
       log(`  • ${violation.device} ${violation.category}: ${violation.message}`, 'red');
     });
   }
-  
+
   if (allWarnings.length > 0) {
     log('\n⚠️ Threshold Warnings:', 'yellow');
-    allWarnings.forEach(warning => {
+    allWarnings.forEach((warning) => {
       log(`  • ${warning.device} ${warning.category}: ${warning.message}`, 'yellow');
     });
   }
-  
+
   if (allViolations.length === 0 && allWarnings.length === 0) {
     log('\n✅ All Lighthouse thresholds met!', 'green');
   }
-  
+
   // Save report
   const reportPath = join(ARTIFACTS_DIR, 'lighthouse_report.json');
   writeFileSync(reportPath, JSON.stringify(report, null, 2));
   log(`\n📄 Report saved to: ${reportPath}`);
-  
+
   return report;
 }
 
@@ -249,10 +257,10 @@ async function main() {
   try {
     const { url } = parseArgs();
     const targetUrl = url || BASE;
-    
+
     log('Starting Lighthouse performance analysis...', 'blue');
     log(`Target URL: ${targetUrl}`, 'blue');
-    
+
     // Check if Lighthouse is installed
     if (!checkLighthouseInstalled()) {
       log('Lighthouse not found. Installing...', 'yellow');
@@ -261,50 +269,49 @@ async function main() {
         process.exit(1);
       }
     }
-    
+
     // Run Lighthouse for desktop and mobile
     const desktopOutput = runLighthouse(targetUrl, 'desktop');
     const mobileOutput = runLighthouse(targetUrl, 'mobile');
-    
+
     if (!desktopOutput && !mobileOutput) {
       log('Failed to run Lighthouse for both desktop and mobile.', 'red');
       process.exit(1);
     }
-    
+
     // Parse results
     const desktopResults = desktopOutput ? parseLighthouseResults(desktopOutput.jsonPath) : null;
     const mobileResults = mobileOutput ? parseLighthouseResults(mobileOutput.jsonPath) : null;
-    
+
     if (!desktopResults && !mobileResults) {
       log('Failed to parse Lighthouse results.', 'red');
       process.exit(1);
     }
-    
+
     // Check thresholds
     if (desktopResults) {
       const desktopChecks = checkThresholds(desktopResults, 'desktop');
       desktopResults.violations = desktopChecks.violations;
       desktopResults.warnings = desktopChecks.warnings;
     }
-    
+
     if (mobileResults) {
       const mobileChecks = checkThresholds(mobileResults, 'mobile');
       mobileResults.violations = mobileChecks.violations;
       mobileResults.warnings = mobileChecks.warnings;
     }
-    
+
     // Generate report
     const report = generateReport(desktopResults, mobileResults);
-    
+
     // Exit with error code if there are violations
     if (report.status === 'FAIL') {
       log('\n❌ Lighthouse analysis failed!', 'red');
       process.exit(1);
     }
-    
+
     log('\n✅ Lighthouse analysis passed!', 'green');
     process.exit(0);
-    
   } catch (error) {
     log(`\n❌ Lighthouse analysis failed: ${error.message}`, 'red');
     console.error(error);

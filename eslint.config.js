@@ -45,7 +45,10 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'prettier/prettier': ['error'],
       // Allow unused variables during migration; ignore leading underscore
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
 
       // Performance rules
       'react/jsx-no-bind': 'warn',

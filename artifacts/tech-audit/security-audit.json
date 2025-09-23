@@ -14,15 +14,8 @@
       "https://www.google-analytics.com",
       "https://cdn.jsdelivr.net"
     ],
-    "img-src": [
-      "'self'",
-      "data:",
-      "blob:",
-      "https://res.cloudinary.com"
-    ],
-    "frame-ancestors": [
-      "'none'"
-    ]
+    "img-src": ["'self'", "data:", "blob:", "https://res.cloudinary.com"],
+    "frame-ancestors": ["'none'"]
   },
   "findings": [],
   "notes": "Security posture is strong. Keep third-party script hosts constrained and monitored."
