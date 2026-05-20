@@ -1,46 +1,22 @@
 import type { Metadata } from 'next';
-import { JsonLd } from '@/lib/seo';
-import { absoluteUrl, pageMetadata } from '@/lib/metadata';
-import { SITE_URL } from '@/lib/site';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchemaFromCore } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/decoration',
-  title: 'Event Decoration Services in Bangalore | We Decor',
+  title: 'Event Decoration Services in Bangalore | We Decor Events',
   description:
-    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bangalore.',
+    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
   ogImage: '/services/decoration.jpg',
 });
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Event Decoration Services',
-  description:
-    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
-  url: absoluteUrl('/services/decoration'),
-  provider: {
-    '@type': 'Organization',
-    name: 'We Decor',
-    url: SITE_URL,
-    telephone: '+91 8880544452',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressCountry: 'IN',
-    },
-  },
-  areaServed: { '@type': 'City', name: 'Bangalore' },
-  serviceType: 'Event Decoration',
-  offers: {
-    '@type': 'Offer',
-    description: 'Weddings, birthdays, haldi ceremonies, corporate events, and more',
-  },
-};
+const structuredData = buildServicePageSchemaFromCore('theme-decoration');
 
 export default function DecorationPage() {
   return (
     <>
-      <JsonLd data={structuredData} />
+      {structuredData ? <SchemaScript data={structuredData} /> : null}
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -107,7 +83,7 @@ export default function DecorationPage() {
               Get Free Quote
             </a>
             <a
-              href="tel:+918880544452"
+              href="tel:+919880544452"
               className="border border-pink-600 text-pink-600 dark:text-pink-400 px-8 py-3 rounded-lg font-semibold hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-colors duration-200"
             >
               Call +91 88805 44452

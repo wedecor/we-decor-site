@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { CLUSTERS } from '../_data/clusters';
 import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
 import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildCollectionPageSchema } from '@/lib/local-seo';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
@@ -196,30 +198,12 @@ export default function LocationsHubPage() {
             </div>
           </section>
 
-          {/* JSON-LD: CollectionPage */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                '@context': 'https://schema.org',
-                '@type': 'CollectionPage',
-                name: 'Areas We Serve — Bangalore',
-                hasPart: CLUSTERS.flatMap((c) =>
-                  c.areaSlugs
-                    .map((slug) => {
-                      const areaName = areaNameBySlug.get(slug);
-                      if (!areaName) return null;
-
-                      return {
-                        '@type': 'WebPage',
-                        url: absoluteUrl(`/locations/${slug}`),
-                        name: areaName,
-                      };
-                    })
-                    .filter(Boolean)
-                ),
-              }),
-            }}
+          <SchemaScript
+            data={buildCollectionPageSchema({
+              name: `Areas We Serve — ${CITY}`,
+              pageUrl: absoluteUrl('/locations'),
+              localityUrls: AREAS.map((a) => ({ name: a.name, slug: a.slug })),
+            })}
           />
         </div>
       </main>

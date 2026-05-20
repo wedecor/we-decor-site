@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { SITE_URL } from '../lib/site';
+import { buildSeoHeadDefaultSchema } from '@/lib/local-seo';
 
 interface SeoHeadProps {
   title?: string;
@@ -20,7 +21,7 @@ export default function SeoHead({
   type = 'website',
   schemaMarkup,
 }: SeoHeadProps) {
-  const siteName = 'We Decor';
+  const siteName = 'We Decor Events';
   // Build canonical URL using SITE_URL and canonicalPath, ensuring no trailing slash
   const canonical = canonicalPath ? `${SITE_URL}${canonicalPath.replace(/\/+$/, '')}` : SITE_URL;
 
@@ -67,37 +68,7 @@ export default function SeoHead({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            schemaMarkup || {
-              '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
-              name: 'We Decor',
-              image: metaImage,
-              address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Bangalore',
-                addressRegion: 'Karnataka',
-                addressCountry: 'IN',
-              },
-              telephone: '+918880544452',
-              url: canonical,
-              description: description,
-              areaServed: {
-                '@type': 'City',
-                name: 'Bangalore',
-              },
-              openingHours: 'Mo-Su 09:00-21:00',
-              review: {
-                '@type': 'Review',
-                reviewRating: { '@type': 'Rating', ratingValue: '5' },
-                author: { '@type': 'Person', name: 'Happy Customer' },
-              },
-              service: [
-                { '@type': 'Service', name: 'Birthday Decoration' },
-                { '@type': 'Service', name: 'Wedding Decor' },
-                { '@type': 'Service', name: 'Haldi Decoration' },
-                { '@type': 'Service', name: 'Tent & Balloon Setup' },
-              ],
-            }
+            schemaMarkup ?? buildSeoHeadDefaultSchema(canonical, description)
           ),
         }}
       />

@@ -1,36 +1,15 @@
-export default function LocalBizJsonLd({ areaName }: { areaName: string }) {
-  const data = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 9591232166',
-    areaServed: `${areaName}, Bengaluru`,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bengaluru',
-      addressRegion: 'KA',
-      addressCountry: 'IN',
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Event Decoration Services',
-      itemListElement: [
-        { '@type': 'Offer', name: 'Birthday Decoration' },
-        { '@type': 'Offer', name: 'Haldi Decoration' },
-        { '@type': 'Offer', name: 'Wedding Decoration' },
-        { '@type': 'Offer', name: 'Corporate Events' },
-        { '@type': 'Offer', name: 'Balloon Decoration' },
-        { '@type': 'Offer', name: 'Floral Arrangements' },
-      ],
-    },
-    description: `Professional event decoration services in ${areaName}, Bangalore. We specialize in birthday, wedding, haldi, and corporate event decoration with custom themes and professional setup.`,
-    priceRange: '₹₹',
-    openingHours: 'Mo-Su 09:00-21:00',
-    sameAs: ['https://instagram.com/wedecorbangalore'],
-  };
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildLocalityServiceSchema } from '@/lib/local-seo';
 
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
-  );
+type Props = {
+  areaName: string;
+  slug: string;
+};
+
+/**
+ * Locality pages reference the canonical LocalBusiness via provider @id.
+ * Emits a geo-scoped Service entity (not a duplicate LocalBusiness).
+ */
+export default function LocalBizJsonLd({ areaName, slug }: Props) {
+  return <SchemaScript data={buildLocalityServiceSchema(areaName, slug)} />;
 }

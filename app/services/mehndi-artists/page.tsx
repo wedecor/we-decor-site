@@ -1,46 +1,27 @@
 import type { Metadata } from 'next';
-import { JsonLd } from '@/lib/seo';
+import SchemaScript from '@/components/seo/SchemaScript';
 import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/mehndi-artists',
-  title: 'Mehndi Artists in Bangalore | We Decor',
+  title: 'Mehndi Artists in Bangalore | We Decor Events',
   description:
     'Intricate mehndi designs for all events and festivals. Professional mehndi artists in Bangalore.',
   ogImage: '/services/mehndi.jpg',
 });
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
+const structuredData = buildServicePageSchema({
   name: 'Mehndi Artists',
-  description: 'Intricate mehndi designs for all events and festivals.',
-  provider: {
-    '@type': 'Organization',
-    name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 88805 44452',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Bangalore'
-  },
-  serviceType: 'Mehndi Art Services',
-  offers: {
-    '@type': 'Offer',
-    description: 'Wedding mehndi, festival designs, party mehndi, and special occasions'
-  }
-};
+  serviceType: 'Mehndi art',
+  description: 'Wedding and festival mehndi services in Bengaluru.',
+  path: '/services/mehndi-artists',
+});
 
 export default function MehndiArtistsPage() {
   return (
     <>
-      <JsonLd data={structuredData} />
+      <SchemaScript data={structuredData} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

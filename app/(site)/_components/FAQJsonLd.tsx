@@ -1,18 +1,18 @@
-export default function FAQJsonLd({ items }: { items: { question: string; answer: string }[] }) {
-  const data = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: items.map((i) => ({
-      '@type': 'Question',
-      name: i.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: i.answer,
-      },
-    })),
-  };
+import SchemaScript from '@/components/seo/SchemaScript';
+import { absoluteUrl } from '@/lib/metadata';
+import { buildFaqPageSchema } from '@/lib/local-seo';
 
-  return (
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
+type Props = {
+  items: { question: string; answer: string }[];
+  pagePath?: string;
+};
+
+export default function FAQJsonLd({ items, pagePath }: Props) {
+  const url = pagePath ? absoluteUrl(pagePath) : undefined;
+  const schema = buildFaqPageSchema(
+    items.map((i) => ({ question: i.question, answer: i.answer })),
+    url ?? absoluteUrl('/')
   );
+  if (!schema) return null;
+  return <SchemaScript data={schema} />;
 }

@@ -18,6 +18,8 @@ import Footer from '../../../../components/Footer';
 import LocationGallery from '../../../../components/LocationGallery';
 import FAQJsonLd from '../../_components/FAQJsonLd';
 import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildBreadcrumbSchema } from '@/lib/local-seo';
 import Link from 'next/link';
 
 interface LocationPageProps {
@@ -62,37 +64,20 @@ export default async function LocationPage({ params }: LocationPageProps) {
   return (
     <>
       {/* JSON-LD Schema */}
-      <LocalBizJsonLd areaName={areaName} />
+      <LocalBizJsonLd areaName={areaName} slug={slug} />
       <FAQJsonLd
         items={faqItems.map((f) => ({
           question: f.q,
           answer: f.a,
         }))}
+        pagePath={`/locations/${slug}`}
       />
-
-      {/* BreadcrumbList Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Locations',
-                item: absoluteUrl('/locations'),
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: areaName,
-                item: absoluteUrl(`/locations/${slug}`),
-              },
-            ],
-          }),
-        }}
+      <SchemaScript
+        data={buildBreadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Locations', path: '/locations' },
+          { name: areaName, path: `/locations/${slug}` },
+        ])}
       />
 
       <Navbar />

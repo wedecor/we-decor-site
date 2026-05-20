@@ -1,50 +1,28 @@
 import type { Metadata } from 'next';
+import SchemaScript from '@/components/seo/SchemaScript';
 import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchemaFromCore } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/birthday-decoration',
-  title: 'Birthday Decoration Services in Bangalore | We Decor',
+  title: 'Birthday Decoration Services in Bangalore | We Decor Events',
   description:
-    'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
+    'Make birthdays unforgettable with our creative decor services in Bengaluru. Professional birthday party decorations, themes, and setups.',
   ogImage: '/services/birthday.webp',
 });
 
-export default function BirthdayDecorationPage() {
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Birthday Decoration',
-    name: 'Birthday Decoration Services',
-    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
-    provider: {
-      '@type': 'Organization',
-      name: 'We Decor',
-      areaServed: 'Bangalore, India',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Bangalore',
-        addressCountry: 'IN',
-      },
-      telephone: '+917019169442',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: 'Bangalore',
-    },
-  };
+const structuredData = buildServicePageSchemaFromCore('birthday-decoration');
 
+export default function BirthdayDecorationPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      {structuredData ? <SchemaScript data={structuredData} /> : null}
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <section className="bg-gradient-to-r from-pink-500 to-purple-600 text-white py-16">
           <div className="max-w-6xl mx-auto px-6 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Birthday Decoration Services</h1>
             <p className="text-xl md:text-2xl mb-8">
-              Make every birthday celebration magical and memorable
+              Make every birthday celebration magical and memorable in Bengaluru
             </p>
           </div>
         </section>
@@ -53,7 +31,9 @@ export default function BirthdayDecorationPage() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6 dark:text-white">Why Choose Our Birthday Decorations?</h2>
+                <h2 className="text-3xl font-bold mb-6 dark:text-white">
+                  Why Choose Our Birthday Decorations?
+                </h2>
                 <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
                   <li className="flex items-start">
                     <span className="text-pink-500 mr-3">🎈</span>

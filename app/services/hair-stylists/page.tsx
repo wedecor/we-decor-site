@@ -1,46 +1,27 @@
 import type { Metadata } from 'next';
-import { JsonLd } from '@/lib/seo';
+import SchemaScript from '@/components/seo/SchemaScript';
 import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/hair-stylists',
-  title: 'Expert Hair Stylists in Bangalore | We Decor',
+  title: 'Expert Hair Stylists in Bangalore | We Decor Events',
   description:
     'Expert hair styling for your special day or event. Professional hair services in Bangalore.',
   ogImage: '/services/hair.jpg',
 });
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
+const structuredData = buildServicePageSchema({
   name: 'Expert Hair Stylists',
-  description: 'Expert hair styling for your special day or event.',
-  provider: {
-    '@type': 'Organization',
-    name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 88805 44452',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Bangalore'
-  },
-  serviceType: 'Hair Styling Services',
-  offers: {
-    '@type': 'Offer',
-    description: 'Wedding hair styling, party hairstyles, corporate events, and special occasions'
-  }
-};
+  serviceType: 'Hair styling',
+  description: 'Wedding and event hair styling in Bengaluru.',
+  path: '/services/hair-stylists',
+});
 
 export default function HairStylistsPage() {
   return (
     <>
-      <JsonLd data={structuredData} />
+      <SchemaScript data={structuredData} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

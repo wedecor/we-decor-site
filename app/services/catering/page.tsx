@@ -1,48 +1,28 @@
 import type { Metadata } from 'next';
-import { JsonLd } from '@/lib/seo';
-import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/catering',
-  title: 'Catering Services in Bangalore | We Decor',
+  title: 'Catering Services in Bangalore | We Decor Events',
   description:
-    'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service, so you can focus on your celebration.',
+    'We Decor Events provides catering coordination for celebrations in Bengaluru. Delicious menus and seamless service for your event.',
   ogImage: '/services/catering.jpg',
 });
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
+const structuredData = buildServicePageSchema({
   name: 'Catering Services',
+  serviceType: 'Catering',
   description:
-    'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service.',
-  url: absoluteUrl('/services/catering'),
-  provider: {
-    '@type': 'Organization',
-    name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 88805 44452',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Bangalore'
-  },
-  serviceType: 'Catering Services',
-  offers: {
-    '@type': 'Offer',
-    description: 'Veg Catering, Non-Veg Catering, Sweets & Desserts, Regional and Custom Menus'
-  }
-};
+    'Catering services for weddings, birthdays, and corporate events in Bengaluru.',
+  path: '/services/catering',
+});
 
 export default function CateringPage() {
   return (
     <>
-      <JsonLd data={structuredData} />
+      <SchemaScript data={structuredData} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

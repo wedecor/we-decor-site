@@ -10,6 +10,11 @@ import {
   buildWhatsAppUrl,
   buildPhoneUrl,
 } from '../lib/site';
+import SchemaScript from '@/components/seo/SchemaScript';
+import {
+  buildBreadcrumbSchema,
+  buildLocationServiceSchema,
+} from '@/lib/local-seo';
 
 interface LocationServicePageProps {
   location: {
@@ -46,46 +51,23 @@ export default function LocationServicePage({
   const pageDescription = `Professional ${service.name.toLowerCase()} services in ${location.displayName}, Bangalore. ${service.blurb} Book now for your special occasion.`;
   const pageUrl = buildLocationServiceUrl(location.slug, service.slug);
 
-  // JSON-LD Schema for LocalBusiness and Service
-  const schemaMarkup = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'We Decor',
-    description: `${service.name} services in ${location.displayName}, Bangalore`,
-    url: '/',
-    telephone: '+91 9591232166',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: location.displayName,
-      addressRegion: 'Bangalore',
-      addressCountry: 'IN',
+  const serviceSchema = buildLocationServiceSchema({
+    locationName: location.displayName,
+    locationSlug: location.slug,
+    serviceName: service.name,
+    serviceSlug: service.slug,
+    serviceDescription: service.blurb,
+  });
+
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Locations', path: '/locations' },
+    { name: location.displayName, path: `/locations/${location.slug}` },
+    {
+      name: service.name,
+      path: `/locations/${location.slug}/services/${service.slug}`,
     },
-    areaServed: {
-      '@type': 'City',
-      name: location.displayName,
-    },
-    serviceType: service.name,
-    priceRange: '₹₹',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '150+',
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: `${service.name} Services`,
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: service.name,
-            description: service.blurb,
-          },
-        },
-      ],
-    },
-  };
+  ]);
 
   // Reasons to choose We Decor
   const reasonsToChoose = [
@@ -123,11 +105,7 @@ export default function LocationServicePage({
 
   return (
     <>
-      {/* JSON-LD Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
-      />
+      <SchemaScript data={[serviceSchema, breadcrumbSchema]} />
 
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
         {/* Hero Section */}

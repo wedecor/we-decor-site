@@ -1,46 +1,27 @@
 import type { Metadata } from 'next';
-import { JsonLd } from '@/lib/seo';
+import SchemaScript from '@/components/seo/SchemaScript';
 import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/makeup-artists',
-  title: 'Professional Make-up Artists in Bangalore | We Decor',
+  title: 'Professional Make-up Artists in Bangalore | We Decor Events',
   description:
     'Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.',
   ogImage: '/services/makeup.jpg',
 });
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
+const structuredData = buildServicePageSchema({
   name: 'Professional Make-up Artists',
-  description: 'Professional make-up for weddings, parties, and corporate events.',
-  provider: {
-    '@type': 'Organization',
-    name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 88805 44452',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Bangalore'
-  },
-  serviceType: 'Make-up Services',
-  offers: {
-    '@type': 'Offer',
-    description: 'Wedding make-up, party make-up, corporate events, and special occasions'
-  }
-};
+  serviceType: 'Make-up',
+  description: 'Wedding and event make-up services in Bengaluru.',
+  path: '/services/makeup-artists',
+});
 
 export default function MakeupArtistsPage() {
   return (
     <>
-      <JsonLd data={structuredData} />
+      <SchemaScript data={structuredData} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

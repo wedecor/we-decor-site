@@ -6,6 +6,15 @@ async function fetchUrl(u: string) {
   return { status: r.status, html, finalUrl: r.url };
 }
 
+function flattenSchema(blocks: any[]): any[] {
+  const flat: any[] = [];
+  for (const b of blocks) {
+    if (Array.isArray(b['@graph'])) flat.push(...b['@graph']);
+    else flat.push(b);
+  }
+  return flat;
+}
+
 function extractJsonLd(html: string) {
   const scripts = Array.from(
     html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)
@@ -19,7 +28,7 @@ function extractJsonLd(html: string) {
       else blocks.push(parsed);
     } catch {}
   }
-  return blocks;
+  return flattenSchema(blocks);
 }
 
 (async () => {
@@ -48,6 +57,10 @@ function extractJsonLd(html: string) {
   const locLd = extractJsonLd(loc.html);
   const hasFaq = locLd.some((b) => b['@type'] === 'FAQPage');
   if (!hasFaq) throw new Error(`FAQPage JSON-LD missing on /locations/${slug}`);
+  const hasLocalityService = locLd.some((b) => b['@type'] === 'Service');
+  if (!hasLocalityService) {
+    throw new Error(`Service JSON-LD missing on /locations/${slug} (provider-linked locality)`);
+  }
 
   const areasRedirect = await fetch(`${base}/areas/${slug}`, { redirect: 'manual' });
   if (areasRedirect.status !== 308 && areasRedirect.status !== 301) {

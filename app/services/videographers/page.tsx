@@ -1,46 +1,27 @@
 import type { Metadata } from 'next';
-import { JsonLd } from '@/lib/seo';
+import SchemaScript from '@/components/seo/SchemaScript';
 import { pageMetadata } from '@/lib/metadata';
+import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/videographers',
-  title: 'Professional Videographers in Bangalore | We Decor',
+  title: 'Professional Videographers in Bangalore | We Decor Events',
   description:
     'Dynamic, impactful event videos for weddings, parties, and more. Professional videography services in Bangalore.',
   ogImage: '/services/videography.jpg',
 });
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
+const structuredData = buildServicePageSchema({
   name: 'Professional Videographers',
-  description: 'Dynamic, impactful event videos for weddings, parties, and more.',
-  provider: {
-    '@type': 'Organization',
-    name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 88805 44452',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
-  },
-  areaServed: {
-    '@type': 'City',
-    name: 'Bangalore'
-  },
-  serviceType: 'Videography Services',
-  offers: {
-    '@type': 'Offer',
-    description: 'Wedding videography, event videos, corporate videos, and special occasions'
-  }
-};
+  serviceType: 'Videography',
+  description: 'Event and wedding videography in Bengaluru.',
+  path: '/services/videographers',
+});
 
 export default function VideographersPage() {
   return (
     <>
-      <JsonLd data={structuredData} />
+      <SchemaScript data={structuredData} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
