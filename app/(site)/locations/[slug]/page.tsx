@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { pageMetadata } from '@/lib/metadata';
+import { absoluteUrl, pageMetadata } from '@/lib/metadata';
 import {
   AREAS,
-  SITE,
   BUSINESS_NAME,
   CITY,
   PHONE_DISPLAY,
@@ -79,12 +78,17 @@ export default async function LocationPage({ params }: LocationPageProps) {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Locations', item: `${SITE}/locations` },
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Locations',
+                item: absoluteUrl('/locations'),
+              },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: areaName,
-                item: `${SITE}/locations/${slug}`,
+                item: absoluteUrl(`/locations/${slug}`),
               },
             ],
           }),

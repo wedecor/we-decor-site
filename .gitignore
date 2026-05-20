@@ -35,6 +35,7 @@ yarn-error.log*
 # Test & audit artifacts (may contain leaked scan matches)
 artifacts/
 !artifacts/.gitkeep
+public/_originals/
 playwright-report/
 test-results/
 coverage/

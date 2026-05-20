@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CLUSTERS } from '../_data/clusters';
 import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
-import { pageMetadata } from '@/lib/metadata';
+import { absoluteUrl, pageMetadata } from '@/lib/metadata';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
@@ -212,7 +212,7 @@ export default function LocationsHubPage() {
 
                       return {
                         '@type': 'WebPage',
-                        url: `${SITE}/locations/${slug}`,
+                        url: absoluteUrl(`/locations/${slug}`),
                         name: areaName,
                       };
                     })

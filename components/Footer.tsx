@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Logo and business name */}
           <div className="flex items-center gap-3">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="We Decor Logo"
               width={40}
               height={40}

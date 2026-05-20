@@ -6,7 +6,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Birthday Decoration Services in Bangalore | We Decor',
   description:
     'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
-  ogImage: '/services/birthday.JPG',
+  ogImage: '/services/birthday.webp',
 });
 
 export default function BirthdayDecorationPage() {

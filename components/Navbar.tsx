@@ -16,12 +16,12 @@ export default function Navbar() {
           className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-green-500 rounded"
         >
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="We Decor Logo - Event Decoration Services in Bangalore"
             width={36}
             height={36}
             className="rounded-full shadow"
-            priority
+            sizes="36px"
           />
           <span className="font-bold text-2xl text-green-700 dark:text-green-200 tracking-wide group-hover:text-pink-500 dark:group-hover:text-pink-300 transition">
             We Decor

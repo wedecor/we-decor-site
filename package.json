@@ -70,6 +70,8 @@
     "build:check": "node -e \"if(!process.env.NEXT_PUBLIC_SITE_URL){console.error('NEXT_PUBLIC_SITE_URL missing');process.exit(2)}\" && npm run build",
     "serve:prod": "next start -p 3001",
     "images:convert": "node scripts/convert-images.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs --remove-originals",
+    "images:optimize:all": "node scripts/optimize-images.mjs --remove-originals --gallery",
     "verify:headers": "tsx scripts/headers-verify.ts",
     "verify:lh": "node scripts/verify-lh.mjs",
     "hygiene": "npm prune --production && depcheck || true",

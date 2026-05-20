@@ -17,7 +17,7 @@ export default function Contact() {
     <div className="max-w-xl mx-auto py-16">
       <div className="flex flex-col items-center mb-8">
         <Image
-          src="/logo.png"
+          src="/logo.webp"
           alt="We Decor logo"
           width={120}
           height={120}

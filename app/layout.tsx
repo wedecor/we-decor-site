@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 import ThemeProvider from '@/components/ThemeProvider';
 import Navbar from '@/components/Navbar';
@@ -6,9 +7,15 @@ import Footer from '@/components/Footer';
 import './env-guard';
 import Script from 'next/script';
 import { GA_ID } from '@/lib/gtag';
-import './_app-web-vitals.client';
+import WebVitalsReporter from '@/components/WebVitalsReporter';
 import { METADATA_BASE, getIndexingRobots } from '@/lib/metadata';
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   metadataBase: METADATA_BASE,
@@ -22,8 +29,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="font-sans">
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
+      <body className={`${inter.className} font-sans antialiased`}>
         <ThemeProvider>
           <Navbar />
           <main className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200">
@@ -31,10 +38,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
         </ThemeProvider>
+        <WebVitalsReporter />
         {GA_ID ? (
           <>
-            <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-            <Script id="ga4-init" strategy="afterInteractive">
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="lazyOnload"
+            />
+            <Script id="ga4-init" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);} 

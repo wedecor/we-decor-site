@@ -120,7 +120,7 @@ export function OrganizationJsonLd() {
     '@type': 'Organization',
     name: 'We Decor Events',
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    logo: `${SITE_URL}/logo.webp`,
     description:
       "Bangalore's trusted event decoration experts for weddings, birthdays, haldi, and more.",
     address: {

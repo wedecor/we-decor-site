@@ -25,7 +25,7 @@ export default function GalleryPage() {
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex flex-col items-center mb-8">
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt="We Decor logo"
             width={80}
             height={80}

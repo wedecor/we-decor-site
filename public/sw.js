@@ -6,8 +6,8 @@ const urlsToCache = [
   '/gallery',
   '/services',
   '/static/css/main.css',
-  '/logo.png',
-  '/og-banner.jpg',
+  '/logo.webp',
+  '/og-banner.webp',
 ];
 
 // Install event
