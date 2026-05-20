@@ -1,23 +1,13 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/services/birthday-decoration',
   title: 'Birthday Decoration Services in Bangalore | We Decor',
-  description: 'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
-  openGraph: {
-    title: 'Birthday Decoration Services in Bangalore | We Decor',
-    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
-    images: ['/services/birthday.JPG'],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Birthday Decoration Services in Bangalore | We Decor',
-    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
-    images: ['/services/birthday.JPG'],
-  },
-  alternates: {
-    canonical: '/services/birthday-decoration',
-  },
-};
+  description:
+    'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
+  ogImage: '/services/birthday.JPG',
+});
 
 export default function BirthdayDecorationPage() {
   const structuredData = {

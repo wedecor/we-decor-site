@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import https from 'node:https';
 
 const VALIDATE_BASE_URL = process.env.BASE_URL || 'https://www.wedecorevents.com';
-const pages = ['/', '/areas', '/areas/koramangala'];
+const pages = ['/', '/locations', '/locations/koramangala'];
 
 function get(url: string): Promise<string> {
   return new Promise<string>((resolve) => {

@@ -9,15 +9,20 @@ async function get(path: string) {
   const sm = await get('/sitemap.xml');
   if (sm.status !== 200) throw new Error('sitemap.xml not 200');
   const txt = sm.text;
+  const hasLocations = /\/locations\/[\w-]+</.test(txt);
   const hasAreas = /\/areas\/[\w-]+</.test(txt);
   const hasGallery = /\/gallery</.test(txt);
-  if (!hasAreas) throw new Error('sitemap.xml missing /areas/* URLs');
+  if (!hasLocations) throw new Error('sitemap.xml missing /locations/* URLs');
+  if (hasAreas) throw new Error('sitemap.xml must not include /areas/* URLs (use /locations/* only)');
   if (!hasGallery) throw new Error('sitemap.xml missing /gallery');
 
   const robots = await get('/robots.txt');
   if (robots.status !== 200) throw new Error('robots.txt not 200');
   const mentions = /Sitemap:\s*https?:\/\/[^\s]+\/sitemap\.xml/i.test(robots.text);
   if (!mentions) throw new Error('robots.txt missing Sitemap: line');
+  if (/\/api\/sitemap\.xml/i.test(robots.text)) {
+    throw new Error('robots.txt must reference /sitemap.xml, not /api/sitemap.xml');
+  }
 
   console.log('✅ sitemap.xml & robots.txt look good');
 })();

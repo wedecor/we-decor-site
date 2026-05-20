@@ -37,15 +37,13 @@ test.describe('Accessibility Tests', () => {
     }
   });
 
-  test('areas page should have proper navigation', async ({ page }) => {
-    await page.goto('/areas');
+  test('locations hub should have proper navigation', async ({ page }) => {
+    await page.goto('/locations');
     
-    // Check for proper heading
     const h1 = page.locator('h1');
-    await expect(h1).toContainText('Service Areas');
+    await expect(h1).toContainText('Areas We Serve');
     
-    // Check for accessible links
-    const links = page.locator('a[href*="/areas/"]');
+    const links = page.locator('a[href*="/locations/"]');
     const linkCount = await links.count();
     expect(linkCount).toBeGreaterThan(0);
     
@@ -83,7 +81,7 @@ test.describe('Accessibility Tests', () => {
   });
 
   // Axe-core accessibility tests
-  const routes = ['/', '/gallery', '/areas', '/contact'];
+  const routes = ['/', '/gallery', '/locations', '/contact'];
 
   for (const route of routes) {
     test(`axe: ${route}`, async ({ page }) => {

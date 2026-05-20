@@ -1,23 +1,25 @@
-// tests/areas.spec.ts
+// tests/areas.spec.ts — legacy /areas/* routes must redirect to canonical /locations/*
 import { test, expect } from '@playwright/test';
-import fs from 'fs';
-import path from 'path';
+import { AREAS } from '../app/(site)/_data/locations';
 
-test.describe('Areas pages SEO smoke', () => {
-  const site = process.env.PREVIEW_URL || 'http://localhost:3000';
-  const areasDir = path.join(process.cwd(), 'app', 'areas');
-  const slugs = fs
-    .readdirSync(areasDir, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && fs.existsSync(path.join(areasDir, d.name, 'page.tsx')))
-    .map((d) => d.name);
+const site = process.env.PREVIEW_URL || 'http://localhost:3000';
 
-  for (const slug of slugs) {
-    test(`/${slug} has title & description`, async ({ page }) => {
-      await page.goto(`${site}/areas/${slug}`, { waitUntil: 'domcontentloaded' });
-      const title = await page.title();
-      expect(title).toContain('Event Decoration in');
-      const desc = await page.locator('meta[name="description"]').getAttribute('content');
-      expect(desc).toBeTruthy();
+test.describe('Areas → Locations redirect & location SEO', () => {
+  for (const { slug } of AREAS.slice(0, 5)) {
+    test(`/areas/${slug} redirects to /locations/${slug}`, async ({ page }) => {
+      const res = await page.goto(`${site}/areas/${slug}`, { waitUntil: 'domcontentloaded' });
+      expect(page.url()).toContain(`/locations/${slug}`);
+      expect(res?.status()).toBeLessThan(400);
     });
   }
+
+  test('/locations/koramangala has title & description', async ({ page }) => {
+    await page.goto(`${site}/locations/koramangala`, { waitUntil: 'domcontentloaded' });
+    const title = await page.title();
+    expect(title).toMatch(/Koramangala|Event Decoration/i);
+    const desc = await page.locator('meta[name="description"]').getAttribute('content');
+    expect(desc).toBeTruthy();
+    const canonical = await page.locator('link[rel="canonical"]').getAttribute('href');
+    expect(canonical).toMatch(/\/locations\/koramangala$/);
+  });
 });

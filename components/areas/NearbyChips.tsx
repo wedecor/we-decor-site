@@ -12,7 +12,7 @@ export default function NearbyChips({ nearby }: { nearby: Nearby[] }) {
         {nearby.map((n) => (
           <Link
             key={n.slug}
-            href={`/areas/${n.slug}`}
+            href={`/locations/${n.slug}`}
             className="rounded-full border border-gray-200 dark:border-gray-600 px-3 py-1 text-sm hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors"
           >
             {n.name}

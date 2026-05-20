@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { pageMetadata } from '@/lib/metadata';
 import {
   AREAS,
   SITE,
@@ -33,11 +34,11 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
   const area = getAreaBySlug(slug);
   if (!area) return { title: 'Location Not Found' };
 
-  return {
+  return pageMetadata({
+    path: `/locations/${area.slug}`,
     title: `Event Decoration Services in ${area.name}, ${CITY} | ${BUSINESS_NAME}`,
     description: `Professional event decoration services in ${area.name}, ${CITY}. Birthday decor, wedding setup, haldi decoration, room decoration.`,
-    alternates: { canonical: `${SITE}/locations/${area.slug}` },
-  };
+  });
 }
 
 export default async function LocationPage({ params }: LocationPageProps) {

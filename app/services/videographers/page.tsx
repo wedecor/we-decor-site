@@ -1,23 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Professional Videographers in Bangalore | We Decor",
-  description: "Dynamic, impactful event videos for weddings, parties, and more. Professional videography services in Bangalore.",
-  alternates: { canonical: "/services/videographers" },
-  openGraph: {
-    title: "Professional Videographers in Bangalore | We Decor",
-    description: "Dynamic, impactful event videos for weddings, parties, and more.",
-    url: "/services/videographers",
-    images: ["/services/videography.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Professional Videographers in Bangalore | We Decor",
-    description: "Dynamic, impactful event videos for weddings, parties, and more.",
-    images: ["/services/videography.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/videographers',
+  title: 'Professional Videographers in Bangalore | We Decor',
+  description:
+    'Dynamic, impactful event videos for weddings, parties, and more. Professional videography services in Bangalore.',
+  ogImage: '/services/videography.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',

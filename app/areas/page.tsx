@@ -2,13 +2,14 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { AREAS } from '@/app/(site)/_data/locations';
 import { SITE_URL } from '@/lib/site';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/locations',
   title: 'Service Areas | We Decor',
   description:
     'Browse all neighborhoods and localities We Decor serves for birthdays, engagements, baby showers and more.',
-  alternates: { canonical: '/areas' },
-};
+});
 
 export default function AreasIndexPage() {
   // Force rebuild for Vercel deployment
@@ -18,7 +19,7 @@ export default function AreasIndexPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${base}/` },
-      { '@type': 'ListItem', position: 2, name: 'Areas', item: `${base}/areas` },
+      { '@type': 'ListItem', position: 2, name: 'Locations', item: `${base}/locations` },
     ],
   };
 
@@ -40,7 +41,7 @@ export default function AreasIndexPage() {
             {areas.map((a) => (
               <Link
                 key={a.slug}
-                href={`/areas/${a.slug}`}
+                href={`/locations/${a.slug}`}
                 className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-200 group"
               >
                 <span className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">

@@ -2,7 +2,7 @@ import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
 
 const base = process.env.LH_BASE || 'http://localhost:3000';
-const urls = ['/', '/areas/east-bangalore'];
+const urls = ['/', '/locations/koramangala'];
 const thresholds = { perf: 90, a11y: 95, bp: 95, seo: 95 };
 
 const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless'] });

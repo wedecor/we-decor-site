@@ -1,23 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Expert Hair Stylists in Bangalore | We Decor",
-  description: "Expert hair styling for your special day or event. Professional hair services in Bangalore.",
-  alternates: { canonical: "/services/hair-stylists" },
-  openGraph: {
-    title: "Expert Hair Stylists in Bangalore | We Decor",
-    description: "Expert hair styling for your special day or event.",
-    url: "/services/hair-stylists",
-    images: ["/services/hair.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Expert Hair Stylists in Bangalore | We Decor",
-    description: "Expert hair styling for your special day or event.",
-    images: ["/services/hair.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/hair-stylists',
+  title: 'Expert Hair Stylists in Bangalore | We Decor',
+  description:
+    'Expert hair styling for your special day or event. Professional hair services in Bangalore.',
+  ogImage: '/services/hair.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',

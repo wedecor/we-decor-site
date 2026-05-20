@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { silenceExpectedConsole } from './utils/console-filter';
 
 // Routes we consider core
-const ROUTES = ['/', '/gallery', '/services', '/pricing', '/faq', '/contact', '/areas', '/locations'] as const;
+const ROUTES = ['/', '/gallery', '/services', '/pricing', '/faq', '/contact', '/locations'] as const;
 
 // Brand & contact expectations (update if your constants change)
 const EXPECTED = {
@@ -56,7 +56,6 @@ test.describe('feature-smoke', () => {
       { text: 'About', path: '/about' },
       { text: 'Services', path: '/services' },
       { text: 'Gallery', path: '/gallery' },
-      { text: 'Areas', path: '/areas' },
       { text: 'Locations', path: '/locations' },
       { text: 'Pricing', path: '/pricing' },
       { text: 'FAQ', path: '/faq' },

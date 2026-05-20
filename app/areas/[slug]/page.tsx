@@ -8,6 +8,7 @@ import FAQAccordion from '@/components/areas/FAQAccordion';
 import ContactCard from '@/components/areas/ContactCard';
 import { FaqPageJsonLd } from '@/components/seo/FaqJsonLd';
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
 export async function generateStaticParams() {
   return AREAS.map((a) => ({ slug: a.slug }));
@@ -22,15 +23,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const area = AREAS.find((a) => a.slug === slug);
   if (!area) return {};
-  const base = SITE_URL.replace(/\/+$/, '');
   const title = `${area.name} Event Decoration | We Decor Events`;
   const description = `Premium birthday, engagement & wedding decor in ${area.name}. Professional event decoration services for weddings, birthdays, haldi, and more.`;
-  return {
+  return pageMetadata({
+    path: `/locations/${area.slug}`,
     title,
     description,
-    alternates: { canonical: `${base}/areas/${area.slug}` },
-    openGraph: { title, description, url: `${base}/areas/${area.slug}`, type: 'article' },
-  };
+  });
 }
 
 export default async function AreaPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -47,8 +46,8 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${base}/` },
-      { '@type': 'ListItem', position: 2, name: 'Areas', item: `${base}/areas` },
-      { '@type': 'ListItem', position: 3, name: area.name, item: `${base}/areas/${area.slug}` },
+      { '@type': 'ListItem', position: 2, name: 'Locations', item: `${base}/locations` },
+      { '@type': 'ListItem', position: 3, name: area.name, item: `${base}/locations/${area.slug}` },
     ],
   };
   const services = [
@@ -78,7 +77,7 @@ export default async function AreaPage({ params }: { params: Promise<{ slug: str
       <FAQAccordion locality={area.name} faqs={faqs} />
       <ContactCard locality={area.name} />
       {/* JSON-LD: FAQPage */}
-      <FaqPageJsonLd faqs={faqs} url={`${base}/areas/${area.slug}`} />
+      <FaqPageJsonLd faqs={faqs} url={`${base}/locations/${area.slug}`} />
       {/* JSON-LD: Breadcrumbs */}
       <script
         type="application/ld+json"

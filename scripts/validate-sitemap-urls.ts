@@ -4,7 +4,7 @@ import { SITE_URL } from '../lib/site';
 
 const base = process.env.NEXT_PUBLIC_SITE_URL!;
 const PROD_URL = SITE_URL;
-const want = ['/', '/services', '/gallery', '/areas', '/locations'];
+const want = ['/', '/about', '/services', '/gallery', '/reviews', '/locations'];
 
 (async () => {
   const xml = await (await fetch(`${base}/sitemap.xml`)).text();

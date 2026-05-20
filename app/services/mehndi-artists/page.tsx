@@ -1,23 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Mehndi Artists in Bangalore | We Decor",
-  description: "Intricate mehndi designs for all events and festivals. Professional mehndi artists in Bangalore.",
-  alternates: { canonical: "/services/mehndi-artists" },
-  openGraph: {
-    title: "Mehndi Artists in Bangalore | We Decor",
-    description: "Intricate mehndi designs for all events and festivals.",
-    url: "/services/mehndi-artists",
-    images: ["/services/mehndi.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Mehndi Artists in Bangalore | We Decor",
-    description: "Intricate mehndi designs for all events and festivals.",
-    images: ["/services/mehndi.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/mehndi-artists',
+  title: 'Mehndi Artists in Bangalore | We Decor',
+  description:
+    'Intricate mehndi designs for all events and festivals. Professional mehndi artists in Bangalore.',
+  ogImage: '/services/mehndi.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',

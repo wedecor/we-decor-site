@@ -1,9 +1,9 @@
 const JSONLD_BASE = process.env.SEO_BASE_URL ?? 'http://localhost:3000';
 
 async function fetchUrl(u: string) {
-  const r = await fetch(u);
+  const r = await fetch(u, { redirect: 'follow' });
   const html = await r.text();
-  return { status: r.status, html };
+  return { status: r.status, html, finalUrl: r.url };
 }
 
 function extractJsonLd(html: string) {
@@ -25,7 +25,6 @@ function extractJsonLd(html: string) {
 (async () => {
   const base = JSONLD_BASE.replace(/\/+$/, '');
 
-  // Home: expect LocalBusiness
   const home = await fetchUrl(`${base}/`);
   if (home.status !== 200) throw new Error('Home not 200');
   const homeLd = extractJsonLd(home.html);
@@ -36,21 +35,30 @@ function extractJsonLd(html: string) {
   );
   if (!hasLocalBusiness) throw new Error('LocalBusiness JSON-LD missing on home');
 
-  // Gallery: expect BreadcrumbList
   const gal = await fetchUrl(`${base}/gallery`);
   if (gal.status !== 200) throw new Error('Gallery not 200');
   const galLd = extractJsonLd(gal.html);
   const hasBreadcrumbs = galLd.some((b) => b['@type'] === 'BreadcrumbList');
   if (!hasBreadcrumbs) throw new Error('BreadcrumbList JSON-LD missing on /gallery');
 
-  // Area: pick one slug likely present (koramangala), fallback to first
   const candidates = ['koramangala', 'indiranagar', 'whitefield'];
-  let slug = candidates.find(Boolean) || 'koramangala';
-  const area = await fetchUrl(`${base}/areas/${slug}`);
-  if (area.status !== 200) throw new Error(`/areas/${slug} not 200`);
-  const areaLd = extractJsonLd(area.html);
-  const hasFaq = areaLd.some((b) => b['@type'] === 'FAQPage');
-  if (!hasFaq) throw new Error(`FAQPage JSON-LD missing on /areas/${slug}`);
+  const slug = candidates[0];
+  const loc = await fetchUrl(`${base}/locations/${slug}`);
+  if (loc.status !== 200) throw new Error(`/locations/${slug} not 200`);
+  const locLd = extractJsonLd(loc.html);
+  const hasFaq = locLd.some((b) => b['@type'] === 'FAQPage');
+  if (!hasFaq) throw new Error(`FAQPage JSON-LD missing on /locations/${slug}`);
 
-  console.log('✅ JSON-LD present: LocalBusiness (home), BreadcrumbList (gallery), FAQPage (area)');
+  const areasRedirect = await fetch(`${base}/areas/${slug}`, { redirect: 'manual' });
+  if (areasRedirect.status !== 308 && areasRedirect.status !== 301) {
+    throw new Error(`/areas/${slug} should 301/308 redirect, got ${areasRedirect.status}`);
+  }
+  const locHeader = areasRedirect.headers.get('location') ?? '';
+  if (!locHeader.includes(`/locations/${slug}`)) {
+    throw new Error(`/areas/${slug} redirect Location must point to /locations/${slug}`);
+  }
+
+  console.log(
+    '✅ JSON-LD present: LocalBusiness (home), BreadcrumbList (gallery), FAQPage (location); /areas/* redirects to /locations/*'
+  );
 })();

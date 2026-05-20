@@ -7,15 +7,17 @@ import './env-guard';
 import Script from 'next/script';
 import { GA_ID } from '@/lib/gtag';
 import './_app-web-vitals.client';
+import { METADATA_BASE, getIndexingRobots } from '@/lib/metadata';
+import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'We Decor - Event Decoration Services in Bangalore',
-  description:
-    'Professional event decoration services in Bangalore. Birthday decor, wedding setup, haldi decoration, room decoration. Call +91 8880544452 for free quote!',
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL
-    ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
-    : undefined,
-
+  metadataBase: METADATA_BASE,
+  title: {
+    default: `${SITE_NAME} - Event Decoration Services in Bangalore`,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  robots: getIndexingRobots(),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

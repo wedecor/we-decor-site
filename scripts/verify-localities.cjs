@@ -8,11 +8,11 @@ const assert = (c, m) => {
 const fetch = (...a) => import('node-fetch').then(({ default: f }) => f(...a));
 const BASE = process.env.VERIFY_BASE || 'http://localhost:3000';
 const routes = [
-  '/areas/east-bangalore',
-  '/areas/west-bangalore',
-  '/areas/north-bangalore',
-  '/areas/south-bangalore',
-  '/areas/central-bangalore',
+  '/locations/koramangala',
+  '/locations/whitefield',
+  '/locations/indiranagar',
+  '/locations/jayanagar',
+  '/locations/hebbal',
 ];
 const hasSections = (html) =>
   /<h2[^>]*>\s*Case Study\s*<\/h2>/i.test(html) &&

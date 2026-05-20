@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CLUSTERS } from '../_data/clusters';
-import { AREAS, SITE, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
+import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
+import { pageMetadata } from '@/lib/metadata';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/locations',
   title: 'Areas We Serve | We Decor — Event Decorators in Bangalore',
   description:
     'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
-  alternates: { canonical: `${SITE}/locations` },
-};
+});
 
 // Map slug → area name for quick lookups
 const areaNameBySlug = new Map(AREAS.map((a) => [a.slug, a.name]));

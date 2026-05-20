@@ -1,23 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Professional Photographers in Bangalore | We Decor",
-  description: "Capture your most important moments with our professional photographers. Wedding, event, and portrait photography in Bangalore.",
-  alternates: { canonical: "/services/photographers" },
-  openGraph: {
-    title: "Professional Photographers in Bangalore | We Decor",
-    description: "Capture your most important moments with our professional photographers.",
-    url: "/services/photographers",
-    images: ["/services/photography.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Professional Photographers in Bangalore | We Decor",
-    description: "Capture your most important moments with our professional photographers.",
-    images: ["/services/photography.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/photographers',
+  title: 'Professional Photographers in Bangalore | We Decor',
+  description:
+    'Capture your most important moments with our professional photographers. Wedding, event, and portrait photography in Bangalore.',
+  ogImage: '/services/photography.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',

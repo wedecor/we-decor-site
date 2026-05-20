@@ -1,5 +1,5 @@
 const JSONLD_BASE_URL = process.env.BASE_URL ?? 'https://www.wedecorevents.com';
-const PAGES = ['/', '/gallery', '/areas/koramangala', '/areas/indiranagar'];
+const PAGES = ['/', '/gallery', '/locations/koramangala', '/locations/indiranagar'];
 
 type Result = { url: string; status: number; hasLd: boolean; types: string[] };
 

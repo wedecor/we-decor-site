@@ -1,49 +1,40 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import { SITE_URL } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: "Event Decoration Services in Bangalore | We Decor",
-  description: "Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bangalore.",
-  alternates: { canonical: "/services/decoration" },
-  openGraph: {
-    title: "Event Decoration Services in Bangalore | We Decor",
-    description: "Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.",
-    url: "/services/decoration",
-    images: ["/services/decoration.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Event Decoration Services in Bangalore | We Decor",
-    description: "Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.",
-    images: ["/services/decoration.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/decoration',
+  title: 'Event Decoration Services in Bangalore | We Decor',
+  description:
+    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bangalore.',
+  ogImage: '/services/decoration.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Event Decoration Services',
-  description: 'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+  description:
+    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+  url: absoluteUrl('/services/decoration'),
   provider: {
     '@type': 'Organization',
     name: 'We Decor',
-    url: 'https://www.wedecorevents.com',
-    telephone: '+91 88805 44452',
+    url: SITE_URL,
+    telephone: '+91 8880544452',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Bangalore',
-      addressCountry: 'IN'
-    }
+      addressCountry: 'IN',
+    },
   },
-  areaServed: {
-    '@type': 'City',
-    name: 'Bangalore'
-  },
+  areaServed: { '@type': 'City', name: 'Bangalore' },
   serviceType: 'Event Decoration',
   offers: {
     '@type': 'Offer',
-    description: 'Weddings, birthdays, haldi ceremonies, corporate events, and more'
-  }
+    description: 'Weddings, birthdays, haldi ceremonies, corporate events, and more',
+  },
 };
 
 export default function DecorationPage() {
@@ -63,45 +54,39 @@ export default function DecorationPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-              Our Decoration Services Include:
+              Decoration Services Include:
             </h2>
             <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                Wedding Decorations
+                Wedding &amp; Engagement Decor
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                Birthday Party Decor
+                Birthday &amp; Theme Parties
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                Haldi Ceremony Setup
+                Haldi &amp; Traditional Ceremonies
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                Corporate Events
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                Festival Celebrations
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                Baby Showers & Anniversaries
+                Corporate &amp; Venue Styling
               </li>
             </ul>
           </div>
           <div className="bg-gradient-to-br from-pink-50 to-purple-100 dark:from-pink-900/20 dark:to-purple-800/20 p-8 rounded-2xl">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              Why Choose Our Decorations?
+              Custom Themes &amp; Backdrops
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              We bring your vision to life with creative, elegant, and memorable decorations that make every event special. Our experienced team ensures every detail is perfect.
+              From balloon arches to floral mandaps, we design setups that match your vision and
+              venue—homes, apartments, clubhouses, and banquet halls across Bangalore.
             </p>
             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Custom designs</strong> tailored to your theme and budget. Contact us for a personalized quote!
+                <strong>Contact us today</strong> for a free decoration quote tailored to your
+                event.
               </p>
             </div>
           </div>
@@ -112,7 +97,7 @@ export default function DecorationPage() {
             Ready to Decorate Your Event?
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Let us create the perfect atmosphere for your special occasion. Contact us for a free consultation and quote.
+            Contact us for a free consultation and let us bring your celebration to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

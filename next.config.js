@@ -56,6 +56,17 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async redirects() {
     const redirects = [
+      // Locality consolidation: /areas/* → /locations/* (301, query string preserved)
+      {
+        source: '/areas',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/areas/:slug',
+        destination: '/locations/:slug',
+        permanent: true,
+      },
       // Force www
       {
         source: '/:path*',

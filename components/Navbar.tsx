@@ -48,12 +48,6 @@ export default function Navbar() {
             Gallery
           </Link>
           <Link
-            href="/areas"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Areas
-          </Link>
-          <Link
             href="/locations"
             className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
           >
@@ -118,12 +112,6 @@ export default function Navbar() {
             className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
           >
             Gallery
-          </Link>
-          <Link
-            href="/areas"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            Areas
           </Link>
           <Link
             href="/locations"

@@ -1,23 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Professional Make-up Artists in Bangalore | We Decor",
-  description: "Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.",
-  alternates: { canonical: "/services/makeup-artists" },
-  openGraph: {
-    title: "Professional Make-up Artists in Bangalore | We Decor",
-    description: "Professional make-up for weddings, parties, and corporate events.",
-    url: "/services/makeup-artists",
-    images: ["/services/makeup.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Professional Make-up Artists in Bangalore | We Decor",
-    description: "Professional make-up for weddings, parties, and corporate events.",
-    images: ["/services/makeup.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/makeup-artists',
+  title: 'Professional Make-up Artists in Bangalore | We Decor',
+  description:
+    'Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.',
+  ogImage: '/services/makeup.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',

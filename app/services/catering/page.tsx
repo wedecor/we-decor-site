@@ -1,29 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 import { JsonLd } from '@/lib/seo';
+import { absoluteUrl, pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
-  title: "Catering Services in Bangalore | We Decor",
-  description: "We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service, so you can focus on your celebration.",
-  alternates: { canonical: "/services/catering" },
-  openGraph: {
-    title: "Catering Services in Bangalore | We Decor",
-    description: "We Decor provides a full spectrum of catering services for all types of events.",
-    url: "/services/catering",
-    images: ["/services/catering.jpg"],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Catering Services in Bangalore | We Decor",
-    description: "We Decor provides a full spectrum of catering services for all types of events.",
-    images: ["/services/catering.jpg"],
-  },
-};
+export const metadata: Metadata = pageMetadata({
+  path: '/services/catering',
+  title: 'Catering Services in Bangalore | We Decor',
+  description:
+    'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service, so you can focus on your celebration.',
+  ogImage: '/services/catering.jpg',
+});
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: 'Catering Services',
-  description: 'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service.',
+  description:
+    'We Decor provides a full spectrum of catering services for all types of events. Our experienced team ensures delicious food and seamless service.',
+  url: absoluteUrl('/services/catering'),
   provider: {
     '@type': 'Organization',
     name: 'We Decor',
