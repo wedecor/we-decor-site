@@ -1,13 +1,9 @@
 const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
+const { loadCloudinaryEnv } = require('./lib/cloudinary-env.cjs');
 
-// Cloudinary credentials
-cloudinary.config({
-  cloud_name: 'dux3m2saz',
-  api_key: '669972431736695',
-  api_secret: 'Hm3UY3-q0MhLfgPeOrLhps_Gl3c',
-});
+cloudinary.config(loadCloudinaryEnv());
 
 const baseDir = path.join(__dirname, '../public/gallery');
 

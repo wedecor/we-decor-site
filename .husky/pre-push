@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Block pushes that re-introduce tracked secrets
+npm run verify:secrets || exit 1
+
 # Ensure env is present locally before pushing (prevents broken previews)
 node scripts/check-env-prepush.mjs || exit 1
 

@@ -1,0 +1,19 @@
+title = "We Decor — gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Allow safe templates and documentation placeholders"
+paths = [
+  '''^env/\.env\.example$''',
+  '''^SECURITY_REMEDIATION_REPORT\.md$''',
+  '''^env/README\.md$''',
+]
+regexTarget = "match"
+regexes = [
+  '''your-cloudinary-cloud-name''',
+  '''G-XXXXXXX''',
+  '''REPLACE_ME''',
+  '''CHANGEME''',
+]

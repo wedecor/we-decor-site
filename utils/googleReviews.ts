@@ -21,7 +21,8 @@ export async function fetchGoogleReviews(placeId: string): Promise<GooglePlaceDe
   try {
     // You'll need to set up a Google Cloud Project and enable Places API
     // Then get an API key from Google Cloud Console
-    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY;
+    // Server-only — never use NEXT_PUBLIC_ for API keys (exposed in client bundles)
+    const apiKey = process.env.GOOGLE_PLACES_API_KEY;
 
     if (!apiKey) {
       console.warn('Google Places API key not found. Using fallback data.');

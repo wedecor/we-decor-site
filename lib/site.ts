@@ -108,11 +108,7 @@ export const validateSiteUrl = (): boolean => {
   }
 };
 
-// Log site configuration in development
+// Avoid logging env values in production (OWASP: sensitive data exposure)
 if (isDevelopment) {
-  console.log('🌐 Site Configuration:', {
-    SITE_URL,
-    NODE_ENV: process.env.NODE_ENV,
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
-  });
+  console.log('🌐 Site Configuration:', { SITE_URL, NODE_ENV: process.env.NODE_ENV });
 }
