@@ -1,13 +1,17 @@
+import Link from 'next/link';
+
 export default function NotFound() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20 text-center">
-      <h1 className="text-4xl font-bold tracking-tight">404 — Not found</h1>
-      <p className="mt-4 text-base text-muted-foreground">
-        Oops! The page you are looking for was not found.
+    <main className="lux-page lux-container px-6 py-24 md:py-32 text-center">
+      <p className="lux-eyebrow mb-6">404</p>
+      <h1 className="lux-heading mb-6">This page could not be found</h1>
+      <p className="lux-body max-w-md mx-auto mb-12">
+        The celebration you are looking for may have moved. Return home to explore our services and
+        gallery.
       </p>
-      <a href="/" className="mt-6 inline-flex items-center rounded-lg border px-4 py-2">
-        Go home
-      </a>
+      <Link href="/" className="lux-btn-primary">
+        Return home
+      </Link>
     </main>
   );
 }

@@ -1,167 +1,93 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import BrandWordmark from '@/components/lux/BrandWordmark';
 import { CONTACT } from '@/lib/contact';
+import { BRAND } from '@/lib/design/tokens';
 
 export default function Footer() {
   const telLinks = CONTACT.telLinks();
 
   return (
-    <footer className="bg-gradient-to-br from-green-50 to-pink-50 dark:from-gray-900 dark:to-gray-900 border-t border-gray-200 dark:border-gray-700 py-12 text-gray-600 dark:text-gray-300 font-sans">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
-          {/* Logo and business name */}
-          <div className="flex items-center gap-3">
-            <Image
-              src="/logo.webp"
-              alt="We Decor Logo"
-              width={40}
-              height={40}
-              className="rounded-full shadow"
-            />
-            <div>
-              <div className="font-bold text-green-700 dark:text-green-200 text-xl">We Decor</div>
-              <div className="text-gray-500 dark:text-gray-400 text-sm">
-                Bringing Dreams to Life in Bangalore
-              </div>
-            </div>
+    <footer className="lux-footer mt-auto relative z-10">
+      <div
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lux-gold/35 to-transparent"
+        aria-hidden
+      />
+      <div className="lux-container px-6 md:px-10 py-20 md:py-28 relative z-[1]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+          <div className="md:col-span-5 space-y-7">
+            <BrandWordmark asLink compact />
+            <p className="font-display text-xl md:text-2xl font-light text-lux-ivory/95 italic leading-relaxed max-w-sm">
+              Designed for unforgettable celebrations.
+            </p>
+            <p className="lux-body-sm max-w-xs text-lux-secondary">
+              Luxury event decoration across {BRAND.city}.
+            </p>
+            <a
+              href="https://instagram.com/wedecorbangalore"
+              className="inline-flex items-center gap-3 rounded-full border border-lux-gold/25 bg-lux-elevated/40 px-5 py-3 text-sm text-lux-secondary hover:text-lux-ivory hover:border-lux-gold/45 hover:bg-lux-elevated/70 transition-all duration-500"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lux-muted/60 text-lux-gold">
+                <svg width={15} height={15} fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1 0 2a1 1 0 0 1 0-2z" />
+                </svg>
+              </span>
+              @wedecorbangalore
+            </a>
           </div>
-          {/* Instagram handle */}
-          <a
-            href="https://instagram.com/wedecorbangalore"
-            className="flex items-center gap-2 text-pink-500 dark:text-pink-300 hover:text-pink-600 dark:hover:text-pink-200 transition-colors duration-200 font-semibold"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Follow us on Instagram"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1 0 2a1 1 0 0 1 0-2z" />
-            </svg>
-            <span>@wedecorbangalore</span>
-          </a>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Quick Links */}
-          <nav aria-label="Footer quick links">
-            <h2 className="text-lg font-semibold text-green-800 dark:text-green-100 mb-4">
-              Quick Links
-            </h2>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/gallery"
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
-                  Gallery
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pricing"
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/faq"
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
-                  Contact
-                </Link>
-              </li>
+
+          <nav className="md:col-span-3" aria-label="Footer navigation">
+            <p className="lux-eyebrow mb-5">Explore</p>
+            <ul className="space-y-3.5 text-sm font-light">
+              {[
+                ['About', '/about'],
+                ['Services', '/services'],
+                ['Gallery', '/gallery'],
+                ['Locations', '/locations'],
+                ['Pricing', '/pricing'],
+                ['FAQ', '/faq'],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="lux-footer-link">
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold text-green-700 dark:text-green-200 mb-4">
-              Contact Info
-            </h3>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-green-500 dark:text-green-300"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" />
-                </svg>
-                <a
-                  href={`tel:${telLinks[0].raw}`}
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
-                >
+
+          <div className="md:col-span-4">
+            <p className="lux-eyebrow mb-5">Enquire</p>
+            <ul className="space-y-3.5 text-sm font-light">
+              <li>
+                <a href={`tel:${telLinks[0].raw}`} className="lux-footer-link">
                   {telLinks[0].label}
                 </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-green-500 dark:text-green-300"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" />
-                </svg>
+              </li>
+              <li>
                 <a
-                  href={`tel:${telLinks[1].raw}`}
-                  className="hover:text-green-500 dark:hover:text-green-300 transition-colors duration-200"
+                  href={CONTACT.waUrl()}
+                  className="lux-footer-link"
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  {telLinks[1].label}
+                  WhatsApp
                 </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-green-500 dark:text-green-300"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                </svg>
-                <span>Bangalore, India</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-5 h-5 text-green-500 dark:text-green-300"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-                </svg>
-                <span>Mon–Sun, 9am–9pm</span>
-              </div>
-            </div>
+              </li>
+              <li>
+                <Link href="/contact" className="lux-footer-link">
+                  Contact form
+                </Link>
+              </li>
+              <li className="pt-2 lux-body-sm text-lux-text-muted">Bangalore · Mon–Sun, 9am–9pm</li>
+            </ul>
           </div>
         </div>
-        {/* Bottom section */}
-        <div className="border-t border-gray-200 dark:border-gray-700 pt-8 text-center">
-          <p className="text-gray-500 dark:text-gray-400">
-            &copy; {new Date().getFullYear()}{' '}
-            <span className="font-semibold text-gray-700 dark:text-green-200">We Decor</span>,
-            Bangalore. All rights reserved.
-          </p>
+
+        <div className="lux-divider mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-lux-secondary/80 font-light tracking-wide">
+          <p>© {new Date().getFullYear()} We Decor Events</p>
+          <p className="uppercase tracking-tagline text-lux-secondary/80">{BRAND.taglineDisplay}</p>
         </div>
       </div>
     </footer>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
+import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
 import { buildServicePageSchema } from '@/lib/local-seo';
 
@@ -20,88 +21,29 @@ const structuredData = buildServicePageSchema({
 
 export default function MakeupArtistsPage() {
   return (
-    <>
-      <SchemaScript data={structuredData} />
-      <main className="mx-auto max-w-6xl px-6 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Professional Make-up Artists
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Professional make-up for weddings, parties, and corporate events.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-              Our Make-up Services:
-            </h2>
-            <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Wedding Make-up
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Party & Event Make-up
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Corporate Event Styling
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Special Occasion Make-up
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Bridal Trial Sessions
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                Group Make-up Services
-              </li>
-            </ul>
-          </div>
-          <div className="bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-900/20 dark:to-pink-800/20 p-8 rounded-2xl">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              Expert Beauty Services
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our professional make-up artists are skilled in creating stunning looks for any occasion. We use high-quality products and stay updated with the latest beauty trends.
-            </p>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your session</strong> and let our experts enhance your natural beauty for your special day.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-            Ready to Look Your Best?
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your make-up session and let our professional artists create the perfect look for your event.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors duration-200"
-            >
-              Book Now
-            </a>
-            <a
-              href="tel:+918880544452"
-              className="border border-purple-600 text-purple-600 dark:text-purple-400 px-8 py-3 rounded-lg font-semibold hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors duration-200"
-            >
-              Call +91 88805 44452
-            </a>
-          </div>
-        </div>
-      </main>
-    </>
+    <PartnerServicePage
+      schema={<SchemaScript data={structuredData} />}
+      config={{
+        title: 'Professional Make-up Artists',
+        description:
+          'Expert make-up for weddings, parties, and corporate events — looks composed for photography and long celebrations.',
+        listTitle: 'Our make-up services',
+        items: [
+          'Wedding make-up',
+          'Party & event make-up',
+          'Corporate event styling',
+          'Special occasion make-up',
+          'Bridal trial sessions',
+          'Group make-up services',
+        ],
+        highlightTitle: 'Expert beauty services',
+        highlightBody:
+          'Our artists work with premium products and current techniques to enhance natural beauty for every occasion.',
+        highlightNote: 'Book your session and arrive camera-ready for your celebration.',
+        ctaTitle: 'Ready to look your best?',
+        ctaBody:
+          'Contact us to book make-up artists coordinated with your event decor and timeline.',
+      }}
+    />
   );
 }

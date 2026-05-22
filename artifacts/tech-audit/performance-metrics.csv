@@ -1,7 +1,0 @@
-route,LCP_seconds,FID_ms,CLS,TTFB_ms,FCP_seconds,initial_JS_kb,notes
-/,2.8,85,0.05,180,1.5,1180,Hero image lacks priority; large client component.
-/services,2.4,80,0.03,170,1.4,920,
-/gallery,3.1,88,0.07,210,1.8,1350,Lightbox & filters shipped to client; consider dynamic import.
-/contact,2.3,75,0.02,160,1.3,780,
-/areas,2.6,82,0.04,175,1.4,880,
-/locations,2.5,80,0.03,170,1.4,860,

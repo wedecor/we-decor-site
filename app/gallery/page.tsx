@@ -1,8 +1,8 @@
 import Gallery from '@/components/Gallery';
 import { BreadcrumbsJsonLd } from '@/components/seo/JsonLd';
-import Image from 'next/image';
 import type { Metadata } from 'next';
 import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = pageMetadata({
   path: '/gallery',
@@ -15,28 +15,23 @@ export const dynamic = 'force-static';
 
 export default function GalleryPage() {
   return (
-    <>
+    <div className="lux-page">
       <BreadcrumbsJsonLd
         crumbs={[
           { name: 'Home', url: absoluteUrl('/') },
           { name: 'Gallery', url: absoluteUrl('/gallery') },
         ]}
       />
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex flex-col items-center mb-8">
-          <Image
-            src="/logo.webp"
-            alt="We Decor logo"
-            width={80}
-            height={80}
-            className="mb-4 rounded-full"
-          />
-          <h1 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
-            Gallery
-          </h1>
+      <PageHero
+        eyebrow="Portfolio"
+        title="Celebration gallery"
+        description="Editorial glimpses of weddings, haldi, birthdays, and corporate atmospheres — composed across Bengaluru."
+      />
+      <section className="lux-section pt-0 pb-24 md:pb-32 lux-section-alt border-t border-white/[0.06]">
+        <div className="lux-container">
+          <Gallery />
         </div>
-        <Gallery />
-      </div>
-    </>
+      </section>
+    </div>
   );
 }

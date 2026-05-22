@@ -83,21 +83,29 @@ export default function ContactForm() {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok || !data.success) {
-        const details = data?.error?.details as Array<{ path: string; message: string }> | undefined;
+        const details = data?.error?.details as
+          | Array<{ path: string; message: string }>
+          | undefined;
         const fieldErrors: FieldErrors = {};
         if (details?.length) {
           for (const d of details) {
             const key = d.path as keyof FieldErrors;
-            if (key in fieldErrors || ['name', 'phone', 'email', 'eventType', 'message'].includes(d.path)) {
+            if (
+              key in fieldErrors ||
+              ['name', 'phone', 'email', 'eventType', 'message'].includes(d.path)
+            ) {
               fieldErrors[key] = d.message;
             }
           }
         }
         const code = data?.error?.code as string | undefined;
-        if (code === 'CAPTCHA_FAILED') fieldErrors.turnstile = 'Security check failed. Please try again.';
-        if (code === 'RATE_LIMITED') fieldErrors._form = 'Too many attempts. Please wait or call us.';
+        if (code === 'CAPTCHA_FAILED')
+          fieldErrors.turnstile = 'Security check failed. Please try again.';
+        if (code === 'RATE_LIMITED')
+          fieldErrors._form = 'Too many attempts. Please wait or call us.';
         if (!fieldErrors._form) {
-          fieldErrors._form = data?.error?.message || 'Could not send your enquiry. Please try again.';
+          fieldErrors._form =
+            data?.error?.message || 'Could not send your enquiry. Please try again.';
         }
         setErrors(fieldErrors);
         setSubmitState('error');
@@ -120,7 +128,9 @@ export default function ContactForm() {
       resetTurnstile();
     } catch {
       setSubmitState('error');
-      setErrors({ _form: 'Network error. Please check your connection or contact us on WhatsApp.' });
+      setErrors({
+        _form: 'Network error. Please check your connection or contact us on WhatsApp.',
+      });
       trackLeadSubmitFailure('network_error');
       resetTurnstile();
     } finally {
@@ -137,7 +147,7 @@ export default function ContactForm() {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="space-y-4"
+      className="space-y-10 relative"
       noValidate
       aria-busy={isSubmitting}
     >
@@ -148,8 +158,8 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Your Name <span className="text-red-600">*</span>
+        <label htmlFor="name" className="lux-label">
+          Your name <span className="text-lux-gold/70">*</span>
         </label>
         <input
           id="name"
@@ -158,19 +168,19 @@ export default function ContactForm() {
           autoComplete="name"
           aria-invalid={!!errors.name}
           aria-describedby={errors.name ? 'name-error' : undefined}
-          placeholder="Enter your full name"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
+          placeholder="Full name"
+          className="lux-input"
         />
         {errors.name ? (
-          <p id="name-error" className="text-red-600 text-sm mt-1" role="alert">
+          <p id="name-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
             {errors.name}
           </p>
         ) : null}
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Phone Number <span className="text-red-600">*</span>
+        <label htmlFor="phone" className="lux-label">
+          Phone <span className="text-lux-gold/70">*</span>
         </label>
         <input
           id="phone"
@@ -181,19 +191,19 @@ export default function ContactForm() {
           inputMode="tel"
           aria-invalid={!!errors.phone}
           aria-describedby={errors.phone ? 'phone-error' : undefined}
-          placeholder="e.g. 8880544452"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
+          placeholder="+91 …"
+          className="lux-input"
         />
         {errors.phone ? (
-          <p id="phone-error" className="text-red-600 text-sm mt-1" role="alert">
+          <p id="phone-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
             {errors.phone}
           </p>
         ) : null}
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Email Address <span className="text-red-600">*</span>
+        <label htmlFor="email" className="lux-label">
+          Email <span className="text-lux-gold/70">*</span>
         </label>
         <input
           id="email"
@@ -203,11 +213,11 @@ export default function ContactForm() {
           autoComplete="email"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? 'email-error' : undefined}
-          placeholder="Enter your email address"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
+          placeholder="you@example.com"
+          className="lux-input"
         />
         {errors.email ? (
-          <p id="email-error" className="text-red-600 text-sm mt-1" role="alert">
+          <p id="email-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
             {errors.email}
           </p>
         ) : null}
@@ -215,8 +225,8 @@ export default function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="eventType" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Event Type <span className="text-red-600">*</span>
+          <label htmlFor="eventType" className="lux-label">
+            Celebration <span className="text-lux-gold/70">*</span>
           </label>
           <select
             id="eventType"
@@ -224,7 +234,7 @@ export default function ContactForm() {
             required
             defaultValue=""
             aria-invalid={!!errors.eventType}
-            className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
+            className="lux-input cursor-pointer"
           >
             <option value="" disabled>
               Select event type
@@ -236,52 +246,47 @@ export default function ContactForm() {
             ))}
           </select>
           {errors.eventType ? (
-            <p className="text-red-600 text-sm mt-1" role="alert">
+            <p className="text-lux-gold-deep text-xs mt-2" role="alert">
               {errors.eventType}
             </p>
           ) : null}
         </div>
         <div>
-          <label htmlFor="eventDate" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Event Date
+          <label htmlFor="eventDate" className="lux-label">
+            Preferred date
           </label>
-          <input
-            id="eventDate"
-            name="eventDate"
-            type="date"
-            className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
-          />
+          <input id="eventDate" name="eventDate" type="date" className="lux-input" />
         </div>
       </div>
 
       <div>
-        <label htmlFor="budget" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Approximate Budget
+        <label htmlFor="budget" className="lux-label">
+          Investment range
         </label>
         <input
           id="budget"
           name="budget"
           placeholder="e.g. ₹15,000 – ₹30,000"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
+          className="lux-input"
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-          Event Details <span className="text-red-600">*</span>
+        <label htmlFor="message" className="lux-label">
+          Your vision <span className="text-lux-gold/70">*</span>
         </label>
         <textarea
           id="message"
           name="message"
           required
-          rows={4}
+          rows={5}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'message-error' : undefined}
-          placeholder="Venue, guest count, theme, and any special requirements"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-green-600 focus:border-transparent"
+          placeholder="Venue, guest count, palette, and the atmosphere you imagine"
+          className="lux-input resize-none min-h-[120px]"
         />
         {errors.message ? (
-          <p id="message-error" className="text-red-600 text-sm mt-1" role="alert">
+          <p id="message-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
             {errors.message}
           </p>
         ) : null}
@@ -296,7 +301,7 @@ export default function ContactForm() {
             onError={resetTurnstile}
           />
           {errors.turnstile ? (
-            <p className="text-red-600 text-sm mt-1" role="alert">
+            <p className="text-lux-gold-deep text-xs mt-2" role="alert">
               {errors.turnstile}
             </p>
           ) : null}
@@ -304,13 +309,13 @@ export default function ContactForm() {
       ) : null}
 
       {errors._form ? (
-        <p className="text-red-600 text-sm" role="alert">
+        <p className="text-lux-gold-deep text-sm" role="alert">
           {errors._form}
         </p>
       ) : null}
 
       {submitState === 'success' ? (
-        <p className="text-green-700 dark:text-green-400 text-sm font-medium" role="status">
+        <p className="text-lux-gold text-sm font-medium" role="status">
           {statusMessage}
         </p>
       ) : null}
@@ -318,16 +323,16 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-green-700 text-white font-bold py-3 rounded-lg hover:bg-green-800 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2"
+        className="w-full lux-btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? 'Sending…' : 'Send Enquiry & Open WhatsApp'}
+        {isSubmitting ? 'Sending…' : 'Submit enquiry'}
       </button>
 
-      <div className="text-center pt-2">
-        <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Or contact directly:</p>
+      <div className="pt-4 border-t border-white/[0.05]">
+        <p className="text-xs text-lux-text-muted mb-2 tracking-wide">Direct line</p>
         <a
           href={CONTACT.waUrl()}
-          className="inline-flex items-center text-green-800 dark:text-green-400 font-semibold hover:underline focus:outline-none focus:ring-2 focus:ring-green-600 rounded"
+          className="inline-flex items-center text-lux-gold font-light hover:text-lux-gold-soft transition-colors duration-500"
           target="_blank"
           rel="noopener noreferrer"
         >

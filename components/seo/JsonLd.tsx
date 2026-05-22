@@ -37,11 +37,7 @@ export function LocalBusinessJsonLd({
   return <SchemaScript data={data} />;
 }
 
-export function BreadcrumbsJsonLd({
-  crumbs,
-}: {
-  crumbs: { name: string; url: string }[];
-}) {
+export function BreadcrumbsJsonLd({ crumbs }: { crumbs: { name: string; url: string }[] }) {
   const mapped = crumbs.map((c) => ({
     name: c.name,
     path: c.url.startsWith('http') ? new URL(c.url).pathname : c.url,

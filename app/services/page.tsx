@@ -1,112 +1,125 @@
-'use client';
-
+import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FaArrowRight } from 'react-icons/fa';
+import { SERVICE_IMAGES } from '@/lib/images';
+import PageHero from '@/components/lux/PageHero';
 
 const services = [
   {
     name: 'Decoration',
     description:
-      'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more.',
+      'Weddings, birthdays, haldi, engagements, and corporate celebrations — composed for light, emotion, and photography.',
     href: '/services/decoration',
-    icon: '🎉',
-    gradient: 'from-pink-400 via-pink-300 to-yellow-200',
+    image: SERVICE_IMAGES.engagement,
+    tag: 'Signature craft',
+    featured: true,
   },
   {
     name: 'Catering',
-    description: 'All types of food services—veg, non-veg, desserts, regional cuisines, and more.',
+    description: 'Curated menus for intimate dinners and grand receptions.',
     href: '/services/catering',
-    icon: '🍽️',
-    gradient: 'from-yellow-400 via-yellow-300 to-green-200',
+    image: SERVICE_IMAGES.corporate,
+    tag: 'Events & weddings',
   },
   {
     name: 'Make-up Artists',
-    description: 'Professional make-up for weddings, parties, and corporate events.',
+    description: 'Bridal and party artistry for stage light and long wear.',
     href: '/services/makeup-artists',
-    icon: '💄',
-    gradient: 'from-red-400 via-pink-400 to-purple-200',
+    image: SERVICE_IMAGES.haldi,
+    tag: 'Bridal & party',
   },
   {
     name: 'Hair Stylists',
-    description: 'Expert hair styling for your special day or event.',
+    description: 'Refined styling for weddings and milestone evenings.',
     href: '/services/hair-stylists',
-    icon: '💇‍♀️',
-    gradient: 'from-purple-400 via-indigo-400 to-blue-200',
+    image: SERVICE_IMAGES.engagement,
+    tag: 'Styling',
   },
   {
     name: 'Mehndi Artists',
-    description: 'Intricate mehndi designs for all events and festivals.',
+    description: 'Traditional and contemporary mehndi for wedding rituals.',
     href: '/services/mehndi-artists',
-    icon: '🪔',
-    gradient: 'from-green-400 via-green-300 to-yellow-100',
+    image: SERVICE_IMAGES.haldi,
+    tag: 'Wedding rituals',
   },
   {
     name: 'Photographers',
-    description: 'Capture your most important moments with our professional photographers.',
+    description: 'Story-led coverage that preserves the feeling of your day.',
     href: '/services/photographers',
-    icon: '📸',
-    gradient: 'from-blue-400 via-blue-300 to-cyan-200',
+    image: SERVICE_IMAGES.birthday,
+    tag: 'Coverage',
   },
   {
     name: 'Videographers',
-    description: 'Dynamic, impactful event videos for weddings, parties, and more.',
+    description: 'Cinematic films — calm, emotional, beautifully edited.',
     href: '/services/videographers',
-    icon: '🎥',
-    gradient: 'from-indigo-400 via-purple-300 to-pink-200',
+    image: SERVICE_IMAGES.tentBalloon,
+    tag: 'Films',
   },
-];
-
-// Note: Metadata is handled in app/layout.tsx for client components
+] as const;
 
 export default function ServicesPage() {
   return (
-    <section className="max-w-screen-lg mx-auto py-12 px-6 font-sans">
-      <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gray-800 dark:text-white">
-        Our Services
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <Link
-            key={service.name}
-            href={service.href}
-            className="group block rounded-xl shadow-lg hover:scale-105 transition-transform duration-200 overflow-hidden border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-4 focus:ring-green-400"
-            aria-label={`Learn more about ${service.name}`}
-          >
-            <motion.div
-              className={`flex items-center justify-center h-40 w-full bg-gradient-to-br ${service.gradient}`}
-              whileHover={{ scale: 1.08, rotate: 4 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <motion.span
-                className="text-6xl select-none drop-shadow-lg"
-                aria-label={service.name}
-                whileHover={{ scale: 1.2, rotate: -8 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                {service.icon}
-              </motion.span>
-            </motion.div>
-            <div className="p-6 flex flex-col h-full">
-              <h2 className="text-xl font-bold mb-2 text-green-700 dark:text-green-200">
-                {service.name}
-              </h2>
-              <p className="text-gray-700 dark:text-gray-300 text-base mb-4">
-                {service.description}
-              </p>
-              <div className="mt-auto flex items-center justify-end">
-                <span className="text-green-600 dark:text-green-300 font-semibold mr-2">
-                  Learn More
-                </span>
-                <FaArrowRight
-                  className="text-green-600 dark:text-green-300 group-hover:translate-x-1 transition-transform duration-200"
-                  aria-hidden="true"
-                />
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
+    <div className="lux-page">
+      <PageHero
+        eyebrow="Full-service events"
+        title="Our services"
+        description="Decoration is our signature — supported by trusted partners for catering, beauty, and coverage across Bengaluru."
+      />
+      <section className="lux-section pt-0 pb-28 md:pb-36 bg-lux-bg">
+        <div className="lux-container">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9 list-none p-0 m-0">
+            {services.map((service, index) => {
+              const featured = 'featured' in service && service.featured;
+              return (
+                <li
+                  key={service.name}
+                  className={featured ? 'sm:col-span-2 lg:col-span-2' : undefined}
+                >
+                  <Link href={service.href} className="lux-card-image block h-full group">
+                    <div
+                      className={`relative w-full overflow-hidden ${featured ? 'aspect-[21/10] sm:aspect-[2/1]' : 'aspect-[4/5]'}`}
+                    >
+                      <Image
+                        src={service.image}
+                        alt={`${service.name} — We Decor Bangalore`}
+                        fill
+                        className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
+                        sizes={featured ? '66vw' : '33vw'}
+                        quality={72}
+                        priority={index < 1}
+                        loading={index < 1 ? undefined : 'lazy'}
+                      />
+                      <div className="absolute inset-0 lux-overlay-cinematic" />
+                      <div
+                        className={`absolute bottom-0 inset-x-0 ${featured ? 'p-8 md:p-10' : 'p-7'}`}
+                      >
+                        <p className="text-[10px] tracking-tagline uppercase text-lux-gold/85 mb-2">
+                          {service.tag}
+                        </p>
+                        <h2
+                          className={`font-display text-lux-ivory leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}
+                        >
+                          {service.name}
+                        </h2>
+                        <p
+                          className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-2'}`}
+                        >
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="text-center mt-16 md:mt-24">
+            <Link href="/contact" className="lux-btn-primary">
+              Plan your celebration
+            </Link>
+          </p>
+        </div>
+      </section>
+    </div>
   );
 }

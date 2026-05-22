@@ -109,7 +109,9 @@ export async function deliverLeadWebhook(lead: LeadRecord): Promise<boolean> {
 /** Production-safe structured log — no PII in message prefix */
 export function logLeadCreated(leadId: string, source: string): void {
   if (process.env.NODE_ENV === 'production') {
-    console.info(JSON.stringify({ event: 'lead_created', leadId, source, ts: new Date().toISOString() }));
+    console.info(
+      JSON.stringify({ event: 'lead_created', leadId, source, ts: new Date().toISOString() })
+    );
   } else {
     console.info(`[lead] created ${leadId} (${source})`);
   }

@@ -1,4 +1,5 @@
 'use client';
+
 import { AREAS } from '@/app/(site)/_data/locations';
 
 type FAQ = { q: string; a: string };
@@ -9,28 +10,31 @@ type Props = {
 };
 
 export default function FAQAccordion({ faqs, locality }: Props) {
-  // Find the area data to get locality-specific FAQs
   const areaData = AREAS.find((area) => area.name.toLowerCase() === locality.toLowerCase());
   const uniqueFAQ = areaData?.uniqueFAQ;
-
-  // Use locality-specific FAQs if available, otherwise fall back to default FAQs
   const displayFAQs = uniqueFAQ && uniqueFAQ.length > 0 ? uniqueFAQ : faqs;
 
   if (!displayFAQs?.length) return null;
 
   return (
-    <section className="mb-10">
-      <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">FAQs</h2>
-      <div className="mt-4 space-y-3">
-        {displayFAQs.map((f, i) => (
+    <section className="mb-14">
+      <h2 className="lux-heading-sm mb-8">FAQs — {locality}</h2>
+      <div className="space-y-4">
+        {displayFAQs.map((f) => (
           <details
-            key={i}
-            className="rounded-2xl border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-800 shadow-sm"
+            key={f.q}
+            className="group lux-accordion overflow-hidden transition-colors duration-500 hover:border-lux-gold/25"
           >
-            <summary className="cursor-pointer font-medium text-gray-900 dark:text-white">
-              {f.q}
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-7 py-6 font-display text-lg font-light text-lux-ivory hover:text-lux-gold-soft transition-colors [&::-webkit-details-marker]:hidden">
+              <span>{f.q}</span>
+              <span
+                className="text-lux-gold transition-transform group-open:rotate-180"
+                aria-hidden
+              >
+                ▾
+              </span>
             </summary>
-            <p className="mt-2 opacity-90 text-gray-700 dark:text-gray-300">{f.a}</p>
+            <p className="px-7 pb-6 text-sm text-lux-muted leading-relaxed">{f.a}</p>
           </details>
         ))}
       </div>

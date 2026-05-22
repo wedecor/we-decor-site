@@ -13,7 +13,7 @@ declare global {
           'expired-callback'?: () => void;
           'error-callback'?: () => void;
           theme?: 'light' | 'dark' | 'auto';
-        },
+        }
       ) => string;
       reset: (widgetId: string) => void;
       remove: (widgetId: string) => void;
@@ -89,7 +89,7 @@ export default function TurnstileField({ siteKey, onToken, onExpire, onError }: 
 
   if (!siteKey || loadError) {
     return (
-      <p className="text-sm text-amber-700 dark:text-amber-300" role="status">
+      <p className="lux-body-sm text-lux-text-muted" role="status">
         Security check unavailable. Please use WhatsApp directly below.
       </p>
     );

@@ -6,7 +6,7 @@ const urlsToCache = [
   '/gallery',
   '/services',
   '/static/css/main.css',
-  '/logo.webp',
+  '/logo.png',
   '/og-banner.webp',
 ];
 

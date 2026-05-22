@@ -11,10 +11,7 @@ export interface FaqJsonLdProps {
 
 function InnerFaqJsonLd({ faqs, url }: FaqJsonLdProps) {
   if (!faqs?.length) return null;
-  const schema = buildFaqPageSchema(
-    faqs,
-    url?.replace(/\/+$/, '') || NAP.url
-  );
+  const schema = buildFaqPageSchema(faqs, url?.replace(/\/+$/, '') || NAP.url);
   return <SchemaScript data={schema} />;
 }
 

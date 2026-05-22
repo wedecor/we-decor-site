@@ -42,9 +42,7 @@ export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
   facebook: 'https://www.facebook.com/wedecorevents',
   googleMaps: (placeId?: string) =>
-    placeId
-      ? `https://www.google.com/maps/place/?q=place_id:${placeId}`
-      : undefined,
+    placeId ? `https://www.google.com/maps/place/?q=place_id:${placeId}` : undefined,
 } as const;
 
 export function getSameAsLinks(): string[] {
@@ -85,9 +83,8 @@ export const CORE_DECORATION_SERVICES = [
     id: 'proposal-decoration',
     name: 'Proposal Decoration',
     serviceType: 'Proposal decoration',
-    description:
-      'Romantic proposal and engagement setups with lights, florals, and custom themes.',
-    path: '/services/decoration',
+    description: 'Romantic proposal and engagement setups with lights, florals, and custom themes.',
+    path: '/services/engagement-decoration',
   },
   {
     id: 'haldi-decoration',
@@ -103,7 +100,7 @@ export const CORE_DECORATION_SERVICES = [
     serviceType: 'Bridal room decoration',
     description:
       'Elegant bridal room and pre-wedding room decor with flowers, drapes, and ambient lighting.',
-    path: '/services/decoration',
+    path: '/services/room-decoration',
   },
   {
     id: 'theme-decoration',

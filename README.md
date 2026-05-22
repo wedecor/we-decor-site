@@ -18,8 +18,8 @@ Professional event decoration services website built with Next.js 15, React 19, 
 2. Set up environment variables:
 
    ```sh
-   cp .env.example .env.local
-   # Edit .env.local with your configuration
+   cp env/.env.example .env.local
+   # Edit .env.local with your values (never commit .env.local)
    ```
 
 3. Start the development server:

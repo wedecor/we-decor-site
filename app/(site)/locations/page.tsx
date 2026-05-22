@@ -5,8 +5,8 @@ import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
 import { absoluteUrl, pageMetadata } from '@/lib/metadata';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildCollectionPageSchema } from '@/lib/local-seo';
-import Navbar from '../../../components/Navbar';
-import Footer from '../../../components/Footer';
+import { CONTACT } from '@/lib/contact';
+import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = pageMetadata({
   path: '/locations',
@@ -15,7 +15,6 @@ export const metadata: Metadata = pageMetadata({
     'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
 });
 
-// Map slug → area name for quick lookups
 const areaNameBySlug = new Map(AREAS.map((a) => [a.slug, a.name]));
 
 function ClusterSection({
@@ -24,180 +23,141 @@ function ClusterSection({
   blurb,
   areaSlugs,
   mentions,
+  index,
 }: {
   keyId: string;
   title: string;
   blurb: string;
   areaSlugs: string[];
   mentions: string[];
+  index: number;
 }) {
+  const alt = index % 2 === 1;
+
   return (
-    <section id={keyId} className="scroll-mt-24">
-      <div className="mb-4 flex items-baseline justify-between gap-3">
-        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{title}</h2>
-        <Link
-          href="#top"
-          className="text-sm underline opacity-70 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
-        >
-          Back to top
-        </Link>
+    <section
+      id={keyId}
+      className={`scroll-mt-28 py-16 md:py-20 px-6 ${alt ? 'bg-lux-elevated' : 'bg-lux-bg'}`}
+    >
+      <div className="lux-container">
+        <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
+          <h2 className="lux-heading-sm">{title}</h2>
+          <a
+            href="#top"
+            className="text-sm text-lux-secondary hover:text-lux-gold transition-colors"
+          >
+            Back to top
+          </a>
+        </div>
+        <p className="lux-body mb-12 max-w-2xl">{blurb}</p>
+
+        <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 list-none p-0 m-0">
+          {areaSlugs.map((slug) => {
+            const areaName = areaNameBySlug.get(slug);
+            if (!areaName) return null;
+
+            return (
+              <li key={slug}>
+                <Link
+                  href={`/locations/${slug}`}
+                  className="lux-panel lux-panel-hover block p-7 md:p-8 h-full group"
+                >
+                  <h3 className="font-display text-xl text-lux-ivory group-hover:text-lux-gold transition-colors">
+                    {areaName}
+                  </h3>
+                  <p className="text-sm text-lux-secondary mt-3 leading-relaxed">
+                    Curated home, apartment, and venue decor across {areaName}.
+                  </p>
+                  <span className="inline-block mt-6 text-[10px] tracking-tagline uppercase text-lux-gold/75">
+                    Explore locality →
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+
+        {mentions?.length ? (
+          <p className="mt-10 text-sm text-lux-secondary">
+            <span className="text-lux-ivory/90">Also nearby:</span> {mentions.join(', ')}.
+          </p>
+        ) : null}
       </div>
-      <p className="mb-5 opacity-90 text-gray-700 dark:text-gray-300">{blurb}</p>
-
-      {/* Linked major areas */}
-      <ul className="mb-4 grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-        {areaSlugs.map((slug) => {
-          const areaName = areaNameBySlug.get(slug);
-          if (!areaName) return null; // Skip if area doesn't exist
-
-          return (
-            <li
-              key={slug}
-              className="rounded-2xl border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex items-center justify-between gap-3">
-                <Link
-                  href={`/locations/${slug}`}
-                  className="font-medium hover:underline text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400"
-                >
-                  {areaName}
-                </Link>
-                <Link
-                  href={`/locations/${slug}`}
-                  className="rounded-xl border border-green-200 dark:border-green-700 px-3 py-1 text-sm text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
-                >
-                  View
-                </Link>
-              </div>
-              <p className="mt-2 text-sm opacity-70 text-gray-600 dark:text-gray-400">
-                Serving home, apartment, clubhouse and venue decor in {areaName}.
-              </p>
-            </li>
-          );
-        })}
-      </ul>
-
-      {/* Mentions: plain text (no pages) */}
-      {mentions?.length ? (
-        <p className="mb-10 text-sm text-gray-600 dark:text-gray-400">
-          <span className="font-medium text-gray-700 dark:text-gray-300">We also serve:</span>{' '}
-          {mentions.join(', ')}.
-        </p>
-      ) : null}
     </section>
   );
 }
 
 export default function LocationsHubPage() {
   return (
-    <>
-      <Navbar />
-      <main
-        id="top"
-        className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200"
+    <div className="lux-page" id="top">
+      <PageHero
+        eyebrow="Bengaluru coverage"
+        title="Areas we serve"
+        description={`Discover decoration across ${CITY} — each locality page includes services, recent setups, and booking for ${BUSINESS_NAME}.`}
       >
-        <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
-          {/* Hero */}
-          <header className="mb-8 md:mb-12">
-            <h1 className="text-3xl font-semibold text-gray-900 dark:text-white">
-              Event Decoration Across Bangalore — Areas We Serve
-            </h1>
-            <p className="mt-2 text-lg opacity-90 text-gray-700 dark:text-gray-300">
-              Explore our coverage across North, South, East, Central and West Bengaluru. Each area
-              page includes local service details, photos and quick booking options.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-3">
-              <a
-                href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-              >
-                Call
-              </a>
-              <a
-                href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
-                target="_blank"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-                rel="noreferrer"
-              >
-                WhatsApp
-              </a>
-              <Link
-                href="/services"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-              >
-                See Services
-              </Link>
-            </div>
-          </header>
-
-          {/* In-page TOC */}
-          <nav
-            aria-label="Clusters"
-            className="mb-8 rounded-2xl border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-800 shadow-sm"
+        <div className="mt-10 flex flex-wrap gap-4 justify-center">
+          <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="lux-btn-secondary">
+            Call {PHONE_DISPLAY}
+          </a>
+          <a
+            href={CONTACT.waUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="lux-btn-primary"
           >
-            <p className="mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Jump to a region:
-            </p>
-            <ul className="flex flex-wrap gap-3">
-              {CLUSTERS.map((c) => (
-                <li key={c.key}>
-                  <a
-                    href={`#${c.key}`}
-                    className="rounded-full border border-gray-200 dark:border-gray-600 px-3 py-1 text-sm hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors"
-                  >
-                    {c.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            WhatsApp
+          </a>
+        </div>
+      </PageHero>
 
-          {/* Cluster sections */}
-          <div className="space-y-10">
+      <nav aria-label="Regions" className="lux-container px-6 -mt-4 mb-4">
+        <div className="lux-surface p-6 md:p-8">
+          <p className="lux-eyebrow mb-4">Regions</p>
+          <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
             {CLUSTERS.map((c) => (
-              <ClusterSection
-                key={c.key}
-                keyId={c.key}
-                title={c.title}
-                blurb={c.blurb}
-                areaSlugs={c.areaSlugs}
-                mentions={c.mentions}
-              />
+              <li key={c.key}>
+                <a href={`#${c.key}`} className="lux-filter-pill lux-filter-pill-inactive">
+                  {c.title}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
+      </nav>
 
-          {/* Contact CTA */}
-          <section className="mt-12 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 bg-white dark:bg-gray-800 shadow-sm">
-            <h2 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
-              Ready to book Bangalore decor?
-            </h2>
-            <p className="mb-4 opacity-90 text-gray-700 dark:text-gray-300">
-              Tell us your area and event date — we'll share themes and pricing right away.
+      {CLUSTERS.map((c, i) => (
+        <ClusterSection
+          key={c.key}
+          keyId={c.key}
+          title={c.title}
+          blurb={c.blurb}
+          areaSlugs={c.areaSlugs}
+          mentions={c.mentions}
+          index={i}
+        />
+      ))}
+
+      <section className="lux-section bg-lux-bg">
+        <div className="lux-container">
+          <div className="lux-panel p-10 md:p-14 text-center max-w-2xl mx-auto">
+            <h2 className="lux-heading-sm mb-4">Ready to book?</h2>
+            <p className="lux-body mb-10">
+              Share your locality and date — we respond with themes and pricing.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-4 justify-center">
               <a
-                href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-              >
-                Call
-              </a>
-              <a
-                href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
+                href={CONTACT.waUrl()}
                 target="_blank"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-                rel="noreferrer"
+                rel="noopener noreferrer"
+                className="lux-btn-primary"
               >
                 WhatsApp
               </a>
-              <Link
-                href="/contact"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
-              >
-                Get a Quote
+              <Link href="/contact" className="lux-btn-secondary">
+                Contact form
               </Link>
             </div>
-          </section>
-
+          </div>
           <SchemaScript
             data={buildCollectionPageSchema({
               name: `Areas We Serve — ${CITY}`,
@@ -206,38 +166,7 @@ export default function LocationsHubPage() {
             })}
           />
         </div>
-      </main>
-      <Footer />
-
-      {/* Sticky WhatsApp CTA */}
-      <a
-        href="https://wa.me/918880544452"
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-green-400 to-pink-400 text-white px-6 py-3 rounded-full shadow-xl z-50 flex items-center gap-3 hover:from-green-500 hover:to-pink-500 hover:scale-105 transition transform duration-200 animate-pulse hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400"
-        target="_blank"
-        rel="noopener noreferrer"
-        id="whatsapp-cta"
-        data-gtm="click-whatsapp"
-        aria-label="Contact us on WhatsApp"
-      >
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M20.52 3.48A12 12 0 0 0 3.48 20.52l-1.32 4.84a1 1 0 0 0 1.22 1.22l4.84-1.32A12 12 0 1 0 20.52 3.48ZM12 22a10 10 0 1 1 10-10A10 10 0 0 1 12 22Zm5.07-7.75c-.28-.14-1.65-.81-1.9-.9s-.44-.14-.62.14-.71.9-.87 1.09-.32.21-.6.07a8.18 8.18 0 0 1-2.4-1.48 9.09 9.18 0 0 1-1.67-2.07c-.17-.29 0-.44.13-.58.13-.13.29-.34.43-.51a.52.52 0 0 0 .07-.54c-.07-.14-.62-1.5-.85-2.06s-.45-.45-.62-.46h-.53a1.06 1.06 0 0 0-.77.36A3.22 3.22 0 0 0 6.1 9.6c-.2.34-.3.74-.3 1.16a6.13 6.13 0 0 0 1.31 3.13 10.94 10.94 0 0 0 4.13 3.6c.58.25 1.15.41 1.54.53a3.7 3.7 0 0 0 1.7.11c.52-.08 1.65-.67 1.88-1.32s.23-1.21.16-1.32-.25-.19-.53-.33Z" />
-        </svg>
-        <span className="font-bold text-base hidden sm:inline">WhatsApp Us</span>
-      </a>
-
-      {/* Sticky Call Now CTA */}
-      <a
-        href="tel:+918880544452"
-        className="fixed bottom-24 right-6 bg-gradient-to-r from-pink-400 to-green-400 text-white px-6 py-3 rounded-full shadow-xl z-50 flex items-center gap-3 hover:from-pink-500 hover:to-green-500 hover:scale-105 transition transform duration-200 animate-pulse hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400"
-        id="callnow-cta"
-        data-gtm="click-callnow"
-        aria-label="Call us now"
-      >
-        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" />
-        </svg>
-        <span className="font-bold text-base hidden sm:inline">Call Now</span>
-      </a>
-    </>
+      </section>
+    </div>
   );
 }

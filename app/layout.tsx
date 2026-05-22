@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 import ThemeProvider from '@/components/ThemeProvider';
 import Navbar from '@/components/Navbar';
@@ -8,6 +8,7 @@ import './env-guard';
 import Script from 'next/script';
 import { GA_ID } from '@/lib/gtag';
 import WebVitalsReporter from '@/components/WebVitalsReporter';
+import CriticalStyles from '@/components/lux/CriticalStyles';
 import { METADATA_BASE, getIndexingRobots } from '@/lib/metadata';
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
 
@@ -15,6 +16,13 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  variable: '--font-cormorant',
 });
 
 export const metadata: Metadata = {
@@ -29,13 +37,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={inter.variable}>
-      <body className={`${inter.className} font-sans antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${cormorant.variable} dark`}
+    >
+      <body className={`${inter.className} min-h-screen bg-lux-bg text-lux-ivory`}>
+        <CriticalStyles />
         <ThemeProvider>
           <Navbar />
-          <main className="pt-20 pb-24 min-h-screen bg-gray-50 dark:bg-gray-900 font-sans transition-colors duration-200">
-            {children}
-          </main>
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </ThemeProvider>
         <WebVitalsReporter />
@@ -48,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Script id="ga4-init" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);} 
+                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', { anonymize_ip: true });
               `}

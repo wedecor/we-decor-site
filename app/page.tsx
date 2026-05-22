@@ -3,10 +3,12 @@ import { pageMetadata } from '@/lib/metadata';
 import HomeJsonLd from '@/components/home/home-json-ld';
 import HomeHero from '@/components/home/home-hero';
 import HomeServices from '@/components/home/home-services';
+import HomeWhy from '@/components/home/home-why';
+import HomeGalleryPreview from '@/components/home/home-gallery-preview';
+import HomeTestimonials from '@/components/home/home-testimonials';
 import HomeCta from '@/components/home/home-cta';
 import HomeContact from '@/components/home/home-contact';
 import HomeFaq from '@/components/home/home-faq';
-import HomeTestimonialsLazy from '@/components/home/home-testimonials-lazy';
 
 export const metadata: Metadata = pageMetadata({
   path: '/',
@@ -22,8 +24,10 @@ export default function HomePage() {
       <HomeJsonLd />
       <HomeHero />
       <HomeServices />
+      <HomeWhy />
+      <HomeGalleryPreview />
+      <HomeTestimonials />
       <HomeCta />
-      <HomeTestimonialsLazy />
       <HomeContact />
       <HomeFaq />
     </>

@@ -67,9 +67,7 @@ export default function SeoHead({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            schemaMarkup ?? buildSeoHeadDefaultSchema(canonical, description)
-          ),
+          __html: JSON.stringify(schemaMarkup ?? buildSeoHeadDefaultSchema(canonical, description)),
         }}
       />
     </Head>

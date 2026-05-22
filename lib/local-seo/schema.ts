@@ -180,9 +180,7 @@ export function buildFaqPageSchema(faqs: FaqInputList, pageUrl: string) {
   };
 }
 
-export function buildBreadcrumbSchema(
-  crumbs: { name: string; path: string }[]
-) {
+export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -225,9 +223,7 @@ export function buildLocationServiceSchema(options: {
   serviceSlug: string;
   serviceDescription: string;
 }) {
-  const pageUrl = absoluteUrl(
-    `/locations/${options.locationSlug}/services/${options.serviceSlug}`
-  );
+  const pageUrl = absoluteUrl(`/locations/${options.locationSlug}/services/${options.serviceSlug}`);
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -282,8 +278,7 @@ export function buildServicePageSchema(options: {
   serviceId?: string;
 }) {
   const pageUrl = absoluteUrl(options.path);
-  const id =
-    options.serviceId ?? options.path.replace(/\//g, '-').replace(/^-/, '');
+  const id = options.serviceId ?? options.path.replace(/\//g, '-').replace(/^-/, '');
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',

@@ -11,10 +11,7 @@ import {
   buildPhoneUrl,
 } from '../lib/site';
 import SchemaScript from '@/components/seo/SchemaScript';
-import {
-  buildBreadcrumbSchema,
-  buildLocationServiceSchema,
-} from '@/lib/local-seo';
+import { buildBreadcrumbSchema, buildLocationServiceSchema } from '@/lib/local-seo';
 
 interface LocationServicePageProps {
   location: {

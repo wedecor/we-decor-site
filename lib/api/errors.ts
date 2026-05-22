@@ -5,20 +5,20 @@ export function apiError(
   code: ApiErrorCode,
   message: string,
   status: number,
-  details?: ApiErrorBody['error']['details'],
+  details?: ApiErrorBody['error']['details']
 ): NextResponse<ApiErrorBody> {
   return NextResponse.json(
     {
       success: false,
       error: { code, message, ...(details?.length ? { details } : {}) },
     },
-    { status, headers: { 'Cache-Control': 'no-store' } },
+    { status, headers: { 'Cache-Control': 'no-store' } }
   );
 }
 
 export function apiSuccess<T extends Record<string, unknown>>(
   body: T,
-  status = 200,
+  status = 200
 ): NextResponse<T> {
   return NextResponse.json(body, {
     status,

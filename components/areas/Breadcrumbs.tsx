@@ -1,16 +1,19 @@
-'use client';
 import Link from 'next/link';
-export default function Breadcrumbs({ locality }: { locality: string }) {
+
+type Props = { locality: string };
+
+export default function Breadcrumbs({ locality }: Props) {
   return (
-    <nav className="mb-6 text-sm opacity-80 text-gray-600 dark:text-gray-400">
-      <Link
-        href="/locations"
-        className="underline text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
-      >
+    <nav className="mb-8 text-sm font-light text-lux-text-muted" aria-label="Breadcrumb">
+      <Link href="/" className="hover:text-lux-gold transition-colors">
+        Home
+      </Link>
+      <span className="mx-2 opacity-50">/</span>
+      <Link href="/locations" className="hover:text-lux-gold transition-colors">
         Locations
       </Link>
-      <span className="mx-2">/</span>
-      <span className="text-gray-900 dark:text-white">{locality}</span>
+      <span className="mx-2 opacity-50">/</span>
+      <span className="text-lux-ivory">{locality}</span>
     </nav>
   );
 }

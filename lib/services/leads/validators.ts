@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+// eslint-disable-next-line no-control-regex -- strip control chars from user input
 const CONTROL_CHARS = /[\u0000-\u001F\u007F]/;
 const SCRIPT_TAG = /<script\b/i;
 

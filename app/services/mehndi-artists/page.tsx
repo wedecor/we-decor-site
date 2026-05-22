@@ -1,107 +1,48 @@
 import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
+import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
 import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/mehndi-artists',
   title: 'Mehndi Artists in Bangalore | We Decor Events',
-  description:
-    'Intricate mehndi designs for all events and festivals. Professional mehndi artists in Bangalore.',
+  description: 'Intricate mehndi designs for weddings, festivals, and celebrations in Bengaluru.',
   ogImage: '/services/mehndi.jpg',
 });
 
 const structuredData = buildServicePageSchema({
   name: 'Mehndi Artists',
-  serviceType: 'Mehndi art',
-  description: 'Wedding and festival mehndi services in Bengaluru.',
+  serviceType: 'Mehndi',
+  description: 'Mehndi artistry for weddings and events in Bengaluru.',
   path: '/services/mehndi-artists',
 });
 
 export default function MehndiArtistsPage() {
   return (
-    <>
-      <SchemaScript data={structuredData} />
-      <main className="mx-auto max-w-6xl px-6 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Mehndi Artists
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Intricate mehndi designs for all events and festivals.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">
-              Our Mehndi Services:
-            </h2>
-            <ul className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Wedding Mehndi Designs
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Festival Mehndi Art
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Party & Event Mehndi
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Bridal Mehndi Sessions
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Group Mehndi Services
-              </li>
-              <li className="flex items-center">
-                <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
-                Custom Design Consultations
-              </li>
-            </ul>
-          </div>
-          <div className="bg-gradient-to-br from-amber-50 to-orange-100 dark:from-amber-900/20 dark:to-orange-800/20 p-8 rounded-2xl">
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-              Intricate Mehndi Art
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Our skilled mehndi artists create beautiful, intricate designs using traditional and contemporary patterns. We use high-quality henna for long-lasting, rich color.
-            </p>
-            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                <strong>Book your session</strong> and let our artists create stunning mehndi designs for your special occasion.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-            Ready for Beautiful Mehndi?
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Contact us to book your mehndi session and let our expert artists create intricate designs for your event.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="bg-amber-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-700 transition-colors duration-200"
-            >
-              Book Now
-            </a>
-            <a
-              href="tel:+918880544452"
-              className="border border-amber-600 text-amber-600 dark:text-amber-400 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 dark:hover:bg-amber-900/20 transition-colors duration-200"
-            >
-              Call +91 88805 44452
-            </a>
-          </div>
-        </div>
-      </main>
-    </>
+    <PartnerServicePage
+      schema={<SchemaScript data={structuredData} />}
+      config={{
+        title: 'Mehndi Artists',
+        description: 'Intricate mehndi designs for weddings, festivals, and intimate celebrations.',
+        listTitle: 'Our mehndi services',
+        items: [
+          'Wedding mehndi designs',
+          'Festival mehndi art',
+          'Party & event mehndi',
+          'Bridal mehndi sessions',
+          'Group mehndi services',
+          'Custom design consultations',
+        ],
+        highlightTitle: 'Intricate mehndi art',
+        highlightBody:
+          'Traditional and contemporary patterns using quality henna for rich, long-lasting colour.',
+        highlightNote:
+          'Book your session and let our artists create designs worthy of your photographs.',
+        ctaTitle: 'Ready for beautiful mehndi?',
+        ctaBody:
+          'Share your date and style references — we will match artists to your celebration.',
+      }}
+    />
   );
 }

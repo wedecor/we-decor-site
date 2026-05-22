@@ -1,144 +1,101 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import DarkModeToggle from './DarkModeToggle';
-import Image from 'next/image';
+import LogoNavbar from '@/components/lux/LogoNavbar';
+import LogoMonogram from '@/components/lux/LogoMonogram';
+
+const NAV = [
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/locations', label: 'Locations' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/contact', label: 'Contact' },
+] as const;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-green-100 via-pink-100 to-blue-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 shadow-lg z-40 font-sans backdrop-blur-md">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo/brand link to homepage */}
-        <Link
-          href="/"
-          className="flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-green-500 rounded"
-        >
-          <Image
-            src="/logo.webp"
-            alt="We Decor Logo - Event Decoration Services in Bangalore"
-            width={36}
-            height={36}
-            className="rounded-full shadow"
-            sizes="36px"
-          />
-          <span className="font-bold text-2xl text-green-700 dark:text-green-200 tracking-wide group-hover:text-pink-500 dark:group-hover:text-pink-300 transition">
-            We Decor
-          </span>
-        </Link>
-        {/* Desktop navigation and dark mode toggle */}
-        <div className="hidden md:flex items-center gap-6">
-          <Link
-            href="/about"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            About
+    <header className="lux-nav-shell fixed top-0 left-0 right-0 z-[100]">
+      <nav className="relative max-w-6xl mx-auto flex items-center justify-between gap-5 py-3.5 md:py-4 px-6 md:px-10 min-h-[var(--nav-height,5.75rem)]">
+        <div className="lg:hidden w-10 shrink-0" aria-hidden />
+        <LogoMonogram />
+        <LogoNavbar />
+
+        <div className="hidden lg:flex items-center gap-8 xl:gap-9">
+          {NAV.map((item) => {
+            const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={active ? 'lux-nav-link-active' : 'lux-nav-link'}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <Link href="/contact" className="lux-btn-primary text-sm py-2.5 px-7 shrink-0 ml-1">
+            Enquire
           </Link>
-          <Link
-            href="/services"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Services
-          </Link>
-          <Link
-            href="/gallery"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Gallery
-          </Link>
-          <Link
-            href="/locations"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Locations
-          </Link>
-          <Link
-            href="/pricing"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/faq"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            FAQ
-          </Link>
-          <Link
-            href="/contact"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Contact
-          </Link>
-          <DarkModeToggle />
         </div>
-        {/* Mobile menu button and dark mode toggle */}
-        <div className="md:hidden flex items-center gap-3">
-          <DarkModeToggle />
-          <button
-            className="text-green-700 dark:text-green-200 focus:outline-none focus:ring-2 focus:ring-green-400 rounded"
-            onClick={() => setOpen(!open)}
-          >
-            <span className="sr-only">Open menu</span>
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+        <button
+          type="button"
+          className="lg:hidden lux-icon-btn min-w-0 min-h-0 p-2.5 text-lux-ivory z-10"
+          onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-label="Menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {open ? (
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={1.5}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
                 d="M4 6h16M4 12h16M4 18h16"
               />
-            </svg>
-          </button>
-        </div>
-        {/* Mobile menu */}
-        <div
-          className={`flex-col md:hidden gap-4 ${open ? 'flex' : 'hidden'} bg-white/95 dark:bg-gray-900/95 absolute top-16 left-0 w-full shadow-lg transition-all duration-300 rounded-b-xl border border-gray-200 dark:border-gray-700`}
-        >
-          <Link
-            href="/about"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            About
-          </Link>
-          <Link
-            href="/services"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            Services
-          </Link>
-          <Link
-            href="/gallery"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            Gallery
-          </Link>
-          <Link
-            href="/locations"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            Locations
-          </Link>
-          <Link
-            href="/pricing"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/faq"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
-          >
-            FAQ
-          </Link>
+            )}
+          </svg>
+        </button>
+      </nav>
+
+      {open ? (
+        <div className="lg:hidden border-t border-white/[0.08] px-6 py-6 flex flex-col bg-[#1a141f]">
+          {NAV.map((item) => {
+            const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`py-3.5 text-[15px] font-light transition-colors duration-500 ${active ? 'text-lux-gold' : 'text-lux-secondary'}`}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           <Link
             href="/contact"
-            className="px-4 py-2 text-green-700 dark:text-green-200 font-medium hover:bg-green-50 dark:hover:bg-gray-800 rounded transition"
+            className="lux-btn-primary text-center mt-6"
+            onClick={() => setOpen(false)}
           >
-            Contact
+            Enquire
           </Link>
         </div>
-      </div>
-    </nav>
+      ) : null}
+    </header>
   );
 }

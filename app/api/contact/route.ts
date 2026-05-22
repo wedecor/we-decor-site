@@ -5,10 +5,7 @@ import { isAllowedOrigin } from '@/lib/security/origin';
 import { hashIp } from '@/lib/security/sanitize';
 import { verifyTurnstileToken } from '@/lib/security/turnstile';
 import { createLead } from '@/lib/services/leads/createLead';
-import {
-  contactLeadSchema,
-  formatZodErrors,
-} from '@/lib/services/leads/validators';
+import { contactLeadSchema, formatZodErrors } from '@/lib/services/leads/validators';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -37,11 +34,7 @@ export async function POST(request: NextRequest) {
   const ip = getClientIp(request);
   const rate = await rateLimitContact(ip);
   if (!rate.success) {
-    return apiError(
-      'RATE_LIMITED',
-      'Too many requests. Please try again later.',
-      429,
-    );
+    return apiError('RATE_LIMITED', 'Too many requests. Please try again later.', 429);
   }
 
   let raw: unknown;
@@ -103,7 +96,11 @@ export async function POST(request: NextRequest) {
       message: 'Thank you! Your enquiry was received. Opening WhatsApp to confirm with our team.',
     });
   } catch {
-    return apiError('INTERNAL_ERROR', 'Unable to process your enquiry. Please call us directly.', 500);
+    return apiError(
+      'INTERNAL_ERROR',
+      'Unable to process your enquiry. Please call us directly.',
+      500
+    );
   }
 }
 

@@ -43,7 +43,7 @@ export function pageMetadata({
   path,
   title,
   description,
-  ogImage = '/logo.webp',
+  ogImage = '/logo.png',
   noindex = false,
 }: PageMetadataOptions): Metadata {
   const url = absoluteUrl(path);

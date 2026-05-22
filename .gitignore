@@ -8,6 +8,10 @@ out/
 # Vercel
 .vercel/
 
+# Turbopack / tooling caches
+.turbo/
+.swc/
+
 # Environment files (never commit real secrets)
 .env
 .env.*
@@ -21,7 +25,7 @@ out/
 .env.production.local
 .env.sentry-build-plugin
 
-# Safe templates live under /env
+# Safe templates live under /env (tracked: env/.env.example only)
 /env/.env
 /env/.env.local
 /env/.env.production
@@ -31,22 +35,42 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
+logs/
 
-# Test & audit artifacts (may contain leaked scan matches)
+# Test & audit artifacts (may contain scan output or env echoes)
 artifacts/
 !artifacts/.gitkeep
-public/_originals/
+reports/
 playwright-report/
 test-results/
 coverage/
 *.lcov
 
+# Performance / local audit outputs
+lighthouse-report.json
+lighthouse-report-*.json
+lighthouse-report*.html
+
+# Original unoptimized assets (use Cloudinary / optimized public/ paths)
+public/_originals/
+
+# Screenshots & local exports
+screenshots/
+*.screenshot.png
+*.screenshot.jpg
+
 # OS / editor
 .DS_Store
+Thumbs.db
 *.pem
+*.key
+*.p12
 .idea/
 .vscode/*
 !.vscode/extensions.json
+*.swp
+*~
 
 # TypeScript
 *.tsbuildinfo

@@ -7,7 +7,7 @@ type TurnstileVerifyResponse = {
 
 export async function verifyTurnstileToken(
   token: string,
-  remoteIp?: string | null,
+  remoteIp?: string | null
 ): Promise<{ ok: boolean; reason?: string }> {
   const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
   if (secret && !token?.trim()) {
@@ -59,6 +59,6 @@ export async function verifyTurnstileToken(
 
 export function isTurnstileConfigured(): boolean {
   return Boolean(
-    process.env.TURNSTILE_SECRET_KEY?.trim() && process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim(),
+    process.env.TURNSTILE_SECRET_KEY?.trim() && process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim()
   );
 }

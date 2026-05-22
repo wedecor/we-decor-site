@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
+
 const isProd = process.env.NODE_ENV === 'production';
 const csp = [
   "default-src 'self'",
@@ -16,6 +18,8 @@ const csp = [
 ].join('; ');
 
 const nextConfig = {
+  // Fix dev/CSS when multiple lockfiles exist (parent dir vs project dir)
+  outputFileTracingRoot: path.join(__dirname),
   reactStrictMode: true,
   trailingSlash: false,
   eslint: { ignoreDuringBuilds: true }, // unblock prod build
@@ -186,13 +190,10 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
-
-// Injected content via Sentry wizard below
-
 const { withSentryConfig } = require('@sentry/nextjs');
 
-module.exports = withSentryConfig(module.exports, {
+// Sentry webpack wrapping can break dev client chunks (e.g. next/link). Use in production only.
+const sentryOptions = {
   // For all available options, see:
   // https://www.npmjs.com/package/@sentry/webpack-plugin#options
 
@@ -226,4 +227,9 @@ module.exports = withSentryConfig(module.exports, {
   // Exclude MDX files from Sentry wrapping
   excludeServerRoutes: [/\.mdx$/],
   excludeClientRoutes: [/\.mdx$/],
-});
+};
+
+module.exports =
+  process.env.NODE_ENV === 'production'
+    ? withSentryConfig(nextConfig, sentryOptions)
+    : nextConfig;

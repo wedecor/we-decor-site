@@ -1,17 +1,17 @@
 'use client';
+
 type Props = { locality: string; services: string[] };
+
 export default function ServicesGrid({ locality, services }: Props) {
   if (!services?.length) return null;
   return (
-    <section className="mb-10">
-      <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
-        Our Event Decoration Services in {locality}
-      </h2>
-      <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {services.map((s, i) => (
+    <section className="mb-14">
+      <h2 className="lux-heading-sm mb-8">Event decoration in {locality}</h2>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 m-0">
+        {services.map((s) => (
           <li
-            key={i}
-            className="rounded-2xl border border-gray-200 dark:border-gray-700 p-4 shadow-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+            key={s}
+            className="lux-panel lux-panel-hover p-5 text-lux-muted font-light text-sm md:text-base"
           >
             {s}
           </li>

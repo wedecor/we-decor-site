@@ -13,8 +13,6 @@ import {
 import { GALLERY_ITEMS, localize } from '../../_data/gallery';
 import { CLUSTERS } from '../../_data/clusters';
 import { faqsForArea } from '../../_data/faqs';
-import Navbar from '../../../../components/Navbar';
-import Footer from '../../../../components/Footer';
 import LocationGallery from '../../../../components/LocationGallery';
 import FAQJsonLd from '../../_components/FAQJsonLd';
 import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
@@ -80,55 +78,55 @@ export default async function LocationPage({ params }: LocationPageProps) {
         ])}
       />
 
-      <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 pt-20">
-        <div className="relative bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20">
+      <div className="lux-page">
+        <div className="relative bg-lux-elevated border-b border-white/[0.06] text-lux-ivory py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Event Decoration in {area.name}, {CITY}
+            <p className="lux-eyebrow mb-4">Bengaluru · {area.name}</p>
+            <h1 className="font-display text-4xl md:text-6xl font-medium mb-6 text-lux-ivory">
+              Event decoration in {area.name}, {CITY}
             </h1>
-            <p className="text-xl md:text-2xl mb-8">
+            <p className="text-xl md:text-2xl mb-8 text-lux-muted max-w-3xl mx-auto">
               Professional decoration services in {area.name}. From birthday parties to weddings, we
               bring creativity to every celebration.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
+                className="lux-btn-secondary px-8 py-4"
               >
-                📞 Call Now {PHONE_DISPLAY}
+                Call {PHONE_DISPLAY}
               </a>
               <a
                 href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${area.name}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors"
+                className="lux-btn-primary px-8 py-4"
               >
-                💬 WhatsApp Us to Book
+                WhatsApp us to book
               </a>
             </div>
           </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">
-            Our Services in {area.name}
-          </h2>
+          <h2 className="lux-heading-sm text-center mb-12">Our services in {area.name}</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service) => (
-              <div key={service} className="bg-white rounded-2xl shadow-xl p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3">{service}</h3>
+              <div key={service} className="lux-panel lux-panel-hover p-6 flex flex-col h-full">
+                <h3 className="font-display text-xl text-lux-ivory mb-3">{service}</h3>
                 {area.serviceDescriptions ? (
-                  <p className="text-gray-600 mb-4 text-sm">{area.serviceDescriptions[service]}</p>
+                  <p className="text-lux-muted mb-4 text-sm flex-1">
+                    {area.serviceDescriptions[service]}
+                  </p>
                 ) : null}
                 <a
                   href={`https://wa.me/918880544452?text=Hi! I need ${service} in ${area.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-pink-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-pink-700 transition-colors"
+                  className="lux-btn-primary text-center mt-auto"
                 >
-                  Get Quote
+                  Get quote
                 </a>
               </div>
             ))}
@@ -137,39 +135,33 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* FAQ Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-              Frequently Asked Questions for {areaName}
+          <div className="lux-surface p-8 md:p-12">
+            <h2 className="lux-heading-sm text-center mb-8">
+              Frequently asked questions — {areaName}
             </h2>
             <div className="max-w-4xl mx-auto">
               <dl className="space-y-6">
                 {faqsForArea(slug, areaName).map((faq, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-6 last:border-b-0">
-                    <dt className="text-lg font-semibold text-gray-800 mb-3">{faq.q}</dt>
-                    <dd className="text-gray-600 leading-relaxed">{faq.a}</dd>
+                  <div key={index} className="border-b border-white/10 pb-6 last:border-b-0">
+                    <dt className="text-lg font-medium text-lux-ivory mb-3">{faq.q}</dt>
+                    <dd className="text-lux-muted leading-relaxed">{faq.a}</dd>
                   </div>
                 ))}
               </dl>
 
               {/* FAQ Internal Links */}
-              <div className="mt-8 pt-6 border-t border-gray-200">
+              <div className="mt-8 pt-6 border-t border-white/10">
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center text-sm">
-                  <Link
-                    href="/services"
-                    className="text-pink-600 hover:text-pink-700 font-medium underline"
-                  >
+                  <Link href="/services" className="text-lux-gold hover:underline font-medium">
                     View All Services →
                   </Link>
-                  <Link
-                    href="/gallery"
-                    className="text-green-600 hover:text-green-700 font-medium underline"
-                  >
+                  <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
                     Browse Gallery →
                   </Link>
                   {nearbyAreaName ? (
                     <Link
                       href={`/locations/${nearbyArea}`}
-                      className="text-blue-600 hover:text-blue-700 font-medium underline"
+                      className="text-lux-gold hover:underline font-medium"
                     >
                       Also serving {nearbyAreaName} →
                     </Link>
@@ -183,15 +175,16 @@ export default async function LocationPage({ params }: LocationPageProps) {
         {/* Area-specific information */}
         {area.landmarks && area.landmarks.length > 0 ? (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-                Popular Venues in {area.name}
-              </h2>
+            <div className="lux-surface p-8 md:p-12">
+              <h2 className="lux-heading-sm text-center mb-8">Popular venues in {area.name}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {area.landmarks.map((landmark, index) => (
-                  <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
-                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{landmark}</h3>
-                    <p className="text-gray-600 text-sm">Perfect for events</p>
+                  <div
+                    key={index}
+                    className="text-center p-4 bg-lux-muted rounded-xl border border-white/10"
+                  >
+                    <h3 className="text-lg font-medium text-lux-ivory mb-2">{landmark}</h3>
+                    <p className="text-lux-muted text-sm">Perfect for events</p>
                   </div>
                 ))}
               </div>
@@ -201,27 +194,25 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* CTA Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl text-white text-center p-8 md:p-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Ready to Transform Your Event in {areaName}?
-            </h2>
-            <p className="text-xl mb-8 opacity-90">
+          <div className="lux-surface border-lux-gold/20 text-center p-8 md:p-12">
+            <h2 className="lux-heading-sm mb-4">Ready to transform your event in {areaName}?</h2>
+            <p className="text-lg text-lux-muted mb-8 max-w-2xl mx-auto">
               Contact us today for a free consultation and quote for your area
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="bg-white text-pink-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
+                className="lux-btn-secondary px-8 py-4"
               >
-                📞 Call {PHONE_DISPLAY}
+                Call {PHONE_DISPLAY}
               </a>
               <a
                 href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${areaName}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-600 transition-colors"
+                className="lux-btn-primary px-8 py-4"
               >
-                💬 WhatsApp Us
+                WhatsApp us
               </a>
             </div>
           </div>
@@ -229,11 +220,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* Gallery Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
-              Recent Setups in {areaName}
-            </h2>
-            <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+          <div className="lux-surface p-8 md:p-12">
+            <h2 className="lux-heading-sm text-center mb-8">Recent setups in {areaName}</h2>
+            <p className="text-lg text-lux-muted text-center mb-12 max-w-3xl mx-auto">
               Browse our recent setups across {areaName} — from apartments and rooftops to
               clubhouses and banquet halls.
             </p>
@@ -241,18 +230,15 @@ export default async function LocationPage({ params }: LocationPageProps) {
             <LocationGallery items={localizedItems} />
 
             {/* Internal Links */}
-            <div className="mt-12 pt-8 border-t border-gray-200">
+            <div className="mt-12 pt-8 border-t border-white/10">
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link
-                  href="/services"
-                  className="text-pink-600 hover:text-pink-700 font-medium underline"
-                >
+                <Link href="/services" className="text-lux-gold hover:underline font-medium">
                   View All Services →
                 </Link>
                 {nearbyAreaName ? (
                   <Link
                     href={`/locations/${nearbyArea}`}
-                    className="text-green-600 hover:text-green-700 font-medium underline"
+                    className="text-lux-gold hover:underline font-medium"
                   >
                     Also serving {nearbyAreaName} →
                   </Link>
@@ -262,7 +248,6 @@ export default async function LocationPage({ params }: LocationPageProps) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

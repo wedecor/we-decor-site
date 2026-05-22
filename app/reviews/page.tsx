@@ -2,6 +2,7 @@ import Testimonials from '@/components/Testimonials';
 import { SimpleGoogleReviewsEmbed } from '@/components/GoogleReviewsWidget';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
+import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = pageMetadata({
   path: '/reviews',
@@ -15,15 +16,22 @@ export default function ReviewsPage() {
   const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID || '';
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-        Customer Reviews
-      </h1>
-      <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-        See what our clients say about our decoration services across Bangalore.
-      </p>
-      {placeId ? <SimpleGoogleReviewsEmbed placeId={placeId} /> : null}
-      <Testimonials />
+    <div className="lux-page">
+      <PageHero
+        eyebrow="Testimonials"
+        title="Client voices"
+        description="Authentic feedback from celebrations we have styled across Bengaluru."
+      />
+      <section className="lux-section pt-0 pb-24 md:pb-32 bg-lux-bg">
+        <div className="lux-container">
+          {placeId ? (
+            <div className="mb-16">
+              <SimpleGoogleReviewsEmbed placeId={placeId} />
+            </div>
+          ) : null}
+          <Testimonials />
+        </div>
+      </section>
     </div>
   );
 }
