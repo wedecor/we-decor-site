@@ -19,6 +19,7 @@ import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildBreadcrumbSchema } from '@/lib/local-seo';
 import Link from 'next/link';
+import { CONTACT } from '@/lib/contact';
 
 interface LocationPageProps {
   params: Promise<{ slug: string }>;
@@ -97,7 +98,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 Call {PHONE_DISPLAY}
               </a>
               <a
-                href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${area.name}`}
+                href={CONTACT.waUrl(`Hi! I need decoration services in ${area.name}`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lux-btn-primary px-8 py-4"
@@ -121,7 +122,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                   </p>
                 ) : null}
                 <a
-                  href={`https://wa.me/918880544452?text=Hi! I need ${service} in ${area.name}`}
+                  href={CONTACT.waUrl(`Hi! I need ${service} in ${area.name}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="lux-btn-primary text-center mt-auto"
@@ -207,7 +208,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 Call {PHONE_DISPLAY}
               </a>
               <a
-                href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${areaName}`}
+                href={CONTACT.waUrl(`Hi! I need decoration services in ${areaName}`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lux-btn-primary px-8 py-4"

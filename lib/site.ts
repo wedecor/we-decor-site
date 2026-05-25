@@ -2,6 +2,7 @@
 // Single source of truth for site URL and related constants
 
 import { env, isProduction, isDevelopment, isPreview } from './env';
+import { CONTACT, PHONE_E164 } from './contact';
 
 // Site configuration constants
 /**
@@ -15,8 +16,9 @@ export const SITE_URL = (env.SITE_URL ?? 'https://www.wedecorevents.com')
 
 export const SITE_NAME = 'We Decor';
 export const SITE_DESCRIPTION = 'Professional event decoration services in Bangalore';
-export const SITE_PHONE = '+91 8880544452';
-export const SITE_WHATSAPP = '+91 8880544452';
+
+export const SITE_PHONE = CONTACT.primary.display;
+export const SITE_WHATSAPP = CONTACT.primary.display;
 export const SITE_EMAIL = 'info@wedecorevents.com';
 
 // Canonical URL helpers
@@ -30,7 +32,7 @@ export const buildWhatsAppUrl = (message: string = '') => {
   const encodedMessage = encodeURIComponent(
     message || "Hi! I'm interested in your decoration services."
   );
-  return `https://wa.me/${SITE_WHATSAPP.replace(/\D/g, '')}?text=${encodedMessage}`;
+  return `https://wa.me/${PHONE_E164.primary}?text=${encodedMessage}`;
 };
 
 export const buildPhoneUrl = (phone: string = SITE_PHONE) => {

@@ -1,62 +1,62 @@
-// Centralized contact configuration
-// Single source of truth for all contact information
+// Centralized contact configuration — single source of truth for NAP / CTAs
+// Primary: +91 8880544452 | Secondary: +91 9591232166
+
+/** E.164 digits only (no +) for wa.me / tel: hrefs */
+export const PHONE_E164 = {
+  primary: '918880544452',
+  secondary: '919591232166',
+} as const;
 
 export const CONTACT = {
-  WHATSAPP_NUMBER: '+919880544452',
-  PRIMARY_NUMBER: '+919880544452',
-  SECONDARY_NUMBER: '+919591232166',
-  displayNumbers: ['+91 88805 44452', '+91 95912 32166'],
+  WHATSAPP_NUMBER: `+${PHONE_E164.primary}`,
+  PRIMARY_NUMBER: `+${PHONE_E164.primary}`,
+  SECONDARY_NUMBER: `+${PHONE_E164.secondary}`,
+  displayNumbers: ['+91 8880544452', '+91 9591232166'] as const,
 
-  // Builds a WhatsApp URL with optional prefill
   waUrl: (msg?: string) => {
-    const base = 'https://wa.me/919880544452';
+    const base = `https://wa.me/${PHONE_E164.primary}`;
     if (!msg) return base;
     return `${base}?text=${encodeURIComponent(msg)}`;
   },
 
-  // Builds WhatsApp URL for specific locality
   waUrlForLocality: (locality: string) => {
     const message = `Hi! I found you on We Decor site. I'm planning an event in ${locality}. Date: _____. Please share themes & pricing.`;
     return CONTACT.waUrl(message);
   },
 
-  telLinks: () => [
-    { raw: '+919880544452', label: '+91 88805 44452' },
-    { raw: '+919591232166', label: '+91 95912 32166' },
-  ],
+  telLinks: () =>
+    [
+      { raw: `+${PHONE_E164.primary}`, label: '+91 8880544452' },
+      { raw: `+${PHONE_E164.secondary}`, label: '+91 9591232166' },
+    ] as const,
 
-  // Primary contact methods
   primary: {
-    whatsapp: '+919880544452',
-    phone: '+919880544452',
-    display: '+91 88805 44452',
+    whatsapp: `+${PHONE_E164.primary}`,
+    phone: `+${PHONE_E164.primary}`,
+    display: '+91 8880544452',
   },
 
-  // Secondary contact methods
   secondary: {
-    phone: '+919591232166',
-    display: '+91 95912 32166',
+    phone: `+${PHONE_E164.secondary}`,
+    display: '+91 9591232166',
   },
 } as const;
 
-// Validation helpers
 export const validateContact = () => {
   const issues: string[] = [];
-
-  if (!CONTACT.WHATSAPP_NUMBER.startsWith('+91')) {
-    issues.push('WhatsApp number must start with +91');
-  }
 
   if (!CONTACT.PRIMARY_NUMBER.startsWith('+91')) {
     issues.push('Primary number must start with +91');
   }
-
   if (!CONTACT.SECONDARY_NUMBER.startsWith('+91')) {
     issues.push('Secondary number must start with +91');
   }
+  if (PHONE_E164.primary !== '918880544452') {
+    issues.push('Primary E.164 must be 918880544452');
+  }
+  if (PHONE_E164.secondary !== '919591232166') {
+    issues.push('Secondary E.164 must be 919591232166');
+  }
 
-  return {
-    isValid: issues.length === 0,
-    issues,
-  };
+  return { isValid: issues.length === 0, issues };
 };

@@ -1,8 +1,8 @@
 const PHONE_BASE_URL = process.env.BASE_URL ?? 'https://www.wedecorevents.com';
 const HOME = '/';
-const WA = /wa\.me\/919880544452/i; // WhatsApp CTA must use 8880544452
-const N1 = /88805\s*44452/; // display primary (spaced)
-const N2 = /95912\s*32166/; // display secondary (spaced)
+const WA = /wa\.me\/918880544452/i; // WhatsApp CTA must use +91 8880544452
+const N1 = /8880\s*5?\s*44452|8880544452/; // display primary
+const N2 = /9591\s*2?\s*32166|9591232166/; // display secondary
 
 async function getPhone(u: string) {
   try {
@@ -35,7 +35,7 @@ async function getPhone(u: string) {
 
   if (!okWa) {
     console.error('\n❌ WhatsApp CTA number incorrect/missing');
-    console.error('   Expected: wa.me/919880544452');
+    console.error('   Expected: wa.me/918880544452');
   }
 
   if (!okN1) {

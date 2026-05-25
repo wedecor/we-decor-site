@@ -20,7 +20,7 @@ fi
 
 # Check WhatsApp links
 echo "📱 Checking WhatsApp links..."
-if curl -s "${SITE_URL}/" | grep -q "wa.me/919880544452"; then
+if curl -s "${SITE_URL}/" | grep -q "wa.me/918880544452"; then
     echo "✅ WhatsApp: PASS"
 else
     echo "❌ WhatsApp: FAIL"
@@ -28,7 +28,7 @@ fi
 
 # Check phone numbers
 echo "📞 Checking phone numbers..."
-if curl -s "${SITE_URL}/" | grep -q "+91 88805 44452" && curl -s "${SITE_URL}/" | grep -q "+91 95912 32166"; then
+if curl -s "${SITE_URL}/" | grep -q "+91 8880544452" && curl -s "${SITE_URL}/" | grep -q "+91 9591232166"; then
     echo "✅ Phone Numbers: PASS"
 else
     echo "❌ Phone Numbers: FAIL"

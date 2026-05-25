@@ -8,8 +8,8 @@ const ROUTES = ['/', '/gallery', '/services', '/pricing', '/faq', '/contact', '/
 const EXPECTED = {
   brand: 'We Decor',
   igHandle: '@wedecorbangalore',
-  telPrimary: '+919880544452',   // +91 88805 44452
-  telSecondary: '+919591232166', // +91 95912 32166
+  telPrimary: '+918880544452', // +91 8880544452
+  telSecondary: '+919591232166', // +91 9591232166
   waLink: 'https://wa.me/918880544452',
 };
 
@@ -113,14 +113,14 @@ test.describe('feature-smoke', () => {
     }
 
     // Primary tel anchor - check if present
-    const tel1 = page.getByRole('link', { name: /\+91 88805 44452|\+91-88805-44452/ });
+    const tel1 = page.getByRole('link', { name: /\+91 8880544452|\+91-8880544452|\+91 88805 44452/ });
     if (await tel1.count() > 0) {
       const tel1Href = await tel1.getAttribute('href');
       expect(tel1Href).toBe(`tel:${EXPECTED.telPrimary}`);
     }
 
     // Secondary tel anchor - check if present
-    const tel2 = page.getByRole('link', { name: /\+91 95912 32166|\+91-95912-32166/ });
+    const tel2 = page.getByRole('link', { name: /\+91 9591232166|\+91-9591232166|\+91 95912 32166/ });
     if (await tel2.count() > 0) {
       const tel2Href = await tel2.getAttribute('href');
       expect(tel2Href).toBe(`tel:${EXPECTED.telSecondary}`);
