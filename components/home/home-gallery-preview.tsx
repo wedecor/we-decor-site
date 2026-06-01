@@ -1,11 +1,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { HOME_PREVIEW_IMAGES } from '@/lib/images';
 
 const previews = [
-  { src: '/gallery/haldi1.webp', label: 'Haldi ceremony', caption: 'Marigold mornings' },
-  { src: '/gallery/birthday1.webp', label: 'Birthday', caption: 'Themed home parties' },
-  { src: '/services/engagement.webp', label: 'Wedding', caption: 'Stage & reception' },
-  { src: '/gallery/tent1.webp', label: 'Outdoor', caption: 'Tent & balloon' },
+  {
+    src: HOME_PREVIEW_IMAGES.haldi,
+    label: 'Haldi ceremony',
+    caption: 'Marigold mornings',
+  },
+  {
+    src: HOME_PREVIEW_IMAGES.birthday,
+    label: 'Birthday',
+    caption: 'Themed home parties',
+  },
+  {
+    src: HOME_PREVIEW_IMAGES.reception,
+    label: 'Reception',
+    caption: 'Stage & reception',
+  },
+  {
+    src: HOME_PREVIEW_IMAGES.outdoor,
+    label: 'Proposal',
+    caption: 'Romantic setups',
+  },
 ] as const;
 
 export default function HomeGalleryPreview() {
@@ -38,7 +55,7 @@ export default function HomeGalleryPreview() {
                 loading="lazy"
               />
               <figcaption className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-lux-bg to-transparent">
-                <span className="text-xs text-lux-muted">{img.caption}</span>
+                <span className="text-xs text-lux-secondary">{img.caption}</span>
               </figcaption>
             </figure>
           ))}

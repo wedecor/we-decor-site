@@ -16,3 +16,11 @@ export const SERVICE_IMAGES = {
   tentBalloon: '/services/tent-balloon.webp',
   roomDecor: '/services/room-decor.webp',
 } as const;
+
+/** Homepage “Recent atmospheres” — run `node scripts/sync-desktop-images.mjs` after updating ~/Desktop/Images */
+export const HOME_PREVIEW_IMAGES = {
+  haldi: '/home-preview/haldi.webp',
+  birthday: '/home-preview/birthday.webp',
+  reception: '/home-preview/reception.webp',
+  outdoor: '/home-preview/outdoor.webp',
+} as const;

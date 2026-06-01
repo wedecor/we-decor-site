@@ -25,7 +25,7 @@ const services = [
   {
     title: 'Wedding',
     tag: 'Mandap & reception',
-    image: SERVICE_IMAGES.engagement,
+    image: SERVICE_IMAGES.corporate,
     href: '/services/wedding-setup',
   },
   {

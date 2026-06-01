@@ -72,6 +72,7 @@
     "images:convert": "node scripts/convert-images.mjs",
     "images:optimize": "node scripts/optimize-images.mjs --remove-originals",
     "images:optimize:all": "node scripts/optimize-images.mjs --remove-originals --gallery",
+    "images:sync": "node scripts/sync-desktop-images.mjs",
     "verify:headers": "tsx scripts/headers-verify.ts",
     "verify:lh": "node scripts/verify-lh.mjs",
     "hygiene": "npm prune --production && depcheck || true",
