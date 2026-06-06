@@ -1,4 +1,22 @@
 import { SERVICE_IMAGES } from '@/lib/images';
+import { getImagesByCategory } from '@/utils/gallery';
+
+const WEDDING_PLACEHOLDER =
+  'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045457/we-decor/engagement/IMG_20220804_111702.jpg';
+
+function collectionSrc(key: string, index = 0): string {
+  return getImagesByCategory(key)[index]?.src ?? '';
+}
+
+const GALLERY = {
+  wedding: {
+    src: collectionSrc('wedding') || WEDDING_PLACEHOLDER,
+    caption: 'Reception styling, Bengaluru',
+  },
+  haldi: { src: collectionSrc('haldi'), caption: 'Haldi ceremony, marigold & gold' },
+  birthday: { src: collectionSrc('birthday'), caption: 'Birthday at home, Koramangala' },
+  tent: { src: collectionSrc('birthday'), caption: 'Outdoor tent & balloon arch' },
+} as const;
 
 export type DecorationServiceSlug =
   | 'haldi-decoration'
@@ -41,14 +59,9 @@ export type DecorationServicePageConfig = {
   trustSignals: string[];
   waPrefill: string;
   coreServiceId?: string;
+  /** Optional override for the "Why ___ choose us" eyebrow above the trust section */
+  whyChooseUsEyebrow?: string;
 };
-
-const GALLERY = {
-  wedding: { src: '/gallery/wedding1.webp', caption: 'Reception styling, Bengaluru' },
-  haldi: { src: '/gallery/haldi1.webp', caption: 'Haldi ceremony, marigold & gold' },
-  birthday: { src: '/gallery/birthday1.webp', caption: 'Birthday at home, Koramangala' },
-  tent: { src: '/gallery/tent1.webp', caption: 'Outdoor tent & balloon arch' },
-} as const;
 
 export const DECORATION_SERVICE_PAGES: Record<DecorationServiceSlug, DecorationServicePageConfig> =
   {
@@ -182,9 +195,9 @@ export const DECORATION_SERVICE_PAGES: Record<DecorationServiceSlug, DecorationS
         },
       ],
       gallery: [
-        { src: SERVICE_IMAGES.corporate, caption: 'Corporate celebration styling' },
-        GALLERY.tent,
-        GALLERY.wedding,
+        { src: collectionSrc('corporate event'), caption: 'Corporate event styling' },
+        { src: '/services/corporate.webp', caption: 'Brand-aligned stage decoration' },
+        { src: collectionSrc('corporate event', 1), caption: 'Office celebration, Bengaluru' },
       ],
       testimonial: {
         quote:
@@ -194,6 +207,7 @@ export const DECORATION_SERVICE_PAGES: Record<DecorationServiceSlug, DecorationS
       trustSignals: ['GST-friendly quotes', 'Dedicated coordinator', 'Bengaluru corporate venues'],
       waPrefill:
         'Hi We Decor! We need corporate event decor in Bangalore. Date: _____. Company/venue: _____.',
+      whyChooseUsEyebrow: 'Why businesses choose us',
     },
     'tent-balloon-setup': {
       slug: 'tent-balloon-setup',

@@ -21,6 +21,20 @@ import { buildBreadcrumbSchema } from '@/lib/local-seo';
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
 
+/** Unique, hand-written meta descriptions for our highest-traffic location pages */
+const CUSTOM_META_DESCRIPTIONS: Record<string, string> = {
+  koramangala:
+    'Premium event decoration in Koramangala, Bengaluru. Birthday setups, engagement stages, and corporate decor for apartments, clubhouses & rooftops. WhatsApp for a free quote.',
+  whitefield:
+    'Event decoration services in Whitefield, Bengaluru. Wedding decor, birthday parties & corporate events for villas, gated communities & tech park venues. Call We Decor today.',
+  indiranagar:
+    'Elegant event decoration in Indiranagar, Bengaluru. Proposal setups, anniversary decor & engagement styling at rooftops, cafes & residences. We Decor — Bringing Dreams to Life.',
+  'hsr-layout':
+    'Birthday & wedding decoration in HSR Layout, Bengaluru. Home parties, clubhouse events & surprise setups by We Decor. Packages from ₹2,999. WhatsApp us now.',
+  jayanagar:
+    'Traditional & modern event decoration in Jayanagar, Bengaluru. Haldi, engagement, birthday & wedding decor for homes, halls & community spaces. We Decor Events.',
+};
+
 interface LocationPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -37,7 +51,10 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
   return pageMetadata({
     path: `/locations/${area.slug}`,
     title: `Event Decoration Services in ${area.name}, ${CITY} | ${BUSINESS_NAME}`,
-    description: `Professional event decoration services in ${area.name}, ${CITY}. Birthday decor, wedding setup, haldi decoration, room decoration.`,
+    description:
+      CUSTOM_META_DESCRIPTIONS[area.slug] ??
+      `Professional event decoration services in ${area.name}, ${CITY}. Birthday decor, wedding setup, haldi decoration, room decoration.`,
+    ogImage: '/og-banner.webp',
   });
 }
 

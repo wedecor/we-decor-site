@@ -36,7 +36,7 @@ export default function AboutPage() {
           <div className="lux-reveal max-w-xl">
             <p className="lux-eyebrow mb-6 md:mb-8">Our story</p>
             <h1 className="font-display text-[2.35rem] md:text-[3rem] lg:text-[3.35rem] font-light text-lux-ivory leading-[1.14] tracking-tight">
-              A studio for celebration atmosphere
+              We Decor — Bangalore&apos;s Celebration Atelier
             </h1>
             <p className="lux-body mt-8 md:mt-10 max-w-md">
               Editorial decoration for weddings, haldi, birthdays, and milestones — composed with
@@ -50,17 +50,35 @@ export default function AboutPage() {
         <div className="lux-container max-w-4xl">
           <div className="lux-reveal lux-reveal-delay-1 space-y-9 text-[1.0625rem] md:text-lg text-lux-secondary font-light leading-[1.88] max-w-2xl md:ml-[6%]">
             <p>
-              Planning a celebration in Bengaluru should feel exciting — not overwhelming. We exist
-              so you can entrust the atmosphere while you remain present for the people who matter.
+              We Decor was founded in Bengaluru with one belief: every celebration deserves a
+              thoughtfully composed atmosphere — not a catalogue setup.
             </p>
             <p>
-              We are a decoration atelier specialising in weddings, birthdays, haldi ceremonies,
-              engagements, and corporate milestones. Our work is guided by editorial taste, calm
-              execution, and an obsession with the details guests photograph.
+              From intimate home birthdays in Jayanagar to grand wedding receptions in Whitefield,
+              we have styled over 500 celebrations across the city.
+            </p>
+            <p>
+              Our team brings editorial taste and calm execution to every event — arriving early,
+              coordinating quietly, and leaving your space spotless.
             </p>
             <p className="font-display text-[1.65rem] md:text-[1.85rem] text-lux-gold-soft italic leading-snug pt-2">
               {BRAND.tagline}
             </p>
+          </div>
+
+          <div className="lux-reveal lux-reveal-delay-2 mt-14 md:mt-16 grid grid-cols-3 gap-6 max-w-2xl md:ml-[6%] border-t border-white/[0.08] pt-10">
+            {[
+              { value: '500+', label: 'Events Decorated' },
+              { value: '75+', label: 'Five-Star Reviews' },
+              { value: '25+', label: 'Bangalore Areas Served' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="font-display text-3xl md:text-4xl text-lux-gold-soft">{stat.value}</p>
+                <p className="mt-2 text-xs md:text-sm uppercase tracking-wide text-lux-secondary">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

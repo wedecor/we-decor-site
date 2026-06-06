@@ -1,3 +1,14 @@
+/** Display order for gallery collection cards (strongest portfolios first). */
+export const GALLERY_COLLECTION_ORDER = [
+  'birthday',
+  'corporate event',
+  'engagement',
+  'baby shower',
+  'haldi',
+  'room decor',
+  'wedding',
+] as const;
+
 // Enhanced gallery interface with location tags
 export interface GalleryImage {
   src: string;
@@ -530,6 +541,16 @@ const enhancedGallery: Record<string, GalleryImage[]> = {
       category: 'room decor',
       tags: ['room decor', 'interior', 'decoration'],
       locationTags: ['whitefield', 'hsr', 'koramangala', 'indiranagar', 'jayanagar'],
+    },
+  ],
+  // Placeholder cover until more wedding photos are uploaded to Cloudinary.
+  wedding: [
+    {
+      src: 'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045457/we-decor/engagement/IMG_20220804_111702.jpg',
+      alt: 'Wedding decoration — coming soon',
+      category: 'wedding',
+      tags: ['wedding', 'reception', 'mandap'],
+      locationTags: ['whitefield', 'koramangala', 'jayanagar', 'indiranagar'],
     },
   ],
 };

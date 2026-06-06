@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
 import HomeJsonLd from '@/components/home/home-json-ld';
+import LocalBusinessSchema from '@/components/seo/local-business-schema';
 import HomeHero from '@/components/home/home-hero';
 import HomeServices from '@/components/home/home-services';
 import HomeWhy from '@/components/home/home-why';
@@ -22,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <HomeJsonLd />
+      <LocalBusinessSchema />
       <HomeHero />
       <HomeServices />
       <HomeWhy />

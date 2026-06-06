@@ -2,10 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const previews = [
-  { src: '/gallery/haldi1.webp', label: 'Haldi ceremony', caption: 'Marigold mornings' },
-  { src: '/gallery/birthday1.webp', label: 'Birthday', caption: 'Themed home parties' },
+  {
+    src: 'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045451/we-decor/haldi/1676444453828.jpg',
+    label: 'Haldi ceremony',
+    caption: 'Marigold mornings',
+  },
+  {
+    src: 'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045451/we-decor/birthday/IMG_20230213_181247.jpg',
+    label: 'Birthday',
+    caption: 'Themed home parties',
+  },
   { src: '/services/engagement.webp', label: 'Wedding', caption: 'Stage & reception' },
-  { src: '/gallery/tent1.webp', label: 'Outdoor', caption: 'Tent & balloon' },
+  {
+    src: 'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045448/we-decor/birthday/IMG_20230208_191510.jpg',
+    label: 'Outdoor',
+    caption: 'Tent & balloon',
+  },
 ] as const;
 
 export default function HomeGalleryPreview() {

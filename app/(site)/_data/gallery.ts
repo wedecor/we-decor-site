@@ -1,3 +1,5 @@
+import { getImagesByCategory } from '@/utils/gallery';
+
 export interface GalleryItem {
   src: string;
   width: number;
@@ -8,20 +10,21 @@ export interface GalleryItem {
   category: string;
 }
 
-export const GALLERY_ITEMS: GalleryItem[] = [
+type GalleryMeta = Omit<GalleryItem, 'src' | 'width' | 'height'> & {
+  /** Key in utils/gallery.ts enhancedGallery collections */
+  collectionKey: string;
+};
+
+const GALLERY_META: GalleryMeta[] = [
   {
-    src: '/gallery/birthday-balloon-arch-fairylights.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'birthday',
     altBase: 'Birthday balloon arch decoration with fairy lights',
     captionBase: 'Colorful balloon arch with fairy lights — perfect for birthday celebrations',
     serviceTag: 'Birthday',
     category: 'birthday',
   },
   {
-    src: '/gallery/haldi-marigold-stage.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'haldi',
     altBase: 'Haldi ceremony stage decoration',
     captionBase:
       'Traditional marigold and yellow drapes setup — compact haldi stage with floor protection',
@@ -29,96 +32,91 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'haldi',
   },
   {
-    src: '/gallery/wedding-mandap-floral.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'wedding',
     altBase: 'Wedding mandap decoration',
     captionBase: 'Elegant floral mandap with drapes — timeless wedding ceremony setup',
     serviceTag: 'Wedding',
     category: 'wedding',
   },
   {
-    src: '/gallery/tent-balloon-outdoor.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'corporate event',
     altBase: 'Tent and balloon decoration setup',
     captionBase: 'Outdoor tent with balloon arrangements — weather-proof outdoor event decoration',
     serviceTag: 'Tent Setup',
     category: 'tent',
   },
   {
-    src: '/gallery/baby-shower-pastel-setup.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'baby shower',
     altBase: 'Baby shower decoration',
     captionBase: 'Soft pastel baby shower setup — gentle colors for precious moments',
     serviceTag: 'Baby Shower',
     category: 'baby-shower',
   },
   {
-    src: '/gallery/engagement-floral-romantic.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'engagement',
     altBase: 'Engagement ceremony decoration',
     captionBase: 'Romantic engagement setup with flowers — intimate celebration decoration',
     serviceTag: 'Engagement',
     category: 'engagement',
   },
   {
-    src: '/gallery/corporate-event-professional.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'corporate event',
     altBase: 'Corporate event decoration',
     captionBase: 'Professional corporate event setup — clean and elegant business celebration',
     serviceTag: 'Corporate',
     category: 'corporate',
   },
   {
-    src: '/gallery/home-decor-interior.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'room decor',
     altBase: 'Home decoration setup',
     captionBase: 'Elegant home interior decoration — transform your living space',
     serviceTag: 'Home Decor',
     category: 'home-decor',
   },
   {
-    src: '/gallery/anniversary-candle-romantic.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'engagement',
     altBase: 'Anniversary decoration with candles',
     captionBase: 'Romantic anniversary setup with candles and subtle florals',
     serviceTag: 'Anniversary',
     category: 'anniversary',
   },
   {
-    src: '/gallery/proposal-fairy-lights.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'engagement',
     altBase: 'Romantic proposal decoration setup',
     captionBase: 'Dreamy proposal setup with fairy lights and flowers',
     serviceTag: 'Proposal',
     category: 'proposal',
   },
   {
-    src: '/gallery/balloon-backdrop-celebration.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'birthday',
     altBase: 'Balloon backdrop decoration',
     captionBase: 'Stunning balloon backdrop for any celebration',
     serviceTag: 'Balloon Decoration',
     category: 'balloon',
   },
   {
-    src: '/gallery/floral-arrangement-centerpiece.webp',
-    width: 1600,
-    height: 1066,
+    collectionKey: 'engagement',
     altBase: 'Floral arrangement and centerpiece',
     captionBase: 'Beautiful floral arrangements and table centerpieces',
     serviceTag: 'Floral Decoration',
     category: 'floral',
   },
 ];
+
+function firstImageSrc(collectionKey: string): string {
+  const images = getImagesByCategory(collectionKey);
+  return images[0]?.src ?? '';
+}
+
+export const GALLERY_ITEMS: GalleryItem[] = GALLERY_META.map((meta) => {
+  const { collectionKey, ...rest } = meta;
+  return {
+    src: firstImageSrc(collectionKey),
+    width: 1600,
+    height: 1066,
+    ...rest,
+  };
+});
 
 export function localize(media: GalleryItem, area: { name: string }) {
   return {

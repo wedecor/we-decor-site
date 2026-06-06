@@ -131,7 +131,9 @@ export default function DecorationServicePage({ config }: Props) {
       {/* Why choose us */}
       <section className="lux-section bg-lux-bg">
         <div className="lux-container">
-          <p className="lux-eyebrow text-center mb-3">Why families choose us</p>
+          <p className="lux-eyebrow text-center mb-3">
+            {config.whyChooseUsEyebrow ?? 'Why families choose us'}
+          </p>
           <h2 className="lux-heading-sm text-center mb-14 md:mb-16 max-w-2xl mx-auto">
             A studio approach to celebration design
           </h2>

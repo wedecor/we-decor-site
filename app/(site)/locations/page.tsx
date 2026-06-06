@@ -13,6 +13,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Areas We Serve | We Decor — Event Decorators in Bangalore',
   description:
     'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
+  ogImage: '/og-banner.webp',
 });
 
 const areaNameBySlug = new Map(AREAS.map((a) => [a.slug, a.name]));
