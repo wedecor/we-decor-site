@@ -34,7 +34,7 @@ export default function PartnerServicePage({ config, schema }: Props) {
           description={config.description}
         />
 
-        <section className="lux-section pt-0 pb-24 md:pb-32 bg-lux-bg">
+        <section className="lux-section pt-6 pb-24 md:pb-32 bg-lux-bg">
           <div className="lux-container">
             <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start mb-20">
               <FadeIn>

@@ -7,6 +7,7 @@ import HomeServices from '@/components/home/home-services';
 import HomeWhy from '@/components/home/home-why';
 import HomeGalleryPreview from '@/components/home/home-gallery-preview';
 import HomeTestimonials from '@/components/home/home-testimonials';
+import GoogleReviewsMarquee from '@/components/home/google-reviews-marquee';
 import HomeCta from '@/components/home/home-cta';
 import HomeContact from '@/components/home/home-contact';
 import HomeFaq from '@/components/home/home-faq';
@@ -29,6 +30,7 @@ export default function HomePage() {
       <HomeWhy />
       <HomeGalleryPreview />
       <HomeTestimonials />
+      <GoogleReviewsMarquee />
       <HomeCta />
       <HomeContact />
       <HomeFaq />

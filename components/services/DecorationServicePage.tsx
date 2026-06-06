@@ -213,7 +213,7 @@ export default function DecorationServicePage({ config }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             {config.gallery.map((img, i) => (
               <figure
-                key={img.src}
+                key={`${i}-${img.caption}`}
                 className={`group relative overflow-hidden rounded-2xl border border-white/[0.08] ${
                   i === 0 ? 'md:col-span-2 aspect-[16/10]' : 'aspect-[4/5]'
                 }`}

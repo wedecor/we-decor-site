@@ -4,6 +4,9 @@ import { getImagesByCategory } from '@/utils/gallery';
 const WEDDING_PLACEHOLDER =
   'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045457/we-decor/engagement/IMG_20220804_111702.jpg';
 
+const BIRTHDAY_HERO_IMAGE =
+  'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045447/we-decor/birthday/IMG_20230130_175936.jpg';
+
 function collectionSrc(key: string, index = 0): string {
   return getImagesByCategory(key)[index]?.src ?? '';
 }
@@ -15,7 +18,7 @@ const GALLERY = {
   },
   haldi: { src: collectionSrc('haldi'), caption: 'Haldi ceremony, marigold & gold' },
   birthday: { src: collectionSrc('birthday'), caption: 'Birthday at home, Koramangala' },
-  tent: { src: collectionSrc('birthday'), caption: 'Outdoor tent & balloon arch' },
+  tent: { src: collectionSrc('birthday', 1), caption: 'Outdoor tent & balloon arch' },
 } as const;
 
 export type DecorationServiceSlug =
@@ -404,7 +407,7 @@ export const DECORATION_SERVICE_PAGES: Record<DecorationServiceSlug, DecorationS
       description:
         'Creative birthday party decoration in Bengaluru — themes, balloons, backdrops & venue styling.',
       serviceType: 'Birthday decoration',
-      ogImage: SERVICE_IMAGES.birthday,
+      ogImage: BIRTHDAY_HERO_IMAGE,
       coreServiceId: 'birthday-decoration',
       eyebrow: 'Birthdays · All ages',
       headline: 'Another year — celebrated beautifully',

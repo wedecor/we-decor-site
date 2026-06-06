@@ -57,6 +57,14 @@ const services = [
   },
 ] as const;
 
+/** Partner services without dedicated photography — gradient card instead of a mismatched stock image */
+const GRADIENT_PLACEHOLDER_SERVICES = new Set([
+  'Make-up Artists',
+  'Hair Stylists',
+  'Mehndi Artists',
+  'Photographers',
+]);
+
 export default function ServicesPage() {
   return (
     <div className="lux-page">
@@ -70,6 +78,7 @@ export default function ServicesPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9 list-none p-0 m-0">
             {services.map((service, index) => {
               const featured = 'featured' in service && service.featured;
+              const useGradientPlaceholder = GRADIENT_PLACEHOLDER_SERVICES.has(service.name);
               return (
                 <li
                   key={service.name}
@@ -79,16 +88,27 @@ export default function ServicesPage() {
                     <div
                       className={`relative w-full overflow-hidden ${featured ? 'aspect-[21/10] sm:aspect-[2/1]' : 'aspect-[4/5]'}`}
                     >
-                      <Image
-                        src={service.image}
-                        alt={`${service.name} — We Decor Bangalore`}
-                        fill
-                        className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
-                        sizes={featured ? '66vw' : '33vw'}
-                        quality={72}
-                        priority={index < 1}
-                        loading={index < 1 ? undefined : 'lazy'}
-                      />
+                      {useGradientPlaceholder ? (
+                        <div
+                          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] p-6"
+                          aria-hidden
+                        >
+                          <span className="font-display text-xl md:text-2xl text-lux-ivory/90 text-center leading-snug">
+                            {service.name}
+                          </span>
+                        </div>
+                      ) : (
+                        <Image
+                          src={service.image}
+                          alt={`${service.name} — We Decor Bangalore`}
+                          fill
+                          className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
+                          sizes={featured ? '66vw' : '33vw'}
+                          quality={72}
+                          priority={index < 1}
+                          loading={index < 1 ? undefined : 'lazy'}
+                        />
+                      )}
                       <div className="absolute inset-0 lux-overlay-cinematic" />
                       <div
                         className={`absolute bottom-0 inset-x-0 ${featured ? 'p-8 md:p-10' : 'p-7'}`}
