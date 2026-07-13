@@ -103,7 +103,11 @@ export function SimpleGoogleReviewsEmbed({ placeId }: { placeId: string }) {
         </p>
 
         <a
-          href={`https://www.google.com/maps/place/?q=place_id:${placeId}`}
+          href={
+            placeId
+              ? `https://www.google.com/maps/place/?q=place_id:${placeId}`
+              : 'https://www.google.com/maps/search/?api=1&query=We+Decor+Bangalore'
+          }
           target="_blank"
           rel="noopener noreferrer"
           className="lux-btn-primary inline-flex items-center"

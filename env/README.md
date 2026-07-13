@@ -14,7 +14,8 @@ This directory is the **single source of truth** for which variables the app exp
 | Variable | Scope | Required | Description |
 |----------|--------|----------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | Public | Yes (prod) | Canonical site URL (`https://www.wedecorevents.com`) |
-| `NEXT_PUBLIC_GA_ID` | Public | No | Google Analytics 4 measurement ID |
+| `NEXT_PUBLIC_GTM_ID` | Public | No | Google Tag Manager container ID (e.g. `GTM-XXXXXXX`). See `docs/analytics.md`. |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Public | No | GA4 measurement ID, seeded onto the dataLayer for GTM. See `docs/analytics.md`. |
 | `NEXT_PUBLIC_SENTRY_DSN` | Public | No | Sentry browser DSN |
 | `NEXT_PUBLIC_CLOUDINARY_CLOUD` | Public | No | Cloudinary cloud name (public) |
 | `NEXT_PUBLIC_GOOGLE_PLACE_ID` | Public | No | Google Maps Place ID for reviews widget |

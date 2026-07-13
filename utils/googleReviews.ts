@@ -51,6 +51,15 @@ export async function fetchGoogleReviews(placeId: string): Promise<GooglePlaceDe
   }
 }
 
+/** Link to We Decor Google Business Profile reviews */
+export function getGoogleReviewsUrl(): string {
+  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim();
+  if (placeId) {
+    return `https://www.google.com/maps/place/?q=place_id:${placeId}`;
+  }
+  return 'https://www.google.com/maps/search/?api=1&query=We+Decor+Bangalore';
+}
+
 // Fallback testimonials data (your current data)
 export const fallbackTestimonials = [
   {

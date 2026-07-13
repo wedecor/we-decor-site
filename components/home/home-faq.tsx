@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { absoluteUrl } from '@/lib/metadata';
 import { buildFaqPageSchema } from '@/lib/local-seo';
@@ -7,6 +8,7 @@ const faqs = [
     question: 'What are your pricing packages?',
     answer:
       'Packages in Bengaluru start from ₹2,999 for intimate setups and extend to ₹25,000+ for premium wedding decor. We quote based on venue, materials, and creative scope.',
+    link: { href: '/pricing', label: 'View full pricing' },
   },
   {
     question: 'How long does setup take?',
@@ -56,7 +58,17 @@ export default function HomeFaq() {
                   ▾
                 </span>
               </summary>
-              <p className="px-6 pb-5 text-sm text-lux-secondary leading-relaxed">{faq.answer}</p>
+              <div className="px-6 pb-5">
+                <p className="text-sm text-lux-secondary leading-relaxed">{faq.answer}</p>
+                {'link' in faq && faq.link ? (
+                  <Link
+                    href={faq.link.href}
+                    className="mt-3 inline-block text-sm text-lux-gold hover:underline underline-offset-4 font-medium"
+                  >
+                    {faq.link.label} →
+                  </Link>
+                ) : null}
+              </div>
             </details>
           ))}
         </div>

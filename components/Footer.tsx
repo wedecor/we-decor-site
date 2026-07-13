@@ -2,6 +2,9 @@ import Link from 'next/link';
 import BrandWordmark from '@/components/lux/BrandWordmark';
 import { CONTACT } from '@/lib/contact';
 import { BRAND } from '@/lib/design/tokens';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
+import TrackedCtaLink from '@/components/analytics/TrackedCtaLink';
 
 export default function Footer() {
   const telLinks = CONTACT.telLinks();
@@ -61,24 +64,34 @@ export default function Footer() {
             <p className="lux-eyebrow mb-5">Enquire</p>
             <ul className="space-y-3.5 text-sm font-light">
               <li>
-                <a href={`tel:${telLinks[0].raw}`} className="lux-footer-link">
+                <TrackedPhoneLink
+                  href={`tel:${telLinks[0].raw}`}
+                  source="footer"
+                  className="lux-footer-link"
+                >
                   {telLinks[0].label}
-                </a>
+                </TrackedPhoneLink>
               </li>
               <li>
-                <a
+                <TrackedWhatsAppLink
                   href={CONTACT.waUrl()}
+                  source="footer"
                   className="lux-footer-link"
                   target="_blank"
                   rel="noreferrer"
                 >
                   WhatsApp
-                </a>
+                </TrackedWhatsAppLink>
               </li>
               <li>
-                <Link href="/contact" className="lux-footer-link">
+                <TrackedCtaLink
+                  href="/contact"
+                  source="footer"
+                  label="Contact form"
+                  className="lux-footer-link"
+                >
                   Contact form
-                </Link>
+                </TrackedCtaLink>
               </li>
               <li className="pt-2 lux-body-sm text-lux-text-muted">Bangalore · Mon–Sun, 9am–9pm</li>
             </ul>

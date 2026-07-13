@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import PricingPageView from '@/components/analytics/PricingPageView';
 
 export const metadata: Metadata = pageMetadata({
   path: '/pricing',
@@ -36,6 +38,7 @@ const experiences = [
 export default function PricingPage() {
   return (
     <div className="lux-page">
+      <PricingPageView />
       <PageHero
         eyebrow="Investment"
         title="Curated experiences"
@@ -87,14 +90,15 @@ export default function PricingPage() {
             Every proposal is tailored to your venue, guest count, and creative ambition.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <a
+            <TrackedWhatsAppLink
               href={CONTACT.waUrl()}
+              source="pricing_page"
               target="_blank"
               rel="noopener noreferrer"
               className="lux-btn-primary"
             >
               Request a consultation
-            </a>
+            </TrackedWhatsAppLink>
             <Link href="/contact" className="lux-btn-secondary text-center">
               Private enquiry
             </Link>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import gallery, { GALLERY_COLLECTION_ORDER, type GalleryImage } from '../utils/gallery';
+import { trackPortfolioImageClick } from '@/lib/analytics/events';
 
 const ImageModal = dynamic(() => import('./ImageModal'), {
   ssr: false,
@@ -35,6 +36,7 @@ export default function Gallery() {
   const handleCategoryClick = (category: string, images: GalleryImage[]) => {
     setSelectedCategory(category);
     setSelectedImages(images);
+    trackPortfolioImageClick(category, 0, { action: 'open_collection' });
   };
 
   const closeModal = () => {
@@ -88,9 +90,7 @@ export default function Gallery() {
                 ) : null}
                 <div className="absolute inset-0 lux-overlay-cinematic flex items-end justify-center pb-4 md:pb-5">
                   <div className="text-center px-4 w-full">
-                    <h3 className="font-display text-xl text-lux-ivory capitalize">
-                      {folder}
-                    </h3>
+                    <h3 className="font-display text-xl text-lux-ivory capitalize">{folder}</h3>
                     <p className="text-sm text-lux-muted mt-1">
                       {collectionLabel(folder, imageArray.length)}
                     </p>

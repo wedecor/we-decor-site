@@ -37,18 +37,20 @@ function generateUniqueBodyCopy(area: any, seed: string) {
 
   const venueText =
     venueTypes && venueTypes.length > 0
-      ? venueTypes.slice(0, 2).join('s and ')
+      ? venueTypes.slice(0, 2).join(' and ')
       : 'homes and venues';
 
   const vibeText = vibe ? `with its ${vibe} atmosphere` : '';
 
-  // Different content patterns based on seed
+  // Different content patterns based on seed. Every pattern references landmarks
+  // (not just venueTypes) so areas that happen to share the same venueTypes list
+  // still diverge — landmarks are what make each locality genuinely distinct.
   const patterns = [
     `Looking for event decoration ${landmarkText}? We specialize in creating memorable celebrations across ${name}. Our team understands the unique ${venueText} in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event.`,
 
-    `Planning an event in ${name}? Our decoration services are tailored to the local ${venueText} and ${vibeText}. We've transformed countless celebrations across this vibrant neighborhood, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of ${name} while meeting your specific vision.`,
+    `Planning an event in ${name}? Our decoration services are tailored to the local ${venueText}${vibeText ? `, ${vibeText}` : ''}. We've transformed countless celebrations ${landmarkText}, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of ${name} while meeting your specific vision.`,
 
-    `Celebrate your special moments in ${name} with our professional decoration services. We know the area's ${venueText} intimately and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion.`,
+    `Celebrate your special moments in ${name} with our professional decoration services. We know the area's ${venueText} intimately, especially ${landmarkText}, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion.`,
   ];
 
   const patternIndex =
@@ -75,11 +77,12 @@ function generateUniqueBodyCopy(area: any, seed: string) {
     ) % services.length;
   content += ` Our expertise includes ${services[serviceIndex]}, all customized for ${name} venues.`;
 
-  // Add unique pricing and booking info
+  // Add unique pricing and booking info — figure must match the canonical /pricing
+  // page (Intimate tier: ₹2,999+) so no page ever contradicts another.
   const pricingVariants = [
     `Transparent pricing starts from ₹2,999 and scales with your requirements.`,
-    `We offer flexible packages starting at ₹3,499, tailored to your venue and theme.`,
-    `Our pricing is competitive and transparent, beginning at ₹2,799 for basic setups.`,
+    `We offer flexible packages from ₹2,999, tailored to your venue and theme.`,
+    `Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups.`,
   ];
 
   const pricingIndex =
@@ -110,6 +113,18 @@ function generateUniqueBodyCopy(area: any, seed: string) {
       16
     ) % ctaVariants.length;
   content += ` ${ctaVariants[ctaIndex]}`;
+
+  // Areas can share identical venueTypes/vibe/pattern-index combinations by pure
+  // hash coincidence (e.g. two "quiet residential" suburbs with the same venue
+  // mix). A third landmark plus the area's vibe keeps every entry distinguishable
+  // even in that case — both are real fields already on the area, not invented.
+  if (vibe && landmarks && landmarks[2]) {
+    content += ` ${name} has a distinct ${vibe} character, and we're just as comfortable setting up near ${landmarks[2]}.`;
+  } else if (vibe) {
+    content += ` ${name} has a distinct ${vibe} character that shapes every setup we design here.`;
+  } else if (landmarks && landmarks[2]) {
+    content += ` We're just as comfortable setting up near ${landmarks[2]} as anywhere else in ${name}.`;
+  }
 
   return content;
 }
@@ -212,6 +227,36 @@ function generateUniqueHeroTagline(area: any, seed: string) {
   return taglinePatterns[patternIndex];
 }
 
+function jaccard(a: string, b: string) {
+  const toSet = (s: string) => new Set(s.toLowerCase().split(/\W+/).filter(Boolean));
+  const A = toSet(a);
+  const B = toSet(b);
+  const inter = Array.from(A).filter((x) => B.has(x)).length;
+  const union = new Set([...Array.from(A), ...Array.from(B)]).size;
+  return union ? inter / union : 0;
+}
+
+/**
+ * The three independent hash-selected sentences (pattern/service/pricing/cta)
+ * only span ~135 combinations, so by pigeonhole a couple of the 30 areas can
+ * coincidentally land on the exact same combination — collapsing their body
+ * copy to little more than a name/landmark swap. Detect that deterministically
+ * against everything already generated and re-roll with a disambiguating seed
+ * suffix (still 100% derived from the same real area data, nothing invented)
+ * until every pair is comfortably below the project's uniqueness threshold.
+ */
+function generateDistinctBodyCopy(area: any, baseSeed: string, existing: string[]): string {
+  for (let attempt = 0; attempt <= 8; attempt++) {
+    const seed = attempt === 0 ? baseSeed : `${baseSeed}#v${attempt}`;
+    const candidate = generateUniqueBodyCopy(area, seed);
+    if (existing.every((other) => jaccard(candidate, other) <= 0.75)) return candidate;
+  }
+  // Fallback: last attempt is still returned even if a borderline case remains —
+  // never blocks the build, just logs for manual review.
+  console.warn(`⚠️  Could not fully de-duplicate body copy for ${area.name}; review manually.`);
+  return generateUniqueBodyCopy(area, `${baseSeed}#v8`);
+}
+
 async function run() {
   try {
     // Dynamic import of the locations file
@@ -220,12 +265,15 @@ async function run() {
 
     console.log(`📊 Found ${AREAS.length} areas to process...`);
 
+    const bodyCopies: string[] = [];
     const enriched = AREAS.map((area) => {
       const seed = `${area.slug}|${area.name}`;
+      const bodyCopy = generateDistinctBodyCopy(area, seed, bodyCopies);
+      bodyCopies.push(bodyCopy);
       return {
         ...area,
         heroTagline: generateUniqueHeroTagline(area, seed),
-        bodyCopy: generateUniqueBodyCopy(area, seed),
+        bodyCopy,
         uniqueFAQ: generateUniqueFAQs(area, seed),
         waPrefill: `Hi! I'm planning an event in ${area.name}.`,
       };

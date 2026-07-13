@@ -1,94 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { fallbackTestimonials } from '../utils/googleReviews';
-import Image from 'next/image';
-
-interface GoogleReview {
-  author_name: string;
-  author_url: string;
-  language: string;
-  profile_photo_url: string;
-  rating: number;
-  relative_time_description: string;
-  text: string;
-  time: number;
-}
-
-interface Testimonial {
-  name: string;
-  event?: string;
-  feedback: string;
-  avatar?: string;
-  rating: number;
-  date?: string;
-  profile_photo_url?: string;
-  isGoogleReview?: boolean;
-}
+import { fallbackTestimonials, getGoogleReviewsUrl } from '../utils/googleReviews';
 
 export default function Testimonials() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>(fallbackTestimonials);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    async function fetchGoogleReviews() {
-      try {
-        const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID || 'ChIJ...';
-        const response = await fetch(`/api/google-reviews?placeId=${placeId}`);
-
-        if (response.ok) {
-          const data = await response.json();
-          if (data.reviews?.length > 0) {
-            const googleReviews: Testimonial[] = data.reviews
-              .slice(0, 5)
-              .map((review: GoogleReview) => ({
-                name: review.author_name,
-                feedback: review.text,
-                rating: review.rating,
-                date: review.relative_time_description,
-                profile_photo_url: review.profile_photo_url,
-                isGoogleReview: true,
-              }));
-            setTestimonials(googleReviews);
-          }
-        }
-      } catch (err) {
-        console.error('Error fetching Google reviews:', err);
-        setError('Failed to load reviews');
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchGoogleReviews();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="text-center py-12">
-        <p className="lux-body">Loading reviews…</p>
-        <div
-          className="mx-auto mt-6 h-10 w-10 animate-spin rounded-full border-2 border-lux-gold/30 border-t-lux-gold"
-          aria-hidden
-        />
-      </div>
-    );
-  }
+  const googleReviewsUrl = getGoogleReviewsUrl();
 
   return (
     <div>
-      {error ? (
-        <p className="text-center text-sm text-lux-text-muted mb-8">
-          {error} — showing sample testimonials
-        </p>
-      ) : null}
-
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={28}
@@ -102,23 +25,13 @@ export default function Testimonials() {
         }}
         className="testimonials-swiper pb-12"
       >
-        {testimonials.map((testimonial, index) => (
+        {fallbackTestimonials.map((testimonial, index) => (
           <SwiperSlide key={`${testimonial.name}-${index}`}>
             <div className="lux-panel p-8 h-full flex flex-col">
               <div className="flex items-center mb-5">
-                {testimonial.profile_photo_url ? (
-                  <Image
-                    src={testimonial.profile_photo_url}
-                    alt={testimonial.name}
-                    width={48}
-                    height={48}
-                    className="w-12 h-12 rounded-full mr-3 object-cover"
-                  />
-                ) : (
-                  <div className="text-3xl mr-3" aria-hidden>
-                    {testimonial.avatar}
-                  </div>
-                )}
+                <div className="text-3xl mr-3" aria-hidden>
+                  {testimonial.avatar}
+                </div>
                 <div>
                   <h3 className="font-medium text-lux-ivory">{testimonial.name}</h3>
                   {testimonial.event ? (
@@ -154,6 +67,17 @@ export default function Testimonials() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <p className="text-center mt-4">
+        <a
+          href={googleReviewsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lux-btn-primary inline-flex items-center text-sm"
+        >
+          View all reviews on Google →
+        </a>
+      </p>
 
       <style jsx global>{`
         .testimonials-swiper .swiper-button-next,

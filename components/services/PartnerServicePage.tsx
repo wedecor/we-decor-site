@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PageHero from '@/components/lux/PageHero';
 import FadeIn from '@/components/lux/FadeIn';
 import { CONTACT } from '@/lib/contact';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 
 export type PartnerServiceConfig = {
   title: string;
@@ -72,9 +73,13 @@ export default function PartnerServicePage({ config, schema }: Props) {
                   <Link href="/contact" className="lux-btn-primary">
                     Enquire online
                   </Link>
-                  <a href={`tel:${tel}`} className="lux-btn-secondary">
+                  <TrackedPhoneLink
+                    href={`tel:${tel}`}
+                    source="partner_service_page"
+                    className="lux-btn-secondary"
+                  >
                     Call {CONTACT.primary.display}
-                  </a>
+                  </TrackedPhoneLink>
                 </div>
               </div>
             </FadeIn>

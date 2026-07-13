@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import { trackPortfolioImageClick } from '@/lib/analytics/events';
 
 interface GalleryItem {
   src: string;
@@ -18,8 +19,12 @@ interface LocationGalleryProps {
 export default function LocationGallery({ items }: LocationGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
 
-  const openModal = (item: GalleryItem) => {
+  const openModal = (item: GalleryItem, index: number) => {
     setSelectedImage(item);
+    trackPortfolioImageClick('location_gallery', index, {
+      action: 'view_fullsize',
+      caption: item.caption,
+    });
   };
 
   const closeModal = () => {
@@ -33,14 +38,14 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
           <div
             key={index}
             className="lux-card-image group cursor-pointer"
-            onClick={() => openModal(item)}
+            onClick={() => openModal(item, index)}
             tabIndex={0}
             role="button"
             aria-label={`View ${item.alt}`}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                openModal(item);
+                openModal(item, index);
               }
             }}
           >

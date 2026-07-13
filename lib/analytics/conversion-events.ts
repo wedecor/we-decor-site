@@ -1,7 +1,15 @@
 /**
  * Client-side conversion tracking for lead capture.
- * Supports GA4 (gtag), Meta Pixel (fbq), and Google Ads conversions when configured.
+ *
+ * GA4-bound events are pushed through the GTM dataLayer (see
+ * `lib/analytics/dataLayer.ts`) — nothing here talks to Google's servers
+ * directly. Meta Pixel (`fbq`) and Google Ads conversions remain as
+ * optional, separately-gated integrations that stay inert unless their own
+ * env vars are set; neither is implemented/loaded by this project today.
  */
+
+import { trackEvent } from './events';
+import { isAnalyticsEnabled } from './config';
 
 export type LeadConversionParams = {
   leadId?: string;
@@ -11,22 +19,15 @@ export type LeadConversionParams = {
 
 declare global {
   interface Window {
-    gtag?: (...args: unknown[]) => void;
     fbq?: (...args: unknown[]) => void;
   }
 }
 
-const GA_ID = typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_GA_ID : '';
 const META_PIXEL_ID = typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_META_PIXEL_ID : '';
 const GOOGLE_ADS_CONVERSION_ID =
   typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID : '';
 const GOOGLE_ADS_CONVERSION_LABEL =
   typeof process !== 'undefined' ? process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL : '';
-
-function safeGtag(...args: unknown[]): void {
-  if (typeof window === 'undefined') return;
-  window.gtag?.(...args);
-}
 
 function safeFbq(...args: unknown[]): void {
   if (typeof window === 'undefined') return;
@@ -34,11 +35,11 @@ function safeFbq(...args: unknown[]): void {
 }
 
 export function trackLeadSubmitAttempt(): void {
-  safeGtag('event', 'generate_lead', { event_category: 'contact', event_label: 'submit_attempt' });
+  trackEvent('generate_lead', { event_category: 'contact', event_label: 'submit_attempt' });
 }
 
 export function trackLeadSubmitSuccess(params: LeadConversionParams = {}): void {
-  safeGtag('event', 'generate_lead', {
+  trackEvent('generate_lead', {
     event_category: 'contact',
     event_label: 'submit_success',
     lead_id: params.leadId,
@@ -55,7 +56,7 @@ export function trackLeadSubmitSuccess(params: LeadConversionParams = {}): void 
   }
 
   if (GOOGLE_ADS_CONVERSION_ID && GOOGLE_ADS_CONVERSION_LABEL) {
-    safeGtag('event', 'conversion', {
+    trackEvent('conversion', {
       send_to: `${GOOGLE_ADS_CONVERSION_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
       value: params.value,
       currency: 'INR',
@@ -64,12 +65,12 @@ export function trackLeadSubmitSuccess(params: LeadConversionParams = {}): void 
 }
 
 export function trackLeadSubmitFailure(reason: string): void {
-  safeGtag('event', 'form_error', {
+  trackEvent('form_error', {
     event_category: 'contact',
     event_label: reason,
   });
 }
 
 export function isAnalyticsConfigured(): boolean {
-  return Boolean(GA_ID || META_PIXEL_ID || GOOGLE_ADS_CONVERSION_ID);
+  return isAnalyticsEnabled() || Boolean(META_PIXEL_ID || GOOGLE_ADS_CONVERSION_ID);
 }

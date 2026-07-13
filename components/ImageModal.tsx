@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { trackPortfolioImageClick } from '@/lib/analytics/events';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -79,6 +80,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
     setSelectedImageIndex(index);
     setView('fullsize');
     setAriaMessage(`Viewing image ${index + 1} of ${images.length}`);
+    trackPortfolioImageClick(category, index, { action: 'view_fullsize' });
   };
 
   const loadMoreImages = () => {

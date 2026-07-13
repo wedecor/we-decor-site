@@ -12,7 +12,14 @@ export const PUBLIC_ENV_SPEC = {
     description: 'Canonical HTTPS site URL',
     example: 'https://www.wedecorevents.com',
   },
-  NEXT_PUBLIC_GA_ID: { requiredInProduction: false, description: 'GA4 measurement ID' },
+  NEXT_PUBLIC_GTM_ID: {
+    requiredInProduction: false,
+    description: 'Google Tag Manager container ID (e.g. GTM-XXXXXXX)',
+  },
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: {
+    requiredInProduction: false,
+    description: 'GA4 measurement ID, seeded onto the dataLayer for GTM (e.g. G-XXXXXXXXXX)',
+  },
   NEXT_PUBLIC_SENTRY_DSN: { requiredInProduction: false, description: 'Sentry client DSN' },
   NEXT_PUBLIC_CLOUDINARY_CLOUD: {
     requiredInProduction: false,
@@ -170,8 +177,7 @@ function runCli(): void {
 const isMain =
   typeof process !== 'undefined' &&
   process.argv[1] &&
-  (process.argv[1].endsWith('env/validation.ts') ||
-    process.argv[1].endsWith('validation.ts'));
+  (process.argv[1].endsWith('env/validation.ts') || process.argv[1].endsWith('validation.ts'));
 
 if (isMain) {
   runCli();

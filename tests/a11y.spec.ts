@@ -16,7 +16,7 @@ test.describe('Accessibility Tests', () => {
     
     // Check H1 content
     const h1 = page.locator('h1').first();
-    await expect(h1).toContainText('We Decor');
+    await expect(h1).toContainText('Bangalore');
   });
 
   test('gallery page should be accessible', async ({ page }) => {

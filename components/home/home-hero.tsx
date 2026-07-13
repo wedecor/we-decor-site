@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HERO_BACKGROUND_SRC } from '@/lib/images';
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 export default function HomeHero() {
   return (
@@ -33,20 +34,22 @@ export default function HomeHero() {
           className="font-display font-light text-lux-ivory max-w-2xl leading-[1.18] tracking-tight"
           style={{ fontSize: 'clamp(2.125rem, 4.5vw, 3.65rem)' }}
         >
-          Where every celebration becomes a memory
+          Premium Event Decoration in Bangalore — for Weddings, Birthdays, Haldi &amp; Engagements
         </h1>
         <p className="lux-body mt-7 md:mt-8 max-w-md">
-          Immersive wedding, haldi, and engagement atmospheres — composed with editorial restraint.
+          We design and style every occasion across Bengaluru, from home celebrations to grand
+          venues — trusted by families for thoughtful, calm execution.
         </p>
         <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-4">
-          <a
-            href={CONTACT.waUrl()}
+          <TrackedWhatsAppLink
+            href={CONTACT.waUrlForHome()}
+            source="home_hero"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-btn-primary"
           >
             WhatsApp for a quote
-          </a>
+          </TrackedWhatsAppLink>
           <Link href="/gallery" className="lux-btn-secondary">
             View our work
           </Link>

@@ -368,8 +368,12 @@ export const AREAS_WITH_DESCRIPTIONS: Area[] = AREAS.map((a) => ({
 }));
 
 // Helper functions
+// NOTE: looks up from AREAS_WITH_DESCRIPTIONS (not the raw AREAS array) so that
+// `serviceDescriptions` — the landmark/venue-injected per-service copy — is
+// actually populated. It was previously read from AREAS, which never carries
+// that field, so this content silently never rendered anywhere on the site.
 export const getAreaBySlug = (slug: string): Area | undefined => {
-  return AREAS.find((area) => area.slug === slug);
+  return AREAS_WITH_DESCRIPTIONS.find((area) => area.slug === slug);
 };
 
 export const getAllAreaSlugs = (): string[] => {

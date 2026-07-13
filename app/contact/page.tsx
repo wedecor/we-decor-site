@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import nextDynamic from 'next/dynamic';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 const ContactFormClient = nextDynamic(() => import('@/components/contact/ContactFormClient'), {
   loading: () => (
@@ -55,14 +56,15 @@ export default function ContactPage() {
           </div>
           <p className="lux-body-sm mt-12 text-center md:text-left">
             Prefer a direct line?{' '}
-            <a
+            <TrackedWhatsAppLink
               href={CONTACT.waUrl()}
+              source="contact_page"
               className="text-lux-gold hover:text-lux-gold-soft transition-colors duration-500"
               target="_blank"
               rel="noopener noreferrer"
             >
               WhatsApp {CONTACT.primary.display}
-            </a>
+            </TrackedWhatsAppLink>
           </p>
         </div>
       </section>

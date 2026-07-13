@@ -12,7 +12,7 @@ const csp = [
   "object-src 'none'",
   "base-uri 'self'",
   "frame-ancestors 'none'",
-  "frame-src 'self' https://www.google.com https://challenges.cloudflare.com",
+  "frame-src 'self' https://www.google.com https://challenges.cloudflare.com https://www.googletagmanager.com",
   "form-action 'self'",
   "upgrade-insecure-requests",
 ].join('; ');

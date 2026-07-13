@@ -3,6 +3,7 @@
 import { Disclosure, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 const faqs = [
   {
@@ -70,14 +71,15 @@ export default function FAQ() {
       </div>
       <div className="text-center mt-16">
         <p className="text-lux-secondary font-light mb-6">Still have questions?</p>
-        <a
+        <TrackedWhatsAppLink
           href={CONTACT.waUrl()}
+          source="faq_page"
           target="_blank"
           rel="noopener noreferrer"
           className="lux-btn-primary"
         >
           Ask on WhatsApp
-        </a>
+        </TrackedWhatsAppLink>
       </div>
     </div>
   );

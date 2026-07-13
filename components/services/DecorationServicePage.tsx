@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
 import type { DecorationServicePageConfig } from '@/lib/services/decoration-service-pages';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 
 type Props = {
   config: DecorationServicePageConfig;
@@ -59,6 +61,7 @@ export default function DecorationServicePage({ config }: Props) {
   const whatsappHref = CONTACT.waUrl(config.waPrefill);
   const phoneHref = `tel:${CONTACT.PRIMARY_NUMBER}`;
   const occasions = idealOccasionsFor(config);
+  const source = `service:${config.slug}`;
 
   return (
     <article className="bg-lux-bg text-lux-ivory">
@@ -86,14 +89,15 @@ export default function DecorationServicePage({ config }: Props) {
             {config.subheadline}
           </p>
           <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <a
+            <TrackedWhatsAppLink
               href={whatsappHref}
+              source={source}
               target="_blank"
               rel="noopener noreferrer"
               className="lux-btn-primary"
             >
               WhatsApp for a quote
-            </a>
+            </TrackedWhatsAppLink>
             <a href="/contact" className="lux-btn-secondary">
               Enquire online
             </a>
@@ -282,17 +286,18 @@ export default function DecorationServicePage({ config }: Props) {
               clear quote — usually within a few hours.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+              <TrackedWhatsAppLink
                 href={whatsappHref}
+                source={source}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lux-btn-primary"
               >
                 Chat on WhatsApp
-              </a>
-              <a href={phoneHref} className="lux-btn-secondary">
+              </TrackedWhatsAppLink>
+              <TrackedPhoneLink href={phoneHref} source={source} className="lux-btn-secondary">
                 Call {CONTACT.displayNumbers[0]}
-              </a>
+              </TrackedPhoneLink>
             </div>
             <p className="mt-8 text-sm text-lux-muted">
               <a href="/contact" className="text-lux-gold hover:underline">
@@ -308,14 +313,15 @@ export default function DecorationServicePage({ config }: Props) {
       </section>
 
       <div className="fixed bottom-0 inset-x-0 z-40 p-4 pb-[max(1rem,env(safe-area-inset-bottom))] md:hidden bg-lux-bg/96 border-t border-white/[0.06]">
-        <a
+        <TrackedWhatsAppLink
           href={whatsappHref}
+          source={`${source}_sticky_bar`}
           target="_blank"
           rel="noopener noreferrer"
           className="lux-btn-primary w-full text-center text-sm py-3.5"
         >
           WhatsApp quote
-        </a>
+        </TrackedWhatsAppLink>
       </div>
       <div className="h-24 md:hidden" aria-hidden />
     </article>

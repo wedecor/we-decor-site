@@ -5,7 +5,8 @@ import { assertValidEnv, validateAllEnv } from '../env/validation';
 
 export const env = {
   SITE_URL: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com',
-  GA_ID: process.env.NEXT_PUBLIC_GA_ID ?? '',
+  GTM_ID: process.env.NEXT_PUBLIC_GTM_ID ?? '',
+  GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? '',
   SENTRY_DSN_PUBLIC: process.env.NEXT_PUBLIC_SENTRY_DSN ?? '',
   CLOUDINARY_CLOUD: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD ?? 'dux3m2saz',
   GOOGLE_PLACE_ID: process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID ?? '',

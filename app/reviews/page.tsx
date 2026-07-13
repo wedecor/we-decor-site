@@ -1,4 +1,4 @@
-import Testimonials from '@/components/Testimonials';
+import ReviewsList from '@/components/ReviewsList';
 import { SimpleGoogleReviewsEmbed } from '@/components/GoogleReviewsWidget';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
@@ -24,12 +24,10 @@ export default function ReviewsPage() {
       />
       <section className="lux-section pt-0 pb-24 md:pb-32 bg-lux-bg">
         <div className="lux-container">
-          {placeId ? (
-            <div className="mb-16">
-              <SimpleGoogleReviewsEmbed placeId={placeId} />
-            </div>
-          ) : null}
-          <Testimonials />
+          <div className="mb-16">
+            <SimpleGoogleReviewsEmbed placeId={placeId} />
+          </div>
+          <ReviewsList />
         </div>
       </section>
     </div>

@@ -197,15 +197,20 @@ export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]) 
  * Locality page: Service scoped to neighborhood (references canonical LocalBusiness).
  * Avoids duplicate LocalBusiness entities per Google guidelines.
  */
-export function buildLocalityServiceSchema(areaName: string, slug: string) {
+export function buildLocalityServiceSchema(
+  areaName: string,
+  slug: string,
+  options?: { landmark?: string }
+) {
   const pageUrl = absoluteUrl(`/locations/${slug}`);
+  const landmarkText = options?.landmark ? ` near ${options.landmark}` : '';
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${pageUrl}#service`,
     name: `Event Decoration in ${areaName}`,
     serviceType: 'Event decoration',
-    description: `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}, ${GEO.city}, ${GEO.region}.`,
+    description: `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}${landmarkText}, ${GEO.city}, ${GEO.region}.`,
     url: pageUrl,
     provider: { '@id': SCHEMA_IDS.localBusiness },
     areaServed: {

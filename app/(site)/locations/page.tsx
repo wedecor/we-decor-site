@@ -7,6 +7,9 @@ import SchemaScript from '@/components/seo/SchemaScript';
 import { buildCollectionPageSchema } from '@/lib/local-seo';
 import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
+import TrackedCtaLink from '@/components/analytics/TrackedCtaLink';
 
 export const metadata: Metadata = pageMetadata({
   path: '/locations',
@@ -97,17 +100,22 @@ export default function LocationsHubPage() {
         description={`Discover decoration across ${CITY} — each locality page includes services, recent setups, and booking for ${BUSINESS_NAME}.`}
       >
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
-          <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="lux-btn-secondary">
+          <TrackedPhoneLink
+            href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+            source="locations_hub"
+            className="lux-btn-secondary"
+          >
             Call {PHONE_DISPLAY}
-          </a>
-          <a
+          </TrackedPhoneLink>
+          <TrackedWhatsAppLink
             href={CONTACT.waUrl()}
+            source="locations_hub"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-btn-primary"
           >
             WhatsApp
-          </a>
+          </TrackedWhatsAppLink>
         </div>
       </PageHero>
 
@@ -146,17 +154,23 @@ export default function LocationsHubPage() {
               Share your locality and date — we respond with themes and pricing.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a
+              <TrackedWhatsAppLink
                 href={CONTACT.waUrl()}
+                source="locations_hub_cta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lux-btn-primary"
               >
                 WhatsApp
-              </a>
-              <Link href="/contact" className="lux-btn-secondary">
+              </TrackedWhatsAppLink>
+              <TrackedCtaLink
+                href="/contact"
+                source="locations_hub_cta"
+                label="Contact form"
+                className="lux-btn-secondary"
+              >
                 Contact form
-              </Link>
+              </TrackedCtaLink>
             </div>
           </div>
           <SchemaScript
