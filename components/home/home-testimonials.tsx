@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { fallbackTestimonials, getGoogleReviewsUrl } from '@/utils/googleReviews';
 
 export default function HomeTestimonials() {
@@ -27,14 +28,20 @@ export default function HomeTestimonials() {
             </li>
           ))}
         </ul>
-        <p className="text-center mt-8">
+        <p className="text-center mt-8 flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center">
+          <Link
+            href="/reviews"
+            className="text-lux-gold text-sm font-medium hover:underline underline-offset-4"
+          >
+            Read client reviews on We Decor →
+          </Link>
           <a
             href={googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-lux-gold text-sm font-medium hover:underline underline-offset-4"
           >
-            Read our Google reviews →
+            See Google reviews →
           </a>
         </p>
       </div>

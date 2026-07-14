@@ -43,9 +43,16 @@ const SERVICE_LINKS: Partial<Record<ServiceKey, { href: string; label: string }>
   Haldi: { href: '/services/haldi-decoration', label: 'Haldi Decoration' },
   Engagement: { href: '/services/engagement-decoration', label: 'Engagement Decoration' },
   Corporate: { href: '/services/corporate-decoration', label: 'Corporate Decoration' },
+  // Closest existing service pages until dedicated occasion URLs ship in a later phase
+  Anniversary: { href: '/services/room-decoration', label: 'Anniversary & room styling' },
+  Proposal: { href: '/services/engagement-decoration', label: 'Proposal & engagement styling' },
+  'Baby Shower': {
+    href: '/services/birthday-home-decoration',
+    label: 'Baby shower & home styling',
+  },
 };
 
-const MAX_NEARBY_AREAS = 3;
+const MAX_NEARBY_AREAS = 5;
 
 interface LocationPageProps {
   params: Promise<{ slug: string }>;
@@ -91,9 +98,18 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
   // Nearby areas from the same regional cluster — used for internal linking
   const currentCluster = CLUSTERS.find((c) => c.areaSlugs.includes(slug));
-  const nearbyAreaSlugs = (currentCluster?.areaSlugs ?? [])
-    .filter((s) => s !== slug)
-    .slice(0, MAX_NEARBY_AREAS);
+  const clusterSlugs = (currentCluster?.areaSlugs ?? []).filter((s) => s !== slug);
+  // Alphabetical ring guarantees reciprocal crawl paths across all localities
+  const allSlugs = AREAS.map((a) => a.slug).filter((s) => s !== slug);
+  const ringStart = allSlugs.findIndex((s) => s > slug);
+  const ringOrdered =
+    ringStart === -1 ? allSlugs : [...allSlugs.slice(ringStart), ...allSlugs.slice(0, ringStart)];
+  // Keep cluster preference but always reserve ring slots for reciprocal crawl edges
+  const fromCluster = clusterSlugs.slice(0, 3);
+  const fromRing = ringOrdered
+    .filter((s) => !fromCluster.includes(s))
+    .slice(0, MAX_NEARBY_AREAS - fromCluster.length);
+  const nearbyAreaSlugs = [...fromCluster, ...fromRing];
   const nearbyAreas = nearbyAreaSlugs
     .map((s) => ({ slug: s, name: getAreaBySlug(s)?.name }))
     .filter((a): a is { slug: string; name: string } => Boolean(a.name));
@@ -273,10 +289,12 @@ export default async function LocationPage({ params }: LocationPageProps) {
             <h2 className="lux-heading-sm text-center mb-8">Explore more</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto text-center">
               <div>
-                <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">Services</h3>
+                <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                  Services in {areaName}
+                </h3>
                 <ul className="space-y-2 list-none p-0 m-0">
                   {Object.values(SERVICE_LINKS).map((link) => (
-                    <li key={link.href}>
+                    <li key={`${link.href}-${link.label}`}>
                       <Link href={link.href} className="text-lux-gold hover:underline font-medium">
                         {link.label}
                       </Link>
@@ -291,27 +309,37 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 <ul className="space-y-2 list-none p-0 m-0">
                   <li>
                     <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
-                      View Pricing
+                      View pricing
                     </Link>
                   </li>
                   <li>
                     <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
-                      Browse Gallery
+                      Browse gallery
                     </Link>
                   </li>
                   <li>
                     <Link href="/reviews" className="text-lux-gold hover:underline font-medium">
-                      Customer Reviews
+                      Customer reviews
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about" className="text-lux-gold hover:underline font-medium">
+                      About We Decor
                     </Link>
                   </li>
                   <li>
                     <Link href="/contact" className="text-lux-gold hover:underline font-medium">
-                      Contact Us
+                      Contact us
                     </Link>
                   </li>
                   <li>
                     <Link href="/services" className="text-lux-gold hover:underline font-medium">
-                      All Services
+                      All services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/locations" className="text-lux-gold hover:underline font-medium">
+                      All Bangalore areas
                     </Link>
                   </li>
                 </ul>

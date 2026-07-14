@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
 import { BRAND } from '@/lib/design/tokens';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 
 const principles = [
   {
@@ -28,14 +30,29 @@ export const metadata: Metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <div className="lux-page">
-      <section className="relative overflow-hidden lux-section-tight pt-0 pb-16 md:pb-24 lux-section-glow border-b border-white/[0.08]">
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'About', href: '/about' },
+          ]}
+        />
+      </div>
+      <section
+        className="relative overflow-hidden lux-section-tight pt-0 pb-16 md:pb-24 lux-section-glow border-b border-white/[0.08]"
+        aria-labelledby="about-heading"
+      >
         <p className="lux-brand-watermark pointer-events-none select-none" aria-hidden>
           {BRAND.monogram}
         </p>
         <div className="lux-container-narrow relative z-10 md:ml-[6%]">
           <div className="lux-reveal max-w-xl">
             <p className="lux-eyebrow mb-6 md:mb-8">Our story</p>
-            <h1 className="font-display text-[2.35rem] md:text-[3rem] lg:text-[3.35rem] font-light text-lux-ivory leading-[1.14] tracking-tight">
+            <h1
+              id="about-heading"
+              className="font-display text-[2.35rem] md:text-[3rem] lg:text-[3.35rem] font-light text-lux-ivory leading-[1.14] tracking-tight"
+            >
               We Decor — Bangalore&apos;s Celebration Atelier
             </h1>
             <p className="lux-body mt-8 md:mt-10 max-w-md">
@@ -46,8 +63,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="lux-section-tight pt-16 md:pt-20 pb-12 md:pb-16 lux-section-alt border-b border-white/[0.08]">
+      <section
+        className="lux-section-tight pt-16 md:pt-20 pb-12 md:pb-16 lux-section-alt border-b border-white/[0.08]"
+        aria-labelledby="about-story"
+      >
         <div className="lux-container max-w-4xl">
+          <h2 id="about-story" className="lux-heading-sm mb-10 md:ml-[6%]">
+            How we work in Bengaluru
+          </h2>
           <div className="lux-reveal lux-reveal-delay-1 space-y-9 text-[1.0625rem] md:text-lg text-lux-secondary font-light leading-[1.88] max-w-2xl md:ml-[6%]">
             <p>
               We Decor was founded in Bengaluru with one belief: every celebration deserves a
@@ -83,16 +106,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="lux-section-tight pt-12 md:pt-16 pb-28 md:pb-36">
+      <section
+        className="lux-section-tight pt-12 md:pt-16 pb-16 md:pb-20"
+        aria-labelledby="about-approach"
+      >
         <div className="lux-container">
-          <p className="lux-eyebrow mb-10 md:ml-[6%]">Our approach</p>
+          <p className="lux-eyebrow mb-4 md:ml-[6%]">Our approach</p>
+          <h2 id="about-approach" className="lux-heading-sm mb-10 md:ml-[6%]">
+            Principles behind every celebration
+          </h2>
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl md:ml-[6%]">
             {principles.map((p, i) => (
               <div
                 key={p.title}
                 className={`lux-editorial-card p-8 h-full lux-reveal ${i === 1 ? 'lux-reveal-delay-1' : i === 2 ? 'lux-reveal-delay-2' : ''}`}
               >
-                <h2 className="font-display text-xl text-lux-ivory mb-3">{p.title}</h2>
+                <h3 className="font-display text-xl text-lux-ivory mb-3">{p.title}</h3>
                 <p className="text-sm text-lux-secondary leading-relaxed">{p.text}</p>
               </div>
             ))}
@@ -105,6 +134,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <CoreExploreLinks context="content" showLocalities />
     </div>
   );
 }

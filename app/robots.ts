@@ -20,7 +20,8 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/', '/admin/', '/private/'],
     },
-    sitemap: [`${base}/sitemap.xml`, `${base}/image-sitemap`],
+    // Single sitemap entry for crawlers (canonical index)
+    sitemap: `${base}/sitemap.xml`,
     host: base,
   };
 }

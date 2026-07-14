@@ -13,6 +13,7 @@ const NAV = [
   { href: '/gallery', label: 'Gallery' },
   { href: '/locations', label: 'Locations' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/reviews', label: 'Reviews' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ] as const;

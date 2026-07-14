@@ -5,6 +5,20 @@ export const FEATURED_LOCALITIES = [
   { href: '/locations/indiranagar', name: 'Indiranagar' },
   { href: '/locations/hsr-layout', name: 'HSR Layout' },
   { href: '/locations/jayanagar', name: 'Jayanagar' },
+  { href: '/locations/btm-layout', name: 'BTM Layout' },
+  { href: '/locations/electronic-city', name: 'Electronic City' },
+  { href: '/locations/yelahanka', name: 'Yelahanka' },
+] as const;
+
+/** Partner verticals — cross-linked so none rely on the hub alone. */
+export const PARTNER_SERVICE_LINKS = [
+  { href: '/services/decoration', label: 'Event decoration' },
+  { href: '/services/catering', label: 'Catering' },
+  { href: '/services/makeup-artists', label: 'Make-up artists' },
+  { href: '/services/hair-stylists', label: 'Hair stylists' },
+  { href: '/services/mehndi-artists', label: 'Mehndi artists' },
+  { href: '/services/photographers', label: 'Photographers' },
+  { href: '/services/videographers', label: 'Videographers' },
 ] as const;
 
 /** All indexable decoration service pages for hub + related-service cross-links. */
@@ -22,5 +36,5 @@ export const RELATED_DECORATION_SERVICES = [
 ] as const;
 
 export function relatedServicesExcluding(currentPath: string) {
-  return RELATED_DECORATION_SERVICES.filter((s) => s.href !== currentPath).slice(0, 5);
+  return RELATED_DECORATION_SERVICES.filter((s) => s.href !== currentPath);
 }

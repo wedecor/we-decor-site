@@ -1,8 +1,9 @@
 import Gallery from '@/components/Gallery';
-import { BreadcrumbsJsonLd } from '@/components/seo/JsonLd';
 import type { Metadata } from 'next';
-import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 
 export const metadata: Metadata = pageMetadata({
   path: '/gallery',
@@ -16,22 +17,26 @@ export const dynamic = 'force-static';
 export default function GalleryPage() {
   return (
     <div className="lux-page">
-      <BreadcrumbsJsonLd
-        crumbs={[
-          { name: 'Home', url: absoluteUrl('/') },
-          { name: 'Gallery', url: absoluteUrl('/gallery') },
-        ]}
-      />
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Gallery', href: '/gallery' },
+          ]}
+        />
+      </div>
       <PageHero
         eyebrow="Portfolio"
         title="Celebration gallery"
         description="Editorial glimpses of weddings, haldi, birthdays, and corporate atmospheres — composed across Bengaluru."
       />
-      <section className="lux-section pt-0 pb-24 md:pb-32 lux-section-alt border-t border-white/[0.06]">
+      <section className="lux-section pt-0 pb-16 md:pb-20 lux-section-alt border-t border-white/[0.06]">
         <div className="lux-container">
           <Gallery />
         </div>
       </section>
+      <CoreExploreLinks context="hub" showLocalities />
     </div>
   );
 }

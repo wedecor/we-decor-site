@@ -5,7 +5,8 @@ import type { DecorationServicePageConfig } from '@/lib/services/decoration-serv
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
-import { FEATURED_LOCALITIES, relatedServicesExcluding } from '@/lib/seo/internal-links';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import { relatedServicesExcluding } from '@/lib/seo/internal-links';
 
 type Props = {
   config: DecorationServicePageConfig;
@@ -292,74 +293,12 @@ export default function DecorationServicePage({ config }: Props) {
         </div>
       </section>
 
-      {/* Internal links */}
-      <section className="lux-section-tight lux-section-alt border-t border-white/[0.06]">
-        <div className="lux-container">
-          <h2 className="lux-heading-sm text-center mb-10">Explore more</h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto text-center">
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
-                Related services
-              </h3>
-              <ul className="space-y-2 list-none p-0 m-0">
-                {relatedServices.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-lux-gold hover:underline font-medium">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
-                Plan your event
-              </h3>
-              <ul className="space-y-2 list-none p-0 m-0">
-                <li>
-                  <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
-                    Gallery
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-lux-gold hover:underline font-medium">
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="text-lux-gold hover:underline font-medium">
-                    All services
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
-                Areas we serve
-              </h3>
-              <ul className="space-y-2 list-none p-0 m-0">
-                {FEATURED_LOCALITIES.map((area) => (
-                  <li key={area.href}>
-                    <Link href={area.href} className="text-lux-gold hover:underline font-medium">
-                      {area.name}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/locations" className="text-lux-gold hover:underline font-medium">
-                    All localities
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CoreExploreLinks
+        context="service"
+        related={relatedServices}
+        relatedTitle="Related services"
+        showLocalities
+      />
 
       {/* CTA */}
       <section className="lux-section bg-lux-bg">

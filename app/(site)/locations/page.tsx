@@ -172,6 +172,19 @@ export default function LocationsHubPage() {
                 Contact form
               </TrackedCtaLink>
             </div>
+            <p className="mt-8 text-sm text-lux-muted">
+              <Link href="/reviews" className="text-lux-gold hover:underline font-medium">
+                Read client reviews
+              </Link>
+              <span className="mx-2 opacity-40">·</span>
+              <Link href="/services" className="text-lux-gold hover:underline font-medium">
+                Browse services
+              </Link>
+              <span className="mx-2 opacity-40">·</span>
+              <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+                View pricing
+              </Link>
+            </p>
           </div>
           <SchemaScript
             data={buildCollectionPageSchema({

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { SERVICE_IMAGES } from '@/lib/images';
 import PageHero from '@/components/lux/PageHero';
 import { RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 
 const services = [
   {
@@ -69,13 +71,28 @@ const GRADIENT_PLACEHOLDER_SERVICES = new Set([
 export default function ServicesPage() {
   return (
     <div className="lux-page">
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Services', href: '/services' },
+          ]}
+        />
+      </div>
       <PageHero
         eyebrow="Full-service events"
         title="Our services"
         description="Decoration is our signature — supported by trusted partners for catering, beauty, and coverage across Bengaluru."
       />
-      <section className="lux-section pt-0 pb-28 md:pb-36 bg-lux-bg">
+      <section
+        className="lux-section pt-0 pb-16 md:pb-20 bg-lux-bg"
+        aria-labelledby="partner-services"
+      >
         <div className="lux-container">
+          <h2 id="partner-services" className="lux-heading-sm text-center mb-12">
+            Partner services for complete celebrations
+          </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9 list-none p-0 m-0">
             {services.map((service, index) => {
               const featured = 'featured' in service && service.featured;
@@ -121,11 +138,11 @@ export default function ServicesPage() {
                         <p className="text-[10px] tracking-tagline uppercase text-lux-gold/85 mb-2">
                           {service.tag}
                         </p>
-                        <h2
+                        <h3
                           className={`font-display text-lux-ivory leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}
                         >
                           {service.name}
-                        </h2>
+                        </h3>
                         <p
                           className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-2'}`}
                         >
@@ -162,6 +179,7 @@ export default function ServicesPage() {
           </p>
         </div>
       </section>
+      <CoreExploreLinks context="hub" showLocalities />
     </div>
   );
 }

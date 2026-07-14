@@ -5,6 +5,8 @@ import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import PricingPageView from '@/components/analytics/PricingPageView';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 
 export const metadata: Metadata = pageMetadata({
   path: '/pricing',
@@ -39,14 +41,29 @@ export default function PricingPage() {
   return (
     <div className="lux-page">
       <PricingPageView />
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Pricing', href: '/pricing' },
+          ]}
+        />
+      </div>
       <PageHero
         eyebrow="Investment"
         title="Curated experiences"
         description="Each celebration is composed individually. These are starting points for your private consultation."
       />
 
-      <section className="lux-section pt-0 pb-28 md:pb-36 lux-section-alt">
+      <section
+        className="lux-section pt-0 pb-16 md:pb-20 lux-section-alt"
+        aria-labelledby="pricing-tiers"
+      >
         <div className="lux-container max-w-3xl">
+          <h2 id="pricing-tiers" className="lux-heading-sm text-center mb-12">
+            Starting packages for Bengaluru celebrations
+          </h2>
           <div className="space-y-0">
             {experiences.map((tier, i) => (
               <article
@@ -62,9 +79,9 @@ export default function PricingPage() {
                 )}
                 <div className="lux-experience-header">
                   <div className="min-w-0 flex-1">
-                    <h2 className="font-display text-2xl md:text-[1.9rem] font-light text-lux-ivory">
+                    <h3 className="font-display text-2xl md:text-[1.9rem] font-light text-lux-ivory">
                       {tier.name}
-                    </h2>
+                    </h3>
                     <p className="lux-body mt-4 max-w-lg">{tier.desc}</p>
                   </div>
                   <div className="lux-experience-price-group pl-0 md:pl-6 md:border-l md:border-white/[0.08]">
@@ -105,6 +122,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+      <CoreExploreLinks context="hub" showLocalities />
     </div>
   );
 }

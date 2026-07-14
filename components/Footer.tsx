@@ -49,6 +49,7 @@ export default function Footer() {
                 ['Gallery', '/gallery'],
                 ['Locations', '/locations'],
                 ['Pricing', '/pricing'],
+                ['Reviews', '/reviews'],
                 ['FAQ', '/faq'],
               ].map(([label, href]) => (
                 <li key={href}>
