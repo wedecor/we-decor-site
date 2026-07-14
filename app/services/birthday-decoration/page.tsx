@@ -9,7 +9,7 @@ const config = DECORATION_SERVICE_PAGES['birthday-decoration'];
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/birthday-decoration',
-  title: `${config.title} | We Decor Events`,
+  title: config.title,
   description: config.description,
   ogImage: config.ogImage,
 });

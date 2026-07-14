@@ -6,7 +6,7 @@ import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/hair-stylists',
-  title: 'Expert Hair Stylists in Bangalore | We Decor Events',
+  title: 'Expert Hair Stylists in Bangalore',
   description: 'Expert hair styling for weddings, parties, and special events in Bengaluru.',
   ogImage: '/services/hair.jpg',
 });
@@ -21,6 +21,7 @@ const structuredData = buildServicePageSchema({
 export default function HairStylistsPage() {
   return (
     <PartnerServicePage
+      path="/services/hair-stylists"
       schema={<SchemaScript data={structuredData} />}
       config={{
         title: 'Expert Hair Stylists',

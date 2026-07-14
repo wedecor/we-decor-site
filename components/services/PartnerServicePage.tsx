@@ -4,6 +4,8 @@ import PageHero from '@/components/lux/PageHero';
 import FadeIn from '@/components/lux/FadeIn';
 import { CONTACT } from '@/lib/contact';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import { FEATURED_LOCALITIES, RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
 
 export type PartnerServiceConfig = {
   title: string;
@@ -20,15 +22,27 @@ export type PartnerServiceConfig = {
 type Props = {
   config: PartnerServiceConfig;
   schema?: ReactNode;
+  /** Canonical path for breadcrumbs (e.g. /services/catering). */
+  path: string;
 };
 
-export default function PartnerServicePage({ config, schema }: Props) {
+export default function PartnerServicePage({ config, schema, path }: Props) {
   const tel = CONTACT.PRIMARY_NUMBER;
 
   return (
     <>
       {schema}
       <div className="lux-page">
+        <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+          <SiteBreadcrumbs
+            withSchema
+            items={[
+              { name: 'Home', href: '/' },
+              { name: 'Services', href: '/services' },
+              { name: config.title, href: path },
+            ]}
+          />
+        </div>
         <PageHero
           eyebrow="Partner services"
           title={config.title}
@@ -64,6 +78,78 @@ export default function PartnerServicePage({ config, schema }: Props) {
                 </div>
               </FadeIn>
             </div>
+
+            <FadeIn delay={0.1}>
+              <div className="lux-surface p-8 md:p-12 mb-20">
+                <h2 className="lux-heading-sm text-center mb-10">Explore more</h2>
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto text-center">
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                      Related services
+                    </h3>
+                    <ul className="space-y-2 list-none p-0 m-0">
+                      {RELATED_DECORATION_SERVICES.slice(0, 5).map((link) => (
+                        <li key={link.href}>
+                          <Link
+                            href={link.href}
+                            className="text-lux-gold hover:underline font-medium"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                      Plan your event
+                    </h3>
+                    <ul className="space-y-2 list-none p-0 m-0">
+                      <li>
+                        <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+                          Pricing
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
+                          Gallery
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/contact" className="text-lux-gold hover:underline font-medium">
+                          Contact
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/services"
+                          className="text-lux-gold hover:underline font-medium"
+                        >
+                          All services
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                      Areas we serve
+                    </h3>
+                    <ul className="space-y-2 list-none p-0 m-0">
+                      {FEATURED_LOCALITIES.map((area) => (
+                        <li key={area.href}>
+                          <Link
+                            href={area.href}
+                            className="text-lux-gold hover:underline font-medium"
+                          >
+                            {area.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
 
             <FadeIn delay={0.12}>
               <div className="lux-panel p-10 md:p-14 text-center max-w-2xl mx-auto">

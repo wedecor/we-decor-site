@@ -20,7 +20,7 @@ const principles = [
 
 export const metadata: Metadata = pageMetadata({
   path: '/about',
-  title: 'About We Decor | Event Management in Bangalore',
+  title: 'About | Event Management in Bangalore',
   description:
     "Learn about We Decor, Bangalore's trusted event decor and event management company. Discover our story, philosophy, and what sets us apart.",
 });

@@ -8,7 +8,7 @@ import PricingPageView from '@/components/analytics/PricingPageView';
 
 export const metadata: Metadata = pageMetadata({
   path: '/pricing',
-  title: 'Pricing | We Decor Events',
+  title: 'Pricing',
   description:
     'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
 });

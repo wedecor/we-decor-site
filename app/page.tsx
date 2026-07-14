@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'We Decor - Event Decoration Services in Bangalore',
   description:
     'Professional event decoration services in Bangalore. Birthday decor, wedding setup, haldi decoration, room decoration. Call +91 8880544452 for free quote!',
-  ogImage: '/og-banner.webp',
+  ogImage: '/og-banner.jpg',
 });
 
 export default function HomePage() {

@@ -21,7 +21,9 @@ export default function ReviewsList() {
             <p className="font-display text-3xl text-lux-gold/30 leading-none mb-3" aria-hidden>
               &ldquo;
             </p>
-            <p className="text-lux-muted leading-relaxed flex-1 text-sm md:text-base">{t.feedback}</p>
+            <p className="text-lux-muted leading-relaxed flex-1 text-sm md:text-base">
+              {t.feedback}
+            </p>
             <div className="flex mt-5 gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
               {[...Array(t.rating)].map((_, i) => (
                 <svg

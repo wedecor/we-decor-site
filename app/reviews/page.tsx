@@ -6,10 +6,10 @@ import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = pageMetadata({
   path: '/reviews',
-  title: 'Customer Reviews - We Decor Bangalore',
+  title: 'Customer Reviews',
   description:
     'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
-  ogImage: '/images/reviews-og.jpg',
+  ogImage: '/og-banner.jpg',
 });
 
 export default function ReviewsPage() {

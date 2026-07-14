@@ -117,6 +117,16 @@ export function validatePublicEnv(): ValidationIssue[] {
           message: 'NEXT_PUBLIC_SITE_URL should use wedecorevents.com in production.',
         });
       }
+      if (
+        parsed.hostname.includes('wedecorevents.com') &&
+        parsed.hostname !== 'www.wedecorevents.com'
+      ) {
+        issues.push({
+          level: 'warn',
+          code: 'SITE_URL_NOT_WWW',
+          message: 'NEXT_PUBLIC_SITE_URL should be https://www.wedecorevents.com (canonical host).',
+        });
+      }
     } catch {
       issues.push({
         level: 'error',

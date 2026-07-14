@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SERVICE_IMAGES } from '@/lib/images';
 import PageHero from '@/components/lux/PageHero';
+import { RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
 
 const services = [
   {
@@ -103,7 +104,11 @@ export default function ServicesPage() {
                           alt={`${service.name} — We Decor Bangalore`}
                           fill
                           className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
-                          sizes={featured ? '66vw' : '33vw'}
+                          sizes={
+                            featured
+                              ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px'
+                              : '(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px'
+                          }
                           quality={72}
                           priority={index < 1}
                           loading={index < 1 ? undefined : 'lazy'}
@@ -133,6 +138,23 @@ export default function ServicesPage() {
               );
             })}
           </ul>
+
+          <div className="mt-16 md:mt-20 max-w-3xl mx-auto text-center">
+            <h2 className="lux-heading-sm mb-6">Decoration services</h2>
+            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-3 list-none p-0 m-0">
+              {RELATED_DECORATION_SERVICES.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
+                    className="text-lux-gold hover:underline text-sm font-medium"
+                  >
+                    {service.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <p className="text-center mt-16 md:mt-24">
             <Link href="/contact" className="lux-btn-primary">
               Plan your celebration

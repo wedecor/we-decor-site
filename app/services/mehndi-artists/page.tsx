@@ -6,7 +6,7 @@ import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/mehndi-artists',
-  title: 'Mehndi Artists in Bangalore | We Decor Events',
+  title: 'Mehndi Artists in Bangalore',
   description: 'Intricate mehndi designs for weddings, festivals, and celebrations in Bengaluru.',
   ogImage: '/services/mehndi.jpg',
 });
@@ -21,6 +21,7 @@ const structuredData = buildServicePageSchema({
 export default function MehndiArtistsPage() {
   return (
     <PartnerServicePage
+      path="/services/mehndi-artists"
       schema={<SchemaScript data={structuredData} />}
       config={{
         title: 'Mehndi Artists',

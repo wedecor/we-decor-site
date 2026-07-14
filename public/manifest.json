@@ -4,8 +4,8 @@
   "description": "Bangalore's trusted decor experts for weddings, birthdays, haldi, and more. Professional event decoration services starting from ₹2999.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#10B981",
+  "background_color": "#0b0713",
+  "theme_color": "#0e8f78",
   "orientation": "portrait-primary",
   "icons": [
     {

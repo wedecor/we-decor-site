@@ -4,6 +4,8 @@ import { CONTACT } from '@/lib/contact';
 import type { DecorationServicePageConfig } from '@/lib/services/decoration-service-pages';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import { FEATURED_LOCALITIES, relatedServicesExcluding } from '@/lib/seo/internal-links';
 
 type Props = {
   config: DecorationServicePageConfig;
@@ -62,6 +64,8 @@ export default function DecorationServicePage({ config }: Props) {
   const phoneHref = `tel:${CONTACT.PRIMARY_NUMBER}`;
   const occasions = idealOccasionsFor(config);
   const source = `service:${config.slug}`;
+  const servicePath = `/services/${config.slug}`;
+  const relatedServices = relatedServicesExcluding(servicePath);
 
   return (
     <article className="bg-lux-bg text-lux-ivory">
@@ -81,6 +85,15 @@ export default function DecorationServicePage({ config }: Props) {
         <div className="absolute inset-0 lux-hero-vignette" aria-hidden />
 
         <div className="relative z-10 w-full lux-container px-6 pb-16 md:pb-24">
+          <SiteBreadcrumbs
+            className="mb-6 text-lux-muted/90"
+            withSchema
+            items={[
+              { name: 'Home', href: '/' },
+              { name: 'Services', href: '/services' },
+              { name: config.headline, href: servicePath },
+            ]}
+          />
           <p className="lux-eyebrow mb-4">{config.eyebrow}</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-light leading-[1.12] max-w-3xl tracking-tight">
             {config.headline}
@@ -227,8 +240,12 @@ export default function DecorationServicePage({ config }: Props) {
                   alt={img.caption}
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                  sizes={i === 0 ? '66vw' : '33vw'}
-                  loading={i === 0 ? undefined : 'lazy'}
+                  sizes={
+                    i === 0
+                      ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px'
+                      : '(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px'
+                  }
+                  loading="lazy"
                 />
                 <figcaption className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-lux-deep to-transparent">
                   <p className="text-sm text-lux-muted">{img.caption}</p>
@@ -275,6 +292,75 @@ export default function DecorationServicePage({ config }: Props) {
         </div>
       </section>
 
+      {/* Internal links */}
+      <section className="lux-section-tight lux-section-alt border-t border-white/[0.06]">
+        <div className="lux-container">
+          <h2 className="lux-heading-sm text-center mb-10">Explore more</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto text-center">
+            <div>
+              <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                Related services
+              </h3>
+              <ul className="space-y-2 list-none p-0 m-0">
+                {relatedServices.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="text-lux-gold hover:underline font-medium">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                Plan your event
+              </h3>
+              <ul className="space-y-2 list-none p-0 m-0">
+                <li>
+                  <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+                    Pricing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
+                    Gallery
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="text-lux-gold hover:underline font-medium">
+                    Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-lux-gold hover:underline font-medium">
+                    All services
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
+                Areas we serve
+              </h3>
+              <ul className="space-y-2 list-none p-0 m-0">
+                {FEATURED_LOCALITIES.map((area) => (
+                  <li key={area.href}>
+                    <Link href={area.href} className="text-lux-gold hover:underline font-medium">
+                      {area.name}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/locations" className="text-lux-gold hover:underline font-medium">
+                    All localities
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="lux-section bg-lux-bg">
         <div className="lux-container max-w-3xl">
@@ -300,13 +386,13 @@ export default function DecorationServicePage({ config }: Props) {
               </TrackedPhoneLink>
             </div>
             <p className="mt-8 text-sm text-lux-muted">
-              <a href="/contact" className="text-lux-gold hover:underline">
+              <Link href="/contact" className="text-lux-gold hover:underline">
                 Enquiry form
-              </a>
+              </Link>
               <span className="mx-2 opacity-40">·</span>
-              <a href="/locations" className="text-lux-gold hover:underline">
+              <Link href="/locations" className="text-lux-gold hover:underline">
                 Areas we serve
-              </a>
+              </Link>
             </p>
           </div>
         </div>

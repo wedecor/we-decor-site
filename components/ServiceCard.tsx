@@ -24,6 +24,8 @@ export default function ServiceCard({ title, description, image, href }: Service
         height={160}
         className="w-full h-40 object-cover rounded-t-lg"
         style={{ objectFit: 'cover' }}
+        sizes="(max-width: 768px) 100vw, 400px"
+        loading="lazy"
       />
       <div className="p-6 flex flex-col gap-2">
         {/* Service title and description for quick scan */}

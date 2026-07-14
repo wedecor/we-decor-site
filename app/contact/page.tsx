@@ -16,7 +16,7 @@ const ContactFormClient = nextDynamic(() => import('@/components/contact/Contact
 
 export const metadata: Metadata = pageMetadata({
   path: '/contact',
-  title: 'Contact We Decor | Event Decoration Services in Bangalore',
+  title: 'Contact | Event Decoration Services in Bangalore',
   description:
     'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
 });

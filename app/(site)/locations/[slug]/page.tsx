@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { pageMetadata } from '@/lib/metadata';
 import {
   AREAS,
-  BUSINESS_NAME,
   CITY,
   PHONE_DISPLAY,
   getAreaBySlug,
@@ -17,8 +16,7 @@ import { getGeneratedArea, buildLocationMetaDescription } from '../../_data/loca
 import LocationGallery from '../../../../components/LocationGallery';
 import FAQJsonLd from '../../_components/FAQJsonLd';
 import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
-import SchemaScript from '@/components/seo/SchemaScript';
-import { buildBreadcrumbSchema } from '@/lib/local-seo';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
@@ -64,11 +62,11 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   return pageMetadata({
     path: `/locations/${area.slug}`,
-    title: `Event Decoration Services in ${area.name}, ${CITY} | ${BUSINESS_NAME}`,
+    title: `Event Decoration Services in ${area.name}, ${CITY}`,
     description:
       CUSTOM_META_DESCRIPTIONS[area.slug] ??
       buildLocationMetaDescription(area.name, getGeneratedArea(area.slug)),
-    ogImage: '/og-banner.webp',
+    ogImage: '/og-banner.jpg',
   });
 }
 
@@ -116,17 +114,18 @@ export default async function LocationPage({ params }: LocationPageProps) {
         }))}
         pagePath={`/locations/${slug}`}
       />
-      <SchemaScript
-        data={buildBreadcrumbSchema([
-          { name: 'Home', path: '/' },
-          { name: 'Locations', path: '/locations' },
-          { name: areaName, path: `/locations/${slug}` },
-        ])}
-      />
-
       <div className="lux-page">
         <div className="relative bg-lux-elevated border-b border-white/[0.06] text-lux-ivory py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <SiteBreadcrumbs
+              className="mb-8 justify-center"
+              withSchema
+              items={[
+                { name: 'Home', href: '/' },
+                { name: 'Locations', href: '/locations' },
+                { name: areaName, href: `/locations/${slug}` },
+              ]}
+            />
             <p className="lux-eyebrow mb-4">Bengaluru · {area.name}</p>
             <h1 className="font-display text-4xl md:text-6xl font-medium mb-6 text-lux-ivory">
               Event decoration in {area.name}, {CITY}
@@ -291,13 +290,18 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 </h3>
                 <ul className="space-y-2 list-none p-0 m-0">
                   <li>
+                    <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+                      View Pricing
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
                       Browse Gallery
                     </Link>
                   </li>
                   <li>
-                    <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
-                      View Pricing
+                    <Link href="/reviews" className="text-lux-gold hover:underline font-medium">
+                      Customer Reviews
                     </Link>
                   </li>
                   <li>

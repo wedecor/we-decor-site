@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return pageMetadata({
     path: `/services/${slug}`,
-    title: `${config.title} | We Decor Events`,
+    title: config.title,
     description: config.description,
     ogImage: config.ogImage,
   });

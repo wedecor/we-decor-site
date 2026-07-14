@@ -6,7 +6,7 @@ import { buildServicePageSchemaFromCore } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/decoration',
-  title: 'Event Decoration Services in Bangalore | We Decor Events',
+  title: 'Event Decoration Services in Bangalore',
   description:
     'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
   ogImage: '/services/decoration.jpg',
@@ -17,6 +17,7 @@ const structuredData = buildServicePageSchemaFromCore('theme-decoration');
 export default function DecorationPage() {
   return (
     <PartnerServicePage
+      path="/services/decoration"
       schema={structuredData ? <SchemaScript data={structuredData} /> : null}
       config={{
         title: 'Event Decoration Services',

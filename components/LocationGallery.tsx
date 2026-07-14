@@ -55,7 +55,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
                 alt={item.alt}
                 fill
                 className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                 loading="lazy"
                 draggable={false}
               />
@@ -73,8 +73,13 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
           className="fixed inset-0 flex items-center justify-center z-50 p-4"
           style={{ background: 'rgba(5, 1, 13, 0.88)' }}
           onClick={closeModal}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') closeModal();
+          }}
           role="dialog"
-          aria-modal
+          aria-modal="true"
+          aria-label="Image preview"
+          tabIndex={-1}
         >
           <div
             className="relative max-w-4xl max-h-full lux-panel p-2"
@@ -95,6 +100,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
                 width={selectedImage.width}
                 height={selectedImage.height}
                 className="w-full h-auto lux-image-cinematic"
+                sizes="(max-width: 896px) 100vw, 896px"
                 priority
               />
             </div>

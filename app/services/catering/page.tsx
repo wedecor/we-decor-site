@@ -6,7 +6,7 @@ import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/catering',
-  title: 'Catering Services in Bangalore | We Decor Events',
+  title: 'Catering Services in Bangalore',
   description:
     'We Decor Events provides catering coordination for celebrations in Bengaluru. Delicious menus and seamless service for your event.',
   ogImage: '/services/catering.jpg',
@@ -22,6 +22,7 @@ const structuredData = buildServicePageSchema({
 export default function CateringPage() {
   return (
     <PartnerServicePage
+      path="/services/catering"
       schema={<SchemaScript data={structuredData} />}
       config={{
         title: 'Catering Services',

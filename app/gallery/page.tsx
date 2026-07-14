@@ -6,7 +6,7 @@ import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = pageMetadata({
   path: '/gallery',
-  title: 'Event Decoration Gallery | We Decor Bangalore - Birthday, Wedding & More',
+  title: 'Event Decoration Gallery — Birthday, Wedding & More',
   description:
     'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore. Professional decor services by We Decor.',
 });

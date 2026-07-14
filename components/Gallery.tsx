@@ -57,6 +57,8 @@ export default function Gallery() {
         />
       </div>
 
+      <h2 className="lux-heading-sm mb-8 md:mb-10">Collections</h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredCategories.map((folder) => {
           const imageArray = galleryRecord[folder];
@@ -83,7 +85,7 @@ export default function Gallery() {
                     fill
                     className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                     placeholder="empty"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                     loading="lazy"
                     draggable={false}
                   />

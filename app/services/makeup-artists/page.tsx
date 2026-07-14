@@ -6,7 +6,7 @@ import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/makeup-artists',
-  title: 'Professional Make-up Artists in Bangalore | We Decor Events',
+  title: 'Professional Make-up Artists in Bangalore',
   description:
     'Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.',
   ogImage: '/services/makeup.jpg',
@@ -22,6 +22,7 @@ const structuredData = buildServicePageSchema({
 export default function MakeupArtistsPage() {
   return (
     <PartnerServicePage
+      path="/services/makeup-artists"
       schema={<SchemaScript data={structuredData} />}
       config={{
         title: 'Professional Make-up Artists',

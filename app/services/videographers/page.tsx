@@ -6,7 +6,7 @@ import { buildServicePageSchema } from '@/lib/local-seo';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/videographers',
-  title: 'Professional Videographers in Bangalore | We Decor Events',
+  title: 'Professional Videographers in Bangalore',
   description:
     'Cinematic event videography for weddings, parties, and corporate events in Bengaluru.',
   ogImage: '/services/videography.jpg',
@@ -22,6 +22,7 @@ const structuredData = buildServicePageSchema({
 export default function VideographersPage() {
   return (
     <PartnerServicePage
+      path="/services/videographers"
       schema={<SchemaScript data={structuredData} />}
       config={{
         title: 'Professional Videographers',

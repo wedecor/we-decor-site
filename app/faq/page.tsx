@@ -5,7 +5,7 @@ import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = pageMetadata({
   path: '/faq',
-  title: 'FAQ | We Decor Events',
+  title: 'FAQ',
   description: 'Answers to common questions about event decor, timelines, and customizations.',
 });
 
