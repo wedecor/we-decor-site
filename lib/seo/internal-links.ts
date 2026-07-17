@@ -1,6 +1,9 @@
 /**
  * Internal-link registries — curated service↔service and service→locality maps.
  * Prefer these over “first N of a fixed array”.
+ *
+ * RELATED_DECORATION_SERVICES / RELATED_SERVICES_BY_PATH only include routes that
+ * exist in the committed decoration service catalog (avoid hub 404s).
  */
 
 export type InternalLink = { href: string; name: string };
@@ -30,7 +33,10 @@ export const PARTNER_SERVICE_LINKS = [
   { href: '/services/videographers', label: 'Videographers' },
 ] as const;
 
-/** All indexable decoration service pages for hub listings. */
+/**
+ * Indexable decoration services present in the committed catalog.
+ * High-intent landings are added here when those routes are merged.
+ */
 export const RELATED_DECORATION_SERVICES = [
   { href: '/services/birthday-decoration', label: 'Birthday Decorations' },
   { href: '/services/birthday-home-decoration', label: 'Birthday Home Decorations' },
@@ -42,15 +48,6 @@ export const RELATED_DECORATION_SERVICES = [
   { href: '/services/corporate-decoration', label: 'Corporate Decorations' },
   { href: '/services/room-decoration', label: 'Room Decorations' },
   { href: '/services/tent-balloon-setup', label: 'Tent & Balloon Decorations' },
-  { href: '/services/nikah-decoration', label: 'Nikah Decorations' },
-  { href: '/services/balloon-decoration', label: 'Balloon Decorations' },
-  { href: '/services/baby-shower-decoration', label: 'Baby Shower Decorations' },
-  { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
-  { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
-  { href: '/services/home-decoration', label: 'Home Decorations' },
-  { href: '/services/floral-decoration', label: 'Floral Decorations' },
-  { href: '/services/terrace-decoration', label: 'Terrace Decorations' },
-  { href: '/services/car-decoration', label: 'Car Decorations' },
 ] as const;
 
 const LABEL_BY_HREF = Object.fromEntries(
@@ -58,149 +55,85 @@ const LABEL_BY_HREF = Object.fromEntries(
 ) as Record<string, string>;
 
 /**
- * Curated related services (4–5 each). Topical relevance + reciprocal coverage
- * for late/high-intent pages (car, terrace, tent, room, etc.).
+ * Curated related services (4–5 each) among committed routes only.
+ * Avoids first-N array order and lifts weaker pages (tent, room, backdrop, stage).
  */
 export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
   '/services/birthday-decoration': [
-    '/services/balloon-decoration',
     '/services/birthday-home-decoration',
     '/services/tent-balloon-setup',
     '/services/room-decoration',
-    '/services/home-decoration',
+    '/services/engagement-decoration',
+    '/services/corporate-decoration',
   ],
   '/services/birthday-home-decoration': [
     '/services/birthday-decoration',
-    '/services/home-decoration',
-    '/services/balloon-decoration',
     '/services/room-decoration',
-    '/services/baby-shower-decoration',
+    '/services/tent-balloon-setup',
+    '/services/engagement-decoration',
+    '/services/haldi-decoration',
   ],
   '/services/wedding-setup': [
     '/services/wedding-stage-decor',
     '/services/haldi-decoration',
-    '/services/floral-decoration',
     '/services/engagement-decoration',
-    '/services/car-decoration',
+    '/services/haldi-backdrop-decor',
+    '/services/room-decoration',
   ],
   '/services/wedding-stage-decor': [
     '/services/wedding-setup',
-    '/services/floral-decoration',
     '/services/engagement-decoration',
     '/services/haldi-backdrop-decor',
-    '/services/car-decoration',
+    '/services/haldi-decoration',
+    '/services/corporate-decoration',
   ],
   '/services/haldi-decoration': [
     '/services/haldi-backdrop-decor',
     '/services/wedding-setup',
-    '/services/floral-decoration',
     '/services/engagement-decoration',
-    '/services/nikah-decoration',
+    '/services/wedding-stage-decor',
+    '/services/room-decoration',
   ],
   '/services/haldi-backdrop-decor': [
     '/services/haldi-decoration',
     '/services/wedding-setup',
-    '/services/floral-decoration',
-    '/services/engagement-decoration',
     '/services/wedding-stage-decor',
+    '/services/engagement-decoration',
+    '/services/tent-balloon-setup',
   ],
   '/services/engagement-decoration': [
-    '/services/proposal-decoration',
     '/services/wedding-setup',
-    '/services/floral-decoration',
-    '/services/anniversary-decoration',
-    '/services/terrace-decoration',
+    '/services/wedding-stage-decor',
+    '/services/haldi-decoration',
+    '/services/room-decoration',
+    '/services/birthday-decoration',
   ],
   '/services/corporate-decoration': [
-    '/services/balloon-decoration',
-    '/services/floral-decoration',
-    '/services/room-decoration',
     '/services/tent-balloon-setup',
-    '/services/home-decoration',
+    '/services/room-decoration',
+    '/services/engagement-decoration',
+    '/services/birthday-decoration',
+    '/services/wedding-stage-decor',
   ],
   '/services/room-decoration': [
-    '/services/home-decoration',
     '/services/birthday-home-decoration',
-    '/services/anniversary-decoration',
-    '/services/proposal-decoration',
-    '/services/balloon-decoration',
+    '/services/engagement-decoration',
+    '/services/birthday-decoration',
+    '/services/corporate-decoration',
+    '/services/tent-balloon-setup',
   ],
   '/services/tent-balloon-setup': [
-    '/services/balloon-decoration',
     '/services/birthday-decoration',
     '/services/corporate-decoration',
-    '/services/terrace-decoration',
-    '/services/home-decoration',
-  ],
-  '/services/nikah-decoration': [
-    '/services/wedding-setup',
-    '/services/floral-decoration',
-    '/services/engagement-decoration',
-    '/services/home-decoration',
-    '/services/car-decoration',
-  ],
-  '/services/balloon-decoration': [
-    '/services/birthday-decoration',
-    '/services/tent-balloon-setup',
-    '/services/baby-shower-decoration',
-    '/services/home-decoration',
-    '/services/corporate-decoration',
-  ],
-  '/services/baby-shower-decoration': [
-    '/services/home-decoration',
-    '/services/balloon-decoration',
-    '/services/birthday-home-decoration',
-    '/services/floral-decoration',
-    '/services/room-decoration',
-  ],
-  '/services/anniversary-decoration': [
-    '/services/room-decoration',
-    '/services/proposal-decoration',
-    '/services/home-decoration',
-    '/services/floral-decoration',
-    '/services/terrace-decoration',
-  ],
-  '/services/proposal-decoration': [
-    '/services/engagement-decoration',
-    '/services/terrace-decoration',
-    '/services/anniversary-decoration',
-    '/services/floral-decoration',
-    '/services/home-decoration',
-  ],
-  '/services/home-decoration': [
     '/services/room-decoration',
     '/services/birthday-home-decoration',
-    '/services/balloon-decoration',
-    '/services/terrace-decoration',
-    '/services/baby-shower-decoration',
-  ],
-  '/services/floral-decoration': [
-    '/services/wedding-setup',
-    '/services/haldi-decoration',
-    '/services/nikah-decoration',
-    '/services/engagement-decoration',
-    '/services/car-decoration',
-  ],
-  '/services/terrace-decoration': [
-    '/services/proposal-decoration',
-    '/services/home-decoration',
-    '/services/engagement-decoration',
-    '/services/birthday-decoration',
-    '/services/anniversary-decoration',
-  ],
-  '/services/car-decoration': [
-    '/services/wedding-setup',
-    '/services/floral-decoration',
-    '/services/wedding-stage-decor',
-    '/services/engagement-decoration',
-    '/services/nikah-decoration',
+    '/services/haldi-backdrop-decor',
   ],
 };
 
 /**
  * Per-service locality links (3–5). Not rendered by frozen templates yet —
- * FEATURED_LOCALITIES is what the UI shows today. This map is the source of
- * truth for Phase 3 template wiring and for crawl/report analysis.
+ * FEATURED_LOCALITIES is what the UI shows today.
  */
 export const SERVICE_LOCALITIES_BY_PATH: Record<string, readonly InternalLink[]> = {
   '/services/birthday-decoration': [
@@ -263,60 +196,6 @@ export const SERVICE_LOCALITIES_BY_PATH: Record<string, readonly InternalLink[]>
     { href: '/locations/sarjapur-road', name: 'Sarjapur Road' },
     { href: '/locations/electronic-city', name: 'Electronic City' },
     { href: '/locations/yelahanka', name: 'Yelahanka' },
-  ],
-  '/services/nikah-decoration': [
-    { href: '/locations/whitefield', name: 'Whitefield' },
-    { href: '/locations/jayanagar', name: 'Jayanagar' },
-    { href: '/locations/electronic-city', name: 'Electronic City' },
-    { href: '/locations/jp-nagar', name: 'JP Nagar' },
-  ],
-  '/services/balloon-decoration': [
-    { href: '/locations/hsr-layout', name: 'HSR Layout' },
-    { href: '/locations/marathahalli', name: 'Marathahalli' },
-    { href: '/locations/btm-layout', name: 'BTM Layout' },
-    { href: '/locations/whitefield', name: 'Whitefield' },
-  ],
-  '/services/baby-shower-decoration': [
-    { href: '/locations/hsr-layout', name: 'HSR Layout' },
-    { href: '/locations/jp-nagar', name: 'JP Nagar' },
-    { href: '/locations/jayanagar', name: 'Jayanagar' },
-    { href: '/locations/whitefield', name: 'Whitefield' },
-  ],
-  '/services/anniversary-decoration': [
-    { href: '/locations/indiranagar', name: 'Indiranagar' },
-    { href: '/locations/koramangala', name: 'Koramangala' },
-    { href: '/locations/jayanagar', name: 'Jayanagar' },
-    { href: '/locations/whitefield', name: 'Whitefield' },
-  ],
-  '/services/proposal-decoration': [
-    { href: '/locations/koramangala', name: 'Koramangala' },
-    { href: '/locations/indiranagar', name: 'Indiranagar' },
-    { href: '/locations/bellandur', name: 'Bellandur' },
-    { href: '/locations/whitefield', name: 'Whitefield' },
-  ],
-  '/services/home-decoration': [
-    { href: '/locations/hsr-layout', name: 'HSR Layout' },
-    { href: '/locations/jp-nagar', name: 'JP Nagar' },
-    { href: '/locations/jayanagar', name: 'Jayanagar' },
-    { href: '/locations/marathahalli', name: 'Marathahalli' },
-  ],
-  '/services/floral-decoration': [
-    { href: '/locations/jayanagar', name: 'Jayanagar' },
-    { href: '/locations/indiranagar', name: 'Indiranagar' },
-    { href: '/locations/whitefield', name: 'Whitefield' },
-    { href: '/locations/sarjapur-road', name: 'Sarjapur Road' },
-  ],
-  '/services/terrace-decoration': [
-    { href: '/locations/koramangala', name: 'Koramangala' },
-    { href: '/locations/indiranagar', name: 'Indiranagar' },
-    { href: '/locations/hsr-layout', name: 'HSR Layout' },
-    { href: '/locations/bellandur', name: 'Bellandur' },
-  ],
-  '/services/car-decoration': [
-    { href: '/locations/whitefield', name: 'Whitefield' },
-    { href: '/locations/jayanagar', name: 'Jayanagar' },
-    { href: '/locations/electronic-city', name: 'Electronic City' },
-    { href: '/locations/sarjapur-road', name: 'Sarjapur Road' },
   ],
 };
 
