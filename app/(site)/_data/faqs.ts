@@ -4,7 +4,7 @@ export const SHARED_FAQS: FAQ[] = [
   {
     q: 'How much does birthday decoration cost in {{AREA}}?',
     a: (area) =>
-      `Most home birthday setups in ${area} start from ₹3,999–₹9,999 depending on balloons, backdrops and lights.`,
+      `Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. For birthday setups in ${area}, pricing is customized based on venue, decoration style, event size, materials, and customer requirements.`,
   },
   {
     q: 'Do you decorate apartment clubhouses in {{AREA}}?',
@@ -43,7 +43,7 @@ export const AREA_FAQ_OVERRIDES: Record<string, FAQ[]> = {
     {
       q: 'Do you work in ITPL and surrounding tech parks?',
       a: () =>
-        'Yes, we frequently decorate corporate events in ITPL, Manyata Tech Park, and surrounding tech companies in Whitefield.',
+        'Yes, we decorate corporate and team celebrations around ITPL and nearby Whitefield tech parks, subject to venue access rules.',
     },
   ],
   koramangala: [
@@ -55,7 +55,7 @@ export const AREA_FAQ_OVERRIDES: Record<string, FAQ[]> = {
     {
       q: 'Do you handle rooftop events in Koramangala?',
       a: () =>
-        'Absolutely! Koramangala rooftops are popular. We ensure proper anchoring and weather protection for outdoor setups.',
+        'Yes. Koramangala rooftops are popular. We plan anchoring, weather cover, and timing around the venue’s access window.',
     },
   ],
   indiranagar: [
@@ -67,19 +67,61 @@ export const AREA_FAQ_OVERRIDES: Record<string, FAQ[]> = {
     {
       q: 'Do you work in Indiranagar residential societies?',
       a: () =>
-        'Yes, we decorate in all major Indiranagar residential societies. We coordinate with security and follow society rules.',
+        'Yes, we decorate in Indiranagar residential societies. We coordinate with security and follow society rules.',
     },
   ],
   'hsr-layout': [
     {
       q: 'Can you decorate in HSR tech company offices?',
       a: () =>
-        'Yes, we frequently decorate corporate events in HSR tech companies. We handle office parties, team events, and celebrations.',
+        'Yes, we decorate corporate events in HSR tech companies for office parties, team events, and celebrations when access is approved.',
     },
     {
       q: 'Do you work in HSR apartment complexes?',
       a: () =>
-        'Absolutely! We work in all major HSR apartment complexes. We ensure minimal disruption and proper cleanup.',
+        'Yes. We work across HSR apartment complexes with minimal disruption and proper cleanup.',
+    },
+  ],
+  marathahalli: [
+    {
+      q: 'Can you plan around Outer Ring Road traffic for Marathahalli setups?',
+      a: () =>
+        'Yes. We confirm the access window and route in advance, then schedule arrival with enough buffer for the venue handover.',
+    },
+  ],
+  bellandur: [
+    {
+      q: 'Do you decorate condo clubhouses near EcoSpace and Bellandur Lake?',
+      a: () =>
+        'Yes. Share the clubhouse rules and entry window, and we will plan vendor access, loading, and setup timing accordingly.',
+    },
+  ],
+  'sarjapur-road': [
+    {
+      q: 'Can you work inside gated societies on Sarjapur Road?',
+      a: () =>
+        'Yes. We coordinate gate passes, vendor timing, parking guidance, and clubhouse or common-area rules with the host.',
+    },
+  ],
+  'electronic-city': [
+    {
+      q: 'Do you decorate both Electronic City Phase 1 and Phase 2 venues?',
+      a: () =>
+        'Yes. Share the exact building or venue and its access instructions, and we will plan the setup for that location.',
+    },
+  ],
+  'jp-nagar': [
+    {
+      q: 'Can you decorate JP Nagar community halls and banquet venues?',
+      a: () =>
+        'Yes. Send the hall details, access hours, and ceremony plan so we can shape entry, backdrop, and guest-facing decor.',
+    },
+  ],
+  jayanagar: [
+    {
+      q: 'Can you style traditional family ceremonies around Jayanagar 4th Block?',
+      a: () =>
+        'Yes. We can incorporate floral, marigold, drape, and stage details that support your rituals and venue guidelines.',
     },
   ],
 };
