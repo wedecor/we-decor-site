@@ -1,4 +1,5 @@
 import { SERVICE_IMAGES } from '@/lib/images';
+import { getRelatedServiceHrefsFor } from '@/lib/seo/internal-links';
 import { getImagesByCategory } from '@/utils/gallery';
 
 const WEDDING_PLACEHOLDER =
@@ -543,5 +544,11 @@ export const DECORATION_SERVICE_SLUGS = Object.keys(DECORATION_SERVICE_PAGES).fi
 ) as DecorationServiceSlug[];
 
 export function getDecorationServicePage(slug: string) {
-  return DECORATION_SERVICE_PAGES[slug as DecorationServiceSlug] ?? null;
+  const page = DECORATION_SERVICE_PAGES[slug as DecorationServiceSlug] ?? null;
+  if (!page) return null;
+
+  // Registry is the source of truth for related-service links (not first-N array order).
+  const relatedHrefs = getRelatedServiceHrefsFor(`/services/${slug}`);
+  if (!relatedHrefs.length) return page;
+  return { ...page, relatedHrefs };
 }
