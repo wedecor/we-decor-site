@@ -86,7 +86,8 @@ export default function LocationServicePage({
     {
       icon: '💰',
       title: 'Affordable Pricing',
-      description: 'Premium quality decorations starting from ₹2999',
+      description:
+        'Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements.',
     },
     {
       icon: '📱',
@@ -95,8 +96,8 @@ export default function LocationServicePage({
     },
     {
       icon: '⭐',
-      title: '150+ Reviews',
-      description: 'Trusted by hundreds of satisfied customers across Bangalore',
+      title: 'Google Reviews',
+      description: 'Read verified customer feedback on our Google Business Profile',
     },
   ];
 

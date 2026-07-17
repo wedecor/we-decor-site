@@ -29,6 +29,14 @@ export const PUBLIC_ENV_SPEC = {
     requiredInProduction: false,
     description: 'Google Maps Place ID',
   },
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: {
+    requiredInProduction: false,
+    description: 'Google Search Console HTML-tag verification token',
+  },
+  NEXT_PUBLIC_BING_SITE_VERIFICATION: {
+    requiredInProduction: false,
+    description: 'Bing Webmaster Tools msvalidate.01 token',
+  },
 } as const;
 
 /** Server-only variables — must NOT use NEXT_PUBLIC_ prefix. */

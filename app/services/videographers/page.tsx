@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Professional Videographers in Bangalore',
   description:
     'Cinematic event videography for weddings, parties, and corporate events in Bengaluru.',
-  ogImage: '/services/videography.jpg',
+  ogImage: '/services/corporate.webp',
 });
 
 const structuredData = buildServicePageSchema({

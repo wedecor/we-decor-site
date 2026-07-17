@@ -75,7 +75,7 @@ export function pageMetadata({
   path,
   title,
   description,
-  ogImage = '/logo.png',
+  ogImage = '/og-banner.webp',
   noindex = false,
 }: PageMetadataOptions): Metadata {
   const url = absoluteUrl(path);

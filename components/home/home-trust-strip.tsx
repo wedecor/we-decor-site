@@ -3,14 +3,11 @@ import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 /**
- * Above-the-fold trust strip. Figures mirror the existing, published claims on
- * `/about` (500+ Events Decorated, 75+ Five-Star Reviews, 25+ Bangalore Areas
- * Served) — nothing here is a new or independently-fabricated number. Each
- * item doubles as a natural internal link to the page that substantiates it.
+ * Above-the-fold trust strip. Event/area figures mirror `/about`.
+ * Review ratings are not claimed here — visitors are directed to Google.
  */
 const trustItems = [
   { value: '500+', label: 'events decorated', href: '/gallery' },
-  { value: '75+', label: 'five-star reviews', href: '/reviews' },
   { value: '25+', label: 'Bangalore areas served', href: '/locations' },
 ] as const;
 

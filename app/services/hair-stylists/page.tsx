@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/services/hair-stylists',
   title: 'Expert Hair Stylists in Bangalore',
   description: 'Expert hair styling for weddings, parties, and special events in Bengaluru.',
-  ogImage: '/services/hair.jpg',
+  ogImage: '/og-banner.webp',
 });
 
 const structuredData = buildServicePageSchema({

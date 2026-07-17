@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Professional Make-up Artists in Bangalore',
   description:
     'Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.',
-  ogImage: '/services/makeup.jpg',
+  ogImage: '/og-banner.webp',
 });
 
 const structuredData = buildServicePageSchema({

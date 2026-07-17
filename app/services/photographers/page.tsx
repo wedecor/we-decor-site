@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Professional Photographers in Bangalore',
   description:
     'Professional photography for weddings, events, and corporate celebrations in Bengaluru.',
-  ogImage: '/services/photography.jpg',
+  ogImage: '/services/engagement.webp',
 });
 
 const structuredData = buildServicePageSchema({

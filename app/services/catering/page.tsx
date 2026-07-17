@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Catering Services in Bangalore',
   description:
     'We Decor Events provides catering coordination for celebrations in Bengaluru. Delicious menus and seamless service for your event.',
-  ogImage: '/services/catering.jpg',
+  ogImage: '/og-banner.webp',
 });
 
 const structuredData = buildServicePageSchema({

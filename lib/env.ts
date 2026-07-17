@@ -10,6 +10,8 @@ export const env = {
   SENTRY_DSN_PUBLIC: process.env.NEXT_PUBLIC_SENTRY_DSN ?? '',
   CLOUDINARY_CLOUD: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD ?? 'dux3m2saz',
   GOOGLE_PLACE_ID: process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID ?? '',
+  GOOGLE_SITE_VERIFICATION: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? '',
+  BING_SITE_VERIFICATION: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ?? '',
   NODE_ENV: process.env.NODE_ENV ?? 'development',
   VERCEL_ENV: process.env.VERCEL_ENV ?? 'development',
 } as const;

@@ -26,7 +26,7 @@ export default function SeoHead({
   const canonical = canonicalPath ? `${SITE_URL}${canonicalPath.replace(/\/+$/, '')}` : SITE_URL;
 
   // 🔄 Newly Added: Use metaImage for consistent image usage across all meta tags
-  const metaImage = image || '/logo.png';
+  const metaImage = image || '/og-banner.webp';
 
   return (
     <Head>

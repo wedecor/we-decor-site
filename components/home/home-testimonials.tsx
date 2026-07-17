@@ -1,49 +1,37 @@
 import Link from 'next/link';
-import { fallbackTestimonials, getGoogleReviewsUrl } from '@/utils/googleReviews';
+import { getGoogleReviewsUrl } from '@/utils/googleReviews';
 
+/**
+ * Home testimonials CTA — no fabricated quotes or star ratings.
+ */
 export default function HomeTestimonials() {
-  const featured = fallbackTestimonials.slice(0, 3);
   const googleReviewsUrl = getGoogleReviewsUrl();
 
   return (
     <section className="lux-section bg-lux-surface">
-      <div className="lux-container">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="lux-eyebrow mb-3">Testimonials</p>
-          <h2 className="lux-heading-sm">Voices from Bengaluru celebrations</h2>
-        </div>
-        <ul className="grid md:grid-cols-3 gap-6 list-none p-0 m-0">
-          {featured.map((t) => (
-            <li key={t.name} className="lux-panel p-9 flex flex-col h-full">
-              <p className="font-display text-4xl text-lux-gold/40 leading-none mb-4" aria-hidden>
-                &ldquo;
-              </p>
-              <p className="text-lux-secondary leading-relaxed flex-1 text-sm md:text-base">
-                {t.feedback}
-              </p>
-              <div className="mt-6 pt-6 border-t border-white/[0.08]">
-                <p className="font-medium text-lux-ivory">{t.name}</p>
-                {t.event ? <p className="text-xs text-lux-muted mt-1">{t.event}</p> : null}
-              </div>
-            </li>
-          ))}
-        </ul>
-        <p className="text-center mt-8 flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center">
-          <Link
-            href="/reviews"
-            className="text-lux-gold text-sm font-medium hover:underline underline-offset-4"
-          >
-            Read client reviews on We Decor →
-          </Link>
+      <div className="lux-container max-w-2xl mx-auto text-center">
+        <p className="lux-eyebrow mb-3">Testimonials</p>
+        <h2 className="lux-heading-sm mb-6">Voices from Bengaluru celebrations</h2>
+        <p className="lux-body text-sm md:text-base mb-10">
+          We invite you to read verified feedback on Google rather than placeholder reviews on this
+          site. When you are ready to plan, our team is a WhatsApp message away.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center">
           <a
             href={googleReviewsUrl}
             target="_blank"
             rel="noopener noreferrer"
+            className="lux-btn-primary text-sm"
+          >
+            See Google reviews
+          </a>
+          <Link
+            href="/reviews"
             className="text-lux-gold text-sm font-medium hover:underline underline-offset-4"
           >
-            See Google reviews →
-          </a>
-        </p>
+            Reviews page →
+          </Link>
+        </div>
       </div>
     </section>
   );

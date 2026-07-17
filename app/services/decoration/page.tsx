@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   title: 'Event Decoration Services in Bangalore',
   description:
     'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
-  ogImage: '/services/decoration.jpg',
+  ogImage: '/services/engagement.webp',
 });
 
 const structuredData = buildServicePageSchemaFromCore('theme-decoration');

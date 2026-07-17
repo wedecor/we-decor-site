@@ -92,7 +92,7 @@ export default function AboutPage() {
           <div className="lux-reveal lux-reveal-delay-2 mt-14 md:mt-16 grid grid-cols-3 gap-6 max-w-2xl md:ml-[6%] border-t border-white/[0.08] pt-10">
             {[
               { value: '500+', label: 'Events Decorated' },
-              { value: '75+', label: 'Five-Star Reviews' },
+              { value: 'Same-day', label: 'Quote Responses' },
               { value: '25+', label: 'Bangalore Areas Served' },
             ].map((stat) => (
               <div key={stat.label}>

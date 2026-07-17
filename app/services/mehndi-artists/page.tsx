@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/services/mehndi-artists',
   title: 'Mehndi Artists in Bangalore',
   description: 'Intricate mehndi designs for weddings, festivals, and celebrations in Bengaluru.',
-  ogImage: '/services/mehndi.jpg',
+  ogImage: '/services/haldi.webp',
 });
 
 const structuredData = buildServicePageSchema({
