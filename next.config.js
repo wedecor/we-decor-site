@@ -69,19 +69,25 @@ const nextConfig = {
         destination: 'https://www.wedecorevents.com/:path*',
         permanent: true,
       },
-      // Force prod domain (no vercel preview in index)
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: '(.*)vercel\\.app' }],
-        destination: 'https://www.wedecorevents.com/:path*',
-        permanent: true,
-      },
       {
         source: '/api/sitemap.xml',
         destination: '/sitemap.xml',
         permanent: true,
       },
     ];
+
+    // Force prod domain (keep vercel preview URLs out of the index) — but ONLY
+    // on the production deployment, so branch Preview deployments remain
+    // viewable for QA. Preview URLs are kept out of search via the X-Robots-Tag
+    // noindex header in headers() below.
+    if (process.env.VERCEL_ENV === 'production') {
+      redirects.push({
+        source: '/:path*',
+        has: [{ type: 'host', value: '(.*)vercel\\.app' }],
+        destination: 'https://www.wedecorevents.com/:path*',
+        permanent: true,
+      });
+    }
 
     // Add redirects for mixed routing cleanup
     if (process.env.NODE_ENV === 'production') {
