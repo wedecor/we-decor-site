@@ -12,14 +12,14 @@ module.exports = {
       },
       colors: {
         brand: {
-          DEFAULT: '#7c3aed', // violet-600
-          dark: '#6d28d9', // violet-700
-          light: '#a78bfa', // violet-400
+          DEFAULT: '#1e3a5f', // navy – elegant, trustworthy for events
+          dark: '#162544',
+          light: '#2c4a7a',
         },
         accent: {
-          DEFAULT: '#10b981', // emerald-500
-          dark: '#059669', // emerald-600
-          light: '#34d399', // emerald-400
+          DEFAULT: '#b76e7a', // rose
+          dark: '#a85c68',
+          light: '#c98a94',
         },
       },
       gradientColorStops: {

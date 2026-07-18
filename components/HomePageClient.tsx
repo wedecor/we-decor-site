@@ -7,51 +7,8 @@ import Testimonials from '@/components/Testimonials';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { playfair, inter } from '@/app/fonts';
-
-const services = [
-  {
-    title: 'Birthday Decoration',
-    description:
-      'Creative and vibrant birthday decorations for all ages. From themed parties to elegant celebrations, we bring your birthday vision to life with stunning decor arrangements.',
-    image: '/services/birthday.JPG',
-    href: '/services',
-  },
-  {
-    title: 'Haldi Decoration',
-    description:
-      'Traditional and modern haldi ceremony decorations. Beautiful yellow-themed setups with traditional elements and contemporary touches for your special pre-wedding celebration.',
-    image: '/services/haldi.jpg',
-    href: '/services/haldi-decoration',
-  },
-  {
-    title: 'Engagement Decoration',
-    description:
-      'Romantic and elegant engagement party decorations. Create the perfect atmosphere for your special moment with our professional decor services and stunning arrangements.',
-    image: '/services/engagement.jpg',
-    href: '/services/engagement-decoration',
-  },
-  {
-    title: 'Corporate Event Decoration',
-    description:
-      'Professional corporate event decorations for meetings, conferences, and celebrations. Impress your clients and team with our sophisticated corporate decor solutions.',
-    image: '/services/corporate.JPG',
-    href: '/services/corporate-decoration',
-  },
-  {
-    title: 'Tent & Balloon Setup',
-    description:
-      'Professional tent and balloon arrangements for outdoor events. From elegant balloon arches to complete tent setups, we handle all your outdoor decoration needs.',
-    image: '/services/tent and baloon.jpg',
-    href: '/services/tent-balloon-setup',
-  },
-  {
-    title: 'Room Decoration',
-    description:
-      'Transform any space with our room decoration services. From intimate gatherings to large celebrations, we create beautiful and personalized room decor arrangements.',
-    image: '/services/room decor.jpg',
-    href: '/services/room-decoration',
-  },
-];
+import { CONTACT } from '@/lib/contact';
+import { HOMEPAGE_SERVICES } from '@/lib/services';
 
 export default function HomePageClient() {
   const [mounted, setMounted] = useState(false);
@@ -61,108 +18,121 @@ export default function HomePageClient() {
     <>
       <section
         className={
-          `relative min-h-[60vh] md:min-h-[70vh] py-12 md:py-16 overflow-hidden ` +
-          `bg-[radial-gradient(1200px_600px_at_20%_-10%,#faf7f2,transparent),radial-gradient(800px_400px_at_120%_10%,#ffd70022,transparent)] ` +
-          `dark:bg-gradient-to-b dark:from-[#0b2d2e] dark:to-[#0f3d3e] ` +
-          `text-[#0f3d3e] dark:text-cream ` +
+          `relative min-h-[60vh] md:min-h-[90vh] py-12 md:py-20 overflow-hidden flex flex-col justify-center ` +
           `motion-safe:transition-all motion-safe:duration-700 ` +
           `${mounted ? 'motion-safe:opacity-100 motion-safe:translate-y-0' : 'motion-safe:opacity-0 motion-safe:translate-y-6'}`
         }
       >
-        <div className="pointer-events-none absolute -top-24 -left-24 h-[40rem] w-[40rem] rounded-full blur-3xl opacity-20 bg-[#ffd700]" />
-        <div className="pointer-events-none absolute -bottom-32 -right-20 h-[32rem] w-[32rem] rounded-full blur-3xl opacity-10 bg-[#0f3d3e]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_200px_at_50%_95%,#0f3d3e0d,transparent)]" />
+        <div className="absolute inset-0 md:min-h-[90vh]">
+          <Image
+            src="/banner.jpg"
+            alt="We Decor Bangalore event decoration showcase"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-black/85"
+            aria-hidden
+          />
+        </div>
 
-        <div className="relative z-10 px-6 max-w-6xl mx-auto">
+        <div className="relative z-10 px-6 max-w-6xl mx-auto w-full">
           <div className="flex items-center justify-center">
             <div className="w-full max-w-4xl text-center mx-auto">
               <h1
                 className={
                   `${playfair.className} text-5xl md:text-6xl lg:text-7xl font-bold mb-4 ` +
-                  `tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-[#0f3d3e] to-[#174a4b] ` +
-                  `dark:from-[#faf7f2] dark:to-[#ffd700]`
+                  `tracking-[-0.02em] text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.95),0_0_32px_rgba(0,0,0,0.7)]`
                 }
               >
                 We Decor
               </h1>
               <h2
                 className={
-                  `${playfair.className} text-3xl md:text-4xl lg:text-5xl mb-6 ` +
-                  `text-[#0f3d3e]/90 dark:text-[#faf7f2]`
+                  `${playfair.className} text-3xl md:text-4xl lg:text-5xl mb-5 text-white ` +
+                  `[text-shadow:0_2px_12px_rgba(0,0,0,0.95),0_0_28px_rgba(0,0,0,0.7)]`
                 }
               >
                 Bringing Dreams to Life
               </h2>
               <p
                 className={
-                  `${inter.className} max-w-2xl mx-auto text-center text-lg md:text-xl mb-10 leading-relaxed ` +
-                  `text-[#0f3d3e]/80 dark:text-[#faf7f2]/80`
+                  `${inter.className} max-w-2xl mx-auto text-center text-lg md:text-xl lg:text-2xl mb-3 leading-relaxed text-white ` +
+                  `[text-shadow:0_1px_6px_rgba(0,0,0,0.95),0_0_16px_rgba(0,0,0,0.7)]`
                 }
               >
                 Bangalore's trusted decor experts for weddings, birthdays, haldi, and more.
               </p>
-              <div className="mx-auto mb-8 max-w-4xl">
-                <Image
-                  src="/og/home.jpg"
-                  alt="We Decor Bangalore wedding stage decor"
-                  width={1600}
-                  height={900}
-                  priority
-                  fetchPriority="high"
-                  sizes="(max-width: 768px) 100vw, 1200px"
-                  className="rounded-2xl shadow-lg object-cover"
-                />
-              </div>
+              <p
+                className={
+                  `${inter.className} text-center text-white font-semibold text-base md:text-lg lg:text-xl mb-8 ` +
+                  `[text-shadow:0_1px_6px_rgba(0,0,0,0.95),0_0_14px_rgba(0,0,0,0.65)]`
+                }
+              >
+                Perfect 5★ on Google
+              </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center md:justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold `
-                  + `text-[#0f3d3e] bg-[#ffd700] hover:bg-[#ffdf33] transition-all duration-300 `
-                  + `shadow-[0_8px_30px_rgba(255,215,0,0.35)] hover:shadow-[0_12px_40px_rgba(255,215,0,0.45)] `
-                  + `focus:outline-none focus:ring-2 focus:ring-[#ffd700]/60"
+                  className="group inline-flex items-center justify-center px-8 py-4 rounded-full text-lg font-bold `
+                  + `text-white bg-[#b76e7a] hover:bg-[#c98a94] border-2 border-white/30 `
+                  + `shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.5)] `
+                  + `focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#b76e7a]"
                 >
-                  Get a Quote
+                  Get Free Quote
                   <span className="ml-3 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
                 <Link
                   href="/gallery"
-                  className="group inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold `
-                  + `border border-[#0f3d3e] text-[#0f3d3e] hover:text-[#0f3d3e] bg-transparent `
-                  + `hover:bg-[#0f3d3e]/10 transition-all duration-300 dark:border-[#faf7f2] dark:text-[#faf7f2] dark:hover:bg-white/10"
+                  className="group inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold border-2 border-white text-white hover:bg-white/15 transition-all duration-300"
                 >
                   View Gallery
-                  <span className="ml-3 transition-transform group-hover:translate-x-1">↗</span>
+                  <span className="ml-3 transition-transform group-hover:translate-x-1">→</span>
                 </Link>
               </div>
             </div>
           </div>
         </div>
+        <a
+          href="#our-services"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1.5 text-white/70 hover:text-white/95 transition-colors duration-300"
+          aria-label="Scroll to services"
+        >
+          <span className={`${inter.className} text-xs tracking-widest text-white/80`}>Scroll</span>
+          <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
       </section>
 
       <motion.section
-        className="py-16 md:py-20 px-6 bg-[#faf7f2] dark:bg-[#0f3d3e] relative overflow-hidden"
+        id="our-services"
+        className="py-20 md:py-24 px-6 bg-[#faf7f2] dark:bg-[#1e3a5f] relative overflow-hidden scroll-mt-20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="absolute inset-x-0 -top-20 h-20 bg-[radial-gradient(60%_100%_at_50%_100%,#0f3d3e0f,transparent)]" />
-        <div className="absolute inset-x-0 -bottom-16 h-16 bg-[radial-gradient(60%_100%_at_50%_0%,#ffd7001a,transparent)]" />
+        <div className="absolute inset-x-0 -top-20 h-20 bg-[radial-gradient(60%_100%_at_50%_100%,#1e3a5f0f,transparent)]" />
+        <div className="absolute inset-x-0 -bottom-16 h-16 bg-[radial-gradient(60%_100%_at_50%_0%,#b76e7a1a,transparent)]" />
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-10">
             <h2
-              className={`${playfair.className} text-4xl md:text-5xl font-bold mb-4 text-[#0f3d3e] dark:text-[#faf7f2]`}
+              className={`${playfair.className} text-4xl md:text-5xl font-bold mb-4 text-[#1e3a5f] dark:text-[#faf7f2]`}
             >
               Our Services
             </h2>
-            <p className={`${inter.className} text-lg text-[#0f3d3e]/80 dark:text-[#faf7f2]/80`}>
+            <p className={`${inter.className} text-lg text-[#1e3a5f]/80 dark:text-[#faf7f2]/80`}>
               Professional decoration services for all your special occasions
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+            {HOMEPAGE_SERVICES.map((service, index) => (
               <motion.div
                 key={service.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -171,7 +141,7 @@ export default function HomePageClient() {
                 viewport={{ once: true }}
               >
                 <Link href={service.href} className="block group">
-                  <div className="bg-white dark:bg-[#0e3334] rounded-2xl shadow-[0_10px_30px_rgba(15,61,62,0.08)] hover:shadow-[0_20px_50px_rgba(15,61,62,0.12)] transition-all duration-300 overflow-hidden group-hover:-translate-y-1 border border-[#0f3d3e0f]">
+                  <div className="bg-white dark:bg-[#162544] rounded-2xl shadow-[0_8px_32px_rgba(26,77,62,0.06)] hover:shadow-[0_16px_48px_rgba(26,77,62,0.1)] transition-all duration-300 overflow-hidden group-hover:-translate-y-0.5 border border-[#1e3a5f08] dark:border-white/10">
                     <div className="relative h-48 overflow-hidden">
                       <Image
                         src={service.image}
@@ -184,13 +154,16 @@ export default function HomePageClient() {
                     </div>
                     <div className="p-6">
                       <h3
-                        className={`${playfair.className} text-2xl font-bold mb-2 text-[#0f3d3e] dark:text-[#faf7f2]`}
+                        className={`${playfair.className} text-2xl font-bold mb-2 text-[#1e3a5f] dark:text-[#faf7f2]`}
                       >
                         {service.title}
                       </h3>
-                      <p className={`${inter.className} text-[#0f3d3e]/80 dark:text-[#faf7f2]/80`}>
+                      <p className={`${inter.className} text-[#1e3a5f]/80 dark:text-[#faf7f2]/80 mb-3`}>
                         {service.description}
                       </p>
+                      <span className={`${inter.className} text-[#1e3a5f] dark:text-[#b76e7a] font-medium text-sm group-hover:underline inline-flex items-center gap-1`}>
+                        Learn more <span aria-hidden>→</span>
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -201,25 +174,25 @@ export default function HomePageClient() {
       </motion.section>
 
       <motion.section
-        className="py-16 md:py-20 px-6 relative overflow-hidden text-[#0f3d3e]"
+        className="py-20 md:py-24 px-6 relative overflow-hidden text-[#1e3a5f]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_100%_at_50%_0%,#ffd70022,transparent)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_100%_at_50%_0%,#b76e7a22,transparent)]" />
         <div className="max-w-4xl mx-auto text-center">
           <h2 className={`${playfair.className} text-3xl md:text-4xl font-bold mb-4`}>
             Ready to Decorate Your Event?
           </h2>
-          <p className={`${inter.className} text-xl mb-8 text-[#0f3d3e]/80`}>
+          <p className={`${inter.className} text-xl mb-8 text-[#1e3a5f]/80`}>
             Let us transform your vision into reality with our professional decoration services.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-[#0f3d3e] bg-[#ffd700] hover:bg-[#ffdf33] transition-all duration-300 shadow-[0_8px_30px_rgba(255,215,0,0.35)] hover:shadow-[0_12px_40px_rgba(255,215,0,0.45)]"
+            className="inline-flex items-center justify-center px-8 py-4 rounded-full text-base font-semibold text-[#1e3a5f] bg-[#b76e7a] hover:bg-[#c98a94] transition-all duration-300 shadow-[0_8px_30px_rgba(183,110,122,0.35)] hover:shadow-[0_12px_40px_rgba(183,110,122,0.45)]"
           >
-            Get a Quote
+            Get Free Quote
             <span className="ml-3">→</span>
           </Link>
         </div>
@@ -228,7 +201,7 @@ export default function HomePageClient() {
       <Testimonials />
 
       <motion.section
-        className="py-16 md:py-20 px-6 bg-[#faf7f2] dark:bg-[#0e3334]"
+        className="py-20 md:py-24 px-6 bg-[#faf7f2] dark:bg-[#162544]"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -236,45 +209,45 @@ export default function HomePageClient() {
       >
         <div className="max-w-4xl mx-auto text-center">
           <h2
-            className={`${playfair.className} text-3xl md:text-4xl font-bold mb-8 text-[#0f3d3e] dark:text-[#faf7f2]`}
+            className={`${playfair.className} text-3xl md:text-4xl font-bold mb-8 text-[#1e3a5f] dark:text-[#faf7f2]`}
           >
             Get in Touch
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-white dark:bg-[#0f3d3e] p-6 rounded-xl shadow-[0_10px_30px_rgba(15,61,62,0.1)] border border-[#0f3d3e14]">
+            <div className="bg-white dark:bg-[#1e3a5f] p-6 rounded-2xl shadow-[0_8px_32px_rgba(26,77,62,0.06)] hover:shadow-[0_12px_40px_rgba(26,77,62,0.09)] transition-shadow duration-300 border border-[#1e3a5f10] dark:border-white/10">
               <h3
-                className={`${playfair.className} text-xl font-semibold mb-4 text-[#0f3d3e] dark:text-[#faf7f2]`}
+                className={`${playfair.className} text-xl font-semibold mb-4 text-[#1e3a5f] dark:text-[#faf7f2]`}
               >
                 Primary Contact
               </h3>
               <p
-                className={`${inter.className} text-lg text-[#0f3d3e]/80 dark:text-[#faf7f2]/80 mb-2`}
+                className={`${inter.className} text-lg text-[#1e3a5f]/80 dark:text-[#faf7f2]/80 mb-2`}
               >
-                +91 88805 44452
+                {CONTACT.telLinks()[0].label}
               </p>
               <a
-                href="https://wa.me/919880544452"
-                className="text-[#0f3d3e] hover:text-[#0b2d2e] font-medium underline decoration-[#ffd700]/60 underline-offset-4 hover:decoration-[#ffd700] transition"
+                href={CONTACT.waUrl()}
+                className="text-[#1e3a5f] hover:text-[#162544] font-medium underline decoration-[#b76e7a]/60 underline-offset-4 hover:decoration-[#b76e7a] transition"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 WhatsApp
               </a>
             </div>
-            <div className="bg-white dark:bg-[#0f3d3e] p-6 rounded-xl shadow-[0_10px_30px_rgba(15,61,62,0.1)] border border-[#0f3d3e14]">
+            <div className="bg-white dark:bg-[#1e3a5f] p-6 rounded-2xl shadow-[0_8px_32px_rgba(26,77,62,0.06)] hover:shadow-[0_12px_40px_rgba(26,77,62,0.09)] transition-shadow duration-300 border border-[#1e3a5f10] dark:border-white/10">
               <h3
-                className={`${playfair.className} text-xl font-semibold mb-4 text-[#0f3d3e] dark:text-[#faf7f2]`}
+                className={`${playfair.className} text-xl font-semibold mb-4 text-[#1e3a5f] dark:text-[#faf7f2]`}
               >
                 Secondary Contact
               </h3>
               <p
-                className={`${inter.className} text-lg text-[#0f3d3e]/80 dark:text-[#faf7f2]/80 mb-2`}
+                className={`${inter.className} text-lg text-[#1e3a5f]/80 dark:text-[#faf7f2]/80 mb-2`}
               >
-                +91 95912 32166
+                {CONTACT.telLinks()[1].label}
               </p>
               <a
-                href="tel:+919591232166"
-                className="text-[#0f3d3e] hover:text-[#0b2d2e] font-medium underline decoration-[#ffd700]/60 underline-offset-4 hover:decoration-[#ffd700] transition"
+                href={`tel:${CONTACT.telLinks()[1].raw}`}
+                className="text-[#1e3a5f] hover:text-[#162544] font-medium underline decoration-[#b76e7a]/60 underline-offset-4 hover:decoration-[#b76e7a] transition"
               >
                 Call Now
               </a>

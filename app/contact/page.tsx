@@ -40,22 +40,26 @@ export default function Contact() {
           priority
         />
         <h1
-          className={`${playfair.className} text-4xl md:text-5xl font-bold text-[#0f3d3e] dark:text-[#faf7f2]`}
+          className={`${playfair.className} text-4xl md:text-5xl font-bold text-[#1e3a5f] dark:text-[#faf7f2]`}
         >
           Contact We Decor
         </h1>
       </div>
       <ContactForm />
       <div className="mt-8">
+        {/* Set NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL in .env.local to your Google Maps embed iframe src */}
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sBangalore!5e0!3m2!1sen!2sin!4v0000000000000"
+          src={
+            process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL ||
+            'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c1b1b1b1%3A0x1b1b1b1b1b1b1b1b!2sBangalore!5e0!3m2!1sen!2sin!4v0000000000000'
+          }
           width="100%"
           height="250"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           title="We Decor Location in Bangalore"
-        ></iframe>
+        />
       </div>
     </div>
   );

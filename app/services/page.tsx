@@ -64,7 +64,7 @@ export default function ServicesPage() {
   return (
     <section className="max-w-screen-lg mx-auto py-14 md:py-16 px-6">
       <h1
-        className={`${playfair.className} text-4xl md:text-5xl font-bold text-center mb-12 text-[#0f3d3e] dark:text-[#faf7f2]`}
+        className={`${playfair.className} text-4xl md:text-5xl font-bold text-center mb-12 text-[#1e3a5f] dark:text-[#faf7f2]`}
       >
         Our Services
       </h1>
@@ -73,7 +73,7 @@ export default function ServicesPage() {
           <Link
             key={service.name}
             href={service.href}
-            className="group block rounded-2xl shadow-[0_10px_30px_rgba(15,61,62,0.08)] hover:shadow-[0_20px_50px_rgba(15,61,62,0.12)] transition-transform duration-300 overflow-hidden border border-[#0f3d3e14] focus:outline-none focus:ring-4 focus:ring-[#ffd700]/40 hover:-translate-y-1"
+            className="group block rounded-2xl shadow-[0_10px_30px_rgba(15,61,62,0.08)] hover:shadow-[0_20px_50px_rgba(15,61,62,0.12)] transition-transform duration-300 overflow-hidden border border-[#1e3a5f14] focus:outline-none focus:ring-4 focus:ring-[#b76e7a]/40 hover:-translate-y-1"
             aria-label={`Learn more about ${service.name}`}
           >
             <motion.div
@@ -92,21 +92,21 @@ export default function ServicesPage() {
             </motion.div>
             <div className="p-6 flex flex-col h-full">
               <h2
-                className={`${playfair.className} text-xl font-bold mb-2 text-[#0f3d3e] dark:text-[#faf7f2]`}
+                className={`${playfair.className} text-xl font-bold mb-2 text-[#1e3a5f] dark:text-[#faf7f2]`}
               >
                 {service.name}
               </h2>
               <p
-                className={`${inter.className} text-[#0f3d3e]/80 dark:text-[#faf7f2]/80 text-base mb-4`}
+                className={`${inter.className} text-[#1e3a5f]/80 dark:text-[#faf7f2]/80 text-base mb-4`}
               >
                 {service.description}
               </p>
               <div className="mt-auto flex items-center justify-end">
-                <span className="text-[#0f3d3e] dark:text-[#ffd700] font-semibold mr-2">
+                <span className="text-[#1e3a5f] dark:text-[#b76e7a] font-semibold mr-2">
                   Learn More
                 </span>
                 <FaArrowRight
-                  className="text-[#0f3d3e] dark:text-[#ffd700] group-hover:translate-x-1 transition-transform duration-200"
+                  className="text-[#1e3a5f] dark:text-[#b76e7a] group-hover:translate-x-1 transition-transform duration-200"
                   aria-hidden="true"
                 />
               </div>

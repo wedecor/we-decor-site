@@ -97,4 +97,40 @@ export const fallbackTestimonials = [
     rating: 5,
     date: '2 months ago',
   },
+  {
+    name: 'Kavitha Reddy',
+    event: 'Baby Shower',
+    feedback:
+      'Loved the pastel theme and balloon arch! Everything was set up on time and the team was very courteous. Would definitely recommend We Decor.',
+    avatar: '👶',
+    rating: 5,
+    date: '3 weeks ago',
+  },
+  {
+    name: 'Vikram & Sneha',
+    event: 'Anniversary Party',
+    feedback:
+      'Surprise anniversary setup was a hit! The rose petals and candles created such a romantic ambience. Thank you for making our day special.',
+    avatar: '🎉',
+    rating: 5,
+    date: '1 month ago',
+  },
+  {
+    name: 'Meera Iyer',
+    event: 'Housewarming',
+    feedback:
+      'Professional and creative. The entrance decoration and rangoli made our housewarming memorable. Great value for money.',
+    avatar: '🏠',
+    rating: 5,
+    date: '2 months ago',
+  },
+  {
+    name: 'Aditya Singh',
+    event: 'Retirement Party',
+    feedback:
+      'We Decor gave our colleague a wonderful send-off. The stage and backdrop were elegant and the whole office appreciated the setup.',
+    avatar: '🎊',
+    rating: 5,
+    date: '2 months ago',
+  },
 ];

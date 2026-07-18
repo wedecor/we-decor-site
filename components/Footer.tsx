@@ -6,7 +6,7 @@ export default function Footer() {
   const telLinks = CONTACT.telLinks();
 
   return (
-    <footer className="bg-[#0f3d3e] text-[#faf7f2] border-t border-white/10 py-14 font-sans">
+    <footer className="bg-[#1e3a5f] text-[#faf7f2] border-t border-white/10 py-14 font-sans">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
           {/* Logo and business name */}
@@ -19,14 +19,14 @@ export default function Footer() {
               className="rounded-full shadow"
             />
             <div>
-              <div className="font-bold text-[#ffd700] text-xl">We Decor</div>
+              <div className="font-bold text-[#b76e7a] text-xl">We Decor</div>
               <div className="text-[#faf7f2]/70 text-sm">Bringing Dreams to Life in Bangalore</div>
             </div>
           </div>
           {/* Instagram handle */}
           <a
             href="https://instagram.com/wedecorbangalore"
-            className="flex items-center gap-2 text-[#ffd700] hover:text-[#ffdf33] transition-colors duration-200 font-semibold"
+            className="flex items-center gap-2 text-[#b76e7a] hover:text-[#c98a94] transition-colors duration-200 font-semibold"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Follow us on Instagram"
@@ -40,17 +40,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {/* Quick Links */}
           <nav aria-label="Footer quick links">
-            <h2 className="text-lg font-semibold text-[#ffd700] mb-4">Quick Links</h2>
+            <h2 className="text-lg font-semibold text-[#b76e7a] mb-4">Quick Links</h2>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="hover:text-[#ffd700] transition-colors duration-200">
+                <Link href="/about" className="hover:text-[#b76e7a] transition-colors duration-200">
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
                   href="/services"
-                  className="hover:text-[#ffd700] transition-colors duration-200"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
                 >
                   Services
                 </Link>
@@ -58,28 +58,52 @@ export default function Footer() {
               <li>
                 <Link
                   href="/gallery"
-                  className="hover:text-[#ffd700] transition-colors duration-200"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
                 >
                   Gallery
                 </Link>
               </li>
               <li>
                 <Link
+                  href="/reviews"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
+                >
+                  Reviews
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/areas"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
+                >
+                  Areas
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/locations"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
+                >
+                  Locations
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/pricing"
-                  className="hover:text-[#ffd700] transition-colors duration-200"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
                 >
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="hover:text-[#ffd700] transition-colors duration-200">
+                <Link href="/faq" className="hover:text-[#b76e7a] transition-colors duration-200">
                   FAQ
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="hover:text-[#ffd700] transition-colors duration-200"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
                 >
                   Contact
                 </Link>
@@ -88,38 +112,38 @@ export default function Footer() {
           </nav>
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold text-[#ffd700] mb-4">Contact Info</h3>
+            <h3 className="text-lg font-semibold text-[#b76e7a] mb-4">Contact Info</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#ffd700]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#b76e7a]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" />
                 </svg>
                 <a
                   href={`tel:${telLinks[0].raw}`}
-                  className="hover:text-[#ffd700] transition-colors duration-200"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
                 >
                   {telLinks[0].label}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#ffd700]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#b76e7a]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.35.27 2.67.76 3.88a1 1 0 0 1-.21 1.11l-2.2 2.2Z" />
                 </svg>
                 <a
                   href={`tel:${telLinks[1].raw}`}
-                  className="hover:text-[#ffd700] transition-colors duration-200"
+                  className="hover:text-[#b76e7a] transition-colors duration-200"
                 >
                   {telLinks[1].label}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#ffd700]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#b76e7a]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
                 <span>Bangalore, India</span>
               </div>
               <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[#ffd700]" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-[#b76e7a]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                 </svg>
                 <span>Mon–Sun, 9am–9pm</span>
@@ -131,7 +155,7 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-[#faf7f2]/70">
             &copy; {new Date().getFullYear()}{' '}
-            <span className="font-semibold text-[#ffd700]">We Decor</span>, Bangalore. All rights
+            <span className="font-semibold text-[#b76e7a]">We Decor</span>, Bangalore. All rights
             reserved.
           </p>
         </div>

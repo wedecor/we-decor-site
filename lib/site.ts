@@ -26,7 +26,7 @@ export const SITE_PHONE = '+91 8880544452';
 export const SITE_WHATSAPP = '+91 8880544452';
 export const WHATSAPP_PRIMARY =
   'https://wa.me/918880544452?text=Hi%20We%20Decor%2C%20I%27m%20interested%20in%20decor%20services';
-export const DEFAULT_OG = '/og/home.jpg';
+export const DEFAULT_OG = '/og-banner.jpg';
 export const SITE_EMAIL = 'info@wedecorevents.com';
 
 // Canonical URL helpers

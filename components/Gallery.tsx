@@ -66,7 +66,7 @@ export default function Gallery() {
           placeholder="Search categories..."
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="px-4 py-2 border rounded focus:ring-2 focus:ring-green-400 text-gray-800 placeholder-gray-700 bg-white
+          className="px-4 py-2 border rounded focus:ring-2 focus:ring-[#b76e7a] text-gray-800 placeholder-gray-700 bg-white
                      dark:text-gray-100 dark:placeholder-gray-400 dark:bg-gray-900 dark:border-gray-700"
           aria-label="Search categories"
         />
@@ -77,7 +77,7 @@ export default function Gallery() {
               onClick={() => setLayout(l)}
               className={`px-3 py-1 rounded-full font-semibold border transition ${
                 layout === l
-                  ? 'bg-green-700 text-white'
+                  ? 'bg-[#1e3a5f] text-white'
                   : 'bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-gray-400 dark:border-gray-600'
               }`}
               aria-pressed={layout === l}
@@ -98,12 +98,12 @@ export default function Gallery() {
             return (
               <div
                 key={folder}
-                className="mb-6 break-inside-avoid group cursor-pointer bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                className="mb-6 break-inside-avoid group cursor-pointer bg-white dark:bg-[#162544] rounded-2xl overflow-hidden border border-[#1e3a5f]/10 dark:border-white/10 shadow-[0_8px_32px_rgba(26,77,62,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:shadow-[0_16px_48px_rgba(26,77,62,0.1)] dark:hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-[1.02]"
                 onClick={() => handleCategoryClick(folder, imageArray)}
                 tabIndex={0}
                 aria-label={`View ${folder} gallery`}
               >
-                <div className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800">
+                <div className="relative aspect-[4/3] bg-[#faf7f2]/50 dark:bg-[#1e3a5f]/50">
                   {thumbnailImage ? (
                     <Image
                       src={thumbnailImage.src}
@@ -145,12 +145,12 @@ export default function Gallery() {
             return (
               <div
                 key={folder}
-                className="group cursor-pointer bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                className="group cursor-pointer bg-white dark:bg-[#162544] rounded-2xl overflow-hidden border border-[#1e3a5f]/10 dark:border-white/10 shadow-[0_8px_32px_rgba(26,77,62,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:shadow-[0_16px_48px_rgba(26,77,62,0.1)] dark:hover:shadow-[0_16px_48px_rgba(0,0,0,0.25)] transition-all duration-300 hover:scale-[1.02]"
                 onClick={() => handleCategoryClick(folder, imageArray)}
                 tabIndex={0}
                 aria-label={`View ${folder} gallery`}
               >
-                <div className="relative aspect-[4/3] bg-gray-100 dark:bg-gray-800">
+                <div className="relative aspect-[4/3] bg-[#faf7f2]/50 dark:bg-[#1e3a5f]/50">
                   {thumbnailImage ? (
                     <Image
                       src={thumbnailImage.src}
@@ -192,13 +192,13 @@ export default function Gallery() {
             return (
               <div
                 key={folder}
-                className="group cursor-pointer bg-white dark:bg-gray-800 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300"
+                className="group cursor-pointer bg-white dark:bg-[#162544] rounded-2xl overflow-hidden border border-[#1e3a5f]/10 dark:border-white/10 shadow-[0_8px_32px_rgba(26,77,62,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.15)] hover:shadow-[0_16px_48px_rgba(26,77,62,0.1)] transition-all duration-300"
                 onClick={() => handleCategoryClick(folder, imageArray)}
                 tabIndex={0}
                 aria-label={`View ${folder} gallery`}
               >
                 <div className="flex items-center p-4">
-                  <div className="relative w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden flex-shrink-0">
+                  <div className="relative w-20 h-20 bg-[#faf7f2]/50 dark:bg-[#1e3a5f]/50 rounded-xl overflow-hidden flex-shrink-0">
                     {thumbnailImage ? (
                       <Image
                         src={thumbnailImage.src}

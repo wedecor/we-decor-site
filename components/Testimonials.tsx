@@ -51,10 +51,8 @@ export default function Testimonials() {
           const data = await response.json();
 
           if (data.reviews && data.reviews.length > 0) {
-            // Transform Google reviews to match our format
-            const googleReviews: Testimonial[] = data.reviews
-              .slice(0, 5)
-              .map((review: GoogleReview) => ({
+            // Transform Google reviews to match our format (show all; API returns max 5)
+            const googleReviews: Testimonial[] = data.reviews.map((review: GoogleReview) => ({
                 name: review.author_name,
                 feedback: review.text,
                 rating: review.rating,
@@ -89,7 +87,7 @@ export default function Testimonials() {
           <p className="text-lg text-gray-600 dark:text-gray-300">Loading reviews...</p>
         </div>
         <div className="flex justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0f3d3e]"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1e3a5f]"></div>
         </div>
       </section>
     );
@@ -106,6 +104,18 @@ export default function Testimonials() {
         </p>
         {error ? (
           <p className="text-sm text-red-500 mt-2">{error} - Showing sample testimonials</p>
+        ) : null}
+        {testimonials.some((t) => t.isGoogleReview) && process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID ? (
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+            <a
+              href={`https://www.google.com/maps/place/?q=place_id:${process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 dark:text-green-400 hover:underline"
+            >
+              View all reviews on Google →
+            </a>
+          </p>
         ) : null}
       </div>
 
@@ -128,7 +138,7 @@ export default function Testimonials() {
       >
         {testimonials.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <div className="bg-white dark:bg-[#0f3d3e] rounded-2xl shadow-[0_10px_30px_rgba(15,61,62,0.08)] p-6 h-full border border-[#0f3d3e14]">
+            <div className="bg-white dark:bg-[#1e3a5f] rounded-2xl shadow-[0_10px_30px_rgba(15,61,62,0.08)] p-6 h-full border border-[#1e3a5f14]">
               <div className="flex items-center mb-4">
                 {testimonial.profile_photo_url ? (
                   <Image
@@ -142,23 +152,23 @@ export default function Testimonials() {
                   <div className="text-3xl mr-3">{testimonial.avatar}</div>
                 )}
                 <div>
-                  <h3 className="font-semibold text-[#0f3d3e] dark:text-[#faf7f2]">
+                  <h3 className="font-semibold text-[#1e3a5f] dark:text-[#faf7f2]">
                     {testimonial.name}
                   </h3>
                   {testimonial.event ? (
-                    <p className="text-sm text-[#0f3d3e]/70 dark:text-[#faf7f2]/70">
+                    <p className="text-sm text-[#1e3a5f]/70 dark:text-[#faf7f2]/70">
                       {testimonial.event}
                     </p>
                   ) : null}
                   {testimonial.date ? (
-                    <p className="text-sm text-[#0f3d3e]/70 dark:text-[#faf7f2]/70">
+                    <p className="text-sm text-[#1e3a5f]/70 dark:text-[#faf7f2]/70">
                       {testimonial.date}
                     </p>
                   ) : null}
                 </div>
                 {testimonial.isGoogleReview ? (
                   <div className="ml-auto">
-                    <svg className="w-6 h-6 text-[#ffd700]" viewBox="0 0 24 24" fill="currentColor">
+                    <svg className="w-6 h-6 text-[#b76e7a]" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                       <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                       <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
@@ -170,7 +180,7 @@ export default function Testimonials() {
 
               <div className="mb-4">
                 <svg
-                  className="w-8 h-8 text-[#ffd700] mb-2"
+                  className="w-8 h-8 text-[#b76e7a] mb-2"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -178,7 +188,7 @@ export default function Testimonials() {
                 </svg>
               </div>
 
-              <p className="text-[#0f3d3e]/80 dark:text-[#faf7f2]/80 leading-relaxed">
+              <p className="text-[#1e3a5f]/80 dark:text-[#faf7f2]/80 leading-relaxed">
                 "{testimonial.feedback}"
               </p>
 
@@ -186,7 +196,7 @@ export default function Testimonials() {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <svg
                     key={i}
-                    className="w-5 h-5 text-[#ffd700]"
+                    className="w-5 h-5 text-[#b76e7a]"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -202,10 +212,10 @@ export default function Testimonials() {
       <style jsx global>{`
         .testimonials-swiper .swiper-button-next,
         .testimonials-swiper .swiper-button-prev {
-          color: #0f3d3e;
+          color: #1e3a5f;
         }
         .testimonials-swiper .swiper-pagination-bullet-active {
-          background: #ffd700;
+          background: #b76e7a;
         }
         .testimonials-swiper .swiper-pagination-bullet {
           background: #cbd5e1;

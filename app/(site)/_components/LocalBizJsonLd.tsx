@@ -1,16 +1,10 @@
-export default function LocalBizJsonLd({
-  areaName,
-  rating,
-}: {
-  areaName: string;
-  rating?: { value: number; count: number };
-}) {
-  const data: any = {
+export default function LocalBizJsonLd({ areaName }: { areaName: string }) {
+  const data = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'We Decor',
     url: 'https://www.wedecorevents.com',
-    telephone: ['+91 9591232166', '+91 8880544452'],
+    telephone: '+91 9591232166',
     areaServed: `${areaName}, Bengaluru`,
     address: {
       '@type': 'PostalAddress',
@@ -18,8 +12,6 @@ export default function LocalBizJsonLd({
       addressRegion: 'KA',
       addressCountry: 'IN',
     },
-    geo: { '@type': 'GeoCoordinates', latitude: 12.9716, longitude: 77.5946 },
-    hasMap: 'https://www.google.com/maps?cid=<REPLACE_WITH_CID>',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Event Decoration Services',
@@ -37,13 +29,6 @@ export default function LocalBizJsonLd({
     openingHours: 'Mo-Su 09:00-21:00',
     sameAs: ['https://instagram.com/wedecorbangalore'],
   };
-  if (rating) {
-    data.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: rating.value,
-      reviewCount: rating.count,
-    };
-  }
 
   return (
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />

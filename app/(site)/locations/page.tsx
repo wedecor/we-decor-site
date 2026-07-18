@@ -34,7 +34,7 @@ function ClusterSection({
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">{title}</h2>
         <Link
           href="#top"
-          className="text-sm underline opacity-70 text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
+          className="text-sm underline opacity-70 text-[#1e3a5f] dark:text-[#b76e7a] hover:text-[#162544] dark:hover:text-[#c98a94]"
         >
           Back to top
         </Link>
@@ -55,13 +55,13 @@ function ClusterSection({
               <div className="flex items-center justify-between gap-3">
                 <Link
                   href={`/locations/${slug}`}
-                  className="font-medium hover:underline text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400"
+                  className="font-medium hover:underline text-gray-900 dark:text-white hover:text-[#1e3a5f] dark:hover:text-[#b76e7a]"
                 >
                   {areaName}
                 </Link>
                 <Link
                   href={`/locations/${slug}`}
-                  className="rounded-xl border border-green-200 dark:border-green-700 px-3 py-1 text-sm text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors"
+                  className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-3 py-1 text-sm text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a14] dark:hover:bg-white/10 transition-colors"
                 >
                   View
                 </Link>
@@ -91,36 +91,36 @@ export default function LocationsHubPage() {
       <Navbar />
       <main
         id="top"
-        className="pt-16 pb-16 min-h-screen bg-[#faf7f2] dark:bg-[#0f3d3e] transition-colors duration-200"
+        className="pt-16 pb-16 min-h-screen bg-[#faf7f2] dark:bg-[#1e3a5f] transition-colors duration-200"
       >
         <div className="mx-auto max-w-6xl px-4 py-10 md:py-12">
           {/* Hero */}
           <header className="mb-8 md:mb-12">
-            <h1 className="text-3xl font-semibold text-[#0f3d3e] dark:text-[#faf7f2]">
+            <h1 className="text-3xl font-semibold text-[#1e3a5f] dark:text-[#faf7f2]">
               Event Decoration Across Bangalore — Areas We Serve
             </h1>
-            <p className="mt-2 text-lg opacity-90 text-[#0f3d3e]/80 dark:text-[#faf7f2]/80">
+            <p className="mt-2 text-lg opacity-90 text-[#1e3a5f]/80 dark:text-[#faf7f2]/80">
               Explore our coverage across North, South, East, Central and West Bengaluru. Each area
               page includes local service details, photos and quick booking options.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <a
                 href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="rounded-xl border border-[#0f3d3e33] dark:border-white/20 px-4 py-2 bg-[#ffd70014] dark:bg-white/10 text-[#0f3d3e] dark:text-[#faf7f2] hover:bg-[#ffd70022] dark:hover:bg-white/15 transition-colors"
+                className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-4 py-2 bg-[#b76e7a14] dark:bg-white/10 text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a22] dark:hover:bg-white/15 transition-colors"
               >
                 Call
               </a>
               <a
                 href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
                 target="_blank"
-                className="rounded-xl border border[#0f3d3e33] dark:border-white/20 px-4 py-2 bg-[#ffd70014] dark:bg-white/10 text-[#0f3d3e] dark:text-[#faf7f2] hover:bg-[#ffd70022] dark:hover:bg-white/15 transition-colors"
+                className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-4 py-2 bg-[#b76e7a14] dark:bg-white/10 text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a22] dark:hover:bg-white/15 transition-colors"
                 rel="noreferrer"
               >
                 WhatsApp
               </a>
               <Link
                 href="/services"
-                className="rounded-xl border border-[#0f3d3e33] dark:border-white/20 px-4 py-2 bg-[#ffd70014] dark:bg-white/10 text-[#0f3d3e] dark:text-[#faf7f2] hover:bg-[#ffd70022] dark:hover:bg-white/15 transition-colors"
+                className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-4 py-2 bg-[#b76e7a14] dark:bg-white/10 text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a22] dark:hover:bg-white/15 transition-colors"
               >
                 See Services
               </Link>
@@ -140,7 +140,7 @@ export default function LocationsHubPage() {
                 <li key={c.key}>
                   <a
                     href={`#${c.key}`}
-                    className="rounded-full border border-gray-200 dark:border-gray-600 px-3 py-1 text-sm hover:bg-green-50 dark:hover:bg-green-900/20 text-gray-700 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition-colors"
+                    className="rounded-full border border-gray-200 dark:border-gray-600 px-3 py-1 text-sm hover:bg-[#1e3a5f14] dark:hover:bg-white/10 text-gray-700 dark:text-gray-300 hover:text-[#1e3a5f] dark:hover:text-[#faf7f2] transition-colors"
                   >
                     {c.title}
                   </a>
@@ -174,21 +174,21 @@ export default function LocationsHubPage() {
             <div className="flex flex-wrap gap-3">
               <a
                 href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-4 py-2 bg-[#b76e7a14] dark:bg-white/10 text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a22] dark:hover:bg-white/15 transition-colors"
               >
                 Call
               </a>
               <a
                 href={`https://wa.me/918880544452?text=Hi! I need decoration services in ${CITY}`}
                 target="_blank"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-4 py-2 bg-[#b76e7a14] dark:bg-white/10 text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a22] dark:hover:bg-white/15 transition-colors"
                 rel="noreferrer"
               >
                 WhatsApp
               </a>
               <Link
                 href="/contact"
-                className="rounded-xl border border-green-200 dark:border-green-700 px-4 py-2 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+                className="rounded-xl border border-[#1e3a5f33] dark:border-white/20 px-4 py-2 bg-[#b76e7a14] dark:bg-white/10 text-[#1e3a5f] dark:text-[#faf7f2] hover:bg-[#b76e7a22] dark:hover:bg-white/15 transition-colors"
               >
                 Get a Quote
               </Link>
@@ -227,7 +227,7 @@ export default function LocationsHubPage() {
       {/* Sticky WhatsApp CTA */}
       <a
         href="https://wa.me/918880544452"
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-green-400 to-pink-400 text-white px-6 py-3 rounded-full shadow-xl z-50 flex items-center gap-3 hover:from-green-500 hover:to-pink-500 hover:scale-105 transition transform duration-200 animate-pulse hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400"
+        className="fixed bottom-6 right-6 bg-[#1e3a5f] hover:bg-[#162544] text-white px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(26,77,62,0.35)] z-50 flex items-center gap-3 hover:scale-105 transition-all duration-200 hover:shadow-[0_12px_40px_rgba(26,77,62,0.45)] focus:outline-none focus:ring-2 focus:ring-[#1e3a5f] focus:ring-offset-2"
         target="_blank"
         rel="noopener noreferrer"
         id="whatsapp-cta"
@@ -243,7 +243,7 @@ export default function LocationsHubPage() {
       {/* Sticky Call Now CTA */}
       <a
         href="tel:+918880544452"
-        className="fixed bottom-24 right-6 bg-gradient-to-r from-pink-400 to-green-400 text-white px-6 py-3 rounded-full shadow-xl z-50 flex items-center gap-3 hover:from-pink-500 hover:to-green-500 hover:scale-105 transition transform duration-200 animate-pulse hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-green-400"
+        className="fixed bottom-24 right-6 bg-[#b76e7a] hover:bg-[#c98a94] text-[#1e3a5f] px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(183,110,122,0.35)] z-50 flex items-center gap-3 hover:scale-105 transition-all duration-200 hover:shadow-[0_12px_40px_rgba(183,110,122,0.45)] focus:outline-none focus:ring-2 focus:ring-[#b76e7a] focus:ring-offset-2"
         id="callnow-cta"
         data-gtm="click-callnow"
         aria-label="Call us now"

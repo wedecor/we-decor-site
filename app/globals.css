@@ -5,25 +5,30 @@
 /* Focus-visible styles for better accessibility */
 @layer base {
   :root {
-    --brand-emerald: #0f3d3e;
-    --brand-gold: #ffd700;
+    --brand-primary: #1e3a5f;
+    --brand-primary-hover: #162544;
+    --brand-accent: #b76e7a;
+    --brand-accent-hover: #c98a94;
     --brand-cream: #faf7f2;
+    /* legacy aliases */
+    --brand-emerald: #1e3a5f;
+    --brand-gold: #b76e7a;
   }
 
   html,
   body {
     background-color: var(--brand-cream);
-    color: var(--brand-emerald);
+    color: var(--brand-primary);
   }
 
   .dark html,
   .dark body {
-    background-color: var(--brand-emerald);
+    background-color: var(--brand-primary);
     color: var(--brand-cream);
   }
 
   *:focus-visible {
-    outline: 2px solid theme('colors.green.500');
+    outline: 2px solid var(--brand-accent);
     outline-offset: 2px;
   }
 
@@ -33,7 +38,7 @@
   input:focus-visible,
   textarea:focus-visible,
   select:focus-visible {
-    outline: 2px solid theme('colors.green.500');
+    outline: 2px solid var(--brand-accent);
     outline-offset: 2px;
   }
 

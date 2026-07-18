@@ -49,7 +49,7 @@ export default function GalleryPage() {
             priority
           />
           <h1
-            className={`${playfair.className} text-4xl md:text-5xl font-bold text-[#0f3d3e] dark:text-[#faf7f2]`}
+            className={`${playfair.className} text-4xl md:text-5xl font-bold text-[#1e3a5f] dark:text-[#faf7f2]`}
           >
             Gallery
           </h1>

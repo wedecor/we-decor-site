@@ -19,3 +19,4 @@
     "upload": { "target": "filesystem", "outputDir": ".lighthouse" }
   }
 }
+

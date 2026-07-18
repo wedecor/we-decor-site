@@ -1,32 +1,32 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Birthday Decoration Services in Bangalore | We Decor',
+  title: 'Corporate Event Decoration in Bangalore | We Decor',
   description:
-    'Make birthdays unforgettable with our creative decor services in Bangalore. Professional birthday party decorations, themes, and setups.',
+    'Professional corporate event decorations for meetings, conferences, and celebrations in Bangalore. Sophisticated decor solutions.',
   openGraph: {
-    title: 'Birthday Decoration Services in Bangalore | We Decor',
-    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
-    images: ['/services/birthday.JPG'],
+    title: 'Corporate Event Decoration in Bangalore | We Decor',
+    description: 'Professional corporate event decorations in Bangalore.',
+    images: ['/services/corporate.JPG'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Birthday Decoration Services in Bangalore | We Decor',
-    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
-    images: ['/services/birthday.JPG'],
+    title: 'Corporate Event Decoration in Bangalore | We Decor',
+    description: 'Professional corporate event decorations in Bangalore.',
+    images: ['/services/corporate.JPG'],
   },
   alternates: {
-    canonical: '/services/birthday-decoration',
+    canonical: '/services/corporate-decoration',
   },
 };
 
-export default function BirthdayDecorationPage() {
+export default function CorporateDecorationPage() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    serviceType: 'Birthday Decoration',
-    name: 'Birthday Decoration Services',
-    description: 'Make birthdays unforgettable with our creative decor services in Bangalore.',
+    serviceType: 'Corporate Event Decoration',
+    name: 'Corporate Event Decoration Services',
+    description: 'Professional corporate event decorations in Bangalore.',
     provider: {
       '@type': 'Organization',
       name: 'We Decor',
@@ -53,9 +53,9 @@ export default function BirthdayDecorationPage() {
       <div className="min-h-screen bg-[#faf7f2] dark:bg-[#1e3a5f]">
         <section className="bg-[#1e3a5f] text-white py-16">
           <div className="max-w-6xl mx-auto px-6 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Birthday Decoration Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Corporate Event Decoration</h1>
             <p className="text-xl md:text-2xl mb-8 text-white/95">
-              Make every birthday celebration magical and memorable
+              Professional decor for meetings, conferences, and company celebrations
             </p>
           </div>
         </section>
@@ -65,31 +65,31 @@ export default function BirthdayDecorationPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold mb-6 text-[#1e3a5f] dark:text-[#faf7f2]">
-                  Why Choose Our Birthday Decorations?
+                  Why Choose Our Corporate Decorations?
                 </h2>
                 <ul className="space-y-4 text-lg text-[#1e3a5f]/90 dark:text-[#faf7f2]/90">
                   <li className="flex items-start">
-                    <span className="text-[#b76e7a] mr-3">🎈</span>
-                    Creative themes and color schemes
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#b76e7a] mr-3">🎂</span>
-                    Custom cake table decorations
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#b76e7a] mr-3">🎉</span>
-                    Balloon arrangements and backdrops
+                    <span className="text-[#b76e7a] mr-3">🏢</span>
+                    Branded backdrops and stage setups
                   </li>
                   <li className="flex items-start">
                     <span className="text-[#b76e7a] mr-3">✨</span>
-                    Photo booth setups
+                    Balloon and tent arrangements
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#b76e7a] mr-3">🎯</span>
+                    Sophisticated, professional aesthetics
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[#b76e7a] mr-3">⏱</span>
+                    Punctual setup for corporate timelines
                   </li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-[#162544] rounded-2xl shadow-[0_8px_32px_rgba(26,77,62,0.06)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 border border-[#1e3a5f]/10 dark:border-white/10">
                 <h3 className="text-2xl font-bold mb-4 text-[#1e3a5f] dark:text-[#faf7f2]">Get Your Quote</h3>
                 <p className="text-[#1e3a5f]/80 dark:text-[#faf7f2]/80 mb-6">
-                  Contact us for a personalized birthday decoration quote
+                  Contact us for a personalized corporate decoration quote
                 </p>
                 <a
                   href="/contact"
