@@ -5,6 +5,8 @@ import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildReviewsPageGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/reviews',
@@ -19,6 +21,13 @@ export default function ReviewsPage() {
 
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={buildReviewsPageGraph({
+          name: 'Customer Reviews',
+          description:
+            'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
+        })}
+      />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
         <SiteBreadcrumbs
           withSchema

@@ -12,7 +12,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'community halls', 'churches'],
     heroTagline: 'Bespoke Ashok Nagar Event Styling',
     bodyCopy:
-      "Looking for event decoration around Ashok Nagar Main Road and Richmond Circle? We specialize in creating memorable celebrations across Ashok Nagar. Our team understands the unique apartments and community halls in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Ashok Nagar venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Reach out to start planning your perfect Ashok Nagar event decoration. Ashok Nagar has a distinct heritage residential character, and we're just as comfortable setting up near St Joseph's.",
+      "Looking for event decoration around Ashok Nagar Main Road and Richmond Circle? We specialize in creating memorable celebrations across Ashok Nagar. Our team understands the unique apartments and community halls in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Ashok Nagar venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Ashok Nagar event decoration. Ashok Nagar has a distinct heritage residential character, and we're just as comfortable setting up near St Joseph's.",
     uniqueFAQ: [
       {
         q: 'How do you handle venue constraints in Ashok Nagar?',
@@ -45,7 +45,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['community halls', 'apartments', 'temples'],
     heroTagline: 'Banashankari Party Decoration Experts',
     bodyCopy:
-      "Looking for event decoration around BSK 2nd Stage and Banashankari Temple? We specialize in creating memorable celebrations across Banashankari. Our team understands the unique community halls and apartments in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Banashankari venues. Transparent pricing starts from ₹2,999 and scales with your requirements. Reach out to start planning your perfect Banashankari event decoration. Banashankari has a distinct large residential blocks character, and we're just as comfortable setting up near BSK 3rd Stage.",
+      "Looking for event decoration around BSK 2nd Stage and Banashankari Temple? We specialize in creating memorable celebrations across Banashankari. Our team understands the unique community halls and apartments in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Banashankari venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Banashankari event decoration. Banashankari has a distinct large residential blocks character, and we're just as comfortable setting up near BSK 3rd Stage.",
     uniqueFAQ: [
       {
         q: 'What types of events do you decorate in Banashankari?',
@@ -74,7 +74,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'banquet halls', 'rooftops', 'villas'],
     heroTagline: 'Bangalore Event Styling Solutions',
     bodyCopy:
-      "Celebrate your special moments in Bangalore with our professional decoration services. We know the area's apartments and banquet halls intimately, especially around MG Road and Cubbon Park, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes corporate events with professional backdrops and branding, all customized for Bangalore venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Reach out to start planning your perfect Bangalore event decoration. Bangalore has a distinct city-wide character, and we're just as comfortable setting up near UB City.",
+      "Celebrate your special moments in Bangalore with our professional decoration services. We know the area's apartments and banquet halls intimately, especially around MG Road and Cubbon Park, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes corporate events with professional backdrops and branding, all customized for Bangalore venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Bangalore event decoration. Bangalore has a distinct city-wide character, and we're just as comfortable setting up near UB City.",
     uniqueFAQ: [
       {
         q: 'What types of events do you decorate in Bangalore?',
@@ -103,7 +103,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'villas', 'educational institutions'],
     heroTagline: 'Bannerghatta Road Celebration Specialists',
     bodyCopy:
-      "Planning an event in Bannerghatta Road? Our decoration services are tailored to the local apartments and villas, with its green & educational atmosphere. We've transformed countless celebrations around Bannerghatta National Park and JP Nagar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Bannerghatta Road while meeting your specific vision. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Bannerghatta Road venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Get in touch for a personalized quote for your Bannerghatta Road celebration. Bannerghatta Road has a distinct green & educational character, and we're just as comfortable setting up near IIM Bangalore.",
+      "Planning an event in Bannerghatta Road? Our decoration services are tailored to the local apartments and villas, with its green & educational atmosphere. We've transformed countless celebrations around Bannerghatta National Park and JP Nagar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Bannerghatta Road while meeting your specific vision. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Bannerghatta Road venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Bannerghatta Road celebration. Bannerghatta Road has a distinct green & educational character, and we're just as comfortable setting up near IIM Bangalore.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in Bannerghatta Road?',
@@ -115,7 +115,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Bannerghatta Road?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Bannerghatta Road events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Bannerghatta Road events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -132,7 +132,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['community halls', 'apartments', 'temples'],
     heroTagline: 'Basavanagudi Party Decoration Experts',
     bodyCopy:
-      "Planning an event in Basavanagudi? Our decoration services are tailored to the local community halls and apartments, with its classic Bengaluru atmosphere. We've transformed countless celebrations around Bugle Rock and Gandhi Bazaar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Basavanagudi while meeting your specific vision. Our expertise includes corporate events with professional backdrops and branding, all customized for Basavanagudi venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Reach out to start planning your perfect Basavanagudi event decoration. Basavanagudi has a distinct classic Bengaluru character, and we're just as comfortable setting up near Bull Temple.",
+      "Planning an event in Basavanagudi? Our decoration services are tailored to the local community halls and apartments, with its classic Bengaluru atmosphere. We've transformed countless celebrations around Bugle Rock and Gandhi Bazaar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Basavanagudi while meeting your specific vision. Our expertise includes corporate events with professional backdrops and branding, all customized for Basavanagudi venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Basavanagudi event decoration. Basavanagudi has a distinct classic Bengaluru character, and we're just as comfortable setting up near Bull Temple.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in Basavanagudi?',
@@ -144,7 +144,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Basavanagudi?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Basavanagudi events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Basavanagudi events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -206,7 +206,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'rooftops', 'community halls'],
     heroTagline: 'Professional BTM Layout Decoration',
     bodyCopy:
-      "Planning an event in BTM Layout? Our decoration services are tailored to the local apartments and rooftops, with its student & family mix atmosphere. We've transformed countless celebrations around Silk Board and Mico Layout, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of BTM Layout while meeting your specific vision. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for BTM Layout venues. Transparent pricing starts from ₹2,999 and scales with your requirements. Reach out to start planning your perfect BTM Layout event decoration. BTM Layout has a distinct student & family mix character, and we're just as comfortable setting up near BTM Lake.",
+      "Planning an event in BTM Layout? Our decoration services are tailored to the local apartments and rooftops, with its student & family mix atmosphere. We've transformed countless celebrations around Silk Board and Mico Layout, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of BTM Layout while meeting your specific vision. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for BTM Layout venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect BTM Layout event decoration. BTM Layout has a distinct student & family mix character, and we're just as comfortable setting up near BTM Lake.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in BTM Layout?',
@@ -218,7 +218,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in BTM Layout?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all BTM Layout events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all BTM Layout events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -235,7 +235,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'offices', 'restaurants'],
     heroTagline: 'Domlur Wedding & Party Decor',
     bodyCopy:
-      "Planning an event in Domlur? Our decoration services are tailored to the local apartments and offices, with its mixed commercial atmosphere. We've transformed countless celebrations around Domlur Bridge and Indiranagar Metro, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Domlur while meeting your specific vision. Our expertise includes birthday decorations with balloon arches and photo backdrops, all customized for Domlur venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Get in touch for a personalized quote for your Domlur celebration. Domlur has a distinct mixed commercial character, and we're just as comfortable setting up near Old Airport Road.",
+      "Planning an event in Domlur? Our decoration services are tailored to the local apartments and offices, with its mixed commercial atmosphere. We've transformed countless celebrations around Domlur Bridge and Indiranagar Metro, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Domlur while meeting your specific vision. Our expertise includes birthday decorations with balloon arches and photo backdrops, all customized for Domlur venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Domlur celebration. Domlur has a distinct mixed commercial character, and we're just as comfortable setting up near Old Airport Road.",
     uniqueFAQ: [
       {
         q: 'What types of events do you decorate in Domlur?',
@@ -313,7 +313,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'clubhouses', 'lakeside venues'],
     heroTagline: 'Hebbal Wedding & Party Decor',
     bodyCopy:
-      "Looking for event decoration around Hebbal Lake and Manyata Flyover? We specialize in creating memorable celebrations across Hebbal. Our team understands the unique apartments and clubhouses in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Hebbal venues. Transparent pricing starts from ₹2,999 and scales with your requirements. Get in touch for a personalized quote for your Hebbal celebration. Hebbal has a distinct lakeside views character, and we're just as comfortable setting up near Manyata Tech Park.",
+      "Looking for event decoration around Hebbal Lake and Manyata Flyover? We specialize in creating memorable celebrations across Hebbal. Our team understands the unique apartments and clubhouses in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Hebbal venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Hebbal celebration. Hebbal has a distinct lakeside views character, and we're just as comfortable setting up near Manyata Tech Park.",
     uniqueFAQ: [
       {
         q: 'How do you handle venue constraints in Hebbal?',
@@ -542,7 +542,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'villas', 'community halls'],
     heroTagline: 'Signature Kanakapura Road Event Setups',
     bodyCopy:
-      "Planning an event in Kanakapura Road? Our decoration services are tailored to the local apartments and villas, with its developing residential atmosphere. We've transformed countless celebrations around Bannerghatta Road and JP Nagar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Kanakapura Road while meeting your specific vision. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Kanakapura Road venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Get in touch for a personalized quote for your Kanakapura Road celebration. Kanakapura Road has a distinct developing residential character, and we're just as comfortable setting up near Kanakapura Junction.",
+      "Planning an event in Kanakapura Road? Our decoration services are tailored to the local apartments and villas, with its developing residential atmosphere. We've transformed countless celebrations around Bannerghatta Road and JP Nagar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Kanakapura Road while meeting your specific vision. Our expertise includes wedding setups featuring elegant mandaps and floral arrangements, all customized for Kanakapura Road venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Kanakapura Road celebration. Kanakapura Road has a distinct developing residential character, and we're just as comfortable setting up near Kanakapura Junction.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in Kanakapura Road?',
@@ -554,7 +554,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Kanakapura Road?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Kanakapura Road events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Kanakapura Road events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -616,7 +616,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['community halls', 'apartments', 'temples'],
     heroTagline: 'Malleshwaram Celebration Specialists',
     bodyCopy:
-      "Celebrate your special moments in Malleshwaram with our professional decoration services. We know the area's community halls and apartments intimately, especially around 8th Cross and Sankey Tank, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Malleshwaram venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Get in touch for a personalized quote for your Malleshwaram celebration. Malleshwaram has a distinct heritage pockets character, and we're just as comfortable setting up near Malleshwaram Metro.",
+      "Celebrate your special moments in Malleshwaram with our professional decoration services. We know the area's community halls and apartments intimately, especially around 8th Cross and Sankey Tank, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Malleshwaram venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Malleshwaram celebration. Malleshwaram has a distinct heritage pockets character, and we're just as comfortable setting up near Malleshwaram Metro.",
     uniqueFAQ: [
       {
         q: 'How do you handle venue constraints in Malleshwaram?',
@@ -701,7 +701,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'community halls', 'educational institutions'],
     heroTagline: 'Mathikere Event Styling Solutions',
     bodyCopy:
-      "Planning an event in Mathikere? Our decoration services are tailored to the local apartments and community halls, with its student area atmosphere. We've transformed countless celebrations around Yeshwanthpur and Rajajinagar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Mathikere while meeting your specific vision. Our expertise includes corporate events with professional backdrops and branding, all customized for Mathikere venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Reach out to start planning your perfect Mathikere event decoration. Mathikere has a distinct student area character, and we're just as comfortable setting up near Mathikere Lake.",
+      "Planning an event in Mathikere? Our decoration services are tailored to the local apartments and community halls, with its student area atmosphere. We've transformed countless celebrations around Yeshwanthpur and Rajajinagar, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Mathikere while meeting your specific vision. Our expertise includes corporate events with professional backdrops and branding, all customized for Mathikere venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Mathikere event decoration. Mathikere has a distinct student area character, and we're just as comfortable setting up near Mathikere Lake.",
     uniqueFAQ: [
       {
         q: 'How do you handle venue constraints in Mathikere?',
@@ -734,7 +734,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['community halls', 'offices', 'industrial venues'],
     heroTagline: 'Peenya Party Decoration Experts',
     bodyCopy:
-      "Celebrate your special moments in Peenya with our professional decoration services. We know the area's community halls and offices intimately, especially around Peenya Industrial Area and Jalahalli, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Peenya venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Get in touch for a personalized quote for your Peenya celebration. Peenya has a distinct industrial belt character, and we're just as comfortable setting up near Yeshwanthpur.",
+      "Celebrate your special moments in Peenya with our professional decoration services. We know the area's community halls and offices intimately, especially around Peenya Industrial Area and Jalahalli, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Peenya venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Peenya celebration. Peenya has a distinct industrial belt character, and we're just as comfortable setting up near Yeshwanthpur.",
     uniqueFAQ: [
       {
         q: 'Can you work with the venues available in Peenya?',
@@ -746,7 +746,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Peenya?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Peenya events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Peenya events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -763,7 +763,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['banquet halls', 'apartments', 'malls'],
     heroTagline: 'Rajajinagar Party Decoration Experts',
     bodyCopy:
-      "Looking for event decoration around Orion Mall and World Trade Center? We specialize in creating memorable celebrations across Rajajinagar. Our team understands the unique banquet halls and apartments in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes corporate events with professional backdrops and branding, all customized for Rajajinagar venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Get in touch for a personalized quote for your Rajajinagar celebration. Rajajinagar has a distinct old & new mix character, and we're just as comfortable setting up near Rajajinagar Metro.",
+      "Looking for event decoration around Orion Mall and World Trade Center? We specialize in creating memorable celebrations across Rajajinagar. Our team understands the unique banquet halls and apartments in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes corporate events with professional backdrops and branding, all customized for Rajajinagar venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Get in touch for a personalized quote for your Rajajinagar celebration. Rajajinagar has a distinct old & new mix character, and we're just as comfortable setting up near Rajajinagar Metro.",
     uniqueFAQ: [
       {
         q: 'How do you handle venue constraints in Rajajinagar?',
@@ -796,7 +796,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['banquet halls', 'restaurants', 'heritage venues'],
     heroTagline: 'Signature Richmond Town Event Setups',
     bodyCopy:
-      "Planning an event in Richmond Town? Our decoration services are tailored to the local banquet halls and restaurants, with its colonial charm atmosphere. We've transformed countless celebrations around Richmond Road and Langford Road, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Richmond Town while meeting your specific vision. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Richmond Town venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Contact us today to discuss your Richmond Town event decoration needs. Richmond Town has a distinct colonial charm character, and we're just as comfortable setting up near St Mark's Road.",
+      "Planning an event in Richmond Town? Our decoration services are tailored to the local banquet halls and restaurants, with its colonial charm atmosphere. We've transformed countless celebrations around Richmond Road and Langford Road, creating everything from elegant wedding setups to festive birthday parties. Each design reflects the character of Richmond Town while meeting your specific vision. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Richmond Town venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Contact us today to discuss your Richmond Town event decoration needs. Richmond Town has a distinct colonial charm character, and we're just as comfortable setting up near St Mark's Road.",
     uniqueFAQ: [
       {
         q: 'Can you work with the venues available in Richmond Town?',
@@ -808,7 +808,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Richmond Town?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Richmond Town events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Richmond Town events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -825,7 +825,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'community halls', 'temples'],
     heroTagline: 'Signature RT Nagar Event Setups',
     bodyCopy:
-      "Looking for event decoration around RT Nagar Main Road and Ganganagar? We specialize in creating memorable celebrations across RT Nagar. Our team understands the unique apartments and community halls in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes corporate events with professional backdrops and branding, all customized for RT Nagar venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Contact us today to discuss your RT Nagar event decoration needs. RT Nagar has a distinct residential sprawl character, and we're just as comfortable setting up near Hebbal.",
+      "Looking for event decoration around RT Nagar Main Road and Ganganagar? We specialize in creating memorable celebrations across RT Nagar. Our team understands the unique apartments and community halls in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes corporate events with professional backdrops and branding, all customized for RT Nagar venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Contact us today to discuss your RT Nagar event decoration needs. RT Nagar has a distinct residential sprawl character, and we're just as comfortable setting up near Hebbal.",
     uniqueFAQ: [
       {
         q: 'What types of events do you decorate in RT Nagar?',
@@ -854,7 +854,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'community halls', 'temples'],
     heroTagline: 'Sahakarnagar Celebration Specialists',
     bodyCopy:
-      "Celebrate your special moments in Sahakarnagar with our professional decoration services. We know the area's apartments and community halls intimately, especially around Hebbal and RT Nagar, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes birthday decorations with balloon arches and photo backdrops, all customized for Sahakarnagar venues. Transparent pricing starts from ₹2,999 and scales with your requirements. Contact us today to discuss your Sahakarnagar event decoration needs. Sahakarnagar has a distinct quiet residential character, and we're just as comfortable setting up near Yelahanka.",
+      "Celebrate your special moments in Sahakarnagar with our professional decoration services. We know the area's apartments and community halls intimately, especially around Hebbal and RT Nagar, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes birthday decorations with balloon arches and photo backdrops, all customized for Sahakarnagar venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Contact us today to discuss your Sahakarnagar event decoration needs. Sahakarnagar has a distinct quiet residential character, and we're just as comfortable setting up near Yelahanka.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in Sahakarnagar?',
@@ -866,7 +866,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Sahakarnagar?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Sahakarnagar events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Sahakarnagar events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -928,7 +928,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'banquet halls', 'lakeside venues'],
     heroTagline: 'Ulsoor Event Styling Solutions',
     bodyCopy:
-      "Celebrate your special moments in Ulsoor with our professional decoration services. We know the area's apartments and banquet halls intimately, especially around Ulsoor Lake and Halasuru, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes corporate events with professional backdrops and branding, all customized for Ulsoor venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Reach out to start planning your perfect Ulsoor event decoration. Ulsoor has a distinct lakeside & cantonment character, and we're just as comfortable setting up near MG Road Metro.",
+      "Celebrate your special moments in Ulsoor with our professional decoration services. We know the area's apartments and banquet halls intimately, especially around Ulsoor Lake and Halasuru, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes corporate events with professional backdrops and branding, all customized for Ulsoor venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Ulsoor event decoration. Ulsoor has a distinct lakeside & cantonment character, and we're just as comfortable setting up near MG Road Metro.",
     uniqueFAQ: [
       {
         q: 'What types of events do you decorate in Ulsoor?',
@@ -957,7 +957,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'community halls', 'temples'],
     heroTagline: 'Premium Vijayanagar Event Decoration',
     bodyCopy:
-      "Looking for event decoration around Vijayanagar Metro and Rajajinagar? We specialize in creating memorable celebrations across Vijayanagar. Our team understands the unique apartments and community halls in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Vijayanagar venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Reach out to start planning your perfect Vijayanagar event decoration. Vijayanagar has a distinct traditional residential character, and we're just as comfortable setting up near Malleshwaram.",
+      "Looking for event decoration around Vijayanagar Metro and Rajajinagar? We specialize in creating memorable celebrations across Vijayanagar. Our team understands the unique apartments and community halls in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Vijayanagar venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Vijayanagar event decoration. Vijayanagar has a distinct traditional residential character, and we're just as comfortable setting up near Malleshwaram.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in Vijayanagar?',
@@ -969,7 +969,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Vijayanagar?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Vijayanagar events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Vijayanagar events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -1039,7 +1039,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['villas', 'apartments', 'lakeside venues'],
     heroTagline: 'Yelahanka Party Decoration Experts',
     bodyCopy:
-      "Looking for event decoration around Allalasandra Lake and Yelahanka New Town? We specialize in creating memorable celebrations across Yelahanka. Our team understands the unique villas and apartments in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Yelahanka venues. Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups. Reach out to start planning your perfect Yelahanka event decoration. Yelahanka has a distinct airy layouts character, and we're just as comfortable setting up near Airport Road.",
+      "Looking for event decoration around Allalasandra Lake and Yelahanka New Town? We specialize in creating memorable celebrations across Yelahanka. Our team understands the unique villas and apartments in this area and designs setups that complement your space perfectly. From intimate gatherings to grand celebrations, we bring creativity and precision to every event. Our expertise includes haldi ceremonies with traditional marigold decor, all customized for Yelahanka venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Yelahanka event decoration. Yelahanka has a distinct airy layouts character, and we're just as comfortable setting up near Airport Road.",
     uniqueFAQ: [
       {
         q: 'Do you handle small apartment setups in Yelahanka?',
@@ -1051,7 +1051,7 @@ export const GENERATED_LOCATIONS = [
       },
       {
         q: 'Do you provide setup and cleanup services in Yelahanka?',
-        a: 'Yes, our full-service package includes setup, decoration, and cleanup for all Yelahanka events.',
+        a: 'Yes, our team includes setup, decoration, and cleanup for all Yelahanka events.',
       },
       {
         q: 'Can you match specific themes or color schemes?',
@@ -1068,7 +1068,7 @@ export const GENERATED_LOCATIONS = [
     venueTypes: ['apartments', 'community halls', 'industrial areas'],
     heroTagline: 'Yeshwanthpur Party Decoration Experts',
     bodyCopy:
-      "Celebrate your special moments in Yeshwanthpur with our professional decoration services. We know the area's apartments and community halls intimately, especially around Peenya and Rajajinagar, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes engagement parties with romantic lighting and floral arches, all customized for Yeshwanthpur venues. We offer flexible packages from ₹2,999, tailored to your venue and theme. Reach out to start planning your perfect Yeshwanthpur event decoration. Yeshwanthpur has a distinct industrial residential character, and we're just as comfortable setting up near Yeshwanthpur Metro.",
+      "Celebrate your special moments in Yeshwanthpur with our professional decoration services. We know the area's apartments and community halls intimately, especially around Peenya and Rajajinagar, and create setups that work beautifully with your space. Whether it's a cozy home celebration or a grand hall event, our team ensures every detail enhances your occasion. Our expertise includes engagement parties with romantic lighting and floral arches, all customized for Yeshwanthpur venues. Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements. Reach out to start planning your perfect Yeshwanthpur event decoration. Yeshwanthpur has a distinct industrial residential character, and we're just as comfortable setting up near Yeshwanthpur Metro.",
     uniqueFAQ: [
       {
         q: 'How do you handle venue constraints in Yeshwanthpur?',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/mehndi-artists',
@@ -11,18 +11,21 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/services/haldi.webp',
 });
 
-const structuredData = buildServicePageSchema({
-  name: 'Mehndi Artists',
-  serviceType: 'Mehndi',
-  description: 'Mehndi artistry for weddings and events in Bengaluru.',
-  path: '/services/mehndi-artists',
-});
-
 export default function MehndiArtistsPage() {
   return (
     <PartnerServicePage
       path="/services/mehndi-artists"
-      schema={<SchemaScript data={structuredData} />}
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Mehndi Artists',
+            description: 'Mehndi artistry for weddings and events in Bengaluru.',
+            path: '/services/mehndi-artists',
+            serviceType: 'Mehndi',
+            serviceId: 'mehndi-artists',
+          })}
+        />
+      }
       config={{
         title: 'Mehndi Artists',
         description: 'Intricate mehndi designs for weddings, festivals, and intimate celebrations.',

@@ -4,6 +4,8 @@ import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildFaqSitePageGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/faq',
@@ -14,6 +16,13 @@ export const metadata: Metadata = pageMetadata({
 export default function FAQPage() {
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={buildFaqSitePageGraph({
+          name: 'Frequently Asked Questions',
+          description:
+            'Answers to common questions about event decor, timelines, and customizations.',
+        })}
+      />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
         <SiteBreadcrumbs
           withSchema

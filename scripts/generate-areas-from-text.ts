@@ -178,7 +178,7 @@ function parseBlock(block: string): LocalityDoc | null {
           `Balloon Decoration in ${locality} — Home, clubhouses & banquet halls.`,
           `Corporate Event Decoration in ${locality} — Office parties, team events.`,
         ],
-    why: why || `Local team in ${locality}. Quick setup. Custom themes & budget-friendly packages.`,
+    why: why || `Local team in ${locality}. Quick setup. Custom themes & custom quotes.`,
     nearby,
     faqs,
   };

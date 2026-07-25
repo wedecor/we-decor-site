@@ -15,7 +15,7 @@ export default function HomeHero() {
           priority
           className="object-cover object-center lux-image-cinematic"
           sizes="100vw"
-          quality={82}
+          quality={75}
         />
       </div>
       <div

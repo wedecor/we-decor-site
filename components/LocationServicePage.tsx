@@ -11,7 +11,12 @@ import {
   buildPhoneUrl,
 } from '../lib/site';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildBreadcrumbSchema, buildLocationServiceSchema } from '@/lib/local-seo';
+import {
+  asGraph,
+  buildBreadcrumbNode,
+  buildLocationServiceSchema,
+  buildWebPage,
+} from '@/lib/schema';
 
 interface LocationServicePageProps {
   location: {
@@ -56,7 +61,7 @@ export default function LocationServicePage({
     serviceDescription: service.blurb,
   });
 
-  const breadcrumbSchema = buildBreadcrumbSchema([
+  const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Locations', path: '/locations' },
     { name: location.displayName, path: `/locations/${location.slug}` },
@@ -64,7 +69,18 @@ export default function LocationServicePage({
       name: service.name,
       path: `/locations/${location.slug}/services/${service.slug}`,
     },
-  ]);
+  ];
+
+  const pageGraph = asGraph(
+    buildWebPage({
+      name: pageTitle,
+      description: pageDescription,
+      url: pageUrl,
+      mainEntity: { '@id': serviceSchema['@id'] as string },
+    }),
+    serviceSchema,
+    buildBreadcrumbNode(crumbs)
+  );
 
   // Reasons to choose We Decor
   const reasonsToChoose = [
@@ -103,7 +119,7 @@ export default function LocationServicePage({
 
   return (
     <>
-      <SchemaScript data={[serviceSchema, breadcrumbSchema]} />
+      <SchemaScript data={pageGraph} />
 
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
         {/* Hero Section */}

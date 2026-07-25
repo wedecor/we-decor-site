@@ -7,6 +7,9 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import PricingPageView from '@/components/analytics/PricingPageView';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildPricingPageGraph } from '@/lib/schema';
+import { PRICING_TIERS } from '@/lib/content/pricing-tiers';
 
 export const metadata: Metadata = pageMetadata({
   path: '/pricing',
@@ -15,31 +18,24 @@ export const metadata: Metadata = pageMetadata({
     'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
 });
 
-const experiences = [
-  {
-    name: 'Intimate',
-    price: '₹2,999+',
-    desc: 'Thoughtful atmospheres for home gatherings and milestone evenings.',
-    features: ['Up to 50 guests', '2–3 hour setup', 'Palette consultation'],
-  },
-  {
-    name: 'Celebration',
-    price: '₹7,999+',
-    desc: 'Our most requested experience — florals, backdrops, and cohesive styling.',
-    features: ['Clubhouse & residence venues', 'Photography zones', 'Dedicated creative direction'],
-    featured: true,
-  },
-  {
-    name: 'Grand',
-    price: '₹15,999+',
-    desc: 'Full venue transformation for weddings, receptions, and grand occasions.',
-    features: ['Mandap & stage composition', 'Multi-zone styling', 'On-site coordinator'],
-  },
-] as const;
+const experiences = PRICING_TIERS.map((tier) => ({
+  name: tier.name,
+  price: tier.priceLabel,
+  desc: tier.description,
+  features: [...tier.features],
+  featured: 'featured' in tier ? tier.featured : false,
+}));
 
 export default function PricingPage() {
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={buildPricingPageGraph({
+          name: 'Event Decoration Pricing',
+          description:
+            'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
+        })}
+      />
       <PricingPageView />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
         <SiteBreadcrumbs
@@ -62,7 +58,7 @@ export default function PricingPage() {
       >
         <div className="lux-container max-w-3xl">
           <h2 id="pricing-tiers" className="lux-heading-sm text-center mb-12">
-            Starting packages for Bengaluru celebrations
+            Starting prices for Bengaluru celebrations
           </h2>
           <div className="space-y-0">
             {experiences.map((tier, i) => (

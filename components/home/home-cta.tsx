@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import { PRICING_CTA_SHORT } from '@/lib/content/pricing-tiers';
 
 export default function HomeCta() {
   return (
@@ -27,7 +28,7 @@ export default function HomeCta() {
           </Link>
         </div>
         <p className="mt-7 text-sm text-lux-secondary">
-          Packages start from <span className="text-lux-gold-soft font-medium">₹2,999</span> —{' '}
+          {PRICING_CTA_SHORT} —{' '}
           <Link
             href="/pricing"
             className="text-lux-gold hover:underline underline-offset-4 font-medium"

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/hair-stylists',
@@ -11,18 +11,21 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/og-banner.webp',
 });
 
-const structuredData = buildServicePageSchema({
-  name: 'Expert Hair Stylists',
-  serviceType: 'Hair Styling',
-  description: 'Wedding and event hair styling in Bengaluru.',
-  path: '/services/hair-stylists',
-});
-
 export default function HairStylistsPage() {
   return (
     <PartnerServicePage
       path="/services/hair-stylists"
-      schema={<SchemaScript data={structuredData} />}
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Expert Hair Stylists',
+            description: 'Wedding and event hair styling in Bengaluru.',
+            path: '/services/hair-stylists',
+            serviceType: 'Hair Styling',
+            serviceId: 'hair-stylists',
+          })}
+        />
+      }
       config={{
         title: 'Expert Hair Stylists',
         description:

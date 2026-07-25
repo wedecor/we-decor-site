@@ -11,6 +11,7 @@ import WebVitalsReporter from '@/components/WebVitalsReporter';
 import CriticalStyles from '@/components/lux/CriticalStyles';
 import { METADATA_BASE, getIndexingRobots } from '@/lib/metadata';
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
+import StickyWhatsApp from '@/components/StickyWhatsApp';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,7 +22,7 @@ const inter = Inter({
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  display: 'swap',
+  display: 'optional',
   variable: '--font-cormorant',
 });
 
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
         </ThemeProvider>
+        <StickyWhatsApp />
         <WebVitalsReporter />
         <AnalyticsPageView />
       </body>

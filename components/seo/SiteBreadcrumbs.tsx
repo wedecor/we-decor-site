@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildBreadcrumbSchema } from '@/lib/local-seo';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
 /**
  * Breadcrumb item with a stable path for UI + future/JSON-LD BreadcrumbList.

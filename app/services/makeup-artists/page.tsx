@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/makeup-artists',
@@ -12,18 +12,21 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/og-banner.webp',
 });
 
-const structuredData = buildServicePageSchema({
-  name: 'Professional Make-up Artists',
-  serviceType: 'Make-up',
-  description: 'Wedding and event make-up services in Bengaluru.',
-  path: '/services/makeup-artists',
-});
-
 export default function MakeupArtistsPage() {
   return (
     <PartnerServicePage
       path="/services/makeup-artists"
-      schema={<SchemaScript data={structuredData} />}
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Professional Make-up Artists',
+            description: 'Wedding and event make-up services in Bengaluru.',
+            path: '/services/makeup-artists',
+            serviceType: 'Make-up',
+            serviceId: 'makeup-artists',
+          })}
+        />
+      }
       config={{
         title: 'Professional Make-up Artists',
         description:

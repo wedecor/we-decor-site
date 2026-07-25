@@ -14,7 +14,6 @@ import { CLUSTERS } from '../../_data/clusters';
 import { faqsForArea } from '../../_data/faqs';
 import { getGeneratedArea, buildLocationMetaDescription } from '../../_data/location-content';
 import LocationGallery from '../../../../components/LocationGallery';
-import FAQJsonLd from '../../_components/FAQJsonLd';
 import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import Link from 'next/link';
@@ -31,7 +30,7 @@ const CUSTOM_META_DESCRIPTIONS: Record<string, string> = {
   indiranagar:
     'Elegant event decoration in Indiranagar, Bengaluru. Proposal setups, anniversary decor & engagement styling at rooftops, cafes & residences. We Decor — Bringing Dreams to Life.',
   'hsr-layout':
-    'Birthday & wedding decoration in HSR Layout, Bengaluru. Home parties, clubhouse events & surprise setups by We Decor. Packages from ₹2,999. WhatsApp us now.',
+    'Birthday & wedding decoration in HSR Layout, Bengaluru. Home parties, clubhouse events & surprise setups by We Decor. Balloon décor from ₹3,000. WhatsApp us now.',
   jayanagar:
     'Traditional & modern event decoration in Jayanagar, Bengaluru. Haldi, engagement, birthday & wedding decor for homes, halls & community spaces. We Decor Events.',
 };
@@ -43,13 +42,9 @@ const SERVICE_LINKS: Partial<Record<ServiceKey, { href: string; label: string }>
   Haldi: { href: '/services/haldi-decoration', label: 'Haldi Decoration' },
   Engagement: { href: '/services/engagement-decoration', label: 'Engagement Decoration' },
   Corporate: { href: '/services/corporate-decoration', label: 'Corporate Decoration' },
-  // Closest existing service pages until dedicated occasion URLs ship in a later phase
-  Anniversary: { href: '/services/room-decoration', label: 'Anniversary & room styling' },
-  Proposal: { href: '/services/engagement-decoration', label: 'Proposal & engagement styling' },
-  'Baby Shower': {
-    href: '/services/birthday-home-decoration',
-    label: 'Baby shower & home styling',
-  },
+  Anniversary: { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
+  Proposal: { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
+  'Baby Shower': { href: '/services/baby-shower-decoration', label: 'Baby Shower Decorations' },
 };
 
 const MAX_NEARBY_AREAS = 5;
@@ -121,14 +116,19 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
   return (
     <>
-      {/* JSON-LD Schema */}
-      <LocalBizJsonLd areaName={areaName} slug={slug} landmark={primaryLandmark} />
-      <FAQJsonLd
-        items={combinedFaqs.map((f) => ({
+      {/* JSON-LD: WebPage + locality Service + FAQPage (single graph; no duplicate FAQ script) */}
+      <LocalBizJsonLd
+        areaName={areaName}
+        slug={slug}
+        landmark={primaryLandmark}
+        description={
+          CUSTOM_META_DESCRIPTIONS[area.slug] ??
+          buildLocationMetaDescription(area.name, getGeneratedArea(area.slug))
+        }
+        faqs={combinedFaqs.map((f) => ({
           question: f.q,
           answer: f.a,
         }))}
-        pagePath={`/locations/${slug}`}
       />
       <div className="lux-page">
         <div className="relative bg-lux-elevated border-b border-white/[0.06] text-lux-ivory py-20 md:py-28">
@@ -187,7 +187,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h2 className="lux-heading-sm text-center mb-4">Our services in {area.name}</h2>
           <p className="text-center text-sm text-lux-muted mb-12">
-            Packages start from <span className="text-lux-gold font-medium">₹2,999</span> —{' '}
+            Balloon décor from <span className="text-lux-gold font-medium">₹3,000</span> · Floral
+            from <span className="text-lux-gold font-medium">₹5,000</span> —{' '}
             <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
               view full pricing
             </Link>

@@ -62,6 +62,11 @@
 }
 
 @layer components {
+  /* Hide global floating WhatsApp on mobile when a page has its own sticky bar */
+  body:has([data-has-sticky-wa]) .sticky-wa-global {
+    @apply hidden md:flex;
+  }
+
   .lux-eyebrow {
     @apply text-[11px] md:text-xs font-medium tracking-lux uppercase text-lux-gold;
   }

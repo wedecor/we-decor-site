@@ -1,7 +1,7 @@
 const pillars = [
   {
     title: 'Curated, not catalogue',
-    text: 'Every setup begins with your venue, light, and story — never a one-size-fits-all package.',
+    text: 'Every setup begins with your venue, light, and story — never a one-size-fits-all template.',
   },
   {
     title: 'Bangalore-native team',

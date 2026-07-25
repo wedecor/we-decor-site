@@ -1,10 +1,12 @@
+import { PRICING_SUMMARY } from '@/lib/content/pricing-tiers';
+
 export type FAQ = { q: string; a: (areaName: string) => string };
 
 export const SHARED_FAQS: FAQ[] = [
   {
     q: 'How much does birthday decoration cost in {{AREA}}?',
     a: (area) =>
-      `Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. For birthday setups in ${area}, pricing is customized based on venue, decoration style, event size, materials, and customer requirements.`,
+      `${PRICING_SUMMARY} For birthday setups in ${area}, we confirm the final quote after reviewing your venue and brief.`,
   },
   {
     q: 'Do you decorate apartment clubhouses in {{AREA}}?',

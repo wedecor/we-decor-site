@@ -2,34 +2,17 @@ import Link from 'next/link';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { absoluteUrl } from '@/lib/metadata';
 import { buildFaqPageSchema } from '@/lib/local-seo';
+import { SITE_FAQS } from '@/lib/content/site-faq';
 
 const faqs = [
   {
-    question: 'What are your pricing packages?',
-    answer:
-      'Packages in Bengaluru start from ₹2,999 for intimate setups and extend to ₹25,000+ for premium wedding decor. We quote based on venue, materials, and creative scope.',
+    ...SITE_FAQS[0],
     link: { href: '/pricing', label: 'View full pricing' },
   },
-  {
-    question: 'How long does setup take?',
-    answer:
-      'Birthday decor typically 2–3 hours; weddings 4–8 hours. We arrive early so your celebration begins on time.',
-  },
-  {
-    question: 'Which Bangalore areas do you serve?',
-    answer:
-      'Koramangala, Whitefield, Indiranagar, Jayanagar, HSR, Hebbal, Electronic City, and neighborhoods within ~50 km of the city.',
-  },
-  {
-    question: 'Can you match a specific theme?',
-    answer:
-      'Yes — traditional, minimal, Bollywood, floral luxury, or kids’ themes. We build a mood board before install.',
-  },
-  {
-    question: 'How do I book?',
-    answer:
-      'WhatsApp or phone → share date and venue → receive a quote → confirm with advance → we handle setup and teardown.',
-  },
+  SITE_FAQS[1],
+  SITE_FAQS[2],
+  SITE_FAQS[3],
+  SITE_FAQS[4],
 ] as const;
 
 export default function HomeFaq() {

@@ -78,11 +78,11 @@ function generateUniqueBodyCopy(area: any, seed: string) {
   content += ` Our expertise includes ${services[serviceIndex]}, all customized for ${name} venues.`;
 
   // Add unique pricing and booking info — figure must match the canonical /pricing
-  // page (Intimate tier: ₹2,999+) so no page ever contradicts another.
+  // page (Balloon from ₹3,000; Floral from ₹5,000) so no page ever contradicts another.
   const pricingVariants = [
-    `Transparent pricing starts from ₹2,999 and scales with your requirements.`,
-    `We offer flexible packages from ₹2,999, tailored to your venue and theme.`,
-    `Our pricing is competitive and transparent, beginning at ₹2,999 for intimate setups.`,
+    `Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements.`,
+    `Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements.`,
+    `Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements.`,
   ];
 
   const pricingIndex =
@@ -152,7 +152,7 @@ function generateUniqueFAQs(area: any, seed: string) {
       },
       {
         q: `Do you provide setup and cleanup services in ${name}?`,
-        a: `Yes, our full-service package includes setup, decoration, and cleanup for all ${name} events.`,
+        a: `Yes, our full service includes setup, decoration, and cleanup for all ${name} events.`,
       },
       {
         q: `Can you match specific themes or color schemes?`,

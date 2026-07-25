@@ -2,8 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
 import { BRAND } from '@/lib/design/tokens';
+import { CONTACT } from '@/lib/contact';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SchemaScript from '@/components/seo/SchemaScript';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import { buildAboutPageGraph } from '@/lib/schema';
 
 const principles = [
   {
@@ -30,6 +34,13 @@ export const metadata: Metadata = pageMetadata({
 export default function AboutPage() {
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={buildAboutPageGraph({
+          name: 'About We Decor Events',
+          description:
+            "Learn about We Decor, Bangalore's trusted event decor and event management company. Discover our story, philosophy, and what sets us apart.",
+        })}
+      />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
         <SiteBreadcrumbs
           withSchema
@@ -92,8 +103,8 @@ export default function AboutPage() {
           <div className="lux-reveal lux-reveal-delay-2 mt-14 md:mt-16 grid grid-cols-3 gap-6 max-w-2xl md:ml-[6%] border-t border-white/[0.08] pt-10">
             {[
               { value: '500+', label: 'Events Decorated' },
-              { value: 'Same-day', label: 'Quote Responses' },
               { value: '25+', label: 'Bangalore Areas Served' },
+              { value: 'Same-day', label: 'Quote Responses' },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-3xl md:text-4xl text-lux-gold-soft">{stat.value}</p>
@@ -134,6 +145,31 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <section className="lux-section bg-lux-bg border-t border-white/[0.06]">
+        <div className="lux-container max-w-3xl text-center">
+          <p className="lux-eyebrow mb-3">Work with us</p>
+          <h2 className="lux-heading-sm mb-4">Let&apos;s plan your event</h2>
+          <p className="text-lux-muted leading-relaxed mb-10">
+            Share your date, venue, and vision — we&apos;ll put together a personalised proposal.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <TrackedWhatsAppLink
+              href={CONTACT.waUrlForHome()}
+              source="about_cta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lux-btn-primary"
+            >
+              WhatsApp for a quote
+            </TrackedWhatsAppLink>
+            <Link href="/contact" className="lux-btn-secondary">
+              Enquire online
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CoreExploreLinks context="content" showLocalities />
     </div>
   );

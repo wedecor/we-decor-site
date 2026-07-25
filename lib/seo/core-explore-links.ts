@@ -11,7 +11,7 @@ export function planYourEventLinks(
 ): ExploreLink[] {
   const maps: Record<typeof context, ExploreLink[]> = {
     service: [
-      { href: '/pricing', label: 'Decoration packages & pricing' },
+      { href: '/pricing', label: 'Decoration pricing guidance' },
       { href: '/gallery', label: 'Browse celebration photos' },
       { href: '/reviews', label: 'What clients say' },
       { href: '/contact', label: 'Request a quote' },
@@ -47,7 +47,7 @@ export function planYourEventLinks(
     ],
     content: [
       { href: '/services', label: 'Event decoration services' },
-      { href: '/pricing', label: 'Packages from ₹2,999' },
+      { href: '/pricing', label: 'Balloon from ₹3,000 · Floral from ₹5,000' },
       { href: '/gallery', label: 'See our setups' },
       { href: '/reviews', label: 'Read reviews' },
       { href: '/locations', label: 'Bangalore localities' },

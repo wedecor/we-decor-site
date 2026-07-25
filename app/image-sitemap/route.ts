@@ -23,15 +23,19 @@ ${urls
     (u) => `
   <url>
     <loc>${u}</loc>
-    ${GALLERY_ITEMS.map(
-      (g) => `
+    ${GALLERY_ITEMS.map((g) => {
+      // Cloudinary (and other absolute) URLs must not be prefixed with SITE_URL
+      const imageLoc = /^https?:\/\//i.test(g.src)
+        ? g.src
+        : `${base}${g.src.startsWith('/') ? g.src : `/${g.src}`}`;
+      return `
       <image:image>
-        <image:loc>${base}${g.src}</image:loc>
+        <image:loc>${imageLoc}</image:loc>
         <image:title><![CDATA[${g.altBase}]]></image:title>
         <image:caption><![CDATA[${g.captionBase}]]></image:caption>
         <image:geo_location>Bengaluru, Karnataka, India</image:geo_location>
-      </image:image>`
-    ).join('')}
+      </image:image>`;
+    }).join('')}
   </url>`
   )
   .join('')}

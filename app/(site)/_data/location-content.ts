@@ -1,3 +1,4 @@
+import { PRICING_SUMMARY } from '@/lib/content/pricing-tiers';
 import { GENERATED_LOCATIONS, type GeneratedLocation } from './locations.generated';
 
 const BY_SLUG = new Map<string, GeneratedLocation>(GENERATED_LOCATIONS.map((g) => [g.slug, g]));
@@ -26,8 +27,8 @@ export function buildLocationMetaDescription(
   // for geography) instead of repeating "in {areaName}" a second time.
   const landmark = generated.landmarks?.[0];
   const near = landmark ? ` near ${landmark}` : '';
-  const description = `${generated.heroTagline}, Bengaluru — weddings, birthdays, haldi & engagement decor${near}. Packages from ₹2,999. WhatsApp We Decor for a quote.`;
+  const description = `${generated.heroTagline}, Bengaluru — weddings, birthdays, haldi & engagement decor${near}. ${PRICING_SUMMARY} WhatsApp We Decor for a quote.`;
   return description.length <= MAX_META_DESCRIPTION_LENGTH
     ? description
-    : `${generated.heroTagline}, Bengaluru. Weddings, birthdays & haldi decor from ₹2,999. WhatsApp We Decor for a quote.`;
+    : `${generated.heroTagline}, Bengaluru. ${PRICING_SUMMARY}`;
 }

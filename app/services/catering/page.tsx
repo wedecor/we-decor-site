@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/catering',
@@ -12,18 +12,22 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/og-banner.webp',
 });
 
-const structuredData = buildServicePageSchema({
-  name: 'Catering Services',
-  serviceType: 'Catering',
-  description: 'Catering services for weddings, birthdays, and corporate events in Bengaluru.',
-  path: '/services/catering',
-});
-
 export default function CateringPage() {
   return (
     <PartnerServicePage
       path="/services/catering"
-      schema={<SchemaScript data={structuredData} />}
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Catering Services',
+            description:
+              'Catering services for weddings, birthdays, and corporate events in Bengaluru.',
+            path: '/services/catering',
+            serviceType: 'Catering',
+            serviceId: 'catering',
+          })}
+        />
+      }
       config={{
         title: 'Catering Services',
         description:

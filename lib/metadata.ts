@@ -83,7 +83,7 @@ export function pageMetadata({
   const isHome = path === '/' || path === '';
   const cleanTitle = stripBrandFromTitle(title);
   const brandedTitle = isHome
-    ? `${SITE_NAME} - Event Decorations Services in Bangalore`
+    ? `${SITE_NAME} - Event Decoration Services in Bangalore`
     : withBrandTitle(cleanTitle);
 
   return {

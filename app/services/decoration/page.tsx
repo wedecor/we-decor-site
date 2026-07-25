@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchemaFromCore } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/decoration',
@@ -12,13 +12,23 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/services/engagement.webp',
 });
 
-const structuredData = buildServicePageSchemaFromCore('theme-decoration');
-
 export default function DecorationPage() {
   return (
     <PartnerServicePage
       path="/services/decoration"
-      schema={structuredData ? <SchemaScript data={structuredData} /> : null}
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Event Decoration Services',
+            description:
+              'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
+            path: '/services/decoration',
+            serviceType: 'Theme party decoration',
+            serviceId: 'theme-decoration',
+            image: '/services/engagement.webp',
+          })}
+        />
+      }
       config={{
         title: 'Event Decoration Services',
         description:

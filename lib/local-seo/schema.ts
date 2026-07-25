@@ -1,310 +1,70 @@
-import { AREAS } from '@/app/(site)/_data/locations';
-import { absoluteUrl } from '@/lib/metadata';
-import {
-  CORE_DECORATION_SERVICES,
-  GEO,
-  NAP,
-  OPENING_HOURS,
-  SCHEMA_IDS,
-  getSameAsLinks,
-} from './constants';
-
-type FaqInput = { question: string; answer: string };
-
-type FaqInputList = ReadonlyArray<FaqInput>;
-
-function bangaloreAreaServed(extraLocality?: string) {
-  const localities = AREAS.slice(0, 20).map((a) => ({
-    '@type': 'Place' as const,
-    name: `${a.name}, ${GEO.city}`,
-  }));
-  const served = [
-    {
-      '@type': 'City' as const,
-      name: GEO.city,
-      alternateName: GEO.cityAlternate,
-    },
-    {
-      '@type': 'AdministrativeArea' as const,
-      name: GEO.region,
-      containedInPlace: { '@type': 'Country', name: GEO.countryName },
-    },
-    ...localities,
-  ];
-  if (extraLocality) {
-    served.unshift({
-      '@type': 'Place' as const,
-      name: `${extraLocality}, ${GEO.city}`,
-    });
-  }
-  return served;
-}
-
-export function buildPostalAddress(locality: string = GEO.city) {
-  return {
-    '@type': 'PostalAddress',
-    addressLocality: locality,
-    addressRegion: GEO.region,
-    addressCountry: GEO.country,
-  };
-}
-
-export function buildGeoCoordinates() {
-  return {
-    '@type': 'GeoCoordinates',
-    latitude: GEO.latitude,
-    longitude: GEO.longitude,
-  };
-}
-
-export function buildOpeningHoursSpecification() {
-  return {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: [...OPENING_HOURS.dayOfWeek],
-    opens: OPENING_HOURS.opens,
-    closes: OPENING_HOURS.closes,
-  };
-}
-
-/** Primary LocalBusiness entity — service-area business in Bengaluru */
-export function buildLocalBusiness(locality?: string) {
-  return {
-    '@type': 'LocalBusiness',
-    '@id': SCHEMA_IDS.localBusiness,
-    name: NAP.name,
-    alternateName: NAP.alternateName,
-    description: locality
-      ? `Event decoration services in ${locality}, ${GEO.city}, ${GEO.region}. ${NAP.description}`
-      : NAP.description,
-    url: NAP.url,
-    logo: NAP.logo,
-    image: NAP.image,
-    email: NAP.email,
-    telephone: NAP.telephone,
-    priceRange: '₹₹',
-    currenciesAccepted: 'INR',
-    paymentAccepted: ['Cash', 'Credit Card', 'UPI', 'Bank Transfer'],
-    address: buildPostalAddress(),
-    geo: buildGeoCoordinates(),
-    openingHoursSpecification: buildOpeningHoursSpecification(),
-    areaServed: bangaloreAreaServed(locality),
-    sameAs: getSameAsLinks(),
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      '@id': SCHEMA_IDS.serviceCatalog,
-      name: 'Event Decoration Services in Bengaluru',
-      itemListElement: CORE_DECORATION_SERVICES.map((svc, index) => ({
-        '@type': 'Offer',
-        position: index + 1,
-        itemOffered: {
-          '@type': 'Service',
-          '@id': `${NAP.url}/#service-${svc.id}`,
-          name: svc.name,
-          serviceType: svc.serviceType,
-          description: svc.description,
-          url: absoluteUrl(svc.path),
-          provider: { '@id': SCHEMA_IDS.localBusiness },
-          areaServed: bangaloreAreaServed(),
-        },
-      })),
-    },
-  };
-}
-
-export function buildOrganization() {
-  return {
-    '@type': 'Organization',
-    '@id': SCHEMA_IDS.organization,
-    name: NAP.name,
-    alternateName: NAP.alternateName,
-    url: NAP.url,
-    logo: { '@type': 'ImageObject', url: NAP.logo },
-    email: NAP.email,
-    telephone: NAP.telephone,
-    address: buildPostalAddress(),
-    sameAs: getSameAsLinks(),
-  };
-}
-
-export function buildWebSite() {
-  return {
-    '@type': 'WebSite',
-    '@id': SCHEMA_IDS.website,
-    url: NAP.url,
-    name: NAP.name,
-    description: NAP.description,
-    publisher: { '@id': SCHEMA_IDS.organization },
-    inLanguage: 'en-IN',
-  };
-}
-
-/** Individual Service nodes for homepage @graph */
-export function buildCoreServiceNodes() {
-  return CORE_DECORATION_SERVICES.map((svc) => ({
-    '@type': 'Service',
-    '@id': `${NAP.url}/#service-${svc.id}`,
-    name: svc.name,
-    serviceType: svc.serviceType,
-    description: svc.description,
-    url: absoluteUrl(svc.path),
-    provider: { '@id': SCHEMA_IDS.localBusiness },
-    areaServed: bangaloreAreaServed(),
-  }));
-}
-
-/** Homepage linked data graph — single script, no duplicate LocalBusiness */
-export function buildHomePageGraph() {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      buildOrganization(),
-      buildLocalBusiness(),
-      buildWebSite(),
-      ...buildCoreServiceNodes(),
-    ],
-  };
-}
-
-export function buildFaqPageSchema(faqs: FaqInputList, pageUrl: string) {
-  if (!faqs.length) return null;
-  const cleanUrl = pageUrl.replace(/\/+$/, '') || NAP.url;
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    '@id': `${cleanUrl}#faq`,
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-    })),
-  };
-}
-
-export function buildBreadcrumbSchema(crumbs: { name: string; path: string }[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: crumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.name,
-      item: absoluteUrl(crumb.path),
-    })),
-  };
-}
-
 /**
- * Locality page: Service scoped to neighborhood (references canonical LocalBusiness).
- * Avoids duplicate LocalBusiness entities per Google guidelines.
+ * Backward-compatible re-exports + thin wrappers.
+ * Canonical builders live in `@/lib/schema`.
  */
-export function buildLocalityServiceSchema(
-  areaName: string,
-  slug: string,
-  options?: { landmark?: string }
-) {
-  const pageUrl = absoluteUrl(`/locations/${slug}`);
-  const landmarkText = options?.landmark ? ` near ${options.landmark}` : '';
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${pageUrl}#service`,
-    name: `Event Decoration in ${areaName}`,
-    serviceType: 'Event decoration',
-    description: `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}${landmarkText}, ${GEO.city}, ${GEO.region}.`,
-    url: pageUrl,
-    provider: { '@id': SCHEMA_IDS.localBusiness },
-    areaServed: {
-      '@type': 'Place',
-      name: `${areaName}, ${GEO.city}`,
-      address: buildPostalAddress(areaName),
-    },
-  };
+import { absoluteUrl } from '@/lib/metadata';
+import { NAP } from './constants';
+import {
+  buildLocalBusiness as buildLocalBusinessNode,
+  buildOrganization,
+  buildWebSite,
+  buildHomePageGraph,
+  buildFaqPageSchema,
+  buildBreadcrumbSchema,
+  buildLocalityServiceSchema,
+  buildLocationServiceSchema,
+  buildServicePageSchema,
+  buildServicePageSchemaFromCore,
+  buildCoreServiceNodes,
+  buildOpeningHoursSpecification,
+  buildPostalAddress,
+  buildGeoCoordinates,
+  buildLocationsCollectionSchema,
+} from '@/lib/schema';
+
+export {
+  buildOrganization,
+  buildWebSite,
+  buildHomePageGraph,
+  buildFaqPageSchema,
+  buildBreadcrumbSchema,
+  buildLocalityServiceSchema,
+  buildLocationServiceSchema,
+  buildServicePageSchema,
+  buildServicePageSchemaFromCore,
+  buildCoreServiceNodes,
+  buildOpeningHoursSpecification,
+  buildPostalAddress,
+  buildGeoCoordinates,
+};
+
+export function buildLocalBusiness(locality?: string) {
+  return buildLocalBusinessNode(locality ? { locality } : undefined);
 }
 
-export function buildLocationServiceSchema(options: {
-  locationName: string;
-  locationSlug: string;
-  serviceName: string;
-  serviceSlug: string;
-  serviceDescription: string;
-}) {
-  const pageUrl = absoluteUrl(`/locations/${options.locationSlug}/services/${options.serviceSlug}`);
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${pageUrl}#service`,
-    name: `${options.serviceName} in ${options.locationName}`,
-    serviceType: options.serviceName,
-    description: options.serviceDescription,
-    url: pageUrl,
-    provider: { '@id': SCHEMA_IDS.localBusiness },
-    areaServed: {
-      '@type': 'Place',
-      name: `${options.locationName}, ${GEO.city}`,
-    },
-  };
-}
-
+/** Locations hub — CollectionPage + ItemList (Phase 2). */
 export function buildCollectionPageSchema(options: {
   name: string;
   pageUrl: string;
   localityUrls: { name: string; slug: string }[];
+  description?: string;
 }) {
+  const [collection] = buildLocationsCollectionSchema(options);
   return {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name: options.name,
-    url: options.pageUrl,
-    about: { '@id': SCHEMA_IDS.localBusiness },
-    hasPart: options.localityUrls.map((loc) => ({
-      '@type': 'WebPage',
-      name: loc.name,
-      url: absoluteUrl(`/locations/${loc.slug}`),
-    })),
+    '@context': 'https://schema.org' as const,
+    ...collection,
   };
 }
 
 /** Google-safe default LocalBusiness for legacy SeoHead (no fake reviews) */
 export function buildSeoHeadDefaultSchema(canonical: string, description?: string) {
   return {
-    '@context': 'https://schema.org',
+    '@context': 'https://schema.org' as const,
     ...buildLocalBusiness(),
     url: canonical,
     description: description ?? NAP.description,
   };
 }
 
-/** Service detail pages — provider links to canonical LocalBusiness @id */
-export function buildServicePageSchema(options: {
-  name: string;
-  serviceType: string;
-  description: string;
-  path: string;
-  serviceId?: string;
-}) {
-  const pageUrl = absoluteUrl(options.path);
-  const id = options.serviceId ?? options.path.replace(/\//g, '-').replace(/^-/, '');
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    '@id': `${pageUrl}#service`,
-    name: options.name,
-    serviceType: options.serviceType,
-    description: options.description,
-    url: pageUrl,
-    provider: { '@id': SCHEMA_IDS.localBusiness },
-    areaServed: bangaloreAreaServed(),
-  };
-}
-
-export function buildServicePageSchemaFromCore(serviceId: string) {
-  const svc = CORE_DECORATION_SERVICES.find((s) => s.id === serviceId);
-  if (!svc) return null;
-  return buildServicePageSchema({
-    serviceId: svc.id,
-    name: svc.name,
-    serviceType: svc.serviceType,
-    description: svc.description,
-    path: svc.path,
-  });
-}
+/** Absolute URL helper retained for locale callers */
+export { absoluteUrl };
