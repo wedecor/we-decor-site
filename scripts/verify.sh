@@ -81,9 +81,10 @@ start_server() {
   # Kill any existing server on the port
   pkill -f "next start -p $PORT" || true
   
-  # Start server in background
+  # Start server in background.
+  # Keep NEXT_PUBLIC_SITE_URL as the canonical https URL from the build —
+  # do not overwrite it with $BASE (local http probe URL).
   cd "$ROOT"
-  export NEXT_PUBLIC_SITE_URL="$BASE"
   (next start -p "$PORT" & echo $! > "$ART/.server.pid")
   
   # Wait for server to be ready
@@ -212,8 +213,12 @@ run() {
 main() {
   log_info "Starting production readiness verification..."
   
-  # Environment guard
+  # Environment guard — production build requires the canonical https site URL
   [[ -n "$SITE_URL" ]] || fail "NEXT_PUBLIC_SITE_URL is not set."
+  case "$SITE_URL" in
+    https://*) ;;
+    *) fail "NEXT_PUBLIC_SITE_URL must use https:// (got: $SITE_URL). Use BASE for local http probes." ;;
+  esac
   
   # Initialize
   init_artifacts
@@ -221,8 +226,9 @@ main() {
   # Track overall status
   local overall_status=0
   
-  # Clean & build
+  # Clean & build (SITE_URL stays https; BASE is only for curling the local server)
   export NEXT_TELEMETRY_DISABLED=1
+  export NEXT_PUBLIC_SITE_URL="$SITE_URL"
   echo "### Build" >> "$ART/production_readiness_report.md"
   npm run build:prod || fail "next build failed"
   

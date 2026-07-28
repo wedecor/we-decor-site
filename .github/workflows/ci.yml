@@ -12,7 +12,10 @@ concurrency:
 
 env:
   NODE_VERSION: '20'
-  NEXT_PUBLIC_SITE_URL: 'http://localhost:3001'
+  # Canonical public URL (baked into the production build; must be https)
+  NEXT_PUBLIC_SITE_URL: 'https://www.wedecorevents.com'
+  # Local server probe target for smoke/link checks after `next start`
+  BASE: 'http://localhost:3001'
 
 jobs:
   production-readiness:
@@ -36,14 +39,18 @@ jobs:
         run: npm run build:guarded
         env:
           NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
+          BASE: ${{ env.BASE }}
           
       - name: Run Smoke Tests
         run: npm run test:smoke
         env:
           NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
+          BASE: ${{ env.BASE }}
           
       - name: Verify Internal Links
-        run: BASE=http://localhost:3001 npm run verify:links
+        run: npm run verify:links
+        env:
+          BASE: ${{ env.BASE }}
         
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
