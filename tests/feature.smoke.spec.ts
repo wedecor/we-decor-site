@@ -106,29 +106,29 @@ test.describe('feature-smoke', () => {
   test('footer links & contact info present and correct @smoke', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
 
+    const footer = page.getByRole('contentinfo');
+
     // Instagram handle - check if present
-    const igLink = page.getByRole('link', { name: /@wedecorbangalore|instagram/i });
-    if (await igLink.count() > 0) {
-      await expect(igLink).toBeVisible();
+    const igLink = footer.getByRole('link', { name: /@wedecorbangalore|instagram/i });
+    if ((await igLink.count()) > 0) {
+      await expect(igLink.first()).toBeVisible();
     }
 
-    // Primary tel anchor - check if present
-    const tel1 = page.getByRole('link', { name: /\+91 8880544452|\+91-8880544452|\+91 88805 44452/ });
-    if (await tel1.count() > 0) {
-      const tel1Href = await tel1.getAttribute('href');
-      expect(tel1Href).toBe(`tel:${EXPECTED.telPrimary}`);
+    // Primary tel — may also appear in page body; assert footer href
+    const tel1 = footer.getByRole('link', { name: /\+91 8880544452|\+91-8880544452|\+91 88805 44452/ });
+    if ((await tel1.count()) > 0) {
+      await expect(tel1.first()).toHaveAttribute('href', `tel:${EXPECTED.telPrimary}`);
     }
 
-    // Secondary tel anchor - check if present
-    const tel2 = page.getByRole('link', { name: /\+91 9591232166|\+91-9591232166|\+91 95912 32166/ });
-    if (await tel2.count() > 0) {
-      const tel2Href = await tel2.getAttribute('href');
-      expect(tel2Href).toBe(`tel:${EXPECTED.telSecondary}`);
+    // Secondary tel
+    const tel2 = footer.getByRole('link', { name: /\+91 9591232166|\+91-9591232166|\+91 95912 32166/ });
+    if ((await tel2.count()) > 0) {
+      await expect(tel2.first()).toHaveAttribute('href', `tel:${EXPECTED.telSecondary}`);
     }
 
-    // WhatsApp CTA - check if present
-    const waLink = page.getByRole('link', { name: /WhatsApp Us|Ask on WhatsApp|WhatsApp/i });
-    if (await waLink.count() > 0) {
+    // WhatsApp CTA
+    const waLink = footer.getByRole('link', { name: /WhatsApp Us|Ask on WhatsApp|WhatsApp/i });
+    if ((await waLink.count()) > 0) {
       const waHref = await waLink.first().getAttribute('href');
       expect(waHref).toMatch(/^https:\/\/wa\.me\/\d+$/);
     }
@@ -164,12 +164,11 @@ test.describe('feature-smoke', () => {
 
   test('contact page has required fields @smoke', async ({ page }) => {
     await page.goto('/contact', { waitUntil: 'networkidle' });
-    // Adjust labels/placeholders to your form
     const fields = [
       /name/i,
       /phone|mobile/i,
       /email/i,
-      /event|message|details/i,
+      /celebration|event|vision|message|details/i,
     ];
     for (const f of fields) {
       const has = await page.getByLabel(f, { exact: false }).or(page.getByPlaceholder(f)).count();
@@ -180,6 +179,6 @@ test.describe('feature-smoke', () => {
   test('404 shows not found @smoke', async ({ page }) => {
     const res = await page.goto('/this-page-should-not-exist-404', { waitUntil: 'domcontentloaded' });
     expect(res?.status()).toBe(404);
-    await expect(page.locator('text=/not found/i')).toBeVisible();
+    await expect(page.getByRole('heading', { name: /could not be found|not found/i })).toBeVisible();
   });
 });

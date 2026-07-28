@@ -24,7 +24,7 @@ test.describe('Accessibility Tests', () => {
     
     // Check for proper heading
     const h1 = page.locator('h1');
-    await expect(h1).toContainText('Gallery');
+    await expect(h1).toContainText(/gallery/i);
     
     // Check for alt text on images
     const images = page.locator('img');
@@ -41,7 +41,7 @@ test.describe('Accessibility Tests', () => {
     await page.goto('/locations');
     
     const h1 = page.locator('h1');
-    await expect(h1).toContainText('Areas We Serve');
+    await expect(h1).toContainText(/areas we serve/i);
     
     const links = page.locator('a[href*="/locations/"]');
     const linkCount = await links.count();
