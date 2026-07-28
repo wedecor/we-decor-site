@@ -184,7 +184,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <CoreExploreLinks context="content" showLocalities heading="Explore more" />
+      <CoreExploreLinks
+        context="content"
+        showLocalities
+        pageKey={`blog-${slug}`}
+        heading="Explore more"
+      />
     </div>
   );
 }

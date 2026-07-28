@@ -7,7 +7,7 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
-import { FEATURED_LOCALITIES, RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
+import { getServiceLocalitiesFor, RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
 import type { ExploreLink } from '@/lib/seo/core-explore-links';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
 
@@ -86,6 +86,7 @@ export default function DecorationServicePage({ config }: Props) {
   const source = `service:${config.slug}`;
   const servicePath = `/services/${config.slug}`;
   const relatedServices = relatedFor(config, servicePath);
+  const serviceLocalities = getServiceLocalitiesFor(servicePath);
   const whyChoose = config.whyChoose ?? DEFAULT_WHY_CHOOSE;
   const faqs = faqsFor(config);
   const isLongForm = Boolean(
@@ -575,7 +576,7 @@ export default function DecorationServicePage({ config }: Props) {
               </Link>
             </p>
             <ul className="flex flex-wrap justify-center gap-3 list-none p-0 m-0">
-              {FEATURED_LOCALITIES.map((loc) => (
+              {serviceLocalities.map((loc) => (
                 <li key={loc.href}>
                   <Link
                     href={loc.href}
@@ -645,6 +646,7 @@ export default function DecorationServicePage({ config }: Props) {
         related={relatedServices}
         relatedTitle="Related services"
         showLocalities={!isLongForm}
+        pageKey={`service-${config.slug}`}
       />
 
       {/* Contact / CTA */}

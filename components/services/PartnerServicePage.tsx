@@ -89,6 +89,7 @@ export default function PartnerServicePage({ config, schema, path }: Props) {
                 ]}
                 relatedTitle="Related services"
                 showLocalities
+                pageKey={`partner-${path.replace('/services/', '')}`}
                 className="mb-4 border-0 lux-section-tight lux-section-alt"
               />
             </FadeIn>

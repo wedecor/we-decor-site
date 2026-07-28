@@ -118,7 +118,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-      <CoreExploreLinks context="hub" showLocalities />
+      <CoreExploreLinks context="hub" showLocalities pageKey="pricing" />
     </div>
   );
 }

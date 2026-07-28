@@ -202,7 +202,7 @@ export default function ServicesPage() {
           </p>
         </div>
       </section>
-      <CoreExploreLinks context="hub" showLocalities />
+      <CoreExploreLinks context="hub" showLocalities pageKey="services-hub" />
     </div>
   );
 }

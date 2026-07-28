@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { planYourEventLinks, type ExploreLink } from '@/lib/seo/core-explore-links';
-import { FEATURED_LOCALITIES } from '@/lib/seo/internal-links';
+import { getExploreLocalitiesFor } from '@/lib/seo/internal-links';
 
 type Props = {
   /** Selects varied anchor text for the same core destinations. */
@@ -9,6 +9,8 @@ type Props = {
   related?: ExploreLink[];
   relatedTitle?: string;
   showLocalities?: boolean;
+  /** Stable key for rotating locality sets (balances crawl equity). */
+  pageKey?: string;
   heading?: string;
   className?: string;
 };
@@ -22,10 +24,12 @@ export default function CoreExploreLinks({
   related,
   relatedTitle = 'Related services',
   showLocalities = false,
+  pageKey = 'default',
   heading = 'Explore more',
   className = '',
 }: Props) {
   const planLinks = planYourEventLinks(context);
+  const localityLinks = showLocalities ? getExploreLocalitiesFor(pageKey) : [];
   const cols = 1 + (related?.length ? 1 : 0) + (showLocalities ? 1 : 0);
 
   return (
@@ -74,7 +78,7 @@ export default function CoreExploreLinks({
                 Areas we serve
               </h3>
               <ul className="space-y-2 list-none p-0 m-0">
-                {FEATURED_LOCALITIES.map((area) => (
+                {localityLinks.map((area) => (
                   <li key={area.href}>
                     <Link href={area.href} className="text-lux-gold hover:underline font-medium">
                       {area.name}

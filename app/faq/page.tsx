@@ -45,7 +45,12 @@ export default function FAQPage() {
           <FAQ />
         </div>
       </section>
-      <CoreExploreLinks context="content" heading="Related planning pages" />
+      <CoreExploreLinks
+        context="content"
+        showLocalities
+        pageKey="faq"
+        heading="Related planning pages"
+      />
     </div>
   );
 }

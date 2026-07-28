@@ -170,7 +170,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <CoreExploreLinks context="content" showLocalities />
+      <CoreExploreLinks context="content" showLocalities pageKey="about" />
     </div>
   );
 }

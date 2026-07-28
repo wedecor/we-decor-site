@@ -88,7 +88,7 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <CoreExploreLinks context="hub" showLocalities />
+      <CoreExploreLinks context="hub" showLocalities pageKey="gallery" />
     </div>
   );
 }

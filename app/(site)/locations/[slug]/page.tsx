@@ -10,9 +10,10 @@ import {
   type ServiceKey,
 } from '../../_data/locations';
 import { GALLERY_ITEMS, localize } from '../../_data/gallery';
-import { CLUSTERS } from '../../_data/clusters';
 import { faqsForArea } from '../../_data/faqs';
 import { getGeneratedArea, buildLocationMetaDescription } from '../../_data/location-content';
+import { getLocalityPageMeta } from '../../_data/location-metadata';
+import { getNearbyLocalitySlugs } from '@/lib/seo/internal-links';
 import LocationGallery from '../../../../components/LocationGallery';
 import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
@@ -62,10 +63,13 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
   const area = getAreaBySlug(slug);
   if (!area) return { title: 'Location Not Found' };
 
+  const pageMeta = getLocalityPageMeta(area.slug);
+
   return pageMetadata({
     path: `/locations/${area.slug}`,
-    title: `Event Decoration Services in ${area.name}, ${CITY}`,
+    title: pageMeta?.title ?? `Event decoration in ${area.name}, ${CITY}`,
     description:
+      pageMeta?.description ??
       CUSTOM_META_DESCRIPTIONS[area.slug] ??
       buildLocationMetaDescription(area.name, getGeneratedArea(area.slug)),
     ogImage: '/og-banner.jpg',
@@ -91,24 +95,38 @@ export default async function LocationPage({ params }: LocationPageProps) {
   // Create localized gallery items
   const localizedItems = GALLERY_ITEMS.map((m) => ({ ...m, ...localize(m, area) }));
 
-  // Nearby areas from the same regional cluster — used for internal linking
-  const currentCluster = CLUSTERS.find((c) => c.areaSlugs.includes(slug));
-  const clusterSlugs = (currentCluster?.areaSlugs ?? []).filter((s) => s !== slug);
-  // Alphabetical ring guarantees reciprocal crawl paths across all localities
-  const allSlugs = AREAS.map((a) => a.slug).filter((s) => s !== slug);
-  const ringStart = allSlugs.findIndex((s) => s > slug);
-  const ringOrdered =
-    ringStart === -1 ? allSlugs : [...allSlugs.slice(ringStart), ...allSlugs.slice(0, ringStart)];
-  // Keep cluster preference but always reserve ring slots for reciprocal crawl edges
-  const fromCluster = clusterSlugs.slice(0, 3);
-  const fromRing = ringOrdered
-    .filter((s) => !fromCluster.includes(s))
-    .slice(0, MAX_NEARBY_AREAS - fromCluster.length);
-  const nearbyAreaSlugs = [...fromCluster, ...fromRing];
+  // Reciprocal geographic nearby set (max 5) — balances peer crawl equity
+  const nearbyAreaSlugs = getNearbyLocalitySlugs(slug).slice(0, MAX_NEARBY_AREAS);
   const nearbyAreas = nearbyAreaSlugs
     .map((s) => ({ slug: s, name: getAreaBySlug(s)?.name }))
     .filter((a): a is { slug: string; name: string } => Boolean(a.name));
 
+  const nearbyAnchor = (name: string, index: number) => {
+    const patterns = [
+      `Event décor in ${name}`,
+      `${name} celebrations`,
+      `Decorators near ${name}`,
+      `${name} venue styling`,
+      `Parties in ${name}`,
+    ];
+    return patterns[index % patterns.length];
+  };
+
+  const serviceAnchor = (label: string) => {
+    const base = label.replace(/ Decorations$/i, ' decoration');
+    return `${base} in ${areaName}`;
+  };
+
+  const exploreServiceAnchor = (label: string, index: number) => {
+    const short = label.replace(/ Decorations$/i, '');
+    const patterns = [
+      `${short} décor for ${areaName}`,
+      `Plan ${short.toLowerCase()} in ${areaName}`,
+      `${areaName} ${short.toLowerCase()} ideas`,
+      `${short} setups around ${areaName}`,
+    ];
+    return patterns[index % patterns.length];
+  };
   // Combined FAQ list — shared baseline questions plus this area's genuinely
   // unique questions. Rendered exactly once and reused for both the visible
   // page and the FAQPage JSON-LD so structured data always matches content.
@@ -211,7 +229,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                         href={servicePage.href}
                         className="text-sm text-lux-gold hover:underline font-medium text-center"
                       >
-                        {servicePage.label} details →
+                        {serviceAnchor(servicePage.label)} details →
                       </Link>
                     ) : null}
                     <TrackedWhatsAppLink
@@ -294,10 +312,10 @@ export default async function LocationPage({ params }: LocationPageProps) {
                   Services in {areaName}
                 </h3>
                 <ul className="space-y-2 list-none p-0 m-0">
-                  {Object.values(SERVICE_LINKS).map((link) => (
+                  {Object.values(SERVICE_LINKS).map((link, index) => (
                     <li key={`${link.href}-${link.label}`}>
                       <Link href={link.href} className="text-lux-gold hover:underline font-medium">
-                        {link.label}
+                        {exploreServiceAnchor(link.label, index)}
                       </Link>
                     </li>
                   ))}
@@ -351,13 +369,13 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     Also serving nearby
                   </h3>
                   <ul className="space-y-2 list-none p-0 m-0">
-                    {nearbyAreas.map((nearby) => (
+                    {nearbyAreas.map((nearby, index) => (
                       <li key={nearby.slug}>
                         <Link
                           href={`/locations/${nearby.slug}`}
                           className="text-lux-gold hover:underline font-medium"
                         >
-                          {nearby.name}
+                          {nearbyAnchor(nearby.name, index)}
                         </Link>
                       </li>
                     ))}

@@ -57,7 +57,12 @@ export default function ReviewsPage() {
           <ReviewsList />
         </div>
       </section>
-      <CoreExploreLinks context="content" showLocalities heading="Continue planning" />
+      <CoreExploreLinks
+        context="content"
+        showLocalities
+        pageKey="reviews"
+        heading="Continue planning"
+      />
     </div>
   );
 }

@@ -92,7 +92,7 @@ export default function BlogIndexPage() {
           </ul>
         </div>
       </section>
-      <CoreExploreLinks context="hub" showLocalities />
+      <CoreExploreLinks context="hub" showLocalities pageKey="blog-hub" />
     </div>
   );
 }
