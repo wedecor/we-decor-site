@@ -87,8 +87,7 @@ export default function ContactForm() {
 
       if (!res.ok || !data.success) {
         const details = data?.error?.details as
-          | Array<{ path: string; message: string }>
-          | undefined;
+          Array<{ path: string; message: string }> | undefined;
         const fieldErrors: FieldErrors = {};
         if (details?.length) {
           for (const d of details) {

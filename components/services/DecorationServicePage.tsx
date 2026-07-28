@@ -91,13 +91,13 @@ export default function DecorationServicePage({ config }: Props) {
   const faqs = faqsFor(config);
   const isLongForm = Boolean(
     config.styles?.length ||
-      config.included?.length ||
-      config.pricingOverview ||
-      config.budgetConsiderations ||
-      config.howWeCustomize?.length ||
-      config.popularDecorationOptions?.length ||
-      config.themes?.length ||
-      (config.faqs && config.faqs.length >= 6)
+    config.included?.length ||
+    config.pricingOverview ||
+    config.budgetConsiderations ||
+    config.howWeCustomize?.length ||
+    config.popularDecorationOptions?.length ||
+    config.themes?.length ||
+    (config.faqs && config.faqs.length >= 6)
   );
 
   return (
