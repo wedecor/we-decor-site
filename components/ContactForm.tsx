@@ -7,7 +7,9 @@ import {
   trackLeadSubmitFailure,
   trackLeadSubmitSuccess,
 } from '@/lib/analytics/conversion-events';
+import { trackFormSubmit, trackQuoteRequest } from '@/lib/analytics/events';
 import TurnstileField from '@/components/TurnstileField';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 
@@ -70,6 +72,7 @@ export default function ContactForm() {
     submitLock.current = true;
     setSubmitState('submitting');
     trackLeadSubmitAttempt();
+    trackFormSubmit('contact_form', 'attempt');
     let succeeded = false;
 
     try {
@@ -111,6 +114,7 @@ export default function ContactForm() {
         setSubmitState('error');
         setStatusMessage('');
         trackLeadSubmitFailure(code || 'api_error');
+        trackFormSubmit('contact_form', 'error', { reason: code || 'api_error' });
         resetTurnstile();
         return;
       }
@@ -119,6 +123,8 @@ export default function ContactForm() {
       setSubmitState('success');
       setStatusMessage(data.message || 'Thank you! We received your enquiry.');
       trackLeadSubmitSuccess({ leadId: data.leadId, eventType: payload.eventType });
+      trackFormSubmit('contact_form', 'success', { event_type: payload.eventType });
+      trackQuoteRequest('contact_form', { event_type: payload.eventType });
 
       if (data.whatsappUrl) {
         window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -132,6 +138,7 @@ export default function ContactForm() {
         _form: 'Network error. Please check your connection or contact us on WhatsApp.',
       });
       trackLeadSubmitFailure('network_error');
+      trackFormSubmit('contact_form', 'error', { reason: 'network_error' });
       resetTurnstile();
     } finally {
       submitLock.current = false;
@@ -330,14 +337,15 @@ export default function ContactForm() {
 
       <div className="pt-4 border-t border-white/[0.05]">
         <p className="text-xs text-lux-text-muted mb-2 tracking-wide">Direct line</p>
-        <a
+        <TrackedWhatsAppLink
           href={CONTACT.waUrl()}
+          source="contact_form_direct_line"
           className="inline-flex items-center text-lux-gold font-light hover:text-lux-gold-soft transition-colors duration-500"
           target="_blank"
           rel="noopener noreferrer"
         >
           WhatsApp {CONTACT.primary.display}
-        </a>
+        </TrackedWhatsAppLink>
       </div>
     </form>
   );

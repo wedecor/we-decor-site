@@ -12,7 +12,7 @@ const csp = [
   "object-src 'none'",
   "base-uri 'self'",
   "frame-ancestors 'none'",
-  "frame-src 'self' https://www.google.com https://challenges.cloudflare.com",
+  "frame-src 'self' https://www.google.com https://challenges.cloudflare.com https://www.googletagmanager.com",
   "form-action 'self'",
   "upgrade-insecure-requests",
 ].join('; ');
@@ -22,10 +22,15 @@ const nextConfig = {
   outputFileTracingRoot: path.join(__dirname),
   reactStrictMode: true,
   trailingSlash: false,
-  eslint: { ignoreDuringBuilds: true }, // unblock prod build
+  eslint: { ignoreDuringBuilds: false },
   typescript: { ignoreBuildErrors: false },
   images: {
     formats: ['image/webp', 'image/avif'],
+    // Allow explicit quality props used by service/home cards (Next 16 requires listing these)
+    qualities: [70, 72, 75],
+    // Cap at 2048 so non-hero images with loose sizes never request w=3840
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/dux3m2saz/**' },
       { protocol: 'https', hostname: 'wedecorevents.com', pathname: '/**' },
@@ -88,6 +93,22 @@ const nextConfig = {
       {
         source: '/api/sitemap.xml',
         destination: '/sitemap.xml',
+        permanent: true,
+      },
+      // Keyword cannibalization: consolidate duplicate service pages
+      {
+        source: '/services/birthday-home-decoration',
+        destination: '/services/birthday-decoration',
+        permanent: true,
+      },
+      {
+        source: '/services/haldi-backdrop-decor',
+        destination: '/services/haldi-decoration',
+        permanent: true,
+      },
+      {
+        source: '/services/wedding-stage-decor',
+        destination: '/services/wedding-setup',
         permanent: true,
       },
     ];

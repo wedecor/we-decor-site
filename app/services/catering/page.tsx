@@ -2,27 +2,32 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/catering',
-  title: 'Catering Services in Bangalore | We Decor Events',
+  title: 'Catering Services in Bangalore',
   description:
     'We Decor Events provides catering coordination for celebrations in Bengaluru. Delicious menus and seamless service for your event.',
-  ogImage: '/services/catering.jpg',
-});
-
-const structuredData = buildServicePageSchema({
-  name: 'Catering Services',
-  serviceType: 'Catering',
-  description: 'Catering services for weddings, birthdays, and corporate events in Bengaluru.',
-  path: '/services/catering',
+  ogImage: '/og-banner.webp',
 });
 
 export default function CateringPage() {
   return (
     <PartnerServicePage
-      schema={<SchemaScript data={structuredData} />}
+      path="/services/catering"
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Catering Services',
+            description:
+              'Catering services for weddings, birthdays, and corporate events in Bengaluru.',
+            path: '/services/catering',
+            serviceType: 'Catering',
+            serviceId: 'catering',
+          })}
+        />
+      }
       config={{
         title: 'Catering Services',
         description:

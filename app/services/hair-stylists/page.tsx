@@ -2,26 +2,30 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/hair-stylists',
-  title: 'Expert Hair Stylists in Bangalore | We Decor Events',
+  title: 'Expert Hair Stylists in Bangalore',
   description: 'Expert hair styling for weddings, parties, and special events in Bengaluru.',
-  ogImage: '/services/hair.jpg',
-});
-
-const structuredData = buildServicePageSchema({
-  name: 'Expert Hair Stylists',
-  serviceType: 'Hair Styling',
-  description: 'Wedding and event hair styling in Bengaluru.',
-  path: '/services/hair-stylists',
+  ogImage: '/og-banner.webp',
 });
 
 export default function HairStylistsPage() {
   return (
     <PartnerServicePage
-      schema={<SchemaScript data={structuredData} />}
+      path="/services/hair-stylists"
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Expert Hair Stylists',
+            description: 'Wedding and event hair styling in Bengaluru.',
+            path: '/services/hair-stylists',
+            serviceType: 'Hair Styling',
+            serviceId: 'hair-stylists',
+          })}
+        />
+      }
       config={{
         title: 'Expert Hair Stylists',
         description:

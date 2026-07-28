@@ -1,5 +1,3 @@
-import * as Sentry from '@sentry/nextjs';
-
 export async function register() {
   if (process.env.NODE_ENV !== 'production') return;
 
@@ -12,5 +10,10 @@ export async function register() {
   }
 }
 
-export const onRequestError =
-  process.env.NODE_ENV === 'production' ? Sentry.captureRequestError : undefined;
+export async function onRequestError(
+  ...args: Parameters<NonNullable<typeof import('@sentry/nextjs').captureRequestError>>
+) {
+  if (process.env.NODE_ENV !== 'production') return;
+  const Sentry = await import('@sentry/nextjs');
+  return Sentry.captureRequestError(...args);
+}

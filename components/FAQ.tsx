@@ -3,34 +3,10 @@
 import { Disclosure, Transition } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import { SITE_FAQS } from '@/lib/content/site-faq';
 
-const faqs = [
-  {
-    question: 'What are your pricing packages?',
-    answer:
-      'Our proposals begin from intimate home celebrations and scale with venue size, florals, and creative direction. Every quote is composed individually — never pulled from a catalogue.',
-  },
-  {
-    question: 'How long does setup and decoration take?',
-    answer:
-      'Home and birthday setups typically require 2–3 hours. Weddings and large venues may require 4–8 hours. We arrive with buffer time so your space is ready before guests.',
-  },
-  {
-    question: 'Which areas in Bangalore do you serve?',
-    answer:
-      'We serve Bengaluru across Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram, and surrounding localities within approximately 50 km.',
-  },
-  {
-    question: 'Can you customize decorations for specific themes?',
-    answer:
-      'Yes. Share references, palettes, or a mood — we translate it into florals, backdrops, and accents designed for your light and photography.',
-  },
-  {
-    question: "What's the booking process?",
-    answer:
-      'Reach us on WhatsApp or through our enquiry form, receive a tailored proposal, and confirm with an advance to reserve your date.',
-  },
-];
+const faqs = SITE_FAQS;
 
 export default function FAQ() {
   return (
@@ -70,14 +46,15 @@ export default function FAQ() {
       </div>
       <div className="text-center mt-16">
         <p className="text-lux-secondary font-light mb-6">Still have questions?</p>
-        <a
+        <TrackedWhatsAppLink
           href={CONTACT.waUrl()}
+          source="faq_page"
           target="_blank"
           rel="noopener noreferrer"
           className="lux-btn-primary"
         >
           Ask on WhatsApp
-        </a>
+        </TrackedWhatsAppLink>
       </div>
     </div>
   );

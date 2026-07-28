@@ -3,15 +3,19 @@ import SchemaScript from '@/components/seo/SchemaScript';
 import DecorationServicePage from '@/components/services/DecorationServicePage';
 import { pageMetadata } from '@/lib/metadata';
 import { buildServicePageSchemaFromCore } from '@/lib/local-seo';
-import { DECORATION_SERVICE_PAGES } from '@/lib/services/decoration-service-pages';
+import { getDecorationServicePage } from '@/lib/services/decoration-service-pages';
 
-const config = DECORATION_SERVICE_PAGES['birthday-decoration'];
+const config = getDecorationServicePage('birthday-decoration');
+if (!config) {
+  throw new Error('Missing birthday-decoration service config');
+}
+const birthdayConfig = config;
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/birthday-decoration',
-  title: `${config.title} | We Decor Events`,
-  description: config.description,
-  ogImage: config.ogImage,
+  title: birthdayConfig.title,
+  description: birthdayConfig.description,
+  ogImage: birthdayConfig.ogImage,
 });
 
 const structuredData = buildServicePageSchemaFromCore('birthday-decoration');
@@ -20,7 +24,7 @@ export default function BirthdayDecorationPage() {
   return (
     <>
       {structuredData ? <SchemaScript data={structuredData} /> : null}
-      <DecorationServicePage config={config} />
+      <DecorationServicePage config={birthdayConfig} />
     </>
   );
 }

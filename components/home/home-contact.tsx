@@ -1,4 +1,6 @@
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 
 export default function HomeContact() {
   const tel = CONTACT.telLinks();
@@ -13,29 +15,32 @@ export default function HomeContact() {
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           <div className="lux-surface p-8 text-center">
             <p className="text-sm text-lux-secondary mb-2">Primary</p>
-            <a
+            <TrackedPhoneLink
               href={`tel:${tel[0].raw}`}
+              source="home_contact_primary"
               className="font-display text-2xl text-lux-gold hover:underline"
             >
               {tel[0].label}
-            </a>
-            <a
-              href={CONTACT.waUrl()}
+            </TrackedPhoneLink>
+            <TrackedWhatsAppLink
+              href={CONTACT.waUrlForHome()}
+              source="home_contact"
               target="_blank"
               rel="noopener noreferrer"
               className="block mt-4 lux-btn-primary text-sm mx-auto w-fit"
             >
               WhatsApp
-            </a>
+            </TrackedWhatsAppLink>
           </div>
           <div className="lux-surface p-8 text-center">
             <p className="text-sm text-lux-secondary mb-2">Secondary</p>
-            <a
+            <TrackedPhoneLink
               href={`tel:${tel[1].raw}`}
+              source="home_contact_secondary"
               className="font-display text-2xl text-lux-ivory hover:text-lux-gold"
             >
               {tel[1].label}
-            </a>
+            </TrackedPhoneLink>
             <p className="mt-4 text-sm text-lux-secondary">Bengaluru · Mon–Sun 9am–9pm</p>
           </div>
         </div>

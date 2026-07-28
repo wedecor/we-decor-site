@@ -51,7 +51,7 @@ export default function HomeGalleryPreview() {
                 alt={img.label}
                 fill
                 className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                sizes={i === 0 ? '50vw' : '25vw'}
+                sizes={i === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}
                 loading="lazy"
               />
               <figcaption className="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-lux-bg to-transparent">

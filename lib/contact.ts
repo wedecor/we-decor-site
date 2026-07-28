@@ -24,6 +24,13 @@ export const CONTACT = {
     return CONTACT.waUrl(message);
   },
 
+  /** Contextual pre-filled message for homepage WhatsApp CTAs (hero, CTA band, contact section). */
+  waUrlForHome: () => {
+    const message =
+      "Hi We Decor! I'm looking for decoration for my upcoming event in Bangalore. Could you please share pricing and availability?";
+    return CONTACT.waUrl(message);
+  },
+
   telLinks: () =>
     [
       { raw: `+${PHONE_E164.primary}`, label: '+91 8880544452' },

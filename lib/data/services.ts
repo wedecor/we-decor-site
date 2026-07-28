@@ -34,27 +34,7 @@ export const services: Service[] = [
     blurb:
       'Professional tent installations and creative balloon decorations for outdoor events, parties, and celebrations with weather-resistant materials.',
   },
-  {
-    slug: 'birthday-home-decoration',
-    name: 'Birthday Home Decoration',
-    path: '/services/birthday-home-decoration',
-    blurb:
-      'Transform your home into a birthday wonderland with indoor decorations, balloon arrangements, and personalized themes for intimate celebrations.',
-  },
-  {
-    slug: 'haldi-backdrop-decor',
-    name: 'Haldi Backdrop Decoration',
-    path: '/services/haldi-backdrop-decor',
-    blurb:
-      'Beautiful backdrop decorations for haldi ceremonies with traditional yellow themes, floral elements, and cultural significance.',
-  },
-  {
-    slug: 'wedding-stage-decor',
-    name: 'Wedding Stage Decoration',
-    path: '/services/wedding-stage-decor',
-    blurb:
-      'Elegant stage decorations for wedding ceremonies with mandap setups, floral arrangements, and complete venue transformation services.',
-  },
+
   {
     slug: 'decoration',
     name: 'Decoration',

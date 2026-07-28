@@ -3,47 +3,63 @@ import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import PricingPageView from '@/components/analytics/PricingPageView';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildPricingPageGraph } from '@/lib/schema';
+import { PRICING_TIERS } from '@/lib/content/pricing-tiers';
 
 export const metadata: Metadata = pageMetadata({
   path: '/pricing',
-  title: 'Pricing | We Decor Events',
+  title: 'Pricing',
   description:
     'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
 });
 
-const experiences = [
-  {
-    name: 'Intimate',
-    price: '₹2,999+',
-    desc: 'Thoughtful atmospheres for home gatherings and milestone evenings.',
-    features: ['Up to 50 guests', '2–3 hour setup', 'Palette consultation'],
-  },
-  {
-    name: 'Celebration',
-    price: '₹7,999+',
-    desc: 'Our most requested experience — florals, backdrops, and cohesive styling.',
-    features: ['Clubhouse & residence venues', 'Photography zones', 'Dedicated creative direction'],
-    featured: true,
-  },
-  {
-    name: 'Grand',
-    price: '₹15,999+',
-    desc: 'Full venue transformation for weddings, receptions, and grand occasions.',
-    features: ['Mandap & stage composition', 'Multi-zone styling', 'On-site coordinator'],
-  },
-] as const;
+const experiences = PRICING_TIERS.map((tier) => ({
+  name: tier.name,
+  price: tier.priceLabel,
+  desc: tier.description,
+  features: [...tier.features],
+  featured: 'featured' in tier ? tier.featured : false,
+}));
 
 export default function PricingPage() {
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={buildPricingPageGraph({
+          name: 'Event Decoration Pricing',
+          description:
+            'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
+        })}
+      />
+      <PricingPageView />
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Pricing', href: '/pricing' },
+          ]}
+        />
+      </div>
       <PageHero
         eyebrow="Investment"
         title="Curated experiences"
         description="Each celebration is composed individually. These are starting points for your private consultation."
       />
 
-      <section className="lux-section pt-0 pb-28 md:pb-36 lux-section-alt">
+      <section
+        className="lux-section pt-0 pb-16 md:pb-20 lux-section-alt"
+        aria-labelledby="pricing-tiers"
+      >
         <div className="lux-container max-w-3xl">
+          <h2 id="pricing-tiers" className="lux-heading-sm text-center mb-12">
+            Starting prices for Bengaluru celebrations
+          </h2>
           <div className="space-y-0">
             {experiences.map((tier, i) => (
               <article
@@ -59,9 +75,9 @@ export default function PricingPage() {
                 )}
                 <div className="lux-experience-header">
                   <div className="min-w-0 flex-1">
-                    <h2 className="font-display text-2xl md:text-[1.9rem] font-light text-lux-ivory">
+                    <h3 className="font-display text-2xl md:text-[1.9rem] font-light text-lux-ivory">
                       {tier.name}
-                    </h2>
+                    </h3>
                     <p className="lux-body mt-4 max-w-lg">{tier.desc}</p>
                   </div>
                   <div className="lux-experience-price-group pl-0 md:pl-6 md:border-l md:border-white/[0.08]">
@@ -87,20 +103,22 @@ export default function PricingPage() {
             Every proposal is tailored to your venue, guest count, and creative ambition.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-            <a
+            <TrackedWhatsAppLink
               href={CONTACT.waUrl()}
+              source="pricing_page"
               target="_blank"
               rel="noopener noreferrer"
               className="lux-btn-primary"
             >
               Request a consultation
-            </a>
+            </TrackedWhatsAppLink>
             <Link href="/contact" className="lux-btn-secondary text-center">
               Private enquiry
             </Link>
           </div>
         </div>
       </section>
+      <CoreExploreLinks context="hub" showLocalities />
     </div>
   );
 }

@@ -1,15 +1,30 @@
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildLocalityServiceSchema } from '@/lib/local-seo';
+import { absoluteUrl } from '@/lib/metadata';
+import { buildLocalityPageGraph, buildLocalityServiceSchema } from '@/lib/schema';
 
 type Props = {
   areaName: string;
   slug: string;
+  landmark?: string;
+  description?: string;
+  faqs?: ReadonlyArray<{ question: string; answer: string }>;
 };
 
-/**
- * Locality pages reference the canonical LocalBusiness via provider @id.
- * Emits a geo-scoped Service entity (not a duplicate LocalBusiness).
- */
-export default function LocalBizJsonLd({ areaName, slug }: Props) {
-  return <SchemaScript data={buildLocalityServiceSchema(areaName, slug)} />;
+export default function LocalBizJsonLd({ areaName, slug, landmark, description, faqs }: Props) {
+  const pageUrl = absoluteUrl(`/locations/${slug}`);
+  const serviceNode = buildLocalityServiceSchema(areaName, slug, { landmark });
+
+  return (
+    <SchemaScript
+      data={buildLocalityPageGraph({
+        name: `Event Decorations in ${areaName}`,
+        description:
+          description ??
+          `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}, Bengaluru.`,
+        url: pageUrl,
+        serviceNode,
+        faqs,
+      })}
+    />
+  );
 }

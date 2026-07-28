@@ -14,10 +14,13 @@ This directory is the **single source of truth** for which variables the app exp
 | Variable | Scope | Required | Description |
 |----------|--------|----------|-------------|
 | `NEXT_PUBLIC_SITE_URL` | Public | Yes (prod) | Canonical site URL (`https://www.wedecorevents.com`) |
-| `NEXT_PUBLIC_GA_ID` | Public | No | Google Analytics 4 measurement ID |
+| `NEXT_PUBLIC_GTM_ID` | Public | No | Google Tag Manager container ID (e.g. `GTM-XXXXXXX`). See `docs/analytics.md`. |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Public | No | GA4 measurement ID, seeded onto the dataLayer for GTM. See `docs/analytics.md`. |
 | `NEXT_PUBLIC_SENTRY_DSN` | Public | No | Sentry browser DSN |
 | `NEXT_PUBLIC_CLOUDINARY_CLOUD` | Public | No | Cloudinary cloud name (public) |
 | `NEXT_PUBLIC_GOOGLE_PLACE_ID` | Public | No | Google Maps Place ID for reviews widget |
+| `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` | Public | No | Google Search Console HTML-tag verification token |
+| `NEXT_PUBLIC_BING_SITE_VERIFICATION` | Public | No | Bing Webmaster Tools `msvalidate.01` token |
 | `SENTRY_DSN` | Server | No | Sentry server DSN |
 | `GOOGLE_PLACES_API_KEY` | Server | No | Google Places API key (restrict by IP/referrer) |
 | `CLOUDINARY_API_KEY` | Server | No | Cloudinary API key (upload scripts only) |

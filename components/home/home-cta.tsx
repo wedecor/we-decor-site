@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import { PRICING_CTA_SHORT } from '@/lib/content/pricing-tiers';
 
 export default function HomeCta() {
   return (
@@ -12,18 +14,28 @@ export default function HomeCta() {
           and a clear quote — usually within a few hours.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href={CONTACT.waUrl()}
+          <TrackedWhatsAppLink
+            href={CONTACT.waUrlForHome()}
+            source="home_cta"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-btn-primary"
           >
             Chat on WhatsApp
-          </a>
+          </TrackedWhatsAppLink>
           <Link href="/contact" className="lux-btn-secondary">
             Send an enquiry
           </Link>
         </div>
+        <p className="mt-7 text-sm text-lux-secondary">
+          {PRICING_CTA_SHORT} —{' '}
+          <Link
+            href="/pricing"
+            className="text-lux-gold hover:underline underline-offset-4 font-medium"
+          >
+            view full pricing
+          </Link>
+        </p>
       </div>
     </section>
   );

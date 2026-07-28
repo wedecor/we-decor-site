@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { trackPortfolioImageClick } from '@/lib/analytics/events';
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -79,6 +79,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
     setSelectedImageIndex(index);
     setView('fullsize');
     setAriaMessage(`Viewing image ${index + 1} of ${images.length}`);
+    trackPortfolioImageClick(category, index, { action: 'view_fullsize' });
   };
 
   const loadMoreImages = () => {
@@ -156,7 +157,8 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                       alt={item.alt || `${category} decoration image ${i + 1}`}
                       fill
                       className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-200"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 220px"
+                      loading="lazy"
                     />
                   </motion.div>
                 ))}
@@ -204,6 +206,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                     width={800}
                     height={600}
                     className={`object-contain max-w-full max-h-full ${zoomed ? 'scale-150' : 'scale-100'} transition-transform duration-300`}
+                    sizes="(max-width: 800px) 100vw, 800px"
                     priority
                   />
                 </div>

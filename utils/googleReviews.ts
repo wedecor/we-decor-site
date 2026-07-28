@@ -51,51 +51,11 @@ export async function fetchGoogleReviews(placeId: string): Promise<GooglePlaceDe
   }
 }
 
-// Fallback testimonials data (your current data)
-export const fallbackTestimonials = [
-  {
-    name: 'Priya & Rahul',
-    event: 'Wedding Reception',
-    feedback:
-      "We Decor transformed our wedding reception into a magical evening! The stage decoration was absolutely stunning and all our guests couldn't stop complimenting. Highly recommended!",
-    avatar: '👰‍♀️🤵‍♂️',
-    rating: 5,
-    date: '2 weeks ago',
-  },
-  {
-    name: 'Anjali Sharma',
-    event: "Daughter's Birthday",
-    feedback:
-      'The birthday decoration was beyond our expectations! My daughter was so happy seeing her favorite Disney theme come to life. The team was professional and punctual.',
-    avatar: '🎂',
-    rating: 5,
-    date: '1 month ago',
-  },
-  {
-    name: 'Rajesh & Meera',
-    event: 'Haldi Ceremony',
-    feedback:
-      'Beautiful traditional haldi setup with modern touches. The colors were vibrant and the backdrop was perfect for our photos. Thank you We Decor team!',
-    avatar: '🌻',
-    rating: 5,
-    date: '3 weeks ago',
-  },
-  {
-    name: 'Suresh Kumar',
-    event: 'Corporate Event',
-    feedback:
-      "We hired We Decor for our company's annual party and they delivered excellence. The tent setup and balloon decorations created the perfect festive atmosphere.",
-    avatar: '🏢',
-    rating: 5,
-    date: '1 month ago',
-  },
-  {
-    name: 'Divya & Arjun',
-    event: 'Engagement Party',
-    feedback:
-      'Amazing work! The romantic setup with fairy lights and flower arrangements was exactly what we wanted. The team understood our vision perfectly.',
-    avatar: '💍',
-    rating: 5,
-    date: '2 months ago',
-  },
-];
+/** Link to We Decor Google Business Profile reviews */
+export function getGoogleReviewsUrl(): string {
+  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim();
+  if (placeId) {
+    return `https://www.google.com/maps/place/?q=place_id:${placeId}`;
+  }
+  return 'https://www.google.com/maps/search/?api=1&query=We+Decor+Bangalore';
+}

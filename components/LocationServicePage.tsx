@@ -11,7 +11,12 @@ import {
   buildPhoneUrl,
 } from '../lib/site';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildBreadcrumbSchema, buildLocationServiceSchema } from '@/lib/local-seo';
+import {
+  asGraph,
+  buildBreadcrumbNode,
+  buildLocationServiceSchema,
+  buildWebPage,
+} from '@/lib/schema';
 
 interface LocationServicePageProps {
   location: {
@@ -56,7 +61,7 @@ export default function LocationServicePage({
     serviceDescription: service.blurb,
   });
 
-  const breadcrumbSchema = buildBreadcrumbSchema([
+  const crumbs = [
     { name: 'Home', path: '/' },
     { name: 'Locations', path: '/locations' },
     { name: location.displayName, path: `/locations/${location.slug}` },
@@ -64,7 +69,18 @@ export default function LocationServicePage({
       name: service.name,
       path: `/locations/${location.slug}/services/${service.slug}`,
     },
-  ]);
+  ];
+
+  const pageGraph = asGraph(
+    buildWebPage({
+      name: pageTitle,
+      description: pageDescription,
+      url: pageUrl,
+      mainEntity: { '@id': serviceSchema['@id'] as string },
+    }),
+    serviceSchema,
+    buildBreadcrumbNode(crumbs)
+  );
 
   // Reasons to choose We Decor
   const reasonsToChoose = [
@@ -86,7 +102,8 @@ export default function LocationServicePage({
     {
       icon: '💰',
       title: 'Affordable Pricing',
-      description: 'Premium quality decorations starting from ₹2999',
+      description:
+        'Balloon Decorations starts from ₹3,000. Floral Decorations starts from ₹5,000. Pricing is customized based on venue, decoration style, event size, materials, and customer requirements.',
     },
     {
       icon: '📱',
@@ -95,14 +112,14 @@ export default function LocationServicePage({
     },
     {
       icon: '⭐',
-      title: '150+ Reviews',
-      description: 'Trusted by hundreds of satisfied customers across Bangalore',
+      title: 'Google Reviews',
+      description: 'Read verified customer feedback on our Google Business Profile',
     },
   ];
 
   return (
     <>
-      <SchemaScript data={[serviceSchema, breadcrumbSchema]} />
+      <SchemaScript data={pageGraph} />
 
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
         {/* Hero Section */}
@@ -183,6 +200,8 @@ export default function LocationServicePage({
                         width={400}
                         height={300}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        loading="lazy"
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

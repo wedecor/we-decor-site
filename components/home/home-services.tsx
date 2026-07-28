@@ -67,10 +67,9 @@ export default function HomeServices() {
                       alt={`${service.title} decoration in Bangalore`}
                       fill
                       className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                       quality={70}
-                      priority={index < 2}
-                      loading={index < 2 ? undefined : 'lazy'}
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 lux-overlay-cinematic opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-0 inset-x-0 p-6">

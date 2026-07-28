@@ -5,13 +5,16 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import LogoNavbar from '@/components/lux/LogoNavbar';
 import LogoMonogram from '@/components/lux/LogoMonogram';
+import { trackEvent } from '@/lib/analytics/events';
 
 const NAV = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/gallery', label: 'Gallery' },
+  { href: '/blog', label: 'Blog' },
   { href: '/locations', label: 'Locations' },
   { href: '/pricing', label: 'Pricing' },
+  { href: '/reviews', label: 'Reviews' },
   { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ] as const;
@@ -40,7 +43,13 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <Link href="/contact" className="lux-btn-primary text-sm py-2.5 px-7 shrink-0 ml-1">
+          <Link
+            href="/contact"
+            className="lux-btn-primary text-sm py-2.5 px-7 shrink-0 ml-1"
+            onClick={() =>
+              trackEvent('cta_click', { cta_source: 'navbar_desktop', cta_label: 'Enquire' })
+            }
+          >
             Enquire
           </Link>
         </div>
@@ -90,7 +99,10 @@ export default function Navbar() {
           <Link
             href="/contact"
             className="lux-btn-primary text-center mt-6"
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              trackEvent('cta_click', { cta_source: 'navbar_mobile', cta_label: 'Enquire' });
+              setOpen(false);
+            }}
           >
             Enquire
           </Link>

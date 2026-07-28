@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import nextDynamic from 'next/dynamic';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildContactPageGraph } from '@/lib/schema';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 
 const ContactFormClient = nextDynamic(() => import('@/components/contact/ContactFormClient'), {
   loading: () => (
@@ -15,7 +19,7 @@ const ContactFormClient = nextDynamic(() => import('@/components/contact/Contact
 
 export const metadata: Metadata = pageMetadata({
   path: '/contact',
-  title: 'Contact We Decor | Event Decoration Services in Bangalore',
+  title: 'Contact | Event Decoration Services in Bangalore',
   description:
     'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
 });
@@ -25,11 +29,28 @@ export const dynamic = 'force-static';
 export default function ContactPage() {
   return (
     <div className="lux-page relative overflow-hidden">
+      <SchemaScript
+        data={buildContactPageGraph({
+          name: 'Contact We Decor Events',
+          description:
+            'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
+        })}
+      />
       <div
         className="lux-ambient-glow w-[420px] h-[420px] -top-32 right-0"
         style={{ background: 'rgba(200, 169, 107, 0.06)' }}
         aria-hidden
       />
+
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2 relative z-10">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Contact', href: '/contact' },
+          ]}
+        />
+      </div>
 
       <section className="lux-section-tight pt-0 pb-14 md:pb-16 border-b border-white/[0.08] relative z-10 lux-section-glow">
         <div className="lux-container-narrow">
@@ -55,14 +76,15 @@ export default function ContactPage() {
           </div>
           <p className="lux-body-sm mt-12 text-center md:text-left">
             Prefer a direct line?{' '}
-            <a
+            <TrackedWhatsAppLink
               href={CONTACT.waUrl()}
+              source="contact_page"
               className="text-lux-gold hover:text-lux-gold-soft transition-colors duration-500"
               target="_blank"
               rel="noopener noreferrer"
             >
               WhatsApp {CONTACT.primary.display}
-            </a>
+            </TrackedWhatsAppLink>
           </p>
         </div>
       </section>

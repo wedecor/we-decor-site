@@ -200,7 +200,7 @@ function parseBlock(block: string): LocalityDoc | null {
         ],
     why:
       why ||
-      `Local team in ${localityName}. Quick setup at homes, apartments & community halls. Custom themes & budget-friendly packages.`,
+      `Local team in ${localityName}. Quick setup at homes, apartments & community halls. Custom themes & custom quotes.`,
     nearby,
     faqs: faqs.slice(0, 3),
   };

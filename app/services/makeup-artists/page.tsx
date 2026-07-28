@@ -2,27 +2,31 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/makeup-artists',
-  title: 'Professional Make-up Artists in Bangalore | We Decor Events',
+  title: 'Professional Make-up Artists in Bangalore',
   description:
     'Professional make-up for weddings, parties, and corporate events. Expert beauty services in Bangalore.',
-  ogImage: '/services/makeup.jpg',
-});
-
-const structuredData = buildServicePageSchema({
-  name: 'Professional Make-up Artists',
-  serviceType: 'Make-up',
-  description: 'Wedding and event make-up services in Bengaluru.',
-  path: '/services/makeup-artists',
+  ogImage: '/og-banner.webp',
 });
 
 export default function MakeupArtistsPage() {
   return (
     <PartnerServicePage
-      schema={<SchemaScript data={structuredData} />}
+      path="/services/makeup-artists"
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Professional Make-up Artists',
+            description: 'Wedding and event make-up services in Bengaluru.',
+            path: '/services/makeup-artists',
+            serviceType: 'Make-up',
+            serviceId: 'makeup-artists',
+          })}
+        />
+      }
       config={{
         title: 'Professional Make-up Artists',
         description:

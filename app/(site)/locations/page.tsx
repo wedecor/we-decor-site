@@ -2,17 +2,22 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CLUSTERS } from '../_data/clusters';
 import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
-import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import { pageMetadata } from '@/lib/metadata';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildCollectionPageSchema } from '@/lib/local-seo';
+import { buildLocationsHubGraph } from '@/lib/schema';
 import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
+import TrackedCtaLink from '@/components/analytics/TrackedCtaLink';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 
 export const metadata: Metadata = pageMetadata({
   path: '/locations',
-  title: 'Areas We Serve | We Decor — Event Decorators in Bangalore',
+  title: 'Areas We Serve — Event Decorators in Bangalore',
   description:
     'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
+  ogImage: '/og-banner.jpg',
 });
 
 const areaNameBySlug = new Map(AREAS.map((a) => [a.slug, a.name]));
@@ -90,23 +95,45 @@ function ClusterSection({
 export default function LocationsHubPage() {
   return (
     <div className="lux-page" id="top">
+      <SchemaScript
+        data={buildLocationsHubGraph({
+          name: `Areas We Serve — ${CITY}`,
+          description:
+            'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
+          localityUrls: AREAS.map((a) => ({ name: a.name, slug: a.slug })),
+        })}
+      />
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Locations', href: '/locations' },
+          ]}
+        />
+      </div>
       <PageHero
         eyebrow="Bengaluru coverage"
         title="Areas we serve"
         description={`Discover decoration across ${CITY} — each locality page includes services, recent setups, and booking for ${BUSINESS_NAME}.`}
       >
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
-          <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`} className="lux-btn-secondary">
+          <TrackedPhoneLink
+            href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+            source="locations_hub"
+            className="lux-btn-secondary"
+          >
             Call {PHONE_DISPLAY}
-          </a>
-          <a
+          </TrackedPhoneLink>
+          <TrackedWhatsAppLink
             href={CONTACT.waUrl()}
+            source="locations_hub"
             target="_blank"
             rel="noopener noreferrer"
             className="lux-btn-primary"
           >
             WhatsApp
-          </a>
+          </TrackedWhatsAppLink>
         </div>
       </PageHero>
 
@@ -145,26 +172,38 @@ export default function LocationsHubPage() {
               Share your locality and date — we respond with themes and pricing.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a
+              <TrackedWhatsAppLink
                 href={CONTACT.waUrl()}
+                source="locations_hub_cta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lux-btn-primary"
               >
                 WhatsApp
-              </a>
-              <Link href="/contact" className="lux-btn-secondary">
+              </TrackedWhatsAppLink>
+              <TrackedCtaLink
+                href="/contact"
+                source="locations_hub_cta"
+                label="Contact form"
+                className="lux-btn-secondary"
+              >
                 Contact form
-              </Link>
+              </TrackedCtaLink>
             </div>
+            <p className="mt-8 text-sm text-lux-muted">
+              <Link href="/reviews" className="text-lux-gold hover:underline font-medium">
+                Read client reviews
+              </Link>
+              <span className="mx-2 opacity-40">·</span>
+              <Link href="/services" className="text-lux-gold hover:underline font-medium">
+                Browse services
+              </Link>
+              <span className="mx-2 opacity-40">·</span>
+              <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+                View pricing
+              </Link>
+            </p>
           </div>
-          <SchemaScript
-            data={buildCollectionPageSchema({
-              name: `Areas We Serve — ${CITY}`,
-              pageUrl: absoluteUrl('/locations'),
-              localityUrls: AREAS.map((a) => ({ name: a.name, slug: a.slug })),
-            })}
-          />
         </div>
       </section>
     </div>

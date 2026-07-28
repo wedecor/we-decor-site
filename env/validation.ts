@@ -12,7 +12,14 @@ export const PUBLIC_ENV_SPEC = {
     description: 'Canonical HTTPS site URL',
     example: 'https://www.wedecorevents.com',
   },
-  NEXT_PUBLIC_GA_ID: { requiredInProduction: false, description: 'GA4 measurement ID' },
+  NEXT_PUBLIC_GTM_ID: {
+    requiredInProduction: false,
+    description: 'Google Tag Manager container ID (e.g. GTM-XXXXXXX)',
+  },
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: {
+    requiredInProduction: false,
+    description: 'GA4 measurement ID, seeded onto the dataLayer for GTM (e.g. G-XXXXXXXXXX)',
+  },
   NEXT_PUBLIC_SENTRY_DSN: { requiredInProduction: false, description: 'Sentry client DSN' },
   NEXT_PUBLIC_CLOUDINARY_CLOUD: {
     requiredInProduction: false,
@@ -21,6 +28,14 @@ export const PUBLIC_ENV_SPEC = {
   NEXT_PUBLIC_GOOGLE_PLACE_ID: {
     requiredInProduction: false,
     description: 'Google Maps Place ID',
+  },
+  NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: {
+    requiredInProduction: false,
+    description: 'Google Search Console HTML-tag verification token',
+  },
+  NEXT_PUBLIC_BING_SITE_VERIFICATION: {
+    requiredInProduction: false,
+    description: 'Bing Webmaster Tools msvalidate.01 token',
   },
 } as const;
 
@@ -110,6 +125,16 @@ export function validatePublicEnv(): ValidationIssue[] {
           message: 'NEXT_PUBLIC_SITE_URL should use wedecorevents.com in production.',
         });
       }
+      if (
+        parsed.hostname.includes('wedecorevents.com') &&
+        parsed.hostname !== 'www.wedecorevents.com'
+      ) {
+        issues.push({
+          level: 'warn',
+          code: 'SITE_URL_NOT_WWW',
+          message: 'NEXT_PUBLIC_SITE_URL should be https://www.wedecorevents.com (canonical host).',
+        });
+      }
     } catch {
       issues.push({
         level: 'error',
@@ -170,8 +195,7 @@ function runCli(): void {
 const isMain =
   typeof process !== 'undefined' &&
   process.argv[1] &&
-  (process.argv[1].endsWith('env/validation.ts') ||
-    process.argv[1].endsWith('validation.ts'));
+  (process.argv[1].endsWith('env/validation.ts') || process.argv[1].endsWith('validation.ts'));
 
 if (isMain) {
   runCli();

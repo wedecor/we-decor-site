@@ -2,6 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { SERVICE_IMAGES } from '@/lib/images';
 import PageHero from '@/components/lux/PageHero';
+import { RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
+import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildServicesHubGraph } from '@/lib/schema';
 
 const services = [
   {
@@ -57,19 +62,64 @@ const services = [
   },
 ] as const;
 
+/** Partner services without dedicated photography — gradient card instead of a mismatched stock image */
+const GRADIENT_PLACEHOLDER_SERVICES = new Set([
+  'Make-up Artists',
+  'Hair Stylists',
+  'Mehndi Artists',
+  'Photographers',
+]);
+
 export default function ServicesPage() {
+  const listForSchema = [
+    ...RELATED_DECORATION_SERVICES.map((s) => ({
+      name: s.label,
+      path: s.href,
+      description: s.label,
+    })),
+    ...services.map((s) => ({
+      name: s.name,
+      path: s.href,
+      description: s.description,
+    })),
+  ];
+
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={buildServicesHubGraph({
+          name: 'Event Decoration & Partner Services',
+          description:
+            'Decoration is our signature — supported by trusted partners for catering, beauty, and coverage across Bengaluru.',
+          services: listForSchema,
+        })}
+      />
+      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <SiteBreadcrumbs
+          withSchema
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Services', href: '/services' },
+          ]}
+        />
+      </div>
       <PageHero
         eyebrow="Full-service events"
         title="Our services"
         description="Decoration is our signature — supported by trusted partners for catering, beauty, and coverage across Bengaluru."
       />
-      <section className="lux-section pt-0 pb-28 md:pb-36 bg-lux-bg">
+      <section
+        className="lux-section pt-0 pb-16 md:pb-20 bg-lux-bg"
+        aria-labelledby="partner-services"
+      >
         <div className="lux-container">
+          <h2 id="partner-services" className="lux-heading-sm text-center mb-12">
+            Partner services for complete celebrations
+          </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9 list-none p-0 m-0">
             {services.map((service, index) => {
               const featured = 'featured' in service && service.featured;
+              const useGradientPlaceholder = GRADIENT_PLACEHOLDER_SERVICES.has(service.name);
               return (
                 <li
                   key={service.name}
@@ -79,16 +129,31 @@ export default function ServicesPage() {
                     <div
                       className={`relative w-full overflow-hidden ${featured ? 'aspect-[21/10] sm:aspect-[2/1]' : 'aspect-[4/5]'}`}
                     >
-                      <Image
-                        src={service.image}
-                        alt={`${service.name} — We Decor Bangalore`}
-                        fill
-                        className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
-                        sizes={featured ? '66vw' : '33vw'}
-                        quality={72}
-                        priority={index < 1}
-                        loading={index < 1 ? undefined : 'lazy'}
-                      />
+                      {useGradientPlaceholder ? (
+                        <div
+                          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] p-6"
+                          aria-hidden
+                        >
+                          <span className="font-display text-xl md:text-2xl text-lux-ivory/90 text-center leading-snug">
+                            {service.name}
+                          </span>
+                        </div>
+                      ) : (
+                        <Image
+                          src={service.image}
+                          alt={`${service.name} — We Decor Bangalore`}
+                          fill
+                          className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
+                          sizes={
+                            featured
+                              ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px'
+                              : '(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px'
+                          }
+                          quality={72}
+                          priority={index < 1}
+                          loading={index < 1 ? undefined : 'lazy'}
+                        />
+                      )}
                       <div className="absolute inset-0 lux-overlay-cinematic" />
                       <div
                         className={`absolute bottom-0 inset-x-0 ${featured ? 'p-8 md:p-10' : 'p-7'}`}
@@ -96,11 +161,11 @@ export default function ServicesPage() {
                         <p className="text-[10px] tracking-tagline uppercase text-lux-gold/85 mb-2">
                           {service.tag}
                         </p>
-                        <h2
+                        <h3
                           className={`font-display text-lux-ivory leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}
                         >
                           {service.name}
-                        </h2>
+                        </h3>
                         <p
                           className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-2'}`}
                         >
@@ -113,6 +178,23 @@ export default function ServicesPage() {
               );
             })}
           </ul>
+
+          <div className="mt-16 md:mt-20 max-w-3xl mx-auto text-center">
+            <h2 className="lux-heading-sm mb-6">Decoration services</h2>
+            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-3 list-none p-0 m-0">
+              {RELATED_DECORATION_SERVICES.map((service) => (
+                <li key={service.href}>
+                  <Link
+                    href={service.href}
+                    className="text-lux-gold hover:underline text-sm font-medium"
+                  >
+                    {service.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <p className="text-center mt-16 md:mt-24">
             <Link href="/contact" className="lux-btn-primary">
               Plan your celebration
@@ -120,6 +202,7 @@ export default function ServicesPage() {
           </p>
         </div>
       </section>
+      <CoreExploreLinks context="hub" showLocalities />
     </div>
   );
 }

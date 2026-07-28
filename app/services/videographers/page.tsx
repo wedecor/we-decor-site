@@ -2,27 +2,31 @@ import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
 import PartnerServicePage from '@/components/services/PartnerServicePage';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchema } from '@/lib/local-seo';
+import { buildServiceDetailGraph } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/videographers',
-  title: 'Professional Videographers in Bangalore | We Decor Events',
+  title: 'Professional Videographers in Bangalore',
   description:
     'Cinematic event videography for weddings, parties, and corporate events in Bengaluru.',
-  ogImage: '/services/videography.jpg',
-});
-
-const structuredData = buildServicePageSchema({
-  name: 'Professional Videographers',
-  serviceType: 'Videography',
-  description: 'Wedding and event videography in Bengaluru.',
-  path: '/services/videographers',
+  ogImage: '/services/corporate.webp',
 });
 
 export default function VideographersPage() {
   return (
     <PartnerServicePage
-      schema={<SchemaScript data={structuredData} />}
+      path="/services/videographers"
+      schema={
+        <SchemaScript
+          data={buildServiceDetailGraph({
+            name: 'Professional Videographers',
+            description: 'Wedding and event videography in Bengaluru.',
+            path: '/services/videographers',
+            serviceType: 'Videography',
+            serviceId: 'videographers',
+          })}
+        />
+      }
       config={{
         title: 'Professional Videographers',
         description:
