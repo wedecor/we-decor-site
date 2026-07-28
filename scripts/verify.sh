@@ -230,7 +230,18 @@ main() {
   export NEXT_TELEMETRY_DISABLED=1
   export NEXT_PUBLIC_SITE_URL="$SITE_URL"
   echo "### Build" >> "$ART/production_readiness_report.md"
-  npm run build:prod || fail "next build failed"
+  mkdir -p "$ROOT/.next" "$ART"
+  # Capture the route size table so bundle-budgets.mjs can parse real First Load JS
+  set +e
+  npm run build:prod 2>&1 | tee "$ROOT/.next/build-log.txt" | tee "$ART/build-log.txt"
+  local build_status=${PIPESTATUS[0]}
+  set -e
+  if [[ "$build_status" -ne 0 ]]; then
+    fail "next build failed"
+  fi
+  if ! grep -q "First Load JS" "$ROOT/.next/build-log.txt"; then
+    fail "next build log missing route size table"
+  fi
   
   # Start server
   echo "### Start server on $BASE" >> "$ART/production_readiness_report.md"
