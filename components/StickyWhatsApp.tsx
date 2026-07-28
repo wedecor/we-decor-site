@@ -14,10 +14,7 @@ export default function StickyWhatsApp() {
   const href = CONTACT.waUrlForHome();
 
   return (
-    <aside
-      aria-label="WhatsApp contact"
-      className="sticky-wa-global fixed bottom-6 right-6 z-50"
-    >
+    <aside aria-label="WhatsApp contact" className="sticky-wa-global fixed bottom-6 right-6 z-50">
       <a
         href={href}
         target="_blank"
