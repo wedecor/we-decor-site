@@ -121,7 +121,7 @@ export const BLOG_POSTS: BlogPost[] = [
     datePublished: '2026-05-22',
     readingTimeMinutes: 7,
     authorName: 'We Decor Events',
-    featuredImage: '/og-banner.webp',
+    featuredImage: '/home-preview/outdoor.webp',
     relatedServiceHref: '/locations',
     relatedServiceLabel: 'Bangalore Locations',
     tags: ['venue', 'bangalore', 'planning'],

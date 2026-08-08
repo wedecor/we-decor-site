@@ -1,12 +1,12 @@
 /** Display order for gallery collection cards (strongest portfolios first). */
 export const GALLERY_COLLECTION_ORDER = [
+  'wedding',
   'birthday',
   'corporate event',
   'engagement',
   'baby shower',
   'haldi',
   'room decor',
-  'wedding',
 ] as const;
 
 // Enhanced gallery interface with location tags

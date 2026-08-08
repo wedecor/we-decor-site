@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { SITE_URL, SERVICE_PATHS } from '@/lib/site';
+import { SITE_URL, INDEXABLE_SERVICE_PATHS } from '@/lib/site';
 import { AREAS } from './(site)/_data/locations';
 import { BLOG_POSTS } from '@/lib/content/blog-posts';
 
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/locations`, lastModified: now, priority: 0.8 },
   ];
 
-  const servicePages: MetadataRoute.Sitemap = Object.values(SERVICE_PATHS).map((path) => ({
+  const servicePages: MetadataRoute.Sitemap = INDEXABLE_SERVICE_PATHS.map((path) => ({
     url: `${base}${path}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

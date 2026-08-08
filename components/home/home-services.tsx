@@ -25,7 +25,7 @@ const services = [
   {
     title: 'Wedding',
     tag: 'Mandap & reception',
-    image: SERVICE_IMAGES.corporate,
+    image: '/home-preview/reception.webp',
     href: '/services/wedding-setup',
   },
   {
@@ -44,7 +44,7 @@ const services = [
 
 export default function HomeServices() {
   return (
-    <section className="lux-section bg-lux-bg">
+    <section className="lux-section pt-14 md:pt-20 bg-lux-bg">
       <div className="lux-container">
         <FadeIn>
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">

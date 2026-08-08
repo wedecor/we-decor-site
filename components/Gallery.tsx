@@ -52,7 +52,7 @@ export default function Gallery() {
           placeholder="Search collections"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="lux-input max-w-xs w-full sm:max-w-[14rem] text-sm"
+          className="lux-input max-w-xs w-full sm:max-w-[14rem] md:text-sm"
           aria-label="Search categories"
         />
       </div>

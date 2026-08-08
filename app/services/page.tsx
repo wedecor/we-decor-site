@@ -8,67 +8,101 @@ import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildServicesHubGraph } from '@/lib/schema';
 
-const services = [
+/** Core decoration services — displayed as photo cards */
+const decorationCards = [
   {
-    name: 'Decoration',
+    name: 'Birthday Decoration',
     description:
-      'Weddings, birthdays, haldi, engagements, and corporate celebrations — composed for light, emotion, and photography.',
-    href: '/services/decoration',
-    image: SERVICE_IMAGES.engagement,
-    tag: 'Signature craft',
+      "Children's themes, surprise setups, and adult milestone parties — designed around the recipient, venue, and cake moment.",
+    href: '/services/birthday-decoration',
+    image: SERVICE_IMAGES.birthday,
+    tag: 'Most popular',
     featured: true,
   },
   {
-    name: 'Catering',
-    description: 'Curated menus for intimate dinners and grand receptions.',
-    href: '/services/catering',
-    image: SERVICE_IMAGES.corporate,
-    tag: 'Events & weddings',
+    name: 'Wedding Setup',
+    description:
+      'Mandap, stage, and floral arrangements composed for emotion, light, and photography.',
+    href: '/services/wedding-setup',
+    image: '/home-preview/reception.webp',
+    tag: 'Weddings',
   },
   {
-    name: 'Make-up Artists',
-    description: 'Bridal and party artistry for stage light and long wear.',
-    href: '/services/makeup-artists',
+    name: 'Haldi Decoration',
+    description: 'Marigold-rich stages and easy-cleanup setups built for ritual and colour.',
+    href: '/services/haldi-decoration',
     image: SERVICE_IMAGES.haldi,
-    tag: 'Bridal & party',
+    tag: 'Ceremonies',
   },
   {
-    name: 'Hair Stylists',
-    description: 'Refined styling for weddings and milestone evenings.',
-    href: '/services/hair-stylists',
+    name: 'Engagement Decoration',
+    description:
+      'Floral arches, pastel palettes, and modern backdrops for the ring exchange moment.',
+    href: '/services/engagement-decoration',
     image: SERVICE_IMAGES.engagement,
-    tag: 'Styling',
+    tag: 'Celebrations',
   },
   {
-    name: 'Mehndi Artists',
-    description: 'Traditional and contemporary mehndi for wedding rituals.',
-    href: '/services/mehndi-artists',
-    image: SERVICE_IMAGES.haldi,
-    tag: 'Wedding rituals',
+    name: 'Corporate Decoration',
+    description:
+      'Brand-aligned backdrops, clean cabling, and quick turnaround for launches and team events.',
+    href: '/services/corporate-decoration',
+    image: SERVICE_IMAGES.corporate,
+    tag: 'Corporate',
   },
+  {
+    name: 'Room Decoration',
+    description:
+      'Intimate room setups for anniversaries, proposals, and surprise moments at home or in a hotel.',
+    href: '/services/room-decoration',
+    image: SERVICE_IMAGES.roomDecor,
+    tag: 'Intimate',
+  },
+] as const;
+
+/** Additional decoration service types — listed as text links */
+const moreDecorations = [
+  { href: '/services/tent-balloon-setup', label: 'Tent & Balloon Setup' },
+  { href: '/services/balloon-decoration', label: 'Balloon Decorations' },
+  { href: '/services/baby-shower-decoration', label: 'Baby Shower Decorations' },
+  { href: '/services/floral-decoration', label: 'Floral Decorations' },
+  { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
+  { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
+] as const;
+
+/** Services we coordinate through trusted Bangalore partners */
+const partnerServices = [
   {
     name: 'Photographers',
     description: 'Story-led coverage that preserves the feeling of your day.',
-    href: '/services/photographers',
-    image: SERVICE_IMAGES.birthday,
-    tag: 'Coverage',
+    icon: '📷',
   },
   {
     name: 'Videographers',
     description: 'Cinematic films — calm, emotional, beautifully edited.',
-    href: '/services/videographers',
-    image: SERVICE_IMAGES.tentBalloon,
-    tag: 'Films',
+    icon: '🎥',
+  },
+  {
+    name: 'Catering',
+    description: 'Curated menus for intimate dinners and grand receptions.',
+    icon: '🍽',
+  },
+  {
+    name: 'Make-up Artists',
+    description: 'Bridal and party artistry for stage light and long wear.',
+    icon: '💄',
+  },
+  {
+    name: 'Hair Stylists',
+    description: 'Refined styling for weddings and milestone evenings.',
+    icon: '✂️',
+  },
+  {
+    name: 'Mehndi Artists',
+    description: 'Traditional and contemporary mehndi for wedding rituals.',
+    icon: '🌿',
   },
 ] as const;
-
-/** Partner services without dedicated photography — gradient card instead of a mismatched stock image */
-const GRADIENT_PLACEHOLDER_SERVICES = new Set([
-  'Make-up Artists',
-  'Hair Stylists',
-  'Mehndi Artists',
-  'Photographers',
-]);
 
 export default function ServicesPage() {
   const listForSchema = [
@@ -77,7 +111,7 @@ export default function ServicesPage() {
       path: s.href,
       description: s.label,
     })),
-    ...services.map((s) => ({
+    ...decorationCards.map((s) => ({
       name: s.name,
       path: s.href,
       description: s.description,
@@ -88,9 +122,9 @@ export default function ServicesPage() {
     <div className="lux-page">
       <SchemaScript
         data={buildServicesHubGraph({
-          name: 'Event Decoration & Partner Services',
+          name: 'Event Decoration Services — We Decor Bangalore',
           description:
-            'Decoration is our signature — supported by trusted partners for catering, beauty, and coverage across Bengaluru.',
+            'Decoration is our signature craft — birthdays, weddings, haldi, engagements, corporate events, and more across Bengaluru.',
           services: listForSchema,
         })}
       />
@@ -104,22 +138,23 @@ export default function ServicesPage() {
         />
       </div>
       <PageHero
-        eyebrow="Full-service events"
-        title="Our services"
-        description="Decoration is our signature — supported by trusted partners for catering, beauty, and coverage across Bengaluru."
+        eyebrow="What we do"
+        title="Decoration services"
+        description="Every celebration deserves a thoughtfully composed atmosphere. Here's what we create across Bengaluru."
       />
+
+      {/* ── Core decoration cards ── */}
       <section
         className="lux-section pt-0 pb-16 md:pb-20 bg-lux-bg"
-        aria-labelledby="partner-services"
+        aria-labelledby="decoration-services-heading"
       >
         <div className="lux-container">
-          <h2 id="partner-services" className="lux-heading-sm text-center mb-12">
-            Partner services for complete celebrations
+          <h2 id="decoration-services-heading" className="sr-only">
+            Decoration services
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9 list-none p-0 m-0">
-            {services.map((service, index) => {
+            {decorationCards.map((service, index) => {
               const featured = 'featured' in service && service.featured;
-              const useGradientPlaceholder = GRADIENT_PLACEHOLDER_SERVICES.has(service.name);
               return (
                 <li
                   key={service.name}
@@ -129,31 +164,20 @@ export default function ServicesPage() {
                     <div
                       className={`relative w-full overflow-hidden ${featured ? 'aspect-[21/10] sm:aspect-[2/1]' : 'aspect-[4/5]'}`}
                     >
-                      {useGradientPlaceholder ? (
-                        <div
-                          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] to-[#2d2d44] p-6"
-                          aria-hidden
-                        >
-                          <span className="font-display text-xl md:text-2xl text-lux-ivory/90 text-center leading-snug">
-                            {service.name}
-                          </span>
-                        </div>
-                      ) : (
-                        <Image
-                          src={service.image}
-                          alt={`${service.name} — We Decor Bangalore`}
-                          fill
-                          className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
-                          sizes={
-                            featured
-                              ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px'
-                              : '(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px'
-                          }
-                          quality={72}
-                          priority={index < 1}
-                          loading={index < 1 ? undefined : 'lazy'}
-                        />
-                      )}
+                      <Image
+                        src={service.image}
+                        alt={`${service.name} — We Decor Bangalore`}
+                        fill
+                        className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
+                        sizes={
+                          featured
+                            ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px'
+                            : '(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px'
+                        }
+                        quality={72}
+                        priority={index < 1}
+                        loading={index < 1 ? undefined : 'lazy'}
+                      />
                       <div className="absolute inset-0 lux-overlay-cinematic" />
                       <div
                         className={`absolute bottom-0 inset-x-0 ${featured ? 'p-8 md:p-10' : 'p-7'}`}
@@ -179,20 +203,46 @@ export default function ServicesPage() {
             })}
           </ul>
 
-          <div className="mt-16 md:mt-20 max-w-3xl mx-auto text-center">
-            <h2 className="lux-heading-sm mb-6">Decoration services</h2>
+          {/* ── More decoration types ── */}
+          <div className="mt-14 md:mt-16 max-w-3xl mx-auto text-center">
+            <p className="lux-eyebrow mb-3">More decoration services</p>
             <ul className="flex flex-wrap justify-center gap-x-5 gap-y-3 list-none p-0 m-0">
-              {RELATED_DECORATION_SERVICES.map((service) => (
-                <li key={service.href}>
-                  <Link
-                    href={service.href}
-                    className="text-lux-gold hover:underline text-sm font-medium"
-                  >
-                    {service.label}
+              {moreDecorations.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className="text-lux-gold hover:underline text-sm font-medium">
+                    {s.label}
                   </Link>
                 </li>
               ))}
             </ul>
+          </div>
+
+          {/* ── Partner services ── */}
+          <div className="mt-16 md:mt-20 lux-panel rounded-2xl p-8 md:p-10">
+            <p className="lux-eyebrow mb-3">We also coordinate</p>
+            <h2 className="lux-heading-sm mb-2">Planning a full event?</h2>
+            <p className="text-lux-secondary text-sm md:text-base mb-8 max-w-xl">
+              We connect you with trusted Bangalore partners for photography, videography, catering,
+              and beauty — so you&apos;re not chasing five vendors separately.
+            </p>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none p-0 m-0">
+              {partnerServices.map((s) => (
+                <li key={s.name} className="flex items-start gap-4">
+                  <span className="text-2xl mt-0.5" aria-hidden="true">
+                    {s.icon}
+                  </span>
+                  <div>
+                    <p className="font-medium text-lux-ivory">{s.name}</p>
+                    <p className="text-lux-secondary text-sm mt-0.5">{s.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8">
+              <Link href="/contact" className="lux-btn-secondary text-sm">
+                Ask about partner services
+              </Link>
+            </p>
           </div>
 
           <p className="text-center mt-16 md:mt-24">

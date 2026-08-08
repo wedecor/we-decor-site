@@ -18,6 +18,12 @@ import {
 } from './collection';
 import { buildPricingOfferCatalog, buildPricingOffersItemList } from './offer';
 import { buildImageItemList, buildImageObject } from './image';
+import {
+  buildAggregateRating,
+  buildReviewNodes,
+  type AggregateRatingInput,
+  type ReviewInput,
+} from './review';
 import type { GraphDocument, JsonLdNode } from './types';
 
 /** Homepage: Organization + LocalBusiness + WebSite + Services + WebPage. */
@@ -184,16 +190,37 @@ export function buildLocationsHubGraph(options: {
 export function buildReviewsPageGraph(options: {
   name: string;
   description: string;
+  /** Verified Google Places aggregate — omit to emit no rating at all. */
+  aggregateRating?: AggregateRatingInput | null;
+  /** Verified Google Places reviews — omit to emit no Review nodes. */
+  reviews?: ReadonlyArray<ReviewInput> | null;
 }): GraphDocument {
   const url = absoluteUrl('/reviews');
-  // No AggregateRating / Review nodes without verified Places data.
+
+  // AggregateRating / Review nodes are emitted only from verified Places data.
+  const aggregate = buildAggregateRating(options.aggregateRating);
+  const reviewNodes = buildReviewNodes(options.reviews);
+
+  const ratedBusiness: JsonLdNode[] =
+    aggregate || reviewNodes.length
+      ? [
+          {
+            '@type': 'LocalBusiness',
+            '@id': `${NAP.url}/#localbusiness`,
+            ...(aggregate ? { aggregateRating: aggregate } : {}),
+            ...(reviewNodes.length ? { review: reviewNodes } : {}),
+          },
+        ]
+      : [];
+
   return asGraph(
     buildWebPage({
       name: options.name,
       description: options.description,
       url,
       about: { '@id': `${NAP.url}/#localbusiness` },
-    })
+    }),
+    ...ratedBusiness
   );
 }
 

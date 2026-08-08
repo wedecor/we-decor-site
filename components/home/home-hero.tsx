@@ -40,7 +40,7 @@ export default function HomeHero() {
           We design and style every occasion across Bengaluru, from home celebrations to grand
           venues — trusted by families for thoughtful, calm execution.
         </p>
-        <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-4">
+        <div className="mt-7 md:mt-12 flex flex-col sm:flex-row gap-4">
           <TrackedWhatsAppLink
             href={CONTACT.waUrlForHome()}
             source="home_hero"

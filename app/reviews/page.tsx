@@ -7,6 +7,7 @@ import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildReviewsPageGraph } from '@/lib/schema';
+import { getGoogleReviews } from '@/utils/googleReviews';
 
 export const metadata: Metadata = pageMetadata({
   path: '/reviews',
@@ -16,8 +17,9 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/og-banner.jpg',
 });
 
-export default function ReviewsPage() {
+export default async function ReviewsPage() {
   const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID || '';
+  const live = await getGoogleReviews();
 
   return (
     <div className="lux-page">
@@ -26,6 +28,13 @@ export default function ReviewsPage() {
           name: 'Customer Reviews',
           description:
             'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
+          aggregateRating: live ? { ratingValue: live.rating, reviewCount: live.total } : null,
+          reviews: live?.reviews.map((r) => ({
+            authorName: r.author,
+            reviewBody: r.text,
+            ratingValue: r.rating,
+            datePublished: r.datePublished,
+          })),
         })}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">

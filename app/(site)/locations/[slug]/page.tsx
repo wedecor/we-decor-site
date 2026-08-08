@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   return pageMetadata({
     path: `/locations/${area.slug}`,
-    title: pageMeta?.title ?? `Event decoration in ${area.name}, ${CITY}`,
+    title: `Event decoration in ${area.name}, ${CITY} | We Decor`,
     description:
       pageMeta?.description ??
       CUSTOM_META_DESCRIPTIONS[area.slug] ??
@@ -149,10 +149,10 @@ export default async function LocationPage({ params }: LocationPageProps) {
         }))}
       />
       <div className="lux-page">
-        <div className="relative bg-lux-elevated border-b border-white/[0.06] text-lux-ivory py-20 md:py-28">
+        <div className="relative bg-lux-elevated border-b border-white/[0.06] text-lux-ivory py-12 md:py-28">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <SiteBreadcrumbs
-              className="mb-8 justify-center"
+              className="mb-6 justify-center"
               withSchema
               items={[
                 { name: 'Home', href: '/' },
@@ -160,11 +160,11 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 { name: areaName, href: `/locations/${slug}` },
               ]}
             />
-            <p className="lux-eyebrow mb-4">Bengaluru · {area.name}</p>
-            <h1 className="font-display text-4xl md:text-6xl font-medium mb-6 text-lux-ivory">
+            <p className="lux-eyebrow mb-3 md:mb-4">Bengaluru · {area.name}</p>
+            <h1 className="font-display text-3xl md:text-6xl font-medium mb-4 md:mb-6 text-lux-ivory">
               Event decoration in {area.name}, {CITY}
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-lux-muted max-w-3xl mx-auto">
+            <p className="text-base md:text-2xl mb-6 md:mb-8 text-lux-muted max-w-3xl mx-auto">
               {heroTagline
                 ? `${heroTagline}. `
                 : `Professional decoration services in ${area.name}. `}
@@ -194,15 +194,15 @@ export default async function LocationPage({ params }: LocationPageProps) {
         {/* Unique locality copy — real landmarks/venue/vibe data, genuinely
             different per area (see scripts/generate-locality-content.ts) */}
         {generatedArea?.bodyCopy ? (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="lux-surface p-8 md:p-12 max-w-4xl mx-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+            <div className="lux-surface p-5 sm:p-8 md:p-12 max-w-4xl mx-auto">
               <h2 className="lux-heading-sm mb-6">Decorating celebrations in {area.name}</h2>
               <p className="text-lux-muted leading-relaxed">{generatedArea.bodyCopy}</p>
             </div>
           </div>
         ) : null}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <h2 className="lux-heading-sm text-center mb-4">Our services in {area.name}</h2>
           <p className="text-center text-sm text-lux-muted mb-12">
             Balloon décor from <span className="text-lux-gold font-medium">₹3,000</span> · Floral
@@ -249,8 +249,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="lux-surface p-8 md:p-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+          <div className="lux-surface p-5 sm:p-8 md:p-12">
             <h2 className="lux-heading-sm text-center mb-8">
               Frequently asked questions — {areaName}
             </h2>
@@ -269,8 +269,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* Area-specific information */}
         {area.landmarks && area.landmarks.length > 0 ? (
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div className="lux-surface p-8 md:p-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+            <div className="lux-surface p-5 sm:p-8 md:p-12">
               <h2 className="lux-heading-sm text-center mb-8">Landmarks near {area.name}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {area.landmarks.map((landmark, index) => (
@@ -290,8 +290,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
         ) : null}
 
         {/* Gallery Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="lux-surface p-8 md:p-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+          <div className="lux-surface p-5 sm:p-8 md:p-12">
             <h2 className="lux-heading-sm text-center mb-8">Recent setups in {areaName}</h2>
             <p className="text-lg text-lux-muted text-center mb-12 max-w-3xl mx-auto">
               Browse our recent setups across {areaName} — from apartments and rooftops to
@@ -303,8 +303,8 @@ export default async function LocationPage({ params }: LocationPageProps) {
         </div>
 
         {/* Explore more — consolidated internal linking */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="lux-surface p-8 md:p-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+          <div className="lux-surface p-5 sm:p-8 md:p-12">
             <h2 className="lux-heading-sm text-center mb-8">Explore more</h2>
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto text-center">
               <div>
@@ -387,7 +387,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
         </div>
 
         {/* CTA Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <div className="lux-surface border-lux-gold/20 text-center p-8 md:p-12">
             <h2 className="lux-heading-sm mb-4">Ready to transform your event in {areaName}?</h2>
             <p className="text-lg text-lux-muted mb-8 max-w-2xl mx-auto">
