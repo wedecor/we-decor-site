@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
-import ThemeProvider from '@/components/ThemeProvider';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import './env-guard';
@@ -69,13 +68,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to content
         </a>
-        <ThemeProvider>
-          <Navbar />
-          <main id="main-content" className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <Navbar />
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
         <StickyWhatsApp />
         <WebVitalsReporter />
         <AnalyticsPageView />
