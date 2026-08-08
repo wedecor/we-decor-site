@@ -38,7 +38,6 @@ const nextConfig = {
     ],
   },
   experimental: {
-    mdxRs: true,
   },
   webpack: (config, { isServer }) => {
     // Exclude scripts directory from webpack compilation
@@ -47,22 +46,9 @@ const nextConfig = {
       scripts: false,
     };
 
-    // Exclude MDX files from Sentry wrapping
-    if (config.module && config.module.rules) {
-      config.module.rules.push({
-        test: /\.mdx$/,
-        use: {
-          loader: '@mdx-js/loader',
-          options: {
-            providerImportSource: '@mdx-js/react',
-          },
-        },
-      });
-    }
-
     return config;
   },
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   async redirects() {
     const redirects = [
       // Locality consolidation: /areas/* → /locations/* (301, query string preserved)
@@ -245,9 +231,6 @@ const sentryOptions = {
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
 
-  // Exclude MDX files from Sentry wrapping
-  excludeServerRoutes: [/\.mdx$/],
-  excludeClientRoutes: [/\.mdx$/],
 };
 
 module.exports =
