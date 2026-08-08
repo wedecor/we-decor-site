@@ -3,8 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import LogoNavbar from '@/components/lux/LogoNavbar';
-import LogoMonogram from '@/components/lux/LogoMonogram';
+import BrandLockup from '@/components/lux/BrandLockup';
 import { trackEvent } from '@/lib/analytics/events';
 
 const NAV = [
@@ -26,9 +25,7 @@ export default function Navbar() {
   return (
     <header className="lux-nav-shell fixed top-0 left-0 right-0 z-[100]">
       <nav className="relative max-w-6xl mx-auto flex items-center justify-between gap-5 py-3.5 md:py-4 px-6 md:px-10 min-h-[var(--nav-height,5.75rem)]">
-        <div className="lg:hidden w-10 shrink-0" aria-hidden />
-        <LogoMonogram />
-        <LogoNavbar />
+        <BrandLockup />
 
         <div className="hidden lg:flex items-center gap-8 xl:gap-9">
           {NAV.map((item) => {
@@ -82,14 +79,14 @@ export default function Navbar() {
       </nav>
 
       {open ? (
-        <div className="lg:hidden border-t border-white/[0.08] px-6 py-6 flex flex-col bg-[#1a141f]">
+        <div className="lg:hidden border-t border-white/[0.08] px-6 py-4 flex flex-col bg-[#1a141f] max-h-[calc(100dvh-var(--nav-height))] overflow-y-auto overscroll-contain">
           {NAV.map((item) => {
             const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`py-3.5 text-[15px] font-light transition-colors duration-500 ${active ? 'text-lux-gold' : 'text-lux-secondary'}`}
+                className={`py-2.5 text-[15px] font-light transition-colors duration-500 ${active ? 'text-lux-gold' : 'text-lux-secondary'}`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -98,7 +95,7 @@ export default function Navbar() {
           })}
           <Link
             href="/contact"
-            className="lux-btn-primary text-center mt-6"
+            className="lux-btn-primary text-center mt-4 mb-1"
             onClick={() => {
               trackEvent('cta_click', { cta_source: 'navbar_mobile', cta_label: 'Enquire' });
               setOpen(false);

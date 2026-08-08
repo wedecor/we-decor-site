@@ -1,7 +1,15 @@
 /** Canonical optimized image paths (WebP) — keep in sync with scripts/optimize-images.mjs */
 
-export const LOGO_SRC = '/logo.png';
-export const LOGO_PNG_FALLBACK = '/logo.png';
+/**
+ * Brand logo — gold, matching the site palette (--lux-gold).
+ * The original teal `/logo.png` is retained only as an archive of the source art.
+ */
+export const LOGO_SRC = '/brand/logo-gold-full.png';
+export const LOGO_PNG_FALLBACK = '/brand/logo-gold-full.png';
+/** Mark only (no wordmark) — icons, avatars, watermarks. */
+export const LOGO_MARK_SRC = '/brand/logo-gold-mark.png';
+/** Horizontal lockup with tagline — footers and wide placements. */
+export const LOGO_HORIZONTAL_SRC = '/brand/logo-gold-horizontal.png';
 /** Social / JSON-LD — may include branded headline text; do not use as full-bleed hero background */
 export const HERO_BANNER_SRC = '/og-banner.jpg';
 export const HERO_BANNER_JPEG = '/og-banner.jpg';

@@ -26,6 +26,6 @@ export const BRAND = {
   taglineDisplay: 'BRINGING DREAMS TO LIFE',
   monogram: 'WD',
   city: 'Bengaluru',
-  logoPrimary: '/logo.png',
-  logoFallback: '/logo.png',
+  logoPrimary: '/brand/logo-gold-full.png',
+  logoFallback: '/brand/logo-gold-full.png',
 } as const;

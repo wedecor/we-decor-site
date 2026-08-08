@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import BrandWordmark from '@/components/lux/BrandWordmark';
+import BrandLockup from '@/components/lux/BrandLockup';
 import { CONTACT } from '@/lib/contact';
 import { BRAND } from '@/lib/design/tokens';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
@@ -18,7 +18,7 @@ export default function Footer() {
       <div className="lux-container px-6 md:px-10 py-20 md:py-28 relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-5 space-y-7">
-            <BrandWordmark asLink compact />
+            <BrandLockup variant="footer" asLink />
             <p className="font-display text-xl md:text-2xl font-light text-lux-ivory/95 italic leading-relaxed max-w-sm">
               Designed for unforgettable celebrations.
             </p>
