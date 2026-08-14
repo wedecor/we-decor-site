@@ -1,5 +1,5 @@
 import { absoluteUrl } from '@/lib/metadata';
-import { CORE_DECORATION_SERVICES, NAP } from '@/lib/local-seo/constants';
+import { CORE_DECORATION_SERVICES, NAP, SCHEMA_IDS } from '@/lib/local-seo/constants';
 import { SITE_FAQS } from '@/lib/content/site-faq';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
 import { asGraph, pageId } from './_helpers';
@@ -7,7 +7,7 @@ import { buildOrganization } from './organization';
 import { buildLocalBusiness } from './local-business';
 import { buildWebSite } from './website';
 import { buildWebPage } from './webpage';
-import { buildCoreServiceNodes, buildServiceSchema } from './service';
+import { buildCoreServiceCatalog, buildCoreServiceNodes, buildServiceSchema } from './service';
 import { buildFaqPageNode } from './faq';
 import { buildAboutPageSchema } from './about';
 import { buildContactPageSchema } from './contact';
@@ -18,12 +18,6 @@ import {
 } from './collection';
 import { buildPricingOfferCatalog, buildPricingOffersItemList } from './offer';
 import { buildImageItemList, buildImageObject } from './image';
-import {
-  buildAggregateRating,
-  buildReviewNodes,
-  type AggregateRatingInput,
-  type ReviewInput,
-} from './review';
 import type { GraphDocument, JsonLdNode } from './types';
 
 /** Homepage: Organization + LocalBusiness + WebSite + Services + WebPage. */
@@ -187,40 +181,25 @@ export function buildLocationsHubGraph(options: {
   );
 }
 
+/**
+ * Reviews page: WebPage only, pointing at the sitewide LocalBusiness by @id.
+ *
+ * Deliberately emits no AggregateRating or Review nodes. Google ignores ratings
+ * a business publishes about itself for review snippets, so they earn nothing,
+ * and Places API review content carries caching terms that do not sit well with
+ * republishing it as structured data.
+ */
 export function buildReviewsPageGraph(options: {
   name: string;
   description: string;
-  /** Verified Google Places aggregate — omit to emit no rating at all. */
-  aggregateRating?: AggregateRatingInput | null;
-  /** Verified Google Places reviews — omit to emit no Review nodes. */
-  reviews?: ReadonlyArray<ReviewInput> | null;
 }): GraphDocument {
-  const url = absoluteUrl('/reviews');
-
-  // AggregateRating / Review nodes are emitted only from verified Places data.
-  const aggregate = buildAggregateRating(options.aggregateRating);
-  const reviewNodes = buildReviewNodes(options.reviews);
-
-  const ratedBusiness: JsonLdNode[] =
-    aggregate || reviewNodes.length
-      ? [
-          {
-            '@type': 'LocalBusiness',
-            '@id': `${NAP.url}/#localbusiness`,
-            ...(aggregate ? { aggregateRating: aggregate } : {}),
-            ...(reviewNodes.length ? { review: reviewNodes } : {}),
-          },
-        ]
-      : [];
-
   return asGraph(
     buildWebPage({
       name: options.name,
       description: options.description,
-      url,
-      about: { '@id': `${NAP.url}/#localbusiness` },
-    }),
-    ...ratedBusiness
+      url: absoluteUrl('/reviews'),
+      about: { '@id': SCHEMA_IDS.localBusiness },
+    })
   );
 }
 
@@ -234,6 +213,13 @@ export function buildServiceDetailGraph(options: {
   includeServiceFaq?: boolean;
   /** Page-specific FAQs take priority over shared SERVICE_PAGE_FAQS. */
   faqs?: ReadonlyArray<{ question: string; answer: string }>;
+  /**
+   * Force a site-scoped `/#service-{id}` @id for a service that is not in
+   * CORE_DECORATION_SERVICES (e.g. the umbrella decoration service).
+   */
+  useSiteScopedId?: boolean;
+  /** Attach the core decoration services as a nested OfferCatalog. */
+  includesCoreServices?: boolean;
 }): GraphDocument {
   const url = absoluteUrl(options.path);
   const isCore = Boolean(
@@ -246,8 +232,11 @@ export function buildServiceDetailGraph(options: {
     description: options.description,
     path: options.path,
     serviceId: options.serviceId,
-    useSiteScopedId: isCore,
+    useSiteScopedId: options.useSiteScopedId ?? isCore,
     image: options.image,
+    hasOfferCatalog: options.includesCoreServices
+      ? buildCoreServiceCatalog(pageId(url, 'catalog'))
+      : undefined,
   });
 
   const faqSource =
@@ -268,6 +257,35 @@ export function buildServiceDetailGraph(options: {
     }),
     service,
     faq
+  );
+}
+
+/** Blog hub: CollectionPage + ItemList of posts — same shape as buildServicesHubGraph. */
+export function buildBlogHubGraph(options: {
+  name: string;
+  description: string;
+  posts: ReadonlyArray<{ title: string; path: string; description?: string; image?: string }>;
+}): GraphDocument {
+  const url = absoluteUrl('/blog');
+  const items = options.posts.map((p) => ({
+    name: p.title,
+    url: absoluteUrl(p.path),
+    description: p.description,
+    image: p.image ? (p.image.startsWith('http') ? p.image : absoluteUrl(p.image)) : undefined,
+  }));
+  const itemList = buildItemListSchema({
+    name: 'Celebration insights — planning guides',
+    listId: pageId(url, 'itemlist'),
+    items,
+  });
+  return asGraph(
+    buildCollectionPageSchema({
+      name: options.name,
+      description: options.description,
+      pageUrl: url,
+      items,
+    }),
+    itemList
   );
 }
 

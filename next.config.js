@@ -97,6 +97,37 @@ const nextConfig = {
         destination: '/services/wedding-setup',
         permanent: true,
       },
+      // Retired partner/referral verticals — We Decor does not deliver these in-house
+      {
+        source: '/services/catering',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/hair-stylists',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/makeup-artists',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/mehndi-artists',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/photographers',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/services/videographers',
+        destination: '/services',
+        permanent: true,
+      },
     ];
 
     // Add redirects for mixed routing cleanup

@@ -5,10 +5,10 @@ import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import PricingPageView from '@/components/analytics/PricingPageView';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildPricingPageGraph } from '@/lib/schema';
+import { buildPricingPageGraph, withBreadcrumb } from '@/lib/schema';
 import { PRICING_TIERS } from '@/lib/content/pricing-tiers';
 
 export const metadata: Metadata = pageMetadata({
@@ -26,25 +26,27 @@ const experiences = PRICING_TIERS.map((tier) => ({
   featured: 'featured' in tier ? tier.featured : false,
 }));
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Pricing', href: '/pricing' },
+];
+
 export default function PricingPage() {
   return (
     <div className="lux-page">
       <SchemaScript
-        data={buildPricingPageGraph({
-          name: 'Event Decoration Pricing',
-          description:
-            'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
-        })}
+        data={withBreadcrumb(
+          buildPricingPageGraph({
+            name: 'Event Decoration Pricing',
+            description:
+              'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <PricingPageView />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Pricing', href: '/pricing' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="Investment"

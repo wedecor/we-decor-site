@@ -8,7 +8,7 @@ export function buildCollectionPageSchema(options: {
   name: string;
   description: string;
   pageUrl: string;
-  items: ReadonlyArray<{ name: string; url: string; image?: string }>;
+  items: ReadonlyArray<{ name: string; url: string; description?: string; image?: string }>;
 }): JsonLdNode {
   const url = options.pageUrl.replace(/\/+$/, '') || options.pageUrl;
   return buildWebPage({
@@ -17,12 +17,27 @@ export function buildCollectionPageSchema(options: {
     description: options.description,
     url,
     about: { '@id': SCHEMA_IDS.localBusiness },
-    hasPart: options.items.map((item) => ({
-      '@type': 'WebPage',
-      name: item.name,
-      url: item.url,
-      ...(item.image ? { primaryImageOfPage: { '@type': 'ImageObject', url: item.image } } : {}),
-    })),
+    /*
+     * Items that are their own page become bare @id references, using the same
+     * @id that page emits for itself. The target page owns its name and
+     * description, so a hub must not assert a competing name for the same @id.
+     * The list label lives on ListItem.name in the companion ItemList.
+     *
+     * Fragment-only items (in-page anchors, e.g. gallery sections) are not
+     * separately addressable entities, so they stay inline and un-@id'd.
+     */
+    hasPart: options.items.map((item) =>
+      item.url.includes('#')
+        ? {
+            '@type': 'WebPage',
+            name: item.name,
+            url: item.url,
+            ...(item.image
+              ? { primaryImageOfPage: { '@type': 'ImageObject', url: item.image } }
+              : {}),
+          }
+        : { '@type': 'WebPage', '@id': pageId(item.url, 'webpage'), url: item.url }
+    ),
     mainEntity: {
       '@id': pageId(url, 'itemlist'),
     },
@@ -86,12 +101,10 @@ export function buildItemListSchema(options: {
       position: index + 1,
       name: item.name,
       url: item.url,
-      item: {
-        '@type': 'WebPage',
-        name: item.name,
-        url: item.url,
-        ...(item.description ? { description: item.description } : {}),
-      },
+      // References the WebPage node emitted for this URL (by the caller's
+      // matching buildCollectionPageSchema hasPart, or by that page itself)
+      // instead of spawning a second anonymous WebPage node per item.
+      ...(item.url.includes('#') ? {} : { item: { '@id': pageId(item.url, 'webpage') } }),
     })),
   };
 }

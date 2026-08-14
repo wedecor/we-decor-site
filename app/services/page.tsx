@@ -4,9 +4,9 @@ import { SERVICE_IMAGES } from '@/lib/images';
 import PageHero from '@/components/lux/PageHero';
 import { RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildServicesHubGraph } from '@/lib/schema';
+import { buildServicesHubGraph, withBreadcrumb } from '@/lib/schema';
 
 /** Core decoration services — displayed as photo cards */
 const decorationCards = [
@@ -104,6 +104,11 @@ const partnerServices = [
   },
 ] as const;
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+];
+
 export default function ServicesPage() {
   const listForSchema = [
     ...RELATED_DECORATION_SERVICES.map((s) => ({
@@ -121,21 +126,18 @@ export default function ServicesPage() {
   return (
     <div className="lux-page">
       <SchemaScript
-        data={buildServicesHubGraph({
-          name: 'Event Decoration Services — We Decor Bangalore',
-          description:
-            'Decoration is our signature craft — birthdays, weddings, haldi, engagements, corporate events, and more across Bengaluru.',
-          services: listForSchema,
-        })}
+        data={withBreadcrumb(
+          buildServicesHubGraph({
+            name: 'Event Decoration Services — We Decor Bangalore',
+            description:
+              'Decoration is our signature craft — birthdays, weddings, haldi, engagements, corporate events, and more across Bengaluru.',
+            services: listForSchema,
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Services', href: '/services' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="What we do"

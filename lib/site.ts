@@ -91,33 +91,15 @@ export const SERVICE_PATHS = {
   'terrace-decoration': '/services/terrace-decoration',
   'car-decoration': '/services/car-decoration',
   decoration: '/services/decoration',
-  catering: '/services/catering',
-  'hair-stylists': '/services/hair-stylists',
-  'makeup-artists': '/services/makeup-artists',
-  'mehndi-artists': '/services/mehndi-artists',
-  photographers: '/services/photographers',
-  videographers: '/services/videographers',
 } as const;
 
 /**
- * Partner services we coordinate rather than deliver ourselves.
- * These paths 301 to /services, so they must never appear in the sitemap —
- * submitting redirecting URLs wastes crawl budget and reports as
- * "Page with redirect" in Search Console.
+ * Canonical, indexable service paths — safe for sitemap inclusion.
+ * Only in-house decoration routes belong here. Retired referral verticals
+ * 301 to /services and must never be submitted, since redirecting URLs
+ * waste crawl budget and report as "Page with redirect".
  */
-export const PARTNER_SERVICE_SLUGS = [
-  'catering',
-  'hair-stylists',
-  'makeup-artists',
-  'mehndi-artists',
-  'photographers',
-  'videographers',
-] as const;
-
-/** Canonical, indexable service paths — safe for sitemap inclusion. */
-export const INDEXABLE_SERVICE_PATHS: string[] = Object.entries(SERVICE_PATHS)
-  .filter(([slug]) => !(PARTNER_SERVICE_SLUGS as readonly string[]).includes(slug))
-  .map(([, path]) => path);
+export const INDEXABLE_SERVICE_PATHS: string[] = Object.values(SERVICE_PATHS);
 
 // Helper function to get service path
 export const getServicePath = (serviceSlug: string): string => {

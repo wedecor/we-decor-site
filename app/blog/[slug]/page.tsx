@@ -4,11 +4,11 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { absoluteUrl, pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
-import { buildBlogPostingGraph } from '@/lib/schema';
+import { buildBlogPostingGraph, withBreadcrumb } from '@/lib/schema';
 import { getAllBlogSlugs, getBlogPost, getRelatedPosts } from '@/lib/content/blog-posts';
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -45,29 +45,29 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(slug);
   const url = absoluteUrl(`/blog/${slug}`);
+  const crumbs = [
+    { name: 'Home', href: '/' },
+    { name: 'Blog', href: '/blog' },
+    { name: post.title, href: `/blog/${slug}` },
+  ];
 
   return (
     <div className="lux-page">
       <SchemaScript
-        data={buildBlogPostingGraph({
-          title: post.title,
-          description: post.description,
-          url,
-          image: post.featuredImage,
-          datePublished: post.datePublished,
-          dateModified: post.dateModified,
-          authorName: post.authorName,
-        })}
+        data={withBreadcrumb(
+          buildBlogPostingGraph({
+            title: post.title,
+            description: post.description,
+            url,
+            image: post.featuredImage,
+            datePublished: post.datePublished,
+            dateModified: post.dateModified,
+          }),
+          siteBreadcrumbsToSchemaItems(crumbs)
+        )}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Blog', href: '/blog' },
-            { name: post.title, href: `/blog/${slug}` },
-          ]}
-        />
+        <SiteBreadcrumbs items={crumbs} />
       </div>
 
       <article>

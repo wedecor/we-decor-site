@@ -3,11 +3,10 @@ import { SimpleGoogleReviewsEmbed } from '@/components/GoogleReviewsWidget';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildReviewsPageGraph } from '@/lib/schema';
-import { getGoogleReviews } from '@/utils/googleReviews';
+import { buildReviewsPageGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/reviews',
@@ -17,34 +16,28 @@ export const metadata: Metadata = pageMetadata({
   ogImage: '/og-banner.jpg',
 });
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Reviews', href: '/reviews' },
+];
+
 export default async function ReviewsPage() {
   const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID || '';
-  const live = await getGoogleReviews();
 
   return (
     <div className="lux-page">
       <SchemaScript
-        data={buildReviewsPageGraph({
-          name: 'Customer Reviews',
-          description:
-            'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
-          aggregateRating: live ? { ratingValue: live.rating, reviewCount: live.total } : null,
-          reviews: live?.reviews.map((r) => ({
-            authorName: r.author,
-            reviewBody: r.text,
-            ratingValue: r.rating,
-            datePublished: r.datePublished,
-          })),
-        })}
+        data={withBreadcrumb(
+          buildReviewsPageGraph({
+            name: 'Customer Reviews',
+            description:
+              'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Reviews', href: '/reviews' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="Testimonials"

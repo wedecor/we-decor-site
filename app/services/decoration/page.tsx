@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
-import PartnerServicePage from '@/components/services/PartnerServicePage';
+import PartnerServicePage, { partnerServiceCrumbs } from '@/components/services/PartnerServicePage';
+import { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import { pageMetadata } from '@/lib/metadata';
-import { buildServiceDetailGraph } from '@/lib/schema';
+import { buildServiceDetailGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/decoration',
@@ -18,15 +19,25 @@ export default function DecorationPage() {
       path="/services/decoration"
       schema={
         <SchemaScript
-          data={buildServiceDetailGraph({
-            name: 'Event Decoration Services',
-            description:
-              'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
-            path: '/services/decoration',
-            serviceType: 'Theme party decoration',
-            serviceId: 'theme-decoration',
-            image: '/services/engagement.webp',
-          })}
+          data={withBreadcrumb(
+            buildServiceDetailGraph({
+              name: 'Event Decoration Services',
+              description:
+                'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
+              path: '/services/decoration',
+              serviceType: 'Event decoration',
+              // Umbrella service in its own right — `theme-decoration` stays the
+              // homepage catalog entry, and the narrower services hang off this
+              // node's OfferCatalog rather than sharing its identifier.
+              serviceId: 'decoration',
+              useSiteScopedId: true,
+              includesCoreServices: true,
+              image: '/services/engagement.webp',
+            }),
+            siteBreadcrumbsToSchemaItems(
+              partnerServiceCrumbs('Event Decoration Services', '/services/decoration')
+            )
+          )}
         />
       }
       config={{

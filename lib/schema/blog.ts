@@ -11,17 +11,15 @@ export function buildBlogPostingGraph(options: {
   image: string;
   datePublished: string;
   dateModified?: string;
-  authorName: string;
 }): GraphDocument {
   const url = options.url.replace(/\/+$/, '') || options.url;
   const imageUrl = options.image.startsWith('http') ? options.image : absoluteUrl(options.image);
   const blogPostingId = pageId(url, 'blogposting');
 
-  const author: JsonLdNode = {
-    '@type': 'Organization',
-    '@id': SCHEMA_IDS.organization,
-    name: options.authorName,
-  };
+  // Posts are authored by the studio itself, which is the same entity as the
+  // publisher below — referenced by @id rather than restated, so the page
+  // emits one Organization node instead of two.
+  const author: JsonLdNode = { '@id': SCHEMA_IDS.organization };
 
   const blogPosting: JsonLdNode = {
     '@type': 'BlogPosting',

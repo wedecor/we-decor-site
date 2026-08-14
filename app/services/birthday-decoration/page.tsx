@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import SchemaScript from '@/components/seo/SchemaScript';
-import DecorationServicePage from '@/components/services/DecorationServicePage';
-import { pageMetadata } from '@/lib/metadata';
-import { buildServicePageSchemaFromCore } from '@/lib/local-seo';
+import DecorationServicePage, {
+  decorationServiceCrumbs,
+} from '@/components/services/DecorationServicePage';
+import { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
+import { absoluteUrl, pageMetadata } from '@/lib/metadata';
+import { buildServiceDetailGraph, withBreadcrumb } from '@/lib/schema';
 import { getDecorationServicePage } from '@/lib/services/decoration-service-pages';
 
 const config = getDecorationServicePage('birthday-decoration');
@@ -18,12 +21,26 @@ export const metadata: Metadata = pageMetadata({
   ogImage: birthdayConfig.ogImage,
 });
 
-const structuredData = buildServicePageSchemaFromCore('birthday-decoration');
+// Matches the graph shape emitted by app/services/[slug]/page.tsx for every
+// dynamic sibling — WebPage + Service (+ FAQPage when the page renders FAQs).
+const structuredData = withBreadcrumb(
+  buildServiceDetailGraph({
+    name: birthdayConfig.title,
+    description: birthdayConfig.description,
+    path: `/services/${birthdayConfig.slug}`,
+    serviceType: birthdayConfig.serviceType,
+    serviceId: birthdayConfig.coreServiceId ?? birthdayConfig.slug,
+    image: absoluteUrl(birthdayConfig.ogImage),
+    faqs: birthdayConfig.faqs,
+    includeServiceFaq: !birthdayConfig.faqs?.length,
+  }),
+  siteBreadcrumbsToSchemaItems(decorationServiceCrumbs(birthdayConfig))
+);
 
 export default function BirthdayDecorationPage() {
   return (
     <>
-      {structuredData ? <SchemaScript data={structuredData} /> : null}
+      <SchemaScript data={structuredData} />
       <DecorationServicePage config={birthdayConfig} />
     </>
   );

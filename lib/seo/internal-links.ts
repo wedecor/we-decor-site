@@ -56,15 +56,12 @@ export const ALL_LOCALITY_LINKS: readonly InternalLink[] = [
   { href: '/locations/yeshwanthpur', name: 'Yeshwanthpur' },
 ] as const;
 
-/** Partner verticals — cross-linked so none rely on the hub alone. */
+/**
+ * Standalone service landings outside the /services/[slug] catalog.
+ * Referral verticals were retired — only in-house decoration remains.
+ */
 export const PARTNER_SERVICE_LINKS = [
   { href: '/services/decoration', label: 'Event decoration' },
-  { href: '/services/catering', label: 'Catering' },
-  { href: '/services/makeup-artists', label: 'Make-up artists' },
-  { href: '/services/hair-stylists', label: 'Hair stylists' },
-  { href: '/services/mehndi-artists', label: 'Mehndi artists' },
-  { href: '/services/photographers', label: 'Photographers' },
-  { href: '/services/videographers', label: 'Videographers' },
 ] as const;
 
 /**
@@ -84,7 +81,6 @@ export const RELATED_DECORATION_SERVICES = [
   { href: '/services/floral-decoration', label: 'Floral Decorations' },
   { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
   { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
-  { href: '/services/catering', label: 'Catering' },
 ] as const;
 
 const LABEL_BY_HREF = Object.fromEntries(
@@ -119,7 +115,7 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
   '/services/corporate-decoration': [
     '/services/tent-balloon-setup',
     '/services/balloon-decoration',
-    '/services/catering',
+    '/services/floral-decoration',
   ],
   '/services/room-decoration': [
     '/services/anniversary-decoration',
@@ -547,54 +543,6 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/whitefield', name: 'Celebrate in Whitefield' },
     { href: '/locations/basavanagudi', name: 'Basavanagudi setups' },
     { href: '/locations/yeshwanthpur', name: 'Parties in Yeshwanthpur' },
-  ],
-  'partner-catering': [
-    { href: '/locations/electronic-city', name: 'Electronic City' },
-    { href: '/locations/koramangala', name: 'Décor in Koramangala' },
-    { href: '/locations/bannerghatta-road', name: 'Bannerghatta Road events' },
-    { href: '/locations/ashok-nagar', name: 'Celebrate in Ashok Nagar' },
-    { href: '/locations/marathahalli', name: 'Marathahalli setups' },
-    { href: '/locations/sarjapur-road', name: 'Parties in Sarjapur Road' },
-  ],
-  'partner-makeup-artists': [
-    { href: '/locations/mathikere', name: 'Mathikere' },
-    { href: '/locations/yelahanka', name: 'Décor in Yelahanka' },
-    { href: '/locations/kanakapura-road', name: 'Kanakapura Road events' },
-    { href: '/locations/domlur', name: 'Celebrate in Domlur' },
-    { href: '/locations/richmond-town', name: 'Richmond Town setups' },
-    { href: '/locations/ulsoor', name: 'Parties in Ulsoor' },
-  ],
-  'partner-hair-stylists': [
-    { href: '/locations/marathahalli', name: 'Marathahalli' },
-    { href: '/locations/sarjapur-road', name: 'Décor in Sarjapur Road' },
-    { href: '/locations/mathikere', name: 'Mathikere events' },
-    { href: '/locations/yelahanka', name: 'Celebrate in Yelahanka' },
-    { href: '/locations/kanakapura-road', name: 'Kanakapura Road setups' },
-    { href: '/locations/domlur', name: 'Parties in Domlur' },
-  ],
-  'partner-mehndi-artists': [
-    { href: '/locations/banashankari', name: 'Banashankari' },
-    { href: '/locations/rt-nagar', name: 'Décor in RT Nagar' },
-    { href: '/locations/vijayanagar', name: 'Vijayanagar events' },
-    { href: '/locations/bangalore', name: 'Celebrate in Bangalore' },
-    { href: '/locations/jp-nagar', name: 'JP Nagar setups' },
-    { href: '/locations/sahakarnagar', name: 'Parties in Sahakarnagar' },
-  ],
-  'partner-photographers': [
-    { href: '/locations/indiranagar', name: 'Indiranagar' },
-    { href: '/locations/hebbal', name: 'Décor in Hebbal' },
-    { href: '/locations/whitefield', name: 'Whitefield events' },
-    { href: '/locations/basavanagudi', name: 'Celebrate in Basavanagudi' },
-    { href: '/locations/yeshwanthpur', name: 'Yeshwanthpur setups' },
-    { href: '/locations/electronic-city', name: 'Parties in Electronic City' },
-  ],
-  'partner-videographers': [
-    { href: '/locations/koramangala', name: 'Koramangala' },
-    { href: '/locations/bannerghatta-road', name: 'Décor in Bannerghatta Road' },
-    { href: '/locations/ashok-nagar', name: 'Ashok Nagar events' },
-    { href: '/locations/richmond-town', name: 'Celebrate in Richmond Town' },
-    { href: '/locations/ulsoor', name: 'Ulsoor setups' },
-    { href: '/locations/hsr-layout', name: 'Parties in HSR Layout' },
   ],
 };
 

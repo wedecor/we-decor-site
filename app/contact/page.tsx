@@ -4,8 +4,8 @@ import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildContactPageGraph } from '@/lib/schema';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import { buildContactPageGraph, withBreadcrumb } from '@/lib/schema';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 
 const ContactFormClient = nextDynamic(() => import('@/components/contact/ContactFormClient'), {
   loading: () => (
@@ -26,15 +26,23 @@ export const metadata: Metadata = pageMetadata({
 
 export const dynamic = 'force-static';
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Contact', href: '/contact' },
+];
+
 export default function ContactPage() {
   return (
     <div className="lux-page relative overflow-hidden">
       <SchemaScript
-        data={buildContactPageGraph({
-          name: 'Contact We Decor Events',
-          description:
-            'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
-        })}
+        data={withBreadcrumb(
+          buildContactPageGraph({
+            name: 'Contact We Decor Events',
+            description:
+              'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <div
         className="lux-ambient-glow w-[420px] h-[420px] -top-32 right-0"
@@ -43,13 +51,7 @@ export default function ContactPage() {
       />
 
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2 relative z-10">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Contact', href: '/contact' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
 
       <section className="lux-section-tight pt-0 pb-14 md:pb-16 border-b border-white/[0.08] relative z-10 lux-section-glow">

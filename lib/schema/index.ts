@@ -6,7 +6,7 @@ export { buildOrganization } from './organization';
 export { buildLocalBusiness, buildOpeningHoursSpecification } from './local-business';
 export { buildWebSite } from './website';
 export { buildWebPage } from './webpage';
-export { buildBreadcrumbSchema, buildBreadcrumbNode } from './breadcrumb';
+export { buildBreadcrumbSchema, buildBreadcrumbNode, withBreadcrumb } from './breadcrumb';
 export {
   buildServiceSchema,
   buildServicePageSchema,
@@ -39,5 +39,6 @@ export {
   buildReviewsPageGraph,
   buildServiceDetailGraph,
   buildLocalityPageGraph,
+  buildBlogHubGraph,
 } from './pages';
 export { buildBlogPostingGraph } from './blog';

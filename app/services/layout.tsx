@@ -3,9 +3,9 @@ import { pageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services',
-  title: 'Event Services — Decoration, Catering & More in Bangalore',
+  title: 'Event Decoration Services in Bangalore',
   description:
-    'Comprehensive event services in Bangalore: decoration, catering, makeup artists, photography, and more. Professional event planning and execution by We Decor.',
+    'Event decoration across Bangalore: birthdays, weddings, haldi, engagements, corporate events, balloon and floral setups. Designed and installed by the We Decor team.',
 });
 
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {

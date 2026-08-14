@@ -19,6 +19,28 @@ export function buildCoreServiceNodes(): JsonLdNode[] {
   );
 }
 
+/**
+ * OfferCatalog of the core decoration services, referenced by the same
+ * site-scoped @ids the homepage catalog defines. Reference-only (@id + name)
+ * so a single node stays authoritative for each service's full description.
+ */
+export function buildCoreServiceCatalog(catalogId: string): JsonLdNode {
+  return {
+    '@type': 'OfferCatalog',
+    '@id': catalogId,
+    name: 'Event Decoration Services in Bengaluru',
+    itemListElement: CORE_DECORATION_SERVICES.map((svc, index) => ({
+      '@type': 'Offer',
+      position: index + 1,
+      itemOffered: {
+        '@type': 'Service',
+        '@id': `${NAP.url}/#service-${svc.id}`,
+        name: svc.name,
+      },
+    })),
+  };
+}
+
 export function buildServiceSchema(options: {
   name: string;
   serviceType: string;
@@ -29,6 +51,8 @@ export function buildServiceSchema(options: {
   useSiteScopedId?: boolean;
   image?: string;
   audienceName?: string;
+  /** Nested catalog for umbrella services that encompass narrower ones. */
+  hasOfferCatalog?: JsonLdNode;
 }): JsonLdNode {
   const pageUrl = absoluteUrl(options.path);
   const id =
@@ -68,6 +92,8 @@ export function buildServiceSchema(options: {
       caption: `${options.name} by ${NAP.name}`,
     });
   }
+
+  if (options.hasOfferCatalog) node.hasOfferCatalog = options.hasOfferCatalog;
 
   return node;
 }

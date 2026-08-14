@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import { HOME_PREVIEW_IMAGES } from '@/lib/images';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
-import { buildAboutPageGraph } from '@/lib/schema';
+import { buildAboutPageGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/about',
@@ -27,15 +27,23 @@ const COLUMN = 'mx-auto w-full max-w-[40rem]';
 /** Shared type styles for the story body */
 const BODY = 'text-[1.1875rem] md:text-[1.3125rem] text-lux-secondary font-light leading-[1.95]';
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/about' },
+];
+
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-lux-bg">
       <SchemaScript
-        data={buildAboutPageGraph({
-          name: 'About We Decor Events',
-          description:
-            'We Decor was started in 2022 by Ilyas and Zakir after a friend’s engagement went wrong. The story behind our event decoration studio in Bangalore.',
-        })}
+        data={withBreadcrumb(
+          buildAboutPageGraph({
+            name: 'About We Decor Events',
+            description:
+              'We Decor was started in 2022 by Ilyas and Zakir after a friend’s engagement went wrong. The story behind our event decoration studio in Bangalore.',
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
 
       {/* ── Hero ── */}
@@ -77,13 +85,7 @@ export default function AboutPage() {
       {/* ── Breadcrumbs ── */}
       <div className={`${GUTTER} pt-5`}>
         <div className={COLUMN}>
-          <SiteBreadcrumbs
-            withSchema
-            items={[
-              { name: 'Home', href: '/' },
-              { name: 'About', href: '/about' },
-            ]}
-          />
+          <SiteBreadcrumbs items={CRUMBS} />
         </div>
       </div>
 

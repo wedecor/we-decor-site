@@ -2,10 +2,10 @@ import FAQ from '@/components/FAQ';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildFaqSitePageGraph } from '@/lib/schema';
+import { buildFaqSitePageGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/faq',
@@ -13,24 +13,26 @@ export const metadata: Metadata = pageMetadata({
   description: 'Answers to common questions about event decor, timelines, and customizations.',
 });
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'FAQ', href: '/faq' },
+];
+
 export default function FAQPage() {
   return (
     <div className="lux-page">
       <SchemaScript
-        data={buildFaqSitePageGraph({
-          name: 'Frequently Asked Questions',
-          description:
-            'Answers to common questions about event decor, timelines, and customizations.',
-        })}
+        data={withBreadcrumb(
+          buildFaqSitePageGraph({
+            name: 'Frequently Asked Questions',
+            description:
+              'Answers to common questions about event decor, timelines, and customizations.',
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'FAQ', href: '/faq' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="Guidance"

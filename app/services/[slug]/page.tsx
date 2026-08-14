@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 import SchemaScript from '@/components/seo/SchemaScript';
-import DecorationServicePage from '@/components/services/DecorationServicePage';
+import DecorationServicePage, {
+  decorationServiceCrumbs,
+} from '@/components/services/DecorationServicePage';
+import { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import { absoluteUrl, pageMetadata } from '@/lib/metadata';
-import { buildServiceDetailGraph } from '@/lib/schema';
+import { buildServiceDetailGraph, withBreadcrumb } from '@/lib/schema';
 import {
   DECORATION_SERVICE_SLUGS,
   getDecorationServicePage,
@@ -54,16 +57,19 @@ export default async function DecorationServiceRoute({ params }: PageProps) {
   return (
     <>
       <SchemaScript
-        data={buildServiceDetailGraph({
-          name: config.title,
-          description: config.description,
-          path: `/services/${config.slug}`,
-          serviceType: config.serviceType,
-          serviceId: config.coreServiceId ?? slug,
-          image: absoluteUrl(config.ogImage),
-          faqs: config.faqs,
-          includeServiceFaq: !config.faqs?.length,
-        })}
+        data={withBreadcrumb(
+          buildServiceDetailGraph({
+            name: config.title,
+            description: config.description,
+            path: `/services/${config.slug}`,
+            serviceType: config.serviceType,
+            serviceId: config.coreServiceId ?? slug,
+            image: absoluteUrl(config.ogImage),
+            faqs: config.faqs,
+            includeServiceFaq: !config.faqs?.length,
+          }),
+          siteBreadcrumbsToSchemaItems(decorationServiceCrumbs(config))
+        )}
       />
       <DecorationServicePage config={config} />
     </>

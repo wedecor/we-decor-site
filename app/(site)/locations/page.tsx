@@ -4,13 +4,13 @@ import { CLUSTERS } from '../_data/clusters';
 import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
 import { pageMetadata } from '@/lib/metadata';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildLocationsHubGraph } from '@/lib/schema';
+import { buildLocationsHubGraph, withBreadcrumb } from '@/lib/schema';
 import { CONTACT } from '@/lib/contact';
 import PageHero from '@/components/lux/PageHero';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 import TrackedCtaLink from '@/components/analytics/TrackedCtaLink';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 
 export const metadata: Metadata = pageMetadata({
   path: '/locations',
@@ -92,25 +92,27 @@ function ClusterSection({
   );
 }
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Locations', href: '/locations' },
+];
+
 export default function LocationsHubPage() {
   return (
     <div className="lux-page" id="top">
       <SchemaScript
-        data={buildLocationsHubGraph({
-          name: `Areas We Serve — ${CITY}`,
-          description:
-            'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
-          localityUrls: AREAS.map((a) => ({ name: a.name, slug: a.slug })),
-        })}
+        data={withBreadcrumb(
+          buildLocationsHubGraph({
+            name: `Areas We Serve — ${CITY}`,
+            description:
+              'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
+            localityUrls: AREAS.map((a) => ({ name: a.name, slug: a.slug })),
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Locations', href: '/locations' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="Bengaluru coverage"

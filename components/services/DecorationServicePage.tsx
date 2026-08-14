@@ -15,6 +15,18 @@ type Props = {
   config: DecorationServicePageConfig;
 };
 
+/** Mirrors the trail this template renders, for the page's BreadcrumbList node. */
+export function decorationServiceCrumbs(config: { title: string; slug: string }) {
+  return [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    {
+      name: config.title.replace(/ in Bangalore$/i, ''),
+      href: `/services/${config.slug}`,
+    },
+  ];
+}
+
 const DEFAULT_WHY_CHOOSE = [
   {
     title: 'Editorial styling',
@@ -120,12 +132,7 @@ export default function DecorationServicePage({ config }: Props) {
         <div className="relative z-10 w-full lux-container px-6 pb-16 md:pb-24">
           <SiteBreadcrumbs
             className="mb-6 text-lux-muted/90"
-            withSchema
-            items={[
-              { name: 'Home', href: '/' },
-              { name: 'Services', href: '/services' },
-              { name: config.title.replace(/ in Bangalore$/i, ''), href: servicePath },
-            ]}
+            items={decorationServiceCrumbs(config)}
           />
           <p className="lux-eyebrow mb-4">{config.eyebrow}</p>
           <h1 className="font-display text-4xl md:text-5xl lg:text-[3.5rem] font-light leading-[1.12] max-w-3xl tracking-tight">

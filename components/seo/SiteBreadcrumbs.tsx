@@ -1,9 +1,7 @@
 import Link from 'next/link';
-import SchemaScript from '@/components/seo/SchemaScript';
-import { buildBreadcrumbSchema } from '@/lib/schema';
 
 /**
- * Breadcrumb item with a stable path for UI + future/JSON-LD BreadcrumbList.
+ * Breadcrumb item with a stable path for UI + JSON-LD BreadcrumbList.
  * Pass `href` for every crumb (including the current page).
  */
 export type SiteBreadcrumbItem = {
@@ -11,10 +9,13 @@ export type SiteBreadcrumbItem = {
   href: string;
 };
 
+/**
+ * Visible trail only. The BreadcrumbList node belongs in the page's own
+ * @graph — pass the same items through `withBreadcrumb()` where the page
+ * builds its graph, so the WebPage node's `breadcrumb` @id resolves.
+ */
 type Props = {
   items: SiteBreadcrumbItem[];
-  /** Emit BreadcrumbList JSON-LD alongside the visible trail. */
-  withSchema?: boolean;
   className?: string;
 };
 
@@ -25,14 +26,11 @@ export function siteBreadcrumbsToSchemaItems(
   return items.map((item) => ({ name: item.name, path: item.href }));
 }
 
-export default function SiteBreadcrumbs({ items, withSchema = false, className = '' }: Props) {
+export default function SiteBreadcrumbs({ items, className = '' }: Props) {
   if (items.length === 0) return null;
 
   return (
     <>
-      {withSchema ? (
-        <SchemaScript data={buildBreadcrumbSchema(siteBreadcrumbsToSchemaItems(items))} />
-      ) : null}
       <nav
         className={`flex text-sm font-light text-lux-muted ${className}`.trim()}
         aria-label="Breadcrumb"

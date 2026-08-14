@@ -3,15 +3,19 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
+import SchemaScript from '@/components/seo/SchemaScript';
+import { buildBlogHubGraph, withBreadcrumb } from '@/lib/schema';
 import { BLOG_POSTS } from '@/lib/content/blog-posts';
+
+const BLOG_HUB_DESCRIPTION =
+  'Practical event decoration guides for Bangalore — birthday ideas, haldi checklists, wedding budgets, balloon trends, and venue planning from We Decor Events.';
 
 export const metadata: Metadata = pageMetadata({
   path: '/blog',
   title: 'Event Planning Guides & Decoration Ideas',
-  description:
-    'Practical event decoration guides for Bangalore — birthday ideas, haldi checklists, wedding budgets, balloon trends, and venue planning from We Decor Events.',
+  description: BLOG_HUB_DESCRIPTION,
 });
 
 export const dynamic = 'force-static';
@@ -24,6 +28,11 @@ function formatDate(isoDate: string): string {
   });
 }
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Blog', href: '/blog' },
+];
+
 export default function BlogIndexPage() {
   const sortedPosts = [...BLOG_POSTS].sort((a, b) =>
     b.datePublished.localeCompare(a.datePublished)
@@ -31,14 +40,23 @@ export default function BlogIndexPage() {
 
   return (
     <div className="lux-page">
+      <SchemaScript
+        data={withBreadcrumb(
+          buildBlogHubGraph({
+            name: 'Celebration Insights — We Decor Blog',
+            description: BLOG_HUB_DESCRIPTION,
+            posts: sortedPosts.map((post) => ({
+              title: post.title,
+              path: `/blog/${post.slug}`,
+              description: post.description,
+              image: post.featuredImage,
+            })),
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
+      />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Blog', href: '/blog' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="Planning guides"

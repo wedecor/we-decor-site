@@ -15,7 +15,7 @@ import { getGeneratedArea, buildLocationMetaDescription } from '../../_data/loca
 import { getLocalityPageMeta } from '../../_data/location-metadata';
 import { getNearbyLocalitySlugs } from '@/lib/seo/internal-links';
 import LocationGallery from '../../../../components/LocationGallery';
-import LocalBizJsonLd from '../../_components/LocalBizJsonLd';
+import LocalBizJsonLd, { localityCrumbs } from '../../_components/LocalBizJsonLd';
 import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
@@ -153,12 +153,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <SiteBreadcrumbs
               className="mb-6 justify-center"
-              withSchema
-              items={[
-                { name: 'Home', href: '/' },
-                { name: 'Locations', href: '/locations' },
-                { name: areaName, href: `/locations/${slug}` },
-              ]}
+              items={localityCrumbs(areaName, slug)}
             />
             <p className="lux-eyebrow mb-3 md:mb-4">Bengaluru · {area.name}</p>
             <h1 className="font-display text-3xl md:text-6xl font-medium mb-4 md:mb-6 text-lux-ivory">

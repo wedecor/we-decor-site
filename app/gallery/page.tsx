@@ -2,10 +2,10 @@ import Gallery from '@/components/Gallery';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
 import PageHero from '@/components/lux/PageHero';
-import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
+import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
-import { buildGalleryPageGraph } from '@/lib/schema';
+import { buildGalleryPageGraph, withBreadcrumb } from '@/lib/schema';
 import { GALLERY_COLLECTION_ORDER, getImagesByCategory } from '@/utils/gallery';
 import Link from 'next/link';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
@@ -20,6 +20,11 @@ export const metadata: Metadata = pageMetadata({
 
 export const dynamic = 'force-static';
 
+const CRUMBS = [
+  { name: 'Home', href: '/' },
+  { name: 'Gallery', href: '/gallery' },
+];
+
 export default function GalleryPage() {
   const collectionImages = GALLERY_COLLECTION_ORDER.map((category) => {
     const first = getImagesByCategory(category)[0];
@@ -33,21 +38,18 @@ export default function GalleryPage() {
   return (
     <div className="lux-page">
       <SchemaScript
-        data={buildGalleryPageGraph({
-          name: 'Event Decorations Gallery',
-          description:
-            'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore. Professional decor services by We Decor.',
-          images: collectionImages,
-        })}
+        data={withBreadcrumb(
+          buildGalleryPageGraph({
+            name: 'Event Decorations Gallery',
+            description:
+              'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore. Professional decor services by We Decor.',
+            images: collectionImages,
+          }),
+          siteBreadcrumbsToSchemaItems(CRUMBS)
+        )}
       />
       <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-        <SiteBreadcrumbs
-          withSchema
-          items={[
-            { name: 'Home', href: '/' },
-            { name: 'Gallery', href: '/gallery' },
-          ]}
-        />
+        <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
         eyebrow="Portfolio"

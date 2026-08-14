@@ -8,6 +8,15 @@ import SiteBreadcrumbs from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import { PARTNER_SERVICE_LINKS, RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
 
+/** Mirrors the trail this template renders, for the page's BreadcrumbList node. */
+export function partnerServiceCrumbs(title: string, path: string) {
+  return [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: title, href: path },
+  ];
+}
+
 export type PartnerServiceConfig = {
   title: string;
   description: string;
@@ -23,11 +32,22 @@ export type PartnerServiceConfig = {
 type Props = {
   config: PartnerServiceConfig;
   schema?: ReactNode;
-  /** Canonical path for breadcrumbs (e.g. /services/catering). */
+  /** Canonical path for breadcrumbs (e.g. /services/decoration). */
   path: string;
+  /**
+   * Hero label. Defaults to in-house decoration wording — this template's
+   * pages emit a Service node naming We Decor as provider, so it must not
+   * imply the work is delivered by a third-party partner.
+   */
+  eyebrow?: string;
 };
 
-export default function PartnerServicePage({ config, schema, path }: Props) {
+export default function PartnerServicePage({
+  config,
+  schema,
+  path,
+  eyebrow = 'Decoration services',
+}: Props) {
   const tel = CONTACT.PRIMARY_NUMBER;
 
   return (
@@ -35,20 +55,9 @@ export default function PartnerServicePage({ config, schema, path }: Props) {
       {schema}
       <div className="lux-page">
         <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
-          <SiteBreadcrumbs
-            withSchema
-            items={[
-              { name: 'Home', href: '/' },
-              { name: 'Services', href: '/services' },
-              { name: config.title, href: path },
-            ]}
-          />
+          <SiteBreadcrumbs items={partnerServiceCrumbs(config.title, path)} />
         </div>
-        <PageHero
-          eyebrow="Partner services"
-          title={config.title}
-          description={config.description}
-        />
+        <PageHero eyebrow={eyebrow} title={config.title} description={config.description} />
 
         <section className="lux-section pt-6 pb-24 md:pb-32 bg-lux-bg">
           <div className="lux-container">
