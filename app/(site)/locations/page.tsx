@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { CLUSTERS } from '../_data/clusters';
-import { AREAS, BUSINESS_NAME, CITY, PHONE_DISPLAY } from '../_data/locations';
+import { AREAS, BUSINESS_NAME, CITY } from '../_data/locations';
 import { pageMetadata } from '@/lib/metadata';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildLocationsHubGraph, withBreadcrumb } from '@/lib/schema';
@@ -121,11 +121,11 @@ export default function LocationsHubPage() {
       >
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <TrackedPhoneLink
-            href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+            href={`tel:${CONTACT.PRIMARY_NUMBER}`}
             source="locations_hub"
             className="lux-btn-secondary"
           >
-            Call {PHONE_DISPLAY}
+            Call {CONTACT.primary.display}
           </TrackedPhoneLink>
           <TrackedWhatsAppLink
             href={CONTACT.waUrl()}

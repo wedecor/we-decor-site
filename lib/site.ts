@@ -19,7 +19,7 @@ export const SITE_DESCRIPTION = 'Professional event decoration services in Banga
 
 export const SITE_PHONE = CONTACT.primary.display;
 export const SITE_WHATSAPP = CONTACT.primary.display;
-export const SITE_EMAIL = 'info@wedecorevents.com';
+export const SITE_EMAIL = 'connect2wedecor@gmail.com';
 
 // Canonical URL helpers
 export const getCanonicalUrl = (path: string = '') => {

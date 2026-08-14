@@ -31,3 +31,6 @@ export const SITE_FAQS = [
     answer: `No. ${PRICING_CUSTOMIZED_LINE}`,
   },
 ] as const;
+
+/** The five questions rendered on the homepage FAQ section. */
+export const HOME_PAGE_FAQS = SITE_FAQS.slice(0, 5);

@@ -1,4 +1,5 @@
 import { CONTACT } from '@/lib/contact';
+import { OPENING_HOURS } from '@/lib/local-seo/constants';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 
@@ -41,7 +42,7 @@ export default function HomeContact() {
             >
               {tel[1].label}
             </TrackedPhoneLink>
-            <p className="mt-4 text-sm text-lux-secondary">Bengaluru · Mon–Sun 9am–9pm</p>
+            <p className="mt-4 text-sm text-lux-secondary">{OPENING_HOURS.displayHome}</p>
           </div>
         </div>
       </div>

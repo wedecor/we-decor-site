@@ -12,7 +12,7 @@ export function buildCoreServiceNodes(): JsonLdNode[] {
       name: svc.name,
       serviceType: svc.serviceType,
       description: svc.description,
-      path: svc.path,
+      path: 'path' in svc ? svc.path : undefined,
       serviceId: svc.id,
       useSiteScopedId: true,
     })
@@ -43,9 +43,12 @@ export function buildCoreServiceCatalog(catalogId: string): JsonLdNode {
 
 export function buildServiceSchema(options: {
   name: string;
+  /** Longer marketing title when it differs from the canonical `name`. */
+  alternateName?: string;
   serviceType: string;
   description: string;
-  path: string;
+  /** Dedicated page path. Omit for catalog-only services that have no URL. */
+  path?: string;
   serviceId?: string;
   /** When true, @id is `/#service-{id}` so homepage catalog and detail page share one entity. */
   useSiteScopedId?: boolean;
@@ -54,19 +57,20 @@ export function buildServiceSchema(options: {
   /** Nested catalog for umbrella services that encompass narrower ones. */
   hasOfferCatalog?: JsonLdNode;
 }): JsonLdNode {
-  const pageUrl = absoluteUrl(options.path);
+  const pageUrl = options.path ? absoluteUrl(options.path) : undefined;
   const id =
     options.useSiteScopedId && options.serviceId
       ? `${NAP.url}/#service-${options.serviceId}`
-      : `${pageUrl}#service`;
+      : `${pageUrl ?? NAP.url}#service`;
 
   const node: JsonLdNode = {
     '@type': 'Service',
     '@id': id,
     name: options.name,
+    ...(options.alternateName ? { alternateName: options.alternateName } : {}),
     serviceType: options.serviceType,
     description: options.description,
-    url: pageUrl,
+    ...(pageUrl ? { url: pageUrl } : {}),
     provider: { '@id': SCHEMA_IDS.localBusiness },
     areaServed: bangaloreAreaServed(),
     audience: {
@@ -79,11 +83,15 @@ export function buildServiceSchema(options: {
       servicePhone: NAP.telephone,
     },
     priceRange: '₹3,000 - ₹15,999+',
-    offers: buildServiceOffer({
-      name: options.name,
-      url: pageUrl,
-      lowPrice: SERVICE_STARTING_PRICE_INR,
-    }),
+    ...(pageUrl
+      ? {
+          offers: buildServiceOffer({
+            name: options.name,
+            url: pageUrl,
+            lowPrice: SERVICE_STARTING_PRICE_INR,
+          }),
+        }
+      : {}),
   };
 
   if (options.image) {
@@ -102,7 +110,7 @@ export function buildServicePageSchema(options: {
   name: string;
   serviceType: string;
   description: string;
-  path: string;
+  path?: string;
   serviceId?: string;
   image?: string;
 }): JsonLdNode {
@@ -125,7 +133,7 @@ export function buildServicePageSchemaFromCore(serviceId: string): JsonLdNode | 
     name: svc.name,
     serviceType: svc.serviceType,
     description: svc.description,
-    path: svc.path,
+    path: 'path' in svc ? svc.path : undefined,
   });
 }
 
@@ -156,39 +164,6 @@ export function buildLocalityServiceSchema(
     },
     offers: buildServiceOffer({
       name: `Event Decorations in ${areaName}`,
-      url: pageUrl,
-      lowPrice: SERVICE_STARTING_PRICE_INR,
-    }),
-  };
-}
-
-export function buildLocationServiceSchema(options: {
-  locationName: string;
-  locationSlug: string;
-  serviceName: string;
-  serviceSlug: string;
-  serviceDescription: string;
-}): JsonLdNode {
-  const pageUrl = absoluteUrl(`/locations/${options.locationSlug}/services/${options.serviceSlug}`);
-  return {
-    '@type': 'Service',
-    '@id': `${pageUrl}#service`,
-    name: `${options.serviceName} in ${options.locationName}`,
-    serviceType: options.serviceName,
-    description: options.serviceDescription,
-    url: pageUrl,
-    provider: { '@id': SCHEMA_IDS.localBusiness },
-    areaServed: {
-      '@type': 'Place',
-      name: `${options.locationName}, Bengaluru`,
-    },
-    availableChannel: {
-      '@type': 'ServiceChannel',
-      serviceUrl: absoluteUrl('/contact'),
-      servicePhone: NAP.telephone,
-    },
-    offers: buildServiceOffer({
-      name: `${options.serviceName} in ${options.locationName}`,
       url: pageUrl,
       lowPrice: SERVICE_STARTING_PRICE_INR,
     }),

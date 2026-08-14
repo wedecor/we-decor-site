@@ -7,11 +7,22 @@ export const PHONE_E164 = {
   secondary: '919591232166',
 } as const;
 
+/** `918880544452` → `+91 8880544452` */
+export function displayFromE164(digits: string): string {
+  if (digits.startsWith('91') && digits.length === 12) {
+    return `+91 ${digits.slice(2)}`;
+  }
+  return `+${digits}`;
+}
+
 export const CONTACT = {
   WHATSAPP_NUMBER: `+${PHONE_E164.primary}`,
   PRIMARY_NUMBER: `+${PHONE_E164.primary}`,
   SECONDARY_NUMBER: `+${PHONE_E164.secondary}`,
-  displayNumbers: ['+91 8880544452', '+91 9591232166'] as const,
+  displayNumbers: [
+    displayFromE164(PHONE_E164.primary),
+    displayFromE164(PHONE_E164.secondary),
+  ] as const,
 
   waUrl: (msg?: string) => {
     const base = `https://wa.me/${PHONE_E164.primary}`;
@@ -33,19 +44,19 @@ export const CONTACT = {
 
   telLinks: () =>
     [
-      { raw: `+${PHONE_E164.primary}`, label: '+91 8880544452' },
-      { raw: `+${PHONE_E164.secondary}`, label: '+91 9591232166' },
+      { raw: `+${PHONE_E164.primary}`, label: displayFromE164(PHONE_E164.primary) },
+      { raw: `+${PHONE_E164.secondary}`, label: displayFromE164(PHONE_E164.secondary) },
     ] as const,
 
   primary: {
     whatsapp: `+${PHONE_E164.primary}`,
     phone: `+${PHONE_E164.primary}`,
-    display: '+91 8880544452',
+    display: displayFromE164(PHONE_E164.primary),
   },
 
   secondary: {
     phone: `+${PHONE_E164.secondary}`,
-    display: '+91 9591232166',
+    display: displayFromE164(PHONE_E164.secondary),
   },
 } as const;
 

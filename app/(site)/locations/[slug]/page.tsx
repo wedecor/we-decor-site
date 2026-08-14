@@ -1,14 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { pageMetadata } from '@/lib/metadata';
-import {
-  AREAS,
-  CITY,
-  PHONE_DISPLAY,
-  getAreaBySlug,
-  SERVICES,
-  type ServiceKey,
-} from '../../_data/locations';
+import { AREAS, CITY, getAreaBySlug, SERVICES, type ServiceKey } from '../../_data/locations';
 import { GALLERY_ITEMS, localize } from '../../_data/gallery';
 import { faqsForArea } from '../../_data/faqs';
 import { getGeneratedArea, buildLocationMetaDescription } from '../../_data/location-content';
@@ -167,11 +160,11 @@ export default async function LocationPage({ params }: LocationPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <TrackedPhoneLink
-                href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+                href={`tel:${CONTACT.PRIMARY_NUMBER}`}
                 source={`location:${slug}`}
                 className="lux-btn-secondary px-8 py-4"
               >
-                Call {PHONE_DISPLAY}
+                Call {CONTACT.primary.display}
               </TrackedPhoneLink>
               <TrackedWhatsAppLink
                 href={CONTACT.waUrl(waPrefill ?? `Hi! I need decoration services in ${area.name}`)}
@@ -390,11 +383,11 @@ export default async function LocationPage({ params }: LocationPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <TrackedPhoneLink
-                href={`tel:${PHONE_DISPLAY.replace(/\s/g, '')}`}
+                href={`tel:${CONTACT.PRIMARY_NUMBER}`}
                 source={`location:${slug}_cta`}
                 className="lux-btn-secondary px-8 py-4"
               >
-                Call {PHONE_DISPLAY}
+                Call {CONTACT.primary.display}
               </TrackedPhoneLink>
               <TrackedWhatsAppLink
                 href={CONTACT.waUrl(waPrefill ?? `Hi! I need decoration services in ${areaName}`)}

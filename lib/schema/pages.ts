@@ -1,9 +1,8 @@
 import { absoluteUrl } from '@/lib/metadata';
 import { CORE_DECORATION_SERVICES, NAP, SCHEMA_IDS } from '@/lib/local-seo/constants';
-import { SITE_FAQS } from '@/lib/content/site-faq';
+import { SITE_FAQS, HOME_PAGE_FAQS } from '@/lib/content/site-faq';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
-import { asGraph, pageId } from './_helpers';
-import { buildOrganization } from './organization';
+import { asGraph, buildAreaServedEntities, pageId } from './_helpers';
 import { buildLocalBusiness } from './local-business';
 import { buildWebSite } from './website';
 import { buildWebPage } from './webpage';
@@ -16,16 +15,17 @@ import {
   buildItemListSchema,
   buildLocationsCollectionSchema,
 } from './collection';
-import { buildPricingOfferCatalog, buildPricingOffersItemList } from './offer';
+import { buildPricingOfferCatalog } from './offer';
 import { buildImageItemList, buildImageObject } from './image';
 import type { GraphDocument, JsonLdNode } from './types';
 
-/** Homepage: Organization + LocalBusiness + WebSite + Services + WebPage. */
+/** Homepage: LocalBusiness + area entities + WebSite + Services + WebPage + FAQPage. */
 export function buildHomePageGraph(): GraphDocument {
   const url = NAP.url;
+  const faq = buildFaqPageNode([...HOME_PAGE_FAQS], url);
   return asGraph(
-    buildOrganization(),
     buildLocalBusiness(),
+    ...buildAreaServedEntities(),
     buildWebSite(),
     buildWebPage({
       name: `${NAP.name} | Event Decorations in Bengaluru`,
@@ -33,8 +33,11 @@ export function buildHomePageGraph(): GraphDocument {
       url,
       primaryImage: NAP.image,
       includeBreadcrumb: false,
+      // Same convention as /faq: WebPage points at the FAQPage node by @id.
+      mainEntity: faq ? { '@id': pageId(url, 'faq') } : undefined,
     }),
-    ...buildCoreServiceNodes()
+    ...buildCoreServiceNodes(),
+    faq
   );
 }
 
@@ -94,8 +97,7 @@ export function buildPricingPageGraph(options: {
       url,
       mainEntity: { '@id': catalog['@id'] as string },
     }),
-    catalog,
-    buildPricingOffersItemList(url)
+    catalog
   );
 }
 
@@ -138,19 +140,22 @@ export function buildGalleryPageGraph(options: {
     'Gallery collections',
     pageId(url, 'itemlist')
   );
+  const primaryImageId = pageId(url, 'primaryimage');
+  const collection = buildCollectionPageSchema({
+    name: options.name,
+    description: options.description,
+    pageUrl: url,
+    items: options.images.map((img) => ({
+      name: img.name ?? img.caption,
+      url: absoluteUrl(`/gallery#${(img.name ?? img.caption).toLowerCase().replace(/\s+/g, '-')}`),
+      image: img.url,
+    })),
+  });
+  if (representative) {
+    collection.primaryImageOfPage = { '@id': primaryImageId };
+  }
   return asGraph(
-    buildCollectionPageSchema({
-      name: options.name,
-      description: options.description,
-      pageUrl: url,
-      items: options.images.map((img) => ({
-        name: img.name ?? img.caption,
-        url: absoluteUrl(
-          `/gallery#${(img.name ?? img.caption).toLowerCase().replace(/\s+/g, '-')}`
-        ),
-        image: img.url,
-      })),
-    }),
+    collection,
     imageList,
     representative
       ? {
@@ -159,7 +164,7 @@ export function buildGalleryPageGraph(options: {
             caption: representative.caption,
             name: representative.name ?? 'Representative gallery image',
           }),
-          '@id': pageId(url, 'primaryimage'),
+          '@id': primaryImageId,
           representativeOfPage: true,
         }
       : null
@@ -222,12 +227,19 @@ export function buildServiceDetailGraph(options: {
   includesCoreServices?: boolean;
 }): GraphDocument {
   const url = absoluteUrl(options.path);
-  const isCore = Boolean(
-    options.serviceId && CORE_DECORATION_SERVICES.some((s) => s.id === options.serviceId)
-  );
+  const core = options.serviceId
+    ? CORE_DECORATION_SERVICES.find((s) => s.id === options.serviceId)
+    : undefined;
+  const isCore = Boolean(core);
+  // SEO title belongs on WebPage.name. Service.name is the short canonical
+  // label from CORE_DECORATION_SERVICES so the same @id is never claimed with
+  // two names. The longer title is kept as alternateName when it differs.
+  const serviceName = core?.name ?? options.name;
+  const alternateName = core && options.name !== core.name ? options.name : undefined;
 
   const service = buildServiceSchema({
-    name: options.name,
+    name: serviceName,
+    alternateName,
     serviceType: options.serviceType,
     description: options.description,
     path: options.path,
@@ -254,8 +266,10 @@ export function buildServiceDetailGraph(options: {
       url,
       primaryImage: options.image,
       mainEntity: { '@id': service['@id'] as string },
+      hasPart: faq ? { '@id': faq['@id'] as string } : undefined,
     }),
     service,
+    ...buildAreaServedEntities(),
     faq
   );
 }
@@ -304,6 +318,7 @@ export function buildLocalityPageGraph(options: {
       description: options.description,
       url: options.url,
       mainEntity: { '@id': options.serviceNode['@id'] as string },
+      hasPart: faq ? { '@id': faq['@id'] as string } : undefined,
     }),
     options.serviceNode,
     faq

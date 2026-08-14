@@ -1,12 +1,11 @@
-import { absoluteUrl } from '@/lib/metadata';
+import { GEO, NAP, OPENING_HOURS, SCHEMA_IDS, getSameAsLinks } from '@/lib/local-seo/constants';
 import {
-  CORE_DECORATION_SERVICES,
-  NAP,
-  OPENING_HOURS,
-  SCHEMA_IDS,
-  getSameAsLinks,
-} from '@/lib/local-seo/constants';
-import { bangaloreAreaServed, buildGeoCoordinates, buildPostalAddress } from './_helpers';
+  bangaloreAreaServed,
+  buildGeoCoordinates,
+  buildPostalAddress,
+  optionalEmail,
+} from './_helpers';
+import { buildCoreServiceCatalog } from './service';
 import type { JsonLdNode } from './types';
 import type { AggregateRatingInput } from './review';
 
@@ -38,47 +37,51 @@ export function buildLocalBusiness(options?: {
       ? `Event decoration services in ${locality}, Bengaluru, Karnataka. ${NAP.description}`
       : NAP.description,
     url: NAP.url,
+    foundingDate: NAP.foundingDate,
     logo: {
       '@type': 'ImageObject',
+      '@id': `${NAP.url}/#logo`,
       url: NAP.logo,
       contentUrl: NAP.logo,
+      caption: `${NAP.name} logo`,
     },
     image: {
       '@type': 'ImageObject',
       url: NAP.image,
       contentUrl: NAP.image,
+      caption: `${NAP.name} — event decorations in ${GEO.city}`,
     },
-    email: NAP.email,
     telephone: NAP.telephone,
     priceRange: '₹₹',
     currenciesAccepted: 'INR',
-    paymentAccepted: ['Cash', 'Credit Card', 'UPI', 'Bank Transfer'],
     address: buildPostalAddress(),
     geo: buildGeoCoordinates(),
     openingHoursSpecification: buildOpeningHoursSpecification(),
     areaServed: bangaloreAreaServed(locality),
     sameAs: getSameAsLinks(),
-    parentOrganization: { '@id': SCHEMA_IDS.organization },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      '@id': SCHEMA_IDS.serviceCatalog,
-      name: 'Event Decoration Services in Bengaluru',
-      itemListElement: CORE_DECORATION_SERVICES.map((svc, index) => ({
-        '@type': 'Offer',
-        position: index + 1,
-        itemOffered: {
-          '@type': 'Service',
-          '@id': `${NAP.url}/#service-${svc.id}`,
-          name: svc.name,
-          serviceType: svc.serviceType,
-          description: svc.description,
-          url: absoluteUrl(svc.path),
-          provider: { '@id': SCHEMA_IDS.localBusiness },
-          areaServed: bangaloreAreaServed(),
-        },
-      })),
-    },
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: NAP.telephone,
+        ...optionalEmail(NAP.email),
+        // Primary CTA and WhatsApp — quotes and bookings.
+        contactType: 'sales',
+        areaServed: GEO.country,
+        availableLanguage: ['English', 'Hindi', 'Kannada'],
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: NAP.secondaryTelephone,
+        // Alternate business line listed on the site, not the WhatsApp CTA.
+        contactType: 'customer service',
+        areaServed: GEO.country,
+        availableLanguage: ['English', 'Hindi', 'Kannada'],
+      },
+    ],
+    hasOfferCatalog: buildCoreServiceCatalog(SCHEMA_IDS.serviceCatalog),
   };
+
+  Object.assign(node, optionalEmail(NAP.email));
 
   if (options?.aggregateRating) {
     node.aggregateRating = {

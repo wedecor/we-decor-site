@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import nextDynamic from 'next/dynamic';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
+import { formatPostalAddressText } from '@/lib/schema/_helpers';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildContactPageGraph, withBreadcrumb } from '@/lib/schema';
@@ -20,8 +21,7 @@ const ContactFormClient = nextDynamic(() => import('@/components/contact/Contact
 export const metadata: Metadata = pageMetadata({
   path: '/contact',
   title: 'Contact | Event Decoration Services in Bangalore',
-  description:
-    'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
+  description: `Contact We Decor for professional event decoration services in Bangalore. WhatsApp: ${CONTACT.primary.display}. Birthday, wedding, haldi, and corporate event decorations.`,
 });
 
 export const dynamic = 'force-static';
@@ -38,8 +38,7 @@ export default function ContactPage() {
         data={withBreadcrumb(
           buildContactPageGraph({
             name: 'Contact We Decor Events',
-            description:
-              'Contact We Decor for professional event decoration services in Bangalore. WhatsApp: +91-8880544452. Birthday, wedding, haldi, and corporate event decorations.',
+            description: `Contact We Decor for professional event decoration services in Bangalore. WhatsApp: ${CONTACT.primary.display}. Birthday, wedding, haldi, and corporate event decorations.`,
           }),
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
@@ -65,6 +64,9 @@ export default function ContactPage() {
               Tell us the date, venue, and atmosphere you envision. We respond with a thoughtful
               proposal — most enquiries receive a reply within a few hours.
             </p>
+            <address className="lux-body-sm mt-6 max-w-md not-italic text-lux-secondary">
+              {formatPostalAddressText()}
+            </address>
             <div className="lux-divider mt-10 max-w-[8rem]" />
           </div>
         </div>

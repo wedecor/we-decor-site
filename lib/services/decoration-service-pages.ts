@@ -818,7 +818,6 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Tent and balloon decoration in Bangalore from ₹3,000 — outdoor arches, canopies, and weather-aware setups for parties and gatherings.',
     serviceType: 'Balloon decoration',
     ogImage: SERVICE_IMAGES.tentBalloon,
-    coreServiceId: 'balloon-decoration',
     relatedHrefs: [
       '/services/balloon-decoration',
       '/services/birthday-decoration',

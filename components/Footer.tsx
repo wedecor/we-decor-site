@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import BrandLockup from '@/components/lux/BrandLockup';
 import { CONTACT } from '@/lib/contact';
+import { OPENING_HOURS, SOCIAL_PROFILES } from '@/lib/local-seo/constants';
 import { BRAND } from '@/lib/design/tokens';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
@@ -26,7 +27,7 @@ export default function Footer() {
               Luxury event decoration across {BRAND.city}.
             </p>
             <a
-              href="https://instagram.com/wedecorbangalore"
+              href={SOCIAL_PROFILES.instagram}
               className="inline-flex items-center gap-3 rounded-full border border-lux-gold/25 bg-lux-elevated/40 px-5 py-3 text-sm text-lux-secondary hover:text-lux-ivory hover:border-lux-gold/45 hover:bg-lux-elevated/70 transition-all duration-500"
               target="_blank"
               rel="noopener noreferrer"
@@ -94,7 +95,9 @@ export default function Footer() {
                   Contact form
                 </TrackedCtaLink>
               </li>
-              <li className="pt-2 lux-body-sm text-lux-text-muted">Bangalore · Mon–Sun, 9am–9pm</li>
+              <li className="pt-2 lux-body-sm text-lux-text-muted">
+                {OPENING_HOURS.displayFooter}
+              </li>
             </ul>
           </div>
         </div>

@@ -54,7 +54,6 @@
     "seo:jsonld:new": "tsx scripts/seo/jsonld-validate.ts",
     "seo:phones:new": "tsx scripts/seo/phone-audit.ts",
     "seo:all": "npm run seo:jsonld:new && npm run seo:phones:new",
-    "seo:add-faq": "tsx scripts/seo/add-faq-jsonld.ts",
     "seo:update-pages": "tsx scripts/seo/update-area-pages.ts",
     "seo:areas": "tsx scripts/seo/check-area-urls.ts",
     "seo:assert-jsonld": "tsx scripts/seo/assert-jsonld.ts",

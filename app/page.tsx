@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { CONTACT } from '@/lib/contact';
 import { pageMetadata } from '@/lib/metadata';
 import HomeJsonLd from '@/components/home/home-json-ld';
 import HomeHero from '@/components/home/home-hero';
@@ -15,8 +16,7 @@ import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 export const metadata: Metadata = pageMetadata({
   path: '/',
   title: 'We Decor - Event Decorations Services in Bangalore',
-  description:
-    'Professional event decoration services in Bangalore. Birthday decor, wedding setup, haldi decoration, room decoration. Call +91 8880544452 for free quote!',
+  description: `Professional event decoration services in Bangalore. Birthday decor, wedding setup, haldi decoration, room decoration. Call ${CONTACT.primary.display} for free quote!`,
   ogImage: '/og-banner.jpg',
 });
 

@@ -1,6 +1,13 @@
 export type { JsonLdNode, GraphDocument, FaqItem, BreadcrumbCrumb } from './types';
 
-export { bangaloreAreaServed, buildPostalAddress, buildGeoCoordinates, asGraph } from './_helpers';
+export {
+  bangaloreAreaServed,
+  buildAreaServedEntities,
+  buildPostalAddress,
+  formatPostalAddressText,
+  buildGeoCoordinates,
+  asGraph,
+} from './_helpers';
 
 export { buildOrganization } from './organization';
 export { buildLocalBusiness, buildOpeningHoursSpecification } from './local-business';
@@ -13,12 +20,11 @@ export {
   buildServicePageSchemaFromCore,
   buildCoreServiceNodes,
   buildLocalityServiceSchema,
-  buildLocationServiceSchema,
 } from './service';
 export { buildFaqPageSchema, buildFaqPageNode } from './faq';
 export { buildAggregateRating, buildReviewNodes } from './review';
 export type { AggregateRatingInput, ReviewInput } from './review';
-export { buildServiceOffer, buildPricingOfferCatalog, buildPricingOffersItemList } from './offer';
+export { buildServiceOffer, buildPricingOfferCatalog } from './offer';
 export { buildImageObject, buildImageItemList } from './image';
 export {
   buildCollectionPageSchema,

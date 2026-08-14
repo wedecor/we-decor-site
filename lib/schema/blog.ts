@@ -19,7 +19,7 @@ export function buildBlogPostingGraph(options: {
   // Posts are authored by the studio itself, which is the same entity as the
   // publisher below — referenced by @id rather than restated, so the page
   // emits one Organization node instead of two.
-  const author: JsonLdNode = { '@id': SCHEMA_IDS.organization };
+  const author: JsonLdNode = { '@id': SCHEMA_IDS.localBusiness };
 
   const blogPosting: JsonLdNode = {
     '@type': 'BlogPosting',
@@ -36,8 +36,8 @@ export function buildBlogPostingGraph(options: {
     ...(options.dateModified ? { dateModified: options.dateModified } : {}),
     author,
     publisher: {
-      '@type': 'Organization',
-      '@id': SCHEMA_IDS.organization,
+      '@type': 'LocalBusiness',
+      '@id': SCHEMA_IDS.localBusiness,
       name: NAP.name,
       logo: {
         '@type': 'ImageObject',

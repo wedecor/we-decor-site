@@ -53,7 +53,6 @@ export type Area = {
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com';
 export const BUSINESS_NAME = 'We Decor';
 export const CITY = 'Bengaluru';
-export const PHONE_DISPLAY = '+91 8880544452';
 
 export const SERVICES: ServiceKey[] = ['Birthday','Haldi','Wedding','Engagement','Anniversary','Proposal','Baby Shower','Corporate'];
 

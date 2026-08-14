@@ -5,8 +5,10 @@ import { LOGO_SRC, HERO_BANNER_SRC } from '@/lib/images';
 
 /** Stable @id anchors for JSON-LD graph linking */
 export const SCHEMA_IDS = {
-  organization: `${SITE_URL}/#organization`,
+  /** Single business entity. LocalBusiness is an Organization subtype. */
   localBusiness: `${SITE_URL}/#localbusiness`,
+  /** Alias of localBusiness — no separate parent company exists. */
+  organization: `${SITE_URL}/#localbusiness`,
   website: `${SITE_URL}/#website`,
   serviceCatalog: `${SITE_URL}/#service-catalog`,
 } as const;
@@ -14,7 +16,7 @@ export const SCHEMA_IDS = {
 /** NAP — keep identical across site, schema, and Google Business Profile */
 export const NAP = {
   name: 'We Decor Events',
-  alternateName: ['We Decor'],
+  alternateName: ['We Decor', 'We Decor - Event Planner & Decorator in Bangalore'],
   description:
     'Professional event decoration services in Bengaluru (Bangalore), Karnataka — weddings, birthdays, haldi, proposals, balloon decor, and themed celebrations.',
   url: SITE_URL,
@@ -22,8 +24,15 @@ export const NAP = {
   telephone: CONTACT.PRIMARY_NUMBER,
   telephoneDisplay: CONTACT.displayNumbers[0],
   secondaryTelephone: CONTACT.SECONDARY_NUMBER,
+  streetAddress: 'Royal Manor, Ranoji Rao Road, Basavanagudi',
+  addressLocality: 'Bengaluru',
+  addressRegion: 'Karnataka',
+  postalCode: '560004',
+  addressCountry: 'IN',
   logo: absoluteUrl(LOGO_SRC),
   image: absoluteUrl(HERO_BANNER_SRC),
+  /** ISO 8601 year-month (GBP: opened June 2022). */
+  foundingDate: '2022-06',
 } as const;
 
 export const GEO = {
@@ -33,14 +42,15 @@ export const GEO = {
   regionCode: 'IN-KA',
   country: 'IN',
   countryName: 'India',
-  latitude: 12.9716,
-  longitude: 77.5946,
+  // GBP pin for Royal Manor, Ranoji Rao Road, Basavanagudi — do not edit without checking the live Google Business Profile.
+  latitude: 12.941671,
+  longitude: 77.578531,
 } as const;
 
 /** Canonical social & entity URLs — align with live profiles */
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
-  facebook: 'https://www.facebook.com/wedecorevents',
+  facebook: 'https://www.facebook.com/we.decor.events/',
   googleMaps: (placeId?: string) =>
     placeId ? `https://www.google.com/maps/place/?q=place_id:${placeId}` : undefined,
 } as const;
@@ -77,14 +87,14 @@ export const CORE_DECORATION_SERVICES = [
     serviceType: 'Balloon decoration',
     description:
       'Balloon arches, backdrops, and themed balloon decor for celebrations in Bengaluru.',
-    path: '/services/tent-balloon-setup',
+    path: '/services/balloon-decoration',
   },
   {
     id: 'proposal-decoration',
     name: 'Proposal Decoration',
     serviceType: 'Proposal decoration',
     description: 'Romantic proposal and engagement setups with lights, florals, and custom themes.',
-    path: '/services/engagement-decoration',
+    path: '/services/proposal-decoration',
   },
   {
     id: 'haldi-decoration',
@@ -108,7 +118,8 @@ export const CORE_DECORATION_SERVICES = [
     serviceType: 'Theme party decoration',
     description:
       'Custom theme party and event decoration tailored to your venue and occasion in Bangalore.',
-    path: '/services/decoration',
+    // Catalog-only: no page owns #service-theme-decoration. Do not point path
+    // at /services/decoration — that URL is the umbrella #service-decoration.
   },
 ] as const;
 
@@ -122,6 +133,10 @@ export const OPENING_HOURS = {
     'Saturday',
     'Sunday',
   ] as const,
-  opens: '09:00',
-  closes: '21:00',
+  // Schema.org convention for a 24-hour business (GBP: Open 24 hours).
+  opens: '00:00',
+  closes: '23:59',
+  replyAnytime: 'We reply any time',
+  displayHome: `${GEO.city} · We reply any time`,
+  displayFooter: `${GEO.cityAlternate} · We reply any time`,
 } as const;

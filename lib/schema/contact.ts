@@ -1,4 +1,5 @@
 import { GEO, NAP, SCHEMA_IDS } from '@/lib/local-seo/constants';
+import { optionalEmail } from './_helpers';
 import { buildWebPage } from './webpage';
 import type { JsonLdNode } from './types';
 
@@ -11,7 +12,7 @@ export function buildContactPageSchema(options: {
     '@type': 'ContactPoint',
     '@id': `${options.url.replace(/\/+$/, '')}#contactpoint`,
     telephone: NAP.telephone,
-    email: NAP.email,
+    ...optionalEmail(NAP.email),
     contactType: 'customer service',
     areaServed: GEO.country,
     availableLanguage: ['English', 'Hindi', 'Kannada'],

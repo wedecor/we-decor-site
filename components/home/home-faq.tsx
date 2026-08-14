@@ -1,26 +1,20 @@
 import Link from 'next/link';
-import SchemaScript from '@/components/seo/SchemaScript';
-import { absoluteUrl } from '@/lib/metadata';
-import { buildFaqPageSchema } from '@/lib/local-seo';
-import { SITE_FAQS } from '@/lib/content/site-faq';
+import { HOME_PAGE_FAQS } from '@/lib/content/site-faq';
 
 const faqs = [
   {
-    ...SITE_FAQS[0],
+    ...HOME_PAGE_FAQS[0],
     link: { href: '/pricing', label: 'View full pricing' },
   },
-  SITE_FAQS[1],
-  SITE_FAQS[2],
-  SITE_FAQS[3],
-  SITE_FAQS[4],
+  HOME_PAGE_FAQS[1],
+  HOME_PAGE_FAQS[2],
+  HOME_PAGE_FAQS[3],
+  HOME_PAGE_FAQS[4],
 ] as const;
 
 export default function HomeFaq() {
-  const faqSchema = buildFaqPageSchema(faqs, absoluteUrl('/'));
-
   return (
     <section className="lux-section bg-lux-bg">
-      {faqSchema ? <SchemaScript data={faqSchema} /> : null}
       <div className="lux-container max-w-3xl">
         <div className="text-center mb-12">
           <p className="lux-eyebrow mb-3">FAQ</p>

@@ -11,7 +11,7 @@ export function buildWebSite(): JsonLdNode {
     url: NAP.url,
     name: NAP.name,
     description: NAP.description,
-    publisher: { '@id': SCHEMA_IDS.organization },
+    publisher: { '@id': SCHEMA_IDS.localBusiness },
     inLanguage: 'en-IN',
   };
 }

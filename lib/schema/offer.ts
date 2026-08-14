@@ -1,4 +1,3 @@
-import { absoluteUrl } from '@/lib/metadata';
 import { SCHEMA_IDS } from '@/lib/local-seo/constants';
 import { PRICING_TIERS } from '@/lib/content/pricing-tiers';
 import type { JsonLdNode } from './types';
@@ -59,30 +58,6 @@ export function buildPricingOfferCatalog(pageUrl: string): JsonLdNode {
         '@type': 'Service',
         name: tier.name,
         provider: { '@id': SCHEMA_IDS.localBusiness },
-      },
-    })),
-  };
-}
-
-export function buildPricingOffersItemList(pageUrl: string): JsonLdNode {
-  return {
-    '@type': 'ItemList',
-    '@id': `${pageUrl.replace(/\/+$/, '')}#itemlist`,
-    name: 'Decoration pricing starting points',
-    numberOfItems: PRICING_TIERS.length,
-    itemListElement: PRICING_TIERS.map((tier, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: tier.name,
-      url: `${pageUrl}#${offerIdSlug(tier.name)}`,
-      item: {
-        '@type': 'Offer',
-        name: tier.name,
-        priceCurrency: 'INR',
-        price: String(tier.lowPrice),
-        availability: 'https://schema.org/InStock',
-        seller: { '@id': SCHEMA_IDS.localBusiness },
-        url: absoluteUrl('/pricing'),
       },
     })),
   };

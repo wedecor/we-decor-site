@@ -14,7 +14,7 @@ export function buildAboutPageSchema(options: {
     description: options.description,
     url: options.url,
     primaryImage: options.primaryImage,
-    about: { '@id': SCHEMA_IDS.organization },
-    mainEntity: { '@id': SCHEMA_IDS.organization },
+    about: { '@id': SCHEMA_IDS.localBusiness },
+    mainEntity: { '@id': SCHEMA_IDS.localBusiness },
   });
 }
