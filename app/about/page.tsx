@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
-import { HOME_PREVIEW_IMAGES } from '@/lib/images';
+import { HERO_IMAGES } from '@/lib/images';
 import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
@@ -50,8 +50,8 @@ export default function AboutPage() {
       <section className="relative isolate overflow-hidden min-h-[58vh] md:min-h-[66vh] flex items-end pt-[var(--nav-height)]">
         <div className="absolute inset-0 z-0">
           <Image
-            src={HOME_PREVIEW_IMAGES.reception}
-            alt="A We Decor event setup in Bangalore"
+            src={HERO_IMAGES.proposal}
+            alt="A proposal setup by We Decor in Bangalore — rose petals, candles and a floral swing"
             fill
             priority
             className="object-cover object-center lux-image-cinematic"

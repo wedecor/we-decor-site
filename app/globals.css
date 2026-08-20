@@ -228,17 +228,22 @@
     border-color: rgba(200, 169, 107, 0.24);
   }
 
+  /*
+   * Was brightness(0.8) — combined with the hero gradient, side wash and
+   * vignette it darkened the photograph to near-black. For a business that
+   * sells how things look, the image has to survive the treatment.
+   */
   .lux-image-cinematic {
-    filter: brightness(0.8) contrast(1.05) saturate(0.94);
+    filter: contrast(1.04) saturate(0.98);
   }
 
   .lux-overlay-gradient {
     @apply absolute inset-0 pointer-events-none;
     background: linear-gradient(
       180deg,
-      rgba(15, 10, 18, 0.32) 0%,
-      rgba(15, 10, 18, 0.52) 70%,
-      rgba(15, 10, 18, 0.82) 100%
+      rgba(15, 10, 18, 0.12) 0%,
+      rgba(15, 10, 18, 0.34) 65%,
+      rgba(15, 10, 18, 0.72) 100%
     );
   }
 
@@ -254,15 +259,15 @@
 
   .lux-hero-vignette {
     @apply absolute inset-0 pointer-events-none;
-    background: radial-gradient(ellipse at 50% 40%, transparent 38%, rgba(15, 10, 18, 0.5) 100%);
+    background: radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(15, 10, 18, 0.32) 100%);
   }
 
   .lux-hero-cinematic-side {
     @apply absolute inset-0 pointer-events-none;
     background: linear-gradient(
       90deg,
-      rgba(15, 10, 18, 0.65) 0%,
-      rgba(15, 10, 18, 0.32) 45%,
+      rgba(15, 10, 18, 0.58) 0%,
+      rgba(15, 10, 18, 0.18) 45%,
       transparent 100%
     );
   }
