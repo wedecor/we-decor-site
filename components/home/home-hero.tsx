@@ -7,10 +7,10 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 const HERO_ALT = 'Floral arch and engagement decoration setup in Bengaluru by We Decor Events';
 
 /**
- * Art-directed homepage hero.
- * Mobile LCP uses the 1200×1600 portrait crop (preload + fetchPriority=high).
- * Desktop uses the 2400×1350 wide crop. Both stay at quality 65 and sizes=100vw
- * so phones are never served a 1920/2048 landscape encode.
+ * Art-directed homepage hero — the sole `priority` image on `/`.
+ * Mobile LCP uses the portrait crop; desktop uses the wide crop.
+ * `priority` on getImageProps forces loading="eager" + fetchPriority="high"
+ * (never lazy — that was defeating the LCP preload).
  */
 function HeroBackground() {
   const shared = { alt: HERO_ALT, sizes: '100vw', quality: 65 as const };
@@ -22,6 +22,7 @@ function HeroBackground() {
     src: HERO_IMAGES_PORTRAIT.arch,
     width: 1200,
     height: 1600,
+    priority: true,
   });
 
   const {
@@ -33,18 +34,31 @@ function HeroBackground() {
     height: 1350,
   });
 
-  // Drop width/height attrs — hero is position:absolute + object-fit cover.
-  const { width: _w, height: _h, ...imgProps } = mobileRest;
+  // Drop width/height — hero is absolute + object-fit cover.
+  // Drop any default loading so we can force eager after the spread.
+  const { width: _w, height: _h, loading: _loading, ...imgProps } = mobileRest;
 
   return (
     <div className="lux-hero-media">
-      {/* Mobile-only preload — matches the Lighthouse LCP element */}
+      {/*
+        One preload per breakpoint, mirroring the <picture> sources exactly.
+        Without the desktop half, only phones got an early fetch and desktop
+        waited for the preload scanner to reach <source>.
+      */}
       <link
         rel="preload"
         as="image"
         imageSrcSet={mobileSrcSet}
         imageSizes="100vw"
         media="(max-width: 767px)"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="image"
+        imageSrcSet={desktopSrcSet}
+        imageSizes="100vw"
+        media="(min-width: 768px)"
         fetchPriority="high"
       />
       <picture>
@@ -55,6 +69,7 @@ function HeroBackground() {
           srcSet={mobileSrcSet}
           sizes={mobileSizes}
           alt={HERO_ALT}
+          loading="eager"
           decoding="async"
           fetchPriority="high"
           className="object-cover object-center lux-image-cinematic"

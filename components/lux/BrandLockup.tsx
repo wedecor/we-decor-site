@@ -36,7 +36,9 @@ type Props = {
 export default function BrandLockup({
   variant = 'nav',
   asLink = true,
-  priority = variant === 'nav',
+  // Default off — homepage LCP is the hero photo; only pass priority when
+  // this lockup itself is the intentional LCP (rare).
+  priority = false,
 }: Props) {
   const { src, ratio } = ASSETS[variant];
   const { mobile, desktop } = HEIGHTS[variant];
