@@ -10,7 +10,7 @@ export default function HomeHero() {
       <div className="lux-hero-media">
         <Image
           src={HERO_BACKGROUND_SRC}
-          alt="Luxury engagement and wedding decoration in Bengaluru by We Decor Events"
+          alt="Floral arch and engagement decoration setup in Bengaluru by We Decor Events"
           fill
           priority
           className="object-cover object-center lux-image-cinematic"

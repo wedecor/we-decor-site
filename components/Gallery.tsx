@@ -81,7 +81,7 @@ export default function Gallery() {
                 {thumbnailImage ? (
                   <Image
                     src={thumbnailImage.src}
-                    alt={`${folder} decoration showcase - We Decor Bangalore`}
+                    alt={`${folder} decoration showcase by We Decor in Bangalore`}
                     fill
                     className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                     placeholder="empty"

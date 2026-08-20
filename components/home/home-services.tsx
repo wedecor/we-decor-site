@@ -9,36 +9,42 @@ const services = [
     tag: 'At home & venues',
     image: SERVICE_IMAGES.birthday,
     href: '/services/birthday-decoration',
+    alt: 'Birthday balloon and cake-table decoration in a Bangalore home',
   },
   {
     title: 'Haldi',
     tag: 'Marigold & gold',
     image: SERVICE_IMAGES.haldi,
     href: '/services/haldi-decoration',
+    alt: 'Marigold and gold haldi ceremony backdrop in Bengaluru',
   },
   {
     title: 'Engagement',
     tag: 'Romantic stages',
     image: SERVICE_IMAGES.engagement,
     href: '/services/engagement-decoration',
+    alt: 'Romantic engagement stage with florals and soft lighting in Bangalore',
   },
   {
     title: 'Wedding',
     tag: 'Mandap & reception',
     image: '/home-preview/reception.webp',
     href: '/services/wedding-setup',
+    alt: 'Wedding reception stage décor with floral backdrop in Bengaluru',
   },
   {
     title: 'Corporate',
     tag: 'Brand celebrations',
     image: SERVICE_IMAGES.corporate,
     href: '/services/corporate-decoration',
+    alt: 'Corporate event stage and brand backdrop decoration in Bangalore',
   },
   {
     title: 'Room decor',
     tag: 'Surprise setups',
     image: SERVICE_IMAGES.roomDecor,
     href: '/services/room-decoration',
+    alt: 'Surprise bedroom decoration with balloons and lights in Bangalore',
   },
 ] as const;
 
@@ -64,7 +70,7 @@ export default function HomeServices() {
                   <div className="relative aspect-[4/5] w-full">
                     <Image
                       src={service.image}
-                      alt={`${service.title} decoration in Bangalore`}
+                      alt={service.alt}
                       fill
                       className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"

@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-sm">
               <Image
                 src={post.featuredImage}
-                alt=""
+                alt={post.title}
                 fill
                 priority
                 sizes="(max-width: 768px) 100vw, 896px"

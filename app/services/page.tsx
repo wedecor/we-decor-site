@@ -168,7 +168,7 @@ export default function ServicesPage() {
                     >
                       <Image
                         src={service.image}
-                        alt={`${service.name} — We Decor Bangalore`}
+                        alt={`${service.name} decoration by We Decor in Bangalore`}
                         fill
                         className="object-cover lux-image-cinematic transition-transform duration-[900ms] ease-out group-hover:scale-[1.02] motion-reduce:transform-none"
                         sizes={

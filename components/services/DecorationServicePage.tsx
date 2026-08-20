@@ -118,7 +118,7 @@ export default function DecorationServicePage({ config }: Props) {
       <section className="relative min-h-[78vh] md:min-h-[82vh] flex items-end overflow-hidden pt-[var(--nav-height)]">
         <Image
           src={config.ogImage}
-          alt={`${config.title} — We Decor Events`}
+          alt={`${config.headline} — event decoration by We Decor in Bangalore`}
           fill
           priority
           className="object-cover object-center lux-image-cinematic"

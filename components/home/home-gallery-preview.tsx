@@ -7,21 +7,25 @@ const previews = [
     src: HOME_PREVIEW_IMAGES.haldi,
     label: 'Haldi ceremony',
     caption: 'Marigold mornings',
+    alt: 'Marigold and gold haldi stage setup in a Bangalore home',
   },
   {
     src: HOME_PREVIEW_IMAGES.birthday,
     label: 'Birthday',
     caption: 'Themed home parties',
+    alt: 'Colourful birthday balloon backdrop at a Bangalore apartment party',
   },
   {
     src: HOME_PREVIEW_IMAGES.reception,
     label: 'Reception',
     caption: 'Stage & reception',
+    alt: 'Wedding reception floral stage and seating décor in Bengaluru',
   },
   {
     src: HOME_PREVIEW_IMAGES.outdoor,
     label: 'Proposal',
     caption: 'Romantic setups',
+    alt: 'Romantic outdoor proposal décor with lights and flowers in Bangalore',
   },
 ] as const;
 
@@ -48,7 +52,7 @@ export default function HomeGalleryPreview() {
             >
               <Image
                 src={img.src}
-                alt={img.label}
+                alt={img.alt}
                 fill
                 className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
                 sizes={i === 0 ? '(max-width: 768px) 100vw, 50vw' : '(max-width: 768px) 50vw, 25vw'}

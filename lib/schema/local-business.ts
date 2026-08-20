@@ -1,4 +1,12 @@
-import { GEO, NAP, OPENING_HOURS, SCHEMA_IDS, getSameAsLinks } from '@/lib/local-seo/constants';
+import {
+  GEO,
+  GOOGLE_RATING,
+  GOOGLE_REVIEW_COUNT,
+  NAP,
+  OPENING_HOURS,
+  SCHEMA_IDS,
+  getSameAsLinks,
+} from '@/lib/local-seo/constants';
 import {
   bangaloreAreaServed,
   buildGeoCoordinates,
@@ -20,7 +28,9 @@ export function buildOpeningHoursSpecification(): JsonLdNode {
 
 /**
  * LocalBusiness for an event decoration company.
- * AggregateRating is attached only when real Google Places data is supplied.
+ * AggregateRating defaults to the GBP figures in `GOOGLE_RATING` /
+ * `GOOGLE_REVIEW_COUNT`. Pass `aggregateRating: null` to omit, or supply
+ * live Places values to override. Never invent individual Review nodes.
  */
 export function buildLocalBusiness(options?: {
   locality?: string;
@@ -83,13 +93,18 @@ export function buildLocalBusiness(options?: {
 
   Object.assign(node, optionalEmail(NAP.email));
 
-  if (options?.aggregateRating) {
+  const aggregateRating =
+    options?.aggregateRating === undefined
+      ? { ratingValue: GOOGLE_RATING, reviewCount: GOOGLE_REVIEW_COUNT }
+      : options.aggregateRating;
+
+  if (aggregateRating) {
     node.aggregateRating = {
       '@type': 'AggregateRating',
-      ratingValue: options.aggregateRating.ratingValue,
-      reviewCount: options.aggregateRating.reviewCount,
-      bestRating: options.aggregateRating.bestRating ?? 5,
-      worstRating: options.aggregateRating.worstRating ?? 1,
+      ratingValue: aggregateRating.ratingValue,
+      reviewCount: aggregateRating.reviewCount,
+      bestRating: aggregateRating.bestRating ?? 5,
+      worstRating: aggregateRating.worstRating ?? 1,
     };
   }
 

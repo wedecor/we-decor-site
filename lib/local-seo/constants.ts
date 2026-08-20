@@ -140,3 +140,11 @@ export const OPENING_HOURS = {
   displayHome: `${GEO.city} · We reply any time`,
   displayFooter: `${GEO.cityAlternate} · We reply any time`,
 } as const;
+
+/**
+ * Google Business Profile aggregate rating for JSON-LD.
+ * Verified 2026-08-20 via Places Details API (rating / user_ratings_total).
+ * Update both values together whenever GBP changes — do not invent or round.
+ */
+export const GOOGLE_RATING = 4.9;
+export const GOOGLE_REVIEW_COUNT = 76;

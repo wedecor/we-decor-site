@@ -41,12 +41,16 @@ export default function BrandLockup({
   const { src, ratio } = ASSETS[variant];
   const { mobile, desktop } = HEIGHTS[variant];
   const label = `${BRAND.name} — ${BRAND.tagline}`;
+  // Linked lockups are named by the parent <Link>; both marks stay decorative.
+  // Standalone lockups keep a real alt — CSS-hidden twins drop out of the tree.
+  const alt = asLink ? '' : label;
 
   const inner = (
     <>
       <Image
         src={src}
-        alt={label}
+        alt={alt}
+        aria-hidden={asLink || undefined}
         width={Math.round(mobile * ratio)}
         height={mobile}
         priority={priority}
@@ -55,8 +59,8 @@ export default function BrandLockup({
       />
       <Image
         src={src}
-        alt=""
-        aria-hidden
+        alt={alt}
+        aria-hidden={asLink || undefined}
         width={Math.round(desktop * ratio)}
         height={desktop}
         priority={priority}

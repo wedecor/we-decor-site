@@ -19,7 +19,7 @@ export default function ServiceCard({ title, description, image, href }: Service
       {/* Use next/image for optimized, lazy-loaded service images */}
       <Image
         src={image}
-        alt={title}
+        alt={`${title} decoration in Bangalore by We Decor`}
         width={400}
         height={160}
         className="w-full h-40 object-cover rounded-t-lg"
