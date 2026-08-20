@@ -1,30 +1,22 @@
-'use client';
-
-import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 
 type FadeInProps = {
   children: ReactNode;
   className?: string;
+  /** Kept for call-site compatibility; mapped onto CSS delay utilities. */
   delay?: number;
 };
 
+/**
+ * Lightweight reveal — CSS only (see `.lux-reveal` in globals.css).
+ * Replaces the previous framer-motion implementation so homepage / service
+ * pages do not ship ~120 KiB of motion runtime in the first load.
+ */
 export default function FadeIn({ children, className, delay = 0 }: FadeInProps) {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return <div className={className}>{children}</div>;
-  }
-
+  const delayClass = delay >= 0.1 ? 'lux-reveal-delay-2' : delay > 0 ? 'lux-reveal-delay-1' : '';
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay }}
-    >
+    <div className={['lux-reveal', delayClass, className].filter(Boolean).join(' ')}>
       {children}
-    </motion.div>
+    </div>
   );
 }

@@ -27,7 +27,7 @@ const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
     // Allow explicit quality props used by service/home cards (Next 16 requires listing these)
-    qualities: [70, 72, 75],
+    qualities: [65, 70, 72, 75],
     // Cap at 2048 so non-hero images with loose sizes never request w=3840
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -38,6 +38,8 @@ const nextConfig = {
     ],
   },
   experimental: {
+    // Tree-shake icon / motion barrels when those packages are imported.
+    optimizePackageImports: ['framer-motion', '@heroicons/react', 'react-icons', '@headlessui/react'],
   },
   webpack: (config, { isServer }) => {
     // Exclude scripts directory from webpack compilation

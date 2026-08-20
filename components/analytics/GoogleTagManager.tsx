@@ -6,11 +6,9 @@ import { GA_MEASUREMENT_ID, GTM_ID, isAnalyticsEnabled } from '@/lib/analytics/c
  * of production or when `NEXT_PUBLIC_GTM_ID` is unset, so GTM never loads
  * during local development.
  *
- * Rendered once from the root layout, immediately inside `<body>`, matching
- * Google's official installation snippet. Uses `next/script`'s
- * `afterInteractive` strategy so it loads early without blocking hydration
- * or introducing hydration mismatches (this is a server component — the
- * env-driven conditional is identical on server and client render passes).
+ * Uses `lazyOnload` (not `afterInteractive`) so gtm.js / gtag.js do not
+ * contend with LCP on mobile. Analytics still fire after `window.load`.
+ * The inline bootstrap stays async — never a synchronous head script.
  */
 export default function GoogleTagManager() {
   if (!isAnalyticsEnabled()) return null;
@@ -23,11 +21,11 @@ export default function GoogleTagManager() {
         Layer Variable (e.g. {{DLV - GA4 Measurement ID}}) instead of a
         hardcoded ID in the GTM web console. See docs/analytics.md.
       */}
-      <Script id="gtm-datalayer-seed" strategy="afterInteractive">
+      <Script id="gtm-datalayer-seed" strategy="lazyOnload">
         {`window.dataLayer = window.dataLayer || [];
 window.dataLayer.push({ ga4MeasurementId: ${JSON.stringify(GA_MEASUREMENT_ID)} });`}
       </Script>
-      <Script id="gtm-init" strategy="afterInteractive">
+      <Script id="gtm-init" strategy="lazyOnload">
         {`(function(w,d,s,l,i){
   w[l]=w[l]||[];
   w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});

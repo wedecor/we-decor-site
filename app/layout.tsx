@@ -5,12 +5,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import './env-guard';
 import GoogleTagManager from '@/components/analytics/GoogleTagManager';
-import AnalyticsPageView from '@/components/analytics/AnalyticsPageView';
-import WebVitalsReporter from '@/components/WebVitalsReporter';
 import CriticalStyles from '@/components/lux/CriticalStyles';
+import DeferredClientWidgets from '@/components/layout/DeferredClientWidgets';
 import { METADATA_BASE, getIndexingRobots } from '@/lib/metadata';
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
-import StickyWhatsApp from '@/components/StickyWhatsApp';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -60,7 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${inter.variable} ${cormorant.variable} dark`}
     >
       <body className={`${inter.className} min-h-screen bg-lux-bg text-lux-ivory`}>
-        <GoogleTagManager />
         <CriticalStyles />
         <a
           href="#main-content"
@@ -73,9 +70,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
-        <StickyWhatsApp />
-        <WebVitalsReporter />
-        <AnalyticsPageView />
+        <DeferredClientWidgets />
+        {/* Analytics last — lazyOnload GTM must not precede hero paint */}
+        <GoogleTagManager />
       </body>
     </html>
   );
