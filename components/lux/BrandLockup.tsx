@@ -10,15 +10,23 @@ import { BRAND } from '@/lib/design/tokens';
  * One asset everywhere keeps the site consistent with the logo used on
  * Instagram, Google Business Profile and the app icons.
  *
- * `nav`    — mark + "WE DECOR", no tagline. At 34-46px the tagline renders
- *            sub-pixel and turns to mush.
- * `footer` — full horizontal lockup including the tagline, where there is room.
+ * Artwork comes from the official brand kit (charcoal/cream/slate/gold system,
+ * Marcellus wordmark). The gold mark sits beside a CREAM wordmark — setting the
+ * wordmark in gold too, as the previous art did, collapsed both into one blob
+ * at nav sizes.
+ *
+ * `nav`    — mark + "WE DECOR" only. The kit's horizontal lockup carries an
+ *            "EVENTS · DECOR · CELEBRATIONS" descriptor whose caps are ~23px in
+ *            a 270px-tall asset; at a 34px render that is under 3px and turns
+ *            to mush, so the nav art is composited without it.
+ * `footer` — the kit horizontal lockup intact, descriptor included, where 52px+
+ *            of height makes it legible.
  *
  * Explicit width/height at every breakpoint means no layout shift.
  */
 const ASSETS = {
-  nav: { src: '/brand/logo-gold-navbar.png', ratio: 987 / 346 },
-  footer: { src: '/brand/logo-gold-horizontal.png', ratio: 961 / 358 },
+  nav: { src: '/brand/logo-gold-navbar.png', ratio: 1026 / 204 },
+  footer: { src: '/brand/logo-gold-horizontal.png', ratio: 1191 / 270 },
 } as const;
 
 const HEIGHTS = {

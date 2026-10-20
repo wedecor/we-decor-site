@@ -9,8 +9,6 @@ export const LUX = {
   goldSoft: '#E8D9B8',
   ivory: '#F5F0E6',
   champagne: '#EDE6D6',
-  emerald: '#00B89C',
-  emeraldLight: '#00C2A8',
   text: '#F5F0E6',
   textSecondary: '#D4CDC3',
   textMuted: '#A8A099',
@@ -26,6 +24,6 @@ export const BRAND = {
   taglineDisplay: 'BRINGING DREAMS TO LIFE',
   monogram: 'WD',
   city: 'Bengaluru',
-  logoPrimary: '/brand/logo-gold-full.png',
-  logoFallback: '/brand/logo-gold-full.png',
+  /** Positioning line from the brand kit — sits under the wordmark in the lockups. */
+  descriptor: 'EVENTS · DECOR · CELEBRATIONS',
 } as const;

@@ -218,7 +218,8 @@ const nextConfig = {
         ],
       },
       {
-        source: '/logo.png',
+        // Brand lockups are content-stable; the filenames change when the art does.
+        source: '/brand/:path*.png',
         headers: [
           {
             key: 'Cache-Control',

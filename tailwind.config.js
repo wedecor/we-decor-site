@@ -19,8 +19,6 @@ module.exports = {
           'gold-soft': '#E8D9B8',
           ivory: '#F5F0E6',
           champagne: '#EDE6D6',
-          emerald: '#00B89C',
-          'emerald-light': '#00C2A8',
           secondary: '#C9C2B8',
           muted: '#C9C2B8',
           'text-muted': '#9E968E',
@@ -28,7 +26,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-jost)', 'system-ui', 'sans-serif'],
         display: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       boxShadow: {

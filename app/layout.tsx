@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
+import { Cormorant_Garamond, Jost } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -10,10 +10,20 @@ import DeferredClientWidgets from '@/components/layout/DeferredClientWidgets';
 import { METADATA_BASE, getIndexingRobots } from '@/lib/metadata';
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site';
 
-const inter = Inter({
+/*
+ * Jost, not Inter. The brand kit specifies Marcellus / Jost / Cormorant
+ * Garamond; Inter was never part of it, and its ubiquity is exactly what makes
+ * an interface read as templated. Jost is geometric where Inter is neutral,
+ * which sits better against Cormorant's high-contrast serif.
+ *
+ * Weights are pinned — loading the full variable range costs bytes for faces
+ * this site never sets.
+ */
+const jost = Jost({
   subsets: ['latin'],
+  weight: ['300', '400', '500'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-jost',
 });
 
 const cormorant = Cormorant_Garamond({
@@ -55,13 +65,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${cormorant.variable} dark`}
+      className={`${jost.variable} ${cormorant.variable} dark`}
     >
-      <body className={`${inter.className} min-h-screen bg-lux-bg text-lux-ivory`}>
+      <body className={`${jost.className} min-h-screen bg-lux-bg text-lux-ivory`}>
         <CriticalStyles />
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-lux-emerald focus:text-white focus:text-sm focus:font-medium focus:outline-none focus:ring-2 focus:ring-lux-gold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-md focus:bg-lux-gold focus:text-lux-bg focus:text-sm focus:font-medium focus:outline-none focus:ring-2 focus:ring-lux-ivory"
         >
           Skip to content
         </a>
