@@ -1,96 +1,50 @@
-import { getImageProps } from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
-import { HERO_IMAGES, HERO_IMAGES_PORTRAIT } from '@/lib/images';
+import { HERO_IMAGES } from '@/lib/images';
 import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
-const HERO_ALT = 'Floral arch and engagement decoration setup in Bengaluru by We Decor Events';
+const HERO_ALT =
+  'White rose floral canopy over a draped wedding stage at a Bengaluru banquet hall, by We Decor Events';
 
 /**
- * Art-directed homepage hero — the sole `priority` image on `/`.
- * Mobile LCP uses the portrait crop; desktop uses the wide crop.
- * `priority` on getImageProps forces loading="eager" + fetchPriority="high"
- * (never lazy — that was defeating the LCP preload).
+ * Full-bleed hero with the copy overlaid, as before — only the photograph
+ * changed.
+ *
+ * Two differences from the version this replaces, both forced by "show the
+ * whole frame":
+ *
+ * 1. The section is a 16:9 box rather than `min-height: 88vh`. At 88vh on a
+ *    1512px viewport the container is ~2.02:1 against a 1.78:1 image, so
+ *    object-cover was cropping the top and bottom off. A 16:9 box shows the
+ *    frame complete at every width.
+ * 2. No portrait art direction. There is no portrait crop of this frame that
+ *    is still the whole frame, so one source serves every breakpoint.
+ *
+ * LCP: sole `priority` image on `/`. It was once `loading="lazy"`, which cost
+ * 11.8s on mobile — do not reintroduce that.
  */
-function HeroBackground() {
-  const shared = { alt: HERO_ALT, sizes: '100vw', quality: 65 as const };
-
-  const {
-    props: { srcSet: mobileSrcSet, src: mobileSrc, sizes: mobileSizes, ...mobileRest },
-  } = getImageProps({
-    ...shared,
-    src: HERO_IMAGES_PORTRAIT.arch,
-    width: 1200,
-    height: 1600,
-    priority: true,
-  });
-
-  const {
-    props: { srcSet: desktopSrcSet },
-  } = getImageProps({
-    ...shared,
-    src: HERO_IMAGES.arch,
-    width: 2400,
-    height: 1350,
-  });
-
-  // Drop width/height — hero is absolute + object-fit cover.
-  // Drop any default loading so we can force eager after the spread.
-  const { width: _w, height: _h, loading: _loading, ...imgProps } = mobileRest;
-
-  return (
-    <div className="lux-hero-media">
-      {/*
-        One preload per breakpoint, mirroring the <picture> sources exactly.
-        Without the desktop half, only phones got an early fetch and desktop
-        waited for the preload scanner to reach <source>.
-      */}
-      <link
-        rel="preload"
-        as="image"
-        imageSrcSet={mobileSrcSet}
-        imageSizes="100vw"
-        media="(max-width: 767px)"
-        fetchPriority="high"
-      />
-      <link
-        rel="preload"
-        as="image"
-        imageSrcSet={desktopSrcSet}
-        imageSizes="100vw"
-        media="(min-width: 768px)"
-        fetchPriority="high"
-      />
-      <picture>
-        <source media="(min-width: 768px)" srcSet={desktopSrcSet} sizes="100vw" />
-        <img
-          {...imgProps}
-          src={mobileSrc}
-          srcSet={mobileSrcSet}
-          sizes={mobileSizes}
-          alt={HERO_ALT}
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          className="object-cover object-center lux-image-cinematic"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center',
-          }}
-        />
-      </picture>
-    </div>
-  );
-}
-
 export default function HomeHero() {
   return (
     <section className="lux-hero-root">
-      <HeroBackground />
+      {/*
+        `quality` must be one of next.config.js `images.qualities`
+        ([65, 70, 72, 75]). Next 16 rejects any value not declared there and
+        the frame renders blank with no error in the page — 74 cost a round
+        trip to find.
+      */}
+      <div className="lux-hero-media">
+        <Image
+          src={HERO_IMAGES.banquet}
+          alt={HERO_ALT}
+          fill
+          priority
+          fetchPriority="high"
+          quality={75}
+          sizes="100vw"
+          className="object-cover lux-image-cinematic"
+        />
+      </div>
       <div
         className="absolute inset-0 z-[1] lux-overlay-gradient pointer-events-none"
         aria-hidden

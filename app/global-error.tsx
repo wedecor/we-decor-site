@@ -17,13 +17,13 @@ export default function GlobalError({ error, reset }: { error: Error; reset: () 
           Something went wrong
         </p>
         <h2 className="font-display text-3xl font-light mb-8">Please try again</h2>
+        {/* global-error renders its own <html>, so it cannot use lux-btn-primary
+            from globals.css — these styles are inlined on purpose and must be
+            kept in step with it by hand. */}
         <button
           type="button"
-          className="rounded-full px-8 py-3 text-sm font-medium text-[#f5f0e6] transition-transform hover:-translate-y-0.5"
-          style={{
-            background: 'linear-gradient(135deg, #009e88, #00ad96)',
-            boxShadow: '0 10px 28px -6px rgba(0, 184, 156, 0.35)',
-          }}
+          className="rounded-[4px] px-8 py-3.5 text-sm font-medium tracking-wide text-[#0f0a12] transition-all duration-300 ease-out active:scale-[0.98]"
+          style={{ background: '#c8a96b', border: '1px solid #c8a96b' }}
           onClick={reset}
         >
           Try again

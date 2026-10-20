@@ -48,26 +48,27 @@ export default async function ReviewsList() {
       </div>
 
       {/* Reviews */}
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 list-none p-0 m-0">
+      {/*
+        Was boxed panels with a circular avatar holding the first letter of a
+        name printed directly beside it — decoration carrying no information,
+        and aria-hidden by its own admission. Same correction as the homepage
+        testimonials: hairline rules, nothing competing with the words.
+      */}
+      <ul className="list-none p-0 m-0 border-t border-white/[0.08] md:grid md:grid-cols-2 lg:grid-cols-3">
         {data.reviews.map((review) => (
-          <li key={`${review.author}-${review.datePublished}`}>
-            <figure className="lux-panel p-6 md:p-7 h-full flex flex-col">
-              <Stars rating={review.rating} className="mb-4" />
-              <blockquote className="text-[0.9375rem] text-lux-secondary font-light leading-[1.8] flex-1">
+          <li
+            key={`${review.author}-${review.datePublished}`}
+            className="border-b border-white/[0.08] md:border-r md:last:border-r-0 lg:[&:nth-child(3n)]:border-r-0"
+          >
+            <figure className="flex h-full flex-col py-9 md:px-7 lg:px-8">
+              <Stars rating={review.rating} className="mb-5" />
+              <blockquote className="flex-1 text-[1rem] font-light leading-[1.85] text-lux-secondary">
                 {review.text}
               </blockquote>
-              <figcaption className="mt-5 pt-5 border-t border-white/[0.08] flex items-center gap-3">
-                <span
-                  aria-hidden
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lux-elevated border border-lux-border font-display text-sm text-lux-gold-soft"
-                >
-                  {review.author.charAt(0).toUpperCase()}
-                </span>
-                <span className="min-w-0">
-                  <span className="block text-sm text-lux-ivory truncate">{review.author}</span>
-                  <span className="block text-xs text-lux-text-muted">
-                    Google review · {review.relativeTime}
-                  </span>
+              <figcaption className="mt-7 min-w-0">
+                <span className="block truncate text-sm text-lux-ivory">{review.author}</span>
+                <span className="mt-1 block text-xs tracking-wide text-lux-text-muted">
+                  Google review · {review.relativeTime}
                 </span>
               </figcaption>
             </figure>

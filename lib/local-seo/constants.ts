@@ -147,4 +147,10 @@ export const OPENING_HOURS = {
  * Update both values together whenever GBP changes — do not invent or round.
  */
 export const GOOGLE_RATING = 4.9;
-export const GOOGLE_REVIEW_COUNT = 76;
+/**
+ * Keep in step with the live Google count — `/reviews` reads the real figure
+ * from the Places API, so a stale constant makes the meta descriptions and
+ * the AggregateRating schema disagree with the page they sit on. It drifted
+ * to 76 while the profile was at 81.
+ */
+export const GOOGLE_REVIEW_COUNT = 81;

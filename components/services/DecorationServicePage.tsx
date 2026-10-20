@@ -11,6 +11,15 @@ import { getServiceLocalitiesFor, RELATED_DECORATION_SERVICES } from '@/lib/seo/
 import type { ExploreLink } from '@/lib/seo/core-explore-links';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
 
+/**
+ * Occasions and venues were rows of pill chips — decoration standing in for
+ * information. A separated inline list says the same thing and reads as text.
+ */
+const INLINE_LIST =
+  'flex flex-wrap gap-x-5 gap-y-2 list-none p-0 m-0 text-sm text-lux-secondary ' +
+  "[&>li:not(:last-child)]:after:content-['·'] [&>li:not(:last-child)]:after:ml-5 " +
+  '[&>li:not(:last-child)]:after:text-lux-gold/40';
+
 type Props = {
   config: DecorationServicePageConfig;
 };
@@ -296,12 +305,9 @@ export default function DecorationServicePage({ config }: Props) {
             <p className="lux-eyebrow mb-3">Occasions</p>
             <h2 className="lux-heading-sm">Ideal occasions</h2>
           </div>
-          <ul className="lg:col-span-7 flex flex-wrap gap-3 list-none p-0 m-0">
+          <ul className={`lg:col-span-7 ${INLINE_LIST}`}>
             {occasions.map((o) => (
-              <li
-                key={o}
-                className="rounded-full border border-white/[0.08] bg-lux-surface px-5 py-2.5 text-sm text-lux-muted"
-              >
+              <li key={o} className="text-sm text-lux-secondary">
                 {o}
               </li>
             ))}
@@ -321,7 +327,7 @@ export default function DecorationServicePage({ config }: Props) {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {config.howWeCustomize.map((item, index) => (
-                <div key={item.title} className="lux-surface p-8">
+                <div key={item.title} className="border-t border-white/[0.08] pt-7">
                   <span className="text-lux-gold/60 text-xs tracking-lux uppercase">
                     {String(index + 1).padStart(2, '0')}
                   </span>
@@ -360,12 +366,9 @@ export default function DecorationServicePage({ config }: Props) {
               <p className="lux-eyebrow mb-3">Venues</p>
               <h2 className="lux-heading-sm">Suitable venues</h2>
             </div>
-            <ul className="lg:col-span-7 flex flex-wrap gap-3 list-none p-0 m-0">
+            <ul className={`lg:col-span-7 ${INLINE_LIST}`}>
               {config.suitableVenues.map((venue) => (
-                <li
-                  key={venue}
-                  className="rounded-full border border-white/[0.08] bg-lux-surface px-5 py-2.5 text-sm text-lux-muted"
-                >
+                <li key={venue} className="text-sm text-lux-secondary">
                   {venue}
                 </li>
               ))}
@@ -438,7 +441,7 @@ export default function DecorationServicePage({ config }: Props) {
             {config.budgetConsiderations?.points?.length ? (
               <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                 {config.budgetConsiderations.points.map((point) => (
-                  <div key={point.title} className="lux-surface p-8 text-center md:text-left">
+                  <div key={point.title} className="border-t border-white/[0.08] pt-7">
                     <h3 className="font-display text-xl text-lux-ivory">{point.title}</h3>
                     <p className="mt-4 text-sm text-lux-muted leading-relaxed">
                       {point.description}
@@ -544,7 +547,7 @@ export default function DecorationServicePage({ config }: Props) {
             {config.gallery.map((img, i) => (
               <figure
                 key={`${i}-${img.caption}`}
-                className={`group relative overflow-hidden rounded-2xl border border-white/[0.08] ${
+                className={`group relative overflow-hidden rounded-[4px] border border-white/[0.08] ${
                   i === 0 ? 'md:col-span-2 aspect-[16/10]' : 'aspect-[4/5]'
                 }`}
               >
@@ -587,7 +590,7 @@ export default function DecorationServicePage({ config }: Props) {
                 <li key={loc.href}>
                   <Link
                     href={loc.href}
-                    className="inline-block rounded-full border border-white/[0.08] bg-lux-surface px-5 py-2.5 text-sm text-lux-muted hover:border-lux-gold/30 hover:text-lux-ivory transition-colors"
+                    className="inline-block border-b border-lux-gold/25 pb-0.5 text-sm text-lux-secondary transition-colors duration-300 hover:border-lux-gold hover:text-lux-gold"
                   >
                     {loc.name}
                   </Link>

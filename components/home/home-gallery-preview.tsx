@@ -46,7 +46,7 @@ export default function HomeGalleryPreview() {
           {previews.map((img, i) => (
             <figure
               key={img.src}
-              className={`group relative overflow-hidden rounded-[20px] border border-lux-gold/10 ${
+              className={`group relative overflow-hidden rounded-[4px] border border-lux-gold/10 ${
                 i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-[4/5]'
               }`}
             >

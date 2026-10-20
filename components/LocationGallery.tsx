@@ -93,7 +93,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
             >
               ×
             </button>
-            <div className="relative overflow-hidden rounded-[20px]">
+            <div className="relative overflow-hidden rounded-[4px]">
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}

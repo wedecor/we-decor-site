@@ -64,27 +64,27 @@ export default async function HomeTestimonials() {
           </div>
         </FadeIn>
 
-        <ul className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 list-none p-0 m-0">
+        {/*
+          Was three boxed panels, each with a circular avatar holding the first
+          letter of a name printed directly beside it — decoration carrying no
+          information, and aria-hidden by its own admission.
+
+          Now the quotes sit on the page separated by hairline rules. Nothing
+          competes with the words, which are the only thing of value here.
+        */}
+        <ul className="list-none p-0 m-0 divide-y divide-white/[0.08] border-y border-white/[0.08] md:grid md:grid-cols-3 md:divide-y-0 md:divide-x md:border-y-0 md:border-t">
           {featured.map((review, index) => (
             <li key={`${review.author}-${review.datePublished}`}>
               <FadeIn delay={index * 0.05}>
-                <figure className="lux-panel p-6 md:p-7 h-full flex flex-col">
-                  <Stars rating={review.rating} className="mb-4" />
-                  <blockquote className="text-[0.9375rem] text-lux-secondary font-light leading-[1.8] flex-1 line-clamp-6">
+                <figure className="h-full flex flex-col py-10 md:py-12 md:px-8 lg:px-10">
+                  <Stars rating={review.rating} className="mb-6" />
+                  <blockquote className="text-[1.0625rem] text-lux-secondary font-light leading-[1.85] flex-1 line-clamp-6">
                     {review.text}
                   </blockquote>
-                  <figcaption className="mt-5 pt-5 border-t border-white/[0.08] flex items-center gap-3">
-                    <span
-                      aria-hidden
-                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-lux-elevated border border-lux-border font-display text-sm text-lux-gold-soft"
-                    >
-                      {review.author.charAt(0).toUpperCase()}
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-sm text-lux-ivory truncate">{review.author}</span>
-                      <span className="block text-xs text-lux-text-muted">
-                        Google review · {review.relativeTime}
-                      </span>
+                  <figcaption className="mt-8 min-w-0">
+                    <span className="block text-sm text-lux-ivory truncate">{review.author}</span>
+                    <span className="block text-xs text-lux-text-muted mt-1 tracking-wide">
+                      Google review · {review.relativeTime}
                     </span>
                   </figcaption>
                 </figure>

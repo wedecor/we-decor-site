@@ -16,10 +16,15 @@ export default function CriticalStyles() {
             :root { --nav-height: 5.75rem; }
           }
           html, body { margin: 0; background: var(--lux-bg); color: var(--lux-ivory); }
+          /*
+           * aspect-ratio, not min-height: 88vh. The hero shows the whole
+           * photograph, and an 88vh box on a wide viewport is ~2:1 against a
+           * 16:9 image, so object-cover was slicing the top and bottom off.
+           */
           .lux-hero-root {
-            position: relative; isolation: isolate; min-height: 88vh;
+            position: relative; isolation: isolate; aspect-ratio: 16 / 9;
             display: flex; align-items: flex-end; overflow: hidden;
-            padding-top: var(--nav-height); background: var(--lux-bg);
+            background: var(--lux-bg);
           }
           .lux-hero-media { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
           .lux-hero-media img { object-fit: cover !important; width: 100% !important; height: 100% !important; }
