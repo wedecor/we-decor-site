@@ -53,8 +53,24 @@ export const contactLeadSchema = z.object({
     .max(500)
     .optional()
     .transform((v) => (v && v.length > 0 ? v : undefined))
-    .refine((v) => v === undefined || /^https?:\/\//.test(v), { message: 'Invalid page URL' }),
+    .refine((v) => v === undefined || isOwnPageUrl(v), { message: 'Invalid page URL' }),
 });
+
+function isOwnPageUrl(value: string): boolean {
+  if (value.startsWith('/') && !value.startsWith('//')) return true;
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return false;
+    const site = new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.wedecorevents.com');
+    if (parsed.origin === site.origin) return true;
+    if (process.env.NODE_ENV !== 'production') {
+      return parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1';
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
 
 export type ContactLeadInput = z.infer<typeof contactLeadSchema>;
 

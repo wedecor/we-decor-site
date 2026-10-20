@@ -12,6 +12,35 @@ export const dynamic = 'force-dynamic';
 
 const MAX_BODY_BYTES = 16_384;
 
+async function readCappedText(request: Request, maxBytes: number): Promise<string | 'too_large'> {
+  const declared = Number(request.headers.get('content-length') || 0);
+  if (declared > maxBytes) return 'too_large';
+
+  const body = request.body;
+  if (!body) return '';
+
+  const reader = body.getReader();
+  const chunks: Uint8Array[] = [];
+  let total = 0;
+  for (;;) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    total += value.byteLength;
+    if (total > maxBytes) {
+      await reader.cancel();
+      return 'too_large';
+    }
+    chunks.push(value);
+  }
+  const out = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    out.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return new TextDecoder('utf-8').decode(out);
+}
+
 function isSpamPayload(body: Record<string, unknown>): boolean {
   if (typeof body.website === 'string' && body.website.length > 0) return true;
   const msg = String(body.message ?? '');
@@ -26,11 +55,6 @@ export async function POST(request: NextRequest) {
     return apiError('ORIGIN_FORBIDDEN', 'Request origin not allowed', 403);
   }
 
-  const contentLength = Number(request.headers.get('content-length') || 0);
-  if (contentLength > MAX_BODY_BYTES) {
-    return apiError('PAYLOAD_TOO_LARGE', 'Request body too large', 413);
-  }
-
   const ip = getClientIp(request);
   const rate = await rateLimitContact(ip);
   if (!rate.success) {
@@ -39,8 +63,8 @@ export async function POST(request: NextRequest) {
 
   let raw: unknown;
   try {
-    const text = await request.text();
-    if (text.length > MAX_BODY_BYTES) {
+    const text = await readCappedText(request, MAX_BODY_BYTES);
+    if (text === 'too_large') {
       return apiError('PAYLOAD_TOO_LARGE', 'Request body too large', 413);
     }
     raw = JSON.parse(text);
@@ -71,7 +95,10 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const ipSalt = process.env.LEAD_IP_HASH_SALT || 'we-decor';
+    const ipSalt =
+      process.env.LEAD_IP_HASH_SALT?.trim() ||
+      process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+      'we-decor';
     const result = await createLead({
       name: data.name,
       phone: data.phone,

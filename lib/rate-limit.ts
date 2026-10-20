@@ -36,6 +36,7 @@ function memoryRateLimit(key: string): RateLimitResult {
 }
 
 let upstashLimiter: Ratelimit | null = null;
+let memoryWarned = false;
 
 function getUpstashLimiter(): Ratelimit | null {
   if (upstashLimiter) return upstashLimiter;
@@ -67,15 +68,38 @@ export async function rateLimitContact(ip: string): Promise<RateLimitResult> {
     };
   }
 
+  if (process.env.NODE_ENV === 'production' && !memoryWarned) {
+    memoryWarned = true;
+    console.warn(
+      '[rate-limit] UPSTASH_REDIS_REST_URL/TOKEN missing — using in-memory limit (not shared across isolates).'
+    );
+  }
+
   return memoryRateLimit(key);
 }
 
+/**
+ * Client IP for rate limiting.
+ *
+ * Never use the leftmost X-Forwarded-For hop — that is attacker-controlled.
+ * On Vercel, `x-real-ip` / `x-vercel-forwarded-for` are set by the platform.
+ * Otherwise take the rightmost XFF hop (the proxy that actually connected).
+ */
 export function getClientIp(request: Request): string {
+  const vercel = request.headers.get('x-vercel-forwarded-for')?.split(',')[0]?.trim();
+  if (vercel) return vercel;
+
+  const real = request.headers.get('x-real-ip')?.trim();
+  if (real) return real;
+
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) {
-    return forwarded.split(',')[0]?.trim() || 'unknown';
+    const hops = forwarded
+      .split(',')
+      .map((h) => h.trim())
+      .filter(Boolean);
+    return hops[hops.length - 1] || 'unknown';
   }
-  const real = request.headers.get('x-real-ip');
-  if (real) return real.trim();
+
   return 'unknown';
 }

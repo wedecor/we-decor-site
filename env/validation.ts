@@ -54,6 +54,18 @@ export const SERVER_ENV_SPEC = {
     requiredInProduction: false,
     description: 'Cloudinary API secret (upload scripts)',
   },
+  UPSTASH_REDIS_REST_URL: {
+    requiredInProduction: false,
+    description: 'Upstash Redis URL for contact rate limiting',
+  },
+  UPSTASH_REDIS_REST_TOKEN: {
+    requiredInProduction: false,
+    description: 'Upstash Redis token for contact rate limiting',
+  },
+  LEAD_IP_HASH_SALT: {
+    requiredInProduction: false,
+    description: 'HMAC salt for hashing contact-form IPs',
+  },
 } as const;
 
 const DANGEROUS_PUBLIC_SUFFIXES = ['API_KEY', 'SECRET', 'TOKEN', 'PASSWORD', 'PRIVATE'] as const;
@@ -157,6 +169,23 @@ export function validateServerEnv(): ValidationIssue[] {
       message:
         'Remove NEXT_PUBLIC_GOOGLE_PLACES_API_KEY. Use server-only GOOGLE_PLACES_API_KEY instead.',
     });
+  }
+  if (isProduction()) {
+    if (!read('UPSTASH_REDIS_REST_URL') || !read('UPSTASH_REDIS_REST_TOKEN')) {
+      issues.push({
+        level: 'warn',
+        code: 'UPSTASH_MISSING',
+        message:
+          'UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN are unset. Contact rate limits will not aggregate across Vercel isolates.',
+      });
+    }
+    if (!read('LEAD_IP_HASH_SALT')) {
+      issues.push({
+        level: 'warn',
+        code: 'LEAD_IP_HASH_SALT_DEFAULT',
+        message: 'LEAD_IP_HASH_SALT is unset. Set a unique HMAC salt for contact IP hashes.',
+      });
+    }
   }
   return issues;
 }

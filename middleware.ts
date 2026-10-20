@@ -26,7 +26,7 @@ export default function middleware(req: NextRequest) {
   const csp =
     "default-src 'self'; " +
     "img-src 'self' https: data:; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; " +
+    "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://browser.sentry-cdn.com https://challenges.cloudflare.com; " +
     "style-src 'self' 'unsafe-inline' https:; " +
     "connect-src 'self' https:; " +
     "font-src 'self' https: data:; " +

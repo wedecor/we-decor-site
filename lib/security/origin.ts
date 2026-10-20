@@ -8,12 +8,12 @@ export function isAllowedOrigin(request: Request): boolean {
   const referer = request.headers.get('referer');
   const site = env.SITE_URL.replace(/\/+$/, '');
 
-  const allowed = new Set<string>([
-    site,
-    'http://localhost:3000',
-    'http://localhost:3001',
-    'http://127.0.0.1:3000',
-  ]);
+  const allowed = new Set<string>([site]);
+  if (process.env.NODE_ENV !== 'production') {
+    allowed.add('http://localhost:3000');
+    allowed.add('http://localhost:3001');
+    allowed.add('http://127.0.0.1:3000');
+  }
 
   if (origin) {
     try {

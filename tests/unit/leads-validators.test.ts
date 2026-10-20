@@ -44,4 +44,20 @@ describe('contactLeadSchema', () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it('accepts same-origin pageUrl', () => {
+    const result = contactLeadSchema.safeParse({
+      ...validPayload,
+      pageUrl: 'https://www.wedecorevents.com/contact',
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects off-site pageUrl', () => {
+    const result = contactLeadSchema.safeParse({
+      ...validPayload,
+      pageUrl: 'https://evil.example/phish',
+    });
+    expect(result.success).toBe(false);
+  });
 });
