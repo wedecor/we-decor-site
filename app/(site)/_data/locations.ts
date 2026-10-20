@@ -45,76 +45,77 @@ const joinList = (items: string[]): string =>
   items.length === 0 ? '' : items.length === 1 ? items[0] : `${items[0]} and ${items[1]}`;
 
 const TEMPLATES: Record<ServiceKey, (c: Ctx) => string> = {
-  Birthday: ({ name, city, landmarks, venueTypes }) => {
+  Birthday: ({ name, city, landmarks, venueTypes, vibe }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `Near ${lm} in ${name}` : `In ${name}, ${city}`;
     return (
-      `Celebrate birthdays in ${name}, ${city} with stylish balloon arches, fairy lights and photo-ready backdrops. ` +
-      `We tailor setups for ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}` +
-      `and keep access, power and space in mind. From intimate home parties to chic cafés, We Decor makes it effortless to host and enjoy.`
+      `${where} we set birthday balloon arches, fairy lights and photo-ready backdrops` +
+      `${vibe ? ` that match a ${vibe} neighbourhood` : ''}. ` +
+      `Layouts fit ${vt || 'homes and halls'} and keep access, power and space in mind so hosting stays easy.`
     );
   },
   Haldi: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `Around ${lm}` : `In ${name}, ${city}`;
     return (
-      `Bright, traditional haldi decor in ${name}, ${city} with marigolds, haldi-friendly seating and easy cleanup. ` +
-      `We build compact, photo-rich stages for ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
-      `and coordinate entry, water points and floor protection so families can focus on the rituals.`
+      `${where}, haldi setups use marigolds, ritual-friendly seating and easy cleanup. ` +
+      `We build compact photo stages for ${vt || 'homes and courtyards'} and coordinate entry, water and floor protection so families can stay with the rituals.`
     );
   },
   Wedding: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `Close to ${lm}` : `Across ${name}, ${city}`;
     return (
-      `Elegant wedding decor in ${name}, ${city}, blending florals, drapes and warm lighting for timeless photos. ` +
-      `We adapt mandap and stage designs to ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}` +
-      `and manage logistics—vendor timings, load-in and power—so ceremonies run beautifully on schedule.`
+      `${where} we style wedding mandaps and stages with florals, drapes and warm light. ` +
+      `Designs adapt to ${vt || 'banquets and homes'} and we handle load-in, vendor timing and power so ceremonies stay on schedule.`
     );
   },
   Engagement: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `${name} venues around ${lm}` : `Engagement venues in ${name}`;
     return (
-      `Chic engagement setups in ${name}, ${city} with floral arches, pastel palettes and modern signage. ` +
-      `Perfect for ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
-      `our layouts emphasise couple portraits, ring exchange flow and guest movement for effortless celebrations.`
+      `${where} get floral arches, pastel palettes and modern signage. ` +
+      `Layouts for ${vt || 'hotels and homes'} emphasise couple portraits, the ring exchange and guest flow.`
     );
   },
   Anniversary: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `Quiet corners near ${lm}` : `Intimate rooms in ${name}, ${city}`;
     return (
-      `Romantic anniversary decor in ${name}, ${city}: candles, subtle florals and cosy lighting for memorable dinners. ` +
-      `We style intimate corners across ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}` +
-      `and include compact backdrop ideas that photograph beautifully without crowding smaller spaces.`
+      `${where} take candles, subtle florals and compact backdrops for anniversary dinners. ` +
+      `We style ${vt || 'homes and restaurants'} so the set photographs well without crowding the table.`
     );
   },
   Proposal: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `A discreet reveal near ${lm}` : `A private setup in ${name}`;
     return (
-      `Dreamy proposal setups in ${name}, ${city} with fairy-lit tents, flowers and custom signage. ` +
-      `Designed for discreet arrival and quick reveal, our layouts suit ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
-      `so the moment feels private, elegant and perfectly photographed.`
+      `${where} uses fairy-lit tents, flowers and custom signage. ` +
+      `Arrival and reveal are planned for ${vt || 'rooftops and gardens'} so the moment stays quiet and well photographed.`
     );
   },
   'Baby Shower': ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `Family rooms near ${lm}` : `Baby showers in ${name}, ${city}`;
     return (
-      `Soft, pastel baby-shower decor in ${name}, ${city} with balloon clouds, welcome boards and photo corners. ` +
-      `We plan stroller-friendly layouts for ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}` +
-      `and ensure seating, cake table and gifts area are easy to access for guests and family.`
+      `${where} get balloon clouds, welcome boards and photo corners in soft pastels. ` +
+      `Stroller-friendly paths through ${vt || 'apartments and halls'} keep seating, cake and gifts easy to reach.`
     );
   },
   Corporate: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
+    const where = lm ? `Offices and halls near ${lm}` : `Workplaces in ${name}, ${city}`;
     return (
-      `Crisp corporate decor in ${name}, ${city} for launches, townhalls and team parties. ` +
-      `We deliver brand-aligned backdrops and photo walls tailored to ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
-      `with clean cabling, quick turnaround and minimal disruption to workspaces.`
+      `${where} get brand-aligned backdrops for launches, townhalls and team parties. ` +
+      `We cable cleanly across ${vt || 'lobbies and conference floors'} with a fast turnaround and little disruption.`
     );
   },
 };

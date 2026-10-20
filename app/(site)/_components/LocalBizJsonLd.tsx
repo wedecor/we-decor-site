@@ -27,7 +27,7 @@ export default function LocalBizJsonLd({ areaName, slug, landmark, description, 
     <SchemaScript
       data={withBreadcrumb(
         buildLocalityPageGraph({
-          name: `Event Decorations in ${areaName}`,
+          name: `Event Decorators in ${areaName}`,
           description:
             description ??
             `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}, Bengaluru.`,

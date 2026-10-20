@@ -38,12 +38,14 @@ never crawled them. `tests/unit/service-hub-links.test.ts` now fails the build
 if a sitemap path loses its last inbound link. Adding a slug to `SERVICE_PATHS`
 means adding it to `moreDecorations` in `app/services/page.tsx` too.
 
-**Do not add `AggregateRating` to more pages.** `lib/schema/pages.ts` omits it
-deliberately. Google ignores ratings a business publishes about itself, so
-self-serving markup earns no rich result and risks a structured-data manual
+**Do not add `AggregateRating` to more pages.** The homepage LocalBusiness node
+already emits it (`buildLocalBusiness()`). `/reviews` deliberately does not
+(`buildReviewsPageGraph`). Google ignores ratings a business publishes about
+itself, so extra copies earn no rich result and risk a structured-data manual
 action. Search Console showing "Review snippets: 1 valid page" is the correct
-state, not a bug. The real 4.9★/76 reviews show in the map pack, where they
-count.
+state, not a bug. The real 4.9★ / 81 reviews (see `GOOGLE_REVIEW_COUNT` in
+`lib/local-seo/constants.ts`) show in the map pack, where they count. Update
+the constant when Places drifts.
 
 **The schema.org organisation logo is the ink lockup on cream**
 (`/brand/logo-schema.png`), not the gold one. Google composites org logos onto
@@ -51,9 +53,9 @@ light surfaces, where gold on white is unreadable and a transparent PNG has no
 background to save it.
 
 **The hero image must never be lazy.** It was once `loading="lazy"`, which gave
-an 11.8s LCP on mobile. `components/home/home-hero.tsx` hand-rolls
-`getImageProps` + `<picture>` with one preload per breakpoint. Do not "simplify"
-it back to a plain `next/image`.
+an 11.8s LCP on mobile. `components/home/home-hero.tsx` uses a single
+`next/image` with `fill`, `priority`, and `fetchPriority="high"` so the 16:9
+banquet frame is the LCP image. Do not set `loading="lazy"` on it.
 
 **Verify against the live site before diagnosing.** Several confident diagnoses
 in this repo's history were wrong because they were made from the code alone —
@@ -118,25 +120,29 @@ descriptor on purpose: at 34px its caps are under 3px and turn to mush.
 
 ## SEO — what the data actually says
 
-Three months to Sep 2026: **252 clicks, 13.2k impressions, 1.9% CTR, average
-position 9.9.** Read that as *seen but not clicked*.
+Baseline 18 Jul – 17 Oct 2026 (Search Console, see ACTION_PLAN.md §1.5):
+**329 clicks, 16.5k impressions, 2.0% CTR, average position 9.7.**
+The prior window (15 Jun – 14 Sep) was 252 / 13.2k / 1.9% / 9.9.
+Growth is impressions, not CTR — still *seen but not clicked*.
 
-- **72% of clicks go to the homepage.** Location pages are the only other
+- **73% of clicks go to the homepage.** Location pages are the only other
   format earning traffic. **Service pages earn approximately nothing** — do not
   invest more effort there without evidence it changed.
-- The largest non-brand query is **"event decorators near me" (603 impressions,
-  6 clicks)**. Titles say "decorators", not "decoration", because of this.
+- The largest non-brand query is **"event decorators near me" (675 impressions,
+  5 clicks, 0.74% CTR)**. Titles say "decorators", not "decoration", because of
+  this. Do not use the older 603 / 6 figures.
 - Brand queries convert at ~22%, non-brand at ~1%. The gap is the map pack, and
   the map pack is won on the Google Business Profile, not in this repo.
 
 Locality snippets in `app/(site)/_data/location-metadata.ts` are **search
 snippets, not page copy**: lead with "Event decorators in X", then proof
-(4.9★/76 reviews), then an offer, under 160 characters, no two alike.
+(4.9★ / 81 reviews), then an offer, under 160 characters, no two alike.
 `tests/unit/serp-metadata.test.ts` enforces all of that.
 
-Claims that are verified and safe to use: 4.9★, 76 reviews, Bengaluru, since
+Claims that are verified and safe to use: 4.9★, 81 reviews, Bengaluru, since
 2022, free site visit, from ₹3,000, often same or next day. **Do not invent
-others.**
+others.** Keep `GOOGLE_REVIEW_COUNT` in `lib/local-seo/constants.ts` in step
+with Places.
 
 ---
 

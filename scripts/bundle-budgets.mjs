@@ -79,8 +79,8 @@ function parseRoutesFromBuildLog(buildLog) {
 
 function findBuildLog() {
   const candidates = [
-    join(PROJECT_ROOT, '.next', 'build-log.txt'),
     join(ARTIFACTS_DIR, 'build-log.txt'),
+    join(PROJECT_ROOT, '.next', 'build-log.txt'),
     join(PROJECT_ROOT, '.next', 'build-log.txt.txt'),
   ];
   for (const path of candidates) {
@@ -93,7 +93,7 @@ function parseNextBuildOutput() {
   const buildLogPath = findBuildLog();
   if (!buildLogPath) {
     log(
-      'No Next.js build log found (.next/build-log.txt). ' +
+      'No Next.js build log found (artifacts/build-log.txt). ' +
         'Re-run the production build with log capture (verify.sh / build:log).',
       'red'
     );

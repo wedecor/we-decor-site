@@ -55,10 +55,10 @@ export const buildPhoneUrl = () => `tel:${SITE_PHONE}`;
 ### In Components
 
 ```typescript
-import { SITE_URL, buildLocationServiceUrl, SITE_PHONE } from '../lib/site';
+import { SITE_URL, buildLocationUrl, SITE_PHONE } from '../lib/site';
 
 // Build canonical URLs
-const canonicalUrl = buildLocationServiceUrl('whitefield', 'wedding-setup');
+const canonicalUrl = buildLocationUrl('whitefield');
 
 // Use contact info
 const phoneLink = `tel:${SITE_PHONE}`;

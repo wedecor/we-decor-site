@@ -1007,7 +1007,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'Which apartment outdoor sound rules reshape evening parties?',
-      a: "For apartments, check society rules on helium and outdoor sound. Apartments host smaller birthday evenings and housewarming setups. Community hall receptions with traditional florals and apartment kids' parties with structured balloons lead family trends. Festive reds and golds remain popular for family events; cooler neutrals for workplace gatherings. Festive reds and golds remain popular for family events; cooler neutrals suit workplace gatherings.",
+      a: "For apartments, check society rules on helium and outdoor sound. Apartments host smaller birthday evenings and housewarming setups. Community hall receptions with traditional florals and apartment kids' parties with structured balloons lead family trends. Festive reds and golds remain popular for family events; cooler neutrals suit workplace gatherings.",
     },
     {
       q: 'What electrical capacity checks matter at industrial celebration rooms?',
@@ -1015,7 +1015,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'How should hall back-of-house corridors prioritise kitchen versus décor?',
-      a: 'Decide kitchen and décor corridor priority in halls that share tight back-of-house space with catering. Photograph floor surfaces and door widths. Community halls cover weddings, naming ceremonies, and larger lunches. Reusable frames that travel well are in demand across industrial-residential stops. Brand-safe neutrals suit industrial or office-adjacent events. Brand-safe neutrals suit industrial or office-adjacent events when family florals would feel out of place.',
+      a: 'Decide kitchen and décor corridor priority in halls that share tight back-of-house space with catering. Photograph floor surfaces and door widths. Community halls cover weddings, naming ceremonies, and larger lunches. Reusable frames that travel well are in demand across industrial-residential stops. Brand-safe neutrals suit industrial or office-adjacent events when family florals would feel out of place.',
     },
     {
       q: 'What restrained branding suits industrial-site staff milestones?',

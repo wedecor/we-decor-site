@@ -147,7 +147,7 @@ export function buildLocalityServiceSchema(
   return {
     '@type': 'Service',
     '@id': `${pageUrl}#service`,
-    name: `Event Decoration in ${areaName}`,
+    name: `Event Decorators in ${areaName}`,
     serviceType: 'Event decoration',
     description: `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}${landmarkText}, Bengaluru, Karnataka.`,
     url: pageUrl,

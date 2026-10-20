@@ -109,7 +109,7 @@ export default function LocationsHubPage() {
       <SchemaScript
         data={withBreadcrumb(
           buildLocationsHubGraph({
-            name: `Areas We Serve — ${CITY}`,
+            name: `Event Decorators Near You in ${CITY}`,
             description:
               'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
             localityUrls: AREAS.map((a) => ({ name: a.name, slug: a.slug })),
@@ -123,7 +123,7 @@ export default function LocationsHubPage() {
       <PageHero
         eyebrow="Bengaluru coverage"
         title="Areas we serve"
-        description={`Discover decoration across ${CITY} — each locality page includes services, recent setups, and booking for ${BUSINESS_NAME}.`}
+        description={`Discover decoration across ${CITY} — each locality page includes services, venue notes, and booking for ${BUSINESS_NAME}.`}
       >
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <TrackedPhoneLink

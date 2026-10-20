@@ -231,17 +231,19 @@ main() {
   export NEXT_PUBLIC_SITE_URL="$SITE_URL"
   echo "### Build" >> "$ART/production_readiness_report.md"
   mkdir -p "$ROOT/.next" "$ART"
-  # Capture the route size table so bundle-budgets.mjs can parse real First Load JS
+  # Capture the route size table outside `.next/` — `next build` wipes that
+  # directory at start, which deleted the tee'd log and failed CI.
   set +e
-  npm run build:prod 2>&1 | tee "$ROOT/.next/build-log.txt" | tee "$ART/build-log.txt"
+  npm run build:prod 2>&1 | tee "$ART/build-log.txt"
   local build_status=${PIPESTATUS[0]}
   set -e
   if [[ "$build_status" -ne 0 ]]; then
     fail "next build failed"
   fi
-  if ! grep -q "First Load JS" "$ROOT/.next/build-log.txt"; then
+  if ! grep -q "First Load JS" "$ART/build-log.txt"; then
     fail "next build log missing route size table"
   fi
+  cp "$ART/build-log.txt" "$ROOT/.next/build-log.txt" 2>/dev/null || true
   
   # Start server
   echo "### Start server on $BASE" >> "$ART/production_readiness_report.md"

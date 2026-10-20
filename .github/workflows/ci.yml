@@ -62,7 +62,6 @@ jobs:
           name: production-readiness-artifacts
           path: |
             artifacts/**
-            .next/build-log.txt
             test-results/**
           retention-days: 30
           

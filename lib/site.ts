@@ -39,12 +39,6 @@ export const buildPhoneUrl = (phone: string = SITE_PHONE) => {
   return `tel:${phone.replace(/\D/g, '')}`;
 };
 
-export const buildLocationServiceUrl = (location: string, service: string) => {
-  const cleanLocation = location.toLowerCase().replace(/\s+/g, '-');
-  const cleanService = service.toLowerCase().replace(/\s+/g, '-');
-  return `${SITE_URL}/locations/${cleanLocation}/${cleanService}`;
-};
-
 // Environment helpers
 export { isProduction, isDevelopment, isPreview };
 
