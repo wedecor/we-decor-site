@@ -141,7 +141,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
             />
             <p className="lux-eyebrow mb-3 md:mb-4">Bengaluru · {area.name}</p>
             <h1 className="font-display text-3xl md:text-6xl font-medium mb-4 md:mb-6 text-lux-ivory">
-              Event decoration in {area.name}, {CITY}
+              Event decorators in {area.name}, {CITY}
             </h1>
             <p className="text-base md:text-2xl mb-6 md:mb-8 text-lux-muted max-w-3xl mx-auto">
               {heroTagline
@@ -290,11 +290,17 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* Gallery Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-          <div className="lux-surface p-5 sm:p-8 md:p-12">
-            <h2 className="lux-heading-sm text-center mb-8">Recent setups in {areaName}</h2>
-            <p className="text-lg text-lux-muted text-center mb-12 max-w-3xl mx-auto">
-              Browse our recent setups across {areaName} — from apartments and rooftops to
-              clubhouses and banquet halls.
+          {/*
+            This said "Recent setups in {areaName}" over a photo set that is
+            shared across all 30 locality pages — so the same images claimed
+            thirty different neighbourhoods. The heading is now about the work
+            rather than the postcode. See localize() in _data/gallery.ts.
+          */}
+          <div>
+            <h2 className="lux-heading-sm mb-8">Our work</h2>
+            <p className="text-lg text-lux-secondary mb-12 max-w-3xl">
+              Setups we have built across Bengaluru — apartments and rooftops through to clubhouses
+              and banquet halls. We work across {areaName} and the surrounding areas.
             </p>
 
             <LocationGallery items={localizedItems} />

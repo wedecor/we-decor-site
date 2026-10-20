@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { trackPortfolioImageClick } from '@/lib/analytics/events';
 
 interface GalleryItem {
@@ -18,8 +18,11 @@ interface LocationGalleryProps {
 
 export default function LocationGallery({ items }: LocationGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const lastTriggerRef = useRef<HTMLElement | null>(null);
 
-  const openModal = (item: GalleryItem, index: number) => {
+  const openModal = (item: GalleryItem, index: number, trigger: HTMLElement) => {
+    lastTriggerRef.current = trigger;
     setSelectedImage(item);
     trackPortfolioImageClick('location_gallery', index, {
       action: 'view_fullsize',
@@ -29,7 +32,21 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
 
   const closeModal = () => {
     setSelectedImage(null);
+    lastTriggerRef.current?.focus();
   };
+
+  useEffect(() => {
+    if (!selectedImage) return;
+    closeRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+        lastTriggerRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [selectedImage]);
 
   return (
     <div className="space-y-6">
@@ -38,18 +55,18 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
           <div
             key={index}
             className="lux-card-image group cursor-pointer"
-            onClick={() => openModal(item, index)}
+            onClick={(e) => openModal(item, index, e.currentTarget)}
             tabIndex={0}
             role="button"
             aria-label={`View ${item.alt}`}
             onKeyDown={(e) => {
               if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                openModal(item, index);
+                openModal(item, index, e.currentTarget);
               }
             }}
           >
-            <div className="relative aspect-[4/3] bg-lux-muted overflow-hidden rounded-t-[28px]">
+            <div className="relative aspect-[4/3] bg-lux-muted overflow-hidden rounded-[4px]">
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -73,19 +90,16 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
           className="fixed inset-0 flex items-center justify-center z-50 p-4"
           style={{ background: 'rgba(5, 1, 13, 0.88)' }}
           onClick={closeModal}
-          onKeyDown={(e) => {
-            if (e.key === 'Escape') closeModal();
-          }}
           role="dialog"
           aria-modal="true"
           aria-label="Image preview"
-          tabIndex={-1}
         >
           <div
             className="relative max-w-4xl max-h-full lux-panel p-2"
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              ref={closeRef}
               type="button"
               onClick={closeModal}
               className="lux-icon-btn absolute top-4 right-4 min-w-0 min-h-0 text-lux-ivory text-2xl z-10 hover:text-lux-gold"

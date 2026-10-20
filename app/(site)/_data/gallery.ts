@@ -118,9 +118,27 @@ export const GALLERY_ITEMS: GalleryItem[] = GALLERY_META.map((meta) => {
   };
 });
 
-export function localize(media: GalleryItem, area: { name: string }) {
+/**
+ * Returns alt and caption for a gallery item on a locality page.
+ *
+ * It used to append the area name to both — "Birthday balloon arch … in
+ * Koramangala, Bengaluru" — but GALLERY_ITEMS is one shared Cloudinary set
+ * rendered on all 30 locality pages. That meant the same photograph claimed
+ * to have been shot in thirty different neighbourhoods, and the heading above
+ * it said "Recent setups in {area}". Thirty near-identical pages each
+ * asserting local provenance for the same images is a doorway-page signal,
+ * and these pages are already the ones Google is slowest to index.
+ *
+ * The copy is now location-neutral and honest: the work is ours, the
+ * neighbourhood is not claimed. The locality relevance these pages need comes
+ * from the body copy, FAQs and NAP, not from relabelling photographs.
+ *
+ * If you later have photos genuinely shot in a given area, attach them to
+ * that area explicitly rather than reviving this rewrite.
+ */
+export function localize(media: GalleryItem, _area: { name: string }) {
   return {
-    alt: `${media.altBase} in ${area.name}, Bengaluru`,
-    caption: `${media.captionBase} — ${area.name} ${media.serviceTag ? '(' + media.serviceTag + ')' : ''}`,
+    alt: `${media.altBase} by We Decor Events, Bengaluru`,
+    caption: media.serviceTag ? `${media.captionBase} (${media.serviceTag})` : media.captionBase,
   };
 }

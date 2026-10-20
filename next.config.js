@@ -5,7 +5,9 @@ const isProd = process.env.NODE_ENV === 'production';
 const csp = [
   "default-src 'self'",
   "img-src 'self' https: data: blob:",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://cdn.jsdelivr.net https://browser.sentry-cdn.com https://static.elfsight.com https://challenges.cloudflare.com",
+  // Elfsight and jsDelivr were leftover after the reviews widget was removed.
+  // unsafe-inline stays: Next App Router still emits inline bootstraps without a nonce pipeline.
+  "script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://browser.sentry-cdn.com https://challenges.cloudflare.com",
   "style-src 'self' 'unsafe-inline' https:",
   "connect-src 'self' https: wss:",
   "font-src 'self' https: data:",
@@ -14,7 +16,7 @@ const csp = [
   "frame-ancestors 'none'",
   "frame-src 'self' https://www.google.com https://challenges.cloudflare.com https://www.googletagmanager.com",
   "form-action 'self'",
-  "upgrade-insecure-requests",
+  'upgrade-insecure-requests',
 ].join('; ');
 
 const nextConfig = {
@@ -39,7 +41,12 @@ const nextConfig = {
   },
   experimental: {
     // Tree-shake icon / motion barrels when those packages are imported.
-    optimizePackageImports: ['framer-motion', '@heroicons/react', 'react-icons', '@headlessui/react'],
+    optimizePackageImports: [
+      'framer-motion',
+      '@heroicons/react',
+      'react-icons',
+      '@headlessui/react',
+    ],
   },
   webpack: (config, { isServer }) => {
     // Exclude scripts directory from webpack compilation
@@ -162,7 +169,11 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
-          { key: 'Permissions-Policy', value: 'geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()' },
+          {
+            key: 'Permissions-Policy',
+            value:
+              'geolocation=(), camera=(), microphone=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()',
+          },
           { key: 'X-Frame-Options', value: 'DENY' },
           {
             key: isProd ? 'Content-Security-Policy' : 'Content-Security-Policy-Report-Only',
@@ -190,15 +201,22 @@ const nextConfig = {
         source: '/robots.txt',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }],
       },
-      {
-        source: '/services/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
+      /*
+       * There was a `/services/:path*` rule here with
+       * `max-age=31536000, immutable`. It was meant for the WebP files under
+       * that path, but `source` matches the whole route — so every service
+       * page was served as text/html telling browsers and Google to cache it
+       * for a year and never revalidate. Title and copy changes to those 16
+       * pages could not reach anyone who had already loaded one.
+       *
+       * Deleted rather than narrowed: the `/:path*.webp` rule below already
+       * covers WebP anywhere, including under /services/. Verified live —
+       * / and /locations/* correctly sent max-age=0, must-revalidate, while
+       * /services and /services/birthday-decoration sent the immutable year.
+       *
+       * Never scope a long-cache header to a route prefix. Match the file
+       * extension, or Next applies it to the HTML document too.
+       */
       {
         source: '/:path*.webp',
         headers: [
@@ -264,10 +282,7 @@ const sentryOptions = {
   // https://docs.sentry.io/product/crons/
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
-
 };
 
 module.exports =
-  process.env.NODE_ENV === 'production'
-    ? withSentryConfig(nextConfig, sentryOptions)
-    : nextConfig;
+  process.env.NODE_ENV === 'production' ? withSentryConfig(nextConfig, sentryOptions) : nextConfig;
