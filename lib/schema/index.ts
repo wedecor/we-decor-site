@@ -43,6 +43,7 @@ export {
   buildGalleryPageGraph,
   buildLocationsHubGraph,
   buildReviewsPageGraph,
+  buildStaticPageGraph,
   buildServiceDetailGraph,
   buildLocalityPageGraph,
   buildBlogHubGraph,

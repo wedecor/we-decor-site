@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useRef, useState, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { CONTACT } from '@/lib/contact';
 import {
   trackLeadSubmitAttempt,
@@ -31,6 +32,7 @@ type FieldErrors = Partial<
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function ContactForm() {
+  const router = useRouter();
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -131,6 +133,12 @@ export default function ContactForm() {
 
       form.reset();
       resetTurnstile();
+
+      // Send the original tab to /thank-you. WhatsApp opened in a new tab
+      // above, so the conversation is not interrupted by this navigation.
+      // The inline success message still renders for the moment before the
+      // route change, and as the fallback if navigation is blocked.
+      router.push('/thank-you');
     } catch {
       setSubmitState('error');
       setErrors({

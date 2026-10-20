@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import BrandLockup from '@/components/lux/BrandLockup';
 import { CONTACT } from '@/lib/contact';
+import { SITE_EMAIL } from '@/lib/site';
 import { OPENING_HOURS, SOCIAL_PROFILES } from '@/lib/local-seo/constants';
 import { BRAND } from '@/lib/design/tokens';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
@@ -12,10 +13,9 @@ export default function Footer() {
 
   return (
     <footer className="lux-footer mt-auto relative z-10">
-      <div
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-lux-gold/35 to-transparent"
-        aria-hidden
-      />
+      {/* Was a transparent→gold→transparent gradient rule. A hairline is a
+          hairline; fading it at both ends is decoration. */}
+      <div className="absolute inset-x-0 top-0 h-px bg-lux-gold/20" aria-hidden />
       <div className="lux-container px-6 md:px-10 py-20 md:py-28 relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-5 space-y-7">
@@ -28,11 +28,11 @@ export default function Footer() {
             </p>
             <a
               href={SOCIAL_PROFILES.instagram}
-              className="inline-flex items-center gap-3 rounded-full border border-lux-gold/25 bg-lux-elevated/40 px-5 py-3 text-sm text-lux-secondary hover:text-lux-ivory hover:border-lux-gold/45 hover:bg-lux-elevated/70 transition-all duration-500"
+              className="inline-flex items-center gap-3 rounded-[4px] border border-lux-gold/25 bg-lux-elevated/40 px-5 py-3 text-sm text-lux-secondary hover:text-lux-ivory hover:border-lux-gold/45 hover:bg-lux-elevated/70 transition-all duration-500"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-lux-muted/60 text-lux-gold">
+              <span className="flex h-9 w-9 items-center justify-center rounded-[4px] bg-lux-muted/60 text-lux-gold">
                 <svg width={15} height={15} fill="currentColor" viewBox="0 0 24 24" aria-hidden>
                   <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zm4.25 3.25a5.25 5.25 0 1 1 0 10.5a5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5a3.75 3.75 0 0 0 0-7.5zm5.25.75a1 1 0 1 1 0 2a1 1 0 0 1 0-2z" />
                 </svg>
@@ -95,6 +95,13 @@ export default function Footer() {
                   Contact form
                 </TrackedCtaLink>
               </li>
+              <li>
+                {/* The site had no mailto: anywhere — some people will not use
+                    WhatsApp or a form, and a plain address is the fallback. */}
+                <a href={`mailto:${SITE_EMAIL}`} className="lux-footer-link">
+                  {SITE_EMAIL}
+                </a>
+              </li>
               <li className="pt-2 lux-body-sm text-lux-text-muted">
                 {OPENING_HOURS.displayFooter}
               </li>
@@ -103,7 +110,15 @@ export default function Footer() {
         </div>
 
         <div className="lux-divider mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-lux-secondary/80 font-light tracking-wide">
-          <p>© {new Date().getFullYear()} We Decor Events</p>
+          <p className="flex items-center gap-3">
+            <span>© {new Date().getFullYear()} We Decor Events</span>
+            <span aria-hidden className="text-lux-secondary/40">
+              ·
+            </span>
+            <Link href="/privacy" className="lux-footer-link">
+              Privacy
+            </Link>
+          </p>
           <p className="uppercase tracking-tagline text-lux-secondary/80">{BRAND.taglineDisplay}</p>
         </div>
       </div>

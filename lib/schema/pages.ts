@@ -187,6 +187,24 @@ export function buildLocationsHubGraph(options: {
 }
 
 /**
+ * Plain informational page — privacy policy, terms and anything else that is
+ * just prose. WebPage only, pointing at the sitewide LocalBusiness by @id.
+ */
+export function buildStaticPageGraph(options: {
+  name: string;
+  description: string;
+  path: string;
+}): GraphDocument {
+  return asGraph(
+    buildWebPage({
+      name: options.name,
+      description: options.description,
+      url: absoluteUrl(options.path),
+    })
+  );
+}
+
+/**
  * Reviews page: WebPage only, pointing at the sitewide LocalBusiness by @id.
  *
  * Deliberately emits no AggregateRating or Review nodes. Google ignores ratings

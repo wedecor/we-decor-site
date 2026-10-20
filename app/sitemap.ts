@@ -18,6 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, lastModified: now, priority: 0.5 },
     { url: `${base}/reviews`, lastModified: now, priority: 0.7 },
     { url: `${base}/locations`, lastModified: now, priority: 0.8 },
+    { url: `${base}/privacy`, lastModified: now, priority: 0.2 },
+    // `/thank-you` is deliberately absent — it is noindex, and a confirmation
+    // page reached without submitting anything is a poor search result.
   ];
 
   const servicePages: MetadataRoute.Sitemap = INDEXABLE_SERVICE_PATHS.map((path) => ({
