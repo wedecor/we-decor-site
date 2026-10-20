@@ -60,7 +60,17 @@ const decorationCards = [
   },
 ] as const;
 
-/** Additional decoration service types — listed as text links */
+/**
+ * Additional decoration service types — listed as text links.
+ *
+ * This list must cover every slug in SERVICE_PATHS that is not already a
+ * photo card above. The hub is the only high-authority internal link into
+ * these routes; anything missing here is an orphan. Search Console reported
+ * `home-decoration`, `terrace-decoration`, `car-decoration` and
+ * `nikah-decoration` as "Discovered – currently not indexed" with
+ * "Referring page: None detected" — they were in the sitemap but unlinked,
+ * so Google never spent crawl budget on them.
+ */
 const moreDecorations = [
   { href: '/services/tent-balloon-setup', label: 'Tent & Balloon Setup' },
   { href: '/services/balloon-decoration', label: 'Balloon Decorations' },
@@ -68,6 +78,10 @@ const moreDecorations = [
   { href: '/services/floral-decoration', label: 'Floral Decorations' },
   { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
   { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
+  { href: '/services/home-decoration', label: 'Home Decorations' },
+  { href: '/services/terrace-decoration', label: 'Terrace Decorations' },
+  { href: '/services/nikah-decoration', label: 'Nikah Decorations' },
+  { href: '/services/car-decoration', label: 'Wedding Car Decorations' },
 ] as const;
 
 /** Services we coordinate through trusted Bangalore partners */
@@ -75,32 +89,26 @@ const partnerServices = [
   {
     name: 'Photographers',
     description: 'Story-led coverage that preserves the feeling of your day.',
-    icon: '📷',
   },
   {
     name: 'Videographers',
     description: 'Cinematic films — calm, emotional, beautifully edited.',
-    icon: '🎥',
   },
   {
     name: 'Catering',
     description: 'Curated menus for intimate dinners and grand receptions.',
-    icon: '🍽',
   },
   {
     name: 'Make-up Artists',
     description: 'Bridal and party artistry for stage light and long wear.',
-    icon: '💄',
   },
   {
     name: 'Hair Stylists',
     description: 'Refined styling for weddings and milestone evenings.',
-    icon: '✂️',
   },
   {
     name: 'Mehndi Artists',
     description: 'Traditional and contemporary mehndi for wedding rituals.',
-    icon: '🌿',
   },
 ] as const;
 
@@ -220,23 +228,26 @@ export default function ServicesPage() {
           </div>
 
           {/* ── Partner services ── */}
-          <div className="mt-16 md:mt-20 lux-panel rounded-2xl p-8 md:p-10">
+          <div className="mt-16 md:mt-20 lux-panel p-8 md:p-10">
             <p className="lux-eyebrow mb-3">We also coordinate</p>
             <h2 className="lux-heading-sm mb-2">Planning a full event?</h2>
             <p className="text-lux-secondary text-sm md:text-base mb-8 max-w-xl">
               We connect you with trusted Bangalore partners for photography, videography, catering,
               and beauty — so you&apos;re not chasing five vendors separately.
             </p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 list-none p-0 m-0">
+            {/* The emoji that sat beside each of these (📷 🎥 🍽 💄 ✂️ 🌿) are
+                gone. Picture-font icons read as filler on a premium page, and
+                they carried nothing the label did not already say. */}
+            <ul className="grid list-none grid-cols-1 border-t border-white/[0.08] p-0 m-0 sm:grid-cols-2 lg:grid-cols-3">
               {partnerServices.map((s) => (
-                <li key={s.name} className="flex items-start gap-4">
-                  <span className="text-2xl mt-0.5" aria-hidden="true">
-                    {s.icon}
-                  </span>
-                  <div>
-                    <p className="font-medium text-lux-ivory">{s.name}</p>
-                    <p className="text-lux-secondary text-sm mt-0.5">{s.description}</p>
-                  </div>
+                <li
+                  key={s.name}
+                  className="border-b border-white/[0.08] py-6 sm:border-r sm:px-6 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+                >
+                  <p className="font-medium text-lux-ivory">{s.name}</p>
+                  <p className="text-lux-secondary text-sm mt-1.5 leading-relaxed">
+                    {s.description}
+                  </p>
                 </li>
               ))}
             </ul>
