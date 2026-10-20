@@ -15,20 +15,6 @@ import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 
-/** Unique, hand-written meta descriptions for our highest-traffic location pages */
-const CUSTOM_META_DESCRIPTIONS: Record<string, string> = {
-  koramangala:
-    'Premium event decoration in Koramangala, Bengaluru. Birthday setups, engagement stages, and corporate decor for apartments, clubhouses & rooftops. WhatsApp for a free quote.',
-  whitefield:
-    'Event decoration services in Whitefield, Bengaluru. Wedding decor, birthday parties & corporate events for villas, gated communities & tech park venues. Call We Decor today.',
-  indiranagar:
-    'Elegant event decoration in Indiranagar, Bengaluru. Proposal setups, anniversary decor & engagement styling at rooftops, cafes & residences. We Decor — Bringing Dreams to Life.',
-  'hsr-layout':
-    'Birthday & wedding decoration in HSR Layout, Bengaluru. Home parties, clubhouse events & surprise setups by We Decor. Balloon décor from ₹3,000. WhatsApp us now.',
-  jayanagar:
-    'Traditional & modern event decoration in Jayanagar, Bengaluru. Haldi, engagement, birthday & wedding decor for homes, halls & community spaces. We Decor Events.',
-};
-
 /** Dedicated decoration-service pages worth cross-linking from every locality page. */
 const SERVICE_LINKS: Partial<Record<ServiceKey, { href: string; label: string }>> = {
   Birthday: { href: '/services/birthday-decoration', label: 'Birthday Decoration' },
@@ -60,11 +46,16 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
 
   return pageMetadata({
     path: `/locations/${area.slug}`,
-    title: `Event decoration in ${area.name}, ${CITY} | We Decor`,
+    // "Event Decorators" matches how people search ("event decorators near me"
+    // is this site's largest non-brand query at 603 impressions); "Event
+    // decoration in X" did not. The offer earns the click at position ~10.
+    // The brand suffix is appended by withBrandTitle — do not add it here.
+    title: `Event Decorators in ${area.name} — Free Site Visit`,
+    // All 30 areas have a hand-written snippet in LOCALITY_PAGE_META; the
+    // generated fallback only fires if someone adds an area without one, which
+    // tests/unit/serp-metadata.test.ts fails the build for.
     description:
-      pageMeta?.description ??
-      CUSTOM_META_DESCRIPTIONS[area.slug] ??
-      buildLocationMetaDescription(area.name, getGeneratedArea(area.slug)),
+      pageMeta?.description ?? buildLocationMetaDescription(area.name, getGeneratedArea(area.slug)),
     ogImage: '/og-banner.jpg',
   });
 }
@@ -133,7 +124,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
         slug={slug}
         landmark={primaryLandmark}
         description={
-          CUSTOM_META_DESCRIPTIONS[area.slug] ??
+          getLocalityPageMeta(area.slug)?.description ??
           buildLocationMetaDescription(area.name, getGeneratedArea(area.slug))
         }
         faqs={combinedFaqs.map((f) => ({
@@ -200,24 +191,42 @@ export default async function LocationPage({ params }: LocationPageProps) {
             </Link>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/*
+            Every one of these cards used to carry a full-width solid gold
+            "Get quote" button. Rendered, that is seven to ten primary buttons
+            stacked down one page — at which point none of them is primary and
+            the eye has nowhere to land. A primary button is a scarcity
+            signal; spending it per card spends it on nothing.
+
+            The card's real job is to explain the service and route to its
+            page, so the detail link carries the weight and the WhatsApp
+            action sits beside it as quiet text. The page keeps one primary
+            button, in the CTA band below, plus the sticky WhatsApp affordance.
+
+            The boxes went at the same time: hairline rules separate these as
+            well as panels did, without a grid of floating cards.
+          */}
+          <div className="grid grid-cols-1 border-t border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service) => {
               const servicePage = SERVICE_LINKS[service];
               return (
-                <div key={service} className="lux-panel lux-panel-hover p-6 flex flex-col h-full">
+                <div
+                  key={service}
+                  className="flex h-full flex-col border-b border-white/[0.08] py-7 md:border-r md:px-7 md:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+                >
                   <h3 className="font-display text-xl text-lux-ivory mb-3">{service}</h3>
                   {area.serviceDescriptions ? (
-                    <p className="text-lux-muted mb-4 text-sm flex-1">
+                    <p className="text-lux-secondary mb-6 text-sm leading-relaxed flex-1">
                       {area.serviceDescriptions[service]}
                     </p>
                   ) : null}
-                  <div className="mt-auto flex flex-col gap-3">
+                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2">
                     {servicePage ? (
                       <Link
                         href={servicePage.href}
-                        className="text-sm text-lux-gold hover:underline font-medium text-center"
+                        className="border-b border-lux-gold/30 pb-0.5 text-sm font-medium text-lux-gold transition-colors duration-300 hover:border-lux-gold"
                       >
-                        {serviceAnchor(servicePage.label)} details →
+                        {serviceAnchor(servicePage.label)} →
                       </Link>
                     ) : null}
                     <TrackedWhatsAppLink
@@ -225,9 +234,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
                       source={`location:${slug}:${service}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="lux-btn-primary text-center"
+                      className="text-sm text-lux-text-muted transition-colors duration-300 hover:text-lux-ivory"
                     >
-                      Get quote
+                      Ask on WhatsApp
                     </TrackedWhatsAppLink>
                   </div>
                 </div>
@@ -258,13 +267,15 @@ export default async function LocationPage({ params }: LocationPageProps) {
         {/* Area-specific information */}
         {area.landmarks && area.landmarks.length > 0 ? (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-            <div className="lux-surface p-5 sm:p-8 md:p-12">
-              <h2 className="lux-heading-sm text-center mb-8">Landmarks near {area.name}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Was boxed cards inside a panel — a card in a card. The rule
+                between them does the separating. */}
+            <div>
+              <h2 className="lux-heading-sm mb-8">Landmarks near {area.name}</h2>
+              <div className="grid grid-cols-1 border-t border-white/[0.08] md:grid-cols-3">
                 {area.landmarks.map((landmark, index) => (
                   <div
                     key={index}
-                    className="text-center p-4 bg-lux-elevated rounded-xl border border-white/10"
+                    className="border-b border-white/[0.08] py-7 md:border-b-0 md:border-r md:px-7 md:last:border-r-0"
                   >
                     <h3 className="text-lg font-medium text-lux-ivory mb-2">{landmark}</h3>
                     <p className="text-lux-secondary text-sm">
@@ -292,9 +303,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* Explore more — consolidated internal linking */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-          <div className="lux-surface p-5 sm:p-8 md:p-12">
-            <h2 className="lux-heading-sm text-center mb-8">Explore more</h2>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto text-center">
+          <div className="border-t border-white/[0.08] pt-12">
+            <h2 className="lux-heading-sm mb-8">Explore more</h2>
+            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
               <div>
                 <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
                   Services in {areaName}

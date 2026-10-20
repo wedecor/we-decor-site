@@ -80,11 +80,11 @@ export function pageMetadata({
 }: PageMetadataOptions): Metadata {
   const url = absoluteUrl(path);
   const imageUrl = ogImage.startsWith('http') ? ogImage : absoluteUrl(ogImage);
-  const isHome = path === '/' || path === '';
   const cleanTitle = stripBrandFromTitle(title);
-  const brandedTitle = isHome
-    ? `${SITE_NAME} - Event Decoration Services in Bangalore`
-    : withBrandTitle(cleanTitle);
+  // The homepage title used to be hardcoded here, silently discarding whatever
+  // `app/page.tsx` passed in. Every page now owns its own title; the brand is
+  // appended once by withBrandTitle.
+  const brandedTitle = withBrandTitle(cleanTitle);
 
   return {
     // Absolute branded title so <title>, og:title, and twitter:title stay aligned

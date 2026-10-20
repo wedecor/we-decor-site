@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { CLUSTERS } from '../_data/clusters';
 import { AREAS, BUSINESS_NAME, CITY } from '../_data/locations';
 import { pageMetadata } from '@/lib/metadata';
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from '@/lib/local-seo/constants';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildLocationsHubGraph, withBreadcrumb } from '@/lib/schema';
 import { CONTACT } from '@/lib/contact';
@@ -12,11 +13,16 @@ import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 import TrackedCtaLink from '@/components/analytics/TrackedCtaLink';
 import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 
+/**
+ * Worst click-through on the site: 273 impressions, 3 clicks (1.1%) over three
+ * months. "Areas We Serve" is internal language — nobody searches it, and it
+ * promised a directory rather than a service. Leading with "Event Decorators
+ * Near You" matches the intent behind the traffic this page already receives.
+ */
 export const metadata: Metadata = pageMetadata({
   path: '/locations',
-  title: 'Areas We Serve — Event Decorators in Bangalore',
-  description:
-    'We Decor serves Bengaluru across North, South, East, Central and West Bangalore. Explore Koramangala, Whitefield, Indiranagar, Jayanagar, Hebbal, Malleshwaram and more.',
+  title: 'Event Decorators Near You in Bangalore — 25+ Areas',
+  description: `Birthday, wedding, haldi & engagement décor across Bengaluru — Whitefield, Koramangala, Indiranagar, Jayanagar, HSR and more. ${GOOGLE_RATING}★ (${GOOGLE_REVIEW_COUNT} reviews). Free site visit.`,
   ogImage: '/og-banner.jpg',
 });
 
