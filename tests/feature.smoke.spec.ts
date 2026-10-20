@@ -136,9 +136,13 @@ test.describe('feature-smoke', () => {
 
   test('images have descriptive alt text @smoke', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
-    // ensure no missing/empty alt attributes
-    const missing = await page.$$eval('img', imgs =>
-      imgs.filter(img => !img.hasAttribute('alt') || (img.getAttribute('alt') || '').trim() === '').length
+    // Content images need a real alt. Empty alt is allowed only on
+    // aria-hidden decorative marks (the linked nav/footer lockups).
+    const missing = await page.$$eval('img', (imgs) =>
+      imgs.filter((img) => {
+        if (img.getAttribute('aria-hidden') === 'true') return false;
+        return !img.hasAttribute('alt') || (img.getAttribute('alt') || '').trim() === '';
+      }).length
     );
     expect(missing, 'Images missing alt attributes').toBe(0);
   });

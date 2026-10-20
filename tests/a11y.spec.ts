@@ -26,10 +26,11 @@ test.describe('Accessibility Tests', () => {
     const h1 = page.locator('h1');
     await expect(h1).toContainText(/gallery/i);
     
-    // Check for alt text on images
-    const images = page.locator('img');
+    // Content images need a real alt. Linked brand lockups are decorative
+    // (empty alt + aria-hidden on the mark; the parent <Link> is named).
+    const images = page.locator('img:not([aria-hidden="true"])');
     const imageCount = await images.count();
-    
+
     for (let i = 0; i < Math.min(imageCount, 5); i++) {
       const alt = await images.nth(i).getAttribute('alt');
       expect(alt).toBeTruthy();
