@@ -55,42 +55,27 @@ function parseArgs() {
   return { url };
 }
 
-function checkLighthouseInstalled() {
-  try {
-    execSync('lighthouse --version', { stdio: 'pipe' });
-    return true;
-  } catch (error) {
-    return false;
-  }
-}
-
-function installLighthouse() {
-  log('Installing Lighthouse...', 'blue');
-  try {
-    execSync('npm install -g lighthouse', { stdio: 'inherit' });
-    return true;
-  } catch (error) {
-    log('Failed to install Lighthouse globally. Trying local installation...', 'yellow');
-    try {
-      execSync('npm install --save-dev lighthouse', { stdio: 'inherit', cwd: PROJECT_ROOT });
-      return true;
-    } catch (error) {
-      log('Failed to install Lighthouse locally.', 'red');
-      return false;
-    }
-  }
+function lighthouseBin() {
+  const local = join(PROJECT_ROOT, 'node_modules', '.bin', 'lighthouse');
+  if (existsSync(local)) return local;
+  return null;
 }
 
 function runLighthouse(url, device = 'desktop') {
   const outputDir = join(ARTIFACTS_DIR, `lh-${device}`);
   const htmlPath = join(outputDir, 'report.html');
   const jsonPath = join(outputDir, 'report.json');
-  
+  const bin = lighthouseBin();
+  if (!bin) {
+    log('Lighthouse is not installed. It is a devDependency — run npm ci.', 'red');
+    return null;
+  }
+
   // Create output directory
   execSync(`mkdir -p "${outputDir}"`, { stdio: 'pipe' });
   
   const command = [
-    'lighthouse',
+    `"${bin}"`,
     `"${url}"`,
     '--output=html,json',
     `--output-path="${outputDir}/report"`,
@@ -252,14 +237,10 @@ async function main() {
     
     log('Starting Lighthouse performance analysis...', 'blue');
     log(`Target URL: ${targetUrl}`, 'blue');
-    
-    // Check if Lighthouse is installed
-    if (!checkLighthouseInstalled()) {
-      log('Lighthouse not found. Installing...', 'yellow');
-      if (!installLighthouse()) {
-        log('Failed to install Lighthouse. Please install it manually.', 'red');
-        process.exit(1);
-      }
+
+    if (!lighthouseBin()) {
+      log('Lighthouse binary not found in node_modules/.bin. Run npm ci.', 'red');
+      process.exit(1);
     }
     
     // Run Lighthouse for desktop and mobile

@@ -234,8 +234,21 @@ main() {
   # Capture the route size table outside `.next/` — `next build` wipes that
   # directory at start, which deleted the tee'd log and failed CI.
   set +e
-  npm run build:prod 2>&1 | tee "$ART/build-log.txt"
-  local build_status=${PIPESTATUS[0]}
+  local build_status=1
+  local attempt
+  for attempt in 1 2 3; do
+    npm run build:prod 2>&1 | tee "$ART/build-log.txt"
+    build_status=${PIPESTATUS[0]}
+    if [[ "$build_status" -eq 0 ]]; then
+      break
+    fi
+    if grep -q 'next/font' "$ART/build-log.txt"; then
+      log_warning "next/font fetch failed (attempt ${attempt}/3); retrying"
+      sleep 8
+      continue
+    fi
+    break
+  done
   set -e
   if [[ "$build_status" -ne 0 ]]; then
     fail "next build failed"
