@@ -6,10 +6,11 @@
  * Usage: node scripts/lighthouse.mjs [--url=http://localhost:3001]
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
+import { chromium } from 'playwright';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -61,6 +62,16 @@ function lighthouseBin() {
   return null;
 }
 
+function chromePath() {
+  try {
+    const p = chromium.executablePath();
+    if (p && existsSync(p)) return p;
+  } catch {
+    // Playwright browsers not installed in this environment.
+  }
+  return process.env.CHROME_PATH || '';
+}
+
 function runLighthouse(url, device = 'desktop') {
   const outputDir = join(ARTIFACTS_DIR, `lh-${device}`);
   const htmlPath = join(outputDir, 'report.html');
@@ -70,26 +81,35 @@ function runLighthouse(url, device = 'desktop') {
     log('Lighthouse is not installed. It is a devDependency — run npm ci.', 'red');
     return null;
   }
+  const chrome = chromePath();
+  if (!chrome) {
+    log('No Chrome/Chromium found (Playwright browser or CHROME_PATH).', 'red');
+    return null;
+  }
 
-  // Create output directory
-  execSync(`mkdir -p "${outputDir}"`, { stdio: 'pipe' });
-  
-  const command = [
-    `"${bin}"`,
-    `"${url}"`,
-    '--output=html,json',
-    `--output-path="${outputDir}/report"`,
-    '--chrome-flags="--headless --no-sandbox --disable-gpu"',
+  mkdirSync(outputDir, { recursive: true });
+
+  const args = [
+    url,
+    '--output=html',
+    '--output=json',
+    `--output-path=${join(outputDir, 'report')}`,
+    `--chrome-path=${chrome}`,
+    '--chrome-flags=--headless --no-sandbox --disable-gpu',
     '--quiet',
     '--no-enable-error-reporting',
-    device === 'mobile' ? '--form-factor=mobile' : '--form-factor=desktop',
-    device === 'mobile' ? '--throttling-method=devtools' : '',
-  ].filter(Boolean).join(' ');
-  
+    `--form-factor=${device === 'mobile' ? 'mobile' : 'desktop'}`,
+  ];
+  if (device === 'mobile') args.push('--throttling-method=devtools');
+
   log(`Running Lighthouse for ${device}...`, 'blue');
-  
+
   try {
-    execSync(command, { stdio: 'pipe', timeout: 120000 }); // 2 minute timeout
+    execFileSync(bin, args, {
+      timeout: 120000,
+      killSignal: 'SIGKILL',
+      stdio: 'pipe',
+    });
     return { htmlPath, jsonPath };
   } catch (error) {
     log(`Lighthouse failed for ${device}: ${error.message}`, 'red');
