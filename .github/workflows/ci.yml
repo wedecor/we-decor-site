@@ -43,6 +43,26 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
           BASE: ${{ env.BASE }}
+
+      # verify.sh stops the server on EXIT. Smoke tests can spawn their own
+      # via Playwright webServer; crawl-links.mjs cannot.
+      - name: Start production server
+        run: |
+          mkdir -p artifacts
+          npx next start -p 3001 > artifacts/ci-server.log 2>&1 &
+          echo $! > artifacts/ci-server.pid
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3001 >/dev/null; then
+              echo "Server ready on :3001"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Server failed to start"
+          cat artifacts/ci-server.log || true
+          exit 1
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ env.NEXT_PUBLIC_SITE_URL }}
           
       - name: Run Smoke Tests
         run: npm run test:smoke
