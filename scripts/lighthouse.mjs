@@ -74,8 +74,10 @@ function chromePath() {
 
 function runLighthouse(url, device = 'desktop') {
   const outputDir = join(ARTIFACTS_DIR, `lh-${device}`);
-  const htmlPath = join(outputDir, 'report.html');
-  const jsonPath = join(outputDir, 'report.json');
+  // Lighthouse 12 with `--output=html,json` and `--output-path=.../report`
+  // writes `report.report.html` / `report.report.json`.
+  const htmlPath = join(outputDir, 'report.report.html');
+  const jsonPath = join(outputDir, 'report.report.json');
   const bin = lighthouseBin();
   if (!bin) {
     log('Lighthouse is not installed. It is a devDependency — run npm ci.', 'red');
