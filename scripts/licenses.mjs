@@ -24,10 +24,13 @@ const LICENSE_CATEGORIES = {
     'Unlicense', '0BSD', 'CC0-1.0', 'WTFPL', 'Zlib'
   ],
   
-  // Copyleft licenses (require attention)
-  copyleft: [
-    'GPL-2.0', 'GPL-3.0', 'AGPL-3.0', 'LGPL-2.1', 'LGPL-3.0',
-    'MPL-2.0', 'EPL-1.0', 'EPL-2.0', 'CDDL-1.0', 'CDDL-1.1'
+  // Strong copyleft would infect this closed marketing site.
+  strongCopyleft: ['GPL-2.0', 'GPL-3.0', 'AGPL-3.0'],
+  // Weak copyleft (file/library): Next's edge-runtime (MPL), sharp's libvips
+  // (LGPL), and axe-core (MPL) are expected. Warn, do not fail the build.
+  weakCopyleft: [
+    'LGPL-2.1', 'LGPL-3.0', 'MPL-2.0', 'EPL-1.0', 'EPL-2.0',
+    'CDDL-1.0', 'CDDL-1.1',
   ],
   
   // Commercial licenses (require review)
@@ -108,9 +111,14 @@ function categorizeLicense(license) {
     }
   }
   
-  // Check for copyleft licenses
-  for (const copyleft of LICENSE_CATEGORIES.copyleft) {
-    if (licenseStr.includes(copyleft.toUpperCase())) {
+  // Check LGPL before GPL so "LGPL-3.0" is not classified as "GPL-3.0".
+  for (const weak of LICENSE_CATEGORIES.weakCopyleft) {
+    if (licenseStr.includes(weak.toUpperCase())) {
+      return 'weakCopyleft';
+    }
+  }
+  for (const strong of LICENSE_CATEGORIES.strongCopyleft) {
+    if (licenseStr.includes(strong.toUpperCase())) {
       return 'copyleft';
     }
   }
@@ -137,11 +145,13 @@ function analyzeLicenses(licenseData) {
     total: 0,
     permissive: 0,
     copyleft: 0,
+    weakCopyleft: 0,
     commercial: 0,
     unknown: 0,
     packages: {
       permissive: [],
       copyleft: [],
+      weakCopyleft: [],
       commercial: [],
       unknown: []
     },
@@ -169,7 +179,14 @@ function analyzeLicenses(licenseData) {
         package: packageName,
         license: license,
         category: 'copyleft',
-        message: `Package uses copyleft license: ${license}`
+        message: `Package uses strong copyleft license: ${license}`
+      });
+    } else if (category === 'weakCopyleft') {
+      analysis.warnings.push({
+        package: packageName,
+        license: license,
+        category: 'weakCopyleft',
+        message: `Package uses weak copyleft license: ${license}`
       });
     } else if (category === 'commercial') {
       analysis.violations.push({
