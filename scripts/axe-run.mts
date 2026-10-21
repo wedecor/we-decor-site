@@ -7,7 +7,8 @@
  */
 
 import { chromium, Browser, Page } from 'playwright';
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import AxeBuilder from '@axe-core/playwright';
+import { writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -63,41 +64,13 @@ async function runAxeOnPage(page: Page, url: string, route: string) {
     // Set reduced motion for consistent testing
     await page.emulateMedia({ reducedMotion: 'reduce' });
     
-    // Navigate to the page
-    await page.goto(fullUrl, { waitUntil: 'networkidle' });
-    
-    // Wait for network to be idle
-    await page.waitForLoadState('networkidle');
-    
-    // Ensure main content is loaded
+    await page.goto(fullUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
     await page.waitForSelector('main', { state: 'attached', timeout: 10000 });
-    
-    // Wait for fonts to load
-    await page.evaluate(async () => {
-      if ('fonts' in document && (document as any).fonts?.ready) {
-        await (document as any).fonts.ready;
-      }
-    });
-    
-    // Let layout settle
-    await page.waitForTimeout(100);
-    
-    // Run axe-core accessibility tests
-    const axeResults = await page.evaluate(() => {
-      return new Promise((resolve) => {
-        // Load axe-core if not already loaded
-        if (typeof (window as any).axe === 'undefined') {
-          const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/npm/axe-core@4.10.0/axe.min.js';
-          script.onload = () => {
-            (window as any).axe.run().then(resolve);
-          };
-          document.head.appendChild(script);
-        } else {
-          (window as any).axe.run().then(resolve);
-        }
-      });
-    });
+
+    // Inject axe from node_modules. The previous jsDelivr <script> never
+    // loaded under production CSP (jsdelivr was dropped) and had no onerror,
+    // so this job hung the first time Checks reached the a11y gate.
+    const axeResults = await new AxeBuilder({ page }).analyze();
     
     // Filter for serious and critical violations only
     const seriousViolations = axeResults.violations.filter((violation: any) => 
