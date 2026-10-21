@@ -23,7 +23,7 @@ const THRESHOLDS = {
   bestPractices: 90,
   seo: 90,
   accessibility: 90,
-  pwa: 80, // Only if PWA is enabled
+  // This is a marketing site, not a PWA. Do not gate on the PWA category.
 };
 
 // Default URL
