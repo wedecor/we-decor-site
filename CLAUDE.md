@@ -57,6 +57,32 @@ an 11.8s LCP on mobile. `components/home/home-hero.tsx` uses a single
 `next/image` with `fill`, `priority`, and `fetchPriority="high"` so the 16:9
 banquet frame is the LCP image. Do not set `loading="lazy"` on it.
 
+**`npm run locations:sync` used to destroy hand-written locality content.**
+`app/(site)/_data/locations.ts` says AUTO-GENERATED, but it had been hand-edited
+for months: `getAreaBySlug`, `getAllAreaSlugs`, the `heroTagline` / `waPrefill` /
+`uniqueFAQ` fields on 10 areas, and richer `vibe` / `landmarks` / `venueTypes`
+on those same 10 existed only in the generated file. The generator emitted none
+of it, so the first `locations:sync` run in months silently wiped all of it and
+broke typecheck. Fixed Oct 2026: the generator now emits both helpers and the
+extra `Area` fields, `content/locations/overrides.json` holds the per-slug
+hand-written content and is merged in (sync fails loudly if it names a slug with
+no CSV row), the 10 stale CSV rows were resynced, and sync runs prettier so the
+output does not fail lint. **Never hand-edit `locations.ts`** — put prose in
+`overrides.json` and facts in the CSV. After any sync, diff against the previous
+`locations.ts` and confirm no area lost a field.
+
+**The hero needs a height on mobile and the aspect ratio only on desktop.**
+`aspect-ratio: 16 / 9` was put on `.lux-hero-root` (`components/lux/
+CriticalStyles.tsx`) so the whole banquet frame would show. At 375px wide that
+is a **211px strip**, while the overlaid eyebrow, 84-character h1, body and two
+CTAs are **564px** — so `overflow: hidden` clipped the lot and the `<h1>`
+rendered at `top: -293px`, entirely off-screen. Every phone visitor landed on a
+homepage with no headline. The ratio now applies only at `min-width: 768px`;
+below that the hero is `min-height: 88svh` (with a `88vh` fallback first).
+Verified at 375×812: hero 715px, content 564px, nothing clipped. **Never give
+`.lux-hero-root` a definite height smaller than its own content**, and check any
+hero change at 375px before calling it done — desktop hides this entirely.
+
 **Verify against the live site before diagnosing.** Several confident diagnoses
 in this repo's history were wrong because they were made from the code alone —
 a "missing" set of service pages that existed in a file the grep missed, a
@@ -133,6 +159,35 @@ Growth is impressions, not CTR — still *seen but not clicked*.
   this. Do not use the older 603 / 6 figures.
 - Brand queries convert at ~22%, non-brand at ~1%. The gap is the map pack, and
   the map pack is won on the Google Business Profile, not in this repo.
+
+**The business operates out of Basavanagudi and JP Nagar** — one GBP pin in
+south Bengaluru. Proximity drives the *map pack*, so ad geo-targeting and GBP
+posts belong inside roughly 8 km: Jayanagar (2.3 km), Bannerghatta Road (2.4),
+BTM Layout (2.9), Banashankari (3.4), Kanakapura Road (3.6), Richmond Town
+(3.8), Ashok Nagar (4.3), Vijayanagar (5.2), Koramangala (5.3), Rajajinagar
+(6.0), HSR Layout (6.4).
+
+**Distance does not predict organic performance, and it is a mistake to assume
+it does.** Per-page Search Console, 18 Jul – 17 Oct 2026: the best locality page
+is **Whitefield, 22 km away — 678 impressions / 11 clicks**, ahead of Hebbal
+(266/5) and RT Nagar (256/5), all outside the ring. Inner ring 2,026 impressions
+/ 38 clicks (1.9%); outer ring 1,705 / 28 (1.6%). Near-parity. Do not deprioritise
+or delete the outer pages on a proximity argument — that conclusion was drawn
+once from distance alone and the data refuted it.
+
+The real split is by *problem type*, not distance:
+- **Ranking but not clicked** — Basavanagudi 299 impressions / **0 clicks**,
+  Vijayanagar 158/1, Jayanagar 258/5, BTM Layout 245/5. Snippet problem.
+- **Barely ranking** — JP Nagar 14, Ulsoor 12, Richmond Town 14, Banashankari 7,
+  Kanakapura Road 19. Content and internal-link problem; snippet rewrites cannot
+  help a page nobody sees. JP Nagar sitting at 14 impressions while Mathikere
+  gets 20 is the clearest gap on the site.
+- Ashok Nagar and the `/locations/bangalore` catch-all drew **zero** impressions.
+
+Caution when reading that table: every snippet rewrite shipped on **21 Oct 2026**
+(`7915da7`), *after* the window above closed. Those CTR figures measure the old
+atmospheric copy. Do not rewrite these snippets again before a fresh window —
+re-measure from late Nov 2026.
 
 Locality snippets in `app/(site)/_data/location-metadata.ts` are **search
 snippets, not page copy**: lead with "Event decorators in X", then proof

@@ -1,24 +1,24 @@
 slug|name|landmarks|venue_types|vibe|local_notes
 bangalore|Bangalore|MG Road, Cubbon Park, UB City|apartments, banquet halls, rooftops, villas|city-wide|Capital city with diverse venues and high demand
-koramangala|Koramangala|Forum Mall, NGV Club, Koramangala Club|rooftops, apartments, lounges, cafes|cafés & rooftops|Student and young professional hub
-whitefield|Whitefield|VR Bengaluru, Phoenix Marketcity, ITPL|villas, clubhouses, apartments, tech parks|villas & tech parks|Premium residential area with tech professionals
-indiranagar|Indiranagar|100 Feet Road, Toit area, CMH Road|lounges, rooftops, apartments, restaurants|trendy restaurants|Hipster area with upscale dining scene
-jayanagar|Jayanagar|4th Block, JP Nagar junction, Banashankari|apartments, community halls, temples|residential hubs|Traditional family-oriented neighborhood
-hsr-layout|HSR Layout|27th Main, Agara Lake, HSR Lake|apartments, villas, clubhouses|new-age homes|Modern planned layout with young families
+koramangala|Koramangala|Forum Mall, 80 Feet Road, Koramangala Club|rooftops, cafes, apartments, banquet halls, clubhouses, event spaces|rooftop, café, and compact Instagram-ready celebrations|Student and young professional hub
+whitefield|Whitefield|VR Bengaluru, Phoenix Marketcity, ITPL|villas, apartments, gated communities, clubhouses, banquet halls, event spaces|villa weekends and tech-park evenings|Premium residential area with tech professionals
+indiranagar|Indiranagar|CMH Road, 100 Feet Road, Defence Colony side|restaurants, apartments, residential societies, banquet halls, rooftops, event spaces|dining-led evenings and polished residential celebrations|Hipster area with upscale dining scene
+jayanagar|Jayanagar|Jayanagar 4th Block, South End Circle, Jayanagar Shopping Complex|community halls, family homes, banquet halls, temple-adjacent venues|traditional neighbourhood celebrations and family rituals|Traditional family-oriented neighborhood
+hsr-layout|HSR Layout|27th Main, Agara Lake, HSR BDA Complex area|apartments, clubhouses, community halls, houses, banquet halls, event spaces|young-family apartment sectors and clubhouse birthdays|Modern planned layout with young families
 rt-nagar|RT Nagar|RT Nagar Main Road, Ganganagar, Hebbal|apartments, community halls, temples|residential sprawl|Established residential area
 hebbal|Hebbal|Hebbal Lake, Manyata Flyover, Manyata Tech Park|apartments, clubhouses, lakeside venues|lakeside views|Lakeside area with tech park proximity
-electronic-city|Electronic City|Infosys Campus, Wipro Gate, Electronic City Metro|villas, clubhouses, offices, tech parks|tech parks & villas|Major IT hub with corporate venues
+electronic-city|Electronic City|Electronic City Phase 1, Infosys Campus area, Electronic City Elevated Expressway|apartments, villas, banquet halls, corporate event spaces|campus-calendar hub with residential villa pockets|Major IT hub with corporate venues
 btm-layout|BTM Layout|Silk Board, Mico Layout, BTM Lake|apartments, rooftops, community halls|student & family mix|Affordable area popular with students
-marathahalli|Marathahalli|Marathahalli Bridge, Innovative Multiplex, Outer Ring Road|apartments, clubhouses, tech parks|IT corridors|IT corridor with growing residential areas
-bellandur|Bellandur|Bellandur Lake, Ecospace, Bellandur Tech Park|apartments, clubhouses, offices, tech parks|lake & IT belt|Premium tech area with lake views
-sarjapur-road|Sarjapur Road|Wipro SEZ, Decathlon, Sarjapur Junction|villas, clubhouses, tech parks|new townships|Emerging premium residential area
+marathahalli|Marathahalli|Marathahalli Bridge, Outer Ring Road, Innovative Multiplex area|apartments, tower apartments, clubhouses, offices, banquet halls, event spaces|tower-apartment celebrations and ORR team events|IT corridor with growing residential areas
+bellandur|Bellandur|Bellandur Lake, EcoSpace, Embassy TechVillage|condo clubhouses, apartments, rooftops, office event spaces|IT lake belt and high-rise community living|Premium tech area with lake views
+sarjapur-road|Sarjapur Road|Wipro SEZ, Decathlon Sarjapur, Carmelaram|villas, gated societies, clubhouses, banquet halls|villa-township and gated-society corridor|Emerging premium residential area
 domlur|Domlur|Domlur Bridge, Indiranagar Metro, Old Airport Road|apartments, offices, restaurants|mixed commercial|Central area with good connectivity
 ulsoor|Ulsoor|Ulsoor Lake, Halasuru, MG Road Metro|apartments, banquet halls, lakeside venues|lakeside & cantonment|Historic area with lake and heritage
 richmond-town|Richmond Town|Richmond Road, Langford Road, St Mark's Road|banquet halls, restaurants, heritage venues|colonial charm|Heritage area with colonial buildings
 ashok-nagar|Ashok Nagar|Ashok Nagar Main Road, Richmond Circle, St Joseph's|apartments, community halls, churches|heritage residential|Heritage residential area
 banashankari|Banashankari|BSK 2nd Stage, Banashankari Temple, BSK 3rd Stage|community halls, apartments, temples|large residential blocks|Large traditional residential area
 basavanagudi|Basavanagudi|Bugle Rock, Gandhi Bazaar, Bull Temple|community halls, apartments, temples|classic Bengaluru|Historic area with traditional markets
-jp-nagar|JP Nagar|Mini Forest, Saraki Signal, JP Nagar Metro|apartments, banquet halls, community centers|green neighborhoods|Green residential area with good parks
+jp-nagar|JP Nagar|JP Nagar Mini Forest, JP Nagar Metro Station, Sarakki Signal|family homes, community halls, banquet halls, apartments|family residential neighbourhood with green gathering spaces|Green residential area with good parks
 bannerghatta-road|Bannerghatta Road|Bannerghatta National Park, JP Nagar, IIM Bangalore|apartments, villas, educational institutions|green & educational|Green area with educational institutions
 kanakapura-road|Kanakapura Road|Bannerghatta Road, JP Nagar, Kanakapura Junction|apartments, villas, community halls|developing residential|Developing residential corridor
 malleshwaram|Malleshwaram|8th Cross, Sankey Tank, Malleshwaram Metro|community halls, apartments, temples|heritage pockets|Traditional area with heritage buildings
@@ -29,3 +29,23 @@ sahakarnagar|Sahakarnagar|Hebbal, RT Nagar, Yelahanka|apartments, community hall
 mathikere|Mathikere|Yeshwanthpur, Rajajinagar, Mathikere Lake|apartments, community halls, educational institutions|student area|Student area with educational institutions
 yeshwanthpur|Yeshwanthpur|Peenya, Rajajinagar, Yeshwanthpur Metro|apartments, community halls, industrial areas|industrial residential|Industrial area with residential pockets
 peenya|Peenya|Peenya Industrial Area, Jalahalli, Yeshwanthpur|community halls, offices, industrial venues|industrial belt|Major industrial area
+hanumanthanagar|Hanumanthanagar|Hanumanthanagar Circle, Gali Anjaneya Temple, Chord Road|community halls, apartments, independent homes|older residential|Settled layout west of Basavanagudi
+thyagarajanagar|Thyagarajanagar|Thyagaraja Nagar Market, Madhavan Park, South End Circle|community halls, apartments, temples|traditional streets|Compact older layout bordering Basavanagudi
+puttenahalli|Puttenahalli|Puttenahalli Lake, Brigade Millennium, JP Nagar 7th Phase|apartments, clubhouses, community halls|lakeside apartments|Apartment belt around Puttenahalli Lake
+chamrajpet|Chamrajpet|Makkala Koota Park, Fort High School, Albert Victor Road|community halls, independent homes, temples|heritage quarter|Old Bengaluru neighbourhood with wide streets
+isro-layout|ISRO Layout|ISRO Layout Main Road, RBI Layout, Jaraganahalli|apartments, independent homes, community halls|quiet layouts|Planned layout off Kanakapura Road
+wilson-garden|Wilson Garden|Hombegowda Nagar, Lalbagh West Gate, Double Road|apartments, community halls, independent homes|central residential|Central layout close to Lalbagh
+shanti-nagar|Shanti Nagar|Shanti Nagar Bus Station, Richmond Circle, Double Road|hotels, banquet halls, apartments|inner city|Central pocket near Richmond Road
+bilekahalli|Bilekahalli|IIM Bangalore, Arekere Gate, Bannerghatta Road|apartments, gated communities, clubhouses|apartment corridor|Residential stretch along Bannerghatta Road
+girinagar|Girinagar|Girinagar Main Road, Banashankari Temple, Hosakerehalli|apartments, community halls, independent homes|settled layouts|Layout between Basavanagudi and Banashankari
+arekere|Arekere|Arekere Lake, Arekere Gate, Bannerghatta Road|apartments, gated communities, clubhouses|lakeside layouts|Apartment cluster off Bannerghatta Road
+kumaraswamy-layout|Kumaraswamy Layout|Dayananda Sagar College, Chunchughatta, Kumaraswamy Layout Main Road|apartments, community halls, independent homes|college belt|South Bengaluru layout near Dayananda Sagar campus
+padmanabhanagar|Padmanabhanagar|Padmanabhanagar Main Road, Kadirenahalli, Yarab Nagar|community halls, apartments, independent homes|family layouts|Residential area south of Banashankari
+katriguppe|Katriguppe|Katriguppe Main Road, Banashankari Temple, Vidyapeetha Circle|community halls, apartments, temples|temple-side streets|Layout beside Banashankari temple
+hulimavu|Hulimavu|Hulimavu Lake, Meenakshi Mall, Bannerghatta Road|apartments, gated communities, banquet halls|mall-side apartments|Apartment belt near Meenakshi Mall
+konanakunte|Konanakunte|Konanakunte Cross, Vajarahalli, Kanakapura Road|apartments, independent homes, community halls|newer layouts|Residential pocket off Kanakapura Road
+uttarahalli|Uttarahalli|Uttarahalli Main Road, Subramanyapura, Chikkalasandra|community halls, apartments, independent homes|suburban layouts|Established suburb in south-west Bengaluru
+vasanthapura|Vasanthapura|Vasanthapura Main Road, Thalaghattapura, Uttarahalli|apartments, independent homes, community halls|quiet suburbs|Residential stretch off Kanakapura Road
+gottigere|Gottigere|Gottigere Lake, Bannerghatta Road, Hulimavu Gate|apartments, independent homes, community halls|lake-side suburbs|Suburb along Bannerghatta Road
+begur|Begur|Begur Lake, Naganathapura, Begur Road|apartments, gated communities, community halls|lake suburbs|South-east Bengaluru near Begur Lake
+nagarbhavi|Nagarbhavi|Nagarbhavi Circle, Bangalore University, Chandra Layout|community halls, apartments, independent homes|university belt|West Bengaluru near Bangalore University

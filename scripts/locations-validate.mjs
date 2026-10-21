@@ -28,8 +28,8 @@ rows.forEach((r, i) => {
     errs.push(`Row ${row}: please add at least 1 venue_type`);
 });
 
-if (rows.length !== 30)
-  errs.push(`Expected 30 data rows; found ${rows.length} (${lines.length} total lines)`);
+if (rows.length !== 50)
+  errs.push(`Expected 50 data rows; found ${rows.length} (${lines.length} total lines)`);
 
 if (errs.length) {
   console.error('❌ Validation failed:\n- ' + errs.join('\n- '));

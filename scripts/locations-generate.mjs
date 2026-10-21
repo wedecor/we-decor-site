@@ -4,6 +4,14 @@ const csvPath = 'content/locations/locations.csv';
 const outPath = 'app/(site)/_data/locations.ts';
 
 const raw = await readFile(csvPath, 'utf8');
+
+// Hand-written per-locality content (heroTagline / waPrefill / uniqueFAQ) that
+// has no CSV column. This file exists because an earlier `locations:sync` run
+// silently destroyed those fields: they lived only in the generated .ts, which
+// the header tells everyone not to edit. Merged back in below.
+const overrides = JSON.parse(
+  await readFile('content/locations/overrides.json', 'utf8')
+);
 const lines = raw.trim().split('\n');
 
 // Skip header
@@ -26,7 +34,18 @@ const AREAS = rows.map((r) => ({
   landmarks: toArray(r.landmarks || ''),
   venueTypes: toArray(r.venue_types || ''),
   // local_notes is not exported (internal), but you can use it later
+  ...(overrides[r.slug.trim()] ?? {}),
 }));
+
+const orphanOverrides = Object.keys(overrides).filter(
+  (slug) => !AREAS.some((a) => a.slug === slug)
+);
+if (orphanOverrides.length) {
+  console.error(
+    '❌ overrides.json has slugs with no CSV row: ' + orphanOverrides.join(', ')
+  );
+  process.exit(1);
+}
 
 // Build TS file content with the same template engine you're using
 const file = `/* AUTO-GENERATED: DO NOT EDIT. Edit ${csvPath} and run \`npm run locations:sync\`. */
@@ -48,6 +67,10 @@ export type Area = {
   landmarks?: string[];
   venueTypes?: string[];
   serviceDescriptions?: Record<ServiceKey, string>;
+  // Locality-specific content to reduce duplication
+  heroTagline?: string;
+  uniqueFAQ?: Array<{ q: string; a: string }>;
+  waPrefill?: string;
 };
 
 export const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.wedecorevents.com';
@@ -129,15 +152,31 @@ const TEMPLATES: Record<ServiceKey, (c: Ctx) => string> = {
   },
 };
 
-const buildServiceDescriptions = (a) => {
-  const ctx = { name: a.name, city: CITY, landmarks: a.landmarks ?? [], venueTypes: a.venueTypes ?? ['apartments','rooftops'], vibe: a.vibe };
-  const out = {};
+const buildServiceDescriptions = (a: Area): Record<ServiceKey, string> => {
+  const ctx: Ctx = { name: a.name, city: CITY, landmarks: a.landmarks ?? [], venueTypes: a.venueTypes ?? ['apartments','rooftops'], vibe: a.vibe };
+  const out = {} as Record<ServiceKey, string>;
   for (const s of SERVICES) out[s] = TEMPLATES[s](ctx);
   return out;
 };
 
 export const AREAS: Area[] = ${JSON.stringify(AREAS, null, 2)};
-export const AREAS_WITH_DESCRIPTIONS: Area[] = AREAS.map(a => ({ ...a, serviceDescriptions: buildServiceDescriptions(a) }));
+export const AREAS_WITH_DESCRIPTIONS: Area[] = AREAS.map((a) => ({
+  ...a,
+  serviceDescriptions: buildServiceDescriptions(a),
+}));
+
+// Helper functions
+// NOTE: looks up from AREAS_WITH_DESCRIPTIONS (not the raw AREAS array) so that
+// \`serviceDescriptions\` — the landmark/venue-injected per-service copy — is
+// actually populated. It was previously read from AREAS, which never carries
+// that field, so this content silently never rendered anywhere on the site.
+export const getAreaBySlug = (slug: string): Area | undefined => {
+  return AREAS_WITH_DESCRIPTIONS.find((area) => area.slug === slug);
+};
+
+export const getAllAreaSlugs = (): string[] => {
+  return AREAS.map((area) => area.slug);
+};
 `;
 
 await writeFile(outPath, file, 'utf8');

@@ -200,8 +200,15 @@ export default function ServicesPage() {
                         >
                           {service.name}
                         </h3>
+                        {/*
+                          line-clamp-2 cut every non-featured card's description
+                          mid-sentence on a phone (needed 68px, got 46px). The
+                          clamp keeps the desktop grid's rows even; on mobile the
+                          cards stack full width, so nothing needs trimming.
+                          Three lines below sm, two from sm up.
+                        */}
                         <p
-                          className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-2'}`}
+                          className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-3 sm:line-clamp-2'}`}
                         >
                           {service.description}
                         </p>

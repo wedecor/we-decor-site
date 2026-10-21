@@ -31,7 +31,7 @@
     "audit:production": "tsx scripts/production-readiness-audit.ts",
     "seo:audit:quick": "node scripts/seo-quick-audit.mjs",
     "locations:validate": "node scripts/locations-validate.mjs",
-    "locations:sync": "npm run locations:validate && node scripts/locations-generate.mjs",
+    "locations:sync": "npm run locations:validate && node scripts/locations-generate.mjs && prettier --write \"app/(site)/_data/locations.ts\"",
     "qa:dev": "next dev",
     "qa:links": "node scripts/check-links.mjs",
     "qa:pages": "node scripts/check-pages.mjs",

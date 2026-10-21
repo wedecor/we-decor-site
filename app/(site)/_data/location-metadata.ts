@@ -165,6 +165,106 @@ export const LOCALITY_PAGE_META: Record<string, LocalityPageMeta> = {
     description:
       'Event decorators in Yeshwanthpur for receptions, birthdays & office celebrations near the metro. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
   },
+  arekere: {
+    pageAngle: 'Lakeside Clubhouse Runs Around Arekere Gate',
+    description:
+      'Event decorators in Arekere for baby showers, birthdays & gated-community parties near the lake. 4.9★ (81 reviews). From ₹3,000, often next day.',
+  },
+  begur: {
+    pageAngle: 'Begur Lake Evenings Lit for Gated Community Halls',
+    description:
+      'Event decorators in Begur for birthdays, baby showers & community-hall events near Begur Lake. 4.9★ from 81 reviews. From ₹3,000, often next day.',
+  },
+  bilekahalli: {
+    pageAngle: 'Bannerghatta Clubhouse Setups Around Bilekahalli',
+    description:
+      'Event decorators in Bilekahalli for birthdays, baby showers & clubhouse events along Bannerghatta Road. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  chamrajpet: {
+    pageAngle: 'Wide Old-Quarter Streets Ease Chamrajpet Load-In',
+    description:
+      'Event decorators in Chamrajpet for weddings, nikah & reception décor at old-quarter halls and homes. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  girinagar: {
+    pageAngle: 'One Palette Between Girinagar Flats and Halls',
+    description:
+      'Event decorators in Girinagar for haldi, birthdays & family functions at halls and flats. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
+  },
+  gottigere: {
+    pageAngle: 'Bannerghatta Road Timing for Gottigere Receptions',
+    description:
+      'Event decorators in Gottigere for weddings, haldi & reception décor along Bannerghatta Road. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  hanumanthanagar: {
+    pageAngle: 'Chord Road Access for Hanumanthanagar Hall Days',
+    description:
+      'Event decorators in Hanumanthanagar for birthdays, housewarmings & naming days at community halls. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
+  },
+  hulimavu: {
+    pageAngle: 'Meenakshi Mall Banquets Dressed for Hulimavu',
+    description:
+      'Event decorators in Hulimavu for birthdays, baby showers & banquet setups near Meenakshi Mall. 4.9★ (81 reviews). From ₹3,000, often next day.',
+  },
+  'isro-layout': {
+    pageAngle: 'Quiet Kanakapura Layouts Suit ISRO Layout Homes',
+    description:
+      'Event decorators in ISRO Layout for birthdays, haldi & home engagements off Kanakapura Road. 4.9★ from 81 reviews. From ₹3,000, often next day.',
+  },
+  katriguppe: {
+    pageAngle: 'Temple-Side Palettes for Katriguppe Receptions',
+    description:
+      'Event decorators in Katriguppe for weddings, engagements & temple-side receptions near Banashankari. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
+  },
+  konanakunte: {
+    pageAngle: 'Housewarming Golds Along Konanakunte Cross',
+    description:
+      'Event decorators in Konanakunte for haldi, birthdays & housewarming décor off Kanakapura Road. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
+  },
+  'kumaraswamy-layout': {
+    pageAngle: 'Campus Farewells and Flats in Kumaraswamy Layout',
+    description:
+      'Event decorators in Kumaraswamy Layout for birthdays, farewells & home celebrations near DSCE. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
+  },
+  nagarbhavi: {
+    pageAngle: 'University-Belt Halls Around Nagarbhavi Circle',
+    description:
+      'Event decorators in Nagarbhavi for birthdays, farewells & hall functions near Bangalore University. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  padmanabhanagar: {
+    pageAngle: 'Naming-Day Softness in Padmanabhanagar Halls',
+    description:
+      'Event decorators in Padmanabhanagar for weddings, haldi & naming-day décor at community halls. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  puttenahalli: {
+    pageAngle: 'Lake-Facing Clubhouses Off JP Nagar 7th Phase',
+    description:
+      'Event decorators in Puttenahalli for baby showers, birthdays & clubhouse parties in lakeside apartments. 4.9★ from 81 reviews. Free site visit, often next day.',
+  },
+  'shanti-nagar': {
+    pageAngle: 'Hotel Banquets a Street Off Richmond Circle',
+    description:
+      'Event decorators in Shanti Nagar for engagements, corporate evenings & hotel banquets off Richmond Road. 4.9★ from 81 reviews. Free site visit.',
+  },
+  thyagarajanagar: {
+    pageAngle: 'South End Circle Streets Into Thyagarajanagar Halls',
+    description:
+      'Event decorators in Thyagarajanagar for haldi, birthdays & anniversary setups near South End Circle. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  uttarahalli: {
+    pageAngle: 'Independent Homes and Halls Across Uttarahalli',
+    description:
+      'Event decorators in Uttarahalli for weddings, haldi & birthday setups at halls and independent homes. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
+  vasanthapura: {
+    pageAngle: 'Quiet Thalaghattapura Roads Into Vasanthapura',
+    description:
+      'Event decorators in Vasanthapura for birthdays, naming days & home functions near Thalaghattapura. 4.9★ from 81 reviews. From ₹3,000. Free site visit.',
+  },
+  'wilson-garden': {
+    pageAngle: 'Lalbagh-Side Terraces for Wilson Garden Nights',
+    description:
+      'Event decorators in Wilson Garden for anniversaries, birthdays & terrace dinners near Lalbagh. 4.9★ (81 reviews). From ₹3,000. Free site visit.',
+  },
 };
 
 export function getLocalityPageMeta(slug: string): LocalityPageMeta | undefined {
