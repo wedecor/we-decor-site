@@ -6,7 +6,7 @@
  * Usage: node scripts/lighthouse.mjs [--url=http://localhost:3001]
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
@@ -98,9 +98,12 @@ function runLighthouse(url, device = 'desktop') {
     '--chrome-flags=--headless --no-sandbox --disable-gpu',
     '--quiet',
     '--no-enable-error-reporting',
-    `--form-factor=${device === 'mobile' ? 'mobile' : 'desktop'}`,
   ];
-  if (device === 'mobile') args.push('--throttling-method=devtools');
+  // `--form-factor=desktop` without matching screenEmulation.mobile=false
+  // throws in Lighthouse 12. Use the desktop preset instead; mobile is default.
+  if (device === 'desktop') {
+    args.push('--preset=desktop');
+  }
 
   log(`Running Lighthouse for ${device}...`, 'blue');
 
@@ -119,6 +122,12 @@ function runLighthouse(url, device = 'desktop') {
 
 function parseLighthouseResults(jsonPath) {
   if (!existsSync(jsonPath)) {
+    const dir = dirname(jsonPath);
+    try {
+      log(`Missing ${jsonPath}; dir contains: ${readdirSync(dir).join(', ')}`, 'red');
+    } catch {
+      log(`Missing ${jsonPath}`, 'red');
+    }
     return null;
   }
   
