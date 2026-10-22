@@ -24,15 +24,13 @@ const optionalText = (max: number) =>
 
 export const contactLeadSchema = z.object({
   name: trimString(120).regex(/^[a-zA-Z\u00C0-\u024F\s'.-]+$/, 'Name contains invalid characters'),
-  /** Website form no longer asks; accepted if a client still sends it. */
   phone: z
     .string()
     .trim()
+    .min(10)
     .max(20)
-    .optional()
-    .nullable()
-    .transform((v) => (v ? v.replace(/[\s-]/g, '') : ''))
-    .refine((v) => v === '' || /^(\+91)?[6-9]\d{9}$/.test(v), {
+    .transform((v) => v.replace(/[\s-]/g, ''))
+    .refine((v) => /^(\+91)?[6-9]\d{9}$/.test(v), {
       message: 'Enter a valid Indian mobile number (10 digits, starting 6–9)',
     }),
   email: z

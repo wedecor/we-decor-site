@@ -25,8 +25,15 @@ type ContactFormProps = {
   areas: ContactFormArea[];
 };
 
-type FieldKey = 'name' | 'eventType' | 'eventDate' | 'location' | 'message';
-const FIELD_KEYS: readonly FieldKey[] = ['name', 'eventType', 'eventDate', 'location', 'message'];
+type FieldKey = 'name' | 'phone' | 'eventType' | 'eventDate' | 'location' | 'message';
+const FIELD_KEYS: readonly FieldKey[] = [
+  'name',
+  'phone',
+  'eventType',
+  'eventDate',
+  'location',
+  'message',
+];
 
 type FieldErrors = Partial<Record<FieldKey | 'turnstile' | '_form', string>>;
 
@@ -79,6 +86,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
 
     const payload = {
       name: String(fd.get('name') ?? ''),
+      phone: String(fd.get('phone') ?? ''),
       eventType: String(fd.get('eventType') ?? ''),
       eventDate: String(fd.get('eventDate') ?? '') || null,
       location: String(fd.get('location') ?? '') || null,
@@ -203,6 +211,29 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
         {errors.name ? (
           <p id="name-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
             {errors.name}
+          </p>
+        ) : null}
+      </div>
+
+      <div>
+        <label htmlFor="phone" className="lux-label">
+          Phone <span className="text-lux-gold/70">*</span>
+        </label>
+        <input
+          id="phone"
+          name="phone"
+          type="tel"
+          required
+          autoComplete="tel"
+          inputMode="tel"
+          aria-invalid={!!errors.phone}
+          aria-describedby={errors.phone ? 'phone-error' : undefined}
+          placeholder="+91 …"
+          className="lux-input"
+        />
+        {errors.phone ? (
+          <p id="phone-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+            {errors.phone}
           </p>
         ) : null}
       </div>

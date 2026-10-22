@@ -4,6 +4,7 @@ import { POST } from '@/app/api/contact/route';
 
 const basePayload = {
   name: 'Rahul Kumar',
+  phone: '9876543210',
   eventType: 'Haldi',
   eventDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(
     new Date(Date.now() + 30 * 86_400_000)

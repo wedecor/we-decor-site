@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
     const eventTypeLabel = eventTypes.find((t) => t.value === data.eventType)?.label ?? null;
     const result = await createLead({
       name: data.name,
-      phone: data.phone || '',
+      phone: data.phone,
       email: data.email,
       eventType: data.eventType,
       eventTypeLabel,

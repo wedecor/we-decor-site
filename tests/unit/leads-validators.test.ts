@@ -10,6 +10,7 @@ function daysFromToday(days: number): string {
 
 const validPayload = {
   name: 'Priya Sharma',
+  phone: '8880544452',
   eventType: 'Wedding',
   eventDate: daysFromToday(60),
   location: 'Indiranagar',
@@ -24,14 +25,20 @@ describe('contactLeadSchema', () => {
     expect(result.success).toBe(true);
   });
 
-  it('rejects invalid phone when one is sent', () => {
+  it('rejects invalid phone', () => {
     const result = contactLeadSchema.safeParse({ ...validPayload, phone: '12345' });
     expect(result.success).toBe(false);
   });
 
-  it('accepts a lead without phone, email, budget or remark', () => {
+  it('rejects a lead without phone', () => {
+    expect(contactLeadSchema.safeParse({ ...validPayload, phone: undefined }).success).toBe(false);
+    expect(contactLeadSchema.safeParse({ ...validPayload, phone: '' }).success).toBe(false);
+  });
+
+  it('accepts a lead without email, budget or remark', () => {
     const result = contactLeadSchema.safeParse({
       name: 'Priya Sharma',
+      phone: '8880544452',
       eventType: 'wedding',
       eventDate: daysFromToday(60),
       location: 'Jayanagar',
@@ -39,7 +46,6 @@ describe('contactLeadSchema', () => {
     });
     expect(result.success).toBe(true);
     if (result.success) {
-      expect(result.data.phone).toBe('');
       expect(result.data.message).toBe('');
     }
   });

@@ -170,6 +170,7 @@ test.describe('feature-smoke', () => {
     await page.goto('/contact', { waitUntil: 'networkidle' });
     const fields = [
       /name/i,
+      /phone|mobile/i,
       /event type/i,
       /event date/i,
       /location/i,
