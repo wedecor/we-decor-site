@@ -10,17 +10,19 @@ export async function verifyTurnstileToken(
   remoteIp?: string | null
 ): Promise<{ ok: boolean; reason?: string }> {
   const secret = process.env.TURNSTILE_SECRET_KEY?.trim();
-  if (secret && !token?.trim()) {
-    return { ok: false, reason: 'missing_token' };
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
+  if (!secret || !siteKey) {
+    // Keys were never set on Vercel. Failing closed here rejects every live
+    // enquiry with "Security verification failed" and no widget on the page.
+    // Skip until both TURNSTILE_SECRET_KEY and NEXT_PUBLIC_TURNSTILE_SITE_KEY
+    // are present; honeypot + origin + rate-limit still apply.
+    if (process.env.NODE_ENV === 'production') {
+      console.warn(JSON.stringify({ event: 'captcha_not_configured' }));
+    }
+    return { ok: true, reason: 'captcha_not_configured' };
   }
-  if (!secret) {
-    if (process.env.NODE_ENV !== 'production' && process.env.CONTACT_SKIP_CAPTCHA === '1') {
-      return { ok: true };
-    }
-    if (process.env.NODE_ENV !== 'production') {
-      return { ok: true, reason: 'captcha_skipped_dev' };
-    }
-    return { ok: false, reason: 'captcha_not_configured' };
+  if (!token?.trim()) {
+    return { ok: false, reason: 'missing_token' };
   }
 
   const body = new URLSearchParams({
