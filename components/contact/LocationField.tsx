@@ -1,13 +1,18 @@
 'use client';
 
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from 'react';
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
+import { filterFormAreas, type FormArea } from '@/lib/services/leads/formAreas';
 import { pickedLocationText, type LeadPlace } from '@/lib/services/leads/pickedLocation';
 
 type Suggestion = { placeId: string; mainText: string; secondaryText: string };
 
-type LocationOption = { kind: 'place'; suggestion: Suggestion } | { kind: 'typed'; text: string };
+type LocationOption =
+  | { kind: 'area'; name: string }
+  | { kind: 'place'; suggestion: Suggestion }
+  | { kind: 'typed'; text: string };
 
 type LocationFieldProps = {
+  areas: FormArea[];
   initialValue?: string;
   error?: string;
 };
@@ -19,19 +24,48 @@ function newSessionToken(): string {
   return `s_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 10)}`;
 }
 
-export default function LocationField({ initialValue = '', error }: LocationFieldProps) {
+function optionKey(option: LocationOption): string {
+  if (option.kind === 'place') return `place-${option.suggestion.placeId}`;
+  if (option.kind === 'area') return `area-${option.name}`;
+  return `typed-${option.text}`;
+}
+
+export default function LocationField({ areas, initialValue = '', error }: LocationFieldProps) {
   const listId = useId();
   const inputId = 'location';
   const [text, setText] = useState(initialValue);
   const [place, setPlace] = useState<LeadPlace | null>(null);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
-  const [options, setOptions] = useState<LocationOption[]>([]);
+  const [places, setPlaces] = useState<Suggestion[]>([]);
   const [loading, setLoading] = useState(false);
   const sessionRef = useRef(newSessionToken());
   const seqRef = useRef(0);
   const pickedTextRef = useRef<string | null>(initialValue || null);
   const wrapRef = useRef<HTMLDivElement>(null);
+
+  const localAreas = useMemo(() => filterFormAreas(areas, text), [areas, text]);
+
+  const options = useMemo(() => {
+    const localNames = new Set(localAreas.map((area) => area.name.toLowerCase()));
+    const next: LocationOption[] = localAreas.map((area) => ({ kind: 'area', name: area.name }));
+    for (const suggestion of places) {
+      if (localNames.has(suggestion.mainText.toLowerCase())) continue;
+      next.push({ kind: 'place', suggestion });
+    }
+    const query = text.trim();
+    if (query && query !== pickedTextRef.current) {
+      const already = next.some((option) => {
+        if (option.kind === 'area') return option.name.toLowerCase() === query.toLowerCase();
+        if (option.kind === 'place') {
+          return option.suggestion.mainText.toLowerCase() === query.toLowerCase();
+        }
+        return false;
+      });
+      if (!already) next.push({ kind: 'typed', text: query });
+    }
+    return next;
+  }, [localAreas, places, text]);
 
   useEffect(() => {
     if (!initialValue) return;
@@ -50,7 +84,7 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
   useEffect(() => {
     const query = text.trim();
     if (query.length < 2 || query === pickedTextRef.current) {
-      setOptions([]);
+      setPlaces([]);
       setLoading(false);
       return;
     }
@@ -66,27 +100,30 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
         });
         const data = (await res.json().catch(() => ({}))) as { suggestions?: Suggestion[] };
         if (seq !== seqRef.current) return;
-        const suggestions = Array.isArray(data.suggestions) ? data.suggestions : [];
-        const next: LocationOption[] = suggestions.map((s) => ({ kind: 'place', suggestion: s }));
-        next.push({ kind: 'typed', text: query });
-        setOptions(next);
-        setActive(0);
+        setPlaces(Array.isArray(data.suggestions) ? data.suggestions : []);
       } catch {
         if (seq !== seqRef.current) return;
-        setOptions([{ kind: 'typed', text: query }]);
+        setPlaces([]);
       } finally {
         if (seq === seqRef.current) setLoading(false);
       }
-    }, 350);
+    }, 180);
     return () => window.clearTimeout(timer);
   }, [text]);
 
   async function pick(option: LocationOption) {
     seqRef.current += 1;
-    setOptions([]);
+    setPlaces([]);
     setOpen(false);
+    setLoading(false);
     if (option.kind === 'typed') {
       pickedTextRef.current = option.text;
+      setPlace(null);
+      return;
+    }
+    if (option.kind === 'area') {
+      pickedTextRef.current = option.name;
+      setText(option.name);
       setPlace(null);
       return;
     }
@@ -164,6 +201,7 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
   }
 
   const showList = open && options.length > 0;
+  const showSearching = loading && localAreas.length === 0;
 
   return (
     <div ref={wrapRef} className="relative">
@@ -188,7 +226,8 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
         placeholder="Area or venue, e.g. Jayanagar"
         className="lux-input"
         onFocus={() => {
-          if (options.length) setOpen(true);
+          setOpen(true);
+          setActive(0);
         }}
         onChange={(e) => {
           const next = e.target.value;
@@ -198,6 +237,7 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
             setPlace(null);
           }
           setOpen(true);
+          setActive(0);
         }}
         onKeyDown={onKeyDown}
       />
@@ -209,7 +249,7 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
         >
           {options.map((option, i) => (
             <li
-              key={option.kind === 'place' ? option.suggestion.placeId : `typed-${option.text}`}
+              key={optionKey(option)}
               role="option"
               aria-selected={i === active}
               className={`px-3 py-2.5 cursor-pointer ${i === active ? 'bg-white/[0.06]' : ''}`}
@@ -230,6 +270,10 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
                     </p>
                   ) : null}
                 </>
+              ) : option.kind === 'area' ? (
+                <p className="text-base md:text-[0.9375rem] font-light text-lux-ivory">
+                  {option.name}
+                </p>
               ) : (
                 <p className="text-base md:text-[0.9375rem] font-light italic text-lux-secondary">
                   Use “{option.text}” as typed
@@ -248,7 +292,7 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
         <p className="text-lux-gold-deep text-xs mt-1" role="alert">
           {error}
         </p>
-      ) : loading ? (
+      ) : showSearching ? (
         <p className="text-lux-text-muted text-xs mt-1">Searching…</p>
       ) : (
         <p className="text-lux-text-muted text-xs mt-1">

@@ -12,6 +12,7 @@ import { trackFormSubmit, trackQuoteRequest } from '@/lib/analytics/events';
 import TurnstileField from '@/components/TurnstileField';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import EventTypeField from '@/components/contact/EventTypeField';
+import EventDateField from '@/components/contact/EventDateField';
 import LocationField from '@/components/contact/LocationField';
 import type { EventTypeOption } from '@/lib/services/leads/eventTypeOptions';
 
@@ -37,15 +38,10 @@ const FIELD_KEYS: readonly FieldKey[] = [
 
 type FieldErrors = Partial<Record<FieldKey | 'turnstile' | '_form', string>>;
 
-function todayInIndia(): string {
-  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
-}
-
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
 export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
   const router = useRouter();
-  const [minDate, setMinDate] = useState<string | undefined>(undefined);
   const [prefillLocation, setPrefillLocation] = useState('');
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [statusMessage, setStatusMessage] = useState('');
@@ -59,7 +55,6 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
   }, []);
 
   useEffect(() => {
-    setMinDate(todayInIndia());
     const slug = new URLSearchParams(window.location.search).get('area');
     const match = slug ? areas.find((a) => a.slug === slug) : undefined;
     if (match) setPrefillLocation(match.name);
@@ -243,32 +238,9 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
 
       <EventTypeField options={eventTypes} error={errors.eventType} />
 
-      <div>
-        <label htmlFor="eventDate" className="lux-label">
-          Event date <span className="text-lux-gold/70">*</span>
-        </label>
-        <input
-          id="eventDate"
-          name="eventDate"
-          type="date"
-          required
-          min={minDate}
-          aria-invalid={!!errors.eventDate}
-          aria-describedby={errors.eventDate ? 'eventDate-error' : 'eventDate-hint'}
-          className="lux-input"
-        />
-        {errors.eventDate ? (
-          <p id="eventDate-error" className="text-lux-gold-deep text-xs mt-1" role="alert">
-            {errors.eventDate}
-          </p>
-        ) : (
-          <p id="eventDate-hint" className="text-lux-text-muted text-xs mt-1">
-            An approximate date is fine
-          </p>
-        )}
-      </div>
+      <EventDateField error={errors.eventDate} />
 
-      <LocationField initialValue={prefillLocation} error={errors.location} />
+      <LocationField areas={areas} initialValue={prefillLocation} error={errors.location} />
 
       <div>
         <label htmlFor="message" className="lux-label">

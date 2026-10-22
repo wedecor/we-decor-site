@@ -53,14 +53,6 @@ export default function HomeHero() {
         />
       </div>
       <div className="absolute inset-0 z-[1] lux-hero-scrim pointer-events-none" aria-hidden />
-      <div
-        className="absolute inset-0 z-[1] lux-hero-cinematic-side opacity-80 pointer-events-none hidden md:block"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 z-[1] lux-hero-vignette opacity-70 md:opacity-100 pointer-events-none"
-        aria-hidden
-      />
 
       <div className="lux-hero-content">
         <p className="lux-eyebrow mb-5 md:mb-6">Bengaluru · Celebrations reimagined</p>
@@ -74,15 +66,18 @@ export default function HomeHero() {
           We design and style every occasion across Bengaluru, from home celebrations to grand
           venues — trusted by families for thoughtful, calm execution.
         </p>
-        <div className="mt-7 md:mt-12 flex flex-col sm:flex-row gap-4">
+        <div className="mt-7 md:mt-12 flex flex-col sm:flex-row sm:flex-wrap gap-4">
+          <Link href="/contact" className="lux-btn-primary">
+            Get quote
+          </Link>
           <TrackedWhatsAppLink
             href={CONTACT.waUrlForHome()}
             source="home_hero"
             target="_blank"
             rel="noopener noreferrer"
-            className="lux-btn-primary"
+            className="lux-btn-secondary"
           >
-            WhatsApp for a quote
+            WhatsApp
           </TrackedWhatsAppLink>
           <Link href="/gallery" className="lux-btn-secondary">
             View our work

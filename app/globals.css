@@ -30,6 +30,7 @@
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: rgba(200, 169, 107, 0.4) var(--lux-bg);
+    color-scheme: dark;
   }
 
   ::selection {
@@ -333,28 +334,36 @@
   }
 
   /*
-   * Homepage hero only. The generic overlay plus a side wash plus a vignette
-   * stacked until the banquet frame read as mud, and lux-body (#d4cdc3) on
-   * that mix failed the eye even when the math was close. One bottom-weighted
-   * scrim: the photograph stays visible in the upper half, the copy sits on
-   * charcoal.
+   * Homepage hero only. The banquet frame is white florals and cream drape —
+   * ivory type on 8–10% charcoal at the top was the copy sitting on paper.
+   * One scrim, two directions: down the frame so the buttons have a floor,
+   * and in from the left so the headline column is charcoal. The stage on
+   * the right stays visible. This is photographic treatment for contrast,
+   * not a decorative gradient fill.
    */
   .lux-hero-scrim {
     background: linear-gradient(
       180deg,
-      rgba(15, 10, 18, 0.1) 0%,
-      rgba(15, 10, 18, 0.22) 42%,
-      rgba(15, 10, 18, 0.86) 100%
+      rgba(15, 10, 18, 0.52) 0%,
+      rgba(15, 10, 18, 0.4) 38%,
+      rgba(15, 10, 18, 0.88) 100%
     );
   }
   @media (min-width: 768px) {
     .lux-hero-scrim {
-      background: linear-gradient(
-        180deg,
-        rgba(15, 10, 18, 0.08) 0%,
-        rgba(15, 10, 18, 0.28) 55%,
-        rgba(15, 10, 18, 0.72) 100%
-      );
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15, 10, 18, 0.42) 0%,
+          rgba(15, 10, 18, 0.38) 48%,
+          rgba(15, 10, 18, 0.82) 100%
+        ),
+        linear-gradient(
+          90deg,
+          rgba(15, 10, 18, 0.7) 0%,
+          rgba(15, 10, 18, 0.32) 42%,
+          rgba(15, 10, 18, 0.08) 100%
+        );
     }
   }
 
