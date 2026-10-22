@@ -1,44 +1,70 @@
 import { NextResponse } from 'next/server';
-import { GALLERY_ITEMS } from '../(site)/_data/gallery';
-import { SITE_URL } from '@/lib/site';
+import { INDEXABLE_SERVICE_PATHS, SITE_URL } from '@/lib/site';
+import { getAllAreaSlugs } from '@/app/(site)/_data/locations';
+import {
+  WORK,
+  workForService,
+  workShownOn,
+  workUrl,
+  type WorkImage,
+} from '@/app/(site)/_data/work-images';
+
+function xmlEscape(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function imageNodes(images: WorkImage[]): string {
+  return images
+    .map((w) => {
+      return `
+      <image:image>
+        <image:loc>${xmlEscape(workUrl(w))}</image:loc>
+        <image:title><![CDATA[${w.alt}]]></image:title>
+        <image:caption><![CDATA[${w.alt}]]></image:caption>
+        <image:geo_location>Bengaluru, Karnataka, India</image:geo_location>
+      </image:image>`;
+    })
+    .join('');
+}
+
+function urlBlock(loc: string, images: WorkImage[]): string {
+  if (!images.length) {
+    return `
+  <url>
+    <loc>${xmlEscape(loc)}</loc>
+  </url>`;
+  }
+  return `
+  <url>
+    <loc>${xmlEscape(loc)}</loc>
+    ${imageNodes(images)}
+  </url>`;
+}
 
 export async function GET() {
   const base = SITE_URL.replace(/\/+$/, '');
-  const urls = [
-    `${base}/`,
-    `${base}/services`,
-    `${base}/gallery`,
-    `${base}/locations`,
-    `${base}/about`,
-    `${base}/contact`,
-    `${base}/pricing`,
-    `${base}/faq`,
-  ];
+
+  const localityBlocks = getAllAreaSlugs().map((slug) => {
+    const shown = workShownOn(slug);
+    return urlBlock(`${base}/locations/${slug}`, [...shown.local, ...shown.nearby]);
+  });
+
+  const serviceBlocks = INDEXABLE_SERVICE_PATHS.map((path) => {
+    const slug = path.replace(/^\/services\//, '');
+    return urlBlock(`${base}${path}`, workForService(slug).slice(0, 12));
+  });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${urls
-  .map(
-    (u) => `
-  <url>
-    <loc>${u}</loc>
-    ${GALLERY_ITEMS.map((g) => {
-      // Cloudinary (and other absolute) URLs must not be prefixed with SITE_URL
-      const imageLoc = /^https?:\/\//i.test(g.src)
-        ? g.src
-        : `${base}${g.src.startsWith('/') ? g.src : `/${g.src}`}`;
-      return `
-      <image:image>
-        <image:loc>${imageLoc}</image:loc>
-        <image:title><![CDATA[${g.altBase}]]></image:title>
-        <image:caption><![CDATA[${g.captionBase}]]></image:caption>
-        <image:geo_location>Bengaluru, Karnataka, India</image:geo_location>
-      </image:image>`;
-    }).join('')}
-  </url>`
-  )
-  .join('')}
+${urlBlock(`${base}/gallery`, WORK)}
+${localityBlocks.join('')}
+${serviceBlocks.join('')}
 </urlset>`;
 
   return new NextResponse(xml, {

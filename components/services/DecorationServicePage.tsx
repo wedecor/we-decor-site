@@ -10,6 +10,9 @@ import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import { getServiceLocalitiesFor, RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
 import type { ExploreLink } from '@/lib/seo/core-explore-links';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
+import { workForService } from '@/app/(site)/_data/work-images';
+import { workTiles } from '@/lib/work-tiles';
+import LocationGallery from '@/components/LocationGallery';
 
 /**
  * Occasions and venues were rows of pill chips — decoration standing in for
@@ -110,6 +113,7 @@ export default function DecorationServicePage({ config }: Props) {
   const serviceLocalities = getServiceLocalitiesFor(servicePath);
   const whyChoose = config.whyChoose ?? DEFAULT_WHY_CHOOSE;
   const faqs = faqsFor(config);
+  const workPhotos = workTiles(workForService(config.slug).slice(0, 12));
   const isLongForm = Boolean(
     config.styles?.length ||
     config.included?.length ||
@@ -528,49 +532,29 @@ export default function DecorationServicePage({ config }: Props) {
         </section>
       ) : null}
 
-      {/* Gallery */}
-      <section className="lux-section lux-section-alt border-t border-white/[0.06]">
-        <div className="lux-container">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-14">
-            <div>
-              <p className="lux-eyebrow mb-2">Portfolio</p>
-              <h2 className="lux-heading-sm">Gallery</h2>
-            </div>
-            <Link
-              href="/gallery"
-              className="text-lux-gold text-sm font-medium hover:underline shrink-0"
-            >
-              Full gallery →
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            {config.gallery.map((img, i) => (
-              <figure
-                key={`${i}-${img.caption}`}
-                className={`group relative overflow-hidden rounded-[4px] border border-white/[0.08] ${
-                  i === 0 ? 'md:col-span-2 aspect-[16/10]' : 'aspect-[4/5]'
-                }`}
+      {workPhotos.length > 0 ? (
+        <section className="lux-section lux-section-alt border-t border-white/[0.06]">
+          <div className="lux-container">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-14">
+              <div>
+                <p className="lux-eyebrow mb-2">Portfolio</p>
+                <h2 className="lux-heading-sm">Gallery</h2>
+              </div>
+              <Link
+                href="/gallery"
+                className="text-lux-gold text-sm font-medium hover:underline shrink-0"
               >
-                <Image
-                  src={img.src}
-                  alt={img.caption}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                  sizes={
-                    i === 0
-                      ? '(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px'
-                      : '(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px'
-                  }
-                  loading="lazy"
-                />
-                <figcaption className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-lux-deep to-transparent">
-                  <p className="text-sm text-lux-muted">{img.caption}</p>
-                </figcaption>
-              </figure>
-            ))}
+                Full gallery →
+              </Link>
+            </div>
+            <LocationGallery
+              items={workPhotos}
+              source={`service_gallery:${config.slug}`}
+              priorityCount={3}
+            />
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       {/* Areas we serve */}
       {isLongForm ? (

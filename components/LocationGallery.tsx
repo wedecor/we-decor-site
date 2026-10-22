@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { trackPortfolioImageClick } from '@/lib/analytics/events';
 
@@ -10,13 +11,22 @@ interface GalleryItem {
   height: number;
   alt: string;
   caption: string;
+  href?: string;
 }
 
 interface LocationGalleryProps {
   items: GalleryItem[];
+  /** Analytics surface. Defaults to location_gallery. */
+  source?: string;
+  /** How many leading images may load eagerly. First row only. */
+  priorityCount?: number;
 }
 
-export default function LocationGallery({ items }: LocationGalleryProps) {
+export default function LocationGallery({
+  items,
+  source = 'location_gallery',
+  priorityCount = 0,
+}: LocationGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const lastTriggerRef = useRef<HTMLElement | null>(null);
@@ -24,7 +34,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
   const openModal = (item: GalleryItem, index: number, trigger: HTMLElement) => {
     lastTriggerRef.current = trigger;
     setSelectedImage(item);
-    trackPortfolioImageClick('location_gallery', index, {
+    trackPortfolioImageClick(source, index, {
       action: 'view_fullsize',
       caption: item.caption,
     });
@@ -50,39 +60,52 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className="lux-card-image group cursor-pointer"
-            onClick={(e) => openModal(item, index, e.currentTarget)}
-            tabIndex={0}
-            role="button"
-            aria-label={`View ${item.alt}`}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openModal(item, index, e.currentTarget);
-              }
-            }}
-          >
-            <div className="relative aspect-[4/3] bg-lux-muted overflow-hidden rounded-[4px]">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                fill
-                className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                loading="lazy"
-                draggable={false}
-              />
-              <div className="absolute inset-0 lux-overlay-cinematic opacity-80 group-hover:opacity-90 transition-opacity" />
-            </div>
-            <div className="p-5">
-              <p className="text-sm text-lux-muted font-light">{item.caption}</p>
-            </div>
-          </div>
-        ))}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+        {items.map((item, index) => {
+          const eager = index < priorityCount;
+          return (
+            <figure key={`${item.src}-${index}`} className="min-w-0">
+              <div
+                className="cursor-pointer overflow-hidden rounded-[4px] border border-white/[0.08] bg-lux-muted"
+                onClick={(e) => openModal(item, index, e.currentTarget)}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${item.alt}`}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal(item, index, e.currentTarget);
+                  }
+                }}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  className="h-auto w-full"
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  priority={eager}
+                  loading={eager ? undefined : 'lazy'}
+                  draggable={false}
+                />
+              </div>
+              <figcaption className="mt-2 text-sm font-light text-lux-muted">
+                {item.href ? (
+                  <Link
+                    href={item.href}
+                    className="text-lux-gold hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {item.caption}
+                  </Link>
+                ) : (
+                  item.caption
+                )}
+              </figcaption>
+            </figure>
+          );
+        })}
       </div>
 
       {selectedImage ? (
@@ -95,7 +118,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
           aria-label="Image preview"
         >
           <div
-            className="relative max-w-4xl max-h-full lux-panel p-2"
+            className="relative max-w-4xl max-h-full overflow-y-auto lux-panel p-2"
             onClick={(e) => e.stopPropagation()}
           >
             <button
@@ -113,7 +136,7 @@ export default function LocationGallery({ items }: LocationGalleryProps) {
                 alt={selectedImage.alt}
                 width={selectedImage.width}
                 height={selectedImage.height}
-                className="w-full h-auto lux-image-cinematic"
+                className="w-full h-auto"
                 sizes="(max-width: 896px) 100vw, 896px"
                 priority
               />

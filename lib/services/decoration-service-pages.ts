@@ -1,7 +1,7 @@
 import { SERVICE_IMAGES } from '@/lib/images';
 import { HIGH_INTENT_SERVICE_PAGES } from '@/lib/services/high-intent-service-pages';
 import { getRelatedServiceHrefsFor } from '@/lib/seo/internal-links';
-import { getImagesByCategory } from '@/utils/gallery';
+import { workForService, workUrl } from '@/app/(site)/_data/work-images';
 
 const WEDDING_PLACEHOLDER =
   'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045457/we-decor/engagement/IMG_20220804_111702.jpg';
@@ -9,8 +9,16 @@ const WEDDING_PLACEHOLDER =
 const BIRTHDAY_HERO_IMAGE =
   'https://res.cloudinary.com/dux3m2saz/image/upload/v1753045447/we-decor/birthday/IMG_20230130_175936.jpg';
 
+const COLLECTION_TO_SERVICE: Record<string, string> = {
+  wedding: 'wedding-decoration',
+  haldi: 'haldi-decoration',
+  birthday: 'birthday-decoration',
+  'corporate event': 'home-decoration',
+};
+
 function collectionSrc(key: string, index = 0): string {
-  return getImagesByCategory(key)[index]?.src ?? '';
+  const photos = workForService(COLLECTION_TO_SERVICE[key] ?? '');
+  return photos[index] ? workUrl(photos[index]) : SERVICE_IMAGES.engagement;
 }
 
 const GALLERY = {

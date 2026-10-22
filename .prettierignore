@@ -1,0 +1,9 @@
+**/work-images.ts
+.next
+node_modules
+coverage
+artifacts
+reports
+playwright-report
+test-results
+blob-report

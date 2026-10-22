@@ -103,7 +103,13 @@ export default [
       'reports/**',
       'artifacts/**',
       'coverage/**',
+      'playwright-report/**',
+      'test-results/**',
+      'blob-report/**',
       'tests/**',
+      // Generated compact table; prettier would explode each row to 10 lines.
+      // Path uses ** because (site) is a glob group, not a folder name.
+      '**/work-images.ts',
       'next-env.d.ts',
       '*.config.js',
       '*.config.mjs',

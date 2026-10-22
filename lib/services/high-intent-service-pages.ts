@@ -3,10 +3,21 @@ import type {
   DecorationServicePageConfig,
   HighIntentServiceSlug,
 } from '@/lib/services/decoration-service-pages';
-import { getImagesByCategory } from '@/utils/gallery';
+import { workForService, workUrl } from '@/app/(site)/_data/work-images';
+
+const CATEGORY_TO_SERVICE: Record<string, string> = {
+  engagement: 'engagement-decoration',
+  wedding: 'wedding-decoration',
+  haldi: 'haldi-decoration',
+  birthday: 'birthday-decoration',
+  'corporate event': 'home-decoration',
+  'baby shower': 'baby-shower-decoration',
+  'room decor': 'home-decoration',
+};
 
 function img(category: string, index: number, caption: string) {
-  const src = getImagesByCategory(category)[index]?.src ?? SERVICE_IMAGES.engagement;
+  const photos = workForService(CATEGORY_TO_SERVICE[category] ?? '');
+  const src = photos[index] ? workUrl(photos[index]) : SERVICE_IMAGES.engagement;
   return { src, caption };
 }
 

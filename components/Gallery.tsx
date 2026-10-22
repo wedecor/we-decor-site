@@ -1,119 +1,76 @@
 'use client';
 
-import Image from 'next/image';
-import { useState, useMemo } from 'react';
-import dynamic from 'next/dynamic';
-import gallery, { GALLERY_COLLECTION_ORDER, type GalleryImage } from '../utils/gallery';
-import { trackPortfolioImageClick } from '@/lib/analytics/events';
+import { useMemo, useState } from 'react';
+import LocationGallery from '@/components/LocationGallery';
+import { OCCASIONS, WORK, type WorkImage } from '@/app/(site)/_data/work-images';
+import { workTiles } from '@/lib/work-tiles';
 
-const ImageModal = dynamic(() => import('./ImageModal'), {
-  ssr: false,
-  loading: () => (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90">
-      <div className="text-white">Loading gallery...</div>
-    </div>
-  ),
-});
-
-function collectionLabel(folder: string, count: number): string {
-  if (folder === 'wedding') return 'Coming soon';
-  return `${count} setup${count !== 1 ? 's' : ''}`;
-}
+const PAGE = 12;
+const FIRST_ROW = 3;
 
 export default function Gallery() {
-  const [filter, setFilter] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [selectedImages, setSelectedImages] = useState<GalleryImage[]>([]);
+  const [occasion, setOccasion] = useState<string | null>(null);
+  const [visible, setVisible] = useState(PAGE);
 
-  const galleryRecord = gallery as Record<string, GalleryImage[]>;
+  const filtered: WorkImage[] = useMemo(
+    () => (occasion ? WORK.filter((w) => w.occasion === occasion) : WORK),
+    [occasion]
+  );
 
-  const filteredCategories = useMemo(() => {
-    const ordered = GALLERY_COLLECTION_ORDER.filter((key) => key in galleryRecord);
-    if (!filter) return ordered;
-    return ordered.filter((category) => category.toLowerCase().includes(filter.toLowerCase()));
-  }, [galleryRecord, filter]);
+  const shown = filtered.slice(0, visible);
+  const items = workTiles(shown);
+  const remaining = filtered.length - shown.length;
 
-  const handleCategoryClick = (category: string, images: GalleryImage[]) => {
-    setSelectedCategory(category);
-    setSelectedImages(images);
-    trackPortfolioImageClick(category, 0, { action: 'open_collection' });
-  };
-
-  const closeModal = () => {
-    setSelectedCategory(null);
-    setSelectedImages([]);
+  const setFilter = (next: string | null) => {
+    setOccasion(next);
+    setVisible(PAGE);
   };
 
   return (
-    <div className="space-y-8" id="gallery-root">
-      <div className="mb-14 border-b border-white/[0.05] pb-8">
-        <input
-          type="text"
-          placeholder="Search collections"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          className="lux-input max-w-xs w-full sm:max-w-[14rem] md:text-sm"
-          aria-label="Search categories"
-        />
-      </div>
+    <div className="space-y-10">
+      <nav
+        aria-label="Filter gallery by occasion"
+        className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-lux-secondary"
+      >
+        <button
+          type="button"
+          onClick={() => setFilter(null)}
+          className={
+            occasion === null
+              ? 'border-b border-lux-gold pb-0.5 text-lux-ivory'
+              : 'border-b border-transparent pb-0.5 hover:text-lux-ivory'
+          }
+        >
+          All
+        </button>
+        {OCCASIONS.map((label) => (
+          <button
+            key={label}
+            type="button"
+            onClick={() => setFilter(label)}
+            className={
+              occasion === label
+                ? 'border-b border-lux-gold pb-0.5 text-lux-ivory'
+                : 'border-b border-transparent pb-0.5 hover:text-lux-ivory'
+            }
+          >
+            {label}
+          </button>
+        ))}
+      </nav>
 
-      <h2 className="lux-heading-sm mb-8 md:mb-10">Collections</h2>
+      <LocationGallery items={items} source="site_gallery" priorityCount={FIRST_ROW} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredCategories.map((folder) => {
-          const imageArray = galleryRecord[folder];
-          const thumbnailImage = imageArray[0];
-          return (
-            <div
-              key={folder}
-              className="lux-card-image cursor-pointer group"
-              onClick={() => handleCategoryClick(folder, imageArray)}
-              tabIndex={0}
-              aria-label={`View ${folder} gallery`}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  handleCategoryClick(folder, imageArray);
-                }
-              }}
-            >
-              <div className="relative aspect-[4/3] bg-lux-muted overflow-hidden rounded-t-[28px]">
-                {thumbnailImage ? (
-                  <Image
-                    src={thumbnailImage.src}
-                    alt={`${folder} decoration showcase by We Decor in Bangalore`}
-                    fill
-                    className="object-cover lux-image-cinematic transition-transform duration-700 ease-out group-hover:scale-[1.03] motion-reduce:transform-none"
-                    placeholder="empty"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
-                    loading="lazy"
-                    draggable={false}
-                  />
-                ) : null}
-                <div className="absolute inset-0 lux-overlay-cinematic flex items-end justify-center pb-4 md:pb-5">
-                  <div className="text-center px-4 w-full">
-                    <h3 className="font-display text-xl text-lux-ivory capitalize">{folder}</h3>
-                    <p className="text-sm text-lux-muted mt-1">
-                      {collectionLabel(folder, imageArray.length)}
-                    </p>
-                    <span className="inline-block mt-3 text-xs tracking-lux uppercase text-lux-gold">
-                      View collection
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {selectedCategory ? (
-        <ImageModal
-          isOpen={!!selectedCategory}
-          onClose={closeModal}
-          images={selectedImages}
-          category={selectedCategory}
-        />
+      {remaining > 0 ? (
+        <div className="text-center">
+          <button
+            type="button"
+            onClick={() => setVisible((n) => n + PAGE)}
+            className="border-b border-lux-gold/40 pb-0.5 text-sm text-lux-gold hover:border-lux-gold"
+          >
+            Show more ({remaining} remaining)
+          </button>
+        </div>
       ) : null}
     </div>
   );

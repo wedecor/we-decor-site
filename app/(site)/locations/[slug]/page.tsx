@@ -2,7 +2,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { pageMetadata } from '@/lib/metadata';
 import { AREAS, CITY, getAreaBySlug, SERVICES, type ServiceKey } from '../../_data/locations';
-import { GALLERY_ITEMS, localize } from '../../_data/gallery';
+import { workHeading, workShownOn } from '../../_data/work-images';
+import { workTiles } from '@/lib/work-tiles';
 import { faqsForArea } from '../../_data/faqs';
 import { getGeneratedArea, buildLocationMetaDescription } from '../../_data/location-content';
 import { getLocalityPageMeta } from '../../_data/location-metadata';
@@ -76,8 +77,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
   const waPrefill = area.waPrefill ?? generatedArea?.waPrefill;
   const uniqueFaqItems = area.uniqueFAQ ?? generatedArea?.uniqueFAQ ?? [];
 
-  // Create localized gallery items
-  const localizedItems = GALLERY_ITEMS.map((m) => ({ ...m, ...localize(m, area) }));
+  const shown = workShownOn(slug);
+  const galleryItems = workTiles([...shown.local, ...shown.nearby]);
+  const heading = workHeading(slug, area.name);
 
   // Reciprocal geographic nearby set (max 5) — balances peer crawl equity
   const nearbyAreaSlugs = getNearbyLocalitySlugs(slug).slice(0, MAX_NEARBY_AREAS);
@@ -290,20 +292,15 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
         {/* Gallery Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-          {/*
-            This said "Recent setups in {areaName}" over a photo set that is
-            shared across all 30 locality pages — so the same images claimed
-            thirty different neighbourhoods. The heading is now about the work
-            rather than the postcode. See localize() in _data/gallery.ts.
-          */}
           <div>
-            <h2 className="lux-heading-sm mb-8">Our work</h2>
+            <h2 className="lux-heading-sm mb-8">{heading}</h2>
             <p className="text-lg text-lux-secondary mb-12 max-w-3xl">
-              Setups we have built across Bengaluru — apartments and rooftops through to clubhouses
-              and banquet halls. We work across {areaName} and the surrounding areas.
+              {shown.cityWideOnly
+                ? `Setups we have built across Bengaluru — apartments and rooftops through to clubhouses and banquet halls. We work across ${areaName} and the surrounding areas.`
+                : `Photographs from jobs we dressed in ${areaName}. Nearby work, if shown, is captioned with where it was actually shot.`}
             </p>
 
-            <LocationGallery items={localizedItems} />
+            <LocationGallery items={galleryItems} priorityCount={3} />
           </div>
         </div>
 

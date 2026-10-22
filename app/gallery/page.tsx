@@ -6,7 +6,7 @@ import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildGalleryPageGraph, withBreadcrumb } from '@/lib/schema';
-import { GALLERY_COLLECTION_ORDER, getImagesByCategory } from '@/utils/gallery';
+import { OCCASIONS, workForOccasion, workUrl } from '@/app/(site)/_data/work-images';
 import Link from 'next/link';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import { CONTACT } from '@/lib/contact';
@@ -26,14 +26,16 @@ const CRUMBS = [
 ];
 
 export default function GalleryPage() {
-  const collectionImages = GALLERY_COLLECTION_ORDER.map((category) => {
-    const first = getImagesByCategory(category)[0];
-    return {
-      url: first?.src ?? '',
-      caption: `${category} event decoration by We Decor Events`,
-      name: category,
-    };
-  }).filter((img) => img.url);
+  const collectionImages = OCCASIONS.map((occasion) => {
+    const first = workForOccasion(occasion)[0];
+    return first
+      ? {
+          url: workUrl(first),
+          caption: first.alt,
+          name: occasion,
+        }
+      : null;
+  }).filter((img): img is { url: string; caption: string; name: string } => Boolean(img));
 
   return (
     <div className="lux-page">
