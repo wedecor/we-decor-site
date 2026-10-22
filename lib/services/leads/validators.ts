@@ -24,15 +24,25 @@ export const contactLeadSchema = z.object({
     .refine((v) => /^(\+91)?[6-9]\d{9}$/.test(v), {
       message: 'Enter a valid Indian mobile number (10 digits, starting 6–9)',
     }),
-  email: z.string().trim().email('Invalid email address').max(254),
-  eventType: trimString(80),
-  eventDate: z
+  /** Optional — many customers only share a phone number. */
+  email: z
     .string()
     .trim()
-    .max(32)
+    .max(254)
     .optional()
     .nullable()
-    .transform((v) => (v && v.length > 0 ? v : null)),
+    .transform((v) => (v && v.length > 0 ? v : null))
+    .refine((v) => v === null || z.string().email().safeParse(v).success, {
+      message: 'Invalid email address',
+    }),
+  eventType: trimString(80),
+  /** Required (YYYY-MM-DD), today or later in India time. */
+  eventDate: z
+    .string({ error: 'Choose your event date' })
+    .trim()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, 'Choose your event date')
+    .refine(isRealDate, 'Choose a valid date')
+    .refine((v) => v >= todayInIndia(), 'Choose a date from today onwards'),
   budget: z
     .string()
     .trim()
@@ -40,6 +50,17 @@ export const contactLeadSchema = z.object({
     .optional()
     .nullable()
     .transform((v) => (v && v.length > 0 ? v : null)),
+  /** Optional area in Bengaluru, e.g. "Jayanagar". */
+  area: z
+    .string()
+    .trim()
+    .max(120)
+    .optional()
+    .nullable()
+    .transform((v) => (v && v.length > 0 ? v : null))
+    .refine((v) => v === null || (!CONTROL_CHARS.test(v) && !SCRIPT_TAG.test(v)), {
+      message: 'Invalid characters',
+    }),
   message: trimString(4000),
   /** Honeypot — must be empty */
   website: z
@@ -55,6 +76,17 @@ export const contactLeadSchema = z.object({
     .transform((v) => (v && v.length > 0 ? v : undefined))
     .refine((v) => v === undefined || isOwnPageUrl(v), { message: 'Invalid page URL' }),
 });
+
+/** Today's date in India as YYYY-MM-DD (the business works in IST). */
+export function todayInIndia(now: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(now);
+}
+
+function isRealDate(value: string): boolean {
+  const [y, m, d] = value.split('-').map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  return date.getUTCFullYear() === y && date.getUTCMonth() === m - 1 && date.getUTCDate() === d;
+}
 
 function isOwnPageUrl(value: string): boolean {
   if (value.startsWith('/') && !value.startsWith('//')) return true;

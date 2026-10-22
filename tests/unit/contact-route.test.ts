@@ -7,7 +7,9 @@ const basePayload = {
   phone: '9876543210',
   email: 'rahul@example.com',
   eventType: 'Haldi',
-  eventDate: null,
+  eventDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(
+    new Date(Date.now() + 30 * 86_400_000)
+  ),
   budget: null,
   message: 'Traditional haldi setup for 50 guests.',
   website: '',
@@ -17,7 +19,7 @@ const basePayload = {
 function makeRequest(
   body: Record<string, unknown>,
   origin = 'http://localhost:3000',
-  ip = `10.0.0.${Math.floor(Math.random() * 200) + 1}`,
+  ip = `10.0.0.${Math.floor(Math.random() * 200) + 1}`
 ) {
   return new NextRequest('http://localhost:3000/api/contact', {
     method: 'POST',

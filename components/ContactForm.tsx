@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useRef, useState, FormEvent } from 'react';
+import React, { useCallback, useEffect, useRef, useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { CONTACT } from '@/lib/contact';
 import {
@@ -14,25 +14,40 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 
-const EVENT_TYPES = [
-  'Birthday',
-  'Wedding',
-  'Haldi',
-  'Engagement',
-  'Corporate Event',
-  'Baby Shower',
-  'Anniversary',
-  'Other',
-] as const;
+export type ContactFormEventType = { value: string; label: string };
+export type ContactFormArea = { slug: string; name: string };
 
-type FieldErrors = Partial<
-  Record<'name' | 'phone' | 'email' | 'eventType' | 'message' | 'turnstile' | '_form', string>
->;
+type ContactFormProps = {
+  /** From the We Decor Enquiries app, so every value is one the app knows. */
+  eventTypes: ContactFormEventType[];
+  /** Locality suggestions for the Area field. */
+  areas: ContactFormArea[];
+};
+
+type FieldKey = 'name' | 'phone' | 'email' | 'eventType' | 'eventDate' | 'area' | 'message';
+const FIELD_KEYS: readonly FieldKey[] = [
+  'name',
+  'phone',
+  'email',
+  'eventType',
+  'eventDate',
+  'area',
+  'message',
+];
+
+type FieldErrors = Partial<Record<FieldKey | 'turnstile' | '_form', string>>;
+
+/** Today in India as YYYY-MM-DD — the earliest date the form accepts. */
+function todayInIndia(): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
+}
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
-export default function ContactForm() {
+export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
   const router = useRouter();
+  const [minDate, setMinDate] = useState<string | undefined>(undefined);
+  const [area, setArea] = useState('');
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -43,6 +58,15 @@ export default function ContactForm() {
   const resetTurnstile = useCallback(() => {
     setTurnstileToken('');
   }, []);
+
+  // Set on the client: the page is static, so a build-time "today" would go stale.
+  // A locality page links here as /contact?area=<slug>, which fills in the area.
+  useEffect(() => {
+    setMinDate(todayInIndia());
+    const slug = new URLSearchParams(window.location.search).get('area');
+    const match = slug ? areas.find((a) => a.slug === slug) : undefined;
+    if (match) setArea(match.name);
+  }, [areas]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,6 +84,7 @@ export default function ContactForm() {
       eventType: String(fd.get('eventType') ?? ''),
       eventDate: String(fd.get('eventDate') ?? '') || null,
       budget: String(fd.get('budget') ?? '') || null,
+      area: String(fd.get('area') ?? '') || null,
       message: String(fd.get('message') ?? ''),
       website: String(fd.get('website') ?? ''),
       turnstileToken: turnstileToken || undefined,
@@ -93,11 +118,8 @@ export default function ContactForm() {
         const fieldErrors: FieldErrors = {};
         if (details?.length) {
           for (const d of details) {
-            const key = d.path as keyof FieldErrors;
-            if (
-              key in fieldErrors ||
-              ['name', 'phone', 'email', 'eventType', 'message'].includes(d.path)
-            ) {
+            const key = d.path as FieldKey;
+            if (FIELD_KEYS.includes(key) && !fieldErrors[key]) {
               fieldErrors[key] = d.message;
             }
           }
@@ -132,6 +154,7 @@ export default function ContactForm() {
       }
 
       form.reset();
+      setArea('');
       resetTurnstile();
 
       // Send the original tab to /thank-you. WhatsApp opened in a new tab
@@ -217,13 +240,12 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="lux-label">
-          Email <span className="text-lux-gold/70">*</span>
+          Email <span className="normal-case tracking-normal text-lux-text-muted">(optional)</span>
         </label>
         <input
           id="email"
           name="email"
           type="email"
-          required
           autoComplete="email"
           aria-invalid={!!errors.email}
           aria-describedby={errors.email ? 'email-error' : undefined}
@@ -253,9 +275,9 @@ export default function ContactForm() {
             <option value="" disabled>
               Select event type
             </option>
-            {EVENT_TYPES.map((t) => (
-              <option key={t} value={t}>
-                {t}
+            {eventTypes.map((t) => (
+              <option key={t.value} value={t.value}>
+                {t.label}
               </option>
             ))}
           </select>
@@ -267,10 +289,57 @@ export default function ContactForm() {
         </div>
         <div>
           <label htmlFor="eventDate" className="lux-label">
-            Preferred date
+            Event date <span className="text-lux-gold/70">*</span>
           </label>
-          <input id="eventDate" name="eventDate" type="date" className="lux-input" />
+          <input
+            id="eventDate"
+            name="eventDate"
+            type="date"
+            required
+            min={minDate}
+            aria-invalid={!!errors.eventDate}
+            aria-describedby={errors.eventDate ? 'eventDate-error' : 'eventDate-hint'}
+            className="lux-input"
+          />
+          {errors.eventDate ? (
+            <p id="eventDate-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+              {errors.eventDate}
+            </p>
+          ) : (
+            <p id="eventDate-hint" className="text-lux-text-muted text-xs mt-2">
+              An approximate date is fine
+            </p>
+          )}
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="area" className="lux-label">
+          Area
+        </label>
+        <input
+          id="area"
+          name="area"
+          list="area-options"
+          autoComplete="off"
+          value={area}
+          onChange={(e) => setArea(e.target.value)}
+          maxLength={120}
+          aria-invalid={!!errors.area}
+          aria-describedby={errors.area ? 'area-error' : undefined}
+          placeholder="e.g. Jayanagar, or the venue name"
+          className="lux-input"
+        />
+        <datalist id="area-options">
+          {areas.map((a) => (
+            <option key={a.slug} value={a.name} />
+          ))}
+        </datalist>
+        {errors.area ? (
+          <p id="area-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+            {errors.area}
+          </p>
+        ) : null}
       </div>
 
       <div>

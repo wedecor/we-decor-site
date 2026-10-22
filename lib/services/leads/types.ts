@@ -7,10 +7,15 @@ export type LeadRecord = {
   source: LeadSource;
   name: string;
   phone: string;
-  email: string;
+  email: string | null;
+  /** The app's event-type value, e.g. "corporate_event". */
   eventType: string;
+  /** What people read, e.g. "Corporate Event". */
+  eventTypeLabel: string;
   eventDate: string | null;
   budget: string | null;
+  /** Bengaluru area the customer typed or picked (e.g. "Jayanagar"). */
+  area: string | null;
   message: string;
   metadata: {
     userAgent: string | null;
@@ -23,10 +28,12 @@ export type LeadRecord = {
 export type CreateLeadInput = {
   name: string;
   phone: string;
-  email: string;
+  email?: string | null;
   eventType: string;
+  eventTypeLabel?: string | null;
   eventDate?: string | null;
   budget?: string | null;
+  area?: string | null;
   message: string;
   source?: LeadSource;
   metadata?: Partial<LeadRecord['metadata']>;

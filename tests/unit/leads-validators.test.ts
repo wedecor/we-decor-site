@@ -1,12 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { contactLeadSchema } from '@/lib/services/leads/validators';
+import { contactLeadSchema, todayInIndia } from '@/lib/services/leads/validators';
+
+/** A date safely in the future, so the fixture never goes stale. */
+function daysFromToday(days: number): string {
+  const d = new Date(`${todayInIndia()}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
 
 const validPayload = {
   name: 'Priya Sharma',
   phone: '8880544452',
   email: 'priya@example.com',
   eventType: 'Wedding',
-  eventDate: '2026-06-15',
+  eventDate: daysFromToday(60),
   budget: '₹25000',
   message: 'Need decor for rooftop venue in Indiranagar.',
   website: '',
@@ -59,5 +66,42 @@ describe('contactLeadSchema', () => {
       pageUrl: 'https://evil.example/phish',
     });
     expect(result.success).toBe(false);
+  });
+
+  it('accepts a lead without email', () => {
+    const result = contactLeadSchema.safeParse({ ...validPayload, email: '' });
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.email).toBeNull();
+  });
+
+  it('still rejects a malformed email', () => {
+    const result = contactLeadSchema.safeParse({ ...validPayload, email: 'not-an-email' });
+    expect(result.success).toBe(false);
+  });
+
+  it('requires an event date', () => {
+    expect(contactLeadSchema.safeParse({ ...validPayload, eventDate: null }).success).toBe(false);
+    expect(contactLeadSchema.safeParse({ ...validPayload, eventDate: '' }).success).toBe(false);
+  });
+
+  it('accepts today and rejects past or impossible dates', () => {
+    expect(
+      contactLeadSchema.safeParse({ ...validPayload, eventDate: todayInIndia() }).success
+    ).toBe(true);
+    expect(
+      contactLeadSchema.safeParse({ ...validPayload, eventDate: daysFromToday(-1) }).success
+    ).toBe(false);
+    expect(contactLeadSchema.safeParse({ ...validPayload, eventDate: '2030-02-30' }).success).toBe(
+      false
+    );
+  });
+
+  it('accepts an optional area', () => {
+    const withArea = contactLeadSchema.safeParse({ ...validPayload, area: ' Jayanagar ' });
+    expect(withArea.success).toBe(true);
+    if (withArea.success) expect(withArea.data.area).toBe('Jayanagar');
+    const without = contactLeadSchema.safeParse({ ...validPayload, area: '' });
+    expect(without.success).toBe(true);
+    if (without.success) expect(without.data.area).toBeNull();
   });
 });

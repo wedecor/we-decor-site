@@ -7,6 +7,8 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildContactPageGraph, withBreadcrumb } from '@/lib/schema';
 import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
+import { getEventTypeOptions } from '@/lib/services/leads/eventTypeOptions';
+import { AREAS_FOR_FORM } from '@/lib/services/leads/formAreas';
 
 const ContactFormClient = nextDynamic(() => import('@/components/contact/ContactFormClient'), {
   loading: () => (
@@ -25,13 +27,17 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export const dynamic = 'force-static';
+// Event types come from the app; refresh the static page hourly.
+export const revalidate = 3600;
 
 const CRUMBS = [
   { name: 'Home', href: '/' },
   { name: 'Contact', href: '/contact' },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const eventTypes = await getEventTypeOptions();
+
   return (
     <div className="lux-page relative overflow-hidden">
       <SchemaScript
@@ -76,7 +82,7 @@ export default function ContactPage() {
         <div className="lux-container max-w-2xl">
           <div className="lux-reveal lux-reveal-delay-1">
             <p className="lux-eyebrow mb-8">Inquiry form</p>
-            <ContactFormClient />
+            <ContactFormClient eventTypes={eventTypes} areas={AREAS_FOR_FORM} />
           </div>
           <p className="lux-body-sm mt-12 text-center md:text-left">
             Prefer a direct line?{' '}

@@ -349,7 +349,10 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/contact" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href={`/contact?area=${encodeURIComponent(slug)}`}
+                      className="text-lux-gold hover:underline font-medium"
+                    >
                       Contact us
                     </Link>
                   </li>

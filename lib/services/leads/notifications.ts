@@ -4,11 +4,12 @@ import type { LeadRecord } from './types';
 function buildWhatsAppMessage(lead: LeadRecord): string {
   const lines = [
     `Hi We Decor! I'm ${lead.name}.`,
-    `Event: ${lead.eventType}`,
+    `Event: ${lead.eventTypeLabel}`,
     lead.eventDate ? `Date: ${lead.eventDate}` : null,
+    lead.area ? `Area: ${lead.area}` : null,
     lead.budget ? `Budget: ${lead.budget}` : null,
     `Phone: ${lead.phone}`,
-    `Email: ${lead.email}`,
+    lead.email ? `Email: ${lead.email}` : null,
     '',
     lead.message,
   ].filter(Boolean);
@@ -31,7 +32,9 @@ export function buildCrmPayload(lead: LeadRecord): Record<string, unknown> {
     },
     event: {
       type: lead.eventType,
+      typeLabel: lead.eventTypeLabel,
       date: lead.eventDate,
+      area: lead.area,
       budget: lead.budget,
       notes: lead.message,
     },
@@ -46,14 +49,15 @@ export async function sendLeadEmail(lead: LeadRecord): Promise<boolean> {
 
   if (!apiKey || !to) return false;
 
-  const subject = `New lead: ${lead.name} — ${lead.eventType}`;
+  const subject = `New lead: ${lead.name} — ${lead.eventTypeLabel}`;
   const text = [
     `Lead ID: ${lead.id}`,
     `Name: ${lead.name}`,
     `Phone: ${lead.phone}`,
-    `Email: ${lead.email}`,
-    `Event: ${lead.eventType}`,
+    lead.email ? `Email: ${lead.email}` : '',
+    `Event: ${lead.eventTypeLabel}`,
     lead.eventDate ? `Date: ${lead.eventDate}` : '',
+    lead.area ? `Area: ${lead.area}` : '',
     lead.budget ? `Budget: ${lead.budget}` : '',
     '',
     lead.message,

@@ -5,6 +5,7 @@ import { isAllowedOrigin } from '@/lib/security/origin';
 import { hashIp } from '@/lib/security/sanitize';
 import { verifyTurnstileToken } from '@/lib/security/turnstile';
 import { createLead } from '@/lib/services/leads/createLead';
+import { getEventTypeOptions } from '@/lib/services/leads/eventTypeOptions';
 import { contactLeadSchema, formatZodErrors } from '@/lib/services/leads/validators';
 
 export const runtime = 'nodejs';
@@ -99,13 +100,17 @@ export async function POST(request: NextRequest) {
       process.env.LEAD_IP_HASH_SALT?.trim() ||
       process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
       'we-decor';
+    const eventTypes = await getEventTypeOptions();
+    const eventTypeLabel = eventTypes.find((t) => t.value === data.eventType)?.label ?? null;
     const result = await createLead({
       name: data.name,
       phone: data.phone,
       email: data.email,
       eventType: data.eventType,
+      eventTypeLabel,
       eventDate: data.eventDate,
       budget: data.budget,
+      area: data.area,
       message: data.message,
       source: 'contact_form',
       metadata: {
