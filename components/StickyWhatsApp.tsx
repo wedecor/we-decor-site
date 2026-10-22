@@ -1,42 +1,51 @@
 'use client';
 
 import { CONTACT } from '@/lib/contact';
-import { trackWhatsAppClick, trackQuoteRequest } from '@/lib/analytics/events';
+import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 
 /**
- * Site-wide floating WhatsApp button — bottom-right corner.
+ * Site-wide WhatsApp affordance.
  *
- * The DecorationServicePage already renders its own full-width sticky bar on
- * mobile, so this component hides on pages that set `data-has-sticky-wa` on
- * their container. CSS handles the clash via a parent selector.
+ * Phones get a full-width docked bar so the control cannot sit on
+ * photographs and body copy. Desktop keeps a corner mark — 4px, flat,
+ * no glow. Pages that render their own sticky bar (contact, decoration
+ * service templates) set `data-has-sticky-wa` and hide this on mobile.
  */
 export default function StickyWhatsApp() {
   const href = CONTACT.waUrlForHome();
 
   return (
-    <aside aria-label="WhatsApp contact" className="sticky-wa-global fixed bottom-6 right-6 z-50">
-      <a
+    <aside
+      aria-label="WhatsApp contact"
+      className="sticky-wa-global fixed inset-x-0 bottom-0 z-50 border-t border-white/[0.06] bg-lux-bg px-6 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:inset-x-auto md:bottom-6 md:right-6 md:border-0 md:bg-transparent md:p-0"
+    >
+      <TrackedWhatsAppLink
         href={href}
+        source="sticky_global"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="lux-btn-primary flex w-full md:hidden"
+      >
+        WhatsApp us
+      </TrackedWhatsAppLink>
+      <TrackedWhatsAppLink
+        href={href}
+        source="sticky_global"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        onClick={() => {
-          trackWhatsAppClick('sticky_global');
-          trackQuoteRequest('sticky_global');
-        }}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-black/25 transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-gold"
+        className="hidden h-14 w-14 items-center justify-center rounded-[4px] bg-[#25D366] text-white md:flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lux-gold-soft focus-visible:ring-offset-2 focus-visible:ring-offset-lux-bg"
       >
-        {/* WhatsApp SVG icon */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          fill="white"
+          fill="currentColor"
           className="h-7 w-7"
           aria-hidden="true"
         >
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-      </a>
+      </TrackedWhatsAppLink>
     </aside>
   );
 }

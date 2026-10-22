@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function NotFound() {
   return (
-    <main className="lux-page lux-container px-6 py-24 md:py-32 text-center">
+    <div className="lux-page lux-container py-24 md:py-32 text-center">
       <p className="lux-eyebrow mb-6">404</p>
       <h1 className="lux-heading mb-6">This page could not be found</h1>
       <p className="lux-body max-w-md mx-auto mb-12">
@@ -12,6 +12,6 @@ export default function NotFound() {
       <Link href="/" className="lux-btn-primary">
         Return home
       </Link>
-    </main>
+    </div>
   );
 }

@@ -83,7 +83,14 @@ export default function BrandLockup({
   if (!asLink) return <div className="flex items-center shrink-0">{inner}</div>;
 
   return (
-    <Link href="/" className="flex items-center shrink-0" aria-label={`${BRAND.name} — home`}>
+    // min-h-[44px] on the link, not on the lockup. The mark stays 34px on
+    // mobile by design (its caps turn to mush any smaller); this only grows
+    // the tappable box around it to the touch minimum.
+    <Link
+      href="/"
+      className="flex min-h-[44px] items-center shrink-0"
+      aria-label={`${BRAND.name} — home`}
+    >
       {inner}
     </Link>
   );

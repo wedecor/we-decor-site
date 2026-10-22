@@ -44,7 +44,7 @@ export default function FAQ() {
           </Disclosure>
         ))}
       </div>
-      <div className="text-center mt-16">
+      <div className="mt-16">
         <p className="text-lux-secondary font-light mb-6">Still have questions?</p>
         <TrackedWhatsAppLink
           href={CONTACT.waUrl()}

@@ -16,7 +16,7 @@ export default function Footer() {
       {/* Was a transparent→gold→transparent gradient rule. A hairline is a
           hairline; fading it at both ends is decoration. */}
       <div className="absolute inset-x-0 top-0 h-px bg-lux-gold/20" aria-hidden />
-      <div className="lux-container px-6 md:px-10 py-20 md:py-28 relative z-[1]">
+      <div className="lux-container py-20 md:py-28 relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-5 space-y-7">
             <BrandLockup variant="footer" asLink />
@@ -24,7 +24,7 @@ export default function Footer() {
               Designed for unforgettable celebrations.
             </p>
             <p className="lux-body-sm max-w-xs text-lux-secondary">
-              Luxury event decoration across {BRAND.city}.
+              {`Luxury event decoration across ${BRAND.city}.`}
             </p>
             <a
               href={SOCIAL_PROFILES.instagram}

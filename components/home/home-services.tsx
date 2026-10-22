@@ -79,7 +79,14 @@ export default function HomeServices() {
                     />
                     <div className="absolute inset-0 lux-overlay-cinematic opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-0 inset-x-0 p-6">
-                      <p className="text-xs tracking-lux uppercase text-lux-gold/90 mb-1">
+                      {/*
+                        gold/90 over a photograph measures 3.59:1 where the
+                        image blows out behind it — the overlay only darkens by
+                        0.72, it does not flatten the photo. gold-soft keeps the
+                        gold voice and holds 5.78:1 against the brightest frame
+                        in the set. Never put lux-gold on a photo at this size.
+                      */}
+                      <p className="text-xs tracking-lux uppercase text-lux-gold-soft mb-1">
                         {service.tag}
                       </p>
                       <h3 className="font-display text-2xl text-lux-ivory">{service.title}</h3>

@@ -144,7 +144,7 @@ export default function ServicesPage() {
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
       />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
@@ -156,12 +156,9 @@ export default function ServicesPage() {
       {/* ── Core decoration cards ── */}
       <section
         className="lux-section pt-0 pb-16 md:pb-20 bg-lux-bg"
-        aria-labelledby="decoration-services-heading"
+        aria-label="Decoration services"
       >
         <div className="lux-container">
-          <h2 id="decoration-services-heading" className="sr-only">
-            Decoration services
-          </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 md:gap-9 list-none p-0 m-0">
             {decorationCards.map((service, index) => {
               const featured = 'featured' in service && service.featured;
@@ -172,7 +169,14 @@ export default function ServicesPage() {
                 >
                   <Link href={service.href} className="lux-card-image block h-full group">
                     <div
-                      className={`relative w-full overflow-hidden ${featured ? 'aspect-[21/10] sm:aspect-[2/1]' : 'aspect-[4/5]'}`}
+                      /*
+                        Featured used to be 21/10 at every width — 155px of
+                        photo under 241px of caption, so the title cropped off.
+                        Caption now sits under the frame so the photograph
+                        stays the subject and the gold-soft tag holds 4.5:1
+                        against charcoal, not against the image.
+                      */
+                      className={`relative w-full overflow-hidden ${featured ? 'aspect-[4/5] sm:aspect-[2/1]' : 'aspect-[4/5]'}`}
                     >
                       <Image
                         src={service.image}
@@ -188,31 +192,27 @@ export default function ServicesPage() {
                         priority={index < 1}
                         loading={index < 1 ? undefined : 'lazy'}
                       />
-                      <div className="absolute inset-0 lux-overlay-cinematic" />
-                      <div
-                        className={`absolute bottom-0 inset-x-0 ${featured ? 'p-8 md:p-10' : 'p-7'}`}
+                    </div>
+                    <div className={featured ? 'p-8 md:p-10' : 'p-7'}>
+                      <p className="text-[11px] tracking-tagline uppercase text-lux-gold-soft mb-2">
+                        {service.tag}
+                      </p>
+                      <h2
+                        className={`font-display text-lux-ivory leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}
                       >
-                        <p className="text-[10px] tracking-tagline uppercase text-lux-gold/85 mb-2">
-                          {service.tag}
-                        </p>
-                        <h3
-                          className={`font-display text-lux-ivory leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-2xl'}`}
-                        >
-                          {service.name}
-                        </h3>
-                        {/*
-                          line-clamp-2 cut every non-featured card's description
-                          mid-sentence on a phone (needed 68px, got 46px). The
-                          clamp keeps the desktop grid's rows even; on mobile the
-                          cards stack full width, so nothing needs trimming.
-                          Three lines below sm, two from sm up.
-                        */}
-                        <p
-                          className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-3 sm:line-clamp-2'}`}
-                        >
-                          {service.description}
-                        </p>
-                      </div>
+                        {service.name}
+                      </h2>
+                      {/*
+                        line-clamp-2 cut every non-featured card's description
+                        mid-sentence on a phone (needed 68px, got 46px). The
+                        clamp keeps the desktop grid's rows even; on mobile the
+                        cards stack full width, so nothing needs trimming.
+                      */}
+                      <p
+                        className={`text-lux-secondary mt-3 leading-relaxed ${featured ? 'text-base max-w-lg' : 'text-sm line-clamp-3 sm:line-clamp-2'}`}
+                      >
+                        {service.description}
+                      </p>
                     </div>
                   </Link>
                 </li>

@@ -9,12 +9,12 @@ export default function HomeContact() {
   return (
     <section className="lux-section bg-lux-bg">
       <div className="lux-container">
-        <div className="text-center mb-10">
+        <div className="mb-10">
           <p className="lux-eyebrow mb-3">Connect</p>
           <h2 className="lux-heading-sm">Speak with our team</h2>
         </div>
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          <div className="lux-surface p-8 text-center">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="lux-surface p-8 flex flex-col">
             <p className="text-sm text-lux-secondary mb-2">Primary</p>
             <TrackedPhoneLink
               href={`tel:${tel[0].raw}`}
@@ -23,17 +23,19 @@ export default function HomeContact() {
             >
               {tel[0].label}
             </TrackedPhoneLink>
-            <TrackedWhatsAppLink
-              href={CONTACT.waUrlForHome()}
-              source="home_contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block mt-4 lux-btn-primary text-sm mx-auto w-fit"
-            >
-              WhatsApp
-            </TrackedWhatsAppLink>
+            <div className="mt-auto pt-6 flex min-h-11 items-center">
+              <TrackedWhatsAppLink
+                href={CONTACT.waUrlForHome()}
+                source="home_contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lux-btn-primary text-sm w-fit"
+              >
+                WhatsApp
+              </TrackedWhatsAppLink>
+            </div>
           </div>
-          <div className="lux-surface p-8 text-center">
+          <div className="lux-surface p-8 flex flex-col">
             <p className="text-sm text-lux-secondary mb-2">Secondary</p>
             <TrackedPhoneLink
               href={`tel:${tel[1].raw}`}
@@ -42,7 +44,9 @@ export default function HomeContact() {
             >
               {tel[1].label}
             </TrackedPhoneLink>
-            <p className="mt-4 text-sm text-lux-secondary">{OPENING_HOURS.displayHome}</p>
+            <p className="mt-auto pt-6 flex min-h-11 items-center text-sm text-lux-secondary">
+              {OPENING_HOURS.displayHome}
+            </p>
           </div>
         </div>
       </div>

@@ -58,7 +58,7 @@ export default async function HomeTestimonials() {
             <div className="mt-5 flex flex-col items-center gap-2">
               <Stars rating={data.rating} size="md" />
               <p className="text-sm text-lux-secondary">
-                From {data.total} review{data.total === 1 ? '' : 's'} across Bengaluru
+                From {data.total} {data.total === 1 ? 'review' : 'reviews'} across Bengaluru
               </p>
             </div>
           </div>

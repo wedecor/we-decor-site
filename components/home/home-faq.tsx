@@ -15,8 +15,8 @@ const faqs = [
 export default function HomeFaq() {
   return (
     <section className="lux-section bg-lux-bg">
-      <div className="lux-container max-w-3xl">
-        <div className="text-center mb-12">
+      <div className="lux-container">
+        <div className="mb-10">
           <p className="lux-eyebrow mb-3">FAQ</p>
           <h2 className="lux-heading-sm">Questions before you enquire</h2>
         </div>

@@ -38,9 +38,9 @@ export default function CoreExploreLinks({
       aria-label={heading}
     >
       <div className="lux-container">
-        <h2 className="lux-heading-sm text-center mb-10">{heading}</h2>
+        <h2 className="lux-heading-sm mb-10">{heading}</h2>
         <div
-          className={`grid gap-8 max-w-4xl mx-auto text-center ${
+          className={`grid gap-10 md:gap-16 ${
             cols >= 3 ? 'sm:grid-cols-2 lg:grid-cols-3' : cols === 2 ? 'sm:grid-cols-2' : ''
           }`}
         >
@@ -49,10 +49,13 @@ export default function CoreExploreLinks({
               <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
                 {relatedTitle}
               </h3>
-              <ul className="space-y-2 list-none p-0 m-0">
+              <ul className="list-none p-0 m-0">
                 {related.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href={link.href}
+                      className="flex min-h-11 items-center text-lux-gold hover:underline font-medium"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -62,10 +65,13 @@ export default function CoreExploreLinks({
           ) : null}
           <div>
             <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">Plan your event</h3>
-            <ul className="space-y-2 list-none p-0 m-0">
+            <ul className="list-none p-0 m-0">
               {planLinks.map((link) => (
                 <li key={`${link.href}-${link.label}`}>
-                  <Link href={link.href} className="text-lux-gold hover:underline font-medium">
+                  <Link
+                    href={link.href}
+                    className="flex min-h-11 items-center text-lux-gold hover:underline font-medium"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -77,16 +83,22 @@ export default function CoreExploreLinks({
               <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
                 Areas we serve
               </h3>
-              <ul className="space-y-2 list-none p-0 m-0">
+              <ul className="list-none p-0 m-0">
                 {localityLinks.map((area) => (
                   <li key={area.href}>
-                    <Link href={area.href} className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href={area.href}
+                      className="flex min-h-11 items-center text-lux-gold hover:underline font-medium"
+                    >
                       {area.name}
                     </Link>
                   </li>
                 ))}
                 <li>
-                  <Link href="/locations" className="text-lux-gold hover:underline font-medium">
+                  <Link
+                    href="/locations"
+                    className="flex min-h-11 items-center text-lux-gold hover:underline font-medium"
+                  >
                     All localities
                   </Link>
                 </li>

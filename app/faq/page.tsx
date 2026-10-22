@@ -31,7 +31,7 @@ export default function FAQPage() {
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
       />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
@@ -40,7 +40,7 @@ export default function FAQPage() {
         description="Everything you need to know about timelines, pricing, and custom celebrations in Bengaluru."
       />
       <section className="lux-section pt-0 pb-12 bg-lux-bg" aria-labelledby="faq-list-heading">
-        <div className="lux-container max-w-3xl">
+        <div className="lux-container lux-measure">
           <h2 id="faq-list-heading" className="sr-only">
             Answers about We Decor event decoration
           </h2>

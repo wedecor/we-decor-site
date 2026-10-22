@@ -66,13 +66,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           siteBreadcrumbsToSchemaItems(crumbs)
         )}
       />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={crumbs} />
       </div>
 
       <article>
-        <header className="lux-section-tight pt-0 pb-10 md:pb-14 lux-section-glow border-b border-white/[0.08]">
-          <div className="lux-container max-w-4xl">
+        <header className="lux-section-tight pt-0 pb-10 md:pb-14 border-b border-white/[0.08]">
+          <div className="lux-container lux-measure lux-measure-4xl">
             <p className="lux-eyebrow mb-5">Planning guide</p>
             <h1 className="lux-heading">{post.title}</h1>
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-lux-muted">
@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           className="lux-section-tight pt-12 md:pt-16 pb-12 md:pb-16 lux-section-alt border-b border-white/[0.08]"
           aria-label="Article body"
         >
-          <div className="lux-container max-w-4xl">
+          <div className="lux-container lux-measure lux-measure-4xl">
             <div className="space-y-7 text-[1.0625rem] md:text-lg text-lux-secondary font-light leading-[1.88]">
               {post.paragraphs.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>

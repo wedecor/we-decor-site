@@ -16,6 +16,8 @@ export const LUX = {
   divider: 'rgba(255, 255, 255, 0.08)',
   overlay: 'rgba(15, 10, 18, 0.42)',
   cardBg: '#262030',
+  /** Enquiry-form field fill. Flat, one step off lux-bg, no gradient. */
+  inputBg: '#17111C',
 } as const;
 
 export const BRAND = {

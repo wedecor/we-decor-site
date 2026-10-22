@@ -142,7 +142,7 @@ export default function DecorationServicePage({ config }: Props) {
         <div className="absolute inset-0 lux-hero-cinematic-side opacity-85" aria-hidden />
         <div className="absolute inset-0 lux-hero-vignette" aria-hidden />
 
-        <div className="relative z-10 w-full lux-container px-6 pb-16 md:pb-24">
+        <div className="relative z-10 w-full lux-container pb-16 md:pb-24">
           <SiteBreadcrumbs
             className="mb-6 text-lux-muted/90"
             items={decorationServiceCrumbs(config)}
@@ -201,10 +201,10 @@ export default function DecorationServicePage({ config }: Props) {
       {/* Why choose */}
       <section className="lux-section bg-lux-bg">
         <div className="lux-container">
-          <p className="lux-eyebrow text-center mb-3">
+          <p className="lux-eyebrow mb-3">
             {config.whyChooseUsEyebrow ?? 'Why families choose us'}
           </p>
-          <h2 className="lux-heading-sm text-center mb-14 md:mb-16 max-w-2xl mx-auto">
+          <h2 className="lux-heading-sm mb-14 md:mb-16 max-w-2xl ">
             {isLongForm
               ? `Why choose We Decor for ${config.serviceType.toLowerCase()}`
               : 'A studio approach to celebration design'}
@@ -227,8 +227,8 @@ export default function DecorationServicePage({ config }: Props) {
       {config.styles?.length ? (
         <section className="lux-section lux-section-alt border-y border-white/[0.06]">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">Styles</p>
-            <h2 className="lux-heading-sm text-center mb-14 md:mb-16">Decoration styles</h2>
+            <p className="lux-eyebrow mb-3">Styles</p>
+            <h2 className="lux-heading-sm mb-14 md:mb-16">Decoration styles</h2>
             <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
               {config.styles.map((item, index) => (
                 <div
@@ -250,10 +250,8 @@ export default function DecorationServicePage({ config }: Props) {
       ) : (
         <section className="lux-section lux-section-alt border-y border-white/[0.06]">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">The experience</p>
-            <h2 className="lux-heading-sm text-center mb-14 md:mb-16">
-              What we bring to your event
-            </h2>
+            <p className="lux-eyebrow mb-3">The experience</p>
+            <h2 className="lux-heading-sm mb-14 md:mb-16">What we bring to your event</h2>
             <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
               {config.highlights.map((item, index) => (
                 <div
@@ -278,10 +276,8 @@ export default function DecorationServicePage({ config }: Props) {
       {config.styles?.length ? (
         <section className="lux-section bg-lux-bg">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">The experience</p>
-            <h2 className="lux-heading-sm text-center mb-14 md:mb-16">
-              What we bring to your event
-            </h2>
+            <p className="lux-eyebrow mb-3">The experience</p>
+            <h2 className="lux-heading-sm mb-14 md:mb-16">What we bring to your event</h2>
             <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
               {config.highlights.map((item, index) => (
                 <div
@@ -323,8 +319,8 @@ export default function DecorationServicePage({ config }: Props) {
       {config.howWeCustomize?.length ? (
         <section className="lux-section lux-section-alt border-y border-white/[0.06]">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">Bespoke planning</p>
-            <h2 className="lux-heading-sm text-center mb-6">How we customize your decoration</h2>
+            <p className="lux-eyebrow mb-3">Bespoke planning</p>
+            <h2 className="lux-heading-sm mb-6">How we customize your decoration</h2>
             <p className="text-center text-lux-muted max-w-2xl mx-auto mb-12 leading-relaxed">
               Every setup is planned around your brief — not a fixed catalogue. We shape the décor
               after reviewing requirements, venue, style, event size, budget, and materials.
@@ -348,8 +344,8 @@ export default function DecorationServicePage({ config }: Props) {
       {config.popularDecorationOptions?.length ? (
         <section className="lux-section bg-lux-bg">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">Directions</p>
-            <h2 className="lux-heading-sm text-center mb-14">Popular decoration options</h2>
+            <p className="lux-eyebrow mb-3">Directions</p>
+            <h2 className="lux-heading-sm mb-14">Popular decoration options</h2>
             <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
               {config.popularDecorationOptions.map((item) => (
                 <div key={item.title} className="border-b border-white/[0.08] pb-6">
@@ -384,9 +380,9 @@ export default function DecorationServicePage({ config }: Props) {
       {/* What's included */}
       {config.included?.length ? (
         <section className="lux-section bg-lux-bg">
-          <div className="lux-container max-w-3xl">
-            <p className="lux-eyebrow text-center mb-3">Scope</p>
-            <h2 className="lux-heading-sm text-center mb-10">What&apos;s included</h2>
+          <div className="lux-container lux-measure">
+            <p className="lux-eyebrow mb-3">Scope</p>
+            <h2 className="lux-heading-sm mb-10">What&apos;s included</h2>
             <ul className="space-y-3 list-none p-0 m-0">
               {config.included.map((item) => (
                 <li
@@ -407,9 +403,9 @@ export default function DecorationServicePage({ config }: Props) {
       {/* Optional add-ons */}
       {config.optionalAddOns?.length ? (
         <section className="lux-section lux-section-alt border-y border-white/[0.06]">
-          <div className="lux-container max-w-3xl">
-            <p className="lux-eyebrow text-center mb-3">Extras</p>
-            <h2 className="lux-heading-sm text-center mb-10">Optional add-ons</h2>
+          <div className="lux-container lux-measure">
+            <p className="lux-eyebrow mb-3">Extras</p>
+            <h2 className="lux-heading-sm mb-10">Optional add-ons</h2>
             <ul className="space-y-3 list-none p-0 m-0">
               {config.optionalAddOns.map((item) => (
                 <li
@@ -431,8 +427,8 @@ export default function DecorationServicePage({ config }: Props) {
       {config.budgetConsiderations || config.pricingOverview ? (
         <section className="lux-section bg-lux-bg">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">Investment</p>
-            <h2 className="lux-heading-sm text-center mb-6">Budget considerations</h2>
+            <p className="lux-eyebrow mb-3">Investment</p>
+            <h2 className="lux-heading-sm mb-6">Budget considerations</h2>
             <p className="text-center text-lux-muted max-w-2xl mx-auto mb-12 leading-relaxed">
               {config.budgetConsiderations?.intro ??
                 config.pricingOverview?.intro ??
@@ -471,9 +467,9 @@ export default function DecorationServicePage({ config }: Props) {
       {/* Booking process */}
       {config.bookingProcess?.length ? (
         <section className="lux-section lux-section-alt border-t border-white/[0.06]">
-          <div className="lux-container max-w-3xl">
-            <p className="lux-eyebrow text-center mb-3">Next steps</p>
-            <h2 className="lux-heading-sm text-center mb-10">Booking process</h2>
+          <div className="lux-container lux-measure">
+            <p className="lux-eyebrow mb-3">Next steps</p>
+            <h2 className="lux-heading-sm mb-10">Booking process</h2>
             <ol className="space-y-6 list-none p-0 m-0">
               {config.bookingProcess.map((item, index) => (
                 <li key={item.step} className="flex gap-5">
@@ -494,9 +490,9 @@ export default function DecorationServicePage({ config }: Props) {
       {/* Setup timeline */}
       {config.setupTimeline?.length ? (
         <section className="lux-section bg-lux-bg">
-          <div className="lux-container max-w-3xl">
-            <p className="lux-eyebrow text-center mb-3">On the day</p>
-            <h2 className="lux-heading-sm text-center mb-10">Preparation &amp; setup timeline</h2>
+          <div className="lux-container lux-measure">
+            <p className="lux-eyebrow mb-3">On the day</p>
+            <h2 className="lux-heading-sm mb-10">Preparation &amp; setup timeline</h2>
             <ol className="space-y-6 list-none p-0 m-0">
               {config.setupTimeline.map((item, index) => (
                 <li key={item.step} className="flex gap-5">
@@ -518,8 +514,8 @@ export default function DecorationServicePage({ config }: Props) {
       {config.themes?.length ? (
         <section className="lux-section lux-section-alt border-t border-white/[0.06]">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">Inspiration</p>
-            <h2 className="lux-heading-sm text-center mb-14">Popular themes</h2>
+            <p className="lux-eyebrow mb-3">Inspiration</p>
+            <h2 className="lux-heading-sm mb-14">Popular themes</h2>
             <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
               {config.themes.map((theme) => (
                 <div key={theme.name} className="border-b border-white/[0.08] pb-6">
@@ -560,8 +556,8 @@ export default function DecorationServicePage({ config }: Props) {
       {isLongForm ? (
         <section className="lux-section bg-lux-bg">
           <div className="lux-container">
-            <p className="lux-eyebrow text-center mb-3">Coverage</p>
-            <h2 className="lux-heading-sm text-center mb-6">Areas we serve</h2>
+            <p className="lux-eyebrow mb-3">Coverage</p>
+            <h2 className="lux-heading-sm mb-6">Areas we serve</h2>
             <p className="text-center text-lux-muted max-w-2xl mx-auto mb-10 leading-relaxed">
               {config.areasIntro ??
                 'We decorate in Bangalore neighbourhoods citywide. Explore locality pages for area-specific details.'}{' '}
@@ -609,9 +605,9 @@ export default function DecorationServicePage({ config }: Props) {
 
       {/* FAQ */}
       <section className="lux-section-tight bg-lux-bg">
-        <div className="lux-container max-w-3xl">
-          <p className="lux-eyebrow text-center mb-3">Guidance</p>
-          <h2 className="lux-heading-sm text-center mb-10">Customer FAQs</h2>
+        <div className="lux-container lux-measure">
+          <p className="lux-eyebrow mb-3">Guidance</p>
+          <h2 className="lux-heading-sm mb-10">Customer FAQs</h2>
           <div className="space-y-3">
             {faqs.map((faq) => (
               <details key={faq.q} className="lux-surface group">
@@ -645,7 +641,7 @@ export default function DecorationServicePage({ config }: Props) {
 
       {/* Contact / CTA */}
       <section className="lux-section bg-lux-bg" id="contact">
-        <div className="lux-container max-w-3xl">
+        <div className="lux-container lux-measure">
           <div className="lux-panel p-10 md:p-14 text-center">
             <p className="lux-eyebrow mb-4">Contact</p>
             <h2 className="lux-heading-sm mb-5">Tell us about your date</h2>

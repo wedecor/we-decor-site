@@ -36,7 +36,7 @@ export default async function ReviewsPage() {
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
       />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
@@ -49,13 +49,13 @@ export default async function ReviewsPage() {
         aria-labelledby="reviews-embed"
       >
         <div className="lux-container">
-          <h2 id="reviews-embed" className="lux-heading-sm mb-10 text-center">
+          <h2 id="reviews-embed" className="lux-heading-sm mb-10 ">
             Google reviews
           </h2>
           <div className="mb-16">
             <SimpleGoogleReviewsEmbed placeId={placeId} />
           </div>
-          <h2 className="lux-heading-sm mb-10 text-center">More client feedback</h2>
+          <h2 className="lux-heading-sm mb-10 ">More client feedback</h2>
           <ReviewsList />
         </div>
       </section>

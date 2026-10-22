@@ -82,3 +82,15 @@ build/
 .cache/
 tmp/
 temp/
+
+# Impeccable design plugin — vendored tooling, not source.
+# Reinstall with:  npx impeccable install --providers=claude,cursor --scope=project
+#
+# Committing it would add ~4.5MB of third-party files twice over (a 1.1MB font
+# index and a 540KB browser script in each of .claude and .cursor), plus a 17MB
+# darwin-arm64 engine binary per harness that is useless on any other platform
+# and re-downloaded on first run anyway. It would also pin v4.7.0 in git while
+# upstream moves on. The design rules that actually matter are in CLAUDE.md,
+# which is committed.
+.claude/
+.cursor/

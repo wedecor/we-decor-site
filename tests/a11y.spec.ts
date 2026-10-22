@@ -89,28 +89,24 @@ test.describe('Accessibility Tests', () => {
       await page.goto(route, { waitUntil: 'networkidle' });
       const results = await new AxeBuilder({ page }).analyze();
       
-      // Allow known issues: contrast warnings, button-name for loading states, heading-order for footer
+      /*
+       * This allow-list used to hide the bugs it was written around. A design
+       * audit in Oct 2026 found a duplicate <main> on /error and /404 and gold
+       * tags failing contrast at 3.59:1 on the homepage — both were real, both
+       * were filtered out here, and CI stayed green for months.
+       *
+       * Two carve-outs are gone for good: duplicate/non-top-level landmarks
+       * (error.tsx and not-found.tsx render <div> now), and the dark-mode
+       * toggle (the site is dark-only; that button does not exist).
+       *
+       * Never add an entry here to make a failure go away. Fix the page, or
+       * write down why the rule does not apply and what evidence says so.
+       */
       const violations = results.violations.filter((v: any) => {
-        // Allow color contrast warnings unless serious/critical
-        if (v.id === 'color-contrast' && v.impact !== 'serious' && v.impact !== 'critical') {
-          return false;
-        }
-        // Allow button-name violations for loading state buttons (dark mode toggle)
-        if (v.id === 'button-name' && v.nodes.some((node: any) => 
-          node.html.includes('animate-pulse') || node.html.includes('Loading dark mode toggle')
-        )) {
-          return false;
-        }
-        // Allow heading-order violations for footer sections (h2 -> h3 is acceptable)
-        if (v.id === 'heading-order' && v.nodes.some((node: any) => 
+        // Footer h2 -> h3 is a deliberate section structure, not a skipped level.
+        if (v.id === 'heading-order' && v.nodes.some((node: any) =>
           node.html.includes('Contact Info') || node.html.includes('Quick Links')
         )) {
-          return false;
-        }
-        // Allow landmark issues (moderate impact, would require major structural changes)
-        if (v.id === 'landmark-main-is-top-level' || 
-            v.id === 'landmark-no-duplicate-main' || 
-            v.id === 'landmark-unique') {
           return false;
         }
         return true;

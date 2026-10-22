@@ -45,7 +45,7 @@ export default function PricingPage() {
         )}
       />
       <PricingPageView />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
@@ -58,8 +58,8 @@ export default function PricingPage() {
         className="lux-section pt-0 pb-16 md:pb-20 lux-section-alt"
         aria-labelledby="pricing-tiers"
       >
-        <div className="lux-container max-w-3xl">
-          <h2 id="pricing-tiers" className="lux-heading-sm text-center mb-12">
+        <div className="lux-container lux-measure">
+          <h2 id="pricing-tiers" className="lux-heading-sm mb-12">
             Starting prices for Bengaluru celebrations
           </h2>
           <div className="space-y-0">
@@ -69,7 +69,7 @@ export default function PricingPage() {
                 className={`lux-experience-block lux-reveal ${i > 0 ? `lux-reveal-delay-${Math.min(i, 2)}` : ''}`}
               >
                 {'featured' in tier && tier.featured ? (
-                  <p className="text-[10px] tracking-tagline uppercase text-lux-gold mb-4">
+                  <p className="text-[11px] tracking-tagline uppercase text-lux-gold mb-4">
                     Most requested
                   </p>
                 ) : (
@@ -101,10 +101,10 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <p className="lux-body text-center mt-20 max-w-md mx-auto">
+          <p className="lux-body mt-12 md:mt-16 max-w-md">
             Every proposal is tailored to your venue, guest count, and creative ambition.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
             <TrackedWhatsAppLink
               href={CONTACT.waUrl()}
               source="pricing_page"

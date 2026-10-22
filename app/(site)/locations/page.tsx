@@ -48,14 +48,14 @@ function ClusterSection({
   return (
     <section
       id={keyId}
-      className={`scroll-mt-28 py-16 md:py-20 px-6 ${alt ? 'bg-lux-elevated' : 'bg-lux-bg'}`}
+      className={`scroll-mt-28 py-16 md:py-20 ${alt ? 'bg-lux-elevated' : 'bg-lux-bg'}`}
     >
       <div className="lux-container">
         <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
           <h2 className="lux-heading-sm">{title}</h2>
           <a
             href="#top"
-            className="text-sm text-lux-secondary hover:text-lux-gold transition-colors"
+            className="inline-flex min-h-11 items-center text-sm text-lux-secondary hover:text-lux-gold transition-colors"
           >
             Back to top
           </a>
@@ -77,9 +77,9 @@ function ClusterSection({
                     {areaName}
                   </h3>
                   <p className="text-sm text-lux-secondary mt-3 leading-relaxed">
-                    Curated home, apartment, and venue decor across {areaName}.
+                    {`Curated home, apartment, and venue decor across ${areaName}.`}
                   </p>
-                  <span className="inline-block mt-6 text-[10px] tracking-tagline uppercase text-lux-gold/75">
+                  <span className="inline-block mt-6 text-[11px] tracking-tagline uppercase text-lux-gold">
                     Explore locality →
                   </span>
                 </Link>
@@ -117,7 +117,7 @@ export default function LocationsHubPage() {
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
       />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero
@@ -125,7 +125,7 @@ export default function LocationsHubPage() {
         title="Areas we serve"
         description={`Discover decoration across ${CITY} — each locality page includes services, venue notes, and booking for ${BUSINESS_NAME}.`}
       >
-        <div className="mt-10 flex flex-wrap gap-4 justify-center">
+        <div className="mt-10 flex flex-wrap gap-4">
           <TrackedPhoneLink
             href={`tel:${CONTACT.PRIMARY_NUMBER}`}
             source="locations_hub"
@@ -145,10 +145,10 @@ export default function LocationsHubPage() {
         </div>
       </PageHero>
 
-      <nav aria-label="Regions" className="lux-container px-6 -mt-4 mb-4">
+      <nav aria-label="Regions" className="lux-container -mt-4 mb-4">
         <div className="lux-surface p-6 md:p-8">
           <p className="lux-eyebrow mb-4">Regions</p>
-          <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
+          <ul className="flex flex-nowrap gap-2 overflow-x-auto overscroll-x-contain list-none p-0 m-0 md:flex-wrap md:overflow-visible">
             {CLUSTERS.map((c) => (
               <li key={c.key}>
                 <a href={`#${c.key}`} className="lux-filter-pill lux-filter-pill-inactive">

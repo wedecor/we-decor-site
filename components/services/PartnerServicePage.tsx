@@ -54,7 +54,7 @@ export default function PartnerServicePage({
     <>
       {schema}
       <div className="lux-page">
-        <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+        <div className="lux-container pb-2">
           <SiteBreadcrumbs items={partnerServiceCrumbs(config.title, path)} />
         </div>
         <PageHero eyebrow={eyebrow} title={config.title} description={config.description} />

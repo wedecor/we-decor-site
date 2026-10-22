@@ -16,6 +16,7 @@ module.exports = {
           muted: '#2E2638',
           gold: '#C8A96B',
           'gold-deep': '#B8924A',
+          'input-bg': '#17111C',
           'gold-soft': '#E8D9B8',
           ivory: '#F5F0E6',
           champagne: '#EDE6D6',

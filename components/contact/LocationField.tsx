@@ -179,6 +179,9 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
         aria-controls={listId}
         aria-autocomplete="list"
         aria-invalid={!!error}
+        // Label carries an asterisk; the control did not say so to assistive
+        // tech. Free text is accepted here, so this is aria-required only.
+        aria-required="true"
         autoComplete="off"
         value={text}
         maxLength={200}
@@ -235,20 +238,20 @@ export default function LocationField({ initialValue = '', error }: LocationFiel
             </li>
           ))}
           {options.some((o) => o.kind === 'place') ? (
-            <li className="px-3 py-2 text-right text-[10px] tracking-wide uppercase text-lux-text-muted">
+            <li className="px-3 py-2 text-right text-[11px] tracking-wide uppercase text-lux-text-muted">
               Powered by Google
             </li>
           ) : null}
         </ul>
       ) : null}
       {error ? (
-        <p className="text-lux-gold-deep text-xs mt-2" role="alert">
+        <p className="text-lux-gold-deep text-xs mt-1" role="alert">
           {error}
         </p>
       ) : loading ? (
-        <p className="text-lux-text-muted text-xs mt-2">Searching…</p>
+        <p className="text-lux-text-muted text-xs mt-1">Searching…</p>
       ) : (
-        <p className="text-lux-text-muted text-xs mt-2">
+        <p className="text-lux-text-muted text-xs mt-1">
           Search an area or venue, or type any location
         </p>
       )}

@@ -69,6 +69,12 @@ export default function EventTypeField({ options, error }: EventTypeFieldProps) 
         aria-controls={listId}
         aria-autocomplete="list"
         aria-invalid={!!error}
+        // The label shows an asterisk and the value lands in a hidden input, so
+        // assistive tech had no way to know this was required — it read as an
+        // optional free-text box. aria-required, not required: the visible
+        // control is a combobox whose real value lives in the hidden field.
+        aria-required="true"
+        aria-activedescendant={open && filtered.length > 0 ? `${listId}-opt-${active}` : undefined}
         autoComplete="off"
         value={query}
         placeholder="Start typing, e.g. Haldi"
@@ -106,6 +112,10 @@ export default function EventTypeField({ options, error }: EventTypeFieldProps) 
           {filtered.map((option, i) => (
             <li
               key={option.value}
+              // aria-activedescendant on the input points here, so these ids
+              // must exist or the reference dangles and the announcement is
+              // worse than none at all.
+              id={`${listId}-opt-${i}`}
               role="option"
               aria-selected={option.value === value}
               className={`px-3 py-2.5 text-base md:text-[0.9375rem] font-light cursor-pointer ${
@@ -123,7 +133,7 @@ export default function EventTypeField({ options, error }: EventTypeFieldProps) 
         </ul>
       ) : null}
       {error ? (
-        <p className="text-lux-gold-deep text-xs mt-2" role="alert">
+        <p className="text-lux-gold-deep text-xs mt-1" role="alert">
           {error}
         </p>
       ) : null}

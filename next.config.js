@@ -29,9 +29,11 @@ const nextConfig = {
   images: {
     formats: ['image/webp', 'image/avif'],
     // Allow explicit quality props used by service/home cards (Next 16 requires listing these)
-    qualities: [65, 70, 72, 75],
-    // Cap at 2048 so non-hero images with loose sizes never request w=3840
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
+    qualities: [65, 70, 72, 75, 80],
+    // 2400 matches the banquet hero source so a phone 100svh crop can
+    // request the native frame. Other images keep sizes tight enough
+    // that they never pick it.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 2400],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/dux3m2saz/**' },

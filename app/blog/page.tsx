@@ -55,7 +55,7 @@ export default function BlogIndexPage() {
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
       />
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
       <PageHero

@@ -8,7 +8,11 @@ export default function CriticalStyles() {
             --lux-bg: #0f0a12;
             --lux-elevated: #262030;
             --lux-ivory: #f5f0e6;
-            --lux-secondary: #c9c2b8;
+            /* Must match --lux-secondary in globals.css and textSecondary in
+               lib/design/tokens.ts. It was #c9c2b8 here and #d4cdc3 there, so
+               every page rendered body text one shade darker on first paint and
+               shifted after hydration. Three files, one value. */
+            --lux-secondary: #d4cdc3;
             --lux-gold: #c8a96b;
             --nav-height: 4.25rem;
           }
@@ -27,14 +31,15 @@ export default function CriticalStyles() {
            * 564px of headline, body and buttons sitting on top of it, so
            * overflow:hidden clipped the lot and the h1 rendered at top:-293px,
            * off-screen. Every phone visitor saw a homepage with no headline.
-           * Hence 88svh below 768px. Never give this element a definite height
-           * its own content cannot fit inside.
+           * Hence 100svh below 768px — 88svh left the trust strip peeking
+           * under the floating WhatsApp control. Never give this element a
+           * definite height its own content cannot fit inside.
            */
           .lux-hero-root {
             position: relative; isolation: isolate;
             display: flex; align-items: flex-end; overflow: hidden;
             background: var(--lux-bg);
-            min-height: 88vh; min-height: 88svh;
+            min-height: 100vh; min-height: 100svh;
           }
           @media (min-width: 768px) {
             .lux-hero-root { aspect-ratio: 16 / 9; min-height: 0; }
@@ -43,7 +48,7 @@ export default function CriticalStyles() {
           .lux-hero-media img { object-fit: cover !important; width: 100% !important; height: 100% !important; }
           .lux-hero-content {
             position: relative; z-index: 2; width: 100%; max-width: 72rem;
-            margin: 0 auto; padding: 1.5rem 1.5rem 3rem;
+            margin: 0 auto; padding: 1.5rem 1.5rem 6.75rem;
           }
           @media (min-width: 768px) {
             .lux-hero-content { padding: 3rem 1.5rem 5rem; }

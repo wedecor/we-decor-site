@@ -185,7 +185,10 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="space-y-10 relative"
+      // space-y-10 put 65-89px between fields that are themselves only 53px
+      // tall, so the form ran to 989px on a 812px phone — more gap than field,
+      // and only two inputs visible at a time. 18px keeps it to one screen.
+      className="space-y-[1.125rem] relative"
       noValidate
       aria-busy={isSubmitting}
     >
@@ -209,7 +212,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
           className="lux-input"
         />
         {errors.name ? (
-          <p id="name-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+          <p id="name-error" className="text-lux-gold-deep text-xs mt-1" role="alert">
             {errors.name}
           </p>
         ) : null}
@@ -232,7 +235,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
           className="lux-input"
         />
         {errors.phone ? (
-          <p id="phone-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+          <p id="phone-error" className="text-lux-gold-deep text-xs mt-1" role="alert">
             {errors.phone}
           </p>
         ) : null}
@@ -255,11 +258,11 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
           className="lux-input"
         />
         {errors.eventDate ? (
-          <p id="eventDate-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+          <p id="eventDate-error" className="text-lux-gold-deep text-xs mt-1" role="alert">
             {errors.eventDate}
           </p>
         ) : (
-          <p id="eventDate-hint" className="text-lux-text-muted text-xs mt-2">
+          <p id="eventDate-hint" className="text-lux-text-muted text-xs mt-1">
             An approximate date is fine
           </p>
         )}
@@ -281,7 +284,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
           className="lux-input resize-none min-h-[96px]"
         />
         {errors.message ? (
-          <p id="message-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+          <p id="message-error" className="text-lux-gold-deep text-xs mt-1" role="alert">
             {errors.message}
           </p>
         ) : null}
@@ -296,7 +299,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
             onError={resetTurnstile}
           />
           {errors.turnstile ? (
-            <p className="text-lux-gold-deep text-xs mt-2" role="alert">
+            <p className="text-lux-gold-deep text-xs mt-1" role="alert">
               {errors.turnstile}
             </p>
           ) : null}

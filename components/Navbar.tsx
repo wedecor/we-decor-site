@@ -122,7 +122,7 @@ export default function Navbar() {
         <div
           id={panelId}
           ref={panelRef}
-          className="lg:hidden border-t border-white/[0.08] px-6 py-4 flex flex-col bg-[#1a141f] max-h-[calc(100dvh-var(--nav-height))] overflow-y-auto overscroll-contain"
+          className="lg:hidden border-t border-white/[0.08] px-6 py-4 flex flex-col bg-lux-surface max-h-[calc(100dvh-var(--nav-height))] overflow-y-auto overscroll-contain"
         >
           {NAV.map((item) => {
             const active = pathname === item.href || pathname?.startsWith(`${item.href}/`);
@@ -130,7 +130,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`py-2.5 text-[15px] font-light transition-colors duration-500 ${active ? 'text-lux-gold' : 'text-lux-secondary'}`}
+                className={`flex min-h-[44px] items-center py-3 text-[15px] font-light transition-colors duration-500 ${active ? 'text-lux-gold' : 'text-lux-secondary'}`}
                 aria-current={active ? 'page' : undefined}
                 onClick={() => setOpen(false)}
               >

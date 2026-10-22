@@ -39,7 +39,7 @@ export default async function ContactPage() {
   const eventTypes = await getEventTypeOptions();
 
   return (
-    <div className="lux-page relative overflow-hidden">
+    <div className="lux-page" data-has-sticky-wa>
       <SchemaScript
         data={withBreadcrumb(
           buildContactPageGraph({
@@ -49,28 +49,22 @@ export default async function ContactPage() {
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
       />
-      <div
-        className="lux-ambient-glow w-[420px] h-[420px] -top-32 right-0"
-        style={{ background: 'rgba(200, 169, 107, 0.06)' }}
-        aria-hidden
-      />
-
-      <div className="lux-container pt-[calc(var(--nav-height)+1.5rem)] pb-2 relative z-10">
+      <div className="lux-container pb-2">
         <SiteBreadcrumbs items={CRUMBS} />
       </div>
 
-      <section className="lux-section-tight pt-0 pb-14 md:pb-16 border-b border-white/[0.08] relative z-10 lux-section-glow">
-        <div className="lux-container-narrow">
-          <div className="lux-reveal">
+      <section className="lux-section-tight pt-0 pb-14 md:pb-16 border-b border-white/[0.08]">
+        <div className="lux-container">
+          <div className="lux-reveal max-w-2xl">
             <p className="lux-eyebrow mb-6">Private enquiries</p>
-            <h1 className="font-display text-[2.25rem] md:text-[2.85rem] font-light text-lux-ivory tracking-tight leading-[1.14] max-w-md">
+            <h1 className="font-display text-[2.25rem] md:text-[2.85rem] font-light text-lux-ivory tracking-tight leading-[1.14]">
               Begin your consultation
             </h1>
-            <p className="lux-body mt-7 max-w-md">
+            <p className="lux-body mt-7">
               Tell us the date, venue, and atmosphere you envision. We respond with a thoughtful
               proposal — most enquiries receive a reply within a few hours.
             </p>
-            <address className="lux-body-sm mt-6 max-w-md not-italic text-lux-secondary">
+            <address className="lux-body-sm mt-6 not-italic text-lux-secondary">
               {formatPostalAddressText()}
             </address>
             <div className="lux-divider mt-10 max-w-[8rem]" />
@@ -78,13 +72,13 @@ export default async function ContactPage() {
         </div>
       </section>
 
-      <section className="lux-section-tight pt-14 md:pt-16 pb-28 md:pb-36 relative z-10">
-        <div className="lux-container max-w-2xl">
-          <div className="lux-reveal lux-reveal-delay-1">
+      <section className="lux-section-tight pt-14 md:pt-16 pb-28 md:pb-36">
+        <div className="lux-container">
+          <div className="lux-reveal lux-reveal-delay-1 max-w-2xl">
             <p className="lux-eyebrow mb-8">Inquiry form</p>
             <ContactFormClient eventTypes={eventTypes} areas={AREAS_FOR_FORM} />
           </div>
-          <p className="lux-body-sm mt-12 text-center md:text-left">
+          <p className="lux-body-sm mt-12 max-w-2xl">
             Prefer a direct line?{' '}
             <TrackedWhatsAppLink
               href={CONTACT.waUrl()}

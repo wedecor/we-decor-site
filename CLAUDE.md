@@ -21,6 +21,19 @@ npx vitest run      # unit tests in tests/unit
 Lint runs with `--max-warnings=0`, so an unused import fails the build. If you
 remove the last consumer of a variable, remove the variable.
 
+**The Impeccable design plugin is not in git.** `.claude/` and `.cursor/` are
+ignored — committing them means ~4.5MB of third-party files duplicated across
+both harnesses plus a 17MB platform-specific engine binary each, pinned at a
+version upstream has moved past. Reinstall it on a new machine with:
+
+```bash
+npx impeccable install --providers=claude,cursor --scope=project
+```
+
+Then `/impeccable init` in the agent chat. Its `DESIGN.md` must derive from the
+house rules below, not contradict them — where Impeccable's defaults disagree,
+the house rules win, because they came from the owner rejecting real work.
+
 ---
 
 ## Things that have bitten before

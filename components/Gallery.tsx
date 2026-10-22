@@ -30,15 +30,15 @@ export default function Gallery() {
     <div className="space-y-10">
       <nav
         aria-label="Filter gallery by occasion"
-        className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-lux-secondary"
+        className="flex flex-nowrap gap-x-6 overflow-x-auto overscroll-x-contain -mx-6 px-6 pb-1 text-sm text-lux-secondary md:mx-0 md:flex-wrap md:gap-y-3 md:overflow-visible md:px-0 md:pb-0"
       >
         <button
           type="button"
           onClick={() => setFilter(null)}
           className={
             occasion === null
-              ? 'border-b border-lux-gold pb-0.5 text-lux-ivory'
-              : 'border-b border-transparent pb-0.5 hover:text-lux-ivory'
+              ? 'shrink-0 min-h-11 border-b border-lux-gold pb-0.5 text-lux-ivory'
+              : 'shrink-0 min-h-11 border-b border-transparent pb-0.5 hover:text-lux-ivory'
           }
         >
           All
@@ -50,8 +50,8 @@ export default function Gallery() {
             onClick={() => setFilter(label)}
             className={
               occasion === label
-                ? 'border-b border-lux-gold pb-0.5 text-lux-ivory'
-                : 'border-b border-transparent pb-0.5 hover:text-lux-ivory'
+                ? 'shrink-0 min-h-11 border-b border-lux-gold pb-0.5 text-lux-ivory'
+                : 'shrink-0 min-h-11 border-b border-transparent pb-0.5 hover:text-lux-ivory'
             }
           >
             {label}

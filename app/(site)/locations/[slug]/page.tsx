@@ -184,11 +184,14 @@ export default async function LocationPage({ params }: LocationPageProps) {
         ) : null}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-          <h2 className="lux-heading-sm text-center mb-4">Our services in {area.name}</h2>
+          <h2 className="lux-heading-sm mb-4">Our services in {area.name}</h2>
           <p className="text-center text-sm text-lux-muted mb-12">
             Balloon décor from <span className="text-lux-gold font-medium">₹3,000</span> · Floral
             from <span className="text-lux-gold font-medium">₹5,000</span> —{' '}
-            <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+            <Link
+              href="/pricing"
+              className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+            >
               view full pricing
             </Link>
           </p>
@@ -222,11 +225,18 @@ export default async function LocationPage({ params }: LocationPageProps) {
                       {area.serviceDescriptions[service]}
                     </p>
                   ) : null}
-                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2">
+                  {/*
+                    These two rendered at 21px tall on a phone — half the 44px
+                    minimum — and "Ask on WhatsApp" is the conversion path on a
+                    template that ships across all 50 locality pages. The text
+                    size is unchanged; inline-flex plus min-h-[44px] grows the
+                    hit area around it without moving anything visually.
+                  */}
+                  <div className="mt-auto flex flex-wrap items-center gap-x-5">
                     {servicePage ? (
                       <Link
                         href={servicePage.href}
-                        className="border-b border-lux-gold/30 pb-0.5 text-sm font-medium text-lux-gold transition-colors duration-300 hover:border-lux-gold"
+                        className="inline-flex min-h-[44px] items-center border-b border-lux-gold/30 text-sm font-medium text-lux-gold transition-colors duration-300 hover:border-lux-gold"
                       >
                         {serviceAnchor(servicePage.label)} →
                       </Link>
@@ -236,7 +246,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                       source={`location:${slug}:${service}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm text-lux-text-muted transition-colors duration-300 hover:text-lux-ivory"
+                      className="inline-flex min-h-[44px] items-center text-sm text-lux-text-muted transition-colors duration-300 hover:text-lux-ivory"
                     >
                       Ask on WhatsApp
                     </TrackedWhatsAppLink>
@@ -250,9 +260,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
         {/* FAQ Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
           <div className="lux-surface p-5 sm:p-8 md:p-12">
-            <h2 className="lux-heading-sm text-center mb-8">
-              Frequently asked questions — {areaName}
-            </h2>
+            <h2 className="lux-heading-sm mb-8">Frequently asked questions — {areaName}</h2>
             <div className="max-w-4xl mx-auto">
               <dl className="space-y-6">
                 {combinedFaqs.map((faq, index) => (
@@ -313,10 +321,13 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
                   Services in {areaName}
                 </h3>
-                <ul className="space-y-2 list-none p-0 m-0">
+                <ul className="list-none p-0 m-0">
                   {Object.values(SERVICE_LINKS).map((link, index) => (
                     <li key={`${link.href}-${link.label}`}>
-                      <Link href={link.href} className="text-lux-gold hover:underline font-medium">
+                      <Link
+                        href={link.href}
+                        className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                      >
                         {exploreServiceAnchor(link.label, index)}
                       </Link>
                     </li>
@@ -327,42 +338,60 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
                   Plan your event
                 </h3>
-                <ul className="space-y-2 list-none p-0 m-0">
+                <ul className="list-none p-0 m-0">
                   <li>
-                    <Link href="/pricing" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href="/pricing"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                    >
                       View pricing
                     </Link>
                   </li>
                   <li>
-                    <Link href="/gallery" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href="/gallery"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                    >
                       Browse gallery
                     </Link>
                   </li>
                   <li>
-                    <Link href="/reviews" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href="/reviews"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                    >
                       Customer reviews
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href="/about"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                    >
                       About We Decor
                     </Link>
                   </li>
                   <li>
                     <Link
                       href={`/contact?area=${encodeURIComponent(slug)}`}
-                      className="text-lux-gold hover:underline font-medium"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
                     >
                       Contact us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href="/services"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                    >
                       All services
                     </Link>
                   </li>
                   <li>
-                    <Link href="/locations" className="text-lux-gold hover:underline font-medium">
+                    <Link
+                      href="/locations"
+                      className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                    >
                       All Bangalore areas
                     </Link>
                   </li>
@@ -373,12 +402,12 @@ export default async function LocationPage({ params }: LocationPageProps) {
                   <h3 className="text-sm uppercase tracking-wide text-lux-muted mb-3">
                     Also serving nearby
                   </h3>
-                  <ul className="space-y-2 list-none p-0 m-0">
+                  <ul className="list-none p-0 m-0">
                     {nearbyAreas.map((nearby, index) => (
                       <li key={nearby.slug}>
                         <Link
                           href={`/locations/${nearby.slug}`}
-                          className="text-lux-gold hover:underline font-medium"
+                          className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
                         >
                           {nearbyAnchor(nearby.name, index)}
                         </Link>
