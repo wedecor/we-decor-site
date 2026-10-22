@@ -170,9 +170,10 @@ test.describe('feature-smoke', () => {
     await page.goto('/contact', { waitUntil: 'networkidle' });
     const fields = [
       /name/i,
-      /phone|mobile/i,
-      /email/i,
-      /celebration|event|vision|message|details/i,
+      /event type/i,
+      /event date/i,
+      /location/i,
+      /remark/i,
     ];
     for (const f of fields) {
       const has = await page.getByLabel(f, { exact: false }).or(page.getByPlaceholder(f)).count();

@@ -11,33 +11,25 @@ import {
 import { trackFormSubmit, trackQuoteRequest } from '@/lib/analytics/events';
 import TurnstileField from '@/components/TurnstileField';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import EventTypeField from '@/components/contact/EventTypeField';
+import LocationField from '@/components/contact/LocationField';
+import type { EventTypeOption } from '@/lib/services/leads/eventTypeOptions';
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 
-export type ContactFormEventType = { value: string; label: string };
+export type ContactFormEventType = EventTypeOption;
 export type ContactFormArea = { slug: string; name: string };
 
 type ContactFormProps = {
-  /** From the We Decor Enquiries app, so every value is one the app knows. */
   eventTypes: ContactFormEventType[];
-  /** Locality suggestions for the Area field. */
   areas: ContactFormArea[];
 };
 
-type FieldKey = 'name' | 'phone' | 'email' | 'eventType' | 'eventDate' | 'area' | 'message';
-const FIELD_KEYS: readonly FieldKey[] = [
-  'name',
-  'phone',
-  'email',
-  'eventType',
-  'eventDate',
-  'area',
-  'message',
-];
+type FieldKey = 'name' | 'eventType' | 'eventDate' | 'location' | 'message';
+const FIELD_KEYS: readonly FieldKey[] = ['name', 'eventType', 'eventDate', 'location', 'message'];
 
 type FieldErrors = Partial<Record<FieldKey | 'turnstile' | '_form', string>>;
 
-/** Today in India as YYYY-MM-DD — the earliest date the form accepts. */
 function todayInIndia(): string {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date());
 }
@@ -47,7 +39,7 @@ type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
   const router = useRouter();
   const [minDate, setMinDate] = useState<string | undefined>(undefined);
-  const [area, setArea] = useState('');
+  const [prefillLocation, setPrefillLocation] = useState('');
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState<FieldErrors>({});
@@ -59,13 +51,11 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
     setTurnstileToken('');
   }, []);
 
-  // Set on the client: the page is static, so a build-time "today" would go stale.
-  // A locality page links here as /contact?area=<slug>, which fills in the area.
   useEffect(() => {
     setMinDate(todayInIndia());
     const slug = new URLSearchParams(window.location.search).get('area');
     const match = slug ? areas.find((a) => a.slug === slug) : undefined;
-    if (match) setArea(match.name);
+    if (match) setPrefillLocation(match.name);
   }, [areas]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -77,15 +67,23 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
     const form = e.currentTarget;
     const fd = new FormData(form);
 
+    let place: unknown = null;
+    const placeRaw = String(fd.get('place') ?? '');
+    if (placeRaw) {
+      try {
+        place = JSON.parse(placeRaw);
+      } catch {
+        place = null;
+      }
+    }
+
     const payload = {
       name: String(fd.get('name') ?? ''),
-      phone: String(fd.get('phone') ?? ''),
-      email: String(fd.get('email') ?? ''),
       eventType: String(fd.get('eventType') ?? ''),
       eventDate: String(fd.get('eventDate') ?? '') || null,
-      budget: String(fd.get('budget') ?? '') || null,
-      area: String(fd.get('area') ?? '') || null,
+      location: String(fd.get('location') ?? '') || null,
       message: String(fd.get('message') ?? ''),
+      place,
       website: String(fd.get('website') ?? ''),
       turnstileToken: turnstileToken || undefined,
       pageUrl: typeof window !== 'undefined' ? window.location.href : undefined,
@@ -154,13 +152,8 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
       }
 
       form.reset();
-      setArea('');
+      setPrefillLocation('');
       resetTurnstile();
-
-      // Send the original tab to /thank-you. WhatsApp opened in a new tab
-      // above, so the conversation is not interrupted by this navigation.
-      // The inline success message still renders for the moment before the
-      // route change, and as the fallback if navigation is blocked.
       router.push('/thank-you');
     } catch {
       setSubmitState('error');
@@ -188,7 +181,6 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
       noValidate
       aria-busy={isSubmitting}
     >
-      {/* Honeypot — hidden from users */}
       <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
@@ -215,158 +207,47 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
         ) : null}
       </div>
 
+      <EventTypeField options={eventTypes} error={errors.eventType} />
+
       <div>
-        <label htmlFor="phone" className="lux-label">
-          Phone <span className="text-lux-gold/70">*</span>
+        <label htmlFor="eventDate" className="lux-label">
+          Event date <span className="text-lux-gold/70">*</span>
         </label>
         <input
-          id="phone"
-          name="phone"
-          type="tel"
+          id="eventDate"
+          name="eventDate"
+          type="date"
           required
-          autoComplete="tel"
-          inputMode="tel"
-          aria-invalid={!!errors.phone}
-          aria-describedby={errors.phone ? 'phone-error' : undefined}
-          placeholder="+91 …"
+          min={minDate}
+          aria-invalid={!!errors.eventDate}
+          aria-describedby={errors.eventDate ? 'eventDate-error' : 'eventDate-hint'}
           className="lux-input"
         />
-        {errors.phone ? (
-          <p id="phone-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
-            {errors.phone}
+        {errors.eventDate ? (
+          <p id="eventDate-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
+            {errors.eventDate}
           </p>
-        ) : null}
-      </div>
-
-      <div>
-        <label htmlFor="email" className="lux-label">
-          Email <span className="normal-case tracking-normal text-lux-text-muted">(optional)</span>
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          autoComplete="email"
-          aria-invalid={!!errors.email}
-          aria-describedby={errors.email ? 'email-error' : undefined}
-          placeholder="you@example.com"
-          className="lux-input"
-        />
-        {errors.email ? (
-          <p id="email-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
-            {errors.email}
+        ) : (
+          <p id="eventDate-hint" className="text-lux-text-muted text-xs mt-2">
+            An approximate date is fine
           </p>
-        ) : null}
+        )}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="eventType" className="lux-label">
-            Celebration <span className="text-lux-gold/70">*</span>
-          </label>
-          <select
-            id="eventType"
-            name="eventType"
-            required
-            defaultValue=""
-            aria-invalid={!!errors.eventType}
-            className="lux-input cursor-pointer"
-          >
-            <option value="" disabled>
-              Select event type
-            </option>
-            {eventTypes.map((t) => (
-              <option key={t.value} value={t.value}>
-                {t.label}
-              </option>
-            ))}
-          </select>
-          {errors.eventType ? (
-            <p className="text-lux-gold-deep text-xs mt-2" role="alert">
-              {errors.eventType}
-            </p>
-          ) : null}
-        </div>
-        <div>
-          <label htmlFor="eventDate" className="lux-label">
-            Event date <span className="text-lux-gold/70">*</span>
-          </label>
-          <input
-            id="eventDate"
-            name="eventDate"
-            type="date"
-            required
-            min={minDate}
-            aria-invalid={!!errors.eventDate}
-            aria-describedby={errors.eventDate ? 'eventDate-error' : 'eventDate-hint'}
-            className="lux-input"
-          />
-          {errors.eventDate ? (
-            <p id="eventDate-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
-              {errors.eventDate}
-            </p>
-          ) : (
-            <p id="eventDate-hint" className="text-lux-text-muted text-xs mt-2">
-              An approximate date is fine
-            </p>
-          )}
-        </div>
-      </div>
-
-      <div>
-        <label htmlFor="area" className="lux-label">
-          Area
-        </label>
-        <input
-          id="area"
-          name="area"
-          list="area-options"
-          autoComplete="off"
-          value={area}
-          onChange={(e) => setArea(e.target.value)}
-          maxLength={120}
-          aria-invalid={!!errors.area}
-          aria-describedby={errors.area ? 'area-error' : undefined}
-          placeholder="e.g. Jayanagar, or the venue name"
-          className="lux-input"
-        />
-        <datalist id="area-options">
-          {areas.map((a) => (
-            <option key={a.slug} value={a.name} />
-          ))}
-        </datalist>
-        {errors.area ? (
-          <p id="area-error" className="text-lux-gold-deep text-xs mt-2" role="alert">
-            {errors.area}
-          </p>
-        ) : null}
-      </div>
-
-      <div>
-        <label htmlFor="budget" className="lux-label">
-          Investment range
-        </label>
-        <input
-          id="budget"
-          name="budget"
-          placeholder="e.g. ₹15,000 – ₹30,000"
-          className="lux-input"
-        />
-      </div>
+      <LocationField initialValue={prefillLocation} error={errors.location} />
 
       <div>
         <label htmlFor="message" className="lux-label">
-          Your vision <span className="text-lux-gold/70">*</span>
+          Remark
         </label>
         <textarea
           id="message"
           name="message"
-          required
-          rows={5}
+          rows={4}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'message-error' : undefined}
-          placeholder="Venue, guest count, palette, and the atmosphere you imagine"
-          className="lux-input resize-none min-h-[120px]"
+          placeholder="Anything we should know"
+          className="lux-input resize-none min-h-[96px]"
         />
         {errors.message ? (
           <p id="message-error" className="text-lux-gold-deep text-xs mt-2" role="alert">

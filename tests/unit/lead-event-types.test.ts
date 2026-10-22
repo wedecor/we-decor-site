@@ -5,6 +5,8 @@ import {
   FALLBACK_EVENT_TYPES,
   sanitizeEventTypeOptions,
 } from '@/lib/services/leads/eventTypeOptions';
+import { filterEventTypes } from '@/lib/services/leads/eventTypeFilter';
+import { pickedLocationText } from '@/lib/services/leads/pickedLocation';
 
 describe('sanitizeEventTypeOptions', () => {
   it('keeps well-formed options and drops junk and duplicates', () => {
@@ -34,6 +36,22 @@ describe('sanitizeEventTypeOptions', () => {
   });
 });
 
+describe('filterEventTypes', () => {
+  it('ranks prefix matches first', () => {
+    const out = filterEventTypes(FALLBACK_EVENT_TYPES, 'ha');
+    expect(out[0]?.value).toBe('haldi');
+  });
+});
+
+describe('pickedLocationText', () => {
+  it('uses the area name for an area pick and venue, area for a venue', () => {
+    expect(pickedLocationText('JP Nagar', 'JP Nagar', true)).toBe('JP Nagar');
+    expect(pickedLocationText('Palace Grounds', 'Vasanth Nagar', false)).toBe(
+      'Palace Grounds, Vasanth Nagar'
+    );
+  });
+});
+
 describe('lead text shows labels, not stored values', () => {
   it('uses the label in WhatsApp and sends value + label + area to the app', async () => {
     const { lead, whatsappUrl } = await createLead({
@@ -49,7 +67,7 @@ describe('lead text shows labels, not stored values', () => {
     const text = decodeURIComponent(whatsappUrl);
     expect(text).toContain('Event: Corporate Event');
     expect(text).not.toContain('corporate_event');
-    expect(text).toContain('Area: Jayanagar');
+    expect(text).toContain('Location: Jayanagar');
     expect(text).not.toContain('Email:');
 
     const payload = buildCrmPayload(lead) as { event: Record<string, unknown> };

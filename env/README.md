@@ -29,7 +29,9 @@ This directory is the **single source of truth** for which variables the app exp
 | `TURNSTILE_SECRET_KEY` | Server | Prod recommended | Turnstile server verification |
 | `RESEND_API_KEY` | Server | No | Admin email via Resend |
 | `LEAD_NOTIFY_EMAIL` | Server | No | Admin inbox for new leads |
-| `LEAD_WEBHOOK_URL` | Server | No | CRM webhook POST target |
+| `LEAD_WEBHOOK_URL` | Server | No | Enquiry-app ingest (`websiteLead` Cloud Function) |
+| `LEAD_OPTIONS_URL` | Server | No | Enquiry-app event types (`websiteFormOptions`) |
+| `LEAD_WEBHOOK_SECRET` | Server | No | Shared secret sent as `X-Lead-Secret` (same as Firebase `WEBSITE_LEAD_SECRET`) |
 | `UPSTASH_REDIS_REST_URL` | Server | No | Distributed rate limiting |
 | `UPSTASH_REDIS_REST_TOKEN` | Server | No | Upstash token |
 

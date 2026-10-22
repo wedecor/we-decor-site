@@ -10,11 +10,9 @@ function daysFromToday(days: number): string {
 
 const validPayload = {
   name: 'Priya Sharma',
-  phone: '8880544452',
-  email: 'priya@example.com',
   eventType: 'Wedding',
   eventDate: daysFromToday(60),
-  budget: '₹25000',
+  location: 'Indiranagar',
   message: 'Need decor for rooftop venue in Indiranagar.',
   website: '',
   turnstileToken: 'test-token',
@@ -26,9 +24,24 @@ describe('contactLeadSchema', () => {
     expect(result.success).toBe(true);
   });
 
-  it('rejects invalid phone', () => {
+  it('rejects invalid phone when one is sent', () => {
     const result = contactLeadSchema.safeParse({ ...validPayload, phone: '12345' });
     expect(result.success).toBe(false);
+  });
+
+  it('accepts a lead without phone, email, budget or remark', () => {
+    const result = contactLeadSchema.safeParse({
+      name: 'Priya Sharma',
+      eventType: 'wedding',
+      eventDate: daysFromToday(60),
+      location: 'Jayanagar',
+      website: '',
+    });
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.phone).toBe('');
+      expect(result.data.message).toBe('');
+    }
   });
 
   it('rejects honeypot', () => {
@@ -96,12 +109,7 @@ describe('contactLeadSchema', () => {
     );
   });
 
-  it('accepts an optional area', () => {
-    const withArea = contactLeadSchema.safeParse({ ...validPayload, area: ' Jayanagar ' });
-    expect(withArea.success).toBe(true);
-    if (withArea.success) expect(withArea.data.area).toBe('Jayanagar');
-    const without = contactLeadSchema.safeParse({ ...validPayload, area: '' });
-    expect(without.success).toBe(true);
-    if (without.success) expect(without.data.area).toBeNull();
+  it('requires a location', () => {
+    expect(contactLeadSchema.safeParse({ ...validPayload, location: '' }).success).toBe(false);
   });
 });

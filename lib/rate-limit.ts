@@ -10,32 +10,46 @@ type RateLimitResult = {
 
 const CONTACT_LIMIT = 5;
 const CONTACT_WINDOW_SEC = 15 * 60;
+const PLACES_LIMIT = 40;
+const PLACES_WINDOW_SEC = 60;
 
 type MemoryEntry = { count: number; resetAt: number };
 const memoryStore = new Map<string, MemoryEntry>();
 
-function memoryRateLimit(key: string): RateLimitResult {
+function memoryRateLimitFor(
+  store: Map<string, MemoryEntry>,
+  key: string,
+  limit: number,
+  windowSec: number
+): RateLimitResult {
   const now = Date.now();
-  const windowMs = CONTACT_WINDOW_SEC * 1000;
-  let entry = memoryStore.get(key);
+  const windowMs = windowSec * 1000;
+  let entry = store.get(key);
 
   if (!entry || entry.resetAt <= now) {
     entry = { count: 0, resetAt: now + windowMs };
-    memoryStore.set(key, entry);
+    store.set(key, entry);
   }
 
   entry.count += 1;
-  const success = entry.count <= CONTACT_LIMIT;
+  const success = entry.count <= limit;
 
   return {
     success,
-    limit: CONTACT_LIMIT,
-    remaining: Math.max(0, CONTACT_LIMIT - entry.count),
+    limit,
+    remaining: Math.max(0, limit - entry.count),
     reset: entry.resetAt,
   };
 }
 
+function memoryRateLimit(key: string): RateLimitResult {
+  return memoryRateLimitFor(memoryStore, key, CONTACT_LIMIT, CONTACT_WINDOW_SEC);
+}
+
+const placesMemoryStore = new Map<string, MemoryEntry>();
+
 let upstashLimiter: Ratelimit | null = null;
+let placesUpstashLimiter: Ratelimit | null = null;
 let memoryWarned = false;
 
 function getUpstashLimiter(): Ratelimit | null {
@@ -76,6 +90,39 @@ export async function rateLimitContact(ip: string): Promise<RateLimitResult> {
   }
 
   return memoryRateLimit(key);
+}
+
+function getPlacesUpstashLimiter(): Ratelimit | null {
+  if (placesUpstashLimiter) return placesUpstashLimiter;
+  const url = process.env.UPSTASH_REDIS_REST_URL?.trim();
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
+  if (!url || !token) return null;
+
+  const redis = new Redis({ url, token });
+  placesUpstashLimiter = new Ratelimit({
+    redis,
+    limiter: Ratelimit.slidingWindow(PLACES_LIMIT, `${PLACES_WINDOW_SEC} s`),
+    prefix: 'we-decor:places',
+    analytics: false,
+  });
+  return placesUpstashLimiter;
+}
+
+export async function rateLimitPlaces(ip: string): Promise<RateLimitResult> {
+  const key = ip || 'unknown';
+  const limiter = getPlacesUpstashLimiter();
+
+  if (limiter) {
+    const result = await limiter.limit(key);
+    return {
+      success: result.success,
+      limit: PLACES_LIMIT,
+      remaining: result.remaining,
+      reset: result.reset,
+    };
+  }
+
+  return memoryRateLimitFor(placesMemoryStore, key, PLACES_LIMIT, PLACES_WINDOW_SEC);
 }
 
 /**

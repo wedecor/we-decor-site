@@ -13,18 +13,28 @@ const trimString = (max: number) =>
     .refine((v) => !CONTROL_CHARS.test(v), 'Invalid characters')
     .refine((v) => !SCRIPT_TAG.test(v), 'Invalid content');
 
+const optionalText = (max: number) =>
+  z
+    .string()
+    .trim()
+    .max(max)
+    .optional()
+    .nullable()
+    .transform((v) => (v && v.length > 0 ? v : null));
+
 export const contactLeadSchema = z.object({
   name: trimString(120).regex(/^[a-zA-Z\u00C0-\u024F\s'.-]+$/, 'Name contains invalid characters'),
+  /** Website form no longer asks; accepted if a client still sends it. */
   phone: z
     .string()
     .trim()
-    .min(10)
     .max(20)
-    .transform((v) => v.replace(/[\s-]/g, ''))
-    .refine((v) => /^(\+91)?[6-9]\d{9}$/.test(v), {
+    .optional()
+    .nullable()
+    .transform((v) => (v ? v.replace(/[\s-]/g, '') : ''))
+    .refine((v) => v === '' || /^(\+91)?[6-9]\d{9}$/.test(v), {
       message: 'Enter a valid Indian mobile number (10 digits, starting 6–9)',
     }),
-  /** Optional — many customers only share a phone number. */
   email: z
     .string()
     .trim()
@@ -36,32 +46,43 @@ export const contactLeadSchema = z.object({
       message: 'Invalid email address',
     }),
   eventType: trimString(80),
-  /** Required (YYYY-MM-DD), today or later in India time. */
   eventDate: z
     .string({ error: 'Choose your event date' })
     .trim()
     .regex(/^\d{4}-\d{2}-\d{2}$/, 'Choose your event date')
     .refine(isRealDate, 'Choose a valid date')
     .refine((v) => v >= todayInIndia(), 'Choose a date from today onwards'),
-  budget: z
-    .string()
-    .trim()
-    .max(64)
-    .optional()
-    .nullable()
-    .transform((v) => (v && v.length > 0 ? v : null)),
-  /** Optional area in Bengaluru, e.g. "Jayanagar". */
-  area: z
-    .string()
-    .trim()
-    .max(120)
-    .optional()
-    .nullable()
-    .transform((v) => (v && v.length > 0 ? v : null))
-    .refine((v) => v === null || (!CONTROL_CHARS.test(v) && !SCRIPT_TAG.test(v)), {
+  budget: optionalText(64),
+  /** @deprecated use location — kept so older clients still validate. */
+  area: optionalText(200).refine(
+    (v) => v === null || (!CONTROL_CHARS.test(v) && !SCRIPT_TAG.test(v)),
+    {
       message: 'Invalid characters',
-    }),
-  message: trimString(4000),
+    }
+  ),
+  location: trimString(200).refine((v) => !CONTROL_CHARS.test(v) && !SCRIPT_TAG.test(v), {
+    message: 'Invalid characters',
+  }),
+  place: z
+    .object({
+      placeId: z.string().trim().min(8).max(512),
+      address: optionalText(300),
+      lat: z.number().finite().nullable().optional(),
+      lng: z.number().finite().nullable().optional(),
+      area: optionalText(120),
+      city: optionalText(80),
+    })
+    .optional()
+    .nullable(),
+  message: z
+    .string()
+    .trim()
+    .max(4000)
+    .optional()
+    .nullable()
+    .transform((v) => v ?? '')
+    .refine((v) => !CONTROL_CHARS.test(v), 'Invalid characters')
+    .refine((v) => !SCRIPT_TAG.test(v), 'Invalid content'),
   /** Honeypot — must be empty */
   website: z
     .string()

@@ -14,8 +14,16 @@ export type LeadRecord = {
   eventTypeLabel: string;
   eventDate: string | null;
   budget: string | null;
-  /** Bengaluru area the customer typed or picked (e.g. "Jayanagar"). */
+  /** Event location text (area or venue). */
   area: string | null;
+  place: {
+    placeId: string;
+    address: string | null;
+    lat: number | null;
+    lng: number | null;
+    area: string | null;
+    city: string | null;
+  } | null;
   message: string;
   metadata: {
     userAgent: string | null;
@@ -27,14 +35,15 @@ export type LeadRecord = {
 
 export type CreateLeadInput = {
   name: string;
-  phone: string;
+  phone?: string;
   email?: string | null;
   eventType: string;
   eventTypeLabel?: string | null;
   eventDate?: string | null;
   budget?: string | null;
   area?: string | null;
-  message: string;
+  place?: LeadRecord['place'];
+  message?: string;
   source?: LeadSource;
   metadata?: Partial<LeadRecord['metadata']>;
 };

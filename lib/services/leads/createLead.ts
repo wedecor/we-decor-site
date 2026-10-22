@@ -18,14 +18,15 @@ export function normalizeLeadInput(input: CreateLeadInput): Omit<LeadRecord, 'id
   return {
     source: input.source ?? 'contact_form',
     name: sanitizeLeadField(input.name, 120),
-    phone: sanitizeLeadField(input.phone.replace(/\s/g, ''), 20),
+    phone: sanitizeLeadField((input.phone ?? '').replace(/\s/g, ''), 20),
     email: input.email ? sanitizeLeadField(input.email.toLowerCase(), 254) || null : null,
     eventType: sanitizeLeadField(input.eventType, 80),
     eventTypeLabel: sanitizeLeadField(input.eventTypeLabel || humanizeValue(input.eventType), 80),
     eventDate: input.eventDate ? sanitizeLeadField(input.eventDate, 32) : null,
     budget: input.budget ? sanitizeLeadField(input.budget, 64) : null,
-    area: input.area ? sanitizeLeadField(input.area, 120) || null : null,
-    message: sanitizeLeadField(input.message, 4000),
+    area: input.area ? sanitizeLeadField(input.area, 200) || null : null,
+    place: input.place ?? null,
+    message: sanitizeLeadField(input.message ?? '', 4000),
     metadata: {
       userAgent: input.metadata?.userAgent ?? null,
       ipHash: input.metadata?.ipHash ?? null,

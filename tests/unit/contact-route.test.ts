@@ -4,13 +4,11 @@ import { POST } from '@/app/api/contact/route';
 
 const basePayload = {
   name: 'Rahul Kumar',
-  phone: '9876543210',
-  email: 'rahul@example.com',
   eventType: 'Haldi',
   eventDate: new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(
     new Date(Date.now() + 30 * 86_400_000)
   ),
-  budget: null,
+  location: 'Jayanagar',
   message: 'Traditional haldi setup for 50 guests.',
   website: '',
   turnstileToken: 'dev-bypass-token',

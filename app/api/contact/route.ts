@@ -104,14 +104,24 @@ export async function POST(request: NextRequest) {
     const eventTypeLabel = eventTypes.find((t) => t.value === data.eventType)?.label ?? null;
     const result = await createLead({
       name: data.name,
-      phone: data.phone,
+      phone: data.phone || '',
       email: data.email,
       eventType: data.eventType,
       eventTypeLabel,
       eventDate: data.eventDate,
       budget: data.budget,
-      area: data.area,
-      message: data.message,
+      area: data.location || data.area,
+      place: data.place
+        ? {
+            placeId: data.place.placeId,
+            address: data.place.address ?? null,
+            lat: data.place.lat ?? null,
+            lng: data.place.lng ?? null,
+            area: data.place.area ?? null,
+            city: data.place.city ?? null,
+          }
+        : null,
+      message: data.message || '',
       source: 'contact_form',
       metadata: {
         userAgent: request.headers.get('user-agent'),
