@@ -221,8 +221,11 @@ contend with LCP. IDs come from Vercel env vars; `.env.local` deliberately has
 none, and `isAnalyticsEnabled()` is false outside production — so analytics
 never fires in dev.
 
-Conversions: the enquiry form fires `generate_lead` and redirects to
-`/thank-you` (noindex, not in the sitemap). That page exists to make conversion
+Conversions: the enquiry form fires `generate_lead` only when the API confirms
+the lead reached email or the CRM webhook, then redirects to `/thank-you`
+(noindex, not in the sitemap). Attempts are `form_submit` / `attempt`; failures
+are `form_error` with an `error_code`. Until Nov 2026 `generate_lead` also fired
+on every attempt, so GA4 lead counts before then are inflated. That page exists to make conversion
 measurable — an event alone was ambiguous.
 
 Sentry is installed and wraps the production build only; it breaks dev chunks.

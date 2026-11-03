@@ -3,11 +3,7 @@
 import React, { useCallback, useEffect, useRef, useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { CONTACT } from '@/lib/contact';
-import {
-  trackLeadSubmitAttempt,
-  trackLeadSubmitFailure,
-  trackLeadSubmitSuccess,
-} from '@/lib/analytics/conversion-events';
+import { trackLeadSubmitFailure, trackLeadSubmitSuccess } from '@/lib/analytics/conversion-events';
 import { trackFormSubmit, trackQuoteRequest } from '@/lib/analytics/events';
 import TurnstileField from '@/components/TurnstileField';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
@@ -15,6 +11,8 @@ import EventTypeField from '@/components/contact/EventTypeField';
 import EventDateField from '@/components/contact/EventDateField';
 import LocationField from '@/components/contact/LocationField';
 import type { EventTypeOption } from '@/lib/services/leads/eventTypeOptions';
+import { buildWhatsAppEnquiryUrl } from '@/lib/services/leads/whatsappMessage';
+import { stashLeadWhatsAppUrl } from '@/lib/services/leads/thankYouHandoff';
 
 const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 
@@ -40,6 +38,12 @@ type FieldErrors = Partial<Record<FieldKey | 'turnstile' | '_form', string>>;
 
 type SubmitState = 'idle' | 'submitting' | 'success' | 'error';
 
+/**
+ * Failures the visitor cannot fix by editing the form. For these we offer the
+ * enquiry on WhatsApp instead, so a broken backend never costs us the lead.
+ */
+const NO_FALLBACK_CODES = new Set(['VALIDATION_ERROR', 'CAPTCHA_FAILED', 'SPAM_DETECTED']);
+
 export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
   const router = useRouter();
   const [prefillLocation, setPrefillLocation] = useState('');
@@ -47,6 +51,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState<FieldErrors>({});
   const [turnstileToken, setTurnstileToken] = useState('');
+  const [fallbackWaUrl, setFallbackWaUrl] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const submitLock = useRef(false);
 
@@ -66,6 +71,7 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
 
     setErrors({});
     setStatusMessage('');
+    setFallbackWaUrl(null);
     const form = e.currentTarget;
     const fd = new FormData(form);
 
@@ -92,6 +98,17 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
       pageUrl: typeof window !== 'undefined' ? window.location.href : undefined,
     };
 
+    const clientWhatsAppUrl = () =>
+      buildWhatsAppEnquiryUrl({
+        name: payload.name,
+        eventTypeLabel:
+          eventTypes.find((t) => t.value === payload.eventType)?.label || payload.eventType,
+        eventDate: payload.eventDate,
+        area: payload.location,
+        phone: payload.phone,
+        message: payload.message,
+      });
+
     if (TURNSTILE_SITE_KEY && !turnstileToken) {
       setErrors({ turnstile: 'Please complete the security check' });
       return;
@@ -99,7 +116,8 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
 
     submitLock.current = true;
     setSubmitState('submitting');
-    trackLeadSubmitAttempt();
+    // Attempts are `form_submit` only. `generate_lead` is reserved for a lead
+    // the server confirmed it delivered — see trackLeadSubmitSuccess below.
     trackFormSubmit('contact_form', 'attempt');
     let succeeded = false;
 
@@ -137,6 +155,12 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
         setErrors(fieldErrors);
         setSubmitState('error');
         setStatusMessage('');
+        if (!code || !NO_FALLBACK_CODES.has(code)) {
+          const serverUrl = data?.error?.whatsappUrl as string | undefined;
+          setFallbackWaUrl(
+            serverUrl?.startsWith('https://wa.me/') ? serverUrl : clientWhatsAppUrl()
+          );
+        }
         trackLeadSubmitFailure(code || 'api_error');
         trackFormSubmit('contact_form', 'error', { reason: code || 'api_error' });
         resetTurnstile();
@@ -150,9 +174,9 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
       trackFormSubmit('contact_form', 'success', { event_type: payload.eventType });
       trackQuoteRequest('contact_form', { event_type: payload.eventType });
 
-      if (data.whatsappUrl) {
-        window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
-      }
+      // No window.open here: after an await the popup blocker eats it. The
+      // thank-you page shows this link as a button instead.
+      if (typeof data.whatsappUrl === 'string') stashLeadWhatsAppUrl(data.whatsappUrl);
 
       form.reset();
       setPrefillLocation('');
@@ -161,8 +185,9 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
     } catch {
       setSubmitState('error');
       setErrors({
-        _form: 'Network error. Please check your connection or contact us on WhatsApp.',
+        _form: 'Network error. Please check your connection or send your enquiry on WhatsApp.',
       });
+      setFallbackWaUrl(clientWhatsAppUrl());
       trackLeadSubmitFailure('network_error');
       trackFormSubmit('contact_form', 'error', { reason: 'network_error' });
       resetTurnstile();
@@ -282,6 +307,18 @@ export default function ContactForm({ eventTypes, areas }: ContactFormProps) {
         <p className="text-lux-gold-deep text-sm" role="alert">
           {errors._form}
         </p>
+      ) : null}
+
+      {fallbackWaUrl ? (
+        <TrackedWhatsAppLink
+          href={fallbackWaUrl}
+          source="contact_form_fallback"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full lux-btn-secondary"
+        >
+          Send this enquiry on WhatsApp
+        </TrackedWhatsAppLink>
       ) : null}
 
       {submitState === 'success' ? (

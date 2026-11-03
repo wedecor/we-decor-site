@@ -55,6 +55,11 @@ export type CreateLeadResult = {
     emailSent: boolean;
     webhookDelivered: boolean;
   };
+  /**
+   * True when at least one channel (email or CRM webhook) accepted the lead.
+   * False means nobody at We Decor has it — the route must not report success.
+   */
+  delivered: boolean;
 };
 
 export type ApiErrorCode =
@@ -64,6 +69,7 @@ export type ApiErrorCode =
   | 'SPAM_DETECTED'
   | 'ORIGIN_FORBIDDEN'
   | 'PAYLOAD_TOO_LARGE'
+  | 'LEAD_DELIVERY_FAILED'
   | 'INTERNAL_ERROR';
 
 export type ApiErrorBody = {
@@ -72,6 +78,8 @@ export type ApiErrorBody = {
     code: ApiErrorCode;
     message: string;
     details?: Array<{ path: string; message: string }>;
+    /** Pre-filled WhatsApp link so the visitor can still reach us when delivery failed. */
+    whatsappUrl?: string;
   };
 };
 

@@ -34,10 +34,12 @@ function safeFbq(...args: unknown[]): void {
   window.fbq?.(...args);
 }
 
-export function trackLeadSubmitAttempt(): void {
-  trackEvent('generate_lead', { event_category: 'contact', event_label: 'submit_attempt' });
-}
-
+/**
+ * `generate_lead` means one thing: the server confirmed the enquiry reached
+ * email or the CRM. It used to fire on every submit attempt as well, so GA4
+ * counted two "leads" per real enquiry and one per failure. Attempts are now
+ * `form_submit` with `form_status: 'attempt'` (lib/analytics/events.ts).
+ */
 export function trackLeadSubmitSuccess(params: LeadConversionParams = {}): void {
   trackEvent('generate_lead', {
     event_category: 'contact',
@@ -64,10 +66,12 @@ export function trackLeadSubmitSuccess(params: LeadConversionParams = {}): void 
   }
 }
 
+/** A submission that did not produce a lead. `reason` is the API error code or `network_error`. */
 export function trackLeadSubmitFailure(reason: string): void {
   trackEvent('form_error', {
     event_category: 'contact',
     event_label: reason,
+    error_code: reason,
   });
 }
 

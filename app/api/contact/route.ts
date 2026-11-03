@@ -131,11 +131,24 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    if (!result.delivered) {
+      // Neither email nor the CRM webhook accepted it, so nobody has this
+      // enquiry. Say so, and hand back the pre-filled WhatsApp link so the
+      // visitor can send it to us directly instead of being thanked for nothing.
+      return apiError(
+        'LEAD_DELIVERY_FAILED',
+        'We could not send your enquiry just now. Please send it to us on WhatsApp instead.',
+        502,
+        undefined,
+        { whatsappUrl: result.whatsappUrl }
+      );
+    }
+
     return apiSuccess({
       success: true,
       leadId: result.lead.id,
       whatsappUrl: result.whatsappUrl,
-      message: 'Thank you! Your enquiry was received. Opening WhatsApp to confirm with our team.',
+      message: 'Thank you! We have your enquiry.',
     });
   } catch {
     return apiError(

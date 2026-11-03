@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import { SITE_EMAIL } from '@/lib/site';
 import PageHero from '@/components/lux/PageHero';
-import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import ThankYouWhatsAppLink from '@/components/contact/ThankYouWhatsAppLink';
 
 /**
  * Post-enquiry confirmation.
@@ -76,15 +76,7 @@ export default function ThankYouPage() {
               answer WhatsApp faster than anything else.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <TrackedWhatsAppLink
-                href={CONTACT.waUrl()}
-                source="thank_you"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lux-btn-primary"
-              >
-                WhatsApp us
-              </TrackedWhatsAppLink>
+              <ThankYouWhatsAppLink fallbackHref={CONTACT.waUrl()} className="lux-btn-primary" />
               <Link href="/gallery" className="lux-btn-secondary">
                 Browse our work
               </Link>

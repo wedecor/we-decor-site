@@ -4,6 +4,8 @@ import type { CreateLeadInput, CreateLeadResult, LeadRecord } from './types';
 import {
   buildWhatsAppUrl,
   deliverLeadWebhook,
+  isLeadEmailConfigured,
+  isLeadWebhookConfigured,
   logLeadCreated,
   sendLeadEmail,
 } from './notifications';
@@ -37,8 +39,22 @@ export function normalizeLeadInput(input: CreateLeadInput): Omit<LeadRecord, 'id
 }
 
 /**
- * Persists lead logic — today: notify + CRM webhook.
- * Future: insert into DB/CRM from this single entry point.
+ * Did anyone at We Decor actually receive this lead?
+ *
+ * True when email or the CRM webhook accepted it. With neither channel
+ * configured, local dev and tests still succeed so the form can be exercised —
+ * but never in production, where an unconfigured site would otherwise thank
+ * every visitor while silently dropping their enquiry.
+ */
+export function isLeadDelivered(emailSent: boolean, webhookDelivered: boolean): boolean {
+  if (emailSent || webhookDelivered) return true;
+  const anyConfigured = isLeadEmailConfigured() || isLeadWebhookConfigured();
+  return !anyConfigured && process.env.NODE_ENV !== 'production';
+}
+
+/**
+ * Single entry point for a new lead: email notification + CRM webhook
+ * (We Decor Firebase `websiteLead`). There is deliberately no second intake path.
  */
 export async function createLead(input: CreateLeadInput): Promise<CreateLeadResult> {
   const normalized = normalizeLeadInput(input);
@@ -53,16 +69,30 @@ export async function createLead(input: CreateLeadInput): Promise<CreateLeadResu
     deliverLeadWebhook(lead),
   ]);
 
-  if (process.env.LEAD_WEBHOOK_URL?.trim() && !webhookDelivered) {
-    // The customer still reaches us on WhatsApp/email; this flags that the app missed it.
+  if (isLeadWebhookConfigured() && !webhookDelivered) {
+    // The app missed it; email may still have it.
     console.error(JSON.stringify({ event: 'lead_webhook_failed', leadId: lead.id }));
   }
 
-  logLeadCreated(lead.id, lead.source);
+  const delivered = isLeadDelivered(emailSent, webhookDelivered);
+  if (delivered) {
+    logLeadCreated(lead.id, lead.source);
+  } else {
+    // No PII — the lead id plus which channels were even configured.
+    console.error(
+      JSON.stringify({
+        event: 'lead_delivery_failed',
+        leadId: lead.id,
+        emailConfigured: isLeadEmailConfigured(),
+        webhookConfigured: isLeadWebhookConfigured(),
+      })
+    );
+  }
 
   return {
     lead,
     whatsappUrl: buildWhatsAppUrl(lead),
     notifications: { emailSent, webhookDelivered },
+    delivered,
   };
 }
