@@ -9,6 +9,7 @@ import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import { buildAboutPageGraph, withBreadcrumb } from '@/lib/schema';
+import { SERVED_AREA_COUNT } from '@/lib/local-seo/locality-count';
 
 export const metadata: Metadata = pageMetadata({
   path: '/about',
@@ -235,7 +236,7 @@ export default function AboutPage() {
             {[
               { value: '2022', label: 'Since' },
               { value: '500+', label: 'Celebrations' },
-              { value: '25+', label: 'Areas' },
+              { value: String(SERVED_AREA_COUNT), label: 'Areas' },
               { value: 'One', label: 'Goal' },
             ].map((stat) => (
               <div key={stat.label}>

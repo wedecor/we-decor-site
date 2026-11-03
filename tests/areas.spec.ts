@@ -2,7 +2,8 @@
 import { test, expect } from '@playwright/test';
 import { AREAS } from '../app/(site)/_data/locations';
 
-const site = process.env.PREVIEW_URL || 'http://localhost:3000';
+// Relative to playwright.config baseURL (:3001) unless a preview URL is given.
+const site = process.env.PREVIEW_URL?.replace(/\/+$/, '') || '';
 
 test.describe('Areas → Locations redirect & location SEO', () => {
   for (const { slug } of AREAS.slice(0, 5)) {

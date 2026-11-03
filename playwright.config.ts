@@ -2,7 +2,14 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  testMatch: ['**/*.e2e.spec.ts', '**/e2e.spec.ts', '**/a11y.spec.ts', '**/*.smoke.spec.ts'],
+  testMatch: [
+    '**/*.e2e.spec.ts',
+    '**/e2e.spec.ts',
+    '**/a11y.spec.ts',
+    '**/*.smoke.spec.ts',
+    '**/nav.spec.ts',
+    '**/areas.spec.ts',
+  ],
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: 2,

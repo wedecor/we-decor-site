@@ -22,8 +22,9 @@ export default function robots(): MetadataRoute.Robots {
       // photos for Google Images) and /_next/static (JS/CSS Googlebot renders).
       disallow: ['/api/', '/admin/', '/private/'],
     },
-    // Single sitemap entry for crawlers (canonical index)
-    sitemap: `${base}/sitemap.xml`,
+    // Page sitemap plus the image sitemap (app/image-sitemap/route.ts), which
+    // lists real event photos per page for Google Images.
+    sitemap: [`${base}/sitemap.xml`, `${base}/image-sitemap`],
     host: base,
   };
 }

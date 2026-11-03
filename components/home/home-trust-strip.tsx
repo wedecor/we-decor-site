@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import { SERVED_AREA_COUNT } from '@/lib/local-seo/locality-count';
 
 /**
  * Above-the-fold trust strip. Event/area figures mirror `/about`.
@@ -8,7 +9,7 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
  */
 const trustItems = [
   { value: '500+', label: 'events decorated', href: '/gallery' },
-  { value: '25+', label: 'Bangalore areas served', href: '/locations' },
+  { value: String(SERVED_AREA_COUNT), label: 'Bangalore areas served', href: '/locations' },
 ] as const;
 
 export default function HomeTrustStrip() {
