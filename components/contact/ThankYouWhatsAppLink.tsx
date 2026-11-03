@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
-import { readLeadWhatsAppUrl } from '@/lib/services/leads/thankYouHandoff';
+import { consumeLeadWhatsAppUrl } from '@/lib/services/leads/thankYouHandoff';
 
 /**
  * WhatsApp button on /thank-you. When the visitor arrived from the enquiry
  * form, it carries their pre-filled enquiry (handed off via sessionStorage)
  * so one tap sends it — a real click, so no popup blocker gets in the way.
+ * The handoff is consumed on read, so revisiting /thank-you shows the plain link.
  * Otherwise it is the plain WhatsApp link rendered on the server.
  */
 export default function ThankYouWhatsAppLink({
@@ -21,7 +22,7 @@ export default function ThankYouWhatsAppLink({
   const [prefilled, setPrefilled] = useState(false);
 
   useEffect(() => {
-    const url = readLeadWhatsAppUrl();
+    const url = consumeLeadWhatsAppUrl();
     if (url) {
       setHref(url);
       setPrefilled(true);
