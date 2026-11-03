@@ -196,12 +196,25 @@ export function validateServerEnv(): ValidationIssue[] {
           'TURNSTILE_SECRET_KEY and NEXT_PUBLIC_TURNSTILE_SITE_KEY are unset. The contact form relies on honeypot, origin and rate-limit only.',
       });
     }
-    if (!read('RESEND_API_KEY') && !read('LEAD_WEBHOOK_URL')) {
+    // Mirrors isLeadEmailConfigured() in lib/services/leads/notifications.ts:
+    // email counts only when both the Resend key and a recipient are set.
+    const resendKey = Boolean(read('RESEND_API_KEY'));
+    const notifyEmail = Boolean(read('LEAD_NOTIFY_EMAIL'));
+    const emailConfigured = resendKey && notifyEmail;
+    if (resendKey !== notifyEmail) {
+      issues.push({
+        level: 'warn',
+        code: 'LEAD_EMAIL_PARTIAL',
+        message:
+          'Only one of RESEND_API_KEY / LEAD_NOTIFY_EMAIL is set. Lead email is not sent until both are present.',
+      });
+    }
+    if (!emailConfigured && !read('LEAD_WEBHOOK_URL')) {
       issues.push({
         level: 'warn',
         code: 'LEAD_DELIVERY_UNCONFIGURED',
         message:
-          'Neither RESEND_API_KEY nor LEAD_WEBHOOK_URL is set. Every contact-form enquiry will be refused with LEAD_DELIVERY_FAILED.',
+          'No complete lead channel: set RESEND_API_KEY + LEAD_NOTIFY_EMAIL, or LEAD_WEBHOOK_URL. Every contact-form enquiry will be refused with LEAD_DELIVERY_FAILED.',
       });
     }
     if (!read('LEAD_IP_HASH_SALT')) {
