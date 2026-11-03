@@ -179,6 +179,31 @@ export function validateServerEnv(): ValidationIssue[] {
           'UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN are unset. Contact rate limits will not aggregate across Vercel isolates.',
       });
     }
+    const turnstileSecret = Boolean(read('TURNSTILE_SECRET_KEY'));
+    const turnstileSiteKey = Boolean(read('NEXT_PUBLIC_TURNSTILE_SITE_KEY'));
+    if (turnstileSecret !== turnstileSiteKey) {
+      issues.push({
+        level: 'warn',
+        code: 'TURNSTILE_PARTIAL',
+        message:
+          'Only one of TURNSTILE_SECRET_KEY / NEXT_PUBLIC_TURNSTILE_SITE_KEY is set. Turnstile is skipped until both are present.',
+      });
+    } else if (!turnstileSecret) {
+      issues.push({
+        level: 'warn',
+        code: 'TURNSTILE_MISSING',
+        message:
+          'TURNSTILE_SECRET_KEY and NEXT_PUBLIC_TURNSTILE_SITE_KEY are unset. The contact form relies on honeypot, origin and rate-limit only.',
+      });
+    }
+    if (!read('RESEND_API_KEY') && !read('LEAD_WEBHOOK_URL')) {
+      issues.push({
+        level: 'warn',
+        code: 'LEAD_DELIVERY_UNCONFIGURED',
+        message:
+          'Neither RESEND_API_KEY nor LEAD_WEBHOOK_URL is set. Every contact-form enquiry will be refused with LEAD_DELIVERY_FAILED.',
+      });
+    }
     if (!read('LEAD_IP_HASH_SALT')) {
       issues.push({
         level: 'warn',

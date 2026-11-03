@@ -52,6 +52,16 @@ let upstashLimiter: Ratelimit | null = null;
 let placesUpstashLimiter: Ratelimit | null = null;
 let memoryWarned = false;
 
+/**
+ * Logged at error level so it stands out in Vercel logs: in production the
+ * in-memory limiter is per-isolate, i.e. weaker than the Redis one. We still
+ * fall back rather than fail — a rate-limiter outage must not drop leads.
+ */
+function logRateLimitFallback(event: 'upstash_not_configured' | 'upstash_error', scope: string) {
+  if (process.env.NODE_ENV !== 'production') return;
+  console.error(JSON.stringify({ event: `rate_limit_${event}`, scope, fallback: 'memory' }));
+}
+
 function getUpstashLimiter(): Ratelimit | null {
   if (upstashLimiter) return upstashLimiter;
   const url = process.env.UPSTASH_REDIS_REST_URL?.trim();
@@ -73,20 +83,25 @@ export async function rateLimitContact(ip: string): Promise<RateLimitResult> {
   const limiter = getUpstashLimiter();
 
   if (limiter) {
-    const result = await limiter.limit(key);
-    return {
-      success: result.success,
-      limit: CONTACT_LIMIT,
-      remaining: result.remaining,
-      reset: result.reset,
-    };
+    try {
+      const result = await limiter.limit(key);
+      return {
+        success: result.success,
+        limit: CONTACT_LIMIT,
+        remaining: result.remaining,
+        reset: result.reset,
+      };
+    } catch {
+      // Redis unreachable. Previously this threw out of the route and the
+      // enquiry was lost with a 500.
+      logRateLimitFallback('upstash_error', 'contact');
+      return memoryRateLimit(key);
+    }
   }
 
-  if (process.env.NODE_ENV === 'production' && !memoryWarned) {
+  if (!memoryWarned) {
     memoryWarned = true;
-    console.warn(
-      '[rate-limit] UPSTASH_REDIS_REST_URL/TOKEN missing — using in-memory limit (not shared across isolates).'
-    );
+    logRateLimitFallback('upstash_not_configured', 'contact');
   }
 
   return memoryRateLimit(key);
@@ -113,13 +128,17 @@ export async function rateLimitPlaces(ip: string): Promise<RateLimitResult> {
   const limiter = getPlacesUpstashLimiter();
 
   if (limiter) {
-    const result = await limiter.limit(key);
-    return {
-      success: result.success,
-      limit: PLACES_LIMIT,
-      remaining: result.remaining,
-      reset: result.reset,
-    };
+    try {
+      const result = await limiter.limit(key);
+      return {
+        success: result.success,
+        limit: PLACES_LIMIT,
+        remaining: result.remaining,
+        reset: result.reset,
+      };
+    } catch {
+      logRateLimitFallback('upstash_error', 'places');
+    }
   }
 
   return memoryRateLimitFor(placesMemoryStore, key, PLACES_LIMIT, PLACES_WINDOW_SEC);
