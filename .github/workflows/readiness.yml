@@ -12,10 +12,14 @@ jobs:
           node-version: 20
       - run: npm ci
       - name: Build (guarded)
-        run: |
-          echo "NEXT_PUBLIC_SITE_URL=https://www.wedecorevents.com" >> $GITHUB_ENV
-          npm run build:guarded
+        env:
+          NEXT_PUBLIC_SITE_URL: https://www.wedecorevents.com
+        run: npm run build:guarded
       - name: Start prod
+        # next start runs the env guard in app/layout.tsx, which reads
+        # NEXT_PUBLIC_SITE_URL at runtime; without it every page throws.
+        env:
+          NEXT_PUBLIC_SITE_URL: https://www.wedecorevents.com
         run: nohup npm run serve:prod & sleep 4
       - name: Headers
         run: HEADERS_BASE=http://localhost:3001 npm run verify:headers
