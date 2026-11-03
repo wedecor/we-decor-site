@@ -1,23 +1,8 @@
-import { CONTACT } from '@/lib/contact';
+import { buildWhatsAppEnquiryUrl } from './whatsappMessage';
 import type { LeadRecord } from './types';
 
-function buildWhatsAppMessage(lead: LeadRecord): string {
-  const lines = [
-    `Hi We Decor! I'm ${lead.name}.`,
-    `Event: ${lead.eventTypeLabel}`,
-    lead.eventDate ? `Date: ${lead.eventDate}` : null,
-    lead.area ? `Location: ${lead.area}` : null,
-    lead.budget ? `Budget: ${lead.budget}` : null,
-    lead.phone ? `Phone: ${lead.phone}` : null,
-    lead.email ? `Email: ${lead.email}` : null,
-    '',
-    lead.message,
-  ].filter(Boolean);
-  return lines.join('\n');
-}
-
 export function buildWhatsAppUrl(lead: LeadRecord): string {
-  return CONTACT.waUrl(buildWhatsAppMessage(lead));
+  return buildWhatsAppEnquiryUrl(lead);
 }
 
 export function buildCrmPayload(lead: LeadRecord): Record<string, unknown> {
@@ -42,6 +27,16 @@ export function buildCrmPayload(lead: LeadRecord): Record<string, unknown> {
     },
     metadata: lead.metadata,
   };
+}
+
+/** Resend is configured (both the API key and a recipient). */
+export function isLeadEmailConfigured(): boolean {
+  return Boolean(process.env.RESEND_API_KEY?.trim() && process.env.LEAD_NOTIFY_EMAIL?.trim());
+}
+
+/** The CRM webhook (We Decor Firebase `websiteLead`) is configured. */
+export function isLeadWebhookConfigured(): boolean {
+  return Boolean(process.env.LEAD_WEBHOOK_URL?.trim());
 }
 
 export async function sendLeadEmail(lead: LeadRecord): Promise<boolean> {

@@ -5,12 +5,18 @@ export function apiError(
   code: ApiErrorCode,
   message: string,
   status: number,
-  details?: ApiErrorBody['error']['details']
+  details?: ApiErrorBody['error']['details'],
+  extra?: Pick<ApiErrorBody['error'], 'whatsappUrl'>
 ): NextResponse<ApiErrorBody> {
   return NextResponse.json(
     {
       success: false,
-      error: { code, message, ...(details?.length ? { details } : {}) },
+      error: {
+        code,
+        message,
+        ...(details?.length ? { details } : {}),
+        ...(extra?.whatsappUrl ? { whatsappUrl: extra.whatsappUrl } : {}),
+      },
     },
     { status, headers: { 'Cache-Control': 'no-store' } }
   );

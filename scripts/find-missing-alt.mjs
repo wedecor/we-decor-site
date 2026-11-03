@@ -2,7 +2,11 @@
 import { readdirSync, readFileSync } from 'fs';
 import path from 'path';
 import { parse } from '@babel/parser';
-import traverse from '@babel/traverse';
+import traversePkg from '@babel/traverse';
+
+// @babel/traverse is CommonJS: under ESM the default import is the module
+// object, with the function on .default.
+const traverse = traversePkg.default ?? traversePkg;
 
 const ROOT = process.cwd();
 const SRC_DIRS = ['app', 'components', 'pages', 'src'].map((d) => path.join(ROOT, d));

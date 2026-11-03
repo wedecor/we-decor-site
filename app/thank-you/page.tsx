@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import { SITE_EMAIL } from '@/lib/site';
 import PageHero from '@/components/lux/PageHero';
-import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import ThankYouWhatsAppLink from '@/components/contact/ThankYouWhatsAppLink';
 
 /**
  * Post-enquiry confirmation.
@@ -50,51 +50,47 @@ export default function ThankYouPage() {
       />
 
       <section className="lux-section-tight">
-        <div className="mx-auto w-full max-w-[40rem]">
-          <ol className="list-none p-0 m-0 space-y-10">
-            {STEPS.map((step, i) => (
-              <li key={step.title} className="flex gap-5">
-                <span
-                  aria-hidden
-                  className="shrink-0 font-display text-lux-gold text-2xl leading-none pt-1"
-                >
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div>
-                  <h2 className="font-display text-xl md:text-2xl text-lux-ivory font-light mb-2">
-                    {step.title}
-                  </h2>
-                  <p className="text-lux-secondary font-light leading-relaxed">{step.body}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+        {/* lux-container gives the same px-6 / md:px-10 inset as the hero; without
+            it the 01/02/03 numerals sat flush on the viewport edge at 375px. */}
+        <div className="lux-container">
+          <div className="mx-auto w-full max-w-[40rem]">
+            <ol className="list-none p-0 m-0 space-y-10">
+              {STEPS.map((step, i) => (
+                <li key={step.title} className="flex gap-5">
+                  <span
+                    aria-hidden
+                    className="shrink-0 font-display text-lux-gold text-2xl leading-none pt-1"
+                  >
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h2 className="font-display text-xl md:text-2xl text-lux-ivory font-light mb-2">
+                      {step.title}
+                    </h2>
+                    <p className="text-lux-secondary font-light leading-relaxed">{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
 
-          <div className="mt-14 pt-10 border-t border-white/[0.08]">
-            <p className="text-lux-secondary font-light leading-relaxed mb-6">
-              If it is urgent, or you would rather talk it through now, message us directly — we
-              answer WhatsApp faster than anything else.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <TrackedWhatsAppLink
-                href={CONTACT.waUrl()}
-                source="thank_you"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lux-btn-primary"
-              >
-                WhatsApp us
-              </TrackedWhatsAppLink>
-              <Link href="/gallery" className="lux-btn-secondary">
-                Browse our work
-              </Link>
+            <div className="mt-14 pt-10 border-t border-white/[0.08]">
+              <p className="text-lux-secondary font-light leading-relaxed mb-6">
+                If it is urgent, or you would rather talk it through now, message us directly — we
+                answer WhatsApp faster than anything else.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <ThankYouWhatsAppLink fallbackHref={CONTACT.waUrl()} className="lux-btn-primary" />
+                <Link href="/gallery" className="lux-btn-secondary">
+                  Browse our work
+                </Link>
+              </div>
+              <p className="mt-8 text-sm text-lux-text-muted font-light">
+                Prefer email?{' '}
+                <a href={`mailto:${SITE_EMAIL}`} className="lux-footer-link">
+                  {SITE_EMAIL}
+                </a>
+              </p>
             </div>
-            <p className="mt-8 text-sm text-lux-text-muted font-light">
-              Prefer email?{' '}
-              <a href={`mailto:${SITE_EMAIL}`} className="lux-footer-link">
-                {SITE_EMAIL}
-              </a>
-            </p>
           </div>
         </div>
       </section>

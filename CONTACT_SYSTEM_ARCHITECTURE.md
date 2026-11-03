@@ -103,13 +103,26 @@ flowchart LR
 | Logging | No PII in production logs — only `leadId` + event type |
 | IP storage | Hashed via `LEAD_IP_HASH_SALT` |
 
+## Delivery guarantee
+
+`/api/contact` returns 200 only when email (Resend) or the CRM webhook
+(`LEAD_WEBHOOK_URL`, We Decor Firebase `websiteLead`) accepted the lead. When
+both fail — or, in production, neither is configured — it returns 502
+`LEAD_DELIVERY_FAILED` with `error.whatsappUrl`, and the form shows a
+"Send this enquiry on WhatsApp" link instead of redirecting to `/thank-you`.
+
+On success the pre-filled WhatsApp link is handed to `/thank-you` through
+`sessionStorage` and shown as a button. The form no longer calls `window.open`
+after the request returns: popup blockers drop it there.
+
 ## Analytics events (`lib/analytics/conversion-events.ts`)
 
 | Event | When |
 |-------|------|
-| `generate_lead` (attempt) | Form submit started |
-| `generate_lead` (success) | API 200 |
-| `form_error` | Validation / API failure |
+| `form_submit` (`form_status: attempt`) | Form submit started — attempts never fire `generate_lead` |
+| `generate_lead` (success) | API 200 — the lead reached email or the CRM webhook |
+| `form_submit` (`form_status: success` / `error`) | Outcome of the attempt |
+| `form_error` (`error_code`) | Validation / API failure, `LEAD_DELIVERY_FAILED`, or `network_error` |
 | Meta `Lead` | If `NEXT_PUBLIC_META_PIXEL_ID` set |
 | Google Ads conversion | If conversion ID + label set |
 

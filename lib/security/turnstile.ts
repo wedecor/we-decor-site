@@ -13,13 +13,25 @@ export async function verifyTurnstileToken(
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim();
   if (!secret || !siteKey) {
     // Keys were never set on Vercel. Failing closed here rejects every live
-    // enquiry with "Security verification failed" and no widget on the page.
-    // Skip until both TURNSTILE_SECRET_KEY and NEXT_PUBLIC_TURNSTILE_SITE_KEY
-    // are present; honeypot + origin + rate-limit still apply.
+    // enquiry with "Security verification failed" and no widget on the page
+    // (see 6681ce5). Skip until both TURNSTILE_SECRET_KEY and
+    // NEXT_PUBLIC_TURNSTILE_SITE_KEY are present; honeypot + origin +
+    // rate-limit still apply.
+    //
+    // Not silent: logged at error level on every production submission, and
+    // a half-configured pair gets its own reason because it is a deploy
+    // mistake (widget shown but never verified, or secret with no widget).
+    const reason = secret || siteKey ? 'captcha_partially_configured' : 'captcha_not_configured';
     if (process.env.NODE_ENV === 'production') {
-      console.warn(JSON.stringify({ event: 'captcha_not_configured' }));
+      console.error(
+        JSON.stringify({
+          event: reason,
+          hasSecret: Boolean(secret),
+          hasSiteKey: Boolean(siteKey),
+        })
+      );
     }
-    return { ok: true, reason: 'captcha_not_configured' };
+    return { ok: true, reason };
   }
   if (!token?.trim()) {
     return { ok: false, reason: 'missing_token' };
