@@ -1022,6 +1022,495 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
       a: 'Industrial-site staff milestones with restrained branding lead workplace trends beside family hall florals. Cooler neutrals fit workplace gatherings while festive reds and golds remain popular for family events. Freestanding installations and efficient load-ins feel finished in practical venues. Gate lock times still decide whether florals land before security closes. Gate lock times still decide whether florals land before security closes for the night.',
     },
   ],
+  // Hanumanthanagar. Engagement is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  hanumanthanagar: [
+    {
+      q: 'Do you decorate engagements in Hanumanthanagar?',
+      a: 'Yes. Engagement setups are the work we have photographed most often in Hanumanthanagar, across community halls, apartments and independent homes. The layout sits just west of Basavanagudi, so our team reaches it in the same run as a Gandhi Bazaar or Bull Temple Road job. Tell us the venue and date and we will come and measure before quoting. The site visit is free.',
+    },
+    {
+      q: 'Is a community hall or a home better for an engagement here?',
+      a: 'Both work and the choice is usually about guest count rather than looks. Community halls around Hanumanthanagar Circle take a full stage, a seating arc and a photo corner without crowding. An independent home suits a smaller ring ceremony where the family wants the day to stay private. Send the number of guests you expect and we will say which one your budget goes further in.',
+    },
+    {
+      q: 'What do you need to know before quoting a hall near Gali Anjaneya Temple?',
+      a: 'Ceiling height, whether wall fixings are allowed, and where the power points sit. Temple-adjacent halls often prohibit drilling, which means freestanding frames rather than wall-mounted backdrops, and that changes the price. A photograph of the empty hall from the entrance tells us most of it. We confirm the rest on the site visit.',
+    },
+    {
+      q: 'How quickly can you set up in Hanumanthanagar?',
+      a: "Often the same or next day, depending on what is already booked. Short notice limits fresh flower choice more than anything else, so a balloon or fabric-led design holds up better at a day's notice than a floral stage. Message us with the date and we will tell you honestly what is possible rather than take the booking and improvise.",
+    },
+    {
+      q: 'What does an engagement setup start at?',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 81 reviews, and most of those were jobs in south Bengaluru like this one.',
+    },
+  ],
+  // Puttenahalli. Anniversary and haldi is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  puttenahalli: [
+    {
+      q: 'What kind of events have you decorated in Puttenahalli?',
+      a: 'Anniversaries and haldi ceremonies are what we have photographed here, in the apartment belt around Puttenahalli Lake. The area is mostly flats and clubhouses rather than standalone halls, which shapes how a setup is built. We work across JP Nagar 7th Phase and the Brigade Millennium side regularly.',
+    },
+    {
+      q: 'Can you decorate an apartment clubhouse here?',
+      a: 'Yes, and most of our Puttenahalli work is clubhouse or in-flat. Societies usually want the booking confirmed and a vendor entry pass arranged in advance, so tell us the society name early and we will send whatever details the management asks for. Clubhouse ceilings are often lower than a hall, so we design upward in layers rather than one tall arch.',
+    },
+    {
+      q: 'Do you handle haldi in a flat rather than a hall?',
+      a: 'Regularly. A flat haldi needs floor protection and a compact seating arrangement more than it needs a large stage, because turmeric travels. We bring sheeting and keep the ritual area tight so cleanup is quick. If the balcony is part of the plan, say so, since that changes how we anchor anything tall.',
+    },
+    {
+      q: 'How far in advance should an anniversary be booked?',
+      a: 'A week is comfortable, though we often manage same or next day. Anniversaries tend to have a fixed date that cannot move, so booking early mainly protects your flower and colour choices rather than availability. The site visit costs nothing, so there is no reason to delay it.',
+    },
+    {
+      q: 'What does a clubhouse setup cost in Puttenahalli?',
+      a: 'Setups start from Rs 3,000 and scale with the size of the backdrop and how much fresh flower is in it. Clubhouse jobs sometimes need a second team member for access and lift timing, which we will say upfront rather than add later. We quote after the visit, not before.',
+    },
+  ],
+  // ISRO Layout. Engagement is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  'isro-layout': [
+    {
+      q: 'Do you cover ISRO Layout?',
+      a: 'Yes. Engagement d\u00e9cor is what we have photographed in ISRO Layout, across apartments, independent homes and community halls. The layout sits off Kanakapura Road near RBI Layout and Jaraganahalli, which is a short run from our Basavanagudi base. Free site visit before we quote.',
+    },
+    {
+      q: 'Is an engagement at home practical in a planned layout like this?',
+      a: 'Often yes. Independent homes here tend to have a usable hall or terrace, and a home engagement keeps the day calm for elders. What matters is the doorway width and the staircase turn, because a tall frame that cannot get up the stairs has to be built in sections. Send a photo of the entrance and we will plan for it.',
+    },
+    {
+      q: 'What should I send you before you quote?',
+      a: 'The venue address, the date, the rough guest count and a photograph of the empty room from the door. That tells us ceiling height, light colour and where the power is. Anything else we check on the visit, which is free and usually takes twenty minutes.',
+    },
+    {
+      q: 'Can you do a same-day setup in ISRO Layout?',
+      a: 'Often. The practical limit is fresh flowers rather than travel, since same-day means working with what the market has that morning. A fabric or balloon design is the safer choice at short notice and we will say so rather than promise a floral stage we cannot source.',
+    },
+    {
+      q: 'What is the starting price in ISRO Layout?',
+      a: 'From Rs 3,000 for a simple backdrop. Engagement stages with floral work and lighting cost more, and we price after seeing the space. We are rated 4.9 from 81 reviews, and have been decorating across Bengaluru since 2022.',
+    },
+  ],
+  // Wilson Garden. Naming ceremony is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  'wilson-garden': [
+    {
+      q: 'Do you decorate naming ceremonies in Wilson Garden?',
+      a: 'Yes, that is the work we have photographed here. Wilson Garden is a central layout near Lalbagh West Gate and Hombegowda Nagar, with a mix of apartments, community halls and independent homes. We can usually reach it quickly from Basavanagudi.',
+    },
+    {
+      q: 'What does a naming ceremony setup usually involve?',
+      a: 'A cradle or seating centre, a backdrop behind it, and a welcome piece at the entrance. The cradle is the part guests photograph, so that is where the floral weight goes. Elders need a clear path to the seating that does not cross cable runs, which is worth planning before the furniture is placed.',
+    },
+    {
+      q: 'Can you work in a flat near Double Road?',
+      a: 'Yes. Flats in this part of the city often have narrow lifts and limited parking, so we build in sections and keep the van stop short. Tell us the floor and whether there is a service lift and we will plan load-in around it instead of discovering it on the day.',
+    },
+    {
+      q: 'How much notice do you need?',
+      a: 'Often same or next day, though a few days is better if you want specific flowers. Naming ceremonies are usually planned around a date fixed by the family, so the sooner we see the room the more options you have.',
+    },
+    {
+      q: 'What does it cost?',
+      a: 'From Rs 3,000, depending on the size of the backdrop and how much fresh flower is used. We quote after a free site visit rather than over the phone, because room size changes the figure more than the design does.',
+    },
+  ],
+  // Shanti Nagar. Wedding is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  'shanti-nagar': [
+    {
+      q: 'Do you take wedding work in Shanti Nagar?',
+      a: 'Yes. Wedding d\u00e9cor is what we have photographed in Shanti Nagar, which sits near Richmond Circle and the Shanti Nagar bus station. Unlike most of our south Bengaluru areas, the venues here are mainly hotels and banquet halls rather than community halls, which changes how a setup is planned.',
+    },
+    {
+      q: 'What is different about decorating a hotel banquet?',
+      a: "Hotels usually have their own vendor rules, fixed load-in windows and restrictions on fixings and open flame. We ask for the banquet manager's contact early so those are agreed in writing rather than argued about on the day. Most hotels also need the setup finished well before guest entry, so timing matters more than it does in a hall.",
+    },
+    {
+      q: "Can you match d\u00e9cor to a venue's existing look?",
+      a: 'Yes, and in a hotel it is usually necessary. Banquet rooms come with their own carpet, wall tone and lighting, and a palette chosen without looking at them tends to clash. We check the room on the site visit and build the colour around what is already there.',
+    },
+    {
+      q: 'How far ahead should a wedding be booked?',
+      a: 'As far ahead as you can for a wedding, because both the hotel slot and the flower order need lead time. We can sometimes work at short notice, but a wedding is the one event where we would rather you booked early than took the risk.',
+    },
+    {
+      q: 'What does wedding d\u00e9cor cost here?',
+      a: 'Our setups start from Rs 3,000, but a wedding stage in a banquet hall is well above that and depends on stage width, floral volume and lighting. We quote after seeing the room. The site visit is free and there is no obligation after it.',
+    },
+  ],
+  // Girinagar. Engagement is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  girinagar: [
+    {
+      q: 'Do you decorate in Girinagar?',
+      a: 'Yes. Engagement setups are what we have photographed here. Girinagar sits between Basavanagudi and Banashankari, near Banashankari Temple and Hosakerehalli, so it is one of the areas we reach fastest. Apartments, community halls and independent homes are all common here.',
+    },
+    {
+      q: 'Hall or home for an engagement in Girinagar?',
+      a: 'A community hall suits a larger guest list and gives room for a full stage. A home works when the family wants it small and does not want guests travelling. The deciding factor is usually how many people will actually attend rather than the look you want, since both can be designed well.',
+    },
+    {
+      q: 'Does being near Banashankari Temple affect timing?',
+      a: 'It can. Temple-adjacent streets get busier at darshan times, which affects when a van can stop rather than what we can build. We plan load-in around that once we know the venue. Some temple-linked halls also restrict wall fixings, so we check that on the visit.',
+    },
+    {
+      q: 'What do you need from me to quote?',
+      a: 'Venue, date, rough guest count and a photo of the empty room. We confirm ceiling height, power and access on the free site visit. That is usually enough to give you a firm figure rather than a range.',
+    },
+    {
+      q: 'What does an engagement setup cost in Girinagar?',
+      a: 'From Rs 3,000 for a compact backdrop, more for a full engagement stage with floral work. We have a 4.9 rating from 81 reviews and have been working across Bengaluru since 2022.',
+    },
+  ],
+  // Hulimavu. Birthday is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  hulimavu: [
+    {
+      q: 'Do you do birthday decoration in Hulimavu?',
+      a: 'Yes, that is the work we have photographed here. Hulimavu is an apartment belt near Meenakshi Mall and Hulimavu Lake, off Bannerghatta Road, with flats, gated communities and banquet halls. We cover it alongside Bannerghatta Road and Gottigere.',
+    },
+    {
+      q: 'Can you decorate inside a gated community?',
+      a: 'Yes, and most birthday work here is in one. Gated communities usually need vendor entry arranged in advance, sometimes with ID details, so tell us the community name when you book and we will send whatever the gate asks for. Without that the team waits outside and the setup starts late.',
+    },
+    {
+      q: "What works for a children's birthday in a flat?",
+      a: "Balloon arches and a photo backdrop give the most effect for the space, because they read well in photographs without needing floor area. A themed cutout behind the cake table does more than spreading d\u00e9cor through the room. Tell us the theme and the child's age and we will design around the cake moment.",
+    },
+    {
+      q: 'How quickly can you set up?',
+      a: "Often same or next day. Balloons are easier than flowers at short notice, so a balloon-led birthday is realistic even with a day's warning. If you want a specific colour of fresh flower, give us more time.",
+    },
+    {
+      q: 'What does a birthday setup cost?',
+      a: 'From Rs 3,000, rising with the size of the arch, the number of backdrops and any printed or themed pieces. We quote after a free site visit. Most of our 81 reviews are from jobs like this one.',
+    },
+  ],
+  // Uttarahalli. Haldi is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  uttarahalli: [
+    {
+      q: 'Do you cover Uttarahalli?',
+      a: 'Yes. Haldi d\u00e9cor is what we have photographed in Uttarahalli, which is an established suburb in south-west Bengaluru near Subramanyapura and Chikkalasandra. Community halls, apartments and independent homes are all common here, and we work across all three.',
+    },
+    {
+      q: 'What does a haldi setup need that other events do not?',
+      a: 'Floor protection and a compact ritual area. Turmeric stains and it travels further than families expect, so we sheet the floor and keep the seating tight rather than spreading the setup across the room. Yellow and marigold do the visual work, so the budget goes into volume rather than variety.',
+    },
+    {
+      q: 'Can the same setup carry into an evening function?',
+      a: 'Sometimes, if the colour is planned for it. A haldi palette that is purely yellow looks thin under evening light, so if the same room hosts a reception later we build a base that can be re-dressed rather than stripped. Tell us both segments upfront and we will plan one install instead of two.',
+    },
+    {
+      q: 'How much notice do you need in Uttarahalli?',
+      a: 'Often same or next day. Marigold is usually available at short notice, which is why haldi is one of the events we can turn around quickly. Longer notice mainly widens your choice of accent flowers.',
+    },
+    {
+      q: 'What does a haldi setup cost?',
+      a: 'From Rs 3,000 for a compact backdrop and seating, more for a full stage with heavy floral work. We quote after a free site visit, since hall size affects the figure more than the design.',
+    },
+  ],
+  // Vasanthapura. Birthday is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  vasanthapura: [
+    {
+      q: 'Do you decorate in Vasanthapura?',
+      a: 'Yes. Birthday setups are what we have photographed here. Vasanthapura is a residential stretch off Kanakapura Road near Thalaghattapura and Uttarahalli, mostly apartments, independent homes and community halls. We cover it in the same run as Uttarahalli and Konanakunte.',
+    },
+    {
+      q: 'What suits a birthday in an independent home?',
+      a: 'A backdrop behind the cake table and an entrance piece usually do more than d\u00e9cor spread through the house. Homes here often have a terrace, which works well in the evening but needs anything tall anchored properly. Tell us if the terrace is part of the plan.',
+    },
+    {
+      q: 'Do you handle adult milestone birthdays too?',
+      a: "Yes. A fortieth or a sixtieth usually wants a quieter palette than a child's party and reads better with fabric and lighting than with character themes. The structure is the same: one strong backdrop, a cake table and a photo corner that does not crowd the seating.",
+    },
+    {
+      q: 'Can you come at short notice?',
+      a: 'Often the same or next day. Balloon and fabric designs are the realistic option at that notice; fresh flower choice narrows to whatever the market has that morning. We will tell you which is honest for your date.',
+    },
+    {
+      q: 'What is the starting price?',
+      a: 'From Rs 3,000. Larger arches, multiple backdrops and printed pieces add to it. We quote after seeing the space, and the visit is free.',
+    },
+  ],
+  // Gottigere. Haldi and engagement is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  gottigere: [
+    {
+      q: 'What have you decorated in Gottigere?',
+      a: 'Haldi and engagement setups are what we have photographed here. Gottigere sits along Bannerghatta Road near Gottigere Lake and the Hulimavu gate, with apartments, independent homes and community halls. We cover it alongside Hulimavu and Bannerghatta Road.',
+    },
+    {
+      q: 'Can you do both haldi and engagement on the same day?',
+      a: 'Yes, and it is common. The practical question is whether both happen in the same room, because that means one install that gets re-dressed rather than two separate builds. Tell us the timing of each segment and the guest count for both and we will plan it as one job.',
+    },
+    {
+      q: 'What does a haldi in a community hall need?',
+      a: 'Floor protection, a compact ritual seating area and a backdrop that photographs well from the front. Large halls swallow a small setup, so volume matters more than detail. We check pillar positions on the visit, since a backdrop that ignores a column looks unfinished once guests are seated.',
+    },
+    {
+      q: 'How quickly can you set up along Bannerghatta Road?',
+      a: 'Often same or next day. Traffic on Bannerghatta Road affects when the van can arrive rather than what we can build, so we schedule load-in earlier than the brief strictly needs. We will give you a realistic arrival window, not an optimistic one.',
+    },
+    {
+      q: 'What do these setups cost?',
+      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size and floral volume. Two segments in one day cost less than two separate bookings. We quote after a free site visit.',
+    },
+  ],
+  // Nagarbhavi. Reception and bridal shower is the work our own photographs place here;
+  // venue mix and landmarks come from content/locations/locations.csv.
+  nagarbhavi: [
+    {
+      q: 'Do you work in Nagarbhavi?',
+      a: 'Yes. Receptions and bridal showers are what we have photographed here. Nagarbhavi is in west Bengaluru near Nagarbhavi Circle, Bangalore University and Chandra Layout, with community halls, apartments and independent homes. It is further from our Basavanagudi base than most of our areas, so we plan load-in with extra travel time.',
+    },
+    {
+      q: 'What does a reception setup involve?',
+      a: 'A stage with a backdrop and seating, an entrance piece, and lighting that works once the room darkens. Receptions are the largest setups we do, so stage width and ceiling height drive the quote more than the design choice. A photograph of the empty hall from the entrance is the most useful thing you can send.',
+    },
+    {
+      q: 'Can you do a bridal shower in a smaller space?',
+      a: 'Yes. A bridal shower is usually one strong backdrop, a table setting and a photo corner rather than a full stage, so it fits a flat or a clubhouse. Those are the setups people photograph most, so the detail goes into the backdrop.',
+    },
+    {
+      q: 'How far ahead should I book for Nagarbhavi?',
+      a: 'A few days more than you would for a south Bengaluru job, because of the travel. We can still often manage same or next day, but a reception at that notice limits flowers and lighting. Book the site visit early even if the date is not fixed, since it is free.',
+    },
+    {
+      q: 'What does a reception cost?',
+      a: 'Our setups start from Rs 3,000, but a reception stage is well above that and depends on width, floral volume and lighting. We quote after seeing the hall. We are rated 4.9 from 81 reviews and have been decorating across Bengaluru since 2022.',
+    },
+  ],
+  // Thyagarajanagar. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  thyagarajanagar: [
+    {
+      q: 'Do you cover Thyagarajanagar?',
+      a: 'Yes. Thyagarajanagar borders Basavanagudi, which is where we are based, so it is one of the shortest runs we make. The layout is compact older streets around Thyagaraja Nagar Market and South End Circle, with community halls, apartments and temples. Send the venue and date and we will come and measure before quoting. The site visit is free.',
+    },
+    {
+      q: 'Is a community hall or a flat better here?',
+      a: 'Guest count decides it more than anything else. The community halls around South End Circle take a full stage and a seating arc; a flat suits a smaller gathering where the family would rather not have people travelling. Both can be designed well, so tell us how many people will actually attend and we will say which your budget goes further in.',
+    },
+    {
+      q: 'What should I send before you quote?',
+      a: 'The venue address, the date, a rough guest count and one photograph of the empty room taken from the doorway. That single photo tells us ceiling height, the colour of the existing light and roughly where the power sits. Everything else we confirm on the visit.',
+    },
+    {
+      q: 'Do the older streets here affect load-in?',
+      a: 'They can. Compact streets near the market limit where a van can stop rather than what we can build, so we schedule arrival earlier than the brief strictly needs. If the venue has a specific entrance you want us to use, say so and we will plan the stop around it.',
+    },
+    {
+      q: 'What does a setup in Thyagarajanagar cost?',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room, because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 81 reviews and have been working across Bengaluru since 2022.',
+    },
+  ],
+  // Chamrajpet. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  chamrajpet: [
+    {
+      q: 'Do you decorate in Chamrajpet?',
+      a: 'Yes. Chamrajpet is an old Bengaluru neighbourhood of community halls, independent homes and temples, around Makkala Koota Park, Fort High School and Albert Victor Road. The wide streets here make load-in easier than in most older parts of the city. Free site visit before we quote.',
+    },
+    {
+      q: 'Can you work in an independent home here?',
+      a: 'Yes, and the older homes in Chamrajpet often have a usable hall or courtyard that suits a ceremony well. The practical checks are doorway width and the turn on the staircase, because a tall frame that cannot get upstairs has to be built in sections. A photograph of the entrance saves a surprise on the day.',
+    },
+    {
+      q: 'Are there restrictions in temple-linked halls?',
+      a: 'Often, yes. Many halls attached to a temple do not allow wall fixings, which means freestanding frames instead of mounted backdrops, and that changes the price. Some also set rules about garlanding at the entrance. We ask the coordinator before designing rather than after.',
+    },
+    {
+      q: 'How much notice do you need for a Chamrajpet booking?',
+      a: "Often same or next day. What short notice limits is fresh flower choice, not whether we can come, so a fabric or balloon-led design holds up better at a day's warning than a floral stage. We will tell you honestly what is possible for your date.",
+    },
+    {
+      q: 'What does it cost in Chamrajpet?',
+      a: 'Setups start from Rs 3,000 and scale with the size of the backdrop and how much fresh flower goes into it. We quote after the free site visit rather than over the phone, since room size moves the figure more than the design does.',
+    },
+  ],
+  // Bilekahalli. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  bilekahalli: [
+    {
+      q: 'Do you cover Bilekahalli?',
+      a: 'Yes. Bilekahalli is an apartment corridor along Bannerghatta Road, near IIM Bangalore and Arekere Gate, made up of flats, gated communities and clubhouses. We work this stretch alongside Hulimavu and Gottigere, so it is a route we run often.',
+    },
+    {
+      q: 'Can you decorate inside a gated community in Bilekahalli?',
+      a: 'Yes, and most work along this corridor is. Gated communities usually need vendor entry arranged ahead of time, sometimes with ID details for the team. Tell us the community name when you book and we will send whatever the gate asks for. Without it the team waits outside and the setup starts late.',
+    },
+    {
+      q: 'What works in a clubhouse?',
+      a: 'Clubhouse ceilings are usually lower than a community hall, so we build in layers rather than one tall arch, and put the detail into the backdrop people photograph. Ask the management what time the room is released to you, because clubhouse slots are often shorter than families expect.',
+    },
+    {
+      q: 'Does Bannerghatta Road traffic affect timing?',
+      a: 'It affects when the van arrives, not what we can build. We schedule load-in earlier than the brief needs on this stretch and give you a realistic arrival window rather than an optimistic one. If the venue has a delivery entrance, tell us and we will use it.',
+    },
+    {
+      q: 'What is the starting cost here?',
+      a: 'From Rs 3,000, rising with backdrop size, floral volume and lighting. Clubhouse jobs sometimes need an extra team member for lift access and timing, which we will say upfront rather than add afterwards. The site visit is free.',
+    },
+  ],
+  // Arekere. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  arekere: [
+    {
+      q: 'Do you decorate in Arekere?',
+      a: 'Yes. Arekere is an apartment cluster off Bannerghatta Road near Arekere Lake and Arekere Gate, mostly flats, gated communities and clubhouses. It sits on the same run as Bilekahalli and Hulimavu, so we are there regularly. Site visits are free.',
+    },
+    {
+      q: 'Can you set up inside a flat?',
+      a: 'Yes. In a flat the backdrop behind the cake or ceremony table does most of the work, since d\u00e9cor spread through the room reads as clutter rather than design. Tell us the floor and whether there is a service lift, and we will plan load-in instead of discovering it on the day.',
+    },
+    {
+      q: 'What do societies usually ask for?',
+      a: 'Most want the vendor entry confirmed in advance and some ask for ID details for the team. Give us the society name when you book and we will send what the gate needs. It is the single most common reason a setup starts late, and it is avoidable.',
+    },
+    {
+      q: 'How quickly can you come?',
+      a: 'Often the same or next day. At that notice a balloon or fabric design is the realistic option, because fresh flower choice narrows to whatever the market has that morning. We would rather say that than take the booking and improvise.',
+    },
+    {
+      q: 'What does an Arekere setup cost?',
+      a: 'From Rs 3,000 for a compact backdrop, more for a larger stage with floral work and lighting. We quote after seeing the space. Most of our 81 reviews come from jobs in this part of south Bengaluru.',
+    },
+  ],
+  // Kumaraswamy Layout. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  'kumaraswamy-layout': [
+    {
+      q: 'Do you cover Kumaraswamy Layout?',
+      a: 'Yes. The layout sits in south Bengaluru near Dayananda Sagar College and Chunchughatta, with apartments, community halls and independent homes. It is a short run from our Basavanagudi base. Tell us the venue and date and the site visit costs nothing.',
+    },
+    {
+      q: 'Do you handle college farewells and student events?',
+      a: 'Yes. A farewell or send-off is usually one strong backdrop, a photo corner and an entrance piece rather than a full stage, which keeps it affordable for a group paying between them. Tell us the budget you have and we will design to it rather than quote past it.',
+    },
+    {
+      q: 'Hall or home for a family function here?',
+      a: 'Community halls take a full stage and a larger guest list; independent homes suit a smaller gathering and keep the day private. The number of people attending decides it more than the look, since both can be done well. Send a guest-count range and we will advise.',
+    },
+    {
+      q: 'What do you need before quoting?',
+      a: 'Venue, date, rough guest count and a photograph of the empty room from the door. That covers ceiling height, existing light colour and power. We confirm fixings and access on the free visit, which takes about twenty minutes.',
+    },
+    {
+      q: 'What does a setup cost in Kumaraswamy Layout?',
+      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size and floral volume. We quote after the visit rather than on the phone. We are rated 4.9 from 81 reviews and have been decorating across Bengaluru since 2022.',
+    },
+  ],
+  // Padmanabhanagar. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  padmanabhanagar: [
+    {
+      q: 'Do you decorate in Padmanabhanagar?',
+      a: 'Yes. Padmanabhanagar is a family residential area south of Banashankari, around Padmanabhanagar Main Road, Kadirenahalli and Yarab Nagar, with community halls, apartments and independent homes. It is close to our Basavanagudi base, so travel is rarely the constraint.',
+    },
+    {
+      q: 'Which venue type suits a family function here?',
+      a: 'Community halls take a full stage, a seating arc and a photo corner without crowding. A home works when the family wants it small and does not want guests travelling across the city. Tell us the guest count you actually expect rather than the invite list, since those differ.',
+    },
+    {
+      q: 'What should I check about the hall before booking?',
+      a: 'Ceiling height, whether wall fixings are allowed, and where the power points are. Halls that prohibit drilling need freestanding frames rather than mounted backdrops, and that changes the quote. Pillar positions matter too, because a backdrop that ignores a column looks unfinished once guests sit down.',
+    },
+    {
+      q: 'Can you set up at short notice?',
+      a: "Often the same or next day. Short notice limits fresh flower choice more than anything else, so a fabric or balloon-led design is the safer option at a day's warning. We will tell you what is realistic rather than promise a floral stage we cannot source.",
+    },
+    {
+      q: 'What does a Padmanabhanagar setup cost?',
+      a: 'From Rs 3,000 for a compact setup, more for a full stage with floral work and lighting. The free site visit is how we get to a firm figure instead of a range.',
+    },
+  ],
+  // Katriguppe. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  katriguppe: [
+    {
+      q: 'Do you cover Katriguppe?',
+      a: 'Yes. Katriguppe sits beside Banashankari temple, around Katriguppe Main Road and Vidyapeetha Circle, with community halls, apartments and temples. It is one of the areas we reach fastest from Basavanagudi. The site visit is free.',
+    },
+    {
+      q: 'Does being next to the temple affect anything?',
+      a: 'It affects timing more than design. Temple-adjacent streets get busier around darshan hours, which changes when a van can stop rather than what we can build, so we plan load-in around it once we know the venue. Quiet load-in also matters when worshippers are still moving through.',
+    },
+    {
+      q: 'Are there rules in temple-linked halls?',
+      a: 'Frequently. Many do not allow wall fixings, so backdrops have to be freestanding, and some set rules about entrance garlanding. We ask the hall coordinator before designing, because finding out afterwards means redesigning at your cost.',
+    },
+    {
+      q: 'What do you need before quoting for Katriguppe?',
+      a: 'The venue, the date, a rough guest count and one photograph of the empty room from the doorway. We confirm ceiling height, fixings and power on the visit. That is normally enough for a firm figure.',
+    },
+    {
+      q: 'What does a Katriguppe setup cost?',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size and floral volume. Large halls swallow a small setup, so volume often matters more than detail here, and we will say so rather than let you underspend.',
+    },
+  ],
+  // Konanakunte. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  konanakunte: [
+    {
+      q: 'Do you decorate in Konanakunte?',
+      a: 'Yes. Konanakunte is a newer residential pocket off Kanakapura Road, near Konanakunte Cross and Vajarahalli, with apartments, independent homes and community halls. We cover it on the same run as Vasanthapura and Uttarahalli.',
+    },
+    {
+      q: 'Can you set up in an independent home?',
+      a: 'Yes. Newer homes here often have a terrace, which works well for an evening function but needs anything tall anchored properly rather than propped. Tell us if the terrace is part of the plan, and send a photo of the entrance so we know whether a frame has to be built in sections.',
+    },
+    {
+      q: 'What about housewarming setups?',
+      a: 'A housewarming usually wants an entrance piece and one backdrop rather than a full stage, since guests move through rather than sit. Keeping the doorway clear matters more than filling the room. Tell us the rooms you want dressed and we will prioritise.',
+    },
+    {
+      q: 'How much notice do you need in Konanakunte?',
+      a: 'Often same or next day. Fresh flower choice is the limit at short notice, not travel. If a specific colour matters to you, give us a few days and we will source it properly.',
+    },
+    {
+      q: 'What is the starting price in Konanakunte?',
+      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size, floral volume and lighting. We quote after a free site visit rather than over the phone.',
+    },
+  ],
+  // Begur. Venue mix and landmarks from content/locations/locations.csv.
+  // No photograph in work-images.ts can be placed here, so nothing below
+  // claims past work in this area — only what we do and how we price it.
+  begur: [
+    {
+      q: 'Do you cover Begur?',
+      a: 'Yes. Begur is in south-east Bengaluru near Begur Lake and Naganathapura, with apartments, gated communities and community halls. It is further from our Basavanagudi base than most of our areas, so we build extra travel time into the load-in plan rather than cutting it fine.',
+    },
+    {
+      q: 'Can you decorate in a gated community here?',
+      a: 'Yes. Vendor entry usually needs arranging in advance, sometimes with ID details for the team, so give us the community name when you book and we will send what the gate asks for. That one step prevents most late starts.',
+    },
+    {
+      q: 'Does the distance change what you can do?',
+      a: 'It changes scheduling, not capability. We plan arrival earlier for Begur than for a Jayanagar job, and for a large setup we would rather agree an earlier start than compress the build. If your slot is tight, tell us the hard deadline and we will say honestly whether it works.',
+    },
+    {
+      q: 'How far ahead should I book?',
+      a: 'A few days more than you would for a south Bengaluru job, because of travel. Same or next day is often still possible for a compact setup, but a large stage at that notice is a stretch and we will say so.',
+    },
+    {
+      q: 'What does a Begur setup cost?',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after a free site visit. We are rated 4.9 from 81 reviews and have been decorating across Bengaluru since 2022.',
+    },
+  ],
 };
 
 /**
