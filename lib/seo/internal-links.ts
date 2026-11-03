@@ -207,7 +207,7 @@ export const NEARBY_LOCALITY_SLUGS: Record<string, readonly string[]> = {
     'kanakapura-road',
     'sarjapur-road',
   ],
-  hebbal: ['bannerghatta-road', 'mathikere', 'rt-nagar', 'sahakarnagar', 'yelahanka'],
+  hebbal: ['mathikere', 'rt-nagar', 'sahakarnagar', 'yelahanka', 'yeshwanthpur'],
   'hsr-layout': ['bangalore', 'btm-layout', 'electronic-city', 'koramangala', 'sarjapur-road'],
   indiranagar: ['bangalore', 'domlur', 'koramangala', 'marathahalli', 'ulsoor'],
   jayanagar: ['ashok-nagar', 'banashankari', 'basavanagudi', 'btm-layout', 'jp-nagar'],
@@ -227,7 +227,7 @@ export const NEARBY_LOCALITY_SLUGS: Record<string, readonly string[]> = {
   rajajinagar: ['malleshwaram', 'mathikere', 'peenya', 'vijayanagar', 'yeshwanthpur'],
   'richmond-town': ['ashok-nagar', 'bangalore', 'basavanagudi', 'malleshwaram', 'ulsoor'],
   'rt-nagar': ['hebbal', 'mathikere', 'sahakarnagar', 'yelahanka', 'yeshwanthpur'],
-  sahakarnagar: ['hebbal', 'rt-nagar', 'whitefield', 'yelahanka', 'yeshwanthpur'],
+  sahakarnagar: ['hebbal', 'mathikere', 'rt-nagar', 'yelahanka', 'yeshwanthpur'],
   'sarjapur-road': [
     'bannerghatta-road',
     'bellandur',
