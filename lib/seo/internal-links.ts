@@ -23,35 +23,56 @@ export const FEATURED_LOCALITIES: readonly InternalLink[] = [
   { href: '/locations/jayanagar', name: 'Jayanagar' },
 ] as const;
 
+/** Every published locality page (all 50 in AREAS). Enforced by tests/unit/locality-links.test.ts. */
 export const ALL_LOCALITY_LINKS: readonly InternalLink[] = [
+  { href: '/locations/arekere', name: 'Arekere' },
   { href: '/locations/ashok-nagar', name: 'Ashok Nagar' },
   { href: '/locations/banashankari', name: 'Banashankari' },
   { href: '/locations/bangalore', name: 'Bangalore' },
   { href: '/locations/bannerghatta-road', name: 'Bannerghatta Road' },
   { href: '/locations/basavanagudi', name: 'Basavanagudi' },
+  { href: '/locations/begur', name: 'Begur' },
   { href: '/locations/bellandur', name: 'Bellandur' },
+  { href: '/locations/bilekahalli', name: 'Bilekahalli' },
   { href: '/locations/btm-layout', name: 'BTM Layout' },
+  { href: '/locations/chamrajpet', name: 'Chamrajpet' },
   { href: '/locations/domlur', name: 'Domlur' },
   { href: '/locations/electronic-city', name: 'Electronic City' },
+  { href: '/locations/girinagar', name: 'Girinagar' },
+  { href: '/locations/gottigere', name: 'Gottigere' },
+  { href: '/locations/hanumanthanagar', name: 'Hanumanthanagar' },
   { href: '/locations/hebbal', name: 'Hebbal' },
   { href: '/locations/hsr-layout', name: 'HSR Layout' },
+  { href: '/locations/hulimavu', name: 'Hulimavu' },
   { href: '/locations/indiranagar', name: 'Indiranagar' },
+  { href: '/locations/isro-layout', name: 'ISRO Layout' },
   { href: '/locations/jayanagar', name: 'Jayanagar' },
   { href: '/locations/jp-nagar', name: 'JP Nagar' },
   { href: '/locations/kanakapura-road', name: 'Kanakapura Road' },
+  { href: '/locations/katriguppe', name: 'Katriguppe' },
+  { href: '/locations/konanakunte', name: 'Konanakunte' },
   { href: '/locations/koramangala', name: 'Koramangala' },
+  { href: '/locations/kumaraswamy-layout', name: 'Kumaraswamy Layout' },
   { href: '/locations/malleshwaram', name: 'Malleshwaram' },
   { href: '/locations/marathahalli', name: 'Marathahalli' },
   { href: '/locations/mathikere', name: 'Mathikere' },
+  { href: '/locations/nagarbhavi', name: 'Nagarbhavi' },
+  { href: '/locations/padmanabhanagar', name: 'Padmanabhanagar' },
   { href: '/locations/peenya', name: 'Peenya' },
+  { href: '/locations/puttenahalli', name: 'Puttenahalli' },
   { href: '/locations/rajajinagar', name: 'Rajajinagar' },
   { href: '/locations/richmond-town', name: 'Richmond Town' },
   { href: '/locations/rt-nagar', name: 'RT Nagar' },
   { href: '/locations/sahakarnagar', name: 'Sahakarnagar' },
   { href: '/locations/sarjapur-road', name: 'Sarjapur Road' },
+  { href: '/locations/shanti-nagar', name: 'Shanti Nagar' },
+  { href: '/locations/thyagarajanagar', name: 'Thyagarajanagar' },
   { href: '/locations/ulsoor', name: 'Ulsoor' },
+  { href: '/locations/uttarahalli', name: 'Uttarahalli' },
+  { href: '/locations/vasanthapura', name: 'Vasanthapura' },
   { href: '/locations/vijayanagar', name: 'Vijayanagar' },
   { href: '/locations/whitefield', name: 'Whitefield' },
+  { href: '/locations/wilson-garden', name: 'Wilson Garden' },
   { href: '/locations/yelahanka', name: 'Yelahanka' },
   { href: '/locations/yeshwanthpur', name: 'Yeshwanthpur' },
 ] as const;
@@ -159,7 +180,11 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
  * FEATURED_LOCALITIES is what the UI shows today.
  */
 
-/** Reciprocal nearby localities (max 5) — geographic peers for crawl equity. */
+/**
+ * Nearby localities (max 5) — geographic peers for crawl equity. Every page in
+ * AREAS must have an entry and be linked from at least one other entry
+ * (tests/unit/locality-links.test.ts).
+ */
 export const NEARBY_LOCALITY_SLUGS: Record<string, readonly string[]> = {
   'ashok-nagar': ['bangalore', 'basavanagudi', 'jayanagar', 'richmond-town', 'ulsoor'],
   banashankari: ['basavanagudi', 'btm-layout', 'jayanagar', 'jp-nagar', 'kanakapura-road'],
@@ -215,6 +240,59 @@ export const NEARBY_LOCALITY_SLUGS: Record<string, readonly string[]> = {
   whitefield: ['bellandur', 'domlur', 'marathahalli', 'sahakarnagar', 'yelahanka'],
   yelahanka: ['hebbal', 'rt-nagar', 'sahakarnagar', 'whitefield', 'yeshwanthpur'],
   yeshwanthpur: ['peenya', 'rajajinagar', 'rt-nagar', 'sahakarnagar', 'yelahanka'],
+  // Newer south / central pages (Oct 2026). Geographic peers; several point
+  // back at JP Nagar, Banashankari and Kanakapura Road, which barely rank and
+  // need inbound links more than anything else in the set.
+  hanumanthanagar: ['basavanagudi', 'thyagarajanagar', 'girinagar', 'banashankari', 'katriguppe'],
+  thyagarajanagar: ['basavanagudi', 'hanumanthanagar', 'jayanagar', 'banashankari', 'katriguppe'],
+  puttenahalli: ['jp-nagar', 'konanakunte', 'kanakapura-road', 'arekere', 'bannerghatta-road'],
+  chamrajpet: ['basavanagudi', 'wilson-garden', 'shanti-nagar', 'vijayanagar', 'hanumanthanagar'],
+  'isro-layout': ['kumaraswamy-layout', 'vasanthapura', 'konanakunte', 'jp-nagar', 'banashankari'],
+  'wilson-garden': ['shanti-nagar', 'richmond-town', 'chamrajpet', 'jayanagar', 'koramangala'],
+  'shanti-nagar': ['richmond-town', 'ashok-nagar', 'wilson-garden', 'chamrajpet', 'koramangala'],
+  bilekahalli: ['arekere', 'btm-layout', 'bannerghatta-road', 'hulimavu', 'jp-nagar'],
+  girinagar: ['banashankari', 'katriguppe', 'hanumanthanagar', 'vijayanagar', 'nagarbhavi'],
+  arekere: ['bilekahalli', 'hulimavu', 'puttenahalli', 'bannerghatta-road', 'btm-layout'],
+  'kumaraswamy-layout': [
+    'isro-layout',
+    'padmanabhanagar',
+    'banashankari',
+    'jp-nagar',
+    'konanakunte',
+  ],
+  padmanabhanagar: ['kumaraswamy-layout', 'banashankari', 'katriguppe', 'jp-nagar', 'uttarahalli'],
+  katriguppe: [
+    'banashankari',
+    'girinagar',
+    'hanumanthanagar',
+    'padmanabhanagar',
+    'thyagarajanagar',
+  ],
+  hulimavu: ['arekere', 'gottigere', 'bilekahalli', 'begur', 'bannerghatta-road'],
+  konanakunte: [
+    'kanakapura-road',
+    'puttenahalli',
+    'isro-layout',
+    'vasanthapura',
+    'kumaraswamy-layout',
+  ],
+  uttarahalli: [
+    'vasanthapura',
+    'padmanabhanagar',
+    'konanakunte',
+    'kanakapura-road',
+    'banashankari',
+  ],
+  vasanthapura: [
+    'uttarahalli',
+    'isro-layout',
+    'konanakunte',
+    'kanakapura-road',
+    'kumaraswamy-layout',
+  ],
+  gottigere: ['hulimavu', 'begur', 'arekere', 'bannerghatta-road', 'puttenahalli'],
+  begur: ['hulimavu', 'gottigere', 'electronic-city', 'bilekahalli', 'hsr-layout'],
+  nagarbhavi: ['vijayanagar', 'girinagar', 'rajajinagar', 'banashankari'],
 };
 
 /** Per-service locality links with diversified anchors (covers all 30 localities). */
@@ -417,6 +495,9 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/koramangala', name: 'Parties in Koramangala' },
     { href: '/locations/bannerghatta-road', name: 'Bannerghatta Road decorations' },
     { href: '/locations/ashok-nagar', name: 'Events around Ashok Nagar' },
+    { href: '/locations/hanumanthanagar', name: 'Hanumanthanagar celebrations' },
+    { href: '/locations/puttenahalli', name: 'Décor in Puttenahalli' },
+    { href: '/locations/wilson-garden', name: 'Wilson Garden events' },
   ],
   'services-hub': [
     { href: '/locations/marathahalli', name: 'Marathahalli' },
@@ -427,6 +508,9 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/domlur', name: 'Parties in Domlur' },
     { href: '/locations/richmond-town', name: 'Richmond Town decorations' },
     { href: '/locations/ulsoor', name: 'Events around Ulsoor' },
+    { href: '/locations/thyagarajanagar', name: 'Thyagarajanagar decorations' },
+    { href: '/locations/isro-layout', name: 'Events around ISRO Layout' },
+    { href: '/locations/shanti-nagar', name: 'Celebrate in Shanti Nagar' },
   ],
   pricing: [
     { href: '/locations/malleshwaram', name: 'Malleshwaram' },
@@ -437,6 +521,9 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/rt-nagar', name: 'Parties in RT Nagar' },
     { href: '/locations/vijayanagar', name: 'Vijayanagar decorations' },
     { href: '/locations/bangalore', name: 'Events around Bangalore' },
+    { href: '/locations/chamrajpet', name: 'Chamrajpet setups' },
+    { href: '/locations/bilekahalli', name: 'Parties in Bilekahalli' },
+    { href: '/locations/girinagar', name: 'Décor in Girinagar' },
   ],
   reviews: [
     { href: '/locations/btm-layout', name: 'BTM Layout' },
@@ -447,6 +534,9 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/hsr-layout', name: 'Parties in HSR Layout' },
     { href: '/locations/malleshwaram', name: 'Malleshwaram decorations' },
     { href: '/locations/bellandur', name: 'Events around Bellandur' },
+    { href: '/locations/arekere', name: 'Arekere events' },
+    { href: '/locations/kumaraswamy-layout', name: 'Celebrate in Kumaraswamy Layout' },
+    { href: '/locations/padmanabhanagar', name: 'Padmanabhanagar decorations' },
   ],
   gallery: [
     { href: '/locations/btm-layout', name: 'BTM Layout' },
@@ -457,6 +547,8 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/rt-nagar', name: 'Parties in RT Nagar' },
     { href: '/locations/vijayanagar', name: 'Vijayanagar decorations' },
     { href: '/locations/bangalore', name: 'Events around Bangalore' },
+    { href: '/locations/katriguppe', name: 'Events around Katriguppe' },
+    { href: '/locations/hulimavu', name: 'Hulimavu setups' },
   ],
   about: [
     { href: '/locations/whitefield', name: 'Whitefield' },
@@ -467,6 +559,8 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/bannerghatta-road', name: 'Parties in Bannerghatta Road' },
     { href: '/locations/ashok-nagar', name: 'Ashok Nagar decorations' },
     { href: '/locations/marathahalli', name: 'Events around Marathahalli' },
+    { href: '/locations/konanakunte', name: 'Parties in Konanakunte' },
+    { href: '/locations/uttarahalli', name: 'Décor in Uttarahalli' },
   ],
   'blog-hub': [
     { href: '/locations/hsr-layout', name: 'HSR Layout' },
@@ -477,6 +571,8 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/sarjapur-road', name: 'Parties in Sarjapur Road' },
     { href: '/locations/mathikere', name: 'Mathikere decorations' },
     { href: '/locations/yelahanka', name: 'Events around Yelahanka' },
+    { href: '/locations/vasanthapura', name: 'Vasanthapura events' },
+    { href: '/locations/gottigere', name: 'Celebrate in Gottigere' },
   ],
   faq: [
     { href: '/locations/kanakapura-road', name: 'Kanakapura Road' },
@@ -487,6 +583,8 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/koramangala', name: 'Parties in Koramangala' },
     { href: '/locations/bannerghatta-road', name: 'Bannerghatta Road decorations' },
     { href: '/locations/ashok-nagar', name: 'Events around Ashok Nagar' },
+    { href: '/locations/begur', name: 'Begur decorations' },
+    { href: '/locations/nagarbhavi', name: 'Events around Nagarbhavi' },
   ],
   'blog-birthday-decoration-ideas-home-bangalore': [
     { href: '/locations/malleshwaram', name: 'Malleshwaram' },
