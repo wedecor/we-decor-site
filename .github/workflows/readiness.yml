@@ -11,6 +11,8 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
       - name: Build (guarded)
         env:
           NEXT_PUBLIC_SITE_URL: https://www.wedecorevents.com
