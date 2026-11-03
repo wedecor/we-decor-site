@@ -21,6 +21,10 @@ jobs:
   production-readiness:
     name: Production Readiness Checks
     runs-on: ubuntu-latest
+    # "Comment PR with results" posts via github.rest.issues.createComment.
+    permissions:
+      contents: read
+      pull-requests: write
     
     steps:
       - name: Checkout code
