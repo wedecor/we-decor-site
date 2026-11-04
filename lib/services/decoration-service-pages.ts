@@ -388,7 +388,7 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
     slug: 'engagement-decoration',
     title: 'Engagement Decoration in Bangalore — Stage & Ring Ceremony from ₹5,000',
     description:
-      'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — floral backdrops, couple stages & home or banquet setups. 4.9★ (81 reviews). Free quote.',
+      'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — floral backdrops, couple stages & home or banquet setups. 4.9★ (82 reviews). Free quote.',
     serviceType: 'Engagement decoration',
     ogImage: SERVICE_IMAGES.engagement,
     eyebrow: 'Ring ceremony décor',

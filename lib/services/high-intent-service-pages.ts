@@ -31,7 +31,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       slug: 'nikah-decoration',
       title: 'Nikah Ceremony Decoration in Bangalore — From ₹5,000',
       description:
-        'Nikah ceremony decoration in Bangalore from ₹5,000 — elegant floral stages, couple seating & home or hall setups. 4.9★ (81 reviews). Free quote.',
+        'Nikah ceremony decoration in Bangalore from ₹5,000 — elegant floral stages, couple seating & home or hall setups. 4.9★ (82 reviews). Free quote.',
       serviceType: 'Nikah decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Nikah ceremony · Bangalore',
@@ -303,7 +303,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       slug: 'balloon-decoration',
       title: 'Balloon Decoration in Bangalore — Arches & Setups from ₹5,000',
       description:
-        'Balloon decoration in Bangalore from ₹5,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (81 Google reviews). Fast setup.',
+        'Balloon decoration in Bangalore from ₹5,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (82 Google reviews). Fast setup.',
       serviceType: 'Balloon decoration',
       ogImage: SERVICE_IMAGES.tentBalloon,
       eyebrow: 'Balloon styling · Bangalore',
@@ -1649,7 +1649,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       slug: 'floral-decoration',
       title: 'Flower Decoration in Bangalore — Fresh Floral Backdrops from ₹5,000',
       description:
-        'Fresh flower decoration in Bangalore from ₹5,000 — marigold, jasmine & rose backdrops for weddings, haldi, poojas & stages. 4.9★ (81 reviews).',
+        'Fresh flower decoration in Bangalore from ₹5,000 — marigold, jasmine & rose backdrops for weddings, haldi, poojas & stages. 4.9★ (82 reviews).',
       serviceType: 'Floral decoration',
       ogImage: SERVICE_IMAGES.haldi,
       eyebrow: 'Fresh flowers · Bangalore',

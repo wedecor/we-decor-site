@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/gallery',
   title: 'Event Decoration Gallery Bangalore — 450+ Real Photos from ₹3,000',
   description:
-    'Browse 450+ real event decoration photos in Bangalore — haldi, wedding stages, birthdays & engagements from ₹3,000. 4.9★ (81 Google reviews). Free site visit.',
+    'Browse 450+ real event decoration photos in Bangalore — haldi, wedding stages, birthdays & engagements from ₹3,000. 4.9★ (82 Google reviews). Free site visit.',
 });
 
 export const dynamic = 'force-static';

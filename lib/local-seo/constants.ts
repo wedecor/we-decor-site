@@ -164,4 +164,4 @@ export const GOOGLE_RATING = 4.9;
  * the AggregateRating schema disagree with the page they sit on. It drifted
  * to 76 while the profile was at 81.
  */
-export const GOOGLE_REVIEW_COUNT = 81;
+export const GOOGLE_REVIEW_COUNT = 82;

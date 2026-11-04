@@ -1043,7 +1043,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does an engagement setup start at?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 81 reviews, and most of those were jobs in south Bengaluru like this one.',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 82 reviews, and most of those were jobs in south Bengaluru like this one.',
     },
   ],
   // Puttenahalli. Anniversary and haldi is the work our own photographs place here;
@@ -1091,7 +1091,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What is the starting price in ISRO Layout?',
-      a: 'From Rs 3,000 for a simple backdrop. Engagement stages with floral work and lighting cost more, and we price after seeing the space. We are rated 4.9 from 81 reviews, and have been decorating across Bengaluru since 2022.',
+      a: 'From Rs 3,000 for a simple backdrop. Engagement stages with floral work and lighting cost more, and we price after seeing the space. We are rated 4.9 from 82 reviews, and have been decorating across Bengaluru since 2022.',
     },
   ],
   // Wilson Garden. Naming ceremony is the work our own photographs place here;
@@ -1163,7 +1163,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does an engagement setup cost in Girinagar?',
-      a: 'From Rs 3,000 for a compact backdrop, more for a full engagement stage with floral work. We have a 4.9 rating from 81 reviews and have been working across Bengaluru since 2022.',
+      a: 'From Rs 3,000 for a compact backdrop, more for a full engagement stage with floral work. We have a 4.9 rating from 82 reviews and have been working across Bengaluru since 2022.',
     },
   ],
   // Hulimavu. Birthday is the work our own photographs place here;
@@ -1187,7 +1187,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does a birthday setup cost?',
-      a: 'From Rs 3,000, rising with the size of the arch, the number of backdrops and any printed or themed pieces. We quote after a free site visit. Most of our 81 reviews are from jobs like this one.',
+      a: 'From Rs 3,000, rising with the size of the arch, the number of backdrops and any printed or themed pieces. We quote after a free site visit. Most of our 82 reviews are from jobs like this one.',
     },
   ],
   // Uttarahalli. Haldi is the work our own photographs place here;
@@ -1283,7 +1283,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does a reception cost?',
-      a: 'Our setups start from Rs 3,000, but a reception stage is well above that and depends on width, floral volume and lighting. We quote after seeing the hall. We are rated 4.9 from 81 reviews and have been decorating across Bengaluru since 2022.',
+      a: 'Our setups start from Rs 3,000, but a reception stage is well above that and depends on width, floral volume and lighting. We quote after seeing the hall. We are rated 4.9 from 82 reviews and have been decorating across Bengaluru since 2022.',
     },
   ],
   // Thyagarajanagar. Venue mix and landmarks from content/locations/locations.csv.
@@ -1308,7 +1308,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does a setup in Thyagarajanagar cost?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room, because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 81 reviews and have been working across Bengaluru since 2022.',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room, because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 82 reviews and have been working across Bengaluru since 2022.',
     },
   ],
   // Chamrajpet. Venue mix and landmarks from content/locations/locations.csv.
@@ -1383,7 +1383,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does an Arekere setup cost?',
-      a: 'From Rs 3,000 for a compact backdrop, more for a larger stage with floral work and lighting. We quote after seeing the space. Most of our 81 reviews come from jobs in this part of south Bengaluru.',
+      a: 'From Rs 3,000 for a compact backdrop, more for a larger stage with floral work and lighting. We quote after seeing the space. Most of our 82 reviews come from jobs in this part of south Bengaluru.',
     },
   ],
   // Kumaraswamy Layout. Venue mix and landmarks from content/locations/locations.csv.
@@ -1408,7 +1408,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does a setup cost in Kumaraswamy Layout?',
-      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size and floral volume. We quote after the visit rather than on the phone. We are rated 4.9 from 81 reviews and have been decorating across Bengaluru since 2022.',
+      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size and floral volume. We quote after the visit rather than on the phone. We are rated 4.9 from 82 reviews and have been decorating across Bengaluru since 2022.',
     },
   ],
   // Padmanabhanagar. Venue mix and landmarks from content/locations/locations.csv.
@@ -1508,7 +1508,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does a Begur setup cost?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after a free site visit. We are rated 4.9 from 81 reviews and have been decorating across Bengaluru since 2022.',
+      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after a free site visit. We are rated 4.9 from 82 reviews and have been decorating across Bengaluru since 2022.',
     },
   ],
 };
