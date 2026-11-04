@@ -13,9 +13,9 @@ import { CONTACT } from '@/lib/contact';
 
 export const metadata: Metadata = pageMetadata({
   path: '/gallery',
-  title: 'Event Decoration Gallery — Birthday, Wedding & More',
+  title: 'Event Decoration Gallery Bangalore — 450+ Real Photos from ₹3,000',
   description:
-    'Explore our stunning event decoration gallery featuring birthday parties, weddings, haldi ceremonies, and corporate events across Bangalore. Professional decor services by We Decor.',
+    'Browse 450+ real event decoration photos in Bangalore — haldi, wedding stages, birthdays & engagements from ₹3,000. 4.9★ (81 Google reviews). Free site visit.',
 });
 
 export const dynamic = 'force-static';

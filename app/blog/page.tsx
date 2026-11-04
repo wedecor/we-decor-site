@@ -10,11 +10,11 @@ import { buildBlogHubGraph, withBreadcrumb } from '@/lib/schema';
 import { BLOG_POSTS } from '@/lib/content/blog-posts';
 
 const BLOG_HUB_DESCRIPTION =
-  'Practical event decoration guides for Bangalore — birthday ideas, haldi checklists, wedding budgets, balloon trends, and venue planning from We Decor Events.';
+  'Practical Bangalore event decoration guides — birthday budgets, haldi checklists, wedding stage ideas & pricing from ₹3,000 by We Decor Events (4.9★).';
 
 export const metadata: Metadata = pageMetadata({
   path: '/blog',
-  title: 'Event Planning Guides & Decoration Ideas',
+  title: 'Event Decoration Guides & Pricing Checklists Bangalore',
   description: BLOG_HUB_DESCRIPTION,
 });
 

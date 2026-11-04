@@ -1,11 +1,11 @@
 {
-  "generated": "2026-07-17T20:41:47.708Z",
-  "totalLocalities": 30,
-  "totalComparisons": 435,
+  "generated": "2026-11-04T12:10:45.782Z",
+  "totalLocalities": 50,
+  "totalComparisons": 1225,
   "flaggedPairs": [],
   "summary": {
     "highSimilarity": 0,
-    "uniqueContent": 30,
+    "uniqueContent": 50,
     "uniquenessScore": 100
   }
 }

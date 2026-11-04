@@ -148,10 +148,13 @@ export default function LocationsHubPage() {
       <nav aria-label="Regions" className="lux-container -mt-4 mb-4">
         <div className="lux-surface p-6 md:p-8">
           <p className="lux-eyebrow mb-4">Regions</p>
-          <ul className="flex flex-nowrap gap-2 overflow-x-auto overscroll-x-contain list-none p-0 m-0 md:flex-wrap md:overflow-visible">
+          <ul className="flex flex-nowrap gap-x-6 overflow-x-auto overscroll-x-contain list-none p-0 m-0 md:flex-wrap md:gap-y-3 md:overflow-visible">
             {CLUSTERS.map((c) => (
-              <li key={c.key}>
-                <a href={`#${c.key}`} className="lux-filter-pill lux-filter-pill-inactive">
+              <li key={c.key} className="shrink-0">
+                <a
+                  href={`#${c.key}`}
+                  className="inline-flex min-h-11 items-center border-b border-transparent pb-0.5 text-sm text-lux-secondary hover:border-lux-gold hover:text-lux-ivory transition-colors whitespace-nowrap"
+                >
                   {c.title}
                 </a>
               </li>

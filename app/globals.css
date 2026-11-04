@@ -420,19 +420,6 @@
     min-height: 0;
   }
 
-  .lux-filter-pill {
-    @apply inline-flex shrink-0 items-center min-h-[44px] px-3.5 rounded-[4px] text-[11px] tracking-lux uppercase border font-light whitespace-nowrap;
-  }
-
-  .lux-filter-pill-active {
-    @apply text-lux-gold border-lux-gold/35;
-    background: rgba(200, 169, 107, 0.08);
-  }
-
-  .lux-filter-pill-inactive {
-    @apply text-lux-text-muted border-transparent hover:text-lux-secondary hover:border-white/[0.08];
-  }
-
   /*
    * font-size must stay >= 16px on mobile: iOS Safari force-zooms the page
    * when a focused input is smaller, leaving the visitor zoomed and scrolled
@@ -567,8 +554,8 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.08s !important;
-    transition-property: color, background-color, border-color, outline-color,
-      box-shadow, opacity !important;
+    transition-property:
+      color, background-color, border-color, outline-color, box-shadow, opacity !important;
   }
 
   .lux-btn-primary:active,

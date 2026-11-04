@@ -156,7 +156,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                       src={item.src}
                       alt={item.alt || `${category} decoration image ${i + 1}`}
                       fill
-                      className="object-cover rounded-lg group-hover:scale-105 transition-transform duration-200"
+                      className="object-cover rounded-[4px] group-hover:scale-105 transition-transform duration-200"
                       sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 220px"
                       loading="lazy"
                     />
@@ -168,7 +168,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
                 <div className="text-center mt-8">
                   <button
                     onClick={loadMoreImages}
-                    className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors"
+                    className="bg-white text-black px-6 py-3 rounded-[4px] hover:bg-gray-200 transition-colors"
                     aria-label="Load more images"
                   >
                     Load More Images
@@ -274,7 +274,7 @@ export default function ImageModal({ isOpen, onClose, images, category }: ImageM
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="absolute bottom-4 left-4 right-4 bg-gray-800 text-white p-4 rounded-lg"
+              className="absolute bottom-4 left-4 right-4 bg-gray-800 text-white p-4 rounded-[4px]"
             >
               <h3 className="font-semibold mb-2">Keyboard Shortcuts</h3>
               <div className="grid grid-cols-2 gap-2 text-sm">
