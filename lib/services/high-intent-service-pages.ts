@@ -301,9 +301,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'balloon-decoration': {
       slug: 'balloon-decoration',
-      title: 'Balloon Decoration in Bangalore — Arches & Setups from ₹3,000',
+      title: 'Balloon Decoration in Bangalore — Arches & Setups from ₹5,000',
       description:
-        'Balloon decoration in Bangalore from ₹3,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (81 Google reviews). Fast setup.',
+        'Balloon decoration in Bangalore from ₹5,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (81 Google reviews). Fast setup.',
       serviceType: 'Balloon decoration',
       ogImage: SERVICE_IMAGES.tentBalloon,
       eyebrow: 'Balloon styling · Bangalore',
@@ -574,9 +574,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'baby-shower-decoration': {
       slug: 'baby-shower-decoration',
-      title: 'Baby Shower Decoration in Bangalore — Seemantham & Themes from ₹3,000',
+      title: 'Baby Shower Decoration in Bangalore — Seemantham & Themes from ₹5,000',
       description:
-        'Baby shower & seemantham decoration in Bangalore from ₹3,000 — pastel balloon arches, traditional floral backdrops & home setups. 4.9★ rated.',
+        'Baby shower & seemantham decoration in Bangalore from ₹5,000 — pastel balloon arches, traditional floral backdrops & home setups. 4.9★ rated.',
       serviceType: 'Baby shower decoration',
       ogImage: SERVICE_IMAGES.birthday,
       eyebrow: 'Baby shower hosting · Bangalore',
@@ -842,9 +842,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'anniversary-decoration': {
       slug: 'anniversary-decoration',
-      title: 'Anniversary Decoration in Bangalore — Surprise Setups from ₹3,000',
+      title: 'Anniversary Decoration in Bangalore — Surprise Setups from ₹5,000',
       description:
-        'Anniversary decoration in Bangalore from ₹3,000 — romantic room surprises, cabana setups, floral backdrops & milestone party decor. 4.9★ rated.',
+        'Anniversary decoration in Bangalore from ₹5,000 — romantic room surprises, cabana setups, floral backdrops & milestone party decor. 4.9★ rated.',
       serviceType: 'Anniversary decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
       eyebrow: 'Anniversary surprise · Bangalore',
@@ -1112,9 +1112,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'proposal-decoration': {
       slug: 'proposal-decoration',
-      title: 'Proposal Decoration in Bangalore — Romantic Setups from ₹3,000',
+      title: 'Proposal Decoration in Bangalore — Romantic Setups from ₹5,000',
       description:
-        'Romantic proposal decoration in Bangalore from ₹3,000 — Marry Me neon backdrops, fairy-lit cabanas, rose pathways & terrace surprises. 4.9★ rated.',
+        'Romantic proposal decoration in Bangalore from ₹5,000 — Marry Me neon backdrops, fairy-lit cabanas, rose pathways & terrace surprises. 4.9★ rated.',
       serviceType: 'Proposal decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Proposal planning · Bangalore',
@@ -1382,9 +1382,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'home-decoration': {
       slug: 'home-decoration',
-      title: 'Home Event Decoration in Bangalore — From ₹3,000',
+      title: 'Home Event Decoration in Bangalore — From ₹5,000',
       description:
-        'Home decoration in Bangalore from ₹3,000 — apartment-friendly setups for birthdays, haldi, housewarming, pujas & intimate celebrations. 4.9★ rated.',
+        'Home decoration in Bangalore from ₹5,000 — apartment-friendly setups for birthdays, haldi, housewarming, pujas & intimate celebrations. 4.9★ rated.',
       serviceType: 'Home decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
       eyebrow: 'Home celebrations · Bangalore',
@@ -1918,9 +1918,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'terrace-decoration': {
       slug: 'terrace-decoration',
-      title: 'Terrace & Rooftop Decoration in Bangalore — From ₹3,000',
+      title: 'Terrace & Rooftop Decoration in Bangalore — From ₹5,000',
       description:
-        'Terrace and rooftop decoration in Bangalore from ₹3,000 — fairy-lit canopies, haldi setups, birthday parties & romantic proposals. 4.9★ rated.',
+        'Terrace and rooftop decoration in Bangalore from ₹5,000 — fairy-lit canopies, haldi setups, birthday parties & romantic proposals. 4.9★ rated.',
       serviceType: 'Terrace decoration',
       ogImage: SERVICE_IMAGES.corporate,
       eyebrow: 'Rooftop hosting · Bangalore',
@@ -2188,9 +2188,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'car-decoration': {
       slug: 'car-decoration',
-      title: 'Wedding Car Decoration in Bangalore — From ₹3,000',
+      title: 'Wedding Car Decoration in Bangalore — From ₹2,500',
       description:
-        'Wedding car decoration in Bangalore from ₹3,000 — paint-safe fresh floral & ribbon styling for sedans & SUVs across Bengaluru. 4.9★ rated.',
+        'Wedding car decoration in Bangalore from ₹2,500 — paint-safe fresh floral & ribbon styling for sedans & SUVs across Bengaluru. 4.9★ rated.',
       serviceType: 'Car decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Wedding car styling · Bangalore',

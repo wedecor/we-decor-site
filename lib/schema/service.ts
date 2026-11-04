@@ -41,16 +41,14 @@ export function buildCoreServiceCatalog(catalogId: string): JsonLdNode {
   };
 }
 
-const FIVE_K_SERVICE_KEYS = new Set([
-  'haldi-decoration',
-  'wedding-setup',
-  'floral-decoration',
-  'nikah-decoration',
-  '/services/haldi-decoration',
-  '/services/wedding-setup',
-  '/services/floral-decoration',
-  '/services/nikah-decoration',
+const THREE_K_SERVICE_KEYS = new Set([
+  'birthday-decoration',
+  'birthday-home-decoration',
+  '/services/birthday-decoration',
+  '/services/birthday-home-decoration',
 ]);
+
+const TWO_HALF_K_SERVICE_KEYS = new Set(['car-decoration', '/services/car-decoration']);
 
 function resolveStartingPriceInr(
   serviceId?: string,
@@ -59,9 +57,18 @@ function resolveStartingPriceInr(
 ): number {
   if (typeof explicitLowPrice === 'number') return explicitLowPrice;
   if (
-    (serviceId && FIVE_K_SERVICE_KEYS.has(serviceId)) ||
-    (path && FIVE_K_SERVICE_KEYS.has(path))
+    (serviceId && TWO_HALF_K_SERVICE_KEYS.has(serviceId)) ||
+    (path && TWO_HALF_K_SERVICE_KEYS.has(path))
   ) {
+    return 2500;
+  }
+  if (
+    (serviceId && THREE_K_SERVICE_KEYS.has(serviceId)) ||
+    (path && THREE_K_SERVICE_KEYS.has(path))
+  ) {
+    return 3000;
+  }
+  if (serviceId || (path && path.startsWith('/services/'))) {
     return 5000;
   }
   return SERVICE_STARTING_PRICE_INR;
@@ -90,7 +97,7 @@ export function buildServiceSchema(options: {
       ? `${NAP.url}/#service-${options.serviceId}`
       : `${pageUrl ?? NAP.url}#service`;
   const lowPrice = resolveStartingPriceInr(options.serviceId, options.path, options.lowPrice);
-  const formattedLow = lowPrice === 5000 ? '₹5,000' : '₹3,000';
+  const formattedLow = lowPrice === 2500 ? '₹2,500' : lowPrice === 5000 ? '₹5,000' : '₹3,000';
 
   const node: JsonLdNode = {
     '@type': 'Service',

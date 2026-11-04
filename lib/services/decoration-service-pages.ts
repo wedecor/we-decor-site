@@ -386,9 +386,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'engagement-decoration': {
     slug: 'engagement-decoration',
-    title: 'Engagement Decoration in Bangalore — Stage & Ring Ceremony from ₹3,000',
+    title: 'Engagement Decoration in Bangalore — Stage & Ring Ceremony from ₹5,000',
     description:
-      'Engagement & ring ceremony decoration in Bangalore from ₹3,000 — floral backdrops, couple stages & home or banquet setups. 4.9★ (81 reviews). Free quote.',
+      'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — floral backdrops, couple stages & home or banquet setups. 4.9★ (81 reviews). Free quote.',
     serviceType: 'Engagement decoration',
     ogImage: SERVICE_IMAGES.engagement,
     eyebrow: 'Ring ceremony décor',
@@ -591,9 +591,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'corporate-decoration': {
     slug: 'corporate-decoration',
-    title: 'Corporate Event Decoration in Bangalore — From ₹3,000',
+    title: 'Corporate Event Decoration in Bangalore — From ₹5,000',
     description:
-      'Corporate event decoration in Bangalore from ₹3,000 — brand-matched stages, entry arches, balloon backdrops & GST-ready quotes for offices. 4.9★ rated.',
+      'Corporate event decoration in Bangalore from ₹5,000 — brand-matched stages, entry arches, balloon backdrops & GST-ready quotes for offices. 4.9★ rated.',
     serviceType: 'Corporate event decoration',
     ogImage: SERVICE_IMAGES.corporate,
     eyebrow: 'Corporate events · Bangalore',
@@ -821,9 +821,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'tent-balloon-setup': {
     slug: 'tent-balloon-setup',
-    title: 'Cabana Tent & Balloon Decoration in Bangalore — From ₹3,000',
+    title: 'Cabana Tent & Balloon Decoration in Bangalore — From ₹5,000',
     description:
-      'Cabana tent and balloon decoration in Bangalore from ₹3,000 — fairy-lit canopies, outdoor arches & romantic surprise setups at home or terraces. 4.9★ rated.',
+      'Cabana tent and balloon decoration in Bangalore from ₹5,000 — fairy-lit canopies, outdoor arches & romantic surprise setups at home or terraces. 4.9★ rated.',
     serviceType: 'Balloon decoration',
     ogImage: SERVICE_IMAGES.tentBalloon,
     relatedHrefs: [
@@ -1040,9 +1040,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'room-decoration': {
     slug: 'room-decoration',
-    title: 'Surprise Room Decoration in Bangalore — From ₹3,000',
+    title: 'Surprise Room Decoration in Bangalore — From ₹5,000',
     description:
-      'Surprise room & bridal bedroom decoration in Bangalore from ₹3,000 — romantic flower & balloon setups for birthdays, first night & anniversaries. 4.9★ rated.',
+      'Surprise room & bridal bedroom decoration in Bangalore from ₹5,000 — romantic flower & balloon setups for birthdays, first night & anniversaries. 4.9★ rated.',
     serviceType: 'Room decoration',
     ogImage: SERVICE_IMAGES.roomDecor,
     coreServiceId: 'bridal-room-decoration',
