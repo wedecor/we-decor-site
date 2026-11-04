@@ -155,9 +155,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
 > = {
   'haldi-decoration': {
     slug: 'haldi-decoration',
-    title: 'Haldi Ceremony Decoration Services in Bangalore',
+    title: 'Haldi Decoration in Bangalore — Backdrops from ₹5,000',
     description:
-      'Haldi ceremony decoration in Bangalore from ₹3,000 — marigold backdrops, photo zones, morning setup, and post-ceremony removal.',
+      'Haldi ceremony decoration in Bangalore from ₹5,000 — traditional marigold backdrops, urli setups, floral canopies & home decor. 4.9★ rated. Fast setup.',
     serviceType: 'Haldi decoration',
     ogImage: SERVICE_IMAGES.haldi,
     coreServiceId: 'haldi-decoration',
@@ -1260,9 +1260,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'wedding-setup': {
     slug: 'wedding-setup',
-    title: 'Wedding and Reception Decoration in Bangalore',
+    title: 'Wedding Decorators in Bangalore — Mandap & Stage from ₹5,000',
     description:
-      'Wedding decoration in Bangalore from ₹5,000 — mandap, stage, and venue styling scoped after ceremony needs and venue access.',
+      'Wedding decorators in Bangalore from ₹5,000 — mandap, reception stage, floral & entrance setups with transparent pricing. 4.9★ rated. Free site visit.',
     serviceType: 'Wedding decoration',
     ogImage: SERVICE_IMAGES.engagement,
     coreServiceId: 'wedding-decoration',
@@ -1700,9 +1700,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'birthday-decoration': {
     slug: 'birthday-decoration',
-    title: 'Birthday Party Decoration Services in Bangalore',
+    title: 'Birthday Decoration in Bangalore — Themes from ₹3,000',
     description:
-      'Birthday party decoration in Bangalore from ₹3,000 — homes, clubhouses, and venues with kids themes, adult surprises, balloon setups, and same-day installation.',
+      'Birthday party decoration in Bangalore from ₹3,000 — balloon arches, cake backdrops, kids themes & adult surprises at home or venues. 4.9★ rated.',
     serviceType: 'Birthday decoration',
     ogImage: BIRTHDAY_HERO_IMAGE,
     coreServiceId: 'birthday-decoration',

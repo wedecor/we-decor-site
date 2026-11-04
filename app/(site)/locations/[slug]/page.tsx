@@ -49,9 +49,9 @@ export async function generateMetadata({ params }: LocationPageProps): Promise<M
     path: `/locations/${area.slug}`,
     // "Event Decorators" matches how people search ("event decorators near me"
     // is this site's largest non-brand query at 603 impressions); "Event
-    // decoration in X" did not. The offer earns the click at position ~10.
+    // decoration in X" did not. The price floor earns the click at position ~10.
     // The brand suffix is appended by withBrandTitle — do not add it here.
-    title: `Event Decorators in ${area.name} — Free Site Visit`,
+    title: `Event Decorators in ${area.name} — From ₹3,000`,
     // All 30 areas have a hand-written snippet in LOCALITY_PAGE_META; the
     // generated fallback only fires if someone adds an area without one, which
     // tests/unit/serp-metadata.test.ts fails the build for.

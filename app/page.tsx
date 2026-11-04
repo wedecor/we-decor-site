@@ -28,8 +28,8 @@ import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
  */
 export const metadata: Metadata = pageMetadata({
   path: '/',
-  title: 'Event Decorators in Bangalore — Free Site Visit',
-  description: `Birthday, wedding, haldi & engagement décor across Bengaluru. ${GOOGLE_RATING}★ from ${GOOGLE_REVIEW_COUNT} Google reviews. Setups from ₹3,000, often same or next day. Free site visit.`,
+  title: 'Event & Wedding Decorators in Bangalore — From ₹3,000',
+  description: `Top event & wedding decorators in Bangalore. Birthday, haldi, stage & balloon decor from ₹3,000. ${GOOGLE_RATING}★ from ${GOOGLE_REVIEW_COUNT} Google reviews. Free site visit.`,
   ogImage: '/og-banner.jpg',
 });
 

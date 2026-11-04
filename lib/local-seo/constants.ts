@@ -113,6 +113,14 @@ export const CORE_DECORATION_SERVICES = [
     path: '/services/room-decoration',
   },
   {
+    id: 'car-decoration',
+    name: 'Car Decoration',
+    serviceType: 'Car decoration',
+    description:
+      'Paint-safe floral and ribbon wedding car decoration in Bangalore with vehicle-specific styling.',
+    path: '/services/car-decoration',
+  },
+  {
     id: 'theme-decoration',
     name: 'Theme Decoration',
     serviceType: 'Theme party decoration',
