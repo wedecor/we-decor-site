@@ -4,6 +4,7 @@ import {
   ALL_LOCALITY_LINKS,
   EXPLORE_LOCALITIES_BY_PAGE,
   NEARBY_LOCALITY_SLUGS,
+  SERVICE_LOCALITIES_BY_PATH,
   getExploreLocalitiesFor,
   getNearbyLocalitySlugs,
 } from '@/lib/seo/internal-links';
@@ -82,6 +83,16 @@ describe('locality internal links', () => {
       expect(new Set(hrefs).size, key).toBe(hrefs.length);
       for (const href of hrefs) expect(slugSet.has(slugOf(href)), `${key}: ${href}`).toBe(true);
     }
+  });
+
+  it('every locality appears in at least one service page locality block', () => {
+    const covered = new Set(
+      Object.values(SERVICE_LOCALITIES_BY_PATH)
+        .flat()
+        .map((l) => slugOf(l.href))
+    );
+    const missing = slugs.filter((s) => !covered.has(s));
+    expect(missing).toEqual([]);
   });
 
   it('fallback explore rotation (service pages) draws from all 50 pages', () => {

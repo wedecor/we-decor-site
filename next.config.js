@@ -62,6 +62,17 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
   async redirects() {
     const redirects = [
+      // Legacy regional cluster URLs (removed in 8ca5051) → /locations hub
+      {
+        source: '/areas/:zone(central-bangalore|east-bangalore|north-bangalore|south-bangalore|west-bangalore)',
+        destination: '/locations',
+        permanent: true,
+      },
+      {
+        source: '/locations/:zone(central-bangalore|east-bangalore|north-bangalore|south-bangalore|west-bangalore)',
+        destination: '/locations',
+        permanent: true,
+      },
       // Locality consolidation: /areas/* → /locations/* (301, query string preserved)
       {
         source: '/areas',
@@ -71,6 +82,17 @@ const nextConfig = {
       {
         source: '/areas/:slug',
         destination: '/locations/:slug',
+        permanent: true,
+      },
+      // Legacy wedding service slug & removed test page
+      {
+        source: '/services/wedding-decoration',
+        destination: '/services/wedding-setup',
+        permanent: true,
+      },
+      {
+        source: '/sentry-example-page',
+        destination: '/',
         permanent: true,
       },
       // Force www

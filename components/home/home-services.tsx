@@ -48,6 +48,20 @@ const services = [
   },
 ] as const;
 
+const additionalServiceLinks = [
+  { label: 'Balloon Decoration', href: '/services/balloon-decoration' },
+  { label: 'Fresh Flower Decoration', href: '/services/floral-decoration' },
+  { label: 'Baby Shower & Seemantham', href: '/services/baby-shower-decoration' },
+  { label: 'Anniversary Setups', href: '/services/anniversary-decoration' },
+  { label: 'Romantic Proposals', href: '/services/proposal-decoration' },
+  { label: 'Home Celebrations', href: '/services/home-decoration' },
+  { label: 'Terrace & Rooftop Decor', href: '/services/terrace-decoration' },
+  { label: 'Cabana Tent & Balloon Setup', href: '/services/tent-balloon-setup' },
+  { label: 'Nikah Ceremony Decor', href: '/services/nikah-decoration' },
+  { label: 'Wedding Car Decoration', href: '/services/car-decoration' },
+  { label: 'Stage & Backdrop Styling', href: '/services/decoration' },
+] as const;
+
 export default function HomeServices() {
   return (
     <section className="lux-section pt-14 md:pt-20 bg-lux-bg">
@@ -97,11 +111,28 @@ export default function HomeServices() {
             </li>
           ))}
         </ul>
-        <p className="text-center mt-10">
-          <Link href="/services" className="lux-btn-secondary text-sm">
-            All services
-          </Link>
-        </p>
+        <div className="mt-12 pt-10 border-t border-white/[0.08] text-center">
+          <p className="text-xs uppercase tracking-lux text-lux-muted mb-5">
+            More decoration services across Bengaluru
+          </p>
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3 list-none p-0 m-0 max-w-4xl mx-auto">
+            {additionalServiceLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-sm text-lux-secondary hover:text-lux-gold-soft transition-colors duration-300"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8">
+            <Link href="/services" className="lux-btn-secondary text-sm">
+              All services
+            </Link>
+          </p>
+        </div>
       </div>
     </section>
   );
