@@ -52,7 +52,11 @@ const FIVE_K_SERVICE_KEYS = new Set([
   '/services/nikah-decoration',
 ]);
 
-function resolveStartingPriceInr(serviceId?: string, path?: string, explicitLowPrice?: number): number {
+function resolveStartingPriceInr(
+  serviceId?: string,
+  path?: string,
+  explicitLowPrice?: number
+): number {
   if (typeof explicitLowPrice === 'number') return explicitLowPrice;
   if (
     (serviceId && FIVE_K_SERVICE_KEYS.has(serviceId)) ||

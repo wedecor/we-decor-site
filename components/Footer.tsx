@@ -104,12 +104,8 @@ export default function Footer() {
                   {SITE_EMAIL}
                 </a>
               </li>
-              <li className="pt-2 lux-body-sm text-lux-text-muted">
-                {formatPostalAddressText()}
-              </li>
-              <li className="lux-body-sm text-lux-text-muted">
-                {OPENING_HOURS.displayFooter}
-              </li>
+              <li className="pt-2 lux-body-sm text-lux-text-muted">{formatPostalAddressText()}</li>
+              <li className="lux-body-sm text-lux-text-muted">{OPENING_HOURS.displayFooter}</li>
             </ul>
           </div>
         </div>

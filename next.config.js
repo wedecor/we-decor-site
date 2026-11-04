@@ -64,12 +64,14 @@ const nextConfig = {
     const redirects = [
       // Legacy regional cluster URLs (removed in 8ca5051) → /locations hub
       {
-        source: '/areas/:zone(central-bangalore|east-bangalore|north-bangalore|south-bangalore|west-bangalore)',
+        source:
+          '/areas/:zone(central-bangalore|east-bangalore|north-bangalore|south-bangalore|west-bangalore)',
         destination: '/locations',
         permanent: true,
       },
       {
-        source: '/locations/:zone(central-bangalore|east-bangalore|north-bangalore|south-bangalore|west-bangalore)',
+        source:
+          '/locations/:zone(central-bangalore|east-bangalore|north-bangalore|south-bangalore|west-bangalore)',
         destination: '/locations',
         permanent: true,
       },

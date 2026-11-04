@@ -22,7 +22,9 @@ const INLINE_PATH_LABELS: Record<string, string> = {
 };
 
 function renderParagraphWithLinks(text: string) {
-  const parts = text.split(/(\/(?:services\/[a-z0-9-]+|locations|services|pricing|contact|gallery))\b/g);
+  const parts = text.split(
+    /(\/(?:services\/[a-z0-9-]+|locations|services|pricing|contact|gallery))\b/g
+  );
   if (parts.length === 1) return text;
   return parts.map((part, idx) => {
     if (part.startsWith('/') && INLINE_PATH_LABELS[part]) {
