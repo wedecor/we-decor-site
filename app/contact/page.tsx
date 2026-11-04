@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/metadata';
 import { CONTACT } from '@/lib/contact';
 import { formatPostalAddressText } from '@/lib/schema/_helpers';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 import SchemaScript from '@/components/seo/SchemaScript';
 import { buildContactPageGraph, withBreadcrumb } from '@/lib/schema';
 import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
@@ -22,8 +23,8 @@ const ContactFormClient = nextDynamic(() => import('@/components/contact/Contact
 
 export const metadata: Metadata = pageMetadata({
   path: '/contact',
-  title: 'Contact | Event Decoration Services in Bangalore',
-  description: `Contact We Decor for professional event decoration services in Bangalore. WhatsApp: ${CONTACT.primary.display}. Birthday, wedding, haldi, and corporate event decorations.`,
+  title: `Contact Event Decorators in Bangalore — Call ${CONTACT.primary.display}`,
+  description: `Call or WhatsApp ${CONTACT.primary.display} for event decoration in Bangalore. Birthday & balloon setups from ₹3,000, haldi & wedding decor from ₹5,000. Free site visit.`,
 });
 
 export const dynamic = 'force-static';
@@ -39,12 +40,12 @@ export default async function ContactPage() {
   const eventTypes = await getEventTypeOptions();
 
   return (
-    <div className="lux-page" data-has-sticky-wa>
+    <div className="lux-page">
       <SchemaScript
         data={withBreadcrumb(
           buildContactPageGraph({
             name: 'Contact We Decor Events',
-            description: `Contact We Decor for professional event decoration services in Bangalore. WhatsApp: ${CONTACT.primary.display}. Birthday, wedding, haldi, and corporate event decorations.`,
+            description: `Call or WhatsApp ${CONTACT.primary.display} for event decoration in Bangalore. Birthday & balloon setups from ₹3,000, haldi & wedding decor from ₹5,000. Free site visit.`,
           }),
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
@@ -67,6 +68,24 @@ export default async function ContactPage() {
             <address className="lux-body-sm mt-6 not-italic text-lux-secondary">
               {formatPostalAddressText()}
             </address>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <TrackedWhatsAppLink
+                href={CONTACT.waUrl()}
+                source="contact_page_hero"
+                className="lux-btn-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp {CONTACT.primary.display}
+              </TrackedWhatsAppLink>
+              <TrackedPhoneLink
+                href={`tel:${CONTACT.primary.phone}`}
+                source="contact_page_hero"
+                className="lux-btn-secondary"
+              >
+                Call {CONTACT.primary.display}
+              </TrackedPhoneLink>
+            </div>
             <div className="lux-divider mt-10 max-w-[8rem]" />
           </div>
         </div>

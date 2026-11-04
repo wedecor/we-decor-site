@@ -13,9 +13,9 @@ import { PRICING_TIERS } from '@/lib/content/pricing-tiers';
 
 export const metadata: Metadata = pageMetadata({
   path: '/pricing',
-  title: 'Pricing',
+  title: 'Event Decoration Packages & Pricing in Bangalore — From ₹3,000',
   description:
-    'Transparent pricing for event decorations in Bangalore—birthday, engagement, home celebrations.',
+    'Transparent event decoration prices in Bangalore — birthday & balloon packages from ₹3,000, haldi & wedding stage setups from ₹5,000. 4.9★ rated. Free quote.',
 });
 
 const experiences = PRICING_TIERS.map((tier) => ({

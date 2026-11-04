@@ -118,18 +118,12 @@ const CRUMBS = [
 ];
 
 export default function ServicesPage() {
-  const listForSchema = [
-    ...RELATED_DECORATION_SERVICES.map((s) => ({
-      name: s.label,
-      path: s.href,
-      description: s.label,
-    })),
-    ...decorationCards.map((s) => ({
-      name: s.name,
-      path: s.href,
-      description: s.description,
-    })),
-  ];
+  const cardDescByHref = new Map<string, string>(decorationCards.map((s) => [s.href, s.description]));
+  const listForSchema = RELATED_DECORATION_SERVICES.map((s) => ({
+    name: s.label,
+    path: s.href,
+    description: cardDescByHref.get(s.href) ?? s.label,
+  }));
 
   return (
     <div className="lux-page">

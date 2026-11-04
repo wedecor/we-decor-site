@@ -7,9 +7,9 @@ import { buildServiceDetailGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/decoration',
-  title: 'Event Decoration Services in Bangalore',
+  title: 'Stage, Backdrop & Party Decoration in Bangalore — From ₹3,000',
   description:
-    'Creative event and party decor for all occasions. Weddings, birthdays, haldi, and more. Professional decoration services in Bengaluru.',
+    'Custom stage decoration, floral & balloon backdrops in Bangalore — birthday setups from ₹3,000, haldi & wedding stages from ₹5,000. 4.9★ rated. Free quote.',
   ogImage: '/services/engagement.webp',
 });
 

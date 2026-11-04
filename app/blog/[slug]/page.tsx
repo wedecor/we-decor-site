@@ -10,6 +10,35 @@ import SchemaScript from '@/components/seo/SchemaScript';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import { buildBlogPostingGraph, withBreadcrumb } from '@/lib/schema';
 import { getAllBlogSlugs, getBlogPost, getRelatedPosts } from '@/lib/content/blog-posts';
+import { RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
+
+const INLINE_PATH_LABELS: Record<string, string> = {
+  ...Object.fromEntries(RELATED_DECORATION_SERVICES.map((s) => [s.href, s.label.toLowerCase()])),
+  '/locations': 'our Bangalore locations guide',
+  '/services': 'all decoration services',
+  '/pricing': 'decoration packages & pricing',
+  '/contact': 'contact our team',
+  '/gallery': 'our decoration gallery',
+};
+
+function renderParagraphWithLinks(text: string) {
+  const parts = text.split(/(\/(?:services\/[a-z0-9-]+|locations|services|pricing|contact|gallery))\b/g);
+  if (parts.length === 1) return text;
+  return parts.map((part, idx) => {
+    if (part.startsWith('/') && INLINE_PATH_LABELS[part]) {
+      return (
+        <Link
+          key={idx}
+          href={part}
+          className="text-lux-gold-soft underline underline-offset-4 hover:text-lux-ivory transition-colors"
+        >
+          {INLINE_PATH_LABELS[part]}
+        </Link>
+      );
+    }
+    return part;
+  });
+}
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -102,7 +131,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="lux-container lux-measure lux-measure-4xl">
             <div className="space-y-7 text-[1.0625rem] md:text-lg text-lux-secondary font-light leading-[1.88]">
               {post.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index}>{renderParagraphWithLinks(paragraph)}</p>
               ))}
             </div>
             {post.tags.length > 0 ? (

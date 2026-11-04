@@ -3,6 +3,7 @@ import BrandLockup from '@/components/lux/BrandLockup';
 import { CONTACT } from '@/lib/contact';
 import { SITE_EMAIL } from '@/lib/site';
 import { OPENING_HOURS, SOCIAL_PROFILES } from '@/lib/local-seo/constants';
+import { formatPostalAddressText } from '@/lib/schema/_helpers';
 import { BRAND } from '@/lib/design/tokens';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
@@ -51,6 +52,7 @@ export default function Footer() {
                 ['Locations', '/locations'],
                 ['Pricing', '/pricing'],
                 ['Reviews', '/reviews'],
+                ['Blog', '/blog'],
                 ['FAQ', '/faq'],
               ].map(([label, href]) => (
                 <li key={href}>
@@ -103,6 +105,9 @@ export default function Footer() {
                 </a>
               </li>
               <li className="pt-2 lux-body-sm text-lux-text-muted">
+                {formatPostalAddressText()}
+              </li>
+              <li className="lux-body-sm text-lux-text-muted">
                 {OPENING_HOURS.displayFooter}
               </li>
             </ul>

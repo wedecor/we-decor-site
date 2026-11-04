@@ -29,9 +29,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
   {
     'nikah-decoration': {
       slug: 'nikah-decoration',
-      title: 'Nikah Ceremony Decoration Bangalore | We Decor',
+      title: 'Nikah Ceremony Decoration in Bangalore — From ₹5,000',
       description:
-        'Nikah ceremony décor in Bangalore planned around seating, ritual flow and intimate venue access. Request a tailored We Decor quote.',
+        'Nikah ceremony decoration in Bangalore from ₹5,000 — elegant floral stages, couple seating & home or hall setups. 4.9★ (81 reviews). Free quote.',
       serviceType: 'Nikah decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Nikah ceremony · Bangalore',
@@ -301,9 +301,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'balloon-decoration': {
       slug: 'balloon-decoration',
-      title: 'Balloon Decoration Bangalore | Arches & Garlands',
+      title: 'Balloon Decoration in Bangalore — Arches & Setups from ₹3,000',
       description:
-        'Balloon decoration in Bangalore with colour-matched arches, garlands and apartment-friendly photo zones. Get a practical We Decor quote.',
+        'Balloon decoration in Bangalore from ₹3,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (81 Google reviews). Fast setup.',
       serviceType: 'Balloon decoration',
       ogImage: SERVICE_IMAGES.tentBalloon,
       eyebrow: 'Balloon styling · Bangalore',
@@ -574,9 +574,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'baby-shower-decoration': {
       slug: 'baby-shower-decoration',
-      title: 'Baby Shower Decoration Bangalore | Brunch & Home Setups',
+      title: 'Baby Shower Decoration in Bangalore — Seemantham & Themes from ₹3,000',
       description:
-        'Baby shower decoration in Bangalore designed for relaxed brunches, elder seating and thoughtful photo moments. Ask We Decor for theme options.',
+        'Baby shower & seemantham decoration in Bangalore from ₹3,000 — pastel balloon arches, traditional floral backdrops & home setups. 4.9★ rated.',
       serviceType: 'Baby shower decoration',
       ogImage: SERVICE_IMAGES.birthday,
       eyebrow: 'Baby shower hosting · Bangalore',
@@ -842,9 +842,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'anniversary-decoration': {
       slug: 'anniversary-decoration',
-      title: 'Anniversary Decoration Bangalore | Surprise Home Setups',
+      title: 'Anniversary Decoration in Bangalore — Surprise Setups from ₹3,000',
       description:
-        'Anniversary decoration in Bangalore for discreet home reveals, balcony dinners and family milestones. Plan a practical surprise with We Decor.',
+        'Anniversary decoration in Bangalore from ₹3,000 — romantic room surprises, cabana setups, floral backdrops & milestone party decor. 4.9★ rated.',
       serviceType: 'Anniversary decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
       eyebrow: 'Anniversary surprise · Bangalore',
@@ -1112,9 +1112,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'proposal-decoration': {
       slug: 'proposal-decoration',
-      title: 'Proposal Decoration Bangalore | Discreet Surprise Setups',
+      title: 'Proposal Decoration in Bangalore — Romantic Setups from ₹3,000',
       description:
-        'Proposal decoration in Bangalore with discreet timing, clear photographer angles and venue-aware floral setups. Plan the moment with We Decor.',
+        'Romantic proposal decoration in Bangalore from ₹3,000 — Marry Me neon backdrops, fairy-lit cabanas, rose pathways & terrace surprises. 4.9★ rated.',
       serviceType: 'Proposal decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Proposal planning · Bangalore',
@@ -1382,9 +1382,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'home-decoration': {
       slug: 'home-decoration',
-      title: 'Home Decoration Bangalore | Apartment-Friendly Event Styling',
+      title: 'Home Event Decoration in Bangalore — From ₹3,000',
       description:
-        'Home decoration in Bangalore for birthdays, pujas and private dinners, designed around society rules, lifts and usable living space.',
+        'Home decoration in Bangalore from ₹3,000 — apartment-friendly setups for birthdays, haldi, housewarming, pujas & intimate celebrations. 4.9★ rated.',
       serviceType: 'Home decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
       eyebrow: 'Home celebrations · Bangalore',
@@ -1647,9 +1647,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'floral-decoration': {
       slug: 'floral-decoration',
-      title: 'Fresh Floral Decoration Bangalore | Species-Led Event Décor',
+      title: 'Flower Decoration in Bangalore — Fresh Floral Backdrops from ₹5,000',
       description:
-        'Fresh floral decoration in Bangalore with clear species choices, hydration planning and transparent fresh or hybrid options. Request a We Decor quote.',
+        'Fresh flower decoration in Bangalore from ₹5,000 — marigold, jasmine & rose backdrops for weddings, haldi, poojas & stages. 4.9★ (81 reviews).',
       serviceType: 'Floral decoration',
       ogImage: SERVICE_IMAGES.haldi,
       eyebrow: 'Fresh flowers · Bangalore',
@@ -1918,9 +1918,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'terrace-decoration': {
       slug: 'terrace-decoration',
-      title: 'Terrace Decoration Bangalore | Wind & Rain-Aware Setups',
+      title: 'Terrace & Rooftop Decoration in Bangalore — From ₹3,000',
       description:
-        'Terrace decoration in Bangalore for intimate dinners, birthdays and proposals with wind-aware fixtures, rain contingencies and safe layouts.',
+        'Terrace and rooftop decoration in Bangalore from ₹3,000 — fairy-lit canopies, haldi setups, birthday parties & romantic proposals. 4.9★ rated.',
       serviceType: 'Terrace decoration',
       ogImage: SERVICE_IMAGES.corporate,
       eyebrow: 'Rooftop hosting · Bangalore',
@@ -2188,9 +2188,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'car-decoration': {
       slug: 'car-decoration',
-      title: 'Wedding Car Decoration Bangalore | Paint-Safe Floral Styling',
+      title: 'Wedding Car Decoration in Bangalore — From ₹3,000',
       description:
-        'Wedding car decoration in Bangalore with paint-safe floral and ribbon styling planned around vehicle type and departure time. Get a We Decor quote.',
+        'Wedding car decoration in Bangalore from ₹3,000 — paint-safe fresh floral & ribbon styling for sedans & SUVs across Bengaluru. 4.9★ rated.',
       serviceType: 'Car decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Wedding car styling · Bangalore',

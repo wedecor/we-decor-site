@@ -41,6 +41,28 @@ export function buildCoreServiceCatalog(catalogId: string): JsonLdNode {
   };
 }
 
+const FIVE_K_SERVICE_KEYS = new Set([
+  'haldi-decoration',
+  'wedding-setup',
+  'floral-decoration',
+  'nikah-decoration',
+  '/services/haldi-decoration',
+  '/services/wedding-setup',
+  '/services/floral-decoration',
+  '/services/nikah-decoration',
+]);
+
+function resolveStartingPriceInr(serviceId?: string, path?: string, explicitLowPrice?: number): number {
+  if (typeof explicitLowPrice === 'number') return explicitLowPrice;
+  if (
+    (serviceId && FIVE_K_SERVICE_KEYS.has(serviceId)) ||
+    (path && FIVE_K_SERVICE_KEYS.has(path))
+  ) {
+    return 5000;
+  }
+  return SERVICE_STARTING_PRICE_INR;
+}
+
 export function buildServiceSchema(options: {
   name: string;
   /** Longer marketing title when it differs from the canonical `name`. */
@@ -56,12 +78,15 @@ export function buildServiceSchema(options: {
   audienceName?: string;
   /** Nested catalog for umbrella services that encompass narrower ones. */
   hasOfferCatalog?: JsonLdNode;
+  lowPrice?: number;
 }): JsonLdNode {
   const pageUrl = options.path ? absoluteUrl(options.path) : undefined;
   const id =
     options.useSiteScopedId && options.serviceId
       ? `${NAP.url}/#service-${options.serviceId}`
       : `${pageUrl ?? NAP.url}#service`;
+  const lowPrice = resolveStartingPriceInr(options.serviceId, options.path, options.lowPrice);
+  const formattedLow = lowPrice === 5000 ? '₹5,000' : '₹3,000';
 
   const node: JsonLdNode = {
     '@type': 'Service',
@@ -82,13 +107,13 @@ export function buildServiceSchema(options: {
       serviceUrl: absoluteUrl('/contact'),
       servicePhone: NAP.telephone,
     },
-    priceRange: '₹3,000 - ₹15,999+',
+    priceRange: `${formattedLow} - ₹15,999+`,
     ...(pageUrl
       ? {
           offers: buildServiceOffer({
             name: options.name,
             url: pageUrl,
-            lowPrice: SERVICE_STARTING_PRICE_INR,
+            lowPrice,
           }),
         }
       : {}),

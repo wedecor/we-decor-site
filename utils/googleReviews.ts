@@ -1,3 +1,5 @@
+import { DEFAULT_GOOGLE_PLACE_ID } from '@/lib/local-seo/constants';
+
 interface GoogleReview {
   author_name: string;
   author_url: string;
@@ -84,7 +86,7 @@ export async function getGoogleReviews(options?: {
   /** Drop reviews with no written text (star-only ratings). Defaults to true. */
   requireText?: boolean;
 }): Promise<LiveReviewData | null> {
-  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim();
+  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim() || DEFAULT_GOOGLE_PLACE_ID;
   if (!placeId) return null;
 
   const details = await fetchGoogleReviews(placeId);
@@ -116,7 +118,7 @@ export async function getGoogleReviews(options?: {
 
 /** Link to We Decor Google Business Profile reviews */
 export function getGoogleReviewsUrl(): string {
-  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim();
+  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim() || DEFAULT_GOOGLE_PLACE_ID;
   if (placeId) {
     return `https://www.google.com/maps/place/?q=place_id:${placeId}`;
   }

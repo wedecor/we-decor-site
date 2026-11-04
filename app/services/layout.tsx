@@ -3,9 +3,9 @@ import { pageMetadata } from '@/lib/metadata';
 
 export const metadata: Metadata = pageMetadata({
   path: '/services',
-  title: 'Event Decoration Services in Bangalore',
+  title: 'Event Decoration Services in Bangalore — Packages from ₹3,000',
   description:
-    'Event decoration across Bangalore: birthdays, weddings, haldi, engagements, corporate events, balloon and floral setups. Designed and installed by the We Decor team.',
+    'Explore all 16 event decoration services in Bangalore — birthday & balloon decor from ₹3,000, haldi & wedding stage setups from ₹5,000. 4.9★ rated.',
 });
 
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {

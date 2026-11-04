@@ -21,8 +21,8 @@ import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/
  */
 export const metadata: Metadata = pageMetadata({
   path: '/locations',
-  title: 'Event Decorators Near You in Bangalore — 25+ Areas',
-  description: `Birthday, wedding, haldi & engagement décor across Bengaluru — Whitefield, Koramangala, Indiranagar, Jayanagar, HSR and more. ${GOOGLE_RATING}★ (${GOOGLE_REVIEW_COUNT} reviews). Free site visit.`,
+  title: 'Event Decorators Near You in Bangalore — 50+ Areas from ₹3,000',
+  description: `Birthday, wedding, haldi & engagement décor across 50+ Bengaluru areas — Whitefield, Koramangala, Indiranagar, Jayanagar & HSR. ${GOOGLE_RATING}★ (${GOOGLE_REVIEW_COUNT} reviews). Free site visit.`,
   ogImage: '/og-banner.jpg',
 });
 

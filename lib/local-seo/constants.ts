@@ -47,6 +47,9 @@ export const GEO = {
   longitude: 77.578531,
 } as const;
 
+/** Verified Google Business Profile Place ID for We Decor Events (Basavanagudi, Bengaluru). */
+export const DEFAULT_GOOGLE_PLACE_ID = 'ChIJCac5p8MVrjsRge3h_FhBR70';
+
 /** Canonical social & entity URLs — align with live profiles */
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
@@ -56,7 +59,7 @@ export const SOCIAL_PROFILES = {
 } as const;
 
 export function getSameAsLinks(): string[] {
-  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim();
+  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim() || DEFAULT_GOOGLE_PLACE_ID;
   const links: string[] = [SOCIAL_PROFILES.instagram, SOCIAL_PROFILES.facebook];
   const maps = SOCIAL_PROFILES.googleMaps(placeId);
   if (maps) links.push(maps);

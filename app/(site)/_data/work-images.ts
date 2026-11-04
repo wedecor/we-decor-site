@@ -99,26 +99,6 @@ export const WORK: WorkImage[] = [
   { file: 'birthday/birthday-bengaluru-2025-08-04-2.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
   { file: 'birthday/birthday-bengaluru-2025-08-04-3.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
   { file: 'birthday/birthday-bengaluru-2025-08-04-4.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-1.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-2.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-3.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-4.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-1.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-2.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-3.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-4.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-1.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-2.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-3.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-4.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-1.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-2.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-3.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-4.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-1.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-2.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-3.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
-  { file: 'birthday/birthday-bengaluru-2025-08-04-4.webp', occasion: 'Birthday', service: 'birthday-decoration', areaSlug: null, date: '2025-08-04', width: 900, height: 1600, orientation: 'portrait', alt: 'Birthday decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-ulsoor-2025-08-16-1.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: 'ulsoor', date: '2025-08-16', width: 900, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor in Ulsoor, Bengaluru' },
   { file: 'haldi/haldi-ulsoor-2025-08-16-2.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: 'ulsoor', date: '2025-08-16', width: 900, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor in Ulsoor, Bengaluru' },
   { file: 'haldi/haldi-ulsoor-2025-08-16-3.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: 'ulsoor', date: '2025-08-16', width: 900, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor in Ulsoor, Bengaluru' },
@@ -231,18 +211,6 @@ export const WORK: WorkImage[] = [
   { file: 'mehndi/mehndi-bengaluru-2025-11-27-2.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
   { file: 'mehndi/mehndi-bengaluru-2025-11-27-3.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
   { file: 'mehndi/mehndi-bengaluru-2025-11-27-4.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-1.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 1600, height: 900, orientation: 'landscape', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-2.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-3.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-4.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-1.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 1600, height: 900, orientation: 'landscape', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-2.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-3.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'mehndi/mehndi-bengaluru-2025-11-27-4.webp', occasion: 'Mehndi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-27', width: 900, height: 1600, orientation: 'portrait', alt: 'Mehndi decoration by We Decor, Bengaluru' },
-  { file: 'haldi/haldi-bengaluru-2025-11-28-1.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 1600, height: 739, orientation: 'landscape', alt: 'Haldi decoration by We Decor, Bengaluru' },
-  { file: 'haldi/haldi-bengaluru-2025-11-28-2.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 900, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor, Bengaluru' },
-  { file: 'haldi/haldi-bengaluru-2025-11-28-3.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 739, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor, Bengaluru' },
-  { file: 'haldi/haldi-bengaluru-2025-11-28-4.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 900, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-bengaluru-2025-11-28-1.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 1600, height: 739, orientation: 'landscape', alt: 'Haldi decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-bengaluru-2025-11-28-2.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 900, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-bengaluru-2025-11-28-3.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2025-11-28', width: 739, height: 1600, orientation: 'portrait', alt: 'Haldi decoration by We Decor, Bengaluru' },
@@ -362,10 +330,6 @@ export const WORK: WorkImage[] = [
   { file: 'bridal-shower/bridal-shower-ulsoor-2026-01-25-2.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: 'ulsoor', date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor in Ulsoor, Bengaluru' },
   { file: 'bridal-shower/bridal-shower-ulsoor-2026-01-25-3.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: 'ulsoor', date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor in Ulsoor, Bengaluru' },
   { file: 'bridal-shower/bridal-shower-ulsoor-2026-01-25-4.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: 'ulsoor', date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor in Ulsoor, Bengaluru' },
-  { file: 'bridal-shower/bridal-shower-bengaluru-2026-01-25-1.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: null, date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor, Bengaluru' },
-  { file: 'bridal-shower/bridal-shower-bengaluru-2026-01-25-2.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: null, date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor, Bengaluru' },
-  { file: 'bridal-shower/bridal-shower-bengaluru-2026-01-25-3.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: null, date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor, Bengaluru' },
-  { file: 'bridal-shower/bridal-shower-bengaluru-2026-01-25-4.webp', occasion: 'Bridal shower', service: 'engagement-decoration', areaSlug: null, date: '2026-01-25', width: 1600, height: 1200, orientation: 'landscape', alt: 'Bridal shower decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-bengaluru-2026-01-28-1.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2026-01-28', width: 1600, height: 900, orientation: 'landscape', alt: 'Haldi decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-bengaluru-2026-01-28-2.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2026-01-28', width: 1600, height: 900, orientation: 'landscape', alt: 'Haldi decoration by We Decor, Bengaluru' },
   { file: 'haldi/haldi-bengaluru-2026-01-28-3.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2026-01-28', width: 1600, height: 900, orientation: 'landscape', alt: 'Haldi decoration by We Decor, Bengaluru' },
@@ -529,8 +493,31 @@ export const WORK: WorkImage[] = [
 export const workForArea = (slug: string): WorkImage[] =>
   WORK.filter((w) => w.areaSlug === slug);
 
-export const workForService = (slug: string): WorkImage[] =>
-  WORK.filter((w) => w.service === slug);
+const SERVICE_FALLBACK_OCCASIONS: Record<string, readonly string[]> = {
+  'wedding-setup': ['Wedding', 'Reception', 'Engagement'],
+  'nikah-decoration': ['Wedding', 'Reception', 'Bridal room'],
+  'floral-decoration': ['Wedding', 'Reception', 'Haldi'],
+  'balloon-decoration': ['Birthday', 'Baby shower'],
+  'room-decoration': ['Bridal room', 'Anniversary'],
+  'anniversary-decoration': ['Anniversary', 'Bridal room'],
+  'proposal-decoration': ['Proposal', 'Anniversary'],
+  'tent-balloon-setup': ['Proposal', 'Anniversary', 'Bridal room'],
+  'terrace-decoration': ['Proposal', 'Haldi'],
+  'corporate-decoration': ['Corporate', 'Reception'],
+};
+
+export const workForService = (slug: string): WorkImage[] => {
+  const direct = WORK.filter((w) => w.service === slug);
+  if (direct.length > 0) return direct;
+  if (slug === 'wedding-setup') {
+    return WORK.filter((w) => w.service === 'wedding-decoration');
+  }
+  const occasions = SERVICE_FALLBACK_OCCASIONS[slug];
+  if (occasions) {
+    return WORK.filter((w) => occasions.includes(w.occasion));
+  }
+  return [];
+};
 
 export const workForOccasion = (occasion: string): WorkImage[] =>
   WORK.filter((w) => w.occasion === occasion);

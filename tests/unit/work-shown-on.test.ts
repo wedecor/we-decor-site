@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { getAllAreaSlugs } from '@/app/(site)/_data/locations';
-import { workHeading, workShownOn } from '@/app/(site)/_data/work-images';
+import { GENERATED_LOCATIONS } from '@/app/(site)/_data/locations.generated';
+import { WORK, workForService, workHeading, workShownOn } from '@/app/(site)/_data/work-images';
 
 /**
  * A photograph may be DISPLAYED on any locality page. It may only be CLAIMED
@@ -21,6 +22,32 @@ describe('workShownOn locality grids', () => {
 
   it('covers all 50 locality pages', () => {
     expect(slugs).toHaveLength(50);
+  });
+
+  it('has GENERATED_LOCATIONS bodyCopy for all 50 locality pages', () => {
+    const generatedSlugs = new Set<string>(GENERATED_LOCATIONS.map((g) => g.slug));
+    const missing = slugs.filter((s) => !generatedSlugs.has(s));
+    expect(missing).toEqual([]);
+  });
+
+  it('contains no duplicate image file entries in WORK', () => {
+    const seen = new Set<string>();
+    const dupes: string[] = [];
+    for (const w of WORK) {
+      if (seen.has(w.file)) dupes.push(w.file);
+      seen.add(w.file);
+    }
+    expect(dupes).toEqual([]);
+  });
+
+  it('maps wedding-setup and core services to non-empty portfolio sets', () => {
+    expect(workForService('wedding-setup').length).toBeGreaterThan(0);
+    expect(workForService('haldi-decoration').length).toBeGreaterThan(0);
+    expect(workForService('birthday-decoration').length).toBeGreaterThan(0);
+    expect(workForService('engagement-decoration').length).toBeGreaterThan(0);
+    expect(workForService('balloon-decoration').length).toBeGreaterThan(0);
+    expect(workForService('floral-decoration').length).toBeGreaterThan(0);
+    expect(workForService('room-decoration').length).toBeGreaterThan(0);
   });
 
   it('never repeats the same grid across two pages', () => {

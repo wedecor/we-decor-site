@@ -2,12 +2,15 @@ import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import { SERVED_AREA_COUNT } from '@/lib/local-seo/locality-count';
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from '@/lib/local-seo/constants';
 
 /**
- * Above-the-fold trust strip. Event/area figures mirror `/about`.
- * Review ratings are not claimed here — visitors are directed to Google.
+ * Above-the-fold trust strip — reinforces the homepage SERP promise (price floor,
+ * verified rating, event count, and locality reach).
  */
 const trustItems = [
+  { value: 'From ₹3,000', label: 'transparent packages', href: '/pricing' },
+  { value: `${GOOGLE_RATING}★`, label: `${GOOGLE_REVIEW_COUNT}+ Google reviews`, href: '/reviews' },
   { value: '500+', label: 'events decorated', href: '/gallery' },
   { value: String(SERVED_AREA_COUNT), label: 'Bangalore areas served', href: '/locations' },
 ] as const;

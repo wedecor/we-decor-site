@@ -102,6 +102,10 @@ export const RELATED_DECORATION_SERVICES = [
   { href: '/services/floral-decoration', label: 'Floral Decorations' },
   { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
   { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
+  { href: '/services/home-decoration', label: 'Home Decorations' },
+  { href: '/services/terrace-decoration', label: 'Terrace Decorations' },
+  { href: '/services/nikah-decoration', label: 'Nikah Decorations' },
+  { href: '/services/car-decoration', label: 'Car Decorations' },
 ] as const;
 
 const LABEL_BY_HREF = Object.fromEntries(
@@ -172,6 +176,26 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
     '/services/room-decoration',
     '/services/anniversary-decoration',
     '/services/engagement-decoration',
+  ],
+  '/services/home-decoration': [
+    '/services/room-decoration',
+    '/services/birthday-decoration',
+    '/services/haldi-decoration',
+  ],
+  '/services/terrace-decoration': [
+    '/services/proposal-decoration',
+    '/services/tent-balloon-setup',
+    '/services/birthday-decoration',
+  ],
+  '/services/nikah-decoration': [
+    '/services/wedding-setup',
+    '/services/floral-decoration',
+    '/services/car-decoration',
+  ],
+  '/services/car-decoration': [
+    '/services/wedding-setup',
+    '/services/nikah-decoration',
+    '/services/floral-decoration',
   ],
 };
 

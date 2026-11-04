@@ -29,11 +29,14 @@ type Props = {
 
 /** Mirrors the trail this template renders, for the page's BreadcrumbList node. */
 export function decorationServiceCrumbs(config: { title: string; slug: string }) {
+  const shortName = config.title
+    .replace(/\s*—.*$/, '')
+    .replace(/\s+in\s+(Bangalore|Bengaluru)$/i, '');
   return [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     {
-      name: config.title.replace(/ in Bangalore$/i, ''),
+      name: shortName,
       href: `/services/${config.slug}`,
     },
   ];

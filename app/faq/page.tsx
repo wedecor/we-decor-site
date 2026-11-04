@@ -9,8 +9,9 @@ import { buildFaqSitePageGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/faq',
-  title: 'FAQ',
-  description: 'Answers to common questions about event decor, timelines, and customizations.',
+  title: 'Event Decoration FAQ — Pricing, Booking & Setup in Bangalore',
+  description:
+    'Answers on event decoration pricing in Bangalore (packages from ₹3,000, haldi & wedding from ₹5,000), booking notice, setup timing & custom themes.',
 });
 
 const CRUMBS = [

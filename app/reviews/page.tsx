@@ -1,7 +1,7 @@
 import ReviewsList from '@/components/ReviewsList';
-import { SimpleGoogleReviewsEmbed } from '@/components/GoogleReviewsWidget';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from '@/lib/local-seo/constants';
 import PageHero from '@/components/lux/PageHero';
 import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/SiteBreadcrumbs';
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
@@ -10,9 +10,8 @@ import { buildReviewsPageGraph, withBreadcrumb } from '@/lib/schema';
 
 export const metadata: Metadata = pageMetadata({
   path: '/reviews',
-  title: 'Customer Reviews',
-  description:
-    'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
+  title: `Customer Reviews — ${GOOGLE_RATING}★ Rated Event Decorators in Bangalore`,
+  description: `Read ${GOOGLE_REVIEW_COUNT}+ verified customer reviews (${GOOGLE_RATING}★ rating) for We Decor Bangalore across birthday, haldi, wedding stage & balloon decoration setups.`,
   ogImage: '/og-banner.jpg',
 });
 
@@ -22,16 +21,13 @@ const CRUMBS = [
 ];
 
 export default async function ReviewsPage() {
-  const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID || '';
-
   return (
     <div className="lux-page">
       <SchemaScript
         data={withBreadcrumb(
           buildReviewsPageGraph({
             name: 'Customer Reviews',
-            description:
-              'Read authentic customer reviews and testimonials for We Decor Bangalore. See what our clients say about our wedding decorations, birthday parties, and event services.',
+            description: `Read ${GOOGLE_REVIEW_COUNT}+ verified customer reviews (${GOOGLE_RATING}★ rating) for We Decor Bangalore across birthday, haldi, wedding stage & balloon decoration setups.`,
           }),
           siteBreadcrumbsToSchemaItems(CRUMBS)
         )}
@@ -50,12 +46,8 @@ export default async function ReviewsPage() {
       >
         <div className="lux-container">
           <h2 id="reviews-embed" className="lux-heading-sm mb-10 ">
-            Google reviews
+            Verified Google & client feedback
           </h2>
-          <div className="mb-16">
-            <SimpleGoogleReviewsEmbed placeId={placeId} />
-          </div>
-          <h2 className="lux-heading-sm mb-10 ">More client feedback</h2>
           <ReviewsList />
         </div>
       </section>

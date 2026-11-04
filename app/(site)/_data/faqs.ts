@@ -441,7 +441,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'Can home ritual colour echo a banquet without copying the install?',
-      a: 'Echo colour from a home ritual to a banquet reception without repeating identical installations. Family homes host intimate rituals where living-room proportions and courtyard light matter. Shift intensity rather than duplicating frames. South End Circle and 4th Block traffic still shape both stops—pad vendor windows on ritual weekends. Pad vendor windows on ritual weekends when South End Circle traffic stretches both stops.',
+      a: 'Echo colour from a home ritual to a banquet reception without repeating identical installations. Family homes host intimate rituals where living-room proportions and courtyard light matter. Shift intensity rather than duplicating frames. South End Circle and 4th Block traffic still shape both stops—pad vendor windows on ritual weekends.',
     },
   ],
   'jp-nagar': [
@@ -931,7 +931,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What parking conflicts appear beside Phoenix Marketcity precincts?',
-      a: "For banquet halls near malls, confirm shared precinct parking beside Phoenix Marketcity. Guests may come from ITPL meetings or mall plans into different rooms. Match the venue's architecture and the evening's social register. Avoid one corridor stereotype. Villa and gated-community hosts favour garden florals; tech-park hosts prefer cleaner lines. Villa hosts favour garden florals while tech-park hosts prefer cleaner brand-safe lines.",
+      a: "For banquet halls near malls, confirm shared precinct parking beside Phoenix Marketcity. Guests may come from ITPL meetings or mall plans into different rooms. Match the venue's architecture and the evening's social register. Avoid one corridor stereotype. Villa hosts favour garden florals while tech-park hosts prefer cleaner brand-safe lines.",
     },
     {
       q: 'Which ITPL security lists and freight steps belong day-before?',
@@ -995,7 +995,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What entrance cues help Yeshwanthpur Metro walk-up guests?',
-      a: 'Metro pedestrian arrivals increase; entrance décor should read for walk-up guests. Share Metro-friendly directions using Yeshwanthpur Metro as a landmark. Apartments, community halls, and industrial areas host family functions and staff events that need durable décor. Delicate boutique styling can wash out under bright industrial or hall lighting. Delicate boutique styling can wash out under bright industrial or hall lighting.',
+      a: 'Metro pedestrian arrivals increase; entrance décor should read for walk-up guests. Share Metro-friendly directions using Yeshwanthpur Metro as a landmark. Apartments, community halls, and industrial areas host family functions and staff events that need durable décor. Delicate boutique styling can wash out under bright industrial or hall lighting.',
     },
     {
       q: 'How do Peenya and Rajajinagar cross-traffic compress evening vendor windows?',
@@ -1211,7 +1211,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What does a haldi setup cost?',
-      a: 'From Rs 3,000 for a compact backdrop and seating, more for a full stage with heavy floral work. We quote after a free site visit, since hall size affects the figure more than the design.',
+      a: 'From Rs 5,000 for a compact haldi backdrop and seating, more for a full stage with heavy floral work. We quote after a free site visit, since hall size affects the figure more than the design.',
     },
   ],
   // Vasanthapura. Birthday is the work our own photographs place here;
@@ -1259,7 +1259,7 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
     },
     {
       q: 'What do these setups cost?',
-      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size and floral volume. Two segments in one day cost less than two separate bookings. We quote after a free site visit.',
+      a: 'Balloon and party setups start from Rs 3,000, while haldi and floral backdrops start from Rs 5,000 and scale with stage size and floral volume. Two segments in one day cost less than two separate bookings. We quote after a free site visit.',
     },
   ],
   // Nagarbhavi. Reception and bridal shower is the work our own photographs place here;
