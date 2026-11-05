@@ -8,6 +8,7 @@ import {
 } from '@/lib/local-seo/constants';
 import { SITE_URL } from '@/lib/site';
 import { AREAS } from '@/app/(site)/_data/locations';
+import { BLOG_POSTS } from '@/lib/content/blog-posts';
 
 export const dynamic = 'force-static';
 
@@ -138,6 +139,10 @@ export async function GET() {
     (a) => `- [Event Decorators in ${a.name}, Bangalore](${base}/locations/${a.slug})`
   ).join('\n');
 
+  const blogLines = BLOG_POSTS.map(
+    (p) => `- [${p.title}](${base}/blog/${p.slug}): ${p.description}`
+  ).join('\n');
+
   const body = `# ${NAP.name} — Event Decorators in Bangalore (Bengaluru)
 
 > ${NAP.name} is an in-house event decoration studio based in Basavanagudi, Bengaluru, Karnataka, rated ${GOOGLE_RATING}★ across ${GOOGLE_REVIEW_COUNT} verified Google reviews. We design and install birthday balloon decor (from ₹3,000), wedding car floral decor (from ₹2,500), and Haldi, Wedding, Engagement, Baby Shower, Bridal Room, Proposal, Nikah, and Housewarming setups (from ₹5,000) across all 50+ Bangalore neighbourhoods.
@@ -173,6 +178,9 @@ export async function GET() {
 
 ## Decoration Services & Starting Prices in Bangalore (INR)
 ${serviceLines}
+
+## Bangalore Event Decoration Cost & Planning Guides
+${blogLines}
 
 ## 50 Bangalore Localities Served (Same-Day & Scheduled Setups)
 ${localityLines}
