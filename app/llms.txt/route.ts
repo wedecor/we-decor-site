@@ -91,11 +91,11 @@ const SERVICES_CATALOG = [
       'Fresh marigold, jasmine, rose, and orchid garlands, entrance torans, pooja backdrops, and floral stage styling.',
   },
   {
-    name: 'Housewarming (Griha Pravesh) Decoration',
-    price: 'From ₹5,000',
+    name: 'Home Event Decoration (Haldi, Engagement, Birthday, Puja)',
+    price: 'From ₹3,000',
     path: '/services/home-decoration',
     summary:
-      'Traditional mango-leaf, marigold, and jasmine entrance torans, main-door frames, staircase railings, and pooja mantapa florals.',
+      'Apartment-safe and home ceremony decoration across Bangalore — intimate home haldi setups with urli and marigold, ring ceremony backdrops, living room birthdays, baby showers, and Griha Pravesh puja florals with zero wall damage.',
   },
   {
     name: 'Nikah Stage & Floral Decoration',

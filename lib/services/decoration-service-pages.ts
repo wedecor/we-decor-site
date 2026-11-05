@@ -155,9 +155,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
 > = {
   'haldi-decoration': {
     slug: 'haldi-decoration',
-    title: 'Haldi Decoration in Bangalore — Backdrops from ₹5,000',
+    title: 'Haldi Decoration in Bangalore — Home & Stage Setups from ₹5,000',
     description:
-      'Haldi ceremony decoration in Bangalore from ₹5,000 — traditional marigold backdrops, urli setups, floral canopies & home decor. 4.9★ rated. Fast setup.',
+      'Haldi ceremony decoration in Bangalore from ₹5,000 — home haldi setups with urli, marigold backdrops, floral canopies & apartment-friendly styling. 4.9★ rated.',
     serviceType: 'Haldi decoration',
     ogImage: SERVICE_IMAGES.haldi,
     coreServiceId: 'haldi-decoration',
@@ -386,9 +386,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'engagement-decoration': {
     slug: 'engagement-decoration',
-    title: 'Engagement Decoration in Bangalore — Stage & Ring Ceremony from ₹5,000',
+    title: 'Engagement Decoration in Bangalore — Home & Stage Setups from ₹5,000',
     description:
-      'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — floral backdrops, couple stages & home or banquet setups. 4.9★ (82 reviews). Free quote.',
+      'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — intimate home backdrops, couple stages & floral arches. 4.9★ rated. Free quote.',
     serviceType: 'Engagement decoration',
     ogImage: SERVICE_IMAGES.engagement,
     eyebrow: 'Ring ceremony décor',
@@ -1700,9 +1700,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'birthday-decoration': {
     slug: 'birthday-decoration',
-    title: 'Birthday Decoration in Bangalore — Themes from ₹3,000',
+    title: 'Birthday Decoration in Bangalore — Home & Venue Setups from ₹3,000',
     description:
-      'Birthday party decoration in Bangalore from ₹3,000 — balloon arches, cake backdrops, kids themes & adult surprises at home or venues. 4.9★ rated.',
+      'Birthday decoration at home and venues in Bangalore from ₹3,000 — balloon arches, living room backdrops, kids themes & adult surprises. 4.9★ rated.',
     serviceType: 'Birthday decoration',
     ogImage: BIRTHDAY_HERO_IMAGE,
     coreServiceId: 'birthday-decoration',

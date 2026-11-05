@@ -221,6 +221,29 @@ export const BLOG_POSTS: BlogPost[] = [
       'Same-day and next-day setups are available across Basavanagudi, Jayanagar, JP Nagar, Koramangala, HSR Layout, Indiranagar, Whitefield, and surrounding areas. Reach us via /contact or WhatsApp to confirm your date and timing.',
     ],
   },
+  {
+    slug: 'home-decoration-ideas-bangalore-haldi-engagement-birthday',
+    title: 'Home Decoration in Bangalore: Haldi, Engagement, Birthday & Small Ceremony Guide',
+    description:
+      'How to plan home decoration in Bangalore for Haldi, engagement, birthdays, and baby showers — apartment space tips, society lift rules, turmeric protection, and realistic costs from ₹3,000.',
+    datePublished: '2026-03-01',
+    readingTimeMinutes: 7,
+    authorName: 'We Decor Events',
+    featuredImage: '/services/room-decor.webp',
+    relatedServiceHref: '/services/home-decoration',
+    relatedServiceLabel: 'Home Decoration',
+    tags: ['home decoration', 'haldi', 'engagement', 'birthday', 'bangalore'],
+    paragraphs: [
+      'Hosting milestone celebrations at home has become Bangalore’s favourite way to celebrate. Whether it is an intimate Haldi ceremony, a close-knit ring engagement with immediate family, a colourful child or adult birthday, or a sacred Griha Pravesh pooja, your living room or terrace can look breathtaking without compromising the flow of your home.',
+      'Home Haldi Decoration (Starts from ₹5,000): Haldi ceremonies bring vibrant joy, but yellow turmeric can easily stain marble, vitrified tiles, and painted walls. At We Decor Events, we construct freestanding metal frames wrapped in yellow and orange marigolds and chiffon drapes—requiring zero wall nails. We place heavy-duty waterproof floor drop-cloths under the brass urli and seating cushions, ensuring your apartment remains 100% spotless after the rituals. Explore options on /services/haldi-decoration.',
+      'Home Engagement & Ring Ceremony Décor (Starts from ₹5,000): For intimate ring exchanges, a 6ft to 8ft circular floral arch or pastel fabric backdrop placed directly behind your living room sofa creates an instant couture stage. It frames the couple beautifully for professional photographs while leaving clear walking aisles for 20 to 40 guests. Read more on /services/engagement-decoration.',
+      'Birthday Decoration at Home (Starts from ₹3,000): You do not need to fill every corner with balloons. A single high-impact focal wall—such as an organic pastel balloon garland paired with a custom neon "Happy Birthday" sign and a neat cake plinth—delivers picture-perfect memories while leaving ample room for buffet counters and kid playtime. See packages on /services/birthday-decoration.',
+      'Baby Shower (Seemantham) & Housewarming Pujas (Starts from ₹5,000): For baby showers, we style traditional cradle flowers, pastel backdrops, and balloon photo zones on /services/baby-shower-decoration. For Griha Pravesh and housewarming days, we craft fresh mango leaf entrance torans, marigold door frames, and mandapa florals with brass diyas.',
+      'Navigating Bangalore Apartment Society Rules: High-rise communities in Whitefield, Bellandur, Sarjapur Road, and Electronic City often have strict vendor-entry timings and elevator rules. Always notify security or pre-approve vendor entry via MyGate/NoBrokerHood, book the service lift 30 minutes in advance, and inform our team of afternoon quiet hours so installation runs smoothly without building complaints.',
+      'Zero Wall Damage Guarantee: We never hammer nails into rented or newly painted apartment walls. Everything is mounted using self-standing truss frames or non-damaging painter-grade adhesives. Same-day teardown can be pre-scheduled so your living room is completely tidy before midnight.',
+      'To book your home setup anywhere in Bangalore, send 2–3 photos of your living room or terrace along with your event date and preferred theme on WhatsApp. We will provide an honest, itemized quote within minutes.',
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {

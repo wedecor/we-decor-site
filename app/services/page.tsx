@@ -134,7 +134,7 @@ export default function ServicesPage() {
           buildServicesHubGraph({
             name: 'Event Decoration Services — We Decor Bangalore',
             description:
-              'Decoration is our signature craft — birthdays, weddings, haldi, engagements, corporate events, and more across Bengaluru.',
+              'Decoration is our signature craft — home celebrations, haldi, engagement, birthdays, weddings, corporate events, and more across Bengaluru.',
             services: listForSchema,
           }),
           siteBreadcrumbsToSchemaItems(CRUMBS)

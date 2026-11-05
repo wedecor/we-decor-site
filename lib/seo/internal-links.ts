@@ -118,21 +118,25 @@ const LABEL_BY_HREF = Object.fromEntries(
  */
 export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
   '/services/birthday-decoration': [
+    '/services/home-decoration',
     '/services/balloon-decoration',
     '/services/room-decoration',
     '/services/baby-shower-decoration',
   ],
   '/services/wedding-setup': [
+    '/services/home-decoration',
     '/services/haldi-decoration',
     '/services/engagement-decoration',
     '/services/floral-decoration',
   ],
   '/services/haldi-decoration': [
+    '/services/home-decoration',
     '/services/floral-decoration',
     '/services/wedding-setup',
     '/services/engagement-decoration',
   ],
   '/services/engagement-decoration': [
+    '/services/home-decoration',
     '/services/wedding-setup',
     '/services/floral-decoration',
     '/services/room-decoration',
@@ -163,6 +167,7 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
     '/services/engagement-decoration',
   ],
   '/services/baby-shower-decoration': [
+    '/services/home-decoration',
     '/services/birthday-decoration',
     '/services/balloon-decoration',
     '/services/room-decoration',
@@ -178,9 +183,12 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
     '/services/engagement-decoration',
   ],
   '/services/home-decoration': [
-    '/services/room-decoration',
-    '/services/birthday-decoration',
     '/services/haldi-decoration',
+    '/services/engagement-decoration',
+    '/services/birthday-decoration',
+    '/services/baby-shower-decoration',
+    '/services/wedding-setup',
+    '/services/room-decoration',
   ],
   '/services/terrace-decoration': [
     '/services/proposal-decoration',

@@ -49,7 +49,7 @@ export async function GET() {
 | Anniversary Decoration | ₹5,000 | Bedrooms, living rooms, private dining spaces | ${base}/services/anniversary-decoration |
 | Balloon Decoration | ₹5,000 | Homes, offices, clubhouses, banquet halls | ${base}/services/balloon-decoration |
 | Fresh Floral Decoration | ₹5,000 | Pooja rooms, entrances, wedding stages, halls | ${base}/services/floral-decoration |
-| Housewarming (Griha Pravesh) Decor | ₹5,000 | Independent houses, villas, new apartments | ${base}/services/home-decoration |
+| Home Event Decoration (Haldi, Engagement, Birthday, Puja) | ₹3,000 | Apartments, flats, independent houses, villas | ${base}/services/home-decoration |
 | Nikah Stage & Floral Decor | ₹5,000 | Shadi mahals, banquet halls, mosques, homes | ${base}/services/nikah-decoration |
 | Terrace & Rooftop Decoration | ₹5,000 | Apartment terraces, villa rooftops, penthouses | ${base}/services/terrace-decoration |
 | Cabana Tent & Balloon Setup | ₹5,000 | Living rooms, balconies, terraces, lawns | ${base}/services/tent-balloon-setup |
@@ -62,6 +62,8 @@ export async function GET() {
   At ${NAP.name}, Haldi ceremony decoration starts from ₹5,000 for home and terrace marigold backdrops and scales to custom brass urli, floral canopy, and stage setups for banquet halls across Jayanagar, JP Nagar, Basavanagudi, Whitefield, and all of Bengaluru.
 - **How much does birthday balloon decoration at home cost in Bangalore?**
   Home birthday balloon arches and backdrop setups by ${NAP.name} start from ₹3,000 in Bangalore, including setup and teardown.
+- **Does ${NAP.name} provide home event decoration for Haldi, engagement, and small rituals?**
+  Yes. ${NAP.name} specializes in apartment-friendly and home decoration across Bangalore — including home Haldi with turmeric splash protection from ₹5,000, intimate home engagement floral arches from ₹5,000, living room birthdays from ₹3,000, and Griha Pravesh puja florals with zero wall damage.
 - **How do I book ${NAP.name} in Bangalore?**
   Call or WhatsApp ${NAP.telephoneDisplay} (or +91 95912 32166) with your event date, Bangalore locality, and occasion, or visit ${base}/contact.
 

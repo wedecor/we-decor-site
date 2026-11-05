@@ -1382,42 +1382,58 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'home-decoration': {
       slug: 'home-decoration',
-      title: 'Home Event Decoration in Bangalore — From ₹5,000',
+      title: 'Home Decoration in Bangalore — Haldi, Engagement, Birthday from ₹3,000',
       description:
-        'Home decoration in Bangalore from ₹5,000 — apartment-friendly setups for birthdays, haldi, housewarming, pujas & intimate celebrations. 4.9★ rated.',
+        'Home decoration in Bangalore from ₹3,000 — home haldi setups, intimate engagement backdrops, birthdays, baby showers & housewarming pujas. 4.9★ rated.',
       serviceType: 'Home decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
-      eyebrow: 'Home celebrations · Bangalore',
-      headline: 'Make your home party-ready without losing the home',
+      eyebrow: 'Home celebrations & rituals · Bangalore',
+      headline: 'Home celebrations done right: Haldi, engagement, birthday & rituals',
       subheadline:
-        'Apartment-safe décor for living rooms, foyers and balconies—planned around lift bookings, seating, food service and your society’s rules.',
-      storyTitle: 'A practical plan for the space you actually live in',
+        'Apartment-friendly and house-safe décor for living rooms, terraces, foyers & balconies — designed around guest seating, lift timings, society guidelines, and zero wall damage.',
+      storyTitle: 'Custom ceremony & party setups for Bangalore homes and apartments',
       storyParagraphs: [
-        'A home event succeeds when guests can still sit, serve food and move through the room. We review photos before proposing a focal wall, dining treatment or entrance detail, instead of filling every available surface.',
-        'For a modest birthday, one well-designed photo zone may be all you need. A larger festival or housewarming can extend through the foyer and living area, with materials selected to suit access and cleanup.',
+        'Whether hosting a home Haldi with vibrant marigold backdrops and urli seating, an intimate ring ceremony with family, a colorful birthday balloon garland, or a sacred Griha Pravesh pooja, your home deserves thoughtful decoration that doesn’t compromise everyday space.',
+        'We tailor every setup to your specific floorplan — whether a 2BHK/3BHK apartment in Whitefield, Bellandur, or HSR Layout, or an independent house in Jayanagar or JP Nagar. We protect your walls with non-damaging adhesive fixtures, coordinate vendor entry and lift permissions with society security, and leave floor space open for dining and guest movement.',
+        'From compact backdrop focal walls to multi-zone home transformations (entrance torans, balcony photo corners, dining overlays), quotes are transparent and itemized with setup and prompt teardown included.',
       ],
       highlights: [
         {
-          title: 'Lift-aware logistics',
-          description: 'Materials packed for Bangalore apartment elevators and staircases.',
+          title: 'Home Haldi & Mehndi',
+          description:
+            'Yellow drapes, fresh marigold backdrops, brass urli seating, and floor-protection sheets to prevent turmeric stains.',
         },
         {
-          title: 'Multi-room planning',
-          description: 'Foyer welcome + living focal wall without blocking kitchen traffic.',
+          title: 'Home Engagement & Rings',
+          description:
+            'Circular floral frames, pastel fabric backdrops, sofa styling, and warm fairy lights tailored to living room dimensions.',
         },
         {
-          title: 'Festival & party modes',
-          description: 'Pooja accents, birthday zones, or dinner styling on request.',
+          title: 'Home Birthday Balloons',
+          description:
+            'Organic balloon garlands, themed arch backdrops, cake table styling, and customized neon signs for kids and adults.',
         },
         {
-          title: 'Clean teardown',
-          description: 'We leave homes guest-ready — trash bagged, surfaces cleared.',
+          title: 'Baby Shower & Naming',
+          description:
+            'Gentle pastel arches, traditional cradle floral styling, and family portrait corners.',
+        },
+        {
+          title: 'Griha Pravesh & Pujas',
+          description:
+            'Fresh mango-leaf entrance torans, marigold door frames, and mandapa floral accents for housewarmings.',
+        },
+        {
+          title: 'Zero Wall Damage',
+          description:
+            'Freestanding structures and non-marking adhesive hooks designed for Bangalore apartment society rules.',
         },
       ],
       gallery: [
-        img('room decor', 0, 'Living-room home decoration for a private Bengaluru celebration'),
-        img('birthday', 3, 'Apartment birthday styling with clear seating lanes'),
-        img('haldi', 0, 'Home ceremony accents adapted to compact rooms'),
+        img('haldi', 0, 'Home haldi backdrop and urli seating in a Bangalore residence'),
+        img('engagement', 0, 'Intimate home engagement floral circle and sofa backdrop'),
+        img('birthday', 3, 'Apartment birthday balloon styling with clear seating lanes'),
+        img('room decor', 0, 'Romantic room decoration for a private Bengaluru celebration'),
       ],
       testimonial: {
         quote:
@@ -1426,7 +1442,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       },
       trustSignals: ['Apartment-safe methods', 'Festival slots', 'Same-day teardown options'],
       waPrefill:
-        'Hi We Decor! I need apartment-friendly home décor in Bangalore. Occasion: _____. Layout: _____. Date: _____. Society rules: _____.',
+        'Hi We Decor! I need home decoration in Bangalore (Haldi / Engagement / Birthday / Puja). Layout: _____. Date: _____. Locality: _____.',
       whyChooseUsEyebrow: 'Why homeowners hire us',
       whyChoose: [
         {
@@ -1444,34 +1460,42 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       styles: [
         {
-          title: 'Focal wall reset',
-          description: 'One strong backdrop anchoring the celebration.',
+          title: 'Home Haldi ritual zone',
+          description:
+            'Marigold backdrop with urli seating, cushion styling, and splash protection.',
         },
         {
-          title: 'Foyer welcome',
-          description: 'Entrance florals or balloons greeting guests first.',
+          title: 'Home engagement focal wall',
+          description: 'Floral circle arch behind the couple sofa with warm fairy lights.',
         },
         {
-          title: 'Dining overlay',
-          description: 'Table and chair accents for sit-down meals.',
+          title: 'Living-room birthday arch',
+          description:
+            'Balloon garland and themed cake table backdrop without blocking TV or doorways.',
         },
         {
-          title: 'Festival home trail',
-          description: 'Soft corridor and mandir-adjacent styling for puja days.',
+          title: 'Traditional cradle & puja',
+          description: 'Fresh jasmine and marigold strings for baby shower or Griha Pravesh.',
+        },
+        {
+          title: 'Foyer & entrance welcome',
+          description: 'Door torans, floral rangoli, and welcome easel for arriving guests.',
         },
       ],
       idealOccasions: [
-        'Home birthdays',
-        'Festival pooja décor',
-        'Housewarming accents',
-        'Private dinners',
-        'Kids play-area parties',
+        'Home Haldi & Mehndi ceremonies',
+        'Home Engagement & Ring exchanges',
+        'Living room & bedroom birthdays',
+        'Home Baby Shower (Seemantham) & Naming',
+        'Intimate Home Wedding & Nikah rituals',
+        'Housewarming (Griha Pravesh) & Pujas',
+        'Home Anniversary & Romantic surprises',
       ],
       included: [
         'Home walkthrough or photo review',
-        'Primary décor zone',
-        'Protective measures as needed',
-        'Install crew access planning',
+        'Primary décor zone (backdrop, florals, or balloons)',
+        'Protective floor sheets for Haldi/rituals',
+        'Install crew access & lift planning',
         'Teardown and basic cleanup',
         'WhatsApp coordination day-of',
       ],
@@ -1489,7 +1513,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         {
           title: 'Occasion-led styling',
           description:
-            'Birthday, puja, housewarming and private dinner requirements determine the focal areas.',
+            'Haldi, engagement, birthday, puja, and housewarming requirements determine the focal areas.',
         },
         {
           title: 'Room-by-room scale',
@@ -1504,34 +1528,37 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       popularDecorationOptions: [
         {
-          title: 'Living-room focal wall',
-          description: 'A photo-ready backdrop that leaves the rest of the room usable.',
+          title: 'Apartment Haldi ceremony setup',
+          description:
+            'Compact marigold frame, floor carpets, brass urli, and turmeric splash protection.',
         },
         {
-          title: 'Foyer welcome',
-          description: 'A compact arrival detail for guests entering the home.',
+          title: 'Intimate living-room engagement',
+          description:
+            'Couple sofa backdrop with floral arch ring, warm fairy lights, and custom name board.',
         },
         {
-          title: 'Dining treatment',
-          description: 'Table and chair accents for a hosted meal without blocking service.',
+          title: 'Kids or adult home birthday',
+          description: 'Pastel balloon garland, neon Happy Birthday sign, and cake plinth setup.',
         },
         {
-          title: 'Festival corner',
-          description: 'Puja-adjacent floral, fabric or light details suited to the home.',
+          title: 'Housewarming door & pooja décor',
+          description:
+            'Mango leaf toran, marigold door drape, and brass lamp styling for Griha Pravesh.',
         },
       ],
       suitableVenues: [
-        'Apartments',
-        'Villas',
+        'Apartments (1BHK, 2BHK, 3BHK, 4BHK)',
+        'Independent houses & villas',
         'Gated-community clubhouses',
-        'Private balconies',
-        'Home terraces',
+        'Private balconies & terraces',
+        'Living rooms & courtyards',
       ],
       optionalAddOns: [
-        'Cake-table styling',
+        'Haldi floor protection sheeting',
+        'Cake-table styling & plinths',
         'Welcome-board styling',
-        'Dining-table accents',
-        'Fresh florals',
+        'Brass urli with flower petals & floating candles',
         'Same-day teardown',
       ],
       budgetConsiderations: {
@@ -1539,14 +1566,14 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
           'Home decoration is quoted as a bespoke scope, not one-size-fits-all bundles, based on the rooms, materials and access involved.',
         points: [
           {
-            title: 'Number of areas',
+            title: 'Occasion & materials',
             description:
-              'A focal wall differs from styling the foyer, living room, dining area and balcony.',
+              'Fresh marigolds and brass urlis for Haldi, floral arches for engagement, or balloon garlands for birthdays.',
           },
           {
-            title: 'Materials and protection',
+            title: 'Number of areas',
             description:
-              'Floral density, fabrics, balloons and surface-safe installation methods affect the plan.',
+              'A single focal wall differs from styling the foyer, living room, dining area, and balcony together.',
           },
           {
             title: 'Building logistics',
@@ -1558,7 +1585,8 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       bookingProcess: [
         {
           step: 'Send room photos',
-          detail: 'Share the occasion, layout, date, society rules and the areas guests will use.',
+          detail:
+            'Share the occasion (Haldi, Engagement, Birthday, Puja), layout, date, and society rules.',
         },
         {
           step: 'Review the home',
@@ -1566,7 +1594,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         },
         {
           step: 'Confirm your scope',
-          detail: 'We recommend a tailored design, materials and quote.',
+          detail: 'We recommend a tailored design, materials and transparent quote.',
         },
         {
           step: 'Schedule access',
@@ -1586,56 +1614,66 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       themes: [
         {
-          name: 'Warm festive',
-          description: 'Marigold, diya accents, and soft drapes for celebrations.',
+          name: 'Warm festive & marigold',
+          description: 'Marigold, diya accents, and yellow drapes for Haldi, Mehndi, and Pujas.',
+        },
+        {
+          name: 'Blush & pastel romance',
+          description:
+            'Soft circular floral arches and fairy lights for home engagements and baby showers.',
         },
         {
           name: 'Modern pastel party',
-          description: 'Clean balloons and fabrics for kids and adults.',
+          description: 'Clean organic balloon garlands and customized neon signs for birthdays.',
         },
         {
-          name: 'Neutral dinner club',
-          description: 'Beige, wood, and greenery for intimate meals.',
-        },
-        {
-          name: 'Character corner',
-          description: 'Kids themes contained to one wall so the rest of the home stays calm.',
+          name: 'Traditional South Indian ritual',
+          description:
+            'Fresh jasmine, mango leaf toran, and brass lamps for Griha Pravesh and ceremonies.',
         },
       ],
       areasIntro: 'Home access requirements differ by community; these are frequent service areas.',
       relatedHrefs: [
-        '/services/room-decoration',
+        '/services/haldi-decoration',
+        '/services/engagement-decoration',
         '/services/birthday-decoration',
-        '/services/terrace-decoration',
-        '/services/balloon-decoration',
+        '/services/baby-shower-decoration',
+        '/services/room-decoration',
+        '/services/wedding-setup',
       ],
       ctaBody:
-        'Send room photos, BHK/layout details, occasion and society setup rules for a home-safe quote.',
+        'Send room photos, BHK/layout details, occasion (Haldi, Engagement, Birthday, Puja) and society setup rules for a home-safe quote.',
       faqs: [
+        {
+          question:
+            'Can you do Haldi decoration inside an apartment living room without turmeric stains?',
+          answer:
+            'Yes. We use heavy-duty floor drop cloths and waterproof mats beneath the urli and seating area to protect marble, vitrified tiles, and wooden flooring from turmeric stains. All backdrops are mounted on freestanding metal frames or non-marking hooks with zero nails.',
+        },
+        {
+          question: 'Can you fit an engagement decoration inside a normal apartment living room?',
+          answer:
+            'Yes. Most Bangalore apartment living rooms have 10–12 feet of usable width. We design compact 6ft to 8ft floral ring backdrops or fabric arches positioned behind your sofa, leaving ample space for family seating and photographer sightlines.',
+        },
+        {
+          question: 'What is the price of home decoration in Bangalore?',
+          answer:
+            'Home birthday balloon setups start from ₹3,000. Intimate home Haldi, engagement, baby shower, and Griha Pravesh floral backdrops typically start from ₹5,000 depending on fresh flower density and backdrop size. Quotes are fully customized with no hidden fees.',
+        },
         {
           question: 'Will you follow our apartment society rules?',
           answer:
             'Yes. Send vendor-entry, lift, noise and wall-fixture rules before confirmation. We build the plan around approved access instead of risking a delayed setup.',
         },
         {
-          question: 'How do you decorate a small 1BHK without making it crowded?',
+          question: 'Do you do home wedding or Nikah setups?',
           answer:
-            'We choose one focal zone and protect seating, food service and daily routes. A strong backdrop or dining detail is usually more effective than decorating every surface.',
+            'Yes, we regularly style courtyards, terraces, and spacious living rooms for intimate wedding rituals, small mandap setups, and Nikah backdrops with traditional florals and elegant draping.',
         },
         {
-          question: 'Can you plan for a child or pet at home?',
+          question: 'Do you use wall-safe hooks that will not damage paint?',
           answer:
-            'Yes. Tell us where they will be during setup and we will avoid loose floor items and keep tools contained. Pets should be secured while the team is working.',
-        },
-        {
-          question: 'What is the best budget option for a home celebration?',
-          answer:
-            'A single living-room focal wall or cake corner is the most efficient starting point. It delivers a clear photo area while leaving the home functional for guests.',
-        },
-        {
-          question: 'What does a premium home transformation cover?',
-          answer:
-            'Premium plans can combine the foyer, living room, dining area and a themed photo zone. Scope depends on the room layout, access and which areas guests will use.',
+            'Yes. We prioritize freestanding self-supported frames. Where wall attachment is necessary, we use high-grade removable painter-safe adhesive tapes or non-marking hooks so walls remain spotless.',
         },
         {
           question: 'Can you set up and remove décor the same day?',
