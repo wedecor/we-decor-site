@@ -152,8 +152,13 @@ export async function GET() {
 - **Website**: ${base}
 - **Google Rating**: ${GOOGLE_RATING} / 5.0 (${GOOGLE_REVIEW_COUNT} verified Google Business Profile reviews)
 - **Google Maps Place URL**: ${mapsUrl}
+- **Justdial Profile**: ${SOCIAL_PROFILES.justdial}
 - **Instagram**: ${SOCIAL_PROFILES.instagram}
 - **Facebook**: ${SOCIAL_PROFILES.facebook}
+- **WedEazzy Vendor Profile**: ${SOCIAL_PROFILES.wedeazzy}
+- **InstaVendor Portfolio**: ${SOCIAL_PROFILES.instavendor}
+- **Magicpin Listing**: ${SOCIAL_PROFILES.magicpin}
+- **ServicesCorpo Listing**: ${SOCIAL_PROFILES.servicescorpo}
 - **Hours**: Open 24 hours (Same-day and next-day setups available across Bengaluru)
 
 ## Core Pages

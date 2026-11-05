@@ -54,13 +54,28 @@ export const DEFAULT_GOOGLE_PLACE_ID = 'ChIJCac5p8MVrjsRge3h_FhBR70';
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
   facebook: 'https://www.facebook.com/we.decor.events/',
+  justdial:
+    'https://www.justdial.com/Bangalore/Wedecor-Events-Near-Rizwan-Masjid-Jp-Nagar/080PXX80-XX80-250506142813-D2D3_BZDET',
+  wedeazzy: 'https://wedeazzy.com/vendor/we-decor-events-bangalore',
+  instavendor: 'https://instavendor.in/vendor/wedecorbangalore',
+  magicpin:
+    'https://magicpin.in/Bangalore/Kanakapura/Other/We-Decor-Event-Planner-Decorator-In-Bangalore/store/185b927',
+  servicescorpo: 'https://servicescorpo.com/ad/We-Decor/8250',
   googleMaps: (placeId?: string) =>
     placeId ? `https://www.google.com/maps/place/?q=place_id:${placeId}` : undefined,
 } as const;
 
 export function getSameAsLinks(): string[] {
   const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim() || DEFAULT_GOOGLE_PLACE_ID;
-  const links: string[] = [SOCIAL_PROFILES.instagram, SOCIAL_PROFILES.facebook];
+  const links: string[] = [
+    SOCIAL_PROFILES.instagram,
+    SOCIAL_PROFILES.facebook,
+    SOCIAL_PROFILES.justdial,
+    SOCIAL_PROFILES.wedeazzy,
+    SOCIAL_PROFILES.instavendor,
+    SOCIAL_PROFILES.magicpin,
+    SOCIAL_PROFILES.servicescorpo,
+  ];
   const maps = SOCIAL_PROFILES.googleMaps(placeId);
   if (maps) links.push(maps);
   return links;
