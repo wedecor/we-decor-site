@@ -19,4 +19,14 @@ describe('robots.txt', () => {
     expect(disallow.some((d) => '/_next/image'.startsWith(d))).toBe(false);
     expect(disallow.some((d) => '/image-sitemap'.startsWith(d))).toBe(false);
   });
+
+  it('explicitly allows major AI search crawlers (ChatGPT, Perplexity, Claude, Gemini)', () => {
+    const rules = ([] as NonNullable<typeof result.rules>[]).concat(result.rules ?? []).flat();
+    const agents = rules.flatMap((r) => ([] as string[]).concat(r.userAgent ?? []));
+    expect(agents).toContain('OAI-SearchBot');
+    expect(agents).toContain('ChatGPT-User');
+    expect(agents).toContain('PerplexityBot');
+    expect(agents).toContain('ClaudeBot');
+    expect(agents).toContain('Google-Extended');
+  });
 });

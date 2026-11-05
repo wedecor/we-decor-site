@@ -1,10 +1,12 @@
 import {
+  DEFAULT_GOOGLE_PLACE_ID,
   GEO,
   GOOGLE_RATING,
   GOOGLE_REVIEW_COUNT,
   NAP,
   OPENING_HOURS,
   SCHEMA_IDS,
+  SOCIAL_PROFILES,
   getSameAsLinks,
 } from '@/lib/local-seo/constants';
 import {
@@ -68,6 +70,21 @@ export function buildLocalBusiness(options?: {
     geo: buildGeoCoordinates(),
     openingHoursSpecification: buildOpeningHoursSpecification(),
     areaServed: bangaloreAreaServed(locality),
+    hasMap: SOCIAL_PROFILES.googleMaps(DEFAULT_GOOGLE_PLACE_ID),
+    knowsAbout: [
+      'Event Decoration in Bangalore',
+      'Haldi Decoration in Bangalore',
+      'Birthday Balloon Decoration in Bangalore',
+      'Wedding Stage and Mandap Decoration in Bangalore',
+      'Engagement and Ring Ceremony Decoration in Bangalore',
+      'Baby Shower and Seemantham Decoration in Bangalore',
+      'Bridal Room and First Night Decoration in Bangalore',
+      'Romantic Proposal Decoration in Bangalore',
+      'Wedding Car Decoration in Bangalore',
+      'Fresh Floral Decoration in Bangalore',
+      'Nikah Stage Decoration in Bangalore',
+      'Housewarming (Griha Pravesh) Floral Decoration',
+    ],
     sameAs: getSameAsLinks(),
     contactPoint: [
       {

@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, priority: 0.5 },
     { url: `${base}/reviews`, priority: 0.7 },
     { url: `${base}/locations`, priority: 0.8 },
+    { url: `${base}/llms.txt`, priority: 0.6 },
+    { url: `${base}/llms-full.txt`, priority: 0.6 },
     { url: `${base}/privacy`, priority: 0.2 },
     // `/thank-you` is deliberately absent — it is noindex, and a confirmation
     // page reached without submitting anything is a poor search result.
