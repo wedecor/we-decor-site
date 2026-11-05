@@ -18,12 +18,13 @@ function xmlEscape(value: string): string {
     .replace(/'/g, '&apos;');
 }
 
-function imageNodes(images: WorkImage[]): string {
+function imageNodes(images: WorkImage[], base: string): string {
   return images
     .map((w) => {
+      const loc = workUrl(w).startsWith('http') ? workUrl(w) : `${base}${workUrl(w)}`;
       return `
       <image:image>
-        <image:loc>${xmlEscape(workUrl(w))}</image:loc>
+        <image:loc>${xmlEscape(loc)}</image:loc>
         <image:title><![CDATA[${w.alt}]]></image:title>
         <image:caption><![CDATA[${w.alt}]]></image:caption>
         <image:geo_location>Bengaluru, Karnataka, India</image:geo_location>
@@ -32,7 +33,7 @@ function imageNodes(images: WorkImage[]): string {
     .join('');
 }
 
-function urlBlock(loc: string, images: WorkImage[]): string {
+function urlBlock(loc: string, images: WorkImage[], base: string): string {
   if (!images.length) {
     return `
   <url>
@@ -42,7 +43,7 @@ function urlBlock(loc: string, images: WorkImage[]): string {
   return `
   <url>
     <loc>${xmlEscape(loc)}</loc>
-    ${imageNodes(images)}
+    ${imageNodes(images, base)}
   </url>`;
 }
 
@@ -51,18 +52,18 @@ export async function GET() {
 
   const localityBlocks = getAllAreaSlugs().map((slug) => {
     const shown = workShownOn(slug);
-    return urlBlock(`${base}/locations/${slug}`, [...shown.local, ...shown.nearby]);
+    return urlBlock(`${base}/locations/${slug}`, [...shown.local, ...shown.nearby], base);
   });
 
   const serviceBlocks = INDEXABLE_SERVICE_PATHS.map((path) => {
     const slug = path.replace(/^\/services\//, '');
-    return urlBlock(`${base}${path}`, workForService(slug).slice(0, 12));
+    return urlBlock(`${base}${path}`, workForService(slug).slice(0, 12), base);
   });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${urlBlock(`${base}/gallery`, WORK)}
+${urlBlock(`${base}/gallery`, WORK, base)}
 ${localityBlocks.join('')}
 ${serviceBlocks.join('')}
 </urlset>`;

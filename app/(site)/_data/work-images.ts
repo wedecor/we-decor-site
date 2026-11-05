@@ -29,6 +29,21 @@ export const CLOUDINARY_BASE =
   'https://res.cloudinary.com/dux3m2saz/image/upload/f_auto,q_auto/we-decor/web-set/';
 
 export const WORK: WorkImage[] = [
+  { file: '/work/haldi/haldi-ceremony-traditional-marigold-stage-bangalore.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2026-01-28', width: 1600, height: 900, orientation: 'landscape', alt: 'Haldi ceremony traditional yellow marigold floral backdrop in Bangalore by We Decor Events' },
+  { file: '/work/haldi/haldi-urli-floral-backdrop-bangalore.webp', occasion: 'Haldi', service: 'haldi-decoration', areaSlug: null, date: '2022-07-21', width: 1600, height: 717, orientation: 'landscape', alt: 'Traditional Haldi ceremony decor with brass urli and fresh flowers in Bangalore by We Decor Events' },
+  { file: '/work/wedding/wedding-stage-mandap-fresh-flower-decoration-bangalore.webp', occasion: 'Wedding', service: 'wedding-decoration', areaSlug: null, date: '2025-09-26', width: 1600, height: 900, orientation: 'landscape', alt: 'Wedding stage mandap decoration with fresh floral garlands in Bangalore by We Decor Events' },
+  { file: '/work/wedding/wedding-reception-floral-backdrop-bangalore.webp', occasion: 'Wedding', service: 'wedding-decoration', areaSlug: null, date: '2025-12-05', width: 1600, height: 900, orientation: 'landscape', alt: 'Grand wedding reception stage backdrop and couple seating in Bangalore by We Decor Events' },
+  { file: '/work/wedding/wedding-entrance-flower-arch-decoration-bangalore.webp', occasion: 'Wedding', service: 'wedding-decoration', areaSlug: null, date: '2025-10-02', width: 1600, height: 900, orientation: 'landscape', alt: 'Wedding entrance floral archway and venue welcoming decor in Bangalore by We Decor Events' },
+  { file: '/work/engagement/engagement-stage-floral-arch-decoration-bangalore.webp', occasion: 'Engagement', service: 'wedding-decoration', areaSlug: null, date: '2026-03-01', width: 900, height: 1600, orientation: 'portrait', alt: 'Engagement ceremony floral stage arch and couple seating decoration in Bangalore by We Decor Events' },
+  { file: '/work/engagement/ring-ceremony-stage-backdrop-bangalore.webp', occasion: 'Engagement', service: 'wedding-decoration', areaSlug: null, date: '2026-03-01', width: 1600, height: 900, orientation: 'landscape', alt: 'Ring ceremony stage backdrop with pastel flowers and warm lighting in Bangalore by We Decor Events' },
+  { file: '/work/baby-shower/baby-shower-seemantham-marigold-decoration-bangalore.webp', occasion: 'Baby shower', service: 'baby-shower-decoration', areaSlug: null, date: '2022-10-16', width: 1600, height: 717, orientation: 'landscape', alt: 'Traditional Seemantham and baby shower marigold floral decoration in Bangalore by We Decor Events' },
+  { file: '/work/baby-shower/baby-shower-pastel-balloon-ring-backdrop-bangalore.webp', occasion: 'Baby shower', service: 'baby-shower-decoration', areaSlug: null, date: '2025-09-28', width: 1600, height: 900, orientation: 'landscape', alt: 'Oh Baby pastel balloon ring backdrop and teddy decoration in Bangalore by We Decor Events' },
+  { file: '/work/bridal-room/bride-to-be-room-decoration-bangalore.webp', occasion: 'Bridal room', service: 'home-decoration', areaSlug: null, date: '2025-12-06', width: 900, height: 1600, orientation: 'portrait', alt: 'Bride to be bedroom surprise balloon and fairy light decoration in Bangalore by We Decor Events' },
+  { file: '/work/bridal-room/bridal-shower-room-balloon-decor-bangalore.webp', occasion: 'Bridal room', service: 'home-decoration', areaSlug: null, date: '2025-12-25', width: 900, height: 1600, orientation: 'portrait', alt: 'Bridal shower room decoration with pastel balloon arch in Bangalore by We Decor Events' },
+  { file: '/work/bridal-room/bachelorette-bridal-room-setup-bangalore.webp', occasion: 'Bridal room', service: 'home-decoration', areaSlug: null, date: '2026-01-25', width: 900, height: 1600, orientation: 'portrait', alt: 'Bachelorette and bridal bedroom styling with lights and balloons in Bangalore by We Decor Events' },
+  { file: '/work/proposal/romantic-terrace-proposal-cabana-bangalore.webp', occasion: 'Proposal', service: 'proposal-decoration', areaSlug: null, date: '2023-08-15', width: 1200, height: 1600, orientation: 'portrait', alt: 'Romantic terrace cabana tent proposal setup with fairy lights in Bangalore by We Decor Events' },
+  { file: '/work/proposal/marry-me-neon-proposal-decoration-bangalore.webp', occasion: 'Proposal', service: 'proposal-decoration', areaSlug: null, date: '2025-10-15', width: 1600, height: 900, orientation: 'landscape', alt: 'Will You Marry Me neon light and heart arch proposal decoration in Bangalore by We Decor Events' },
+  { file: '/work/proposal/candlelight-rooftop-proposal-setup-bangalore.webp', occasion: 'Proposal', service: 'proposal-decoration', areaSlug: null, date: '2023-02-19', width: 1203, height: 1600, orientation: 'portrait', alt: 'Candlelight rooftop proposal setup with rose petal pathway in Bangalore by We Decor Events' },
   { file: 'bridal-room/bridal-room-electronic-city-2025-05-31-1.webp', occasion: 'Bridal room', service: 'home-decoration', areaSlug: 'electronic-city', date: '2025-05-31', width: 900, height: 1600, orientation: 'portrait', alt: 'Bridal room decoration by We Decor in Electronic City, Bengaluru' },
   { file: 'bridal-room/bridal-room-electronic-city-2025-05-31-2.webp', occasion: 'Bridal room', service: 'home-decoration', areaSlug: 'electronic-city', date: '2025-05-31', width: 900, height: 1600, orientation: 'portrait', alt: 'Bridal room decoration by We Decor in Electronic City, Bengaluru' },
   { file: 'bridal-room/bridal-room-electronic-city-2025-05-31-3.webp', occasion: 'Bridal room', service: 'home-decoration', areaSlug: 'electronic-city', date: '2025-05-31', width: 900, height: 1600, orientation: 'portrait', alt: 'Bridal room decoration by We Decor in Electronic City, Bengaluru' },
@@ -604,5 +619,8 @@ export function workHeading(slug: string, areaName: string): string {
     : 'Our work across Bengaluru';
 }
 
-/** Full Cloudinary URL for an image. */
-export const workUrl = (w: WorkImage): string => `${CLOUDINARY_BASE}${w.file}`;
+/** Full Cloudinary or absolute/relative URL for an image. */
+export const workUrl = (w: WorkImage): string => {
+  if (w.file.startsWith('/') || w.file.startsWith('http')) return w.file;
+  return `${CLOUDINARY_BASE}${w.file}`;
+};
