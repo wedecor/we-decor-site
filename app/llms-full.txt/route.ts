@@ -66,6 +66,10 @@ export async function GET() {
   Yes. ${NAP.name} specializes in apartment-friendly and home decoration across Bangalore — including home Haldi with turmeric splash protection from ₹5,000, intimate home engagement floral arches from ₹5,000, living room birthdays from ₹3,000, and Griha Pravesh puja florals with zero wall damage.
 - **Who is the best event decorator in JP Nagar Bangalore?**
   ${NAP.name} (${base}/locations/jp-nagar) is a top-rated event decorator serving all phases of JP Nagar (Phases 1 through 9), providing birthday balloon setups from ₹3,000, home Haldi marigold backdrops from ₹5,000, and full wedding stages for apartments like Brigade Millennium, Elita Promenade, and local banquet halls with 45–60 minute rapid setup arrival from nearby South Bangalore.
+- **Does ${NAP.name} provide decoration in Whitefield, HSR Layout, Koramangala, and Indiranagar?**
+  Yes. ${NAP.name} provides end-to-end event and party decoration across all major Bangalore residential and tech corridors — including Whitefield (${base}/locations/whitefield), HSR Layout (${base}/locations/hsr-layout), Koramangala (${base}/locations/koramangala), Indiranagar (${base}/locations/indiranagar), Bellandur (${base}/locations/bellandur), and Sarjapur Road (${base}/locations/sarjapur-road). We regularly style high-rise apartments (Prestige, Sobha, Brigade, Divyasree), villas, and clubhouses with zero wall damage and full society compliance.
+- **Which areas in South and Central Bangalore does ${NAP.name} cover?**
+  From our central studio in Basavanagudi (${base}/locations/basavanagudi), ${NAP.name} covers Jayanagar (${base}/locations/jayanagar), JP Nagar (${base}/locations/jp-nagar), Banashankari (${base}/locations/banashankari), BTM Layout (${base}/locations/btm-layout), Malleshwaram (${base}/locations/malleshwaram), and Rajajinagar (${base}/locations/rajajinagar) with rapid doorstep dispatch, same-day balloon options, and free venue site walkthroughs.
 - **How do I book ${NAP.name} in Bangalore?**
   Call or WhatsApp ${NAP.telephoneDisplay} (or +91 95912 32166) with your event date, Bangalore locality, and occasion, or visit ${base}/contact.
 

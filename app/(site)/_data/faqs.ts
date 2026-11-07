@@ -2,1513 +2,1304 @@ export type FAQItem = { q: string; a: string };
 
 /** Per-locality FAQ collections — fully unique Q&A, no shared templates. */
 export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
-  'ashok-nagar': [
-    {
-      q: 'How do church aisle rules in Ashok Nagar change floral placement?',
-      a: 'Many churches near Ashok Nagar Main Road keep centre aisles clear for processions and wheelchair access. Tall freestanding stands belong at the sides, not mid-aisle. Confirm candle and fabric rules with the coordinator before choosing blooms that shed heavily on pews. Soft florals photograph well against older interiors when they do not fight stained glass colour. Leave a spare metre at the altar rail so priests and photographers can pass without moving arrangements mid-service.',
-    },
-    {
-      q: 'Why does Richmond Circle traffic matter for apartment load-in timing?',
-      a: 'Richmond Circle bottlenecks after office hours, so vans that aim for early evening often idle at the gate. Book freight or service-lift windows earlier than central-city habit suggests. Compact kits that fit stairwells beat oversized frames when lifts are shared with residents returning home. Tell security how many staff will arrive and which vehicle will wait briefly. A short dusk site walk reveals how long the final approach actually takes on your date.',
-    },
-    {
-      q: 'What staircase measurements should hosts share before tall arches arrive?',
-      a: 'Heritage residential buildings often place halls above shops with narrow turns. Photograph stair width, handrail height, and landing depth before ordering rigid boards. Fabric drapes that fold flat travel cleaner than solid panels. If the apartment society bans lobby staging, plan inflation or assembly inside the booked room only. Share door-swing direction so entrance pieces do not trap guests against walls when the door opens fully.',
-    },
-    {
-      q: 'How should mixed tube and warm bulb lighting guide colour choices in community halls?',
-      a: 'Older halls mix harsh tubes with warm bulbs, which makes pure white blooms glare in photos. Slightly cream florals and muted metallics hold up better under that mix. Test a sample bouquet under the actual lights during a daytime visit. Avoid ceiling fills that hide already uneven fixtures. Guests notice proportion and light more than volume once seating fills the room.',
-    },
-    {
-      q: 'Where should naming-ceremony seating leave space for elders with walking aids?',
-      a: 'Living-room setups need clear door frames and spare floor along the main path from entrance to seating. Place low arrangements on side tables rather than blocking the centre. Community halls should keep one aisle wider than the others for walkers and wheelchairs. Confirm guest count including elders early so floral volume does not shrink usable floor. Standing welcome zones work better than crowded arches in compact apartments.',
-    },
-    {
-      q: 'Can shared stairwells with catering kitchens limit décor staging?',
-      a: 'Hall bookings often share corridors with kitchens, so floral staging belongs away from catering paths. Mark cable runs before guests arrive on mixed floors that trip easily in low light. Keep spare cable covers for older surfaces. Decide standing versus seated zones before any arch goes up so waiters and décor staff are not competing for the same metre of floor during peak service.',
-    },
-    {
-      q: 'Which photo corners work in compact Ashok Nagar apartments without crowding neighbours?',
-      a: 'A single structured frame against a clear wall reads better than multiple balloon clusters in narrow flats. Soft florals and muted metallics suit heritage residential interiors more than neon themes. Keep volume neighbour-friendly for evening events. Measure balcony light at event hour; afternoon glare can wash pastel tones. Leave the second bedroom or kitchen access free so hosts can still move during the celebration.',
-    },
-    {
-      q: 'What should hosts check when comparing two halls on the same street?',
-      a: 'Walk both rooms at dusk. Light quality will tell you which palette belongs before any moodboard does. Note pillar gaps, door swings, and where catering claims floor space. Ask whether neighbouring events share the corridor on your date. The quieter room with clearer circulation usually photographs better than the larger room with broken sightlines.',
-    },
-  ],
-  banashankari: [
-    {
-      q: 'How do temple calendars shape a full-day décor sequence around Banashankari Temple?',
-      a: 'Morning puja décor, afternoon lunch tables, and evening reception colour often share one day near the Banashankari Temple precinct. Bright yet balanced palettes hold across those shifts better than monochrome schemes that feel cold in large halls. Plan a lighter welcome for the ritual segment and a fuller stage for the social half. Share guest-count ranges for each segment so seating and floral volume stay realistic as the crowd grows.',
-    },
-    {
-      q: 'What changes between BSK 2nd Stage and BSK 3rd Stage arrival patterns?',
-      a: 'BSK 2nd Stage and BSK 3rd Stage bring different parking pockets and guest approach lanes. Welcome signage should name the exact stage so first-time visitors do not circle temple-adjacent streets. Festival weeks fill hall slots early across these large residential blocks. Evening traffic between stages stretches vendor arrival more than maps suggest. Send a floor sketch with door swings marked so teams do not guess the entrance under congestion.',
-    },
-    {
-      q: 'When should vans avoid Banashankari Temple gate peaks?',
-      a: 'Darshan peaks trap décor vans near temple gates and delay flowers that need cool storage. Schedule load-in around those windows rather than fighting them. Temple-linked spaces often forbid wall fixings, so freestanding pieces matter. Quiet load-in respects worshippers still moving through the precinct. Confirm coordinator rules for garlanding before entrance pieces are designed.',
-    },
-    {
-      q: 'Why measure pillar locations before sketching a stage backdrop?',
-      a: 'Many community halls across Banashankari break sightlines with columns. A backdrop that ignores pillars looks unfinished once guests sit. Confirm if the hall shares a building with a temple kitchen or parking basement. Place the welcome garland where flow from entrance to seating stays obvious. Leave a clear path for elders moving between ritual and meal segments without crossing cable runs.',
-    },
-    {
-      q: 'How can ritual and kids segments share one hall without visual clash?',
-      a: "Floral mandaps give the ritual a clear centre while structured balloon columns keep children's areas playful without flooding the whole room. Busy cartoon themes fight temple aesthetics; tune saturation so both halves look intentional. Continuity across colour families works better than identical arches copied twice. Reusable fabric backdrops and seasonal blooms reduce single-use clutter when the day already has multiple installs.",
-    },
-    {
-      q: 'What midday versus dusk checks matter for Banashankari hall florals?',
-      a: "Natural light under Bengaluru afternoon haze changes how blooms read by evening. Soft pastels suit elders' functions; brighter balloon work still leads kids' parties after dusk lamps take over. Check the room at both times before locking whites that may glare under tubes. Cable runs should stay marked and taped before guests arrive on uneven older floors.",
-    },
-    {
-      q: 'Should apartment cradle ceremonies match temple-linked hall colour exactly?',
-      a: 'A lighter home welcome and a fuller hall stage usually read better than matching installs. Balcony light and living-room proportions in Banashankari apartments limit volume that halls can carry. Echo one accent colour rather than repeating full frames. Gate passes for apartment societies save lobby waits when the same family moves between home ritual and hall lunch the same morning.',
-    },
-    {
-      q: 'How far ahead do festival weeks lock community hall slots here?',
-      a: 'Festival weeks across Banashankari fill booking slots early, especially near temple calendars. Lock the hall window before colour finalisation so floral delivery aligns with priest timing. Multi-segment days are common; ritual first, then a lighter social look in the same colour family. Confirm neighbouring event schedules so corridors are not double-booked at your load-in hour.',
-    },
-  ],
   bangalore: [
     {
-      q: 'Why treat pin codes as design constraints on multi-venue Bengaluru days?',
-      a: 'A ceremony near Cubbon Park and a reception across town are two installs, not one mood. Share exact pin codes early so travel time protects flower freshness. Build a colour bridge so guests recognise continuity without identical décor. Traffic windows shape freshness as much as taste does. Plan the clock first, then the palette, especially when apartments, banquet halls, rooftops, and villas appear in one itinerary.',
+      q: 'What event decoration services do you provide in Bangalore?',
+      a: 'We provide complete event and party decoration across Bangalore — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, banquet halls, rooftops.',
     },
     {
-      q: 'What rooftop flame and structure rules should be written, not verbal?',
-      a: 'Rooftop venues across Bangalore often restrict open flame and tall structures. Verbal nods fail when security changes mid-evening. Demand written limits on height, ballast, and strike times. Wind-aware florals matter more than ceiling fills outdoors. Keep a simple rain cover ready even in dry months; outdoor segments still face sudden showers.',
+      q: 'How much does birthday balloon decoration at home cost in Bangalore?',
+      a: 'Our home birthday balloon decoration in Bangalore starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'How do MG Road evening parking waves affect welcome décor timing?',
-      a: 'When guest itineraries mention MG Road, parking clusters shift and corridors fill in pulses. Open welcome pieces after the first wave can land, not before the street is gridlocked. Align florist delivery with kitchen load-in so shared passages stay clear. First-time visitors benefit from landmark-aware signage without cluttering the entrance.',
+      q: 'Can you decorate apartment clubhouses and flats in Bangalore?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Bangalore near MG Road, Cubbon Park, UB City. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'When does a villa lawn need a different scale than a CBD banquet?',
-      a: 'Villa lawns open space for mandaps and longer gate-to-stage journeys. Banquet halls reward cleaner stage fronts and controlled lighting. Survey power points, rain cover, and lift access before locking heights. A rooftop in the CBD reads differently from an edge-of-city villa. Start from guest profile and room type rather than a generic city template.',
+      q: 'Do you offer same-day or next-day event decoration in Bangalore?',
+      a: 'Yes. We accept same-day and next-day bookings across Bangalore based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What corporate hosts near UB City usually need that family hosts do not?',
-      a: 'Corporate evenings lean toward clean lines, brand-safe neutrals, and discreet logo placement. Family hosts prefer florals, traditional colour, and welcoming entrances. Hybrid formats keep rising: small sacred ceremonies followed by polished receptions. Materials that travel well between neighbourhoods matter more than a single signature style when teams cross Bangalore in one day.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Bangalore?',
+      a: 'For home Haldi ceremonies in Bangalore, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
     },
     {
-      q: 'How should Cubbon Park morning light influence outdoor floral choices?',
-      a: 'Morning outdoor segments near Cubbon Park favour fresher greens and blooms that hold under bright haze. Heavy dark colour can feel oppressive in open daylight. Photograph ceiling height and window direction on indoor site visits the same day so the indoor half matches outdoor softness. Keep spare weights for freestanding outdoor frames when breeze picks up after noon.',
-    },
-    {
-      q: 'Which apartment neighbour constraints still apply on city-wide guest lists?',
-      a: 'Apartments suit smaller birthday evenings and home rituals where neighbour walls matter regardless of how far guests travel. Quiet hours, lift booking, and lobby staging rules remain fixed. Camera-ready corners help without turning the whole flat into a set. Share a realistic guest-count range early so seating and floral volume stay honest for the room.',
-    },
-    {
-      q: 'Why keep rain cover on the checklist even outside monsoon weeks?',
-      a: 'Bengaluru shoulder-season showers still interrupt rooftop and villa lawn segments. A simple sheet and indoor backup layout prevent last-minute scrambling. Reusable stage frames travel cleaner between neighbourhoods than fragile one-off props. Hosts increasingly want calm finish over loud themes; weather planning is part of that calm, not an afterthought. Keep one spare indoor layout sketch ready so the team can relocate freestanding pieces within minutes.',
-    },
-  ],
-  'bannerghatta-road': [
-    {
-      q: 'How do campus vendor IDs near IIM Bangalore affect décor timelines?',
-      a: 'Educational institution spaces near IIM Bangalore often need days of lead time for vendor IDs and security clearances. Kits must pack down cleanly after convocations or alumni evenings. Strict timing windows leave little room for oversized installs. Confirm power and AV sharing so décor lighting does not trip circuits already booked for presentations.',
-    },
-    {
-      q: 'What lawn details matter before tall floral stands go up at villas?',
-      a: 'Measure lawn slopes and mark irrigation heads before tall pieces arrive. Open green belts along Bannerghatta Road bring more wind than inner-city lanes by late afternoon. Spare weights and fabric clips save frantic dusk fixes. Modular pieces that move through narrower villa gates help when trucks cannot enter. Test freestanding frames before the first guest walks the driveway.',
-    },
-    {
-      q: 'Why does weekend traffic toward Bannerghatta National Park tighten load-in?',
-      a: 'Guest cars fill approach roads fast on Saturdays when park traffic overlaps residential events. Call teams earlier than weekday habits suggest. JP Nagar spillover compounds the same corridor. Stagger welcome décor if guests arrive from different directions. Use park approaches only to understand congestion—not as a venue assumption. Tell security your expected van arrival window so the gate is not closed when flowers need cool shade.',
-    },
-    {
-      q: 'Which palettes sit easily against tree shade and garden edges?',
-      a: 'Natural textures, soft greens, timber tones, and botanical florals respond to the green educational corridor. Neon themes clash with campus lawns and villa gardens. Linen drapes and measured balloon accents still read festive under shifting daylight. Choose blooms that hold colour when shade patterns move across lawns through the afternoon.',
-    },
-    {
-      q: 'How should academic farewell photo corners stay warm without carnival volume?',
-      a: 'Parents hosting academic farewells often want a warm photo corner without turning the lawn into a fairground. Framing beats fill against leafy backdrops. Reusable wooden frames and potted plants that can stay after guests leave fit eco-leaning briefs. Full ceiling balloon fills feel heavy beside existing greenery. Leave walking paths open for elders who prefer shade over standing in the open lawn.',
-    },
-    {
-      q: 'What society sound cutoffs should villa hosts confirm before outdoor segments?',
-      a: 'Confirm villa society sound cutoffs in writing before planning outdoor music or late seating. Outdoor-friendly botanical looks still need quiet-hour respect. Keep spare ballast for open-sky pieces after 4 p.m. A scaled lawn sketch with irrigation marked prevents florals from sitting in spray zones mid-event. Share the written cutoff with every vendor so music and seating plans stay aligned.',
-    },
-    {
-      q: 'When do apartment clubhouses need different kits than villa driveways?',
-      a: "Apartments host children's birthdays and house parties in clubhouses or living rooms where height and neighbour rules tighten. Villas allow driveway arches and longer photo backdrops. Scale floral volume to the room rather than copying a lawn plan indoors. Share guest-count ranges early so seating stays realistic in either setting.",
-    },
-    {
-      q: 'How can housewarming setups lean eco without looking unfinished?',
-      a: 'Garden-inspired housewarming décor along this stretch often uses reusable frames and seasonal blooms instead of single-use plastics. Aim for framing, not fill, against leafy approaches. Soft greens and botanical textures photograph kindly under tree shade. Leave pathways clear for elders moving between indoor seating and garden edges. Keep spare cable covers for garden edges where grass hides uneven steps after dusk.',
-    },
-  ],
-  basavanagudi: [
-    {
-      q: 'What material rules near Bull Temple change entrance garlanding?',
-      a: 'Temple venues need disciplined layouts, clear pathways, and materials approved by management. Speak with coordinators about garlanding rules before entrance pieces are designed. Festival crowds toward Bull Temple can trap load-in vans; schedule around those peaks. Freestanding pieces matter when wall fixings are forbidden. Respectful scale beats novelty for its own sake in classic Bengaluru settings.',
-    },
-    {
-      q: 'How does Bugle Rock evening light affect outdoor photo florals?',
-      a: 'Walk Bugle Rock quietly if outdoor photos are planned nearby—the light quality changes the palette. Outdoor spill asks for weather-aware florals and secure bases. Portable pieces work better than assuming public greenery is a private venue. Soft traditional colour holds under dusk better than neon accents that fight the canopy.',
-    },
-    {
-      q: 'Why pad load-in when Gandhi Bazaar lanes are busy?',
-      a: 'Festival and market peaks toward Gandhi Bazaar slow vans and block narrow approaches. Earlier call times protect freshness. If an apartment faces a busy lane toward the bazaar, prefer quieter evening setup hours. Mark cable runs carefully on uneven older floors once you are inside the hall. Carry a compact kit that can finish staging indoors if street access stalls longer than planned.',
-    },
-    {
-      q: 'Which ceremonial cues still lead family weddings in Basavanagudi halls?',
-      a: 'Jasmine and marigold stories, rich traditional colour, and clean mandap geometries still lead. Minimal café looks can feel thin against temple architecture and older hall interiors. Balance heritage colour with current finishing so photographs feel fresh while elders recognise familiar entrance and stage cues. Soft gold with deep reds and ivories remains popular in moderated doses.',
-    },
-    {
-      q: 'How do older hall pillars change stage orientation?',
-      a: 'Photograph pillar spacing and ceiling fans so hanging elements do not collide. Many older community halls break sightlines; design around columns rather than hiding them poorly. Decide aisle width for elders before placing tall centrepieces. Confirm hall kitchen access separately from décor corridors; older buildings bottleneck fast when both teams claim the same passage.',
-    },
-    {
-      q: 'When should priest timings lock before floral colour finalisation?',
-      a: "Ritual segments often dictate when seating can open. Lock priest timings before colour finalisation so delivery aligns with the ceremonial clock. Share seating preferences early if they affect stage orientation relative to entrances and elder rows. Balloon décor works best as a kids' zone, not the main wedding language beside temple-adjacent venues.",
-    },
-    {
-      q: 'What apartment proportions suit cradle ceremonies better than hall-scale arches?',
-      a: 'Apartments host cradle ceremonies and birthday evenings where doorframes and balcony light matter. Hall-scale arches crowd living rooms and block elder pathways. Soft florals on side tables and a single welcome garland read clearer. Keep spare aisle runners for older hall floors that scuff easily when the same family later moves to a community hall reception.',
-    },
-    {
-      q: 'How can temple-visit and hall-reception motifs echo without duplication?',
-      a: 'Families often pair a temple visit with a hall reception nearby—echo motifs without duplicating temple décor inside the reception room. Shift intensity rather than copying identical frames. Pastel versions appear for younger couples while elders still recognise classic colour cues. Reusable fabric drapes beside seasonal blooms keep multi-stop days practical.',
-    },
-  ],
-  bellandur: [
-    {
-      q: 'How early should freight lifts be booked in Bellandur towers?',
-      a: 'Freight lift bookings in towers near Bellandur Lake fail if left to the last hour. Ask for written slots before colour boards matter. Outer Ring Road peaks erase setup buffers, so call earlier than central Bengaluru habits suggest. Share floor numbers and service-lift codes early so teams are not stranded in lobbies during peak exit hour.',
-    },
-    {
-      q: 'What rooftop wind planning matters facing Bellandur Lake?',
-      a: 'Wind on lake-facing rooftops needs ballast and careful cable management. Fabrics should not whip in the evening breeze. Lake haze shows up in balcony photos at dusk, so soft neutrals with one accent colour photograph cleaner than heavy dark sets. Keep a spare indoor layout ready for monsoon splash at podium edges.',
-    },
-    {
-      q: 'Which EcoSpace office protocols reshape evening milestone décor?',
-      a: 'Office spaces around EcoSpace demand brand-safe palettes, quick strike times, and security clearances. Align décor with IT park visitor protocols and after-hours access. Low-mess kits matter when the room returns to work mode overnight. Confirm valet or basement escort rules so the décor van is not turned away at peak exit hour.',
-    },
-    {
-      q: 'How do Embassy TechVillage glass lines change floral style?',
-      a: 'Condo clubhouses, apartment podia, rooftops, and office event spaces already carry strong glass and concrete lines. Clean floral work and lighting that flatters façades fit that architecture. Overly ornate traditional sets can look pasted on; bare minimalism can feel cold when a large clubhouse fills. Aim for calm proportion and negative space.',
-    },
-    {
-      q: 'What HOA limits commonly block helium and open flame in lake-belt towers?',
-      a: 'Treat society HOA rules as fixed design law. Many towers limit helium, open flame, and outdoor sound. Share clubhouse electrical load limits before adding lighting runs. Photograph AC duct heights; many clubhouses look tall until ducts cut usable space. Written rules beat verbal assurances when weekend security staff change. Ask for the policy PDF or email so weekend security staff cannot overturn verbal permissions.',
-    },
-    {
-      q: 'Why check basement height limits before the décor van leaves the yard?',
-      a: 'Confirm basement height limits for décor vans before the truck leaves. Tall towers near the lake often have low ramps that reject standard vehicles. Compact kit lists that move through freight lifts protect the schedule when vans must unload at street level. Keep spare cable covers for podium floors that see heavy foot traffic before guests arrive.',
-    },
-    {
-      q: 'When do weekday evening soft setups help tower families?',
-      a: "Weekday evening soft setups free weekend mornings for family prep when tower schedules tighten. Clubhouse kids' parties with structured balloon frames and rooftop engagement evenings with soft florals lead current requests. Neutral bases with jewel accents are common in this IT lake belt. Sustainability asks—reusable frames, fewer plastics—keep rising among tech-park hosts.",
-    },
-    {
-      q: 'How should clubhouse electrical maps guide hanging heights?',
-      a: 'Photograph AC duct heights and electrical points behind glass walls before hanging lights. Many clubhouses look tall until ducts cut usable space. Soft florals and measured balloon accents fit high-rise logistics better than ceiling clutter. Confirm basement escort rules the day before so vans are not turned away when residents exit after work.',
-    },
-  ],
-  'btm-layout': [
-    {
-      q: 'How much Silk Board buffer should vendor call times include?',
-      a: 'Never assume a straight drive across stages of BTM at peak hour. Silk Board congestion erases setup windows when venues sit toward the junction. A weekday trial drive past Silk Board sets a wiser call time than any app estimate. Modular pieces help when lanes restrict truck size. Build buffers into load-in rather than trimming floral prep.',
-    },
-    {
-      q: 'How should décor match a student-and-family guest mix in one room?',
-      a: 'Student-led events favour playful balloon work and compact photo corners. Family ceremonies prefer floral welcomes and clearer seating hierarchies. Match the guest age mix and venue scale so neither group feels the room was meant for someone else. Soft pastels and bright primary balloon sets both appear, depending on the crowd. Share a realistic guest count that includes last-minute student friends.',
-    },
-    {
-      q: 'What changes for outdoor spill near BTM Lake after sunset?',
-      a: 'Near BTM Lake, outdoor spill areas need secure bases and evening lighting that stays comfortable outdoors. Leave spare weights for lake-edge breeze after sunset. A dusk visit helps if outdoor photos are planned. Tape cable runs before the first guest climbs stairs to rooftop spill zones. Insect-aware lighting choices matter for dusk celebrations.',
-    },
-    {
-      q: 'Why photograph rooftop railing gaps before ordering hanging pieces?',
-      a: 'Confirm rooftop weight and railing rules before ordering tall arches. Photograph railing gaps that need secure fix points. Apartments and rooftops dominate informal birthdays and farewells across the student and family mix. Community halls cover weddings and naming ceremonies when lists grow. Flexible plans matter more than a single fixed layout when the junction jams.',
-    },
-    {
-      q: 'How do Mico Layout lane widths limit truck-based installs?',
-      a: 'Modular pieces help when Mico Layout lanes restrict truck size. Compact photo corners still look finished when kits arrive in smaller vehicles. Collect gate pass formats for apartment societies in advance. Decide music volume early if apartments sit close to the hall. Leave cake-cutting corners free of electrical clutter so photographs stay clean.',
-    },
-    {
-      q: 'What corridor questions matter when community halls share buildings?',
-      a: 'Ask if neighbouring events share the same corridor on your date. Shared passages delay both catering and florals when two hosts book adjacent rooms. Mark cable runs early on mixed floors. Hybrid evenings that start casual and turn ceremonial appear often; keep colour continuity with lighter early décor and fuller later installs without rebuilding everything.',
-    },
-    {
-      q: 'Where should cake tables sit relative to AC vents in clubhouses?',
-      a: 'Leave cake-cutting corners free of electrical clutter and AC vents so photographs stay clean under clubhouse LEDs. Structured balloon frames work better than ceiling clutter in compact rooms. Reusable backdrop frames are increasingly requested by young hosts. Seating plans change quickly when student friends arrive late—keep one flexible edge of the room.',
-    },
-    {
-      q: 'How can home ritual and hall reception stay coherent on the same day?',
-      a: 'Families often host a small home ritual then move to a hall—keep colour continuity with lighter home décor and fuller hall installations. Casual rooftop gatherings sit beside formal community hall functions in the same pin code. Photograph rooftop railing gaps and hall pillar grids on the same planning walk. Buffers around Silk Board still protect both stops.',
-    },
-  ],
-  domlur: [
-    {
-      q: 'What must be locked before designing ceiling hangs in Domlur restaurants?',
-      a: 'Confirm restaurant exclusive-hire windows versus shared-floor nights before designing ceiling hangs. Shared floors change what can hang and when strike must finish. Tabletops must survive waiter paths and kitchen doors. Ask managers for table maps early so centrepiece height does not fight plated service. Build the night backward from the morning-shift reopen deadline.',
-    },
-    {
-      q: 'How does Domlur Bridge evening traffic reshape van call times?',
-      a: 'Near Domlur Bridge, evening traffic affects van timing. Schedule earlier load-ins when possible. Share the exact entry gate for bridge approaches so the team does not circle under peak congestion or block restaurant deliveries. Compact kits move through narrower commercial approaches without blocking neighbouring entrances. Keep strike plans short after the last guest leaves.',
-    },
-    {
-      q: 'Which office security steps belong on the day-before checklist?',
-      a: 'For offices, lock security lists and freight lift slots the day before. Brand-aligned, low-mess setups suit team milestones and client evenings. Polished, compact installations beat oversized statements in mixed commercial lanes. Keep spare cable covers for floors that see heavy foot traffic before guests arrive. Corridors must stay free for neighbours who are not attending.',
-    },
-    {
-      q: 'Why do Old Airport Road apartments often need quieter visual emphasis?',
-      a: 'Apartments near Old Airport Road may have stricter sound cutoffs; lean visual rather than amplified moments. Neighbour consideration matters when residential lanes sit beside offices and restaurants. Compact photo walls and restrained florals turn a weekday room into an evening venue without permanent fixtures. Photograph ceiling grids during a quiet afternoon site visit.',
-    },
-    {
-      q: 'How should Indiranagar Metro walk-ups find apartment entrances after dark?',
-      a: 'Pedestrian arrivals via Indiranagar Metro need entrance décor that reads for walk-ups as well as cars. Strong entrance moments should not block busy passages. Weekday work rhythms and weekend dining spillover set the tempo. Fast-assembly florals and modular balloon pieces help when table maps change mid-afternoon in restaurant venues nearby.',
-    },
-    {
-      q: 'Can strike finish before the morning shift starts at mixed-use venues?',
-      a: 'Build the night backward from that deadline. Celebrations must finish fast and leave corridors free. Neutral bases with one bold accent colour photograph well against commercial interiors. Hosts want décor that can turn a weekday room into an evening venue without permanent fixtures. Confirm exclusive-hire windows in writing, not by assumption.',
-    },
-    {
-      q: 'Where do centrepieces fail first during plated restaurant service?',
-      a: "Centrepiece height fights plated service when table maps arrive late. Ask restaurant managers for maps early. Intimate anniversary dinners need table-aware pieces that frame dining without stealing waiter paths. After-work office celebrations with restrained florals and apartment parties with compact photo walls lead current asks across Domlur's mixed commercial fabric.",
-    },
-    {
-      q: 'What afternoon site photos help commercial ceiling planning?',
-      a: 'Photograph ceiling grids during a quiet afternoon site visit when restaurants and offices are quieter. Mixed commercial floors forgive little delay. Keep a compact kit list that moves without blocking neighbouring entrances. Domlur Bridge, Indiranagar Metro, and Old Airport Road keep the area in motion—plan installs that respect that pace rather than fighting it.',
-    },
-  ],
-  'electronic-city': [
-    {
-      q: 'Why treat Phase 1 campus badges as a first-class checklist item?',
-      a: 'Corporate event spaces near the Infosys Campus area need security-compliant materials, quick installation windows, and clean strike protocols. Treat campus access badges as a first-class checklist item before colour choices. Electronic City Phase 1 calendars and residential weekends ask for different décor languages. Align catering and décor corridors so Phase 1 security lines do not stack both teams at once.',
-    },
-    {
-      q: 'How does the Elevated Expressway change cross-phase travel buffers?',
-      a: 'The Electronic City Elevated Expressway helps some journeys and bottlenecks others. Build travel buffers when teams cross phases during peak hours. Apartments and villas cover birthdays and housewarming evenings; banquet halls handle larger receptions. Photograph villa approaches from the road guests will actually use, not the satellite view that looks simpler.',
-    },
-    {
-      q: 'What irrigation checks belong on villa lawn surveys here?',
-      a: 'For villa lawns, measure irrigation spray zones so florals are not watered mid-event. Garden florals suit weekend weddings; structured balloon frames suit apartment clubhouse birthdays. Soft greens read well against new façade stone. Confirm banquet halls that share parking with office peaks before locking load-in hours. Share a scaled lawn sketch with spray arcs marked before any tall stand is ordered.',
-    },
-    {
-      q: 'When should welcome décor open if guests leave Phase 1 offices for a home party?',
-      a: 'If guests commute from Phase 1 offices to a residential celebration, stagger welcome décor opening so early campus leavers still find a finished entrance. Hybrid work calendars have made weekday evening events more common. Friday evening soft setups can reduce Saturday morning rush when families celebrate after a long campus week.',
-    },
-    {
-      q: 'How should corporate townhall stages differ from villa mandaps?',
-      a: 'Corporate spaces favour structured florals, branded colour accents, and uncluttered stage fronts. Villa and apartment hosts prefer warmer traditional looks or playful birthday themes. Design each space on its own terms. Keep family or brand colour cues only when hosts want continuity across both worlds. Share power availability maps for large banquet lighting.',
-    },
-    {
-      q: 'Which podium electrical points should apartment clubhouses photograph early?',
-      a: 'Photograph podium electrical points in apartment clubhouses before locking hanging heights. Reusable stage systems and less disposable plastic are frequent requests. Corporate townhall décor with soft branding and villa weekend weddings with garden florals both appear on the same corridor. Security-compliant materials matter whenever campus-adjacent rooms are involved. Note which circuits already serve AV so hanging lights do not overload the podium panel.',
-    },
-    {
-      q: 'Why confirm banquet parking against office exit peaks?',
-      a: 'Confirm if banquet halls share parking with office peaks along the campus belt. Load-in during exit waves traps vans and wilts blooms. Apartments, villas, banquet halls, and corporate event spaces each need their own logistics clock. Southern tech-belt events reward hosts who plan badges and freight access before balloon colours.',
-    },
-    {
-      q: 'What Friday soft-install habit helps Saturday villa mornings?',
-      a: 'Friday evening soft setups can reduce Saturday morning rush when families celebrate after a long campus week. Partial villa installs overnight need security confirmation. Modular décor that can move from apartment to hall helps if guest lists grow late. Keep strike protocols clean for corporate rooms that must reopen on Monday.',
-    },
-  ],
-  hebbal: [
-    {
-      q: 'How should sunset timing near Hebbal Lake guide floral delivery?',
-      a: 'Check sunset timing if lake views are part of your photo plan, and schedule floral delivery accordingly. Soft blues, ivories, and botanical greens respond well to evening lake glow. Heavy dark colours can fight the horizon. Keep sightlines to the water clear wherever possible. Airy florals and translucent fabrics photograph against open sky better than dense ceiling fills.',
-    },
-    {
-      q: 'Why prefer morning setup when Manyata Flyover clogs evenings?',
-      a: 'Manyata Flyover congestion can delay evening load-ins; morning or early afternoon setup is safer for lakeside dates. Guests arriving via the flyover after work want a quick visual lift without visual noise. Parking for décor vans should sit away from flyover merge points. Measured balloon accents still work indoors when outdoor wind rises.',
-    },
-    {
-      q: 'What visitor-list steps matter for Manyata Tech Park celebrations?',
-      a: 'Near Manyata Tech Park, office-adjacent celebrations need brand-safe options and security timing. Collect visitor lists early. Tech-park team evenings with restrained florals lead current trends beside lakeside engagements. Confirm after-hours access and material inspection rules a day ahead. Soft luxury looks photograph better here than loud theme kits. Keep brand accents discreet so the room still feels hospitable after work hours end.',
-    },
-    {
-      q: 'How much ballast do lakeside freestanding pieces need?',
-      a: "Wind off the water means freestanding pieces need ballast. Test outdoor frames before guest arrival. Keep spare sandbags near the water edge even on still afternoons. Spare clips for fabric edges catch lake breeze after sunset. Walk Hebbal Lake's public edges to understand evening light even when your venue is private.",
-    },
-    {
-      q: 'Can glass clubhouse façades create hotspots that wilt blooms?',
-      a: 'Glass façades can create hotspots that wilt blooms faster than shaded corners. Verify electrical points behind glass walls before hanging lights. Apartments and clubhouses host most birthdays and society events. Photograph AC and sun angles during a daytime visit. Calm finishes outperform loud themes when lake light already fills the room.',
-    },
-    {
-      q: 'Where should apartment balloon inflation happen to avoid lobby fire questions?',
-      a: "Apartment hosts should notify society security about balloon inflation locations—enclosed lobbies can trigger fire-safety questions that are easier to resolve a day ahead. Clubhouse kids' parties with soft colour stories fit tower life. Reusable lighting and fabric systems that travel cleanly between tower and lakeside are increasingly requested. Stage inflation inside the booked clubhouse or flat rather than the shared lobby.",
-    },
-    {
-      q: 'What fabric-edge habits help after sunset lake breeze?',
-      a: 'Keep spare clips for fabric edges that catch lake breeze after sunset. Translucent fabrics and botanical greens hold the lakeside mood without blocking water views. Confirm lakeside venue rules on open flame and amplified sound near residential edges. Guests arriving after flyover traffic still need a finished entrance when they finally reach the gate.',
-    },
-    {
-      q: 'How do lakeside engagement layouts protect water sightlines?',
-      a: 'Seat guests on paper first so florals do not steal the horizon. Lakeside venues suit evening receptions and proposal setups where views of Hebbal Lake matter. Soft blues and ivories keep photos calm. Manyata Tech Park evenings and apartment clubhouse parties need different languages; match the venue rather than copying one lakeside template indoors.',
-    },
-  ],
-  'hsr-layout': [
-    {
-      q: 'How far ahead should HSR clubhouse weekend mornings be booked?',
-      a: "Book clubhouse slots months ahead for popular weekend mornings across young-family apartment sectors. Confirm helium and open-flame rules in writing. Along 27th Main and around the HSR BDA Complex area, children's parties and housewarming evenings fill podia fast. Your freight lift booking may matter more than your balloon colour on Saturday mornings.",
-    },
-    {
-      q: 'When are portable florals wiser than fixed arches near Agara Lake?',
-      a: 'If guests will stroll toward Agara Lake for photos, plan a portable floral piece rather than a fixed outdoor arch. Near the lake, outdoor segments need wind awareness and insect-friendly lighting for dusk celebrations. Measure podium ceiling height before ordering hanging installations—many HSR clubhouses look tall until AC ducts cut usable height.',
-    },
-    {
-      q: 'Why time load-in away from HSR BDA Complex retail peaks?',
-      a: 'Event spaces near the HSR BDA Complex area may share parking with shopping footfall; time load-in to avoid peak retail hours. Clubhouses and apartments dominate weekday-evening and weekend daytime parties. Houses allow more personalised driveway and living-room treatments. Community halls and banquet halls cover larger guest lists for naming ceremonies and anniversaries.',
-    },
-    {
-      q: 'How should kid-to-adult ratios change seating and cake placement?',
-      a: 'Share kid-to-adult ratios so seating and cake-table placement stay realistic. Layer the room: playful focal points with calmer seating edges so grandparents and toddlers share the same celebration. Bright yet tidy balloon sculptures and soft pastel florals for first birthdays fit compact clubhouse rooms. Loud neon themes tire elders; sparse adult minimalism disappoints children.',
-    },
-    {
-      q: 'What written helium rules prevent day-of surprises in societies?',
-      a: 'Confirm helium and open-flame rules in writing before themed first birthdays with structured balloon frames. Pastel rainbows, sage-and-cream stories, and gender-neutral animal themes remain popular. Reusable fabric backdrops and more careful balloon practices are rising. Leave cake-cutting corners free of electrical clutter and AC vents so photographs stay clean under clubhouse LEDs.',
-    },
-    {
-      q: 'Which first-birthday layers keep both parents and toddlers comfortable?',
-      a: 'Bright yet tidy balloon sculptures with calmer seating edges let both groups share one room. Soft pastel florals suit first birthdays along 27th Main apartments. Themed frames beat chaotic ceiling fills. Families want festive rooms that still feel composed for parents hosting at the same time. Notify neighbours early for house parties on quieter lanes.',
-    },
-    {
-      q: 'How do house driveway setups differ from podium clubhouse rules?',
-      a: 'Houses allow more personalised driveway and living-room treatments, while podia follow society lift and helium limits. Housewarming setups that strip overnight suit neighbour courtesy. Banquet halls cover larger lists when clubhouses feel tight. Eastern residential grids fill fast on Saturday mornings—lock freight access early whether you are in a house or a tower.',
-    },
-    {
-      q: 'What neighbour-courtesy steps matter for HSR house parties?',
-      a: 'Notify neighbours early for house parties; courtesy still matters on quieter lanes. Visual emphasis beats late amplified sound. Soft pastel and sage-and-cream stories photograph kindly under apartment lighting. Community halls remain available when guest lists outgrow living rooms. Keep spare weights for any semi-outdoor podium edge near Agara Lake breeze.',
-    },
-  ],
-  indiranagar: [
-    {
-      q: 'Why visit a 100 Feet Road venue at dinner hour before designing?',
-      a: 'A midweek site visit at dinner hour reveals service flow on 100 Feet Road venues better than a quiet afternoon walk. Guests expect finish in dining-led evenings. Restaurants need table-aware centrepieces and entrance moments that do not block service. Decide whether the first guest sees the menu or the floral entrance before ordering stems.',
-    },
-    {
-      q: 'What ceiling limits apply on shared CMH Road restaurant floors?',
-      a: 'Lock restaurant exclusive windows before designing ceiling décor—shared floors change what can hang. CMH Road energy and Defence Colony side lanes move at different paces. Build strike time into the night plan so restaurants reopen cleanly. Muted florals, warm metallics, and refined balloon accents sit better than cartoon overload in polished social rooms.',
-    },
-    {
-      q: 'How can a Defence Colony home and CMH Road dinner share a colour bridge?',
-      a: 'If guests move between a Defence Colony side home and a CMH Road dinner, keep a colour bridge rather than two unrelated themes. Events often spill from dinner into celebration, or from society lounge into rooftop drinks. Soft blush, ivory, and deep green accents photograph well. Décor that feels too domestic or too corporate breaks the dining-led mood.',
-    },
-    {
-      q: 'Which rooftop structure heights must be written down?',
-      a: 'For rooftops, demand written rules on open flame and structure height. Wind-aware florals and evening lighting design matter more than ceiling clutter. Banquet halls and event spaces cover larger receptions when restaurants cannot. Schedule around 100 Feet Road congestion. Confirm lift and staircase access early when venues sit above commercial floors near CMH Road.',
-    },
-    {
-      q: 'How do society gate passes work during peak dinner hours?',
-      a: 'Society parties need gate pass systems for décor teams during peak dinner hours. Apartments and residential societies host smaller birthday evenings with neighbour sensitivity. Quiet hours can be strict after a certain time—ask early. Valet and parking notes help guests as much as welcome signage on busy Indiranagar evenings. Send staff names early so the guard desk can clear them during the dinner rush.',
-    },
-    {
-      q: 'When does cuisine style dictate centrepiece height?',
-      a: 'Share cuisine style if dining is central, so centrepiece height does not fight plated service. Intimate anniversary dinners and rooftop engagement evenings lead trends. Camera-ready corners help without turning the whole room into a set. Photograph existing ambient lighting before choosing floral whites that may wash out under restaurant lamps.',
-    },
-    {
-      q: 'What ambient-light photos prevent washed-out white blooms?',
-      a: "Photograph existing ambient lighting before choosing floral whites that may wash out. Guests arriving via CMH Road or 100 Feet Road are already in polished social mode. Soft blush and ivory hold better under mixed warm restaurant light. Polished kids' parties in societies still need refined accents rather than carnival overload.",
-    },
-    {
-      q: 'How should valet notes support welcome signage for first-time guests?',
-      a: 'Valet and parking notes help guests as much as welcome signage when 100 Feet Road is congested. Rooftops, banquet halls, restaurants, and apartments each need clear arrival instructions. Restrained luxury receptions photograph well with muted florals and warm metallics. Keep strike plans realistic so dining venues return to service without leftover cable clutter.',
-    },
-  ],
-  jayanagar: [
-    {
-      q: 'How do Jayanagar 4th Block parking waves change welcome timing?',
-      a: 'Near Jayanagar 4th Block and South End Circle, traffic and parking shape arrival waves. Plan welcome décor that can receive guests in clusters rather than one continuous stream. Community halls, family homes, banquet halls, and temple-adjacent venues host weddings and naming ceremonies. Classic florals and auspicious colour combinations still lead over abstract café themes.',
-    },
-    {
-      q: 'Why design for clustered arrivals at South End Circle junctions?',
-      a: 'Guests often arrive in waves at South End Circle junctions rather than one smooth stream. Entrance moments should reopen cleanly between clusters. Family rituals still organise the celebration calendar. Guests expect recognizable sacred geometry—entrance, seating, stage—rather than an abstract theme. Echo colour from a home ritual to a banquet reception without repeating identical installations.',
-    },
-    {
-      q: 'When does Jayanagar Shopping Complex footfall block hall vans?',
-      a: 'Shopping Complex footfall on weekends can affect van access to nearby halls. Arrange early morning load-in if your family home sits near those lanes. Measure older hall stages carefully; many have shallow depths that limit mandap size. Confirm priest and hall kitchen timings before finalising floral delivery—ritual and lunch segments often compress.',
-    },
-    {
-      q: 'How shallow community hall stages limit mandap depth?',
-      a: "Many older community halls have shallow stage depths that limit mandap size. Photograph ceiling fans and pillar grids. Who sits in the first two rows? Design the stage for their sightline, not the photographer's alone. Decide seating for elders first, then build décor sightlines around those rows rather than the reverse.",
-    },
-    {
-      q: 'Why lock priest and kitchen timings before floral delivery?',
-      a: "Ritual and lunch segments often compress in traditional family celebrations. Lock priest and hall kitchen timings before floral delivery. Morning rituals with marigold and jasmine, afternoon receptions with softer ivory florals, and children's celebrations that still open with a traditional welcome remain common. Gold accents stay popular but appear more sparingly than a decade ago.",
-    },
-    {
-      q: 'What elder first-row sightlines should stage sketches protect?',
-      a: 'Seat elders on the plan before sketching floral lines. Traditional guest lists need clearer hierarchy than young-host parties elsewhere. Temple-adjacent venues require respectful layouts and approved materials. Overly trendy café aesthetics can feel misplaced beside older community halls. Balloon zones appear mainly for kids beside ritual-first stages. Keep aisle widths honest so walkers can reach those front rows without moving stands mid-ritual.',
-    },
-    {
-      q: 'How should temple-adjacent venues change material choices?',
-      a: 'Temple-adjacent venues require respectful layouts and approved materials. Refine traditional forms with better materials, cleaner lines, and thoughtful lighting so the celebration looks intentional without discarding cultural cues. Sustainability-minded fabric drapes are rising beside seasonal blooms. Share guest-count ranges early so seating and floral volume stay realistic for hall depth.',
-    },
-    {
-      q: 'Can home ritual colour echo a banquet without copying the install?',
-      a: 'Echo colour from a home ritual to a banquet reception without repeating identical installations. Family homes host intimate rituals where living-room proportions and courtyard light matter. Shift intensity rather than duplicating frames. South End Circle and 4th Block traffic still shape both stops—pad vendor windows on ritual weekends.',
-    },
-  ],
-  'jp-nagar': [
-    {
-      q: 'What event decoration services do you provide across JP Nagar?',
-      a: 'We provide comprehensive event decoration across all JP Nagar Phases (1st to 9th Phase) — including birthday balloon arches and cake backdrops from ₹3,000, traditional marigold Haldi setups with urli seating from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding mandap styling for homes, clubhouses, and banquet halls.',
-    },
-    {
-      q: 'Can you decorate apartment clubhouses in JP Nagar like Brigade Millennium or Elita Promenade?',
-      a: 'Yes. We regularly style living rooms, clubhouses, and terraces across major JP Nagar communities like Brigade Millennium, Elita Promenade, GR Lavender, and Shriram Surabhi. We coordinate with society security on vendor entry, lift permissions, and use damage-free, zero-nail mounting methods to protect walls and ceilings.',
-    },
-    {
-      q: 'How much does birthday balloon decoration at home cost in JP Nagar?',
-      a: 'Our home birthday balloon decoration packages in JP Nagar start from ₹3,000. This includes an organic pastel or chrome balloon garland, customized backdrop, neon Happy Birthday sign, and cake plinth setup, with prompt same-day teardown available.',
-    },
-    {
-      q: 'Do you offer same-day decoration setup in JP Nagar?',
-      a: 'Yes. Since our core operations hub is located right in neighbouring South Bangalore (Basavanagudi/Jayanagar), our crew can reach JP Nagar within 45 to 60 minutes. We accept same-day bookings for birthday surprises, baby welcomes, and room decor depending on slot availability.',
-    },
-    {
-      q: 'How do you prevent turmeric stains during home Haldi ceremonies in JP Nagar?',
-      a: 'For home Haldi ceremonies in JP Nagar apartments and independent houses, we lay heavy-duty waterproof floor drop-cloths and decorative carpets beneath the brass urli and seating area to protect marble and vitrified tiles from turmeric splashes. All backdrops are mounted on freestanding self-supported frames.',
-    },
-    {
-      q: 'Do you decorate banquet halls near Sarakki Signal, Kanakapura Road, and Outer Ring Road?',
-      a: 'Yes. We style banquet halls, kalyana mantapas, and rooftop venues along Sarakki Signal, Delmia Circle, and Outer Ring Road in JP Nagar with custom stage backdrops, fresh floral arches, and ambient lighting, including a free pre-event site walkthrough.',
-    },
-    {
-      q: 'Which phases of JP Nagar do you cover for decoration services?',
-      a: 'We cover every phase of JP Nagar: Phases 1, 2, 3, 4, 5, 6, 7 (Puttenahalli/Brigade Millennium), 8, and 9. Whether it is an independent house near JP Nagar Mini Forest or a high-rise flat on 24th Main, our teams provide prompt doorstep setup.',
-    },
-    {
-      q: 'Can you provide traditional floral and Griha Pravesh decoration in JP Nagar?',
-      a: 'Yes. For housewarming (Griha Pravesh) and poojas in JP Nagar, we supply fresh mango-leaf entrance torans, marigold door frames, banana stem entrance pillars, pooja mantapa florals, and brass diya setups.',
-    },
-  ],
-  'kanakapura-road': [
-    {
-      q: 'How should Kanakapura Junction evening pulses change load-in pads?',
-      a: "Near Kanakapura Junction, traffic pulses can stretch evening arrivals; pad load-in windows accordingly. The developing residential corridor still mixes new apartments and villas with established community habits. Flexible layouts and scalable florals matter. Friday soft installs can ease Saturday pressure when the Junction slows. Soft greens and ivory are frequent; brighter accents appear for children's themes.",
-    },
-    {
-      q: 'Why re-check décor policies in newer apartment societies mid-year?',
-      a: 'Society rules here can still shift mid-year. Verify if your apartment society has finalised décor policies—newer buildings sometimes revise helium and outdoor rules. Newer apartment hosts often want clean balloon frames and soft neutrals. Villa hosts lean into garden florals and driveway arches. Listen for guest profile first when families relocate from denser south Bengaluru pockets.',
-    },
-    {
-      q: 'What villa slope and irrigation checks prevent mid-event spray?',
-      a: 'Measure villa lawn irrigation and slope before placing tall pieces. Villas open lawn and courtyard options for mandaps and longer guest journeys. Soft greens read well against new façade stone and villa gardens. Ask about overnight security if partial villa setups stay. Confirm parking capacity for both guest cars and décor vans.',
-    },
-    {
-      q: 'When do community hall generators matter on this stretch?',
-      a: 'Confirm community hall generator backup if power cuts are common on your stretch. Apartments and community halls handle most birthdays, naming ceremonies, and mid-size receptions. Photograph podium electrical points in apartments. Modular décor that can move from apartment to hall helps if guest lists grow late along the developing corridor.',
-    },
-    {
-      q: 'How should direction notes use Junction versus Bannerghatta Road approaches?',
-      a: 'Share exact landmark references for directions—Kanakapura Junction, Bannerghatta Road approach, or JP Nagar side—so vendors and guests use the same mental map. When guests travel from Bannerghatta Road or JP Nagar, welcome signage and clear entrance lighting help first-time visitors find the right gate among similar façades. Drop a pin plus the landmark phrase in the same message so drivers do not split across lookalike gates.',
-    },
-    {
-      q: 'Can modular kits grow from apartment party to hall reception?',
-      a: "Modular décor that can move from apartment to hall helps if guest lists grow late. Villa garden weddings with botanical florals and apartment clubhouse kids' parties both appear on the same corridor. Community hall receptions with hybrid traditional-modern stages lead larger lists. Orientation still comes from Bannerghatta Road junctions and JP Nagar edges.",
-    },
-    {
-      q: 'What dusk gate checks reveal about street lighting for first-time guests?',
-      a: 'A dusk site walk judges street lighting around your gate better than noon photos. First-time visitors from JP Nagar or Bannerghatta Road need readable entrance light among similar new façades. Soft greens hold under mixed street and villa lamps. Confirm parking for décor vans separately from guest cars when societies share narrow approaches.',
-    },
-    {
-      q: 'How do relocating families bring mixed taste into one corridor brief?',
-      a: 'Families relocating from denser south Bengaluru pockets near JP Nagar and Bannerghatta Road bring varied tastes into the same corridor. Newer apartment hosts often want clean balloon frames; villa hosts lean garden florals. Start from guest profile and venue architecture. Soft greens and ivory travel well across both without forcing one stereotype.',
+      q: 'Can you decorate wedding stages and banquet halls around Bangalore?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Bangalore, including a free pre-event site walkthrough.',
     },
   ],
   koramangala: [
     {
-      q: 'How does Forum Mall evening congestion affect nearby load-in?',
-      a: 'Plan load-in around mall-adjacent congestion when venues sit toward Forum Mall. Rooftop, café, and compact camera-ready celebrations define the social tone. Spaces are often smaller, better lit, and more photographed than average. Tight colour stories and statement photo corners fit that brief. Cluttered balloon fills date quickly here. Compact kits that unload in one lift trip beat oversized props when mall spillover blocks the curb.',
+      q: 'What event decoration services do you provide in Koramangala?',
+      a: 'We provide complete event and party decoration across Koramangala — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for rooftops, cafes, apartments.',
     },
     {
-      q: 'What wind habits matter on rooftops near 80 Feet Road?',
-      a: 'Wind on rooftops near 80 Feet Road demands weighted bases. Keep a rain plan for rooftops even in shoulder seasons. Prioritise composition, negative space, and lighting. Guests arriving via 80 Feet Road or after time near Forum Mall expect a finished aesthetic. Translate moodboards into installable, safe décor rather than one-off props that fail outdoors.',
+      q: 'How much does birthday balloon decoration at home cost in Koramangala?',
+      a: 'Our home birthday balloon decoration in Koramangala starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'Which Koramangala Club guidelines can reshape floral formality?',
-      a: 'Koramangala Club-area events may carry dress and décor guidelines that shape floral formality. Banquet halls and event spaces cover larger receptions when cafes cannot. Apartments and clubhouses host society and family gatherings. Neutral bases with one bold accent—terracotta, deep green, or soft lilac—photograph well in compact rooms. Confirm whether floral formality should match dress codes before ordering playful balloon volumes.',
+      q: 'Can you decorate apartment clubhouses and flats in Koramangala?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Koramangala near Forum Mall, 80 Feet Road, Koramangala Club. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'Why confirm café exclusive hire before blocking aisles?',
-      a: 'Confirm café exclusive hire versus public floor before designing anything that blocks aisles. Café interiors need centrepieces that survive waiter traffic. Compact engagement setups and café anniversary tablescapes lead trends. Balloon work appears as structured frames, not chaos. Reusable signage and fabric backdrops are popular with design-aware hosts. Measure aisle clearance with a tray walk-through so waiters are not forced into guest laps.',
+      q: 'Do you offer same-day or next-day event decoration in Koramangala?',
+      a: 'Yes. We accept same-day and next-day bookings across Koramangala based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What single shareable frame should be built before the rest of the room?',
-      a: 'Ask what one frame guests will share, then build that corner first and quiet everything else. Hosts skew younger and more design-aware. Florals that feel editorial rather than ceremonial-heavy fit casual birthdays and launches—unless the event is a traditional reception in a banquet hall. Photograph power points on rooftops early.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Koramangala?',
+      a: 'For home Haldi ceremonies in Koramangala, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
     },
     {
-      q: 'How do moodboards fail when props are not installable outdoors?',
-      a: 'Translate moodboards into installable, safe décor rather than one-off props that fail outdoors. Rooftop weight limits and railing rules must be written, not verbal. Share brand or personal moodboards if you have them—strong visual references are common here. Statement photo corners beat cluttered fills under phone cameras. Demand written rooftop weight and railing limits before any hanging prop leaves the workshop.',
-    },
-    {
-      q: 'When do dense-block quiet hours reshape apartment party timing?',
-      a: 'For apartments, quiet hours matter in dense blocks. Society and family gatherings in clubhouses still need neighbour-aware sound plans. If your guest list includes people coming from Forum Mall shopping, stagger arrival so welcome décor is complete before the main cluster. Rooftop birthday lighting and modern floral banquet lines both appear across the neighbourhood.',
-    },
-    {
-      q: 'Why keep a rain plan for Koramangala rooftops in shoulder seasons?',
-      a: 'Keep a rain plan for rooftops even in shoulder seasons. Wind and sudden showers punish lightweight frames. Editorial florals and measured balloon accents still read festive when composition stays tight. Event spaces and banquet halls offer indoor backups when sky decks close. Guests expect camera-ready finish either way. Store a folded rain sheet with ballast so fabric edges do not lift when showers arrive.',
-    },
-  ],
-  malleshwaram: [
-    {
-      q: 'Why test arch frame dimensions on 8th Cross stair turns?',
-      a: 'Older buildings along 8th Cross may have tighter stair turns—test arch frame dimensions before delivery. Community halls, apartments, and temples host rituals that prefer continuity over novelty. Classic colour stories and jasmine-led welcome moments lead. Ultra-minimal café looks can feel thin against heritage halls. Carnival balloon ceilings can feel disrespectful near temple venues.',
-    },
-    {
-      q: 'How should Sankey Tank photo plans stay portable and permitted?',
-      a: 'If Sankey Tank photos are planned, treat them as a separate portable setup with permissions. Near the tank, outdoor photo segments need wind-aware portable pieces rather than permanent installs. A dusk check near Sankey Tank helps if outdoor frames are desired. An early morning walk along 8th Cross senses scale and shopfront spillover.',
-    },
-    {
-      q: 'What entrance cues help Malleshwaram Metro walk-up guests?',
-      a: 'Metro access via Malleshwaram Metro changes pedestrian arrival patterns; entrance décor should read clearly for walk-up guests as well as cars. Heritage pockets still shape how families gather. Ivory, soft gold, and deep festive reds stay popular in moderated doses. Balloon work stays secondary to florals for adult events. Place entrance light where walk-ups see it before they reach the stair lobby.',
-    },
-    {
-      q: 'Which temple-approved materials should be confirmed before colour boards?',
-      a: 'Temples require approved materials, clear pathways, and quiet load-in. Lock temple or priest timings before floral colour finalisation. Ritual-first mornings and soft evening receptions remain common. Refine traditional forms with cleaner finishing and better lighting so celebrations photograph well without abandoning cultural cues elders recognise. Quiet load-in respects worshippers still moving through temple courtyards during setup.',
-    },
-    {
-      q: 'How do heritage hall ceiling fans conflict with hanging elements?',
-      a: 'Photograph ceiling fans and electrical boards in halls so hanging elements avoid conflicts. Community halls remain primary for weddings and large family lunches. Confirm hall kitchen corridor sharing with décor paths. Decide elder seating first in community halls with fixed pillar grids. Reusable fabric drapes and seasonal blooms are rising.',
-    },
-    {
-      q: 'When must priest timings lock before floral colour finalisation?',
-      a: "Lock temple or priest timings before floral colour finalisation. Guests moving between 8th Cross and temple courtyards expect familiarity. Children's parties that still open with a traditional welcome remain common. Apartments host cradle ceremonies and smaller birthday evenings where balcony light and narrow stair access matter. Apartment stair access may need folded fabric kits when rigid boards cannot turn the landing.",
-    },
-    {
-      q: 'Why seat elders first when pillar grids are fixed?',
-      a: 'Decide elder seating first in community halls with fixed pillar grids. Sightlines through columns matter more than symmetrical floral diagrams. Heritage residential character favours measured stage ornament over novelty. Protect architectural details that should remain visible after décor goes up, then add only what the ritual needs. Symmetrical diagrams fail when a column sits on the centre line of the stage.',
-    },
-    {
-      q: 'Which architectural details deserve protection before décor volume rises?',
-      a: 'Ask which architectural detail should remain visible after décor goes up. Protect that first, then add only what the ritual needs. Heritage halls along 8th Cross reward restraint. Jasmine-led welcomes and clean stage geometry photograph kindly when cornices, fans, and pillars stay readable rather than buried under fill. Guests recognise the room faster when heritage lines stay readable behind the florals.',
-    },
-  ],
-  marathahalli: [
-    {
-      q: 'What does a trial drive across Marathahalli Bridge teach about call times?',
-      a: 'A trial drive across Marathahalli Bridge at your planned call time sets a wiser clock than any map. Bridge delays can erase setup buffers when venues sit toward the bridge and Outer Ring Road merge. Call earlier load-ins. Tower-apartment celebrations and ORR team events define the corridor. Book freight lifts in writing.',
-    },
-    {
-      q: 'How should Outer Ring Road office visitor lists be timed?',
-      a: 'For office events along Outer Ring Road, align visitor lists and after-hours access a day ahead. Brand-safe neutrals and low-mess kits fit team milestones. Guests arriving after ORR commutes want a quick visual lift without clutter. Strong focal points and materials that install fast between freight lift windows matter most.',
-    },
-    {
-      q: 'Why avoid Innovative Multiplex cinema peaks for banquet load-in?',
-      a: 'If your banquet hall shares precinct parking with the Innovative Multiplex area, avoid peak cinema hours for load-in. Banquet halls and event spaces cover larger receptions when guest lists outgrow podia. Tower apartments and clubhouses host most resident birthdays. Confirm basement height limits for décor vans in tall towers. Confirm basement height limits so vans are not rejected after circling the multiplex loop.',
-    },
-    {
-      q: 'How many minutes between lift slots should shape the install kit?',
-      a: "Ask how many minutes you truly have between lift slots; that number should shape the install kit before colour does. Structured balloon frames for kids' clubhouse parties and clean florals for anniversaries fit modern lobbies. Ornate heritage sets can look disconnected in glass clubhouses. Neutral bases with jewel accents are common.",
-    },
-    {
-      q: 'What HOA outdoor sound limits reshape podium parties?',
-      a: 'Treat HOA décor policies as fixed constraints—helium, open flame, and outdoor sound are often restricted. Keep spare ballast for podium doors that catch ORR wind when they stay open during guest arrival. Residents often prefer weekday evening soft setups so weekend mornings stay free when ORR traffic is unpredictable. Written outdoor sound limits prevent last-minute redesign of podium seating and speakers.',
-    },
-    {
-      q: 'When does ORR wind at open podium doors need extra ballast?',
-      a: 'Keep spare ballast for podium doors that catch Outer Ring Road wind when they stay open during guest arrival. Freestanding frames need secure bases. Tower clubhouse first birthdays and banquet receptions with modern floral lines lead trends. Hosts ask for reusable frames and faster strikes after work-hour office events. Secure freestanding bases before doors stay propped open for long guest arrival waves.',
-    },
-    {
-      q: 'How do clubhouse LEDs change floral white choices?',
-      a: 'A night walk-through of the clubhouse judges LED colour against florals. Pure whites can glare under cool LEDs common in tower lobbies. Photograph podium electrical points and AC duct heights. Share floor numbers and service lift codes early so teams are not stranded in lobbies during peak residential traffic. Slightly cream blooms hold cleaner under cool LEDs than pure optical whites.',
-    },
-    {
-      q: 'Why confirm basement van height before tower unload plans?',
-      a: 'Confirm basement height limits for décor vans in tall towers before assuming underground unload. Compact kits that fit freight lifts protect the schedule when street unload is the only option. Marathahalli Bridge and Outer Ring Road pace still shape arrival. High-rise living and office calendars collide—design for fast install windows.',
-    },
-  ],
-  mathikere: [
-    {
-      q: 'How many days ahead should campus vendor IDs be requested?',
-      a: 'Confirm campus vendor ID requirements days ahead for educational venues. Educational institutions need security clearances, timed load-ins, and décor that packs down cleanly after convocations or farewells. Student gatherings favour playful balloon work and compact photo corners. Speak with institution coordinators about existing AV and power so décor lighting does not trip circuits.',
-    },
-    {
-      q: 'What public-edge rules apply if Mathikere Lake photos are desired?',
-      a: 'If lake-edge photos are desired, plan portable florals and confirm public-space rules rather than assuming Mathikere Lake is bookable as a private venue. A dusk visit near the lake judges outdoor light if photos are planned. Outdoor spill segments require weighted bases and evening lighting that remains comfortable outdoors. Carry portable weights and a simple rain sheet if dusk wind rises along the water edge.',
-    },
-    {
-      q: 'Why pad guest counts for last-minute student friends?',
-      a: 'Share realistic guest counts that include last-minute student friends. Seating plans change quickly in student-dense blocks. Apartments dominate informal birthdays and house parties. Community halls cover naming ceremonies and larger family lunches. Bright accents for students and softer golds for elders can share one building if zones stay visually separate.',
-    },
-    {
-      q: 'Which approach map helps guests coming via Yeshwanthpur?',
-      a: 'Map the cleaner approach from Yeshwanthpur or Rajajinagar for out-of-area guests. Traffic toward those corridors can stretch vendor arrival; pad schedules when teams cross them. Neighbouring residential belts add family rituals to the same map as campus calendars. Match guest age mix so educational events stay campus-appropriate while home celebrations keep warmth.',
-    },
-    {
-      q: 'How strict are quiet hours in student-dense apartment blocks?',
-      a: 'For apartments, check quiet hours carefully—student-dense blocks can be sensitive after late evenings. Farewell parties with structured balloons still need neighbour-aware timing. Photograph apartment stair widths for tall frames. Family hall receptions with traditional florals often book consecutive weekends in the same apartment block as student farewells. Neighbour-aware timing matters even when the guest list is mostly classmates.',
-    },
-    {
-      q: 'What stage depth checks matter before mandap design in halls?',
-      a: 'Measure community hall stage depth before mandap design. Family ceremonies prefer floral welcomes and clearer traditional cues beside student-area energy. Reusable backdrop frames are popular with budget-conscious hosts. Families often host a small home ritual then move to a hall—keep colour continuity lightly across both without identical installs. Shallow stages need lower mandap profiles so priests and photographers can still move.',
-    },
-    {
-      q: 'How compact should farewell balloon kits stay for quick campus strike?',
-      a: 'Educational institution events need décor that packs down cleanly after farewells. Compact photo corners and quick-install pieces fit campus-appropriate briefs. Bright accents appear for student events; softer ivories and golds for family rituals nearby. Dense apartment living means both cohorts sometimes share the same pin code on consecutive weekends. Quick-strike kits protect campus reopen times after convocations and farewell evenings.',
-    },
-    {
-      q: 'Can décor lighting share circuits with campus AV safely?',
-      a: 'Speak with institution coordinators about existing AV and power so décor lighting does not trip circuits. Timed load-ins and security clearances come first. Student-area celebrations swing between casual farewells and formal hall functions toward Rajajinagar and Yeshwanthpur. Keep zones visually separate when bright student accents and elder golds share one building.',
-    },
-  ],
-  peenya: [
-    {
-      q: 'Where should décor stay clear of active forklift paths?',
-      a: 'Ask where the forklift path will still be active during setup and keep décor clear of that lane, then build the celebration around what remains. Industrial venues may offer large floor plates but limited décor fix points; freestanding design becomes essential. Clear focal points and sturdy frames fit rooms not built as boutique event spaces.',
-    },
-    {
-      q: 'How do Peenya Industrial Area shift changes affect load-in?',
-      a: 'Plan load-in around shift-change traffic in Peenya Industrial Area. Confirm vehicle access gates early. Shared parking with factories can disappear at lunch hour, so timing matters as much as design. Community halls cover weddings and large family lunches after weekday industrial activity settles. Weekend hall bookings often work best. Confirm which gate accepts décor vans during shift change so the truck is not waved away.',
-    },
-    {
-      q: 'What landmark directions help guests arriving from Jalahalli?',
-      a: 'If guests travel from Jalahalli or Yeshwanthpur, provide landmark-based directions that avoid blocked industrial lanes. Guests expect a finished celebration without needing a luxury venue shell. Strong reds, golds, and clean whites remain popular for family events; corporate neutrals for offices. An evening check of hall lighting colour prevents floral surprises under tubes and LEDs.',
-    },
-    {
-      q: 'Why do fluorescent industrial lights change colour choices?',
-      a: 'Delicate café aesthetics can look fragile and wash out under harsh fluorescent lighting. Colour that reads well under bright industrial light fits better. Staff milestone décor with restrained branding leads workplace asks. Practical birthday setups in halls rather than elaborate home installs are common across the industrial belt. Photograph column grids and floor surface conditions.',
-    },
-    {
-      q: 'When is freestanding design essential in industrial venues?',
-      a: 'Industrial venues may offer large floor plates but limited décor fix points; freestanding design becomes essential. Request electrical maps before adding lighting. Measure door widths for tall arches—industrial entries can be wide horizontally yet constrained by shutters and ramps. Speak with security about overnight partial setups if strike times are early.',
-    },
-    {
-      q: 'How should community hall generator limits shape lighting runs?',
-      a: 'Confirm if community halls share generators or have load limits before adding lighting runs. Durable décor and efficient install windows matter when rooms are not boutique event spaces. Friday evening soft installs can protect Saturday morning quality. Hosts ask for reusable frames that travel well between industrial and residential stops.',
-    },
-    {
-      q: 'What office material inspection rules belong on the day-before list?',
-      a: 'For office celebrations, lock visitor lists and material inspection rules the day before. Brand-safe, low-mess setups suit team events with strict security. Peenya Industrial Area rhythms, Jalahalli edges, and Yeshwanthpur approaches define daily movement. A daytime site visit when factories are active shows honest noise and traffic context. Bring a printed material list that matches what security expects at inspection.',
-    },
-    {
-      q: 'How do shutter and ramp constraints change arch dimensions?',
-      a: 'Measure door widths for tall arches—industrial entries can be wide horizontally yet constrained by shutters and ramps. Sturdy freestanding frames assemble faster when clearances are marked the day before. Community halls, offices, and industrial venues host family functions and staff milestones that need durable materials under bright lighting. Mark ramp lips and shutter tracks on a phone photo before cutting arch heights.',
-    },
-  ],
-  rajajinagar: [
-    {
-      q: 'How should Orion Mall peaks change nearby banquet load-in hours?',
-      a: 'Orion Mall and World Trade Center precincts can congest parking at peak hours; schedule load-ins outside those spikes when venues sit nearby. Old residential lanes and newer mall energy share the neighbourhood. Banquet halls cover weddings and large receptions. Apartment and banquet hall family events lean floral; mall-adjacent gatherings prefer cleaner lines.',
-    },
-    {
-      q: 'What parking risks appear near the World Trade Center approaches?',
-      a: 'World Trade Center approaches can congest parking at peak hours alongside Orion Mall spillover. Confirm freight access for mall venues. Guests may arrive from mall shopping, business meetings, or Metro walks into very different rooms. Start from venue architecture and guest profile. Cooler neutrals appear near contemporary venues; ivory and soft gold remain staples for family halls.',
-    },
-    {
-      q: 'Who arrives first—Metro walk-ups or mall parkers—and why it matters?',
-      a: 'Near Rajajinagar Metro, pedestrian arrivals increase; entrance moments should read for walk-up guests. Design the entrance for the first cluster, then open the fuller stage as the room fills. Mall venues need strict timing, security protocols, and décor that coexists with public circulation. Confirm mall décor guidelines in writing, including hanging restrictions and strike deadlines.',
-    },
-    {
-      q: 'Which mall hanging restrictions must be written before design?',
-      a: 'Confirm mall décor guidelines in writing, including hanging restrictions and strike deadlines. Mall or business precinct celebrations with restrained florals lead contemporary asks. Apartment societies may limit helium and outdoor sound. Hybrid traditional-modern wedding receptions remain common in banquet halls away from public floors. Public circulation rules change what can hang above shared walkways near shopfronts.',
-    },
-    {
-      q: 'How do older banquet pillar grids affect stage depth?',
-      a: 'Measure pillar spacing and stage depth carefully in older banquet halls. Photograph existing ambient lighting. Families often want traditional morning décor and a softer evening reception look—shift intensity without changing the entire colour story. A site visit at the same hour as your event judges mall or street light spill accurately.',
-    },
-    {
-      q: 'Can a home ritual colour bridge a mall-adjacent evening reception?',
-      a: 'If your day moves from a home ritual to a mall-adjacent reception, plan a colour bridge rather than unrelated themes. Keep family colour cues when hosts want continuity. Apartments host smaller birthday evenings and housewarming setups. Reusable fabric systems are rising. Share Metro-friendly timing notes for guests using Rajajinagar Metro.',
-    },
-    {
-      q: 'What helium limits appear in Rajajinagar apartment societies?',
-      a: "Apartment societies may limit helium and outdoor sound. Structured balloons still work for kids' parties when frames stay freestanding and policy-compliant. Collect gate pass formats early. Old-and-new mix means one weekend can feel traditional and the next contemporary—match the specific room rather than a neighbourhood stereotype. Freestanding frames still look festive when helium is banned outright by society rules.",
-    },
-    {
-      q: 'Why match site visits to the same hour as the event?',
-      a: 'A site visit at the same hour as your event judges mall or street light spill accurately near Orion Mall or World Trade Center approaches. Ambient lighting changes how ivory florals read. Metro walk-ups and mall parkers arrive in different clusters; entrance design should favour the first wave without blocking later public circulation.',
-    },
-  ],
-  'richmond-town': [
-    {
-      q: 'How does Richmond Road parking complicate décor van timing?',
-      a: 'Central location helps guest access yet complicates van parking along Richmond Road. Plan earlier load-ins and compact kit lists that move through narrower heritage approaches without blocking neighbouring entrances. Banquet halls, restaurants, and heritage venues host polished dinners and intimate weddings. Elegant florals and soft metallics fit rooms already rich in character.',
-    },
-    {
-      q: 'What kit size fits Langford Road narrow heritage approaches?',
-      a: 'Compact kit lists that move through narrower heritage approaches on Langford Road avoid blocking neighbouring entrances. Measure doorways and stair turns carefully. Heritage venues may restrict wall fixings, open flame, and outdoor sound; freestanding design and approved materials become essential. Soft blush and ivory photograph kindly under mixed chandelier and natural light.',
-    },
-    {
-      q: 'Why request heritage wall-fixing rules in writing?',
-      a: 'Request heritage venue rules in writing before designing hanging pieces. Cornices, high ceilings, and period detail fight against loud thematic clutter. Use proportion, negative space, and quality materials so installations sit quietly within heritage rooms. Candle-safe compositions belong only where permitted. Guests arriving along Richmond Road or Langford Road expect a finished adult evening.',
-    },
-    {
-      q: 'How should cornices stay visible after florals go up?',
-      a: 'Leave the cornice clear. Frame the celebration around it. Guests notice the room first; décor should not argue with it. Intimate wedding dinners and heritage-venue receptions with calm florals lead trends. Soft blush, ivory, and deep green accents photograph kindly. Refined balloon accents appear only when the brief calls for them.',
-    },
-    {
-      q: 'When do shared restaurant floors block ceiling décor?',
-      a: "Confirm restaurant exclusive-hire windows versus shared dining floors. Restaurants need table-aware centrepieces and entrance moments that protect service flow. Align floral delivery with catering so corridors stay clear in compact footprints. Anniversary tablescapes should match the evening's social register so visual language and guest attire feel consistent. Shared floors change strike deadlines when breakfast service must reopen on schedule.",
-    },
-    {
-      q: 'What chandelier colour temperature checks prevent floral surprises?',
-      a: 'Ask managers about existing chandelier colour temperature before locking whites. Soft blush and ivory photograph kindly under mixed chandelier and natural light in colonial-charm rooms. Photograph ceiling roses or beams that should remain visible. Keep a spare indoor layout if weather closes any outdoor edge on garden or courtyard segments.',
-    },
-    {
-      q: 'Why build a rain plan for central garden segments even in dry months?',
-      a: 'If your celebration includes a garden or courtyard segment, build a rain plan even in dry months. Central Bengaluru weather still shifts quickly. Heritage venues may restrict outdoor sound. Map guest arrival from nearby parking before you place the welcome piece so Richmond Road or Langford Road approaches stay clear.',
-    },
-    {
-      q: 'How should décor formality match dress-code expectations?',
-      a: "Share dress code expectations if relevant; décor formality should match the evening's social register so visual language and guest attire feel consistent. Colonial charm rewards restraint—florals and lighting that complement heritage detail rather than covering it. Banquet halls suit larger receptions; restaurants suit intimate dinners with service-aware centrepieces. Restraint reads as polish when heritage cornices and guest attire already set a formal tone.",
-    },
-  ],
-  'rt-nagar': [
-    {
-      q: 'How does RT Nagar Main Road weekend parking pressure change call times?',
-      a: 'Main Road parking pressure on weekends means earlier load-ins protect setup quality and neighbour goodwill, especially when halls share lanes with residential gates. Residential sprawl and multi-generational guest lists shape celebrations. Apartments, community halls, and temples host family events that value clarity and comfort over spectacle. Soft gold in small doses photographs kindly under older hall tube lights.',
-    },
-    {
-      q: 'What direction notes help guests travelling from Ganganagar?',
-      a: 'If guests travel from Ganganagar or Hebbal, provide clear landmark directions using RT Nagar Main Road references. Guests expect a recognizable family celebration rather than a themed production. Overly abstract modern sets can feel cold. Overcrowded balloon fills can feel chaotic in compact halls. Balance warmth with order so elders and children share the same room comfortably.',
-    },
-    {
-      q: 'Why pad vendor windows on Hebbal approaches?',
-      a: 'Traffic toward Hebbal can stretch evening arrivals; pad vendor windows when venues sit on that approach. Morning rituals with marigold and jasmine, afternoon hall receptions, and apartment birthdays with structured balloon frames lead trends. Soft gold and festive reds remain popular in moderated use. Sustainable fabric drapes are rising. Soft gold and festive reds remain popular in moderated use when tube lights run warm.',
-    },
-    {
-      q: 'When should temple timings lock before floral colours?',
-      a: 'Confirm temple or priest timings before locking floral colours. Temples require respectful layouts and approved materials. Traditional looks for rituals and softly festive balloon work for children fit neighbourhood-based guest lists. Walk your venue approach at the planned guest hour to understand Main Road congestion before finalising welcome placement. Approved temple materials and clear pathways matter as much as colour choices on ritual mornings.',
-    },
-    {
-      q: 'How should elder-and-kids seating maps precede floral stands?',
-      a: "Draw the elder-and-kids seating map before you place a single floral stand. Circulation mistakes show up faster than colour mistakes. Decide elder seating and kids' zones early so décor does not trap movement between them. Share a guest count that includes last-minute relatives common to neighbourhood functions. Circulation mistakes show up faster than colour mistakes once both age groups fill the room.",
-    },
-    {
-      q: 'Why include last-minute relatives in neighbourhood guest counts?',
-      a: "Share a guest count that includes last-minute relatives common to neighbourhood functions. Multi-generational lists need clearer pathways than young-host parties elsewhere. Apartments host intimate ceremonies and kids' parties. Community halls cover weddings and larger lunches. Photograph hall kitchen doors and electrical boards before hanging elements. Neighbourhood functions routinely grow after the first RSVP list is printed.",
-    },
-    {
-      q: 'What pillar grids break stage sightlines in RT Nagar halls?',
-      a: 'Measure community hall pillar grids that break stage sightlines. Soft gold in small doses photographs kindly under older hall tube lights without washing out marigold tones. Notify neighbours early for apartment events. Families often host a home ritual then move to a hall—keep colour continuity without duplicating full installations in both spaces.',
-    },
-    {
-      q: 'How light should home-to-hall colour continuity stay?',
-      a: 'Keep colour continuity without duplicating full installations in both spaces. Lighter home welcomes and fuller hall stages read better than identical arches. Ganganagar pockets and Hebbal approaches still shape arrival timing. Structured balloon frames for apartment birthdays should stay secondary to floral ritual centres in temple-linked segments. Structured balloon frames for apartment birthdays should stay secondary to floral ritual centres.',
-    },
-  ],
-  sahakarnagar: [
-    {
-      q: 'What time does society music stop—and how should outdoor pieces work backward from it?',
-      a: 'Ask what time your society asks for music to stop, then work backward from that hour when you choose outdoor pieces and lighting. Quiet residential streets change the brief. Soft florals, restrained metallics, and tidy balloon compositions for children fit hosts who want celebrations that feel special yet neighbourly. Aggressive neon themes clash with that context.',
-    },
-    {
-      q: 'How do similar grids confuse guests coming from Hebbal, RT Nagar, or Yelahanka?',
-      a: 'If guests come from RT Nagar, Hebbal, or Yelahanka, give landmark-based directions that avoid confusing similar residential grids. Guests step into a residential mood, not a nightlife district. Gentle palettes and clear focal points photograph well under apartment and hall lighting without visual noise. Approaches can still hit traffic peaks, so vendor call times need buffers.',
-    },
-    {
-      q: 'Which temple fabric and flower rules need early confirmation?',
-      a: 'Confirm temple coordinator rules for fabrics and flowers. Temples need respectful, approved setups with clear pathways. Understated housewarming evenings and temple-linked rituals with classic florals lead trends. Pastels, ivory, and soft sage appear often. Hosts ask for reusable drapes and fewer plastics. Quiet hours are often taken seriously in this pocket.',
-    },
-    {
-      q: 'Why build a rain plan for semi-outdoor podia in monsoon months?',
-      a: 'Build a rain plan for any semi-outdoor podium segment in monsoon months. Keep spare weights for freestanding pieces on breezier evenings. Apartments dominate smaller birthday evenings and housewarming setups. Community halls cover larger family functions. Because the area is quieter, society rules on music and outdoor décor are often enforced strictly.',
-    },
-    {
-      q: 'How soft should palettes stay for neighbourly Sahakarnagar evenings?',
-      a: "Use gentle palettes and clear focal points that photograph well without visual noise. Pastel rooms photograph softly when evening lamps stay warm rather than blue-white. Apartment kids' parties with organised balloon frames still need tidy compositions. Families often prefer morning or early evening celebrations; design florals for daylight softness or warmer evening lamps depending on the chosen hour.",
-    },
-    {
-      q: 'What helium checks belong in quiet-residential apartment societies?',
-      a: 'Treat quiet hours as design constraints and share them before proposing outdoor arches or helium. Confirm parking for both guests and décor vans on quieter lanes. Photograph society electrical points. Speak with hall managers about simultaneous bookings. Between Hebbal, RT Nagar, and Yelahanka, celebrations favour calm gatherings over loud productions.',
-    },
-    {
-      q: 'How does a dusk gate visit judge street lighting for arrivals?',
-      a: 'A dusk site visit judges street lighting at your gate better than noon photos. First-time guests from neighbouring residential belts need readable entrances among similar grids. Soft sage and ivory hold under warm evening lamps. Vendor buffers still matter even when the neighbourhood itself feels calm once you arrive. Warm evening lamps flatter soft sage better than cool blue-white porch bulbs.',
-    },
-    {
-      q: 'Why ask hall managers about simultaneous bookings on quiet streets?',
-      a: 'Speak with hall managers about simultaneous bookings so shared corridors do not surprise both hosts. Community halls cover larger family functions when apartments feel tight. Temple-linked rituals need approved pathways. Quiet residential character rewards warm décor without overwhelming street and society calm. Reusable drapes support hosts who prefer fewer plastics.',
-    },
-  ],
-  'sarjapur-road': [
-    {
-      q: 'Who controls the boom barrier—and have both décor and catering vans been approved?',
-      a: 'Settle boom-barrier approval for both décor and catering vans before finalising a lawn arch. Villa-township and gated-society living set the corridor apart. Confirm society gate pass systems so one team does not block the other at the barrier. Villas, gated societies, clubhouses, and banquet halls host celebrations with more lawn and more protocol than inner-city apartments.',
-    },
-    {
-      q: 'How should welcome décor open when guests leave Wipro SEZ after work?',
-      a: 'If guests commute from Wipro SEZ after work into a residential celebration, stagger welcome décor opening. Weekend traffic near Decathlon Sarjapur and SEZ approaches can stretch arrivals; earlier load-ins protect floral freshness. Outdoor-friendly botanical mandaps and driveway welcome arches fit villa scale. Indoor-only café aesthetics feel incomplete outdoors. Natural textures and wind-aware structures suit villa lawns better than indoor café centrepieces alone.',
-    },
-    {
-      q: 'When is Decathlon Sarjapur only an orientation landmark?',
-      a: 'Use Decathlon Sarjapur or Carmelaram only as orientation landmarks unless they are part of guest directions. Near those approaches, weekend traffic can stretch arrivals. Measure lawn slopes and irrigation spray arcs before tall pieces go up. Guests arriving past Wipro SEZ or via Carmelaram often expect a weekend villa mood with natural textures and wind-aware structures.',
-    },
-    {
-      q: 'What Carmelaram traffic pads protect Saturday floral freshness?',
-      a: 'Pad load-in when guests and vans approach via Carmelaram on Saturdays. Villa garden weddings, gated-society clubhouse birthdays, and banquet receptions with soft modern florals lead trends. Sage, cream, and terracotta accents are popular. Hosts request reusable wooden frames and potted elements that can remain after guests leave. Earlier Saturday call times protect blooms when Carmelaram approaches slow both guests and vans.',
-    },
-    {
-      q: 'Which HOA flame and helium rules must be written first?',
-      a: 'Obtain written HOA rules on open flame, helium, and outdoor sound before designing. Heavy nightclub looks fight the township setting. Build monsoon cover for villa lawns even outside peak rain weeks; corridor weather shifts quickly. For clubhouses, check simultaneous bookings in the same tower cluster before assuming exclusive podia. Corridor weather shifts quickly, so monsoon cover belongs on the lawn checklist year-round.',
-    },
-    {
-      q: 'How do lawn irrigation arcs ruin tall floral placements?',
-      a: 'Measure lawn slopes and irrigation spray arcs before tall pieces go up. Outdoor-friendly botanical mandaps need clear spray zones. A morning lawn walk chooses floral colours under real daylight. A night check of villa façade lighting prevents glare surprises. Lighting should work after sunset without harsh glare across open lawns.',
-    },
-    {
-      q: 'Can multi-day villa weekends shift intensity without full rebuilds?',
-      a: 'Multi-day villa weekends benefit from lighter day décor and richer evening installs without rebuilding everything twice. Clubhouses cover resident birthdays; banquet halls handle larger lists when lawns are unavailable. Natural textures and wind-aware structures suit gated scale. Photograph clubhouse ceiling heights and power points before hanging elements. Clubhouses and banquet halls cover rain days when lawns cannot hold the full guest list.',
-    },
-    {
-      q: 'Why check simultaneous clubhouse bookings in the same tower cluster?',
-      a: "For clubhouses, check simultaneous bookings in the same tower cluster. Shared lifts and parking delay both hosts. Structured balloon frames for children's parties fit resident podia. Gated societies dominate weekend weddings and house gatherings along Sarjapur Road. Written HOA rules still govern outdoor sound even when two events share a cluster.",
-    },
-  ],
-  ulsoor: [
-    {
-      q: 'How should seating plans protect Ulsoor Lake horizons from floral clutter?',
-      a: 'Seat guests on paper first and place florals where they will not steal the horizon. Ulsoor Lake does enough work on its own. Airy florals, soft blues and ivories, and restrained metallic accents fit lakeside cantonment evenings. Cluttered balloon fills can block the very view guests came for. Keep sightlines open at lakeside venues.',
-    },
-    {
-      q: 'Where should décor vans park away from tight Halasuru turns?',
-      a: 'Confirm décor van parking away from tight Halasuru turns. Apartments, banquet halls, and lakeside venues host celebrations that often want water views and central-city convenience. Wind off the water demands ballast for freestanding pieces. Soft blues beside ivory keep lakeside photos calm even when street light from Halasuru spills in.',
-    },
-    {
-      q: 'What welcome signage helps MG Road Metro walk-up arrivals?',
-      a: 'If guests use MG Road Metro, keep welcome signage clear from the walking approach. Metro access increases walk-up arrivals; entrance décor should read for pedestrians as well as cars coming through Halasuru lanes. People arriving via the Metro or through Halasuru expect a polished central celebration. Translucent fabrics photograph against water and sky.',
-    },
-    {
-      q: 'Which lakeside open-flame and sound rules need early checks?',
-      a: 'Confirm lakeside venue rules on open flame and amplified sound near residential edges. Build a rain plan for any semi-outdoor lakeside segment. Check sunset timing if lake views matter for photos, and schedule florals accordingly. Align catering and décor load-in so lakeside paths stay safe and clear. Align catering and décor load-in so lakeside paths stay safe for elders after dark.',
-    },
-    {
-      q: 'How much evening ballast do Ulsoor freestanding frames need?',
-      a: "Wind off the water demands ballast for freestanding pieces. Keep spare clips for fabric edges in evening breeze. Walk Ulsoor Lake's public edges to understand evening light even when your venue is private. Lakeside engagement décor and banquet receptions with calm florals lead trends. Ivory, sage, and water-inspired blues appear often.",
-    },
-    {
-      q: 'What banquet pillar grids matter before stage florals?',
-      a: 'For banquet halls, measure pillar grids carefully before stage florals. Apartments host smaller birthday evenings with neighbour consideration in denser pockets. Heavy dark themes fight the lakeside horizon. Hosts ask for reusable lighting and fewer plastics. Photograph glass and water reflections that may affect lighting choices at dusk. Heavy dark themes fight the lakeside horizon and waste the water view guests expect.',
-    },
-    {
-      q: 'How do glass and water reflections change lighting choices?',
-      a: 'Photograph glass and water reflections that may affect lighting choices. Soft blues and ivories keep lakeside photos calm. Lakeside venues already offer atmosphere; décor should frame rather than fill. Notify societies early about balloon inflation locations in apartments. Halasuru street light spill can cool whites—test samples at event hour. Test floral whites at event hour when Halasuru street light spill cools the scene.',
-    },
-    {
-      q: 'Why notify apartment societies before lobby balloon inflation?',
-      a: 'Notify societies early about balloon inflation locations in apartments—enclosed lobbies can raise fire-safety questions. Soft colour stories suit apartment celebrations when lakeside venues are not booked. Cantonment and lakeside character meet here; measured balloon accents work better than dense fills that fight water views at nearby venues. Measured balloon accents work better than dense fills that fight water views nearby.',
-    },
-  ],
-  vijayanagar: [
-    {
-      q: 'How do Vijayanagar Metro arrival waves at ritual hour change welcome timing?',
-      a: 'A site visit at ritual hour helps understand arrival waves from Vijayanagar Metro. Entrance décor should work for walk-up guests. Traditional residential life still organises celebrations. Auspicious colour combinations, jasmine and marigold welcomes, and clean mandap forms lead. Ultra-trendy café aesthetics can feel disconnected from temple venues and older community halls.',
-    },
-    {
-      q: 'Why pad evening load-in when traffic crosses toward Rajajinagar or Malleshwaram?',
-      a: 'Cross-neighbourhood traffic toward Rajajinagar or Malleshwaram can affect evening vendor timing, so pad load-in windows on busy ritual weekends. Apartments, community halls, and temples host family rituals that value familiar ceremonial structure. People arriving via Metro or from those sides look for a celebration that feels like home, refined rather than reinvented.',
-    },
-    {
-      q: 'What written material guidelines matter for temple-adjacent segments?',
-      a: "If any segment is temple-adjacent, collect written material guidelines. Temples require approved materials and clear pathways. Soft gold, ivory, and festive reds remain popular in moderated doses. Organised balloon work stays reserved mainly for children's segments. Modernise finishing while keeping ceremonial cues readable from entrance garland to stage front. Organised balloon work stays reserved mainly for children's segments beside ritual stages.",
-    },
-    {
-      q: 'Who must see the mandap without standing—and how does that change seating?',
-      a: 'Ask who must see the mandap without standing, then seat them on the plan before sketching a single floral line. Share seating preferences for elders early; traditional guest lists often need clearer hierarchy. Measure older hall stages for depth limits. Leave clear pathways for elders moving between ritual seating and the meal area without crossing cable runs.',
-    },
-    {
-      q: 'How should kitchen versus décor corridors be prioritised in shared halls?',
-      a: 'Confirm hall kitchen corridors separately from floral staging areas. Decide kitchen versus décor corridor priority in shared back-of-house spaces so catering and florals do not collide at peak service. Community halls carry weddings, naming ceremonies, and anniversary lunches. Photograph pillar spacing and ceiling fans in community halls. Photograph pillar spacing and ceiling fans so hanging elements avoid collisions mid-service.',
-    },
-    {
-      q: 'What older hall stage depths limit mandap size here?',
-      a: "Measure older hall stages for depth limits before mandap design. Morning rituals, afternoon hall receptions, and apartment kids' parties with structured balloons lead trends. Sustainable fabric drapes are rising. Families often move from temple or home ritual to a hall reception—echo colour lightly across spaces without copying the same install twice.",
-    },
-    {
-      q: 'Which apartment outdoor arch and sound rules need confirmation?',
-      a: 'Confirm apartment society rules on outdoor arches and sound. Apartments host intimate cradle ceremonies and birthdays. Traditional residential mood favours clear stage geometry and respectful temple-adjacent planning. Soft gold in moderated doses photographs kindly when tube lights and warm bulbs mix in older halls nearby. Soft gold in moderated doses photographs kindly when tube lights and warm bulbs mix.',
-    },
-    {
-      q: 'How lightly should temple-to-hall colour echo across the day?',
-      a: 'Echo colour lightly across spaces without copying the same install twice when families move from temple or home ritual to a hall reception. Metro pedestrian arrivals still need readable entrances. Cultural continuity matters more than novelty. Balloon zones stay secondary beside jasmine and marigold ritual welcomes. Metro pedestrian arrivals still need readable entrances when ritual colour shifts between stops.',
+      q: 'Can you decorate wedding stages and banquet halls around Koramangala?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Koramangala, including a free pre-event site walkthrough.',
     },
   ],
   whitefield: [
     {
-      q: 'How many kilometres separate ceremony and reception—and how many florist minutes remain?',
-      a: 'Answer how many kilometres separate ceremony from reception—and how many minutes the florist will actually have between them—before picking matching centrepieces. Distances are larger than they look on a map; treat vendor travel time as a design constraint. Villa weekends and tech-park evenings share the calendar across a wide eastern corridor.',
+      q: 'What event decoration services do you provide in Whitefield?',
+      a: 'We provide complete event and party decoration across Whitefield — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for villas, apartments, gated communities.',
     },
     {
-      q: 'Why schedule load-in outside VR Bengaluru mall peaks?',
-      a: 'Near VR Bengaluru and Phoenix Marketcity, mall traffic affects parking and van access at peak hours; schedule load-ins outside those windows when venues sit close. Villas, apartments, gated communities, clubhouses, banquet halls, and event spaces host very different rooms. Sage and cream travel well from villa lawn daylight into banquet LED evenings.',
+      q: 'How much does birthday balloon decoration at home cost in Whitefield?',
+      a: 'Our home birthday balloon decoration in Whitefield starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What parking conflicts appear beside Phoenix Marketcity precincts?',
-      a: "For banquet halls near malls, confirm shared precinct parking beside Phoenix Marketcity. Guests may come from ITPL meetings or mall plans into different rooms. Match the venue's architecture and the evening's social register. Avoid one corridor stereotype. Villa hosts favour garden florals while tech-park hosts prefer cleaner brand-safe lines.",
+      q: 'Can you decorate apartment clubhouses and flats in Whitefield?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Whitefield near VR Bengaluru, Phoenix Marketcity, ITPL. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'Which ITPL security lists and freight steps belong day-before?',
-      a: "ITPL-area office events need security lists, freight access, and quick strikes after work hours. Corporate neutrals appear for office nights; soft gold remains common for family banquet receptions. Request scaled room plans for ITPL events. Reusable frames and eco-minded materials are rising across Whitefield's dual calendar. Quick strikes after work hours keep ITPL rooms ready for the next morning shift.",
+      q: 'Do you offer same-day or next-day event decoration in Whitefield?',
+      a: 'Yes. We accept same-day and next-day bookings across Whitefield based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'How should gated-community HOA rules be captured in writing?',
-      a: 'Obtain HOA rules for gated communities in writing before lawn arches go up. Measure villa lawn irrigation and slope. Build monsoon cover for outdoor villa segments. Multi-hour villa weekends benefit from lighter daytime décor and richer evening installs without full rebuilds. Check villa gate procedures separately from mall precinct rules.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Whitefield?',
+      a: 'For home Haldi ceremonies in Whitefield, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
     },
     {
-      q: 'What villa irrigation and slope checks prevent mid-event watering?',
-      a: 'Measure villa lawn irrigation and slope before placing tall garden florals and driveway arches. Soft evening lighting suits gated weekends. Photograph clubhouse ceiling heights for resident parties. Guests arriving after Phoenix Marketcity or VR Bengaluru plans still need finished entrances when parking waves finally clear. Soft evening lighting suits gated weekends once irrigation arcs are marked and avoided.',
+      q: 'Can you decorate wedding stages and banquet halls around Whitefield?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Whitefield, including a free pre-event site walkthrough.',
+    },
+  ],
+  indiranagar: [
+    {
+      q: 'What event decoration services do you provide in Indiranagar?',
+      a: 'We provide complete event and party decoration across Indiranagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for restaurants, apartments, residential societies.',
     },
     {
-      q: 'Why keep monsoon cover on villa lawn checklists year-round?',
-      a: "Build monsoon cover for outdoor villa segments even outside peak rain weeks. Eastern corridor weather shifts quickly. Villa garden weddings and gated clubhouse kids' parties lead residential asks. Tech-park milestone décor needs faster strikes. Sage, cream, and soft gold remain common family palettes beside corporate neutrals. Tech-park milestone décor needs faster strikes than leisurely villa lawn installs.",
+      q: 'How much does birthday balloon decoration at home cost in Indiranagar?',
+      a: 'Our home birthday balloon decoration in Indiranagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'How can day and evening villa intensity shift without a full rebuild?',
-      a: 'Multi-hour villa weekends benefit from lighter daytime décor and richer evening installs without full rebuilds. If your day moves from an ITPL evening segment to a villa weekend, plan a colour bridge rather than unrelated themes. Event spaces and banquet halls cover large receptions when lawns are unavailable. Site visits at event hour judge mall light spill accurately.',
+      q: 'Can you decorate apartment clubhouses and flats in Indiranagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Indiranagar near CMH Road, 100 Feet Road, Defence Colony side. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Indiranagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Indiranagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Indiranagar?',
+      a: 'For home Haldi ceremonies in Indiranagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Indiranagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Indiranagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  jayanagar: [
+    {
+      q: 'What event decoration services do you provide in Jayanagar?',
+      a: 'We provide complete event and party decoration across Jayanagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, family homes, banquet halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Jayanagar?',
+      a: 'Our home birthday balloon decoration in Jayanagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Jayanagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Jayanagar near Jayanagar 4th Block, South End Circle, Jayanagar Shopping Complex. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Jayanagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Jayanagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Jayanagar?',
+      a: 'For home Haldi ceremonies in Jayanagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Jayanagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Jayanagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  'hsr-layout': [
+    {
+      q: 'What event decoration services do you provide in HSR Layout?',
+      a: 'We provide complete event and party decoration across HSR Layout — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, clubhouses, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in HSR Layout?',
+      a: 'Our home birthday balloon decoration in HSR Layout starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in HSR Layout?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across HSR Layout near 27th Main, Agara Lake, HSR BDA Complex area. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in HSR Layout?',
+      a: 'Yes. We accept same-day and next-day bookings across HSR Layout based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in HSR Layout?',
+      a: 'For home Haldi ceremonies in HSR Layout, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around HSR Layout?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around HSR Layout, including a free pre-event site walkthrough.',
+    },
+  ],
+  'rt-nagar': [
+    {
+      q: 'What event decoration services do you provide in RT Nagar?',
+      a: 'We provide complete event and party decoration across RT Nagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, temples.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in RT Nagar?',
+      a: 'Our home birthday balloon decoration in RT Nagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in RT Nagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across RT Nagar near RT Nagar Main Road, Ganganagar, Hebbal. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in RT Nagar?',
+      a: 'Yes. We accept same-day and next-day bookings across RT Nagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in RT Nagar?',
+      a: 'For home Haldi ceremonies in RT Nagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around RT Nagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around RT Nagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  hebbal: [
+    {
+      q: 'What event decoration services do you provide in Hebbal?',
+      a: 'We provide complete event and party decoration across Hebbal — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, clubhouses, lakeside venues.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Hebbal?',
+      a: 'Our home birthday balloon decoration in Hebbal starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Hebbal?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Hebbal near Hebbal Lake, Manyata Flyover, Manyata Tech Park. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Hebbal?',
+      a: 'Yes. We accept same-day and next-day bookings across Hebbal based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Hebbal?',
+      a: 'For home Haldi ceremonies in Hebbal, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Hebbal?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Hebbal, including a free pre-event site walkthrough.',
+    },
+  ],
+  'electronic-city': [
+    {
+      q: 'What event decoration services do you provide in Electronic City?',
+      a: 'We provide complete event and party decoration across Electronic City — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, villas, banquet halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Electronic City?',
+      a: 'Our home birthday balloon decoration in Electronic City starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Electronic City?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Electronic City near Electronic City Phase 1, Infosys Campus area, Electronic City Elevated Expressway. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Electronic City?',
+      a: 'Yes. We accept same-day and next-day bookings across Electronic City based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Electronic City?',
+      a: 'For home Haldi ceremonies in Electronic City, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Electronic City?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Electronic City, including a free pre-event site walkthrough.',
+    },
+  ],
+  'btm-layout': [
+    {
+      q: 'What event decoration services do you provide in BTM Layout?',
+      a: 'We provide complete event and party decoration across BTM Layout — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, rooftops, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in BTM Layout?',
+      a: 'Our home birthday balloon decoration in BTM Layout starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in BTM Layout?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across BTM Layout near Silk Board, Mico Layout, BTM Lake. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in BTM Layout?',
+      a: 'Yes. We accept same-day and next-day bookings across BTM Layout based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in BTM Layout?',
+      a: 'For home Haldi ceremonies in BTM Layout, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around BTM Layout?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around BTM Layout, including a free pre-event site walkthrough.',
+    },
+  ],
+  marathahalli: [
+    {
+      q: 'What event decoration services do you provide in Marathahalli?',
+      a: 'We provide complete event and party decoration across Marathahalli — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, tower apartments, clubhouses.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Marathahalli?',
+      a: 'Our home birthday balloon decoration in Marathahalli starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Marathahalli?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Marathahalli near Marathahalli Bridge, Outer Ring Road, Innovative Multiplex area. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Marathahalli?',
+      a: 'Yes. We accept same-day and next-day bookings across Marathahalli based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Marathahalli?',
+      a: 'For home Haldi ceremonies in Marathahalli, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Marathahalli?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Marathahalli, including a free pre-event site walkthrough.',
+    },
+  ],
+  bellandur: [
+    {
+      q: 'What event decoration services do you provide in Bellandur?',
+      a: 'We provide complete event and party decoration across Bellandur — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for condo clubhouses, apartments, rooftops.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Bellandur?',
+      a: 'Our home birthday balloon decoration in Bellandur starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Bellandur?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Bellandur near Bellandur Lake, EcoSpace, Embassy TechVillage. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Bellandur?',
+      a: 'Yes. We accept same-day and next-day bookings across Bellandur based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Bellandur?',
+      a: 'For home Haldi ceremonies in Bellandur, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Bellandur?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Bellandur, including a free pre-event site walkthrough.',
+    },
+  ],
+  'sarjapur-road': [
+    {
+      q: 'What event decoration services do you provide in Sarjapur Road?',
+      a: 'We provide complete event and party decoration across Sarjapur Road — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for villas, gated societies, clubhouses.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Sarjapur Road?',
+      a: 'Our home birthday balloon decoration in Sarjapur Road starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Sarjapur Road?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Sarjapur Road near Wipro SEZ, Decathlon Sarjapur, Carmelaram. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Sarjapur Road?',
+      a: 'Yes. We accept same-day and next-day bookings across Sarjapur Road based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Sarjapur Road?',
+      a: 'For home Haldi ceremonies in Sarjapur Road, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Sarjapur Road?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Sarjapur Road, including a free pre-event site walkthrough.',
+    },
+  ],
+  domlur: [
+    {
+      q: 'What event decoration services do you provide in Domlur?',
+      a: 'We provide complete event and party decoration across Domlur — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, offices, restaurants.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Domlur?',
+      a: 'Our home birthday balloon decoration in Domlur starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Domlur?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Domlur near Domlur Bridge, Indiranagar Metro, Old Airport Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Domlur?',
+      a: 'Yes. We accept same-day and next-day bookings across Domlur based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Domlur?',
+      a: 'For home Haldi ceremonies in Domlur, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Domlur?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Domlur, including a free pre-event site walkthrough.',
+    },
+  ],
+  ulsoor: [
+    {
+      q: 'What event decoration services do you provide in Ulsoor?',
+      a: 'We provide complete event and party decoration across Ulsoor — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, banquet halls, lakeside venues.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Ulsoor?',
+      a: 'Our home birthday balloon decoration in Ulsoor starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Ulsoor?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Ulsoor near Ulsoor Lake, Halasuru, MG Road Metro. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Ulsoor?',
+      a: 'Yes. We accept same-day and next-day bookings across Ulsoor based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Ulsoor?',
+      a: 'For home Haldi ceremonies in Ulsoor, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Ulsoor?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Ulsoor, including a free pre-event site walkthrough.',
+    },
+  ],
+  'richmond-town': [
+    {
+      q: 'What event decoration services do you provide in Richmond Town?',
+      a: 'We provide complete event and party decoration across Richmond Town — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for banquet halls, restaurants, heritage venues.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Richmond Town?',
+      a: 'Our home birthday balloon decoration in Richmond Town starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Richmond Town?',
+      a: "Yes. We regularly style living rooms, balconies, and community clubhouses across Richmond Town near Richmond Road, Langford Road, St Mark's Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.",
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Richmond Town?',
+      a: 'Yes. We accept same-day and next-day bookings across Richmond Town based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Richmond Town?',
+      a: 'For home Haldi ceremonies in Richmond Town, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Richmond Town?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Richmond Town, including a free pre-event site walkthrough.',
+    },
+  ],
+  'ashok-nagar': [
+    {
+      q: 'What event decoration services do you provide in Ashok Nagar?',
+      a: 'We provide complete event and party decoration across Ashok Nagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, churches.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Ashok Nagar?',
+      a: 'Our home birthday balloon decoration in Ashok Nagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Ashok Nagar?',
+      a: "Yes. We regularly style living rooms, balconies, and community clubhouses across Ashok Nagar near Ashok Nagar Main Road, Richmond Circle, St Joseph's. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.",
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Ashok Nagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Ashok Nagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Ashok Nagar?',
+      a: 'For home Haldi ceremonies in Ashok Nagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Ashok Nagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Ashok Nagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  banashankari: [
+    {
+      q: 'What event decoration services do you provide in Banashankari?',
+      a: 'We provide complete event and party decoration across Banashankari — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, temples.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Banashankari?',
+      a: 'Our home birthday balloon decoration in Banashankari starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Banashankari?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Banashankari near BSK 2nd Stage, Banashankari Temple, BSK 3rd Stage. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Banashankari?',
+      a: 'Yes. We accept same-day and next-day bookings across Banashankari based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Banashankari?',
+      a: 'For home Haldi ceremonies in Banashankari, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Banashankari?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Banashankari, including a free pre-event site walkthrough.',
+    },
+  ],
+  basavanagudi: [
+    {
+      q: 'What event decoration services do you provide in Basavanagudi?',
+      a: 'We provide complete event and party decoration across Basavanagudi — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, temples.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Basavanagudi?',
+      a: 'Our home birthday balloon decoration in Basavanagudi starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Basavanagudi?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Basavanagudi near Bugle Rock, Gandhi Bazaar, Bull Temple. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Basavanagudi?',
+      a: 'Yes. We accept same-day and next-day bookings across Basavanagudi based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Basavanagudi?',
+      a: 'For home Haldi ceremonies in Basavanagudi, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Basavanagudi?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Basavanagudi, including a free pre-event site walkthrough.',
+    },
+  ],
+  'jp-nagar': [
+    {
+      q: 'What event decoration services do you provide in JP Nagar?',
+      a: 'We provide complete event and party decoration across JP Nagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for family homes, community halls, banquet halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in JP Nagar?',
+      a: 'Our home birthday balloon decoration in JP Nagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in JP Nagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across JP Nagar near JP Nagar Mini Forest, JP Nagar Metro Station, Sarakki Signal. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in JP Nagar?',
+      a: 'Yes. We accept same-day and next-day bookings across JP Nagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in JP Nagar?',
+      a: 'For home Haldi ceremonies in JP Nagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around JP Nagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around JP Nagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  'bannerghatta-road': [
+    {
+      q: 'What event decoration services do you provide in Bannerghatta Road?',
+      a: 'We provide complete event and party decoration across Bannerghatta Road — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, villas, educational institutions.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Bannerghatta Road?',
+      a: 'Our home birthday balloon decoration in Bannerghatta Road starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Bannerghatta Road?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Bannerghatta Road near Bannerghatta National Park, JP Nagar, IIM Bangalore. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Bannerghatta Road?',
+      a: 'Yes. We accept same-day and next-day bookings across Bannerghatta Road based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Bannerghatta Road?',
+      a: 'For home Haldi ceremonies in Bannerghatta Road, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Bannerghatta Road?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Bannerghatta Road, including a free pre-event site walkthrough.',
+    },
+  ],
+  'kanakapura-road': [
+    {
+      q: 'What event decoration services do you provide in Kanakapura Road?',
+      a: 'We provide complete event and party decoration across Kanakapura Road — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, villas, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Kanakapura Road?',
+      a: 'Our home birthday balloon decoration in Kanakapura Road starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Kanakapura Road?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Kanakapura Road near Bannerghatta Road, JP Nagar, Kanakapura Junction. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Kanakapura Road?',
+      a: 'Yes. We accept same-day and next-day bookings across Kanakapura Road based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Kanakapura Road?',
+      a: 'For home Haldi ceremonies in Kanakapura Road, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Kanakapura Road?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Kanakapura Road, including a free pre-event site walkthrough.',
+    },
+  ],
+  malleshwaram: [
+    {
+      q: 'What event decoration services do you provide in Malleshwaram?',
+      a: 'We provide complete event and party decoration across Malleshwaram — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, temples.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Malleshwaram?',
+      a: 'Our home birthday balloon decoration in Malleshwaram starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Malleshwaram?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Malleshwaram near 8th Cross, Sankey Tank, Malleshwaram Metro. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Malleshwaram?',
+      a: 'Yes. We accept same-day and next-day bookings across Malleshwaram based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Malleshwaram?',
+      a: 'For home Haldi ceremonies in Malleshwaram, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Malleshwaram?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Malleshwaram, including a free pre-event site walkthrough.',
+    },
+  ],
+  rajajinagar: [
+    {
+      q: 'What event decoration services do you provide in Rajajinagar?',
+      a: 'We provide complete event and party decoration across Rajajinagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for banquet halls, apartments, malls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Rajajinagar?',
+      a: 'Our home birthday balloon decoration in Rajajinagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Rajajinagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Rajajinagar near Orion Mall, World Trade Center, Rajajinagar Metro. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Rajajinagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Rajajinagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Rajajinagar?',
+      a: 'For home Haldi ceremonies in Rajajinagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Rajajinagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Rajajinagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  vijayanagar: [
+    {
+      q: 'What event decoration services do you provide in Vijayanagar?',
+      a: 'We provide complete event and party decoration across Vijayanagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, temples.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Vijayanagar?',
+      a: 'Our home birthday balloon decoration in Vijayanagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Vijayanagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Vijayanagar near Vijayanagar Metro, Rajajinagar, Malleshwaram. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Vijayanagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Vijayanagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Vijayanagar?',
+      a: 'For home Haldi ceremonies in Vijayanagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Vijayanagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Vijayanagar, including a free pre-event site walkthrough.',
     },
   ],
   yelahanka: [
     {
-      q: 'Will guests arrive from the Airport Road side after dark—and is the driveway lit equally?',
-      a: 'Light the driveway and the welcome equally, or florals will wait for people who cannot find the gate. Airport Road traffic can delay evening arrivals for out-of-town guests; pad welcome décor opening times so early local arrivals still find a finished entrance. Airy layouts and lake-edge calm define celebrations that often feel less cramped than central rooms.',
+      q: 'What event decoration services do you provide in Yelahanka?',
+      a: 'We provide complete event and party decoration across Yelahanka — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for villas, apartments, lakeside venues.',
     },
     {
-      q: 'How should Allalasandra Lake photo plans stay portable and permitted?',
-      a: 'If Allalasandra Lake photos are desired, plan portable décor and permissions rather than assuming public edges are private venues. Lakeside venues suit evening receptions where water and sky do part of the design work. Keep lakeside sightlines clear when the lake is part of the evening. Soft greens and sky-adjacent blues hold up under open villa light.',
+      q: 'How much does birthday balloon decoration at home cost in Yelahanka?',
+      a: 'Our home birthday balloon decoration in Yelahanka starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What society helium and outdoor policies apply in Yelahanka New Town?',
-      a: 'For apartments in Yelahanka New Town, check society helium and outdoor policies. Apartments host clubhouse birthdays and housewarming evenings. Villas allow lawn mandaps, driveway welcomes, and longer guest journeys. Botanical palettes and soft neutrals fit spaciousness. Tiny café centrepieces can disappear in larger villa rooms; scale frames to room volume.',
+      q: 'Can you decorate apartment clubhouses and flats in Yelahanka?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Yelahanka near Allalasandra Lake, Yelahanka New Town, Airport Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'How should floral scale match airy villa room volume?',
-      a: 'Scale florals and frames to room volume. Airy plots and lake light already provide atmosphere; heavy dark installs can feel oppressive. Guests arriving via Airport Road or through Yelahanka New Town expect weekend ease. Soft greens, ivory, and sky-adjacent blues appear often. Hosts ask for reusable wooden frames and potted plants that can remain.',
+      q: 'Do you offer same-day or next-day event decoration in Yelahanka?',
+      a: 'Yes. We accept same-day and next-day bookings across Yelahanka based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'Which lakeside sound and flame rules need confirmation?',
-      a: 'Confirm lakeside venue rules on open flame and sound. Wind across open layouts demands ballast. A morning lawn walk chooses colour under real daylight. A dusk check of lake-edge light helps if water views matter. Families often prefer daytime villa celebrations with evening lighting upgrades—plan that arc without two unrelated themes.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Yelahanka?',
+      a: 'For home Haldi ceremonies in Yelahanka, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
     },
     {
-      q: 'Why ballast freestanding pieces on open Yelahanka layouts?',
-      a: 'Wind across open layouts demands ballast for freestanding pieces. Lakeside engagement décor and villa garden weddings lead trends. Confirm décor van access on wider New Town roads versus tighter older lanes. Share Airport Road timing notes for guests flying in or driving from the north. Keep water sightlines clear at Allalasandra-facing evenings.',
+      q: 'Can you decorate wedding stages and banquet halls around Yelahanka?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Yelahanka, including a free pre-event site walkthrough.',
+    },
+  ],
+  sahakarnagar: [
+    {
+      q: 'What event decoration services do you provide in Sahakarnagar?',
+      a: 'We provide complete event and party decoration across Sahakarnagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, temples.',
     },
     {
-      q: 'What morning lawn walks reveal about floral colour under real daylight?',
-      a: "A morning lawn walk chooses colour under real daylight better than indoor swatches. Soft greens and sky-adjacent blues hold under open villa light better than heavy jewel tones. Photograph power points on villa verandahs before hanging evening lights. Apartment clubhouse kids' parties with structured balloons still need society-compliant freestanding frames.",
+      q: 'How much does birthday balloon decoration at home cost in Sahakarnagar?',
+      a: 'Our home birthday balloon decoration in Sahakarnagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'Where should verandah power points be photographed before hanging lights?',
-      a: 'Photograph power points on villa verandahs before hanging evening lights. Daytime villa celebrations with evening lighting upgrades need one coherent colour arc. Lakeside venues and apartments in Yelahanka New Town follow different rules—confirm each. Airport Road after-dark arrivals still need driveway and welcome lit equally for first-time guests. Daytime villa celebrations with evening lighting upgrades need one coherent colour arc across both hours.',
+      q: 'Can you decorate apartment clubhouses and flats in Sahakarnagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Sahakarnagar near Hebbal, RT Nagar, Yelahanka. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Sahakarnagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Sahakarnagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Sahakarnagar?',
+      a: 'For home Haldi ceremonies in Sahakarnagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Sahakarnagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Sahakarnagar, including a free pre-event site walkthrough.',
+    },
+  ],
+  mathikere: [
+    {
+      q: 'What event decoration services do you provide in Mathikere?',
+      a: 'We provide complete event and party decoration across Mathikere — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, educational institutions.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Mathikere?',
+      a: 'Our home birthday balloon decoration in Mathikere starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Mathikere?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Mathikere near Yeshwanthpur, Rajajinagar, Mathikere Lake. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Mathikere?',
+      a: 'Yes. We accept same-day and next-day bookings across Mathikere based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Mathikere?',
+      a: 'For home Haldi ceremonies in Mathikere, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Mathikere?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Mathikere, including a free pre-event site walkthrough.',
     },
   ],
   yeshwanthpur: [
     {
-      q: 'When does the industrial gate close—and how should the install clock work backward?',
-      a: 'Ask when the industrial gate closes on your date, then work the install clock backward from that lock time and choose florals that can land inside it. Industrial areas may offer spacious rooms with security gates and shift-based access windows. Sturdy freestanding frames assemble faster when shutter clearances and freight paths are marked the day before.',
+      q: 'What event decoration services do you provide in Yeshwanthpur?',
+      a: 'We provide complete event and party decoration across Yeshwanthpur — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, industrial areas.',
     },
     {
-      q: 'What entrance cues help Yeshwanthpur Metro walk-up guests?',
-      a: 'Metro pedestrian arrivals increase; entrance décor should read for walk-up guests. Share Metro-friendly directions using Yeshwanthpur Metro as a landmark. Apartments, community halls, and industrial areas host family functions and staff events that need durable décor. Delicate boutique styling can wash out under bright industrial or hall lighting.',
+      q: 'How much does birthday balloon decoration at home cost in Yeshwanthpur?',
+      a: 'Our home birthday balloon decoration in Yeshwanthpur starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'How do Peenya and Rajajinagar cross-traffic compress evening vendor windows?',
-      a: 'Cross-traffic toward Peenya or Rajajinagar can compress evening vendor windows, so earlier call times protect setup quality. Industrial-residential crossroads define the area. Confirm parking for décor vans away from peak Metro pickup congestion. Weekend halls after weekday industrial rhythms settle often work best. Friday soft installs can ease Saturday morning pressure.',
+      q: 'Can you decorate apartment clubhouses and flats in Yeshwanthpur?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Yeshwanthpur near Peenya, Rajajinagar, Yeshwanthpur Metro. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'Why mark shutter clearances before tall arches arrive?',
-      a: 'Confirm industrial venue electrical capacity and shutter clearances before tall arches. Measure community hall pillar grids. Strong floral focal points for family halls and organised balloon frames for kids fit practical venues. Guests arriving via Metro or from Peenya and Rajajinagar expect a clear celebration without needing a luxury shell.',
+      q: 'Do you offer same-day or next-day event decoration in Yeshwanthpur?',
+      a: 'Yes. We accept same-day and next-day bookings across Yeshwanthpur based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'Which apartment outdoor sound rules reshape evening parties?',
-      a: "For apartments, check society rules on helium and outdoor sound. Apartments host smaller birthday evenings and housewarming setups. Community hall receptions with traditional florals and apartment kids' parties with structured balloons lead family trends. Festive reds and golds remain popular for family events; cooler neutrals suit workplace gatherings.",
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Yeshwanthpur?',
+      a: 'For home Haldi ceremonies in Yeshwanthpur, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
     },
     {
-      q: 'What electrical capacity checks matter at industrial celebration rooms?',
-      a: 'Confirm industrial venue electrical capacity before adding lighting runs. Lock visitor lists for industrial sites a day ahead. Staff milestones with restrained branding lead workplace asks. A daytime site visit when industrial activity is visible shows honest traffic context. Add an evening lighting check in halls so florals do not surprise under tubes and LEDs.',
-    },
-    {
-      q: 'How should hall back-of-house corridors prioritise kitchen versus décor?',
-      a: 'Decide kitchen and décor corridor priority in halls that share tight back-of-house space with catering. Photograph floor surfaces and door widths. Community halls cover weddings, naming ceremonies, and larger lunches. Reusable frames that travel well are in demand across industrial-residential stops. Brand-safe neutrals suit industrial or office-adjacent events when family florals would feel out of place.',
-    },
-    {
-      q: 'What restrained branding suits industrial-site staff milestones?',
-      a: 'Industrial-site staff milestones with restrained branding lead workplace trends beside family hall florals. Cooler neutrals fit workplace gatherings while festive reds and golds remain popular for family events. Freestanding installations and efficient load-ins feel finished in practical venues. Gate lock times still decide whether florals land before security closes. Gate lock times still decide whether florals land before security closes for the night.',
+      q: 'Can you decorate wedding stages and banquet halls around Yeshwanthpur?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Yeshwanthpur, including a free pre-event site walkthrough.',
     },
   ],
-  // Hanumanthanagar. Engagement is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
+  peenya: [
+    {
+      q: 'What event decoration services do you provide in Peenya?',
+      a: 'We provide complete event and party decoration across Peenya — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, offices, industrial venues.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Peenya?',
+      a: 'Our home birthday balloon decoration in Peenya starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Peenya?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Peenya near Peenya Industrial Area, Jalahalli, Yeshwanthpur. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Peenya?',
+      a: 'Yes. We accept same-day and next-day bookings across Peenya based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Peenya?',
+      a: 'For home Haldi ceremonies in Peenya, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Peenya?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Peenya, including a free pre-event site walkthrough.',
+    },
+  ],
   hanumanthanagar: [
     {
-      q: 'Do you decorate engagements in Hanumanthanagar?',
-      a: 'Yes. Engagement setups are the work we have photographed most often in Hanumanthanagar, across community halls, apartments and independent homes. The layout sits just west of Basavanagudi, so our team reaches it in the same run as a Gandhi Bazaar or Bull Temple Road job. Tell us the venue and date and we will come and measure before quoting. The site visit is free.',
+      q: 'What event decoration services do you provide in Hanumanthanagar?',
+      a: 'We provide complete event and party decoration across Hanumanthanagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, independent homes.',
     },
     {
-      q: 'Is a community hall or a home better for an engagement here?',
-      a: 'Both work and the choice is usually about guest count rather than looks. Community halls around Hanumanthanagar Circle take a full stage, a seating arc and a photo corner without crowding. An independent home suits a smaller ring ceremony where the family wants the day to stay private. Send the number of guests you expect and we will say which one your budget goes further in.',
+      q: 'How much does birthday balloon decoration at home cost in Hanumanthanagar?',
+      a: 'Our home birthday balloon decoration in Hanumanthanagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What do you need to know before quoting a hall near Gali Anjaneya Temple?',
-      a: 'Ceiling height, whether wall fixings are allowed, and where the power points sit. Temple-adjacent halls often prohibit drilling, which means freestanding frames rather than wall-mounted backdrops, and that changes the price. A photograph of the empty hall from the entrance tells us most of it. We confirm the rest on the site visit.',
+      q: 'Can you decorate apartment clubhouses and flats in Hanumanthanagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Hanumanthanagar near Hanumanthanagar Circle, Gali Anjaneya Temple, Chord Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'How quickly can you set up in Hanumanthanagar?',
-      a: "Often the same or next day, depending on what is already booked. Short notice limits fresh flower choice more than anything else, so a balloon or fabric-led design holds up better at a day's notice than a floral stage. Message us with the date and we will tell you honestly what is possible rather than take the booking and improvise.",
+      q: 'Do you offer same-day or next-day event decoration in Hanumanthanagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Hanumanthanagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does an engagement setup start at?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 82 reviews, and most of those were jobs in south Bengaluru like this one.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Hanumanthanagar?',
+      a: 'For home Haldi ceremonies in Hanumanthanagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Hanumanthanagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Hanumanthanagar, including a free pre-event site walkthrough.',
     },
   ],
-  // Puttenahalli. Anniversary and haldi is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  puttenahalli: [
-    {
-      q: 'What kind of events have you decorated in Puttenahalli?',
-      a: 'Anniversaries and haldi ceremonies are what we have photographed here, in the apartment belt around Puttenahalli Lake. The area is mostly flats and clubhouses rather than standalone halls, which shapes how a setup is built. We work across JP Nagar 7th Phase and the Brigade Millennium side regularly.',
-    },
-    {
-      q: 'Can you decorate an apartment clubhouse here?',
-      a: 'Yes, and most of our Puttenahalli work is clubhouse or in-flat. Societies usually want the booking confirmed and a vendor entry pass arranged in advance, so tell us the society name early and we will send whatever details the management asks for. Clubhouse ceilings are often lower than a hall, so we design upward in layers rather than one tall arch.',
-    },
-    {
-      q: 'Do you handle haldi in a flat rather than a hall?',
-      a: 'Regularly. A flat haldi needs floor protection and a compact seating arrangement more than it needs a large stage, because turmeric travels. We bring sheeting and keep the ritual area tight so cleanup is quick. If the balcony is part of the plan, say so, since that changes how we anchor anything tall.',
-    },
-    {
-      q: 'How far in advance should an anniversary be booked?',
-      a: 'A week is comfortable, though we often manage same or next day. Anniversaries tend to have a fixed date that cannot move, so booking early mainly protects your flower and colour choices rather than availability. The site visit costs nothing, so there is no reason to delay it.',
-    },
-    {
-      q: 'What does a clubhouse setup cost in Puttenahalli?',
-      a: 'Setups start from Rs 3,000 and scale with the size of the backdrop and how much fresh flower is in it. Clubhouse jobs sometimes need a second team member for access and lift timing, which we will say upfront rather than add later. We quote after the visit, not before.',
-    },
-  ],
-  // ISRO Layout. Engagement is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  'isro-layout': [
-    {
-      q: 'Do you cover ISRO Layout?',
-      a: 'Yes. Engagement d\u00e9cor is what we have photographed in ISRO Layout, across apartments, independent homes and community halls. The layout sits off Kanakapura Road near RBI Layout and Jaraganahalli, which is a short run from our Basavanagudi base. Free site visit before we quote.',
-    },
-    {
-      q: 'Is an engagement at home practical in a planned layout like this?',
-      a: 'Often yes. Independent homes here tend to have a usable hall or terrace, and a home engagement keeps the day calm for elders. What matters is the doorway width and the staircase turn, because a tall frame that cannot get up the stairs has to be built in sections. Send a photo of the entrance and we will plan for it.',
-    },
-    {
-      q: 'What should I send you before you quote?',
-      a: 'The venue address, the date, the rough guest count and a photograph of the empty room from the door. That tells us ceiling height, light colour and where the power is. Anything else we check on the visit, which is free and usually takes twenty minutes.',
-    },
-    {
-      q: 'Can you do a same-day setup in ISRO Layout?',
-      a: 'Often. The practical limit is fresh flowers rather than travel, since same-day means working with what the market has that morning. A fabric or balloon design is the safer choice at short notice and we will say so rather than promise a floral stage we cannot source.',
-    },
-    {
-      q: 'What is the starting price in ISRO Layout?',
-      a: 'From Rs 3,000 for a simple backdrop. Engagement stages with floral work and lighting cost more, and we price after seeing the space. We are rated 4.9 from 82 reviews, and have been decorating across Bengaluru since 2022.',
-    },
-  ],
-  // Wilson Garden. Naming ceremony is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  'wilson-garden': [
-    {
-      q: 'Do you decorate naming ceremonies in Wilson Garden?',
-      a: 'Yes, that is the work we have photographed here. Wilson Garden is a central layout near Lalbagh West Gate and Hombegowda Nagar, with a mix of apartments, community halls and independent homes. We can usually reach it quickly from Basavanagudi.',
-    },
-    {
-      q: 'What does a naming ceremony setup usually involve?',
-      a: 'A cradle or seating centre, a backdrop behind it, and a welcome piece at the entrance. The cradle is the part guests photograph, so that is where the floral weight goes. Elders need a clear path to the seating that does not cross cable runs, which is worth planning before the furniture is placed.',
-    },
-    {
-      q: 'Can you work in a flat near Double Road?',
-      a: 'Yes. Flats in this part of the city often have narrow lifts and limited parking, so we build in sections and keep the van stop short. Tell us the floor and whether there is a service lift and we will plan load-in around it instead of discovering it on the day.',
-    },
-    {
-      q: 'How much notice do you need?',
-      a: 'Often same or next day, though a few days is better if you want specific flowers. Naming ceremonies are usually planned around a date fixed by the family, so the sooner we see the room the more options you have.',
-    },
-    {
-      q: 'What does it cost?',
-      a: 'From Rs 3,000, depending on the size of the backdrop and how much fresh flower is used. We quote after a free site visit rather than over the phone, because room size changes the figure more than the design does.',
-    },
-  ],
-  // Shanti Nagar. Wedding is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  'shanti-nagar': [
-    {
-      q: 'Do you take wedding work in Shanti Nagar?',
-      a: 'Yes. Wedding d\u00e9cor is what we have photographed in Shanti Nagar, which sits near Richmond Circle and the Shanti Nagar bus station. Unlike most of our south Bengaluru areas, the venues here are mainly hotels and banquet halls rather than community halls, which changes how a setup is planned.',
-    },
-    {
-      q: 'What is different about decorating a hotel banquet?',
-      a: "Hotels usually have their own vendor rules, fixed load-in windows and restrictions on fixings and open flame. We ask for the banquet manager's contact early so those are agreed in writing rather than argued about on the day. Most hotels also need the setup finished well before guest entry, so timing matters more than it does in a hall.",
-    },
-    {
-      q: "Can you match d\u00e9cor to a venue's existing look?",
-      a: 'Yes, and in a hotel it is usually necessary. Banquet rooms come with their own carpet, wall tone and lighting, and a palette chosen without looking at them tends to clash. We check the room on the site visit and build the colour around what is already there.',
-    },
-    {
-      q: 'How far ahead should a wedding be booked?',
-      a: 'As far ahead as you can for a wedding, because both the hotel slot and the flower order need lead time. We can sometimes work at short notice, but a wedding is the one event where we would rather you booked early than took the risk.',
-    },
-    {
-      q: 'What does wedding d\u00e9cor cost here?',
-      a: 'Our setups start from Rs 3,000, but a wedding stage in a banquet hall is well above that and depends on stage width, floral volume and lighting. We quote after seeing the room. The site visit is free and there is no obligation after it.',
-    },
-  ],
-  // Girinagar. Engagement is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  girinagar: [
-    {
-      q: 'Do you decorate in Girinagar?',
-      a: 'Yes. Engagement setups are what we have photographed here. Girinagar sits between Basavanagudi and Banashankari, near Banashankari Temple and Hosakerehalli, so it is one of the areas we reach fastest. Apartments, community halls and independent homes are all common here.',
-    },
-    {
-      q: 'Hall or home for an engagement in Girinagar?',
-      a: 'A community hall suits a larger guest list and gives room for a full stage. A home works when the family wants it small and does not want guests travelling. The deciding factor is usually how many people will actually attend rather than the look you want, since both can be designed well.',
-    },
-    {
-      q: 'Does being near Banashankari Temple affect timing?',
-      a: 'It can. Temple-adjacent streets get busier at darshan times, which affects when a van can stop rather than what we can build. We plan load-in around that once we know the venue. Some temple-linked halls also restrict wall fixings, so we check that on the visit.',
-    },
-    {
-      q: 'What do you need from me to quote?',
-      a: 'Venue, date, rough guest count and a photo of the empty room. We confirm ceiling height, power and access on the free site visit. That is usually enough to give you a firm figure rather than a range.',
-    },
-    {
-      q: 'What does an engagement setup cost in Girinagar?',
-      a: 'From Rs 3,000 for a compact backdrop, more for a full engagement stage with floral work. We have a 4.9 rating from 82 reviews and have been working across Bengaluru since 2022.',
-    },
-  ],
-  // Hulimavu. Birthday is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  hulimavu: [
-    {
-      q: 'Do you do birthday decoration in Hulimavu?',
-      a: 'Yes, that is the work we have photographed here. Hulimavu is an apartment belt near Meenakshi Mall and Hulimavu Lake, off Bannerghatta Road, with flats, gated communities and banquet halls. We cover it alongside Bannerghatta Road and Gottigere.',
-    },
-    {
-      q: 'Can you decorate inside a gated community?',
-      a: 'Yes, and most birthday work here is in one. Gated communities usually need vendor entry arranged in advance, sometimes with ID details, so tell us the community name when you book and we will send whatever the gate asks for. Without that the team waits outside and the setup starts late.',
-    },
-    {
-      q: "What works for a children's birthday in a flat?",
-      a: "Balloon arches and a photo backdrop give the most effect for the space, because they read well in photographs without needing floor area. A themed cutout behind the cake table does more than spreading d\u00e9cor through the room. Tell us the theme and the child's age and we will design around the cake moment.",
-    },
-    {
-      q: 'How quickly can you set up?',
-      a: "Often same or next day. Balloons are easier than flowers at short notice, so a balloon-led birthday is realistic even with a day's warning. If you want a specific colour of fresh flower, give us more time.",
-    },
-    {
-      q: 'What does a birthday setup cost?',
-      a: 'From Rs 3,000, rising with the size of the arch, the number of backdrops and any printed or themed pieces. We quote after a free site visit. Most of our 82 reviews are from jobs like this one.',
-    },
-  ],
-  // Uttarahalli. Haldi is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  uttarahalli: [
-    {
-      q: 'Do you cover Uttarahalli?',
-      a: 'Yes. Haldi d\u00e9cor is what we have photographed in Uttarahalli, which is an established suburb in south-west Bengaluru near Subramanyapura and Chikkalasandra. Community halls, apartments and independent homes are all common here, and we work across all three.',
-    },
-    {
-      q: 'What does a haldi setup need that other events do not?',
-      a: 'Floor protection and a compact ritual area. Turmeric stains and it travels further than families expect, so we sheet the floor and keep the seating tight rather than spreading the setup across the room. Yellow and marigold do the visual work, so the budget goes into volume rather than variety.',
-    },
-    {
-      q: 'Can the same setup carry into an evening function?',
-      a: 'Sometimes, if the colour is planned for it. A haldi palette that is purely yellow looks thin under evening light, so if the same room hosts a reception later we build a base that can be re-dressed rather than stripped. Tell us both segments upfront and we will plan one install instead of two.',
-    },
-    {
-      q: 'How much notice do you need in Uttarahalli?',
-      a: 'Often same or next day. Marigold is usually available at short notice, which is why haldi is one of the events we can turn around quickly. Longer notice mainly widens your choice of accent flowers.',
-    },
-    {
-      q: 'What does a haldi setup cost?',
-      a: 'From Rs 5,000 for a compact haldi backdrop and seating, more for a full stage with heavy floral work. We quote after a free site visit, since hall size affects the figure more than the design.',
-    },
-  ],
-  // Vasanthapura. Birthday is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  vasanthapura: [
-    {
-      q: 'Do you decorate in Vasanthapura?',
-      a: 'Yes. Birthday setups are what we have photographed here. Vasanthapura is a residential stretch off Kanakapura Road near Thalaghattapura and Uttarahalli, mostly apartments, independent homes and community halls. We cover it in the same run as Uttarahalli and Konanakunte.',
-    },
-    {
-      q: 'What suits a birthday in an independent home?',
-      a: 'A backdrop behind the cake table and an entrance piece usually do more than d\u00e9cor spread through the house. Homes here often have a terrace, which works well in the evening but needs anything tall anchored properly. Tell us if the terrace is part of the plan.',
-    },
-    {
-      q: 'Do you handle adult milestone birthdays too?',
-      a: "Yes. A fortieth or a sixtieth usually wants a quieter palette than a child's party and reads better with fabric and lighting than with character themes. The structure is the same: one strong backdrop, a cake table and a photo corner that does not crowd the seating.",
-    },
-    {
-      q: 'Can you come at short notice?',
-      a: 'Often the same or next day. Balloon and fabric designs are the realistic option at that notice; fresh flower choice narrows to whatever the market has that morning. We will tell you which is honest for your date.',
-    },
-    {
-      q: 'What is the starting price?',
-      a: 'From Rs 3,000. Larger arches, multiple backdrops and printed pieces add to it. We quote after seeing the space, and the visit is free.',
-    },
-  ],
-  // Gottigere. Haldi and engagement is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  gottigere: [
-    {
-      q: 'What have you decorated in Gottigere?',
-      a: 'Haldi and engagement setups are what we have photographed here. Gottigere sits along Bannerghatta Road near Gottigere Lake and the Hulimavu gate, with apartments, independent homes and community halls. We cover it alongside Hulimavu and Bannerghatta Road.',
-    },
-    {
-      q: 'Can you do both haldi and engagement on the same day?',
-      a: 'Yes, and it is common. The practical question is whether both happen in the same room, because that means one install that gets re-dressed rather than two separate builds. Tell us the timing of each segment and the guest count for both and we will plan it as one job.',
-    },
-    {
-      q: 'What does a haldi in a community hall need?',
-      a: 'Floor protection, a compact ritual seating area and a backdrop that photographs well from the front. Large halls swallow a small setup, so volume matters more than detail. We check pillar positions on the visit, since a backdrop that ignores a column looks unfinished once guests are seated.',
-    },
-    {
-      q: 'How quickly can you set up along Bannerghatta Road?',
-      a: 'Often same or next day. Traffic on Bannerghatta Road affects when the van can arrive rather than what we can build, so we schedule load-in earlier than the brief strictly needs. We will give you a realistic arrival window, not an optimistic one.',
-    },
-    {
-      q: 'What do these setups cost?',
-      a: 'Balloon and party setups start from Rs 3,000, while haldi and floral backdrops start from Rs 5,000 and scale with stage size and floral volume. Two segments in one day cost less than two separate bookings. We quote after a free site visit.',
-    },
-  ],
-  // Nagarbhavi. Reception and bridal shower is the work our own photographs place here;
-  // venue mix and landmarks come from content/locations/locations.csv.
-  nagarbhavi: [
-    {
-      q: 'Do you work in Nagarbhavi?',
-      a: 'Yes. Receptions and bridal showers are what we have photographed here. Nagarbhavi is in west Bengaluru near Nagarbhavi Circle, Bangalore University and Chandra Layout, with community halls, apartments and independent homes. It is further from our Basavanagudi base than most of our areas, so we plan load-in with extra travel time.',
-    },
-    {
-      q: 'What does a reception setup involve?',
-      a: 'A stage with a backdrop and seating, an entrance piece, and lighting that works once the room darkens. Receptions are the largest setups we do, so stage width and ceiling height drive the quote more than the design choice. A photograph of the empty hall from the entrance is the most useful thing you can send.',
-    },
-    {
-      q: 'Can you do a bridal shower in a smaller space?',
-      a: 'Yes. A bridal shower is usually one strong backdrop, a table setting and a photo corner rather than a full stage, so it fits a flat or a clubhouse. Those are the setups people photograph most, so the detail goes into the backdrop.',
-    },
-    {
-      q: 'How far ahead should I book for Nagarbhavi?',
-      a: 'A few days more than you would for a south Bengaluru job, because of the travel. We can still often manage same or next day, but a reception at that notice limits flowers and lighting. Book the site visit early even if the date is not fixed, since it is free.',
-    },
-    {
-      q: 'What does a reception cost?',
-      a: 'Our setups start from Rs 3,000, but a reception stage is well above that and depends on width, floral volume and lighting. We quote after seeing the hall. We are rated 4.9 from 82 reviews and have been decorating across Bengaluru since 2022.',
-    },
-  ],
-  // Thyagarajanagar. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
   thyagarajanagar: [
     {
-      q: 'Do you cover Thyagarajanagar?',
-      a: 'Yes. Thyagarajanagar borders Basavanagudi, which is where we are based, so it is one of the shortest runs we make. The layout is compact older streets around Thyagaraja Nagar Market and South End Circle, with community halls, apartments and temples. Send the venue and date and we will come and measure before quoting. The site visit is free.',
+      q: 'What event decoration services do you provide in Thyagarajanagar?',
+      a: 'We provide complete event and party decoration across Thyagarajanagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, temples.',
     },
     {
-      q: 'Is a community hall or a flat better here?',
-      a: 'Guest count decides it more than anything else. The community halls around South End Circle take a full stage and a seating arc; a flat suits a smaller gathering where the family would rather not have people travelling. Both can be designed well, so tell us how many people will actually attend and we will say which your budget goes further in.',
+      q: 'How much does birthday balloon decoration at home cost in Thyagarajanagar?',
+      a: 'Our home birthday balloon decoration in Thyagarajanagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What should I send before you quote?',
-      a: 'The venue address, the date, a rough guest count and one photograph of the empty room taken from the doorway. That single photo tells us ceiling height, the colour of the existing light and roughly where the power sits. Everything else we confirm on the visit.',
+      q: 'Can you decorate apartment clubhouses and flats in Thyagarajanagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Thyagarajanagar near Thyagaraja Nagar Market, Madhavan Park, South End Circle. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'Do the older streets here affect load-in?',
-      a: 'They can. Compact streets near the market limit where a van can stop rather than what we can build, so we schedule arrival earlier than the brief strictly needs. If the venue has a specific entrance you want us to use, say so and we will plan the stop around it.',
+      q: 'Do you offer same-day or next-day event decoration in Thyagarajanagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Thyagarajanagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does a setup in Thyagarajanagar cost?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after seeing the room, because the same design costs differently in a 10-foot hall and a 16-foot one. We have a 4.9 rating from 82 reviews and have been working across Bengaluru since 2022.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Thyagarajanagar?',
+      a: 'For home Haldi ceremonies in Thyagarajanagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Thyagarajanagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Thyagarajanagar, including a free pre-event site walkthrough.',
     },
   ],
-  // Chamrajpet. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
+  puttenahalli: [
+    {
+      q: 'What event decoration services do you provide in Puttenahalli?',
+      a: 'We provide complete event and party decoration across Puttenahalli — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, clubhouses, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Puttenahalli?',
+      a: 'Our home birthday balloon decoration in Puttenahalli starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Puttenahalli?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Puttenahalli near Puttenahalli Lake, Brigade Millennium, JP Nagar 7th Phase. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Puttenahalli?',
+      a: 'Yes. We accept same-day and next-day bookings across Puttenahalli based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Puttenahalli?',
+      a: 'For home Haldi ceremonies in Puttenahalli, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Puttenahalli?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Puttenahalli, including a free pre-event site walkthrough.',
+    },
+  ],
   chamrajpet: [
     {
-      q: 'Do you decorate in Chamrajpet?',
-      a: 'Yes. Chamrajpet is an old Bengaluru neighbourhood of community halls, independent homes and temples, around Makkala Koota Park, Fort High School and Albert Victor Road. The wide streets here make load-in easier than in most older parts of the city. Free site visit before we quote.',
+      q: 'What event decoration services do you provide in Chamrajpet?',
+      a: 'We provide complete event and party decoration across Chamrajpet — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, independent homes, temples.',
     },
     {
-      q: 'Can you work in an independent home here?',
-      a: 'Yes, and the older homes in Chamrajpet often have a usable hall or courtyard that suits a ceremony well. The practical checks are doorway width and the turn on the staircase, because a tall frame that cannot get upstairs has to be built in sections. A photograph of the entrance saves a surprise on the day.',
+      q: 'How much does birthday balloon decoration at home cost in Chamrajpet?',
+      a: 'Our home birthday balloon decoration in Chamrajpet starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'Are there restrictions in temple-linked halls?',
-      a: 'Often, yes. Many halls attached to a temple do not allow wall fixings, which means freestanding frames instead of mounted backdrops, and that changes the price. Some also set rules about garlanding at the entrance. We ask the coordinator before designing rather than after.',
+      q: 'Can you decorate apartment clubhouses and flats in Chamrajpet?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Chamrajpet near Makkala Koota Park, Fort High School, Albert Victor Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'How much notice do you need for a Chamrajpet booking?',
-      a: "Often same or next day. What short notice limits is fresh flower choice, not whether we can come, so a fabric or balloon-led design holds up better at a day's warning than a floral stage. We will tell you honestly what is possible for your date.",
+      q: 'Do you offer same-day or next-day event decoration in Chamrajpet?',
+      a: 'Yes. We accept same-day and next-day bookings across Chamrajpet based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does it cost in Chamrajpet?',
-      a: 'Setups start from Rs 3,000 and scale with the size of the backdrop and how much fresh flower goes into it. We quote after the free site visit rather than over the phone, since room size moves the figure more than the design does.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Chamrajpet?',
+      a: 'For home Haldi ceremonies in Chamrajpet, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Chamrajpet?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Chamrajpet, including a free pre-event site walkthrough.',
     },
   ],
-  // Bilekahalli. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
+  'isro-layout': [
+    {
+      q: 'What event decoration services do you provide in ISRO Layout?',
+      a: 'We provide complete event and party decoration across ISRO Layout — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, independent homes, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in ISRO Layout?',
+      a: 'Our home birthday balloon decoration in ISRO Layout starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in ISRO Layout?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across ISRO Layout near ISRO Layout Main Road, RBI Layout, Jaraganahalli. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in ISRO Layout?',
+      a: 'Yes. We accept same-day and next-day bookings across ISRO Layout based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in ISRO Layout?',
+      a: 'For home Haldi ceremonies in ISRO Layout, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around ISRO Layout?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around ISRO Layout, including a free pre-event site walkthrough.',
+    },
+  ],
+  'wilson-garden': [
+    {
+      q: 'What event decoration services do you provide in Wilson Garden?',
+      a: 'We provide complete event and party decoration across Wilson Garden — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, independent homes.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Wilson Garden?',
+      a: 'Our home birthday balloon decoration in Wilson Garden starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Wilson Garden?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Wilson Garden near Hombegowda Nagar, Lalbagh West Gate, Double Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Wilson Garden?',
+      a: 'Yes. We accept same-day and next-day bookings across Wilson Garden based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Wilson Garden?',
+      a: 'For home Haldi ceremonies in Wilson Garden, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Wilson Garden?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Wilson Garden, including a free pre-event site walkthrough.',
+    },
+  ],
+  'shanti-nagar': [
+    {
+      q: 'What event decoration services do you provide in Shanti Nagar?',
+      a: 'We provide complete event and party decoration across Shanti Nagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for hotels, banquet halls, apartments.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Shanti Nagar?',
+      a: 'Our home birthday balloon decoration in Shanti Nagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Shanti Nagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Shanti Nagar near Shanti Nagar Bus Station, Richmond Circle, Double Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Shanti Nagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Shanti Nagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Shanti Nagar?',
+      a: 'For home Haldi ceremonies in Shanti Nagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Shanti Nagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Shanti Nagar, including a free pre-event site walkthrough.',
+    },
+  ],
   bilekahalli: [
     {
-      q: 'Do you cover Bilekahalli?',
-      a: 'Yes. Bilekahalli is an apartment corridor along Bannerghatta Road, near IIM Bangalore and Arekere Gate, made up of flats, gated communities and clubhouses. We work this stretch alongside Hulimavu and Gottigere, so it is a route we run often.',
+      q: 'What event decoration services do you provide in Bilekahalli?',
+      a: 'We provide complete event and party decoration across Bilekahalli — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, gated communities, clubhouses.',
     },
     {
-      q: 'Can you decorate inside a gated community in Bilekahalli?',
-      a: 'Yes, and most work along this corridor is. Gated communities usually need vendor entry arranged ahead of time, sometimes with ID details for the team. Tell us the community name when you book and we will send whatever the gate asks for. Without it the team waits outside and the setup starts late.',
+      q: 'How much does birthday balloon decoration at home cost in Bilekahalli?',
+      a: 'Our home birthday balloon decoration in Bilekahalli starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What works in a clubhouse?',
-      a: 'Clubhouse ceilings are usually lower than a community hall, so we build in layers rather than one tall arch, and put the detail into the backdrop people photograph. Ask the management what time the room is released to you, because clubhouse slots are often shorter than families expect.',
+      q: 'Can you decorate apartment clubhouses and flats in Bilekahalli?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Bilekahalli near IIM Bangalore, Arekere Gate, Bannerghatta Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'Does Bannerghatta Road traffic affect timing?',
-      a: 'It affects when the van arrives, not what we can build. We schedule load-in earlier than the brief needs on this stretch and give you a realistic arrival window rather than an optimistic one. If the venue has a delivery entrance, tell us and we will use it.',
+      q: 'Do you offer same-day or next-day event decoration in Bilekahalli?',
+      a: 'Yes. We accept same-day and next-day bookings across Bilekahalli based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What is the starting cost here?',
-      a: 'From Rs 3,000, rising with backdrop size, floral volume and lighting. Clubhouse jobs sometimes need an extra team member for lift access and timing, which we will say upfront rather than add afterwards. The site visit is free.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Bilekahalli?',
+      a: 'For home Haldi ceremonies in Bilekahalli, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Bilekahalli?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Bilekahalli, including a free pre-event site walkthrough.',
     },
   ],
-  // Arekere. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
+  girinagar: [
+    {
+      q: 'What event decoration services do you provide in Girinagar?',
+      a: 'We provide complete event and party decoration across Girinagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, independent homes.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Girinagar?',
+      a: 'Our home birthday balloon decoration in Girinagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Girinagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Girinagar near Girinagar Main Road, Banashankari Temple, Hosakerehalli. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Girinagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Girinagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Girinagar?',
+      a: 'For home Haldi ceremonies in Girinagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Girinagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Girinagar, including a free pre-event site walkthrough.',
+    },
+  ],
   arekere: [
     {
-      q: 'Do you decorate in Arekere?',
-      a: 'Yes. Arekere is an apartment cluster off Bannerghatta Road near Arekere Lake and Arekere Gate, mostly flats, gated communities and clubhouses. It sits on the same run as Bilekahalli and Hulimavu, so we are there regularly. Site visits are free.',
+      q: 'What event decoration services do you provide in Arekere?',
+      a: 'We provide complete event and party decoration across Arekere — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, gated communities, clubhouses.',
     },
     {
-      q: 'Can you set up inside a flat?',
-      a: 'Yes. In a flat the backdrop behind the cake or ceremony table does most of the work, since d\u00e9cor spread through the room reads as clutter rather than design. Tell us the floor and whether there is a service lift, and we will plan load-in instead of discovering it on the day.',
+      q: 'How much does birthday balloon decoration at home cost in Arekere?',
+      a: 'Our home birthday balloon decoration in Arekere starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What do societies usually ask for?',
-      a: 'Most want the vendor entry confirmed in advance and some ask for ID details for the team. Give us the society name when you book and we will send what the gate needs. It is the single most common reason a setup starts late, and it is avoidable.',
+      q: 'Can you decorate apartment clubhouses and flats in Arekere?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Arekere near Arekere Lake, Arekere Gate, Bannerghatta Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'How quickly can you come?',
-      a: 'Often the same or next day. At that notice a balloon or fabric design is the realistic option, because fresh flower choice narrows to whatever the market has that morning. We would rather say that than take the booking and improvise.',
+      q: 'Do you offer same-day or next-day event decoration in Arekere?',
+      a: 'Yes. We accept same-day and next-day bookings across Arekere based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does an Arekere setup cost?',
-      a: 'From Rs 3,000 for a compact backdrop, more for a larger stage with floral work and lighting. We quote after seeing the space. Most of our 82 reviews come from jobs in this part of south Bengaluru.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Arekere?',
+      a: 'For home Haldi ceremonies in Arekere, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Arekere?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Arekere, including a free pre-event site walkthrough.',
     },
   ],
-  // Kumaraswamy Layout. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
   'kumaraswamy-layout': [
     {
-      q: 'Do you cover Kumaraswamy Layout?',
-      a: 'Yes. The layout sits in south Bengaluru near Dayananda Sagar College and Chunchughatta, with apartments, community halls and independent homes. It is a short run from our Basavanagudi base. Tell us the venue and date and the site visit costs nothing.',
+      q: 'What event decoration services do you provide in Kumaraswamy Layout?',
+      a: 'We provide complete event and party decoration across Kumaraswamy Layout — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, community halls, independent homes.',
     },
     {
-      q: 'Do you handle college farewells and student events?',
-      a: 'Yes. A farewell or send-off is usually one strong backdrop, a photo corner and an entrance piece rather than a full stage, which keeps it affordable for a group paying between them. Tell us the budget you have and we will design to it rather than quote past it.',
+      q: 'How much does birthday balloon decoration at home cost in Kumaraswamy Layout?',
+      a: 'Our home birthday balloon decoration in Kumaraswamy Layout starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'Hall or home for a family function here?',
-      a: 'Community halls take a full stage and a larger guest list; independent homes suit a smaller gathering and keep the day private. The number of people attending decides it more than the look, since both can be done well. Send a guest-count range and we will advise.',
+      q: 'Can you decorate apartment clubhouses and flats in Kumaraswamy Layout?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Kumaraswamy Layout near Dayananda Sagar College, Chunchughatta, Kumaraswamy Layout Main Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'What do you need before quoting?',
-      a: 'Venue, date, rough guest count and a photograph of the empty room from the door. That covers ceiling height, existing light colour and power. We confirm fixings and access on the free visit, which takes about twenty minutes.',
+      q: 'Do you offer same-day or next-day event decoration in Kumaraswamy Layout?',
+      a: 'Yes. We accept same-day and next-day bookings across Kumaraswamy Layout based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does a setup cost in Kumaraswamy Layout?',
-      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size and floral volume. We quote after the visit rather than on the phone. We are rated 4.9 from 82 reviews and have been decorating across Bengaluru since 2022.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Kumaraswamy Layout?',
+      a: 'For home Haldi ceremonies in Kumaraswamy Layout, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Kumaraswamy Layout?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Kumaraswamy Layout, including a free pre-event site walkthrough.',
     },
   ],
-  // Padmanabhanagar. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
   padmanabhanagar: [
     {
-      q: 'Do you decorate in Padmanabhanagar?',
-      a: 'Yes. Padmanabhanagar is a family residential area south of Banashankari, around Padmanabhanagar Main Road, Kadirenahalli and Yarab Nagar, with community halls, apartments and independent homes. It is close to our Basavanagudi base, so travel is rarely the constraint.',
+      q: 'What event decoration services do you provide in Padmanabhanagar?',
+      a: 'We provide complete event and party decoration across Padmanabhanagar — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, independent homes.',
     },
     {
-      q: 'Which venue type suits a family function here?',
-      a: 'Community halls take a full stage, a seating arc and a photo corner without crowding. A home works when the family wants it small and does not want guests travelling across the city. Tell us the guest count you actually expect rather than the invite list, since those differ.',
+      q: 'How much does birthday balloon decoration at home cost in Padmanabhanagar?',
+      a: 'Our home birthday balloon decoration in Padmanabhanagar starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What should I check about the hall before booking?',
-      a: 'Ceiling height, whether wall fixings are allowed, and where the power points are. Halls that prohibit drilling need freestanding frames rather than mounted backdrops, and that changes the quote. Pillar positions matter too, because a backdrop that ignores a column looks unfinished once guests sit down.',
+      q: 'Can you decorate apartment clubhouses and flats in Padmanabhanagar?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Padmanabhanagar near Padmanabhanagar Main Road, Kadirenahalli, Yarab Nagar. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'Can you set up at short notice?',
-      a: "Often the same or next day. Short notice limits fresh flower choice more than anything else, so a fabric or balloon-led design is the safer option at a day's warning. We will tell you what is realistic rather than promise a floral stage we cannot source.",
+      q: 'Do you offer same-day or next-day event decoration in Padmanabhanagar?',
+      a: 'Yes. We accept same-day and next-day bookings across Padmanabhanagar based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does a Padmanabhanagar setup cost?',
-      a: 'From Rs 3,000 for a compact setup, more for a full stage with floral work and lighting. The free site visit is how we get to a firm figure instead of a range.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Padmanabhanagar?',
+      a: 'For home Haldi ceremonies in Padmanabhanagar, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Padmanabhanagar?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Padmanabhanagar, including a free pre-event site walkthrough.',
     },
   ],
-  // Katriguppe. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
   katriguppe: [
     {
-      q: 'Do you cover Katriguppe?',
-      a: 'Yes. Katriguppe sits beside Banashankari temple, around Katriguppe Main Road and Vidyapeetha Circle, with community halls, apartments and temples. It is one of the areas we reach fastest from Basavanagudi. The site visit is free.',
+      q: 'What event decoration services do you provide in Katriguppe?',
+      a: 'We provide complete event and party decoration across Katriguppe — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, temples.',
     },
     {
-      q: 'Does being next to the temple affect anything?',
-      a: 'It affects timing more than design. Temple-adjacent streets get busier around darshan hours, which changes when a van can stop rather than what we can build, so we plan load-in around it once we know the venue. Quiet load-in also matters when worshippers are still moving through.',
+      q: 'How much does birthday balloon decoration at home cost in Katriguppe?',
+      a: 'Our home birthday balloon decoration in Katriguppe starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'Are there rules in temple-linked halls?',
-      a: 'Frequently. Many do not allow wall fixings, so backdrops have to be freestanding, and some set rules about entrance garlanding. We ask the hall coordinator before designing, because finding out afterwards means redesigning at your cost.',
+      q: 'Can you decorate apartment clubhouses and flats in Katriguppe?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Katriguppe near Katriguppe Main Road, Banashankari Temple, Vidyapeetha Circle. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'What do you need before quoting for Katriguppe?',
-      a: 'The venue, the date, a rough guest count and one photograph of the empty room from the doorway. We confirm ceiling height, fixings and power on the visit. That is normally enough for a firm figure.',
+      q: 'Do you offer same-day or next-day event decoration in Katriguppe?',
+      a: 'Yes. We accept same-day and next-day bookings across Katriguppe based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does a Katriguppe setup cost?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size and floral volume. Large halls swallow a small setup, so volume often matters more than detail here, and we will say so rather than let you underspend.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Katriguppe?',
+      a: 'For home Haldi ceremonies in Katriguppe, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Katriguppe?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Katriguppe, including a free pre-event site walkthrough.',
     },
   ],
-  // Konanakunte. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
+  hulimavu: [
+    {
+      q: 'What event decoration services do you provide in Hulimavu?',
+      a: 'We provide complete event and party decoration across Hulimavu — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, gated communities, banquet halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Hulimavu?',
+      a: 'Our home birthday balloon decoration in Hulimavu starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Hulimavu?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Hulimavu near Hulimavu Lake, Meenakshi Mall, Bannerghatta Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Hulimavu?',
+      a: 'Yes. We accept same-day and next-day bookings across Hulimavu based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Hulimavu?',
+      a: 'For home Haldi ceremonies in Hulimavu, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Hulimavu?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Hulimavu, including a free pre-event site walkthrough.',
+    },
+  ],
   konanakunte: [
     {
-      q: 'Do you decorate in Konanakunte?',
-      a: 'Yes. Konanakunte is a newer residential pocket off Kanakapura Road, near Konanakunte Cross and Vajarahalli, with apartments, independent homes and community halls. We cover it on the same run as Vasanthapura and Uttarahalli.',
+      q: 'What event decoration services do you provide in Konanakunte?',
+      a: 'We provide complete event and party decoration across Konanakunte — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, independent homes, community halls.',
     },
     {
-      q: 'Can you set up in an independent home?',
-      a: 'Yes. Newer homes here often have a terrace, which works well for an evening function but needs anything tall anchored properly rather than propped. Tell us if the terrace is part of the plan, and send a photo of the entrance so we know whether a frame has to be built in sections.',
+      q: 'How much does birthday balloon decoration at home cost in Konanakunte?',
+      a: 'Our home birthday balloon decoration in Konanakunte starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'What about housewarming setups?',
-      a: 'A housewarming usually wants an entrance piece and one backdrop rather than a full stage, since guests move through rather than sit. Keeping the doorway clear matters more than filling the room. Tell us the rooms you want dressed and we will prioritise.',
+      q: 'Can you decorate apartment clubhouses and flats in Konanakunte?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Konanakunte near Konanakunte Cross, Vajarahalli, Kanakapura Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'How much notice do you need in Konanakunte?',
-      a: 'Often same or next day. Fresh flower choice is the limit at short notice, not travel. If a specific colour matters to you, give us a few days and we will source it properly.',
+      q: 'Do you offer same-day or next-day event decoration in Konanakunte?',
+      a: 'Yes. We accept same-day and next-day bookings across Konanakunte based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What is the starting price in Konanakunte?',
-      a: 'From Rs 3,000 for a compact backdrop, scaling with stage size, floral volume and lighting. We quote after a free site visit rather than over the phone.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Konanakunte?',
+      a: 'For home Haldi ceremonies in Konanakunte, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Konanakunte?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Konanakunte, including a free pre-event site walkthrough.',
     },
   ],
-  // Begur. Venue mix and landmarks from content/locations/locations.csv.
-  // No photograph in work-images.ts can be placed here, so nothing below
-  // claims past work in this area — only what we do and how we price it.
+  uttarahalli: [
+    {
+      q: 'What event decoration services do you provide in Uttarahalli?',
+      a: 'We provide complete event and party decoration across Uttarahalli — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, independent homes.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Uttarahalli?',
+      a: 'Our home birthday balloon decoration in Uttarahalli starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Uttarahalli?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Uttarahalli near Uttarahalli Main Road, Subramanyapura, Chikkalasandra. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Uttarahalli?',
+      a: 'Yes. We accept same-day and next-day bookings across Uttarahalli based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Uttarahalli?',
+      a: 'For home Haldi ceremonies in Uttarahalli, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Uttarahalli?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Uttarahalli, including a free pre-event site walkthrough.',
+    },
+  ],
+  vasanthapura: [
+    {
+      q: 'What event decoration services do you provide in Vasanthapura?',
+      a: 'We provide complete event and party decoration across Vasanthapura — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, independent homes, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Vasanthapura?',
+      a: 'Our home birthday balloon decoration in Vasanthapura starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Vasanthapura?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Vasanthapura near Vasanthapura Main Road, Thalaghattapura, Uttarahalli. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Vasanthapura?',
+      a: 'Yes. We accept same-day and next-day bookings across Vasanthapura based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Vasanthapura?',
+      a: 'For home Haldi ceremonies in Vasanthapura, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Vasanthapura?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Vasanthapura, including a free pre-event site walkthrough.',
+    },
+  ],
+  gottigere: [
+    {
+      q: 'What event decoration services do you provide in Gottigere?',
+      a: 'We provide complete event and party decoration across Gottigere — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, independent homes, community halls.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Gottigere?',
+      a: 'Our home birthday balloon decoration in Gottigere starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Gottigere?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Gottigere near Gottigere Lake, Bannerghatta Road, Hulimavu Gate. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Gottigere?',
+      a: 'Yes. We accept same-day and next-day bookings across Gottigere based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Gottigere?',
+      a: 'For home Haldi ceremonies in Gottigere, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Gottigere?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Gottigere, including a free pre-event site walkthrough.',
+    },
+  ],
   begur: [
     {
-      q: 'Do you cover Begur?',
-      a: 'Yes. Begur is in south-east Bengaluru near Begur Lake and Naganathapura, with apartments, gated communities and community halls. It is further from our Basavanagudi base than most of our areas, so we build extra travel time into the load-in plan rather than cutting it fine.',
+      q: 'What event decoration services do you provide in Begur?',
+      a: 'We provide complete event and party decoration across Begur — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for apartments, gated communities, community halls.',
     },
     {
-      q: 'Can you decorate in a gated community here?',
-      a: 'Yes. Vendor entry usually needs arranging in advance, sometimes with ID details for the team, so give us the community name when you book and we will send what the gate asks for. That one step prevents most late starts.',
+      q: 'How much does birthday balloon decoration at home cost in Begur?',
+      a: 'Our home birthday balloon decoration in Begur starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
     },
     {
-      q: 'Does the distance change what you can do?',
-      a: 'It changes scheduling, not capability. We plan arrival earlier for Begur than for a Jayanagar job, and for a large setup we would rather agree an earlier start than compress the build. If your slot is tight, tell us the hard deadline and we will say honestly whether it works.',
+      q: 'Can you decorate apartment clubhouses and flats in Begur?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Begur near Begur Lake, Naganathapura, Begur Road. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
     },
     {
-      q: 'How far ahead should I book?',
-      a: 'A few days more than you would for a south Bengaluru job, because of travel. Same or next day is often still possible for a compact setup, but a large stage at that notice is a stretch and we will say so.',
+      q: 'Do you offer same-day or next-day event decoration in Begur?',
+      a: 'Yes. We accept same-day and next-day bookings across Begur based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
     },
     {
-      q: 'What does a Begur setup cost?',
-      a: 'From Rs 3,000 for a compact backdrop, rising with stage size, floral volume and lighting. We quote after a free site visit. We are rated 4.9 from 82 reviews and have been decorating across Bengaluru since 2022.',
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Begur?',
+      a: 'For home Haldi ceremonies in Begur, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Begur?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Begur, including a free pre-event site walkthrough.',
+    },
+  ],
+  nagarbhavi: [
+    {
+      q: 'What event decoration services do you provide in Nagarbhavi?',
+      a: 'We provide complete event and party decoration across Nagarbhavi — including birthday balloon arches from ₹3,000, traditional marigold Haldi backdrops from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding stage setups for community halls, apartments, independent homes.',
+    },
+    {
+      q: 'How much does birthday balloon decoration at home cost in Nagarbhavi?',
+      a: 'Our home birthday balloon decoration in Nagarbhavi starts from ₹3,000. Packages include customized theme backdrops, organic pastel or chrome balloon garlands, Happy Birthday neon signs, and cake plinth setups with quick and clean teardown.',
+    },
+    {
+      q: 'Can you decorate apartment clubhouses and flats in Nagarbhavi?',
+      a: 'Yes. We regularly style living rooms, balconies, and community clubhouses across Nagarbhavi near Nagarbhavi Circle, Bangalore University, Chandra Layout. We strictly follow society rules on service lift bookings, quiet hours, and use damage-free, zero-nail adhesive mounts to keep walls and ceilings pristine.',
+    },
+    {
+      q: 'Do you offer same-day or next-day event decoration in Nagarbhavi?',
+      a: 'Yes. We accept same-day and next-day bookings across Nagarbhavi based on crew availability. Because our team operates across Bangalore daily, we can quickly dispatch decorators for urgent birthday surprises, baby welcomes, and room styling.',
+    },
+    {
+      q: 'How do you handle home Haldi and Mehndi ceremonies without turmeric stains in Nagarbhavi?',
+      a: 'For home Haldi ceremonies in Nagarbhavi, we place heavy-duty waterproof floor drop-cloths and decorative floor rugs beneath the brass urli and seating area to protect marble, tile, and wooden flooring. All backdrops are mounted on freestanding self-supported frames.',
+    },
+    {
+      q: 'Can you decorate wedding stages and banquet halls around Nagarbhavi?',
+      a: 'Yes. We provide full-scale stage fabrication, fresh floral mandaps, fairy light entrance canopies, and couple stages for banquet halls, kalyana mantapas, and lawns in and around Nagarbhavi, including a free pre-event site walkthrough.',
     },
   ],
 };
