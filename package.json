@@ -46,6 +46,7 @@
     "gen:areas:txt:dry": "tsx scripts/generate-areas-from-text.ts --dry-run",
     "patch:areas": "tsx scripts/patch-areas.ts",
     "ui:areas": "tsx scripts/upgrade-areas-ui.ts",
+    "submit:indexnow": "tsx scripts/submit-indexnow.mjs",
     "qa:seo": "tsx scripts/qa-seo-monitoring.ts",
     "qa:seo:check": "tsx scripts/qa-seo-monitoring.ts",
     "merge:localities": "tsx scripts/merge-localities.ts",
