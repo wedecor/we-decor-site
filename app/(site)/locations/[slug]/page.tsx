@@ -364,8 +364,14 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     className="border-b border-white/[0.08] py-7 md:border-b-0 md:border-r md:px-7 md:last:border-r-0"
                   >
                     <h3 className="text-lg font-medium text-lux-ivory mb-2">{landmark}</h3>
+                    {/*
+                      This used to read "We regularly set up celebrations near
+                      {landmark}" on every one of 150 landmark cards — a claim
+                      of past work nobody verified, repeated by template. A
+                      service-area statement is true for all of them.
+                    */}
                     <p className="text-lux-secondary text-sm">
-                      We regularly set up celebrations near {landmark}
+                      Homes and venues around {landmark} are within our {area.name} service area
                     </p>
                   </div>
                 ))}

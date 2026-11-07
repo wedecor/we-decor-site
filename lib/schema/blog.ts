@@ -1,5 +1,5 @@
 import { absoluteUrl } from '@/lib/metadata';
-import { NAP, SCHEMA_IDS } from '@/lib/local-seo/constants';
+import { SCHEMA_IDS } from '@/lib/local-seo/constants';
 import { asGraph, pageId } from './_helpers';
 import { buildWebPage } from './webpage';
 import type { GraphDocument, JsonLdNode } from './types';
@@ -16,9 +16,10 @@ export function buildBlogPostingGraph(options: {
   const imageUrl = options.image.startsWith('http') ? options.image : absoluteUrl(options.image);
   const blogPostingId = pageId(url, 'blogposting');
 
-  // Posts are authored by the studio itself, which is the same entity as the
-  // publisher below — referenced by @id rather than restated, so the page
-  // emits one Organization node instead of two.
+  // Posts are authored and published by the studio itself. Both point at the
+  // business by @id; asGraph() appends the single compact LocalBusiness node
+  // (name, logo, address) that resolves them, so the page emits one
+  // Organization definition instead of two.
   const author: JsonLdNode = { '@id': SCHEMA_IDS.localBusiness };
 
   const blogPosting: JsonLdNode = {
@@ -35,16 +36,7 @@ export function buildBlogPostingGraph(options: {
     datePublished: options.datePublished,
     ...(options.dateModified ? { dateModified: options.dateModified } : {}),
     author,
-    publisher: {
-      '@type': 'LocalBusiness',
-      '@id': SCHEMA_IDS.localBusiness,
-      name: NAP.name,
-      logo: {
-        '@type': 'ImageObject',
-        url: NAP.logo,
-        contentUrl: NAP.logo,
-      },
-    },
+    publisher: { '@id': SCHEMA_IDS.localBusiness },
     inLanguage: 'en-IN',
     isPartOf: { '@id': SCHEMA_IDS.website },
   };

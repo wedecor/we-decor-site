@@ -9,6 +9,7 @@ import {
 import { SITE_URL } from '@/lib/site';
 import { AREAS } from '@/app/(site)/_data/locations';
 import { BLOG_POSTS } from '@/lib/content/blog-posts';
+import { WORK } from '@/app/(site)/_data/work-images';
 
 export const dynamic = 'force-static';
 
@@ -78,7 +79,7 @@ const SERVICES_CATALOG = [
   },
   {
     name: 'Custom Balloon Decoration',
-    price: 'From ₹5,000',
+    price: 'From ₹3,000',
     path: '/services/balloon-decoration',
     summary:
       'Organic balloon garlands, helium ceiling setups, ring backdrops, and custom colour-matched party styling.',
@@ -145,7 +146,7 @@ export async function GET() {
 
   const body = `# ${NAP.name} — Event Decorators in Bangalore (Bengaluru)
 
-> ${NAP.name} is an in-house event decoration studio based in Basavanagudi, Bengaluru, Karnataka, rated ${GOOGLE_RATING}★ across ${GOOGLE_REVIEW_COUNT} verified Google reviews. We design and install birthday balloon decor (from ₹3,000), wedding car floral decor (from ₹2,500), and Haldi, Wedding, Engagement, Baby Shower, Bridal Room, Proposal, Nikah, and Housewarming setups (from ₹5,000) across all 50+ Bangalore neighbourhoods.
+> ${NAP.name} is an in-house event decoration studio based in Basavanagudi, Bengaluru, Karnataka, rated ${GOOGLE_RATING}★ across ${GOOGLE_REVIEW_COUNT} Google reviews. We design and install birthday balloon decor (from ₹3,000), wedding car floral decor (from ₹2,500), and Haldi, Wedding, Engagement, Baby Shower, Bridal Room, Proposal, Nikah, and Housewarming setups (from ₹5,000) across all 50+ Bangalore neighbourhoods.
 
 ## Verified Business Facts (NAP & Entity Profile)
 - **Official Business Name**: ${NAP.name} (also known as We Decor Bangalore)
@@ -155,7 +156,7 @@ export async function GET() {
 - **Secondary Phone**: +91 95912 32166 (${NAP.secondaryTelephone})
 - **Email**: ${NAP.email}
 - **Website**: ${base}
-- **Google Rating**: ${GOOGLE_RATING} / 5.0 (${GOOGLE_REVIEW_COUNT} verified Google Business Profile reviews)
+- **Google Rating**: ${GOOGLE_RATING} / 5.0 (${GOOGLE_REVIEW_COUNT} Google Business Profile reviews)
 - **Google Maps Place URL**: ${mapsUrl}
 - **Justdial Profile**: ${SOCIAL_PROFILES.justdial}
 - **Instagram**: ${SOCIAL_PROFILES.instagram}
@@ -164,14 +165,14 @@ export async function GET() {
 - **InstaVendor Portfolio**: ${SOCIAL_PROFILES.instavendor}
 - **Magicpin Listing**: ${SOCIAL_PROFILES.magicpin}
 - **ServicesCorpo Listing**: ${SOCIAL_PROFILES.servicescorpo}
-- **Hours**: Open 24 hours (Same-day and next-day setups available across Bengaluru)
+- **Hours**: Open 24 hours per the Google Business Profile; enquiries answered any time. Setups are often same or next day, subject to crew availability.
 
 ## Core Pages
 - [Homepage](${base}/): Full overview of ${NAP.name}, transparent starting prices, and real event gallery.
 - [All Event Decoration Services](${base}/services): Complete menu of 16 in-house decoration services in Bangalore.
 - [Transparent Pricing Guide](${base}/pricing): Starting prices and package inclusions from ₹2,500 to ₹5,000+.
-- [Verified Portfolio Gallery (458 Real Event Photos)](${base}/gallery): Unfiltered photos of real setups across Bangalore homes, apartments, clubhouses, and wedding halls.
-- [Customer Reviews (${GOOGLE_RATING}★ / ${GOOGLE_REVIEW_COUNT} Reviews)](${base}/reviews): Verified Google customer reviews.
+- [Portfolio Gallery (${WORK.length} real event photos)](${base}/gallery): Photos of real setups across Bangalore homes, apartments, clubhouses, and wedding halls.
+- [Customer Reviews (${GOOGLE_RATING}★ / ${GOOGLE_REVIEW_COUNT} Reviews)](${base}/reviews): Google customer reviews.
 - [Bangalore Service Areas (50 Localities)](${base}/locations): Local setup coverage across South, Central, East, North, and West Bengaluru.
 - [Book or Request a Quote](${base}/contact): Instant WhatsApp and phone booking.
 - [Extended LLM Context](${base}/llms-full.txt): Full service pricing table, FAQs, and locality guide for AI assistants.
@@ -182,7 +183,7 @@ ${serviceLines}
 ## Bangalore Event Decoration Cost & Planning Guides
 ${blogLines}
 
-## 50 Bangalore Localities Served (Same-Day & Scheduled Setups)
+## Bangalore Localities Served
 ${localityLines}
 `;
 

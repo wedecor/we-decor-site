@@ -223,9 +223,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'home-decoration-ideas-bangalore-haldi-engagement-birthday',
-    title: 'Home Decoration in Bangalore: Haldi, Engagement, Birthday & Small Ceremony Guide',
+    title: 'Home Decoration in Bangalore: Haldi, Engagement & Birthday Guide',
     description:
-      'How to plan home decoration in Bangalore for Haldi, engagement, birthdays, and baby showers — apartment space tips, society lift rules, turmeric protection, and realistic costs from ₹3,000.',
+      'Planning home decoration in Bangalore for haldi, engagement, birthdays and baby showers — apartment space, society lift rules, turmeric protection, costs from ₹3,000.',
     datePublished: '2026-03-01',
     readingTimeMinutes: 7,
     authorName: 'We Decor Events',

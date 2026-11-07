@@ -41,11 +41,20 @@ export function buildCoreServiceCatalog(catalogId: string): JsonLdNode {
   };
 }
 
+// Keep in step with lib/content/pricing-tiers.ts: balloon work starts at
+// BALLOON_START_INR (₹3,000); everything floral starts at ₹5,000. The balloon
+// page itself sat at ₹5,000 here while the pricing page, homepage and every
+// locality page said ₹3,000 — tests/unit/seo/pricing.test.ts now holds the
+// page title, the Offer and the pricing constants to one number.
 const THREE_K_SERVICE_KEYS = new Set([
   'birthday-decoration',
   'birthday-home-decoration',
+  'balloon-decoration',
+  'home-decoration',
   '/services/birthday-decoration',
   '/services/birthday-home-decoration',
+  '/services/balloon-decoration',
+  '/services/home-decoration',
 ]);
 
 const TWO_HALF_K_SERVICE_KEYS = new Set(['car-decoration', '/services/car-decoration']);
@@ -97,7 +106,6 @@ export function buildServiceSchema(options: {
       ? `${NAP.url}/#service-${options.serviceId}`
       : `${pageUrl ?? NAP.url}#service`;
   const lowPrice = resolveStartingPriceInr(options.serviceId, options.path, options.lowPrice);
-  const formattedLow = lowPrice === 2500 ? '₹2,500' : lowPrice === 5000 ? '₹5,000' : '₹3,000';
 
   const node: JsonLdNode = {
     '@type': 'Service',
@@ -118,7 +126,9 @@ export function buildServiceSchema(options: {
       serviceUrl: absoluteUrl('/contact'),
       servicePhone: NAP.telephone,
     },
-    priceRange: `${formattedLow} - ₹15,999+`,
+    // No `priceRange` here: it is not a Service property in schema.org, and the
+    // "₹15,999+" ceiling it used to carry was never a published price. The
+    // Offer below states the real floor; the pricing page explains the rest.
     ...(pageUrl
       ? {
           offers: buildServiceOffer({

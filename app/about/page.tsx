@@ -13,7 +13,9 @@ import { SERVED_AREA_COUNT } from '@/lib/local-seo/locality-count';
 
 export const metadata: Metadata = pageMetadata({
   path: '/about',
-  title: 'About We Decor — Event Decorators in Bangalore',
+  // withBrandTitle appends "| We Decor"; naming the brand here too rendered
+  // "About We Decor — … | We Decor" in the SERP.
+  title: 'About Us — Event Decorators in Bangalore Since 2022',
   description:
     'We Decor was started in 2022 by Ilyas and Zakir after a friend’s engagement went wrong. The story behind our event decoration studio in Bangalore.',
 });

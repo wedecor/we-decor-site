@@ -6,6 +6,8 @@ export {
   buildPostalAddress,
   formatPostalAddressText,
   buildGeoCoordinates,
+  buildBusinessReferenceNode,
+  buildWebsiteReferenceNode,
   asGraph,
 } from './_helpers';
 

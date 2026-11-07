@@ -36,7 +36,9 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   metadataBase: METADATA_BASE,
   title: {
-    default: `${SITE_NAME} - Event Decorations Services in Bangalore`,
+    // Fallback only — every real page sets its own absolute title via
+    // pageMetadata(). This reaches error and not-found boundaries.
+    default: `Event Decorators in Bangalore | ${SITE_NAME}`,
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,

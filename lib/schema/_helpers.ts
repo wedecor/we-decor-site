@@ -1,5 +1,5 @@
 import { AREAS } from '@/app/(site)/_data/locations';
-import { GEO, NAP } from '@/lib/local-seo/constants';
+import { GEO, NAP, SCHEMA_IDS } from '@/lib/local-seo/constants';
 import type { GraphDocument, JsonLdNode } from './types';
 
 function areaEntityId(fragment: string): string {
@@ -80,10 +80,79 @@ export function buildGeoCoordinates(): JsonLdNode {
   };
 }
 
+/**
+ * Compact business entity for pages that only *reference* the business.
+ *
+ * Every WebPage, Service and BlogPosting points at `/#localbusiness` (via
+ * `about`, `provider`, `publisher`) and `/#website` (via `isPartOf`), but
+ * until Nov 2026 only the homepage graph defined those nodes. Google resolves
+ * cross-page @ids, so it coped; an AI crawler reading one locality page saw
+ * `provider: { "@id": ".../#localbusiness" }` and nothing else — no name, no
+ * phone, no address. This node is the minimum that makes a single page
+ * self-describing. It deliberately carries no AggregateRating: that lives on
+ * the homepage only (see CLAUDE.md).
+ */
+export function buildBusinessReferenceNode(): JsonLdNode {
+  return {
+    '@type': 'LocalBusiness',
+    '@id': SCHEMA_IDS.localBusiness,
+    name: NAP.name,
+    url: NAP.url,
+    telephone: NAP.telephone,
+    ...optionalEmail(NAP.email),
+    logo: { '@type': 'ImageObject', url: NAP.logo },
+    image: NAP.image,
+    address: buildPostalAddress(),
+  };
+}
+
+export function buildWebsiteReferenceNode(): JsonLdNode {
+  return {
+    '@type': 'WebSite',
+    '@id': SCHEMA_IDS.website,
+    url: NAP.url,
+    name: NAP.name,
+    publisher: { '@id': SCHEMA_IDS.localBusiness },
+  };
+}
+
+function hasNodeWithId(nodes: JsonLdNode[], id: string): boolean {
+  return nodes.some((n) => n['@id'] === id);
+}
+
+/** Does any node in the graph reference `id` (at any depth) without defining it? */
+function referencesId(value: unknown, id: string): boolean {
+  if (Array.isArray(value)) return value.some((v) => referencesId(v, id));
+  if (value && typeof value === 'object') {
+    const obj = value as Record<string, unknown>;
+    if (obj['@id'] === id && Object.keys(obj).length === 1) return true;
+    return Object.values(obj).some((v) => referencesId(v, id));
+  }
+  return false;
+}
+
+/**
+ * Build a `@graph` document. Appends the compact business / website nodes when
+ * the page references them but does not define them, so the full homepage
+ * graph (which defines both) is left untouched and no page ends up with two
+ * competing definitions.
+ */
 export function asGraph(...nodes: Array<JsonLdNode | null | undefined>): GraphDocument {
+  const graph = nodes.filter((n): n is JsonLdNode => Boolean(n));
+
+  if (
+    !hasNodeWithId(graph, SCHEMA_IDS.localBusiness) &&
+    referencesId(graph, SCHEMA_IDS.localBusiness)
+  ) {
+    graph.push(buildBusinessReferenceNode());
+  }
+  if (!hasNodeWithId(graph, SCHEMA_IDS.website) && referencesId(graph, SCHEMA_IDS.website)) {
+    graph.push(buildWebsiteReferenceNode());
+  }
+
   return {
     '@context': 'https://schema.org',
-    '@graph': nodes.filter((n): n is JsonLdNode => Boolean(n)),
+    '@graph': graph,
   };
 }
 

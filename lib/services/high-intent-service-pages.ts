@@ -301,9 +301,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'balloon-decoration': {
       slug: 'balloon-decoration',
-      title: 'Balloon Decoration in Bangalore — Arches & Setups from ₹5,000',
+      title: 'Balloon Decoration in Bangalore — Arches & Setups from ₹3,000',
       description:
-        'Balloon decoration in Bangalore from ₹5,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (82 Google reviews). Fast setup.',
+        'Balloon decoration in Bangalore from ₹3,000 — organic arches, ring backdrops & home or clubhouse party setups. 4.9★ (82 Google reviews). Free quote.',
       serviceType: 'Balloon decoration',
       ogImage: SERVICE_IMAGES.tentBalloon,
       eyebrow: 'Balloon styling · Bangalore',

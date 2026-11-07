@@ -17,11 +17,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/contact`, priority: 0.5 },
     { url: `${base}/reviews`, priority: 0.7 },
     { url: `${base}/locations`, priority: 0.8 },
-    { url: `${base}/llms.txt`, priority: 0.6 },
-    { url: `${base}/llms-full.txt`, priority: 0.6 },
     { url: `${base}/privacy`, priority: 0.2 },
     // `/thank-you` is deliberately absent — it is noindex, and a confirmation
     // page reached without submitting anything is a poor search result.
+    //
+    // `/llms.txt` and `/llms-full.txt` are also absent. A sitemap tells search
+    // engines which pages to show as results; these are plain-text feeds for
+    // AI assistants, discovered by convention at the well-known path and linked
+    // from robots-era tooling, not from the sitemap. Listing them invited Google
+    // and Bing to rank raw text files as landing pages.
   ];
 
   const servicePages: MetadataRoute.Sitemap = INDEXABLE_SERVICE_PATHS.map((path) => ({

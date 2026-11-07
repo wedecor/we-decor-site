@@ -107,6 +107,11 @@ export default [
       'test-results/**',
       'blob-report/**',
       'tests/**',
+      // Agent harness plugins (Impeccable etc.) are gitignored third-party
+      // code; they are never built or deployed, and lint them fails locally
+      // with thousands of errors that do not exist in CI.
+      '.cursor/**',
+      '.claude/**',
       // Generated compact table; prettier would explode each row to 10 lines.
       // Path uses ** because (site) is a glob group, not a folder name.
       '**/work-images.ts',
