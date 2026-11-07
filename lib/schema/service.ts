@@ -180,12 +180,112 @@ export function buildLocalityServiceSchema(
 ): JsonLdNode {
   const pageUrl = absoluteUrl(`/locations/${slug}`);
   const landmarkText = options?.landmark ? ` near ${options.landmark}` : '';
+
+  const localityOffers = [
+    {
+      name: `Birthday Decoration in ${areaName}`,
+      serviceType: 'Birthday decoration',
+      path: '/services/birthday-decoration',
+      lowPrice: 3000,
+    },
+    {
+      name: `Home Event Decoration in ${areaName}`,
+      serviceType: 'Home event decoration',
+      path: '/services/home-decoration',
+      lowPrice: 3000,
+    },
+    {
+      name: `Balloon Decoration in ${areaName}`,
+      serviceType: 'Balloon decoration',
+      path: '/services/balloon-decoration',
+      lowPrice: 3000,
+    },
+    {
+      name: `Wedding Car Decoration in ${areaName}`,
+      serviceType: 'Car decoration',
+      path: '/services/car-decoration',
+      lowPrice: 2500,
+    },
+    {
+      name: `Wedding Stage & Mandap Setup in ${areaName}`,
+      serviceType: 'Wedding decoration',
+      path: '/services/wedding-setup',
+      lowPrice: 5000,
+    },
+    {
+      name: `Haldi & Mehndi Decoration in ${areaName}`,
+      serviceType: 'Haldi decoration',
+      path: '/services/haldi-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Engagement & Ring Ceremony in ${areaName}`,
+      serviceType: 'Engagement decoration',
+      path: '/services/engagement-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Baby Shower & Seemantham in ${areaName}`,
+      serviceType: 'Baby shower decoration',
+      path: '/services/baby-shower-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Anniversary Decoration in ${areaName}`,
+      serviceType: 'Anniversary decoration',
+      path: '/services/anniversary-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Romantic Proposal Decoration in ${areaName}`,
+      serviceType: 'Proposal decoration',
+      path: '/services/proposal-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Fresh Floral Decoration in ${areaName}`,
+      serviceType: 'Floral decoration',
+      path: '/services/floral-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Bridal Room & Surprise Setup in ${areaName}`,
+      serviceType: 'Room decoration',
+      path: '/services/room-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Nikah Stage & Floral Setup in ${areaName}`,
+      serviceType: 'Nikah decoration',
+      path: '/services/nikah-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Terrace & Rooftop Setup in ${areaName}`,
+      serviceType: 'Terrace decoration',
+      path: '/services/terrace-decoration',
+      lowPrice: 5000,
+    },
+    {
+      name: `Cabana Tent & Balloon Canopy in ${areaName}`,
+      serviceType: 'Tent balloon setup',
+      path: '/services/tent-balloon-setup',
+      lowPrice: 5000,
+    },
+    {
+      name: `Corporate Event Decoration in ${areaName}`,
+      serviceType: 'Corporate decoration',
+      path: '/services/corporate-decoration',
+      lowPrice: 5000,
+    },
+  ];
+
   return {
     '@type': 'Service',
     '@id': `${pageUrl}#service`,
     name: `Event Decorators in ${areaName}`,
     serviceType: 'Event decoration',
-    description: `Professional wedding, birthday, haldi, balloon, and themed event decoration in ${areaName}${landmarkText}, Bengaluru, Karnataka.`,
+    description: `Professional wedding, birthday, haldi, balloon, home, and themed event decoration in ${areaName}${landmarkText}, Bengaluru, Karnataka.`,
     url: pageUrl,
     provider: { '@id': SCHEMA_IDS.localBusiness },
     areaServed: {
@@ -198,10 +298,31 @@ export function buildLocalityServiceSchema(
       serviceUrl: absoluteUrl('/contact'),
       servicePhone: NAP.telephone,
     },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: `Decoration Services in ${areaName}`,
+      itemListElement: localityOffers.map((item, index) => ({
+        '@type': 'Offer',
+        position: index + 1,
+        name: item.name,
+        price: item.lowPrice,
+        priceCurrency: 'INR',
+        url: absoluteUrl(item.path),
+        itemOffered: {
+          '@type': 'Service',
+          name: item.name,
+          serviceType: item.serviceType,
+          areaServed: {
+            '@type': 'Place',
+            name: `${areaName}, Bengaluru`,
+          },
+        },
+      })),
+    },
     offers: buildServiceOffer({
       name: `Event Decorations in ${areaName}`,
       url: pageUrl,
-      lowPrice: SERVICE_STARTING_PRICE_INR,
+      lowPrice: 2500,
     }),
   };
 }

@@ -17,15 +17,83 @@ import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
 
 /** Dedicated decoration-service pages worth cross-linking from every locality page. */
-const SERVICE_LINKS: Partial<Record<ServiceKey, { href: string; label: string }>> = {
-  Birthday: { href: '/services/birthday-decoration', label: 'Birthday Decoration' },
-  Wedding: { href: '/services/wedding-setup', label: 'Wedding Decoration' },
-  Haldi: { href: '/services/haldi-decoration', label: 'Haldi Decoration' },
-  Engagement: { href: '/services/engagement-decoration', label: 'Engagement Decoration' },
-  Corporate: { href: '/services/corporate-decoration', label: 'Corporate Decoration' },
-  Anniversary: { href: '/services/anniversary-decoration', label: 'Anniversary Decorations' },
-  Proposal: { href: '/services/proposal-decoration', label: 'Proposal Decorations' },
-  'Baby Shower': { href: '/services/baby-shower-decoration', label: 'Baby Shower Decorations' },
+const SERVICE_LINKS: Record<ServiceKey, { href: string; label: string; price: string }> = {
+  Birthday: {
+    href: '/services/birthday-decoration',
+    label: 'Birthday Decoration',
+    price: 'From ₹3,000',
+  },
+  'Home Decor': {
+    href: '/services/home-decoration',
+    label: 'Home Event Decoration',
+    price: 'From ₹3,000',
+  },
+  'Balloon Decor': {
+    href: '/services/balloon-decoration',
+    label: 'Balloon Decoration',
+    price: 'From ₹3,000',
+  },
+  'Car Decor': {
+    href: '/services/car-decoration',
+    label: 'Wedding Car Decoration',
+    price: 'From ₹2,500',
+  },
+  Wedding: { href: '/services/wedding-setup', label: 'Wedding Decoration', price: 'From ₹5,000' },
+  Haldi: {
+    href: '/services/haldi-decoration',
+    label: 'Haldi & Mehndi Decoration',
+    price: 'From ₹5,000',
+  },
+  Engagement: {
+    href: '/services/engagement-decoration',
+    label: 'Engagement Decoration',
+    price: 'From ₹5,000',
+  },
+  'Baby Shower': {
+    href: '/services/baby-shower-decoration',
+    label: 'Baby Shower Decorations',
+    price: 'From ₹5,000',
+  },
+  Anniversary: {
+    href: '/services/anniversary-decoration',
+    label: 'Anniversary Decorations',
+    price: 'From ₹5,000',
+  },
+  Proposal: {
+    href: '/services/proposal-decoration',
+    label: 'Proposal Decorations',
+    price: 'From ₹5,000',
+  },
+  'Floral Decor': {
+    href: '/services/floral-decoration',
+    label: 'Fresh Floral Decoration',
+    price: 'From ₹5,000',
+  },
+  'Bridal Room': {
+    href: '/services/room-decoration',
+    label: 'Bridal Room Decoration',
+    price: 'From ₹5,000',
+  },
+  Nikah: {
+    href: '/services/nikah-decoration',
+    label: 'Nikah Stage Decoration',
+    price: 'From ₹5,000',
+  },
+  'Terrace Decor': {
+    href: '/services/terrace-decoration',
+    label: 'Terrace & Rooftop Setup',
+    price: 'From ₹5,000',
+  },
+  'Cabana Tent': {
+    href: '/services/tent-balloon-setup',
+    label: 'Cabana Tent & Balloon Setup',
+    price: 'From ₹5,000',
+  },
+  Corporate: {
+    href: '/services/corporate-decoration',
+    label: 'Corporate Decoration',
+    price: 'From ₹5,000',
+  },
 };
 
 const MAX_NEARBY_AREAS = 5;
@@ -214,12 +282,20 @@ export default async function LocationPage({ params }: LocationPageProps) {
           <div className="grid grid-cols-1 border-t border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service) => {
               const servicePage = SERVICE_LINKS[service];
+              const displayLabel = servicePage?.label ?? service;
               return (
                 <div
                   key={service}
                   className="flex h-full flex-col border-b border-white/[0.08] py-7 md:border-r md:px-7 md:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
                 >
-                  <h3 className="font-display text-xl text-lux-ivory mb-3">{service}</h3>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <h3 className="font-display text-xl text-lux-ivory">{displayLabel}</h3>
+                    {servicePage?.price ? (
+                      <span className="text-xs font-semibold px-2.5 py-1 rounded bg-white/[0.06] text-lux-gold border border-lux-gold/20 shrink-0">
+                        {servicePage.price}
+                      </span>
+                    ) : null}
+                  </div>
                   {area.serviceDescriptions ? (
                     <p className="text-lux-secondary mb-6 text-sm leading-relaxed flex-1">
                       {area.serviceDescriptions[service]}
@@ -242,7 +318,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                       </Link>
                     ) : null}
                     <TrackedWhatsAppLink
-                      href={CONTACT.waUrl(`Hi! I need ${service} in ${area.name}`)}
+                      href={CONTACT.waUrl(`Hi! I need ${displayLabel} in ${area.name}`)}
                       source={`location:${slug}:${service}`}
                       target="_blank"
                       rel="noopener noreferrer"

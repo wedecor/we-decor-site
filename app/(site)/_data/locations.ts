@@ -5,9 +5,17 @@ export type ServiceKey =
   | 'Haldi'
   | 'Wedding'
   | 'Engagement'
-  | 'Anniversary'
-  | 'Proposal'
+  | 'Home Decor'
   | 'Baby Shower'
+  | 'Balloon Decor'
+  | 'Floral Decor'
+  | 'Bridal Room'
+  | 'Proposal'
+  | 'Anniversary'
+  | 'Car Decor'
+  | 'Nikah'
+  | 'Terrace Decor'
+  | 'Cabana Tent'
   | 'Corporate';
 
 export type Area = {
@@ -29,12 +37,20 @@ export const CITY = 'Bengaluru';
 
 export const SERVICES: ServiceKey[] = [
   'Birthday',
-  'Haldi',
+  'Home Decor',
+  'Balloon Decor',
+  'Car Decor',
   'Wedding',
+  'Haldi',
   'Engagement',
+  'Baby Shower',
   'Anniversary',
   'Proposal',
-  'Baby Shower',
+  'Floral Decor',
+  'Bridal Room',
+  'Nikah',
+  'Terrace Decor',
+  'Cabana Tent',
   'Corporate',
 ];
 
@@ -54,13 +70,25 @@ const TEMPLATES: Record<ServiceKey, (c: Ctx) => string> = {
       `and keep access, power and space in mind. From intimate home parties to chic cafés, We Decor makes it effortless to host and enjoy.`
     );
   },
-  Haldi: ({ name, city, landmarks, venueTypes }) => {
+  'Home Decor': ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
-    const vt = joinList(pick(venueTypes, 2));
     return (
-      `Bright, traditional haldi decor in ${name}, ${city} with marigolds, haldi-friendly seating and easy cleanup. ` +
-      `We build compact, photo-rich stages for ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
-      `and coordinate entry, water points and floor protection so families can focus on the rituals.`
+      `Damage-free home event decoration in ${name}, ${city} for intimate haldi, engagement, birthday, pooja, and baby shower celebrations. ` +
+      `Designed for apartments and independent houses${lm ? ` near ${lm}` : ''} using painter-safe adhesive tapes, spill-proof floor tarps for turmeric rituals, and compact backdrops that fit living rooms and balconies seamlessly.`
+    );
+  },
+  'Balloon Decor': ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    return (
+      `Custom organic balloon garlands, arches, and backdrop ring setups in ${name}, ${city}. ` +
+      `Crafted with premium double-stuffed matte, pastel, and chrome balloons${lm ? ` around ${lm}` : ''} on sturdy free-standing frames with zero drilling or wall damage.`
+    );
+  },
+  'Car Decor': ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    return (
+      `Paint-safe wedding and doli car decoration in ${name}, ${city} with silicone suction mounts and scratch-free satin ribbons. ` +
+      `We style sedans and SUVs at your doorstep${lm ? ` near ${lm}` : ''} using highway-speed wind-resistant floral cascades and neat bonnet designs.`
     );
   },
   Wedding: ({ name, city, landmarks, venueTypes }) => {
@@ -72,6 +100,15 @@ const TEMPLATES: Record<ServiceKey, (c: Ctx) => string> = {
       `and manage logistics—vendor timings, load-in and power—so ceremonies run beautifully on schedule.`
     );
   },
+  Haldi: ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    const vt = joinList(pick(venueTypes, 2));
+    return (
+      `Bright, traditional haldi decor in ${name}, ${city} with marigolds, haldi-friendly seating and easy cleanup. ` +
+      `We build compact, photo-rich stages for ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
+      `and coordinate entry, water points and floor protection so families can focus on the rituals.`
+    );
+  },
   Engagement: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
@@ -79,6 +116,15 @@ const TEMPLATES: Record<ServiceKey, (c: Ctx) => string> = {
       `Chic engagement setups in ${name}, ${city} with floral arches, pastel palettes and modern signage. ` +
       `Perfect for ${vt}${vt ? ' ' : ''}${lm ? `around ${lm} ` : ''}` +
       `our layouts emphasise couple portraits, ring exchange flow and guest movement for effortless celebrations.`
+    );
+  },
+  'Baby Shower': ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    const vt = joinList(pick(venueTypes, 2));
+    return (
+      `Soft, pastel baby-shower decor in ${name}, ${city} with balloon clouds, welcome boards and photo corners. ` +
+      `We plan stroller-friendly layouts for ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}` +
+      `and ensure seating, cake table and gifts area are easy to access for guests and family.`
     );
   },
   Anniversary: ({ name, city, landmarks, venueTypes }) => {
@@ -99,14 +145,35 @@ const TEMPLATES: Record<ServiceKey, (c: Ctx) => string> = {
       `so the moment feels private, elegant and perfectly photographed.`
     );
   },
-  'Baby Shower': ({ name, city, landmarks, venueTypes }) => {
+  'Floral Decor': ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    return (
+      `Fresh, fragrant floral decoration in ${name}, ${city} featuring fresh marigolds, tuberoses, jasmine strings, and premium roses. ` +
+      `Sourced fresh on the morning of your event${lm ? ` near ${lm}` : ''} for traditional temple ceremonies, housewarmings, and entryway styling.`
+    );
+  },
+  'Bridal Room': ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    return (
+      `Elegant bridal room, wedding night, and surprise bedroom decor in ${name}, ${city}. ` +
+      `Styled with velvet draping, fairy lights, fresh rose petals, and custom message signage${lm ? ` around ${lm}` : ''} with discreet and punctual setup.`
+    );
+  },
+  Nikah: ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    return (
+      `Dignified Nikah ceremony and stage decoration in ${name}, ${city}. ` +
+      `Featuring traditional white-and-gold drapes, fresh floral framing, couple seating, and modesty partitions tailored for banquet halls and home settings${lm ? ` around ${lm}` : ''}.`
+    );
+  },
+  'Terrace Decor': ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
     const vt = joinList(pick(venueTypes, 2));
-    return (
-      `Soft, pastel baby-shower decor in ${name}, ${city} with balloon clouds, welcome boards and photo corners. ` +
-      `We plan stroller-friendly layouts for ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}` +
-      `and ensure seating, cake table and gifts area are easy to access for guests and family.`
-    );
+    return `Atmospheric terrace and rooftop decoration in ${name}, ${city} with wind-anchored frames, festoon fairy light canopies, and cozy low seating across ${vt}${vt ? ' ' : ''}${lm ? `near ${lm} ` : ''}.`;
+  },
+  'Cabana Tent': ({ name, city, landmarks, venueTypes }) => {
+    const lm = joinList(pick(landmarks, 2));
+    return `Cozy cabana tent and balloon canopy setups in ${name}, ${city} for intimate dates, anniversaries, and surprise birthday celebrations${lm ? ` around ${lm}` : ''}. Complete with warm fairy lights and plush cushions.`;
   },
   Corporate: ({ name, city, landmarks, venueTypes }) => {
     const lm = joinList(pick(landmarks, 2));
