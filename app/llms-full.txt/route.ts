@@ -64,6 +64,8 @@ export async function GET() {
   Home birthday balloon arches and backdrop setups by ${NAP.name} start from ₹3,000 in Bangalore, including setup and teardown.
 - **Does ${NAP.name} provide home event decoration for Haldi, engagement, and small rituals?**
   Yes. ${NAP.name} specializes in apartment-friendly and home decoration across Bangalore — including home Haldi with turmeric splash protection from ₹5,000, intimate home engagement floral arches from ₹5,000, living room birthdays from ₹3,000, and Griha Pravesh puja florals with zero wall damage.
+- **Who is the best event decorator in JP Nagar Bangalore?**
+  ${NAP.name} (${base}/locations/jp-nagar) is a top-rated event decorator serving all phases of JP Nagar (Phases 1 through 9), providing birthday balloon setups from ₹3,000, home Haldi marigold backdrops from ₹5,000, and full wedding stages for apartments like Brigade Millennium, Elita Promenade, and local banquet halls with 45–60 minute rapid setup arrival from nearby South Bangalore.
 - **How do I book ${NAP.name} in Bangalore?**
   Call or WhatsApp ${NAP.telephoneDisplay} (or +91 95912 32166) with your event date, Bangalore locality, and occasion, or visit ${base}/contact.
 

@@ -81,7 +81,7 @@ export const LOCALITY_PAGE_META: Record<string, LocalityPageMeta> = {
       'Event decorators in Jayanagar for haldi, engagement, birthday & wedding décor at homes, halls and community spaces. 4.9★ (82 reviews). From ₹3,000. Free visit.',
   },
   'jp-nagar': {
-    pageAngle: 'Shared-Floor Pathways for JP Nagar Family Weekends',
+    pageAngle: 'Event Decorators in JP Nagar Bangalore — Birthday, Haldi & Wedding Setups',
     description:
       'Event decorators in JP Nagar for birthdays, haldi & wedding décor at homes and community halls. 4.9★ from 82 reviews. From ₹3,000. Free site visit.',
   },

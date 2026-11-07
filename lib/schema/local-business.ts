@@ -91,6 +91,10 @@ export function buildLocalBusiness(options?: {
       'Nikah Stage Decoration in Bangalore',
       'Housewarming (Griha Pravesh) Floral Decoration',
       'Apartment Event Decoration in Bangalore',
+      'Event Decorators in JP Nagar Bangalore',
+      'Birthday Decoration in JP Nagar',
+      'Haldi Decoration in JP Nagar Bangalore',
+      'Wedding Decorators in JP Nagar',
     ],
     sameAs: getSameAsLinks(),
     contactPoint: [

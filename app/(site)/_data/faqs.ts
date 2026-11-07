@@ -446,36 +446,36 @@ export const LOCALITY_FAQS: Record<string, FAQItem[]> = {
   ],
   'jp-nagar': [
     {
-      q: 'How should Mini Forest photo ideas stay portable rather than venue assumptions?',
-      a: "If outdoor photos near JP Nagar Mini Forest are desired, treat them as a separate micro-plan with portable décor rather than assuming the forest is your venue. Green gathering spaces soften the family residential character. Garden-inspired palettes and soft traditional colour for rituals fit neighbourly celebrations. Heavy nightclub themes clash with the area's family mood.",
+      q: 'What event decoration services do you provide across JP Nagar?',
+      a: 'We provide comprehensive event decoration across all JP Nagar Phases (1st to 9th Phase) — including birthday balloon arches and cake backdrops from ₹3,000, traditional marigold Haldi setups with urli seating from ₹5,000, intimate engagement floral rings, baby shower cradle decor, and full wedding mandap styling for homes, clubhouses, and banquet halls.',
     },
     {
-      q: 'What lighting helps Metro walk-up guests find entrances after dark?',
-      a: 'Metro access via JP Nagar Metro Station changes how some guests arrive; keep entrance décor readable for people coming on foot as well as by car. Light the path before you light the stage. Family homes, community halls, banquet halls, and apartments host celebrations that feel neighbourly rather than showy. Botanical textures photograph well in daylight halls.',
+      q: 'Can you decorate apartment clubhouses in JP Nagar like Brigade Millennium or Elita Promenade?',
+      a: 'Yes. We regularly style living rooms, clubhouses, and terraces across major JP Nagar communities like Brigade Millennium, Elita Promenade, GR Lavender, and Shriram Surabhi. We coordinate with society security on vendor entry, lift permissions, and use damage-free, zero-nail mounting methods to protect walls and ceilings.',
     },
     {
-      q: 'Why schedule banquet vans outside Sarakki Signal peak queues?',
-      a: "For banquet halls near Sarakki Signal, schedule décor vans outside peak signal queues. Evening congestion affects vendor timing, so earlier load-ins protect setup quality. Share multi-generational guest counts; events often need clearer elder seating and quieter corners beside kids' zones. Photograph hall kitchen doors so floral staging does not collide with catering paths.",
+      q: 'How much does birthday balloon decoration at home cost in JP Nagar?',
+      a: 'Our home birthday balloon decoration packages in JP Nagar start from ₹3,000. This includes an organic pastel or chrome balloon garland, customized backdrop, neon Happy Birthday sign, and cake plinth setup, with prompt same-day teardown available.',
     },
     {
-      q: 'How do multi-generational lists change seating corners?',
-      a: "Share multi-generational guest counts early. JP Nagar events often need clearer elder seating and quieter corners beside kids' zones. Playful but organised balloon work suits children's birthdays without flooding adult ritual space. Sage, cream, and soft peach appear often in garden-toned housewarming setups across homes and halls. Place low tables at the quiet edge so grandparents can sit without joining the loudest zone.",
+      q: 'Do you offer same-day decoration setup in JP Nagar?',
+      a: 'Yes. Since our core operations hub is located right in neighbouring South Bangalore (Basavanagudi/Jayanagar), our crew can reach JP Nagar within 45 to 60 minutes. We accept same-day bookings for birthday surprises, baby welcomes, and room decor depending on slot availability.',
     },
     {
-      q: 'Can Mini Forest morning light inspire indoor floral colour?',
-      a: 'A morning visit to sense Mini Forest light can inspire indoor floral colour even when the party stays inside. Garden-toned housewarming setups and traditional wedding receptions with softer modern finishing lead trends. Hosts ask for reusable wooden arches and fewer plastics. Apartment birthdays favour structured balloon frames rather than ceiling clutter.',
+      q: 'How do you prevent turmeric stains during home Haldi ceremonies in JP Nagar?',
+      a: 'For home Haldi ceremonies in JP Nagar apartments and independent houses, we lay heavy-duty waterproof floor drop-cloths and decorative carpets beneath the brass urli and seating area to protect marble and vitrified tiles from turmeric splashes. All backdrops are mounted on freestanding self-supported frames.',
     },
     {
-      q: 'Where do hall kitchen doors collide with floral staging?',
-      a: 'Photograph hall kitchen doors so floral staging does not collide with catering paths. Community halls and banquet halls cover larger weddings and anniversaries. Family homes allow intimate ceremonies with driveway welcomes and courtyard seating. Confirm society rules for apartment podia. Green pockets set an outdoor reference even when the event is indoors.',
+      q: 'Do you decorate banquet halls near Sarakki Signal, Kanakapura Road, and Outer Ring Road?',
+      a: 'Yes. We style banquet halls, kalyana mantapas, and rooftop venues along Sarakki Signal, Delmia Circle, and Outer Ring Road in JP Nagar with custom stage backdrops, fresh floral arches, and ambient lighting, including a free pre-event site walkthrough.',
     },
     {
-      q: 'What podium society rules should apartment hosts confirm in writing?',
-      a: 'Confirm society rules for apartment podia before ordering outdoor arches or helium. Apartments host clubhouse-style birthdays and housewarming evenings. Linen tones and measured metallic accents photograph well in evening apartments. Guests expect freshness and ease; overcrowded balloon fills feel chaotic in compact podia near Sarakki Signal approaches. Ask for helium and outdoor arch rules in writing before weekend podium bookings fill.',
+      q: 'Which phases of JP Nagar do you cover for decoration services?',
+      a: 'We cover every phase of JP Nagar: Phases 1, 2, 3, 4, 5, 6, 7 (Puttenahalli/Brigade Millennium), 8, and 9. Whether it is an independent house near JP Nagar Mini Forest or a high-rise flat on 24th Main, our teams provide prompt doorstep setup.',
     },
     {
-      q: 'How should driveway welcomes work for family-home ceremonies?',
-      a: 'Family homes allow intimate ceremonies with driveway welcomes and courtyard seating. Scale arches to gate width and elder walking paths. Garden-inspired palettes fit the residential green character beside JP Nagar Mini Forest references. Keep entrance lighting readable for Metro walk-ups who arrive after dark without a car escort. Keep elder walking paths clear from gate to courtyard seating without detours around tall frames.',
+      q: 'Can you provide traditional floral and Griha Pravesh decoration in JP Nagar?',
+      a: 'Yes. For housewarming (Griha Pravesh) and poojas in JP Nagar, we supply fresh mango-leaf entrance torans, marigold door frames, banana stem entrance pillars, pooja mantapa florals, and brass diya setups.',
     },
   ],
   'kanakapura-road': [

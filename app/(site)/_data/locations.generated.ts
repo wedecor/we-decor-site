@@ -184,13 +184,20 @@ export const GENERATED_LOCATIONS = [
     slug: 'jp-nagar',
     name: 'JP Nagar',
     vibe: 'family residential neighbourhood with green gathering spaces',
-    landmarks: ['JP Nagar Mini Forest', 'JP Nagar Metro Station', 'Sarakki Signal'],
+    landmarks: [
+      'Brigade Millennium',
+      'JP Nagar Mini Forest',
+      'Sarakki Signal',
+      'Puttenahalli Lake',
+      'JP Nagar Metro Station',
+    ],
     venueTypes: ['family homes', 'community halls', 'banquet halls', 'apartments'],
-    heroTagline: 'Warm Family Celebrations in JP Nagar',
+    heroTagline: 'Top-Rated Event Decorators in JP Nagar',
     bodyCopy:
-      "Green gathering spaces soften JP Nagar's family area feel. JP Nagar Mini Forest, JP Nagar Metro Station, and Sarakki Signal orient daily movement. Family homes, community halls, banquet halls, and apartments host parties that feel neighbourly rather than showy. Garden-inspired palettes, soft classic colour for rituals, and playful but organised balloon work for children's birthdays fit that mood. Green pockets like the Mini Forest set an outdoor reference even when the event is indoors. Guests expect freshness and ease. Heavy nightclub themes clash with the area's family character. Note how many children need a play corner so floral runs do not block family guest flow. Family homes allow intimate ceremonies with driveway welcomes and courtyard seating. Community halls and banquet halls cover larger weddings and anniversaries. Apartments host clubhouse-style birthdays and housewarming evenings. Metro access via JP Nagar Metro Station changes how some guests arrive. Keep entrance décor readable for people coming on foot and by car. Near Sarakki Signal, evening congestion affects vendor timing, so earlier load-ins protect setup quality. Botanical textures, linen tones, and measured metallic accents photograph well in daylight halls and evening apartments. Our layouts stay calm around JP Nagar homes, halls, banquet spaces, and apartments. A morning visit to sense Mini Forest light can inspire indoor floral colour even when the party stays inside. If outdoor photos near JP Nagar Mini Forest are desired, treat them as a separate micro-plan with portable décor rather than assuming the forest is your venue. Confirm society rules for apartment podia. For banquet halls near Sarakki Signal, schedule décor vans outside peak signal queues. Share all-age guest counts; JP Nagar events often need clearer elder seating and quieter corners beside kids' zones. Photograph hall kitchen doors so floral staging does not collide with catering paths. Garden-toned housewarming setups, classic wedding receptions with softer modern finishing. Apartment birthdays with structured balloon frames rather than ceiling clutter lead trends. Sage, cream, and soft peach appear often. Hosts ask for reusable wooden arches and fewer plastics. A morning visit to sense Mini Forest light can inspire indoor floral colour even when the party stays inside. Sage, cream, and soft peach appear often in garden-toned housewarming setups around JP Nagar homes and halls. How do walk-up Metro guests find your entrance after dark? Light that path before you light the stage.",
+      'We Decor Events provides premier event and party decoration across all phases of JP Nagar (Phases 1 to 9). From intimate birthday balloon setups in apartments like Brigade Millennium and Elita Promenade to grand wedding and reception stages near Sarakki Signal, Delmia Circle, and Kanakapura Road, our team brings flawless execution right to your doorstep. We specialize in home Haldi marigold backdrops with floor-safe urli seating, romantic bedroom styling, baby shower cradle florals, and corporate celebrations. With transparent pricing starting from ₹3,000 for birthdays and ₹5,000 for floral ceremony backdrops, free pre-event site visits, and rapid 45-minute dispatch from our South Bangalore hub, we ensure your JP Nagar celebration is stress-free, society-compliant, and beautifully decorated.',
     uniqueFAQ: [],
-    waPrefill: 'Hi! JP Nagar family celebration — need warm custom decor for home/hall.',
+    waPrefill:
+      'Hi We Decor! I need event decoration in JP Nagar (Phase: ____). Occasion: _____. Date: _____.',
   },
   {
     slug: 'kanakapura-road',

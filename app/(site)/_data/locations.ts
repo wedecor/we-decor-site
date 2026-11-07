@@ -323,10 +323,17 @@ export const AREAS: Area[] = [
     slug: 'jp-nagar',
     name: 'JP Nagar',
     vibe: 'family residential neighbourhood with green gathering spaces',
-    landmarks: ['JP Nagar Mini Forest', 'JP Nagar Metro Station', 'Sarakki Signal'],
+    landmarks: [
+      'Brigade Millennium',
+      'JP Nagar Mini Forest',
+      'Sarakki Signal',
+      'Puttenahalli Lake',
+      'JP Nagar Metro Station',
+    ],
     venueTypes: ['family homes', 'community halls', 'banquet halls', 'apartments'],
-    heroTagline: 'Warm Family Celebrations in JP Nagar',
-    waPrefill: 'Hi! JP Nagar family celebration — need warm custom decor for home/hall.',
+    heroTagline: 'Top-Rated Event Decorators in JP Nagar',
+    waPrefill:
+      'Hi We Decor! I need event decoration in JP Nagar (Phase: ____). Occasion: _____. Date: _____.',
   },
   {
     slug: 'bannerghatta-road',
