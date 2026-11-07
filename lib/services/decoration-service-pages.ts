@@ -166,10 +166,10 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       '/services/wedding-setup',
       '/services/engagement-decoration',
     ],
-    eyebrow: 'Haldi planning · Bangalore',
-    headline: 'Set up for the haldi, not the mess after it',
+    eyebrow: 'Haldi ceremonies · Bangalore',
+    headline: 'Haldi Ceremony Decoration in Bangalore — Home & Stage Setups',
     subheadline:
-      'Marigold and yellow décor planned around turmeric, early rituals, outdoor conditions, and a clear cleanup plan.',
+      'Bright marigold backdrops, brass urli seating, and apartment-friendly turmeric floor protection planned for homes, clubhouses, and banquet halls across Bangalore.',
     storyTitle: 'A practical haldi checklist',
     storyParagraphs: [
       'Share a venue photo, ceremony time, guest count, and the areas likely to get turmeric on them. We can then suggest a backdrop, seating, floor coverage, and a layout that keeps the ritual zone separate from the photo area.',
@@ -391,10 +391,10 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — intimate home backdrops, couple stages & floral arches. 4.9★ rated. Free quote.',
     serviceType: 'Engagement decoration',
     ogImage: SERVICE_IMAGES.engagement,
-    eyebrow: 'Ring ceremony décor',
-    headline: 'Start with the moment guests will gather around',
+    eyebrow: 'Engagement ceremonies · Bangalore',
+    headline: 'Engagement Decoration in Bangalore — Ring Ceremony & Stage Setups',
     subheadline:
-      'Choose a focused ring-exchange backdrop, then add entry, family seating, and portrait details only where they serve the event.',
+      'Chic floral arches, pastel stages, and intimate ring ceremony backdrops planned for banquet halls and home celebrations in Bangalore.',
     storyTitle: 'Plan the ceremony area first',
     storyParagraphs: [
       'An engagement setup works best when the ring exchange, family seating, and photographer positions are considered together. Send the venue dimensions or photos and we will suggest a backdrop scale that does not crowd the room.',
@@ -597,9 +597,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
     serviceType: 'Corporate event decoration',
     ogImage: SERVICE_IMAGES.corporate,
     eyebrow: 'Corporate events · Bangalore',
-    headline: 'Decor that fits the run sheet and procurement process',
+    headline: 'Corporate Event & Office Decoration in Bangalore',
     subheadline:
-      'From an office milestone to a branded launch, we scope installations around approval steps, venue access, logo files, and event scale.',
+      'Brand-aligned stage backdrops, entrance arches, balloon walls, and launch decor with GST invoicing and discreet office setup.',
     storyTitle: 'Send the operational brief, not just the theme',
     storyParagraphs: [
       'A useful corporate enquiry includes the event date, venue, guest count, floor plan, brand assets, setup window, and billing requirements. That lets us prepare an itemized scope for review rather than a generic offering.',
@@ -831,10 +831,10 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       '/services/birthday-decoration',
       '/services/corporate-decoration',
     ],
-    eyebrow: 'Outdoor parties · Bangalore',
-    headline: 'Make the open space usable for the party',
+    eyebrow: 'Cabana tent & balloons · Bangalore',
+    headline: 'Cabana Tent & Balloon Decoration in Bangalore',
     subheadline:
-      'Tents, balloon features, and entry décor are planned around weather, anchoring, guest movement, and venue rules.',
+      'Cozy fairy-lit cabana canopies, balloon archways, and outdoor styling for gardens, terraces, lawns, and intimate indoor surprises.',
     storyTitle: 'Outdoor setup begins with the site',
     storyParagraphs: [
       'A lawn, driveway, or clubhouse terrace has different access and anchoring limits. Photos of the site, a rough layout, and the event timing help determine whether a tent, balloon arch, canopy dressing, or a compact focal point is appropriate.',
@@ -1051,10 +1051,10 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       '/services/proposal-decoration',
       '/services/birthday-decoration',
     ],
-    eyebrow: 'Private surprise setups',
-    headline: 'Open the door to a planned surprise',
+    eyebrow: 'Bridal & room surprises · Bangalore',
+    headline: 'Bridal Room & Surprise Room Decoration in Bangalore',
     subheadline:
-      'Room décor for a partner, spouse, bride, or birthday recipient, with access timing and furniture layout agreed before the installation.',
+      'Velvet draping, ambient fairy lights, fresh rose petals, and custom message signage with discreet and punctual setup across Bangalore.',
     storyTitle: 'The recipient and the room both matter',
     storyParagraphs: [
       'For a surprise, start with who it is for and when they will be out of the room. A husband or wife birthday, an anniversary, and a bridal room each call for a different focal point and amount of décor.',
@@ -1271,10 +1271,10 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       '/services/engagement-decoration',
       '/services/floral-decoration',
     ],
-    eyebrow: 'Wedding planning · Bangalore',
-    headline: 'Match the décor plan to the venue and budget',
+    eyebrow: 'Wedding decorations · Bangalore',
+    headline: 'Wedding Decorators in Bangalore — Mandap, Stage & Reception Setups',
     subheadline:
-      'Local halls, hotels, and destination events need different coordination. We review venue access, rituals, and fixed-budget priorities before proposing the scope.',
+      'Complete wedding stage, floral mandap, entrance canopy, and venue styling across Bangalore banquet halls, kalyana mantapas, and lawns.',
     storyTitle: 'Choose the event areas in order',
     storyParagraphs: [
       'Begin with the ceremony: mandap, ritual seating, and guest sightlines. Then decide whether the reception requires a separate couple stage, entry, aisle, dining details, or photo backdrop. This prevents a fixed budget being spread across too many areas.',
@@ -1712,9 +1712,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       '/services/baby-shower-decoration',
     ],
     eyebrow: 'Birthday parties · Bangalore',
-    headline: 'Give the birthday person a setup made for them',
+    headline: 'Birthday Decoration in Bangalore — Home & Venue Setups',
     subheadline:
-      'From a child’s themed party to a surprise for a spouse, décor is planned around the recipient, venue flow, cake moment, and clear finishing time.',
+      'Customized balloon arches, themed backdrops, neon signs, and cake plinth setups for apartments, clubhouses, and party halls across Bangalore.',
     storyTitle: 'Start with the occasion, then the venue',
     storyParagraphs: [
       'A birthday at a cafe, clubhouse, terrace, or home needs a different approach. We review venue photos and event timing before recommending a backdrop, balloon feature, cake table, entry, or photo area.',

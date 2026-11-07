@@ -35,9 +35,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Nikah decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Nikah ceremony · Bangalore',
-      headline: 'A serene setting for the nikah itself',
+      headline: 'Nikah Stage & Ceremony Decoration in Bangalore',
       subheadline:
-        'Ceremony seating, respectful floral framing and clear movement for family, imam and photographer—planned for homes, halls and clubhouses in Bangalore.',
+        'Ceremony seating, respectful floral framing, and clear movement for family, imam, and photographer—planned for homes, halls, and clubhouses in Bangalore.',
       storyTitle: 'Start with the ritual, then frame the room',
       storyParagraphs: [
         'The nikah has a practical rhythm: family members need to reach their seats, the imam needs a clear place to conduct the ceremony, and photographers need one clean angle. We begin with that flow, then shape the couple seating and floral frame around it.',
@@ -307,9 +307,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Balloon decoration',
       ogImage: SERVICE_IMAGES.tentBalloon,
       eyebrow: 'Balloon styling · Bangalore',
-      headline: 'Colour-matched balloons that fit the room',
+      headline: 'Balloon Decoration in Bangalore — Arches, Garlands & Backdrops',
       subheadline:
-        'From cake corners to clubhouse entrances, we size arches and garlands for ceiling height, society rules and the people being celebrated.',
+        'Organic balloon arches, double-stuffed pastel garlands, and custom backdrop setups with sturdy freestanding frames and zero drill work.',
       storyTitle: 'Measure the wall before choosing the colours',
       storyParagraphs: [
         'A balloon setup looks best when its proportions suit the room. We check the usable wall, ceiling height, lift access and whether the venue permits fixtures before recommending an arch, garland or freestanding photo zone.',
@@ -580,9 +580,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Baby shower decoration',
       ogImage: SERVICE_IMAGES.birthday,
       eyebrow: 'Baby shower hosting · Bangalore',
-      headline: 'A baby shower where every guest can settle in',
+      headline: 'Baby Shower & Seemantham Decoration in Bangalore',
       subheadline:
-        'Gentle themes, clear seating for elders and a comfortable photo corner for the mum-to-be—planned for brunches at home or in a clubhouse.',
+        'Pastel balloon clouds, traditional cradle floral styling, welcome boards, and photo corners for homes and banquet halls across Bangalore.',
       storyTitle: 'Design the hosting flow, not just the backdrop',
       storyParagraphs: [
         'For a shower with grandparents, friends and small children, the room needs more than a pretty wall. We set aside a calm chair for blessings, keep food and gifts accessible, and leave enough open space for relatives to gather without crowding the mum-to-be.',
@@ -847,10 +847,10 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         'Anniversary decoration in Bangalore from ₹5,000 — romantic room surprises, cabana setups, floral backdrops & milestone party decor. 4.9★ rated.',
       serviceType: 'Anniversary decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
-      eyebrow: 'Anniversary surprise · Bangalore',
-      headline: 'Set the surprise before they get home',
+      eyebrow: 'Anniversary celebrations · Bangalore',
+      headline: 'Anniversary Decoration in Bangalore — Romantic Home & Venue Setups',
       subheadline:
-        'Private dinner corners, floral reveals and milestone details installed around your partner’s schedule—without taking over the whole home.',
+        'Fairy lights, subtle florals, custom message signage, and candlelit ambiance for intimate dinner corners, bedrooms, and terraces in Bangalore.',
       storyTitle: 'The logistics behind a quiet reveal',
       storyParagraphs: [
         'An anniversary surprise works when the timing is invisible. We confirm when your partner will be out, how the team can enter, and where the first reveal should happen before we choose flowers, lights or a memory display.',
@@ -1118,9 +1118,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Proposal decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Proposal planning · Bangalore',
-      headline: 'Keep the plan secret. Keep the moment visible.',
+      headline: 'Romantic Proposal Decoration in Bangalore — Marry Me Setups',
       subheadline:
-        'Proposal décor built around the arrival route, photographer pocket and a reliable backup—whether you choose home, a terrace or a private dining corner.',
+        'Fairy-lit cabana tents, red carpet petals, marquee light letters, and secret reveals on private rooftops, terraces, and living rooms.',
       storyTitle: 'Plan the reveal before the petals',
       storyParagraphs: [
         'A proposal setup has one job: make room for the question and the reaction. We confirm the entrance route, the exact moment you want to reveal the décor, and a clear camera position before placing the focal frame.',
@@ -1388,7 +1388,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Home decoration',
       ogImage: SERVICE_IMAGES.roomDecor,
       eyebrow: 'Home celebrations & rituals · Bangalore',
-      headline: 'Home celebrations done right: Haldi, engagement, birthday & rituals',
+      headline: 'Home Event Decoration in Bangalore — Haldi, Engagement, Birthday & Pujas',
       subheadline:
         'Apartment-friendly and house-safe décor for living rooms, terraces, foyers & balconies — designed around guest seating, lift timings, society guidelines, and zero wall damage.',
       storyTitle: 'Custom ceremony & party setups for Bangalore homes and apartments',
@@ -1691,9 +1691,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Floral decoration',
       ogImage: SERVICE_IMAGES.haldi,
       eyebrow: 'Fresh flowers · Bangalore',
-      headline: 'Flowers chosen for the hours they must perform',
+      headline: 'Fresh Floral Decoration in Bangalore — Temple, Stage & Home Florals',
       subheadline:
-        'Fresh floral styling for stages, homes and ceremonies with practical choices for heat, hydration, transport and the look you want on camera.',
+        'Fresh marigold strings, tuberoses, jasmine torans, and premium Dutch roses sourced fresh on event morning for weddings, pujas, and stages.',
       storyTitle: 'Choose flowers with the venue and weather in mind',
       storyParagraphs: [
         'Flowers behave differently in sun, traffic and air-conditioned halls. We start with the event time and venue conditions, then recommend varieties and placement that make sense for the duration rather than promising a one-size-fits-all design.',
@@ -1962,9 +1962,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Terrace decoration',
       ogImage: SERVICE_IMAGES.corporate,
       eyebrow: 'Rooftop hosting · Bangalore',
-      headline: 'Turn the terrace into a setting that holds up',
+      headline: 'Terrace & Rooftop Party Decoration in Bangalore',
       subheadline:
-        'Rooftop décor for dinners and celebrations, designed around wind, rain backup, railing clearance and the power points you actually have.',
+        'Wind-anchored backdrop frames, festoon fairy light canopies, and cozy low seating for sunset parties and rooftop celebrations.',
       storyTitle: 'Outdoor atmosphere begins with safety checks',
       storyParagraphs: [
         'Before selecting lights or drapes, we review railings, open edges, wind exposure, socket locations and the available indoor fallback. Those details decide whether a canopy, low tables or a compact focal zone is appropriate.',
@@ -2232,9 +2232,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       serviceType: 'Car decoration',
       ogImage: SERVICE_IMAGES.engagement,
       eyebrow: 'Wedding car styling · Bangalore',
-      headline: 'Dress the car without risking the finish',
+      headline: 'Wedding Car Decoration in Bangalore — Paint-Safe Floral Styling',
       subheadline:
-        'Paint-safe florals, ribbons and just-married details for vidai, baraat and reception departures—timed so the car is ready when the driver is.',
+        'Silicone suction cups, scratch-free satin ribbons, and highway-speed floral cascades styled at your doorstep anywhere in Bangalore.',
       storyTitle: 'Secure the details before the drive begins',
       storyParagraphs: [
         'A wedding car has to travel, not just pose for a photo. We consider hood shape, sensors, lights, number plates and the route before selecting secure, paint-safe placement for flowers and ribbons.',
