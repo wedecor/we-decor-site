@@ -13,7 +13,7 @@ const COLLECTION_TO_SERVICE: Record<string, string> = {
   wedding: 'wedding-decoration',
   haldi: 'haldi-decoration',
   birthday: 'birthday-decoration',
-  'corporate event': 'home-decoration',
+  'corporate event': 'corporate-decoration',
 };
 
 function collectionSrc(key: string, index = 0): string {

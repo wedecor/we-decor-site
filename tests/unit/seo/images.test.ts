@@ -60,9 +60,8 @@ describe('portfolio manifest (work-images.ts)', () => {
   });
 
   it('every service page has at least one real photograph to show', () => {
-    // Known gap: car-decoration has no photographs in the manifest yet, so the
-    // page renders no gallery. Listed here so it is a decision, not a surprise.
-    const KNOWN_EMPTY = ['car-decoration'];
+    // All service pages now have at least one real photograph in the manifest.
+    const KNOWN_EMPTY: string[] = [];
     const empty = DECORATION_SERVICE_SLUGS.filter(
       (s) => workForService(s).length === 0 && !KNOWN_EMPTY.includes(s)
     );

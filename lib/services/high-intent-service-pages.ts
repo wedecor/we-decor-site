@@ -10,9 +10,12 @@ const CATEGORY_TO_SERVICE: Record<string, string> = {
   wedding: 'wedding-decoration',
   haldi: 'haldi-decoration',
   birthday: 'birthday-decoration',
-  'corporate event': 'home-decoration',
+  'corporate event': 'corporate-decoration',
+  corporate: 'corporate-decoration',
   'baby shower': 'baby-shower-decoration',
-  'room decor': 'home-decoration',
+  'room decor': 'room-decoration',
+  proposal: 'proposal-decoration',
+  car: 'car-decoration',
 };
 
 function img(category: string, index: number, caption: string) {
@@ -2252,7 +2255,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       description:
         'Wedding car decoration in Bangalore from ₹2,500 — paint-safe fresh floral & ribbon styling for sedans & SUVs across Bengaluru. 4.9★ rated.',
       serviceType: 'Car decoration',
-      ogImage: SERVICE_IMAGES.engagement,
+      ogImage: '/work/car/wedding-car-floral-decoration-bangalore.webp',
       eyebrow: 'Wedding car styling · Bangalore',
       headline: 'Wedding Car Decoration in Bangalore — Paint-Safe Floral Styling',
       subheadline:
@@ -2281,9 +2284,12 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         },
       ],
       gallery: [
-        img('wedding', 0, 'Wedding-day floral accents adaptable to car hood styling'),
-        img('haldi', 2, 'Bright marigold palette often used for baraat vehicle décor'),
-        img('engagement', 1, 'Soft romantic florals suitable for vidai car exits'),
+        {
+          src: '/work/car/wedding-car-floral-decoration-bangalore.webp',
+          caption: 'Fresh red rose bouquet and satin ribbon bridal car hood styling, Bangalore',
+        },
+        img('wedding', 0, 'Fresh floral arrangements styled for wedding vehicle departures'),
+        img('engagement', 1, 'Soft pastel and rose floral accents for vidai car styling'),
       ],
       testimonial: {
         quote:
