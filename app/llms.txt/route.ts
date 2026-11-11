@@ -43,18 +43,18 @@ const SERVICES_CATALOG = [
       'Bespoke wedding stage backdrops, fresh floral mandaps, reception stages, and venue entrance arches across Bengaluru.',
   },
   {
-    name: 'Engagement & Ring Ceremony Stage Decoration',
+    name: 'Engagement, Roka & Baat Pakki Stage Decoration',
     price: 'From ₹5,000',
     path: '/services/engagement-decoration',
     summary:
-      'Pastel floral arches, ring ceremony stages, couple seating, and warm portrait lighting for homes and banquet halls.',
+      'Pastel floral arches, Roka ceremony backdrops, Baat Pakki home floral styling, couple seating, and warm portrait lighting for homes and banquet halls.',
   },
   {
-    name: 'Baby Shower & Seemantham Decoration',
+    name: 'Baby Shower, Seemantham & Naming Ceremony Decoration',
     price: 'From ₹5,000',
     path: '/services/baby-shower-decoration',
     summary:
-      'Traditional South Indian Seemantham marigold/jasmine backdrops and modern Oh Baby pastel balloon arches.',
+      'Traditional South Indian Seemantham marigold backdrops, Namakarana cradle floral styling, and modern pastel balloon arches.',
   },
   {
     name: 'Bridal Room & First Night Decoration',
@@ -99,11 +99,11 @@ const SERVICES_CATALOG = [
       'Apartment-safe and home ceremony decoration across Bangalore — intimate home haldi setups with urli and marigold, ring ceremony backdrops, living room birthdays, baby showers, and Griha Pravesh puja florals with zero wall damage.',
   },
   {
-    name: 'Nikah Stage & Floral Decoration',
+    name: 'Nikah, Walima & Shukrana Stage Decoration',
     price: 'From ₹5,000',
     path: '/services/nikah-decoration',
     summary:
-      'Elegant white-and-gold floral stages, fresh rose curtains, and partitioned seating backdrops for Nikah and Walima ceremonies.',
+      'Elegant white-and-gold floral stages, fresh rose curtains, grand Walima reception stages, and serene Shukrana home prayer backdrops across Bangalore.',
   },
   {
     name: 'Terrace & Rooftop Canopy Decoration',

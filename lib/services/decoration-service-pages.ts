@@ -386,15 +386,15 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'engagement-decoration': {
     slug: 'engagement-decoration',
-    title: 'Engagement Decoration in Bangalore — Home & Stage Setups from ₹5,000',
+    title: 'Engagement & Roka Ceremony Decoration Bangalore — From ₹5,000',
     description:
-      'Engagement & ring ceremony decoration in Bangalore from ₹5,000 — intimate home backdrops, couple stages & floral arches. 4.9★ rated. Free quote.',
+      'Engagement, Roka ceremony & Baat Pakki decoration in Bangalore from ₹5,000 — intimate home setups, couple stages, floral arches & ring plinths. 4.9★ rated.',
     serviceType: 'Engagement decoration',
     ogImage: SERVICE_IMAGES.engagement,
-    eyebrow: 'Engagement ceremonies · Bangalore',
-    headline: 'Engagement Decoration in Bangalore — Ring Ceremony & Stage Setups',
+    eyebrow: 'Engagement & Roka ceremonies · Bangalore',
+    headline: 'Engagement, Roka & Baat Pakki Decoration in Bangalore',
     subheadline:
-      'Chic floral arches, pastel stages, and intimate ring ceremony backdrops planned for banquet halls and home celebrations in Bangalore.',
+      'Chic floral arches, pastel stages, intimate Roka backdrops, and Baat Pakki ceremony setups planned for banquet halls and home celebrations in Bangalore.',
     storyTitle: 'Plan the ceremony area first',
     storyParagraphs: [
       'An engagement setup works best when the ring exchange, family seating, and photographer positions are considered together. Send the venue dimensions or photos and we will suggest a backdrop scale that does not crowd the room.',
@@ -557,6 +557,11 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
     waPrefill:
       "Hi We Decor! I'm planning an engagement in Bangalore. Date: _____. Venue: _____. Theme ideas: _____.",
     faqs: [
+      {
+        question: 'Do you provide home decoration for Roka and Baat Pakki ceremonies in Bangalore?',
+        answer:
+          'Yes. We design intimate floral backdrops, ring-exchange plinths, family seating frames, and entrance welcome signs for Roka and Baat Pakki celebrations at home or in banquet halls from ₹5,000.',
+      },
       {
         question: 'Can you decorate a small engagement at home?',
         answer:
@@ -1260,9 +1265,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
   },
   'wedding-setup': {
     slug: 'wedding-setup',
-    title: 'Wedding Decorators in Bangalore — Mandap & Stage from ₹5,000',
+    title: 'Wedding & Reception Decorators in Bangalore — From ₹5,000',
     description:
-      'Wedding decorators in Bangalore from ₹5,000 — mandap, reception stage, floral & entrance setups with transparent pricing. 4.9★ rated. Free site visit.',
+      'Wedding & reception decorators in Bangalore from ₹5,000 — grand couple stage, floral mandap, banquet entrance & hall setups. 4.9★ rated. Free site visit.',
     serviceType: 'Wedding decoration',
     ogImage: SERVICE_IMAGES.engagement,
     coreServiceId: 'wedding-decoration',

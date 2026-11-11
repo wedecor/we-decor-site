@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fetch from 'node-fetch';
 import { SITE_URL } from '../lib/site';
 
-const base = process.env.NEXT_PUBLIC_SITE_URL!;
+const base = process.env.NEXT_PUBLIC_SITE_URL || SITE_URL;
 const PROD_URL = SITE_URL;
 const want = ['/', '/about', '/services', '/gallery', '/reviews', '/locations'];
 

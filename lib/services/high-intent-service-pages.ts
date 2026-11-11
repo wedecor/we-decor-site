@@ -29,40 +29,40 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
   {
     'nikah-decoration': {
       slug: 'nikah-decoration',
-      title: 'Nikah Ceremony Decoration in Bangalore — From ₹5,000',
+      title: 'Nikah, Walima & Shukrana Decoration in Bangalore — From ₹5,000',
       description:
-        'Nikah ceremony decoration in Bangalore from ₹5,000 — elegant floral stages, couple seating & home or hall setups. 4.9★ (82 reviews). Free quote.',
+        'Nikah ceremony, grand Walima reception & home Shukrana decor in Bangalore from ₹5,000 — elegant floral stages, parda partitions & couple seating. 4.9★ rated.',
       serviceType: 'Nikah decoration',
       ogImage: SERVICE_IMAGES.engagement,
-      eyebrow: 'Nikah ceremony · Bangalore',
-      headline: 'Nikah Stage & Ceremony Decoration in Bangalore',
+      eyebrow: 'Nikah · Walima · Shukrana · Bangalore',
+      headline: 'Nikah, Walima & Shukrana Stage Decoration in Bangalore',
       subheadline:
-        'Ceremony seating, respectful floral framing, and clear movement for family, imam, and photographer—planned for homes, halls, and clubhouses in Bangalore.',
+        'Dignified ceremony seating, grand Walima reception stages, and serene Shukrana home prayer backdrops—respectful flow and fresh floral framing for homes, halls, and clubhouses in Bangalore.',
       storyTitle: 'Start with the ritual, then frame the room',
       storyParagraphs: [
-        'The nikah has a practical rhythm: family members need to reach their seats, the imam needs a clear place to conduct the ceremony, and photographers need one clean angle. We begin with that flow, then shape the couple seating and floral frame around it.',
-        'For a simple home gathering, the focus may be one composed wall and low accents. A banquet setup can carry a wider frame, entrance details and richer flowers. Your invite, attire and venue photos guide the palette and scale.',
+        'Whether it is an intimate home Nikah, a family Shukrana prayer gathering, or a grand Walima reception, we respect the natural flow of the occasion: family members need clear seating, the ceremony needs unobstructed dignity, and photographers need clean, flattering sightlines.',
+        'For a home Nikah or Shukrana, the focus may be a serene floral backdrop, soft low accents, and respectful parda/partition aesthetics. For a Walima banquet, we craft statement couple stages with grand floral arches, ambient chandeliers, and entrance pathways. Your attire, venue layout, and vision guide the palette and scale.',
       ],
       highlights: [
         {
-          title: 'Nikah stage & seating frame',
+          title: 'Nikah & Walima stage framing',
           description:
-            'Proportioned backdrops and couple seating that leave walkway space for the ceremony and photographers.',
+            'Proportioned backdrops, statement couple stages, and seating that leave walkway space for family, imam, and photographers.',
         },
         {
-          title: 'Floral & fabric layers',
+          title: 'Shukrana home prayer setups',
           description:
-            'Fresh florals, drapes, and aisle markers that stay refined for mid-day rituals and evening guests.',
+            'Serene prayer focal walls, low brass urli floral centerpieces, and ambient lighting for thanksgiving family meals.',
         },
         {
-          title: 'Home and hall adaptable',
+          title: 'Floral & parda layers',
           description:
-            'Layouts planned for lift access, power points, and society rules common through Bangalore apartments.',
+            'Fresh roses, jasmine garlands, elegant fabric drapes, and tasteful partition frames tailored to ceremony traditions.',
         },
         {
-          title: 'Silent setup window',
+          title: 'Home, hall & Shadi Mahal adaptable',
           description:
-            'Early install and discreet teardown so your day stays focused on the nikah — not décor logistics.',
+            'Layouts planned for apartment lift access, hall stage dimensions, and society timing rules across all Bangalore localities.',
         },
       ],
       gallery: [
@@ -77,8 +77,8 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       },
       trustSignals: ['Bengaluru-wide installs', 'Mid-week nikah slots', 'Clear material lists'],
       waPrefill:
-        'Hi We Decor! I need nikah ceremony décor in Bangalore. Date: _____. Venue type: _____. Ceremony time: _____. Guest count: _____.',
-      whyChooseUsEyebrow: 'Why families book us for nikah',
+        'Hi We Decor! I need Nikah / Walima / Shukrana ceremony décor in Bangalore. Event type: _____. Date: _____. Venue type: _____. Guest count: _____.',
+      whyChooseUsEyebrow: 'Why families book us for nikah, walima & shukrana',
       whyChoose: [
         {
           title: 'Ritual-first layouts',
@@ -95,26 +95,31 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       styles: [
         {
-          title: 'Ivory botanical',
-          description: 'White florals, muted greens, and light drapes for a quiet, elegant room.',
+          title: 'Ivory botanical Nikah frame',
+          description:
+            'White florals, muted greens, and light drapes for a quiet, elegant ceremony.',
         },
         {
-          title: 'Rose & gold accent',
-          description: 'Warm metallics with pink roses for evening banquet light.',
+          title: 'Grand Walima / Valima reception stage',
+          description:
+            'Warm ambient lighting, gold metallic accents, and rich floral arches for evening banquet halls.',
         },
         {
-          title: 'Emerald garden',
-          description: 'Deep greens and white blooms for lawns and outdoor marriage halls.',
+          title: 'Shukrana prayer & blessing decor',
+          description:
+            'Intimate focal backdrop with fresh jasmine strings, brass urlis, and ambient fairy lights.',
         },
         {
-          title: 'Minimal modern',
-          description: 'Clean frames, fewer stems, stronger geometry — ideal for compact flats.',
+          title: 'Minimal modern home styling',
+          description:
+            'Clean frames, fewer stems, stronger geometry — ideal for compact flats and living rooms.',
         },
       ],
       idealOccasions: [
-        'Home nikah',
-        'Marriage hall ceremonies',
-        'Clubhouse gatherings',
+        'Home nikah ceremony',
+        'Grand Walima & Valima reception stages',
+        'Shukrana thanksgiving prayer & dinner',
+        'Marriage hall & Shadi Mahal ceremonies',
         'Intimate walima prelude styling',
         'Family-only afternoon nikah',
       ],
@@ -264,8 +269,19 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         '/services/engagement-decoration',
         '/services/home-decoration',
       ],
-      ctaBody: 'Send the nikah date, venue photos and ceremony timing for a layout-led quote.',
+      ctaBody:
+        'Send your Nikah, Walima or Shukrana date, venue photos and ceremony timing for a layout-led quote.',
       faqs: [
+        {
+          question: 'Do you provide decoration for Walima / Valima receptions in Bangalore?',
+          answer:
+            'Yes. We design and style complete Walima reception stages, grand couple backdrops with fresh roses and orchids, banquet hall entrance arches, head-table florals, and ambient stage lighting across Bangalore marriage halls, Shadi Mahals, and hotel banquets starting from ₹5,000.',
+        },
+        {
+          question: 'Can you decorate our home or apartment for a Shukrana prayer & gathering?',
+          answer:
+            'Yes. For family Shukrana gatherings, we set up elegant prayer and thanksgiving focal backdrops, brass urli floral centerpieces, dining table floral runners, and warm fairy lights. All home installations use apartment-safe, damage-free mounting without wall drilling.',
+        },
         {
           question: 'How do you plan a nikah stage without interrupting the ceremony?',
           answer:
@@ -574,15 +590,15 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'baby-shower-decoration': {
       slug: 'baby-shower-decoration',
-      title: 'Baby Shower Decoration in Bangalore — Seemantham & Themes from ₹5,000',
+      title: 'Baby Shower & Naming Ceremony Decoration Bangalore — From ₹5,000',
       description:
-        'Baby shower & seemantham decoration in Bangalore from ₹5,000 — pastel balloon arches, traditional floral backdrops & home setups. 4.9★ rated.',
+        'Baby shower, Seemantham & naming ceremony (Namakarana) decor in Bangalore from ₹5,000 — cradle florals, pastel balloon arches & home backdrops. 4.9★ rated.',
       serviceType: 'Baby shower decoration',
       ogImage: SERVICE_IMAGES.birthday,
-      eyebrow: 'Baby shower hosting · Bangalore',
-      headline: 'Baby Shower & Seemantham Decoration in Bangalore',
+      eyebrow: 'Baby shower & naming ceremony · Bangalore',
+      headline: 'Baby Shower & Naming Ceremony Decoration in Bangalore',
       subheadline:
-        'Pastel balloon clouds, traditional cradle floral styling, welcome boards, and photo corners for homes and banquet halls across Bangalore.',
+        'Pastel balloon clouds, traditional Namakarana cradle floral styling, welcome boards, and photo corners for homes and banquet halls across Bangalore.',
       storyTitle: 'Design the hosting flow, not just the backdrop',
       storyParagraphs: [
         'For a shower with grandparents, friends and small children, the room needs more than a pretty wall. We set aside a calm chair for blessings, keep food and gifts accessible, and leave enough open space for relatives to gather without crowding the mum-to-be.',
@@ -807,6 +823,12 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ctaBody:
         'Share the date, home or clubhouse photos, guest mix and palette preference for a brunch-ready plan.',
       faqs: [
+        {
+          question:
+            'Do you provide decoration for naming ceremonies (Namakarana / Cradle ceremony)?',
+          answer:
+            'Yes. We style traditional and modern naming ceremonies with fresh floral cradle decor, marigold backdrops, customized baby name signage, and balloon arches across Bangalore homes and halls from ₹5,000.',
+        },
         {
           question: 'How do you arrange seating for elders at a baby shower?',
           answer:

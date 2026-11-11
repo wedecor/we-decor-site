@@ -107,6 +107,7 @@ export default [
       'test-results/**',
       'blob-report/**',
       'tests/**',
+      'scratch/**',
       // Agent harness plugins (Impeccable etc.) are gitignored third-party
       // code; they are never built or deployed, and lint them fails locally
       // with thousands of errors that do not exist in CI.
