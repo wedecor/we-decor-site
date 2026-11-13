@@ -129,6 +129,8 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       idealOccasions: [
         'Home nikah ceremony',
+        'Islamic wedding & parda setup',
+        'Aqd signing table & Rehal setup',
         'Grand Walima & Valima reception stages',
         'Shukrana thanksgiving prayer & dinner',
         'Marriage hall & Shadi Mahal ceremonies',
@@ -194,6 +196,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         'Hotel banquet rooms',
       ],
       optionalAddOns: [
+        'Aqd signing table & Rehal setup',
+        'Shadi Mahal stage decoration',
+        'Islamic wedding & parda setup',
         'Entrance styling',
         'Aisle markers',
         'Family seating accents',
@@ -477,6 +482,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         'Covered lawns',
       ],
       optionalAddOns: [
+        'Same-day balloon decoration Bangalore',
+        'Chrome & pastel organic balloon garlands',
+        'Cake pedestal plinths',
         'Foil number or letter accents',
         'Character cut-outs',
         'Cake-table styling',
@@ -724,12 +732,14 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       popularDecorationOptions: [
         {
-          title: 'Soft photo backdrop',
-          description: 'A fabric, balloon or floral-lite frame for group photographs.',
+          title: 'Soft photo backdrop & Oh Baby neon',
+          description:
+            'A fabric, balloon or floral-lite frame with an Oh Baby neon backdrop for group photographs.',
         },
         {
-          title: 'Blessing chair nook',
-          description: 'A comfortable, styled seat for the mum-to-be and family moments.',
+          title: 'Godh Bharai & blessing chair nook',
+          description:
+            'A comfortable, styled seat for traditional Godh Bharai decoration in Bangalore and family moments.',
         },
         {
           title: 'Dessert and gift table',
@@ -748,6 +758,8 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         'Small banquet rooms',
       ],
       optionalAddOns: [
+        'Oh Baby neon backdrop',
+        'Godh Bharai traditional floral accents',
         'Mum-to-be chair accents',
         'Dessert-table styling',
         'Welcome sign',
@@ -819,6 +831,15 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         {
           name: 'Ruby flamingo',
           description: 'Playful yet refined pinks for lively friend groups.',
+        },
+        {
+          name: 'Teddy bear theme baby shower',
+          description:
+            'Warm neutral balloons, teddy bear props, and soft pastel plinths for cosy indoor photos.',
+        },
+        {
+          name: 'Boho baby shower setup',
+          description: 'Pampas grass accents, macramé drapes, and earthy peach-and-ivory blooms.',
         },
         {
           name: 'Storybook nursery',

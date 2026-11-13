@@ -238,17 +238,18 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
     ],
     popularDecorationOptions: [
       {
-        title: 'Marigold courtyard',
-        description: 'Warm yellow and orange florals with low seating for an intimate ceremony.',
+        title: 'Brass urli marigold haldi setup',
+        description:
+          'Warm yellow and orange marigold garlands, brass urlis, and low seating for an intimate ceremony.',
       },
       {
         title: 'Pastel haldi corner',
         description: 'A softer floral-and-fabric direction for portraits and family photographs.',
       },
       {
-        title: 'Outdoor ritual setting',
+        title: 'Apartment terrace haldi decor',
         description:
-          'Weather-aware seating, shade, and a separate photo zone for lawns or terraces.',
+          'Weather-aware seating, shade, and a separate photo zone for Bangalore apartment terraces and lawns.',
       },
     ],
     suitableVenues: [
@@ -258,7 +259,8 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Rooftop terraces',
     ],
     optionalAddOns: [
-      'Floor protection for the ritual area',
+      'Turmeric-safe floor drop-cloth protection',
+      'Brass urlis and flower-petal bowls',
       'Family portrait seating',
       'Welcome signage',
       'Post-ceremony removal',
@@ -467,25 +469,27 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
     ],
     popularDecorationOptions: [
       {
-        title: 'Modern floral frame',
+        title: 'Ring exchange stage decoration Bangalore',
         description: 'A clean, flower-led focal point for the ring exchange and portraits.',
       },
       {
         title: 'Soft drape setting',
         description:
-          'Layered fabric, gentle lighting, and coordinated seating for an intimate ceremony.',
+          'Layered fabric, 3200K warm photography lighting, and coordinated seating for an intimate ceremony.',
       },
       {
-        title: 'Contemporary neutral stage',
-        description: 'A restrained palette with texture and light for a larger venue.',
+        title: 'Boho pampas grass engagement backdrop',
+        description:
+          'Textured pampas grass, neutral blooms, and couple initials neon ring setup for modern venues.',
       },
     ],
     suitableVenues: ['Private homes', 'Banquet halls', 'Hotels', 'Rooftop venues', 'Clubhouses'],
     optionalAddOns: [
+      'Couple initials neon ring setup',
+      '3200K warm photography lighting',
       'Couple seating',
       'Family-photo corner',
       'Welcome signage',
-      'Ambient lighting',
       'Entry styling',
     ],
     budgetConsiderations: {
@@ -1790,15 +1794,17 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       {
         title: 'Themed children’s party',
         description:
-          'A playful colour and character-inspired direction for the cake and photo moment.',
+          'A playful colour and character-inspired direction with an organic chrome & pastel balloon garland for the cake and photo moment.',
       },
       {
-        title: 'Adult milestone styling',
-        description: 'A sophisticated palette with a focused backdrop for friends and family.',
+        title: 'Adult milestone & shimmer backdrop',
+        description:
+          'A sophisticated palette with a cake pedestal & shimmer backdrop for friends and family.',
       },
       {
-        title: 'Surprise birthday reveal',
-        description: 'A personalised visual moment designed around discreet access and timing.',
+        title: 'Same-day birthday balloon decoration Bangalore',
+        description:
+          'A personalised visual moment designed around quick same-day access and surprise timing.',
       },
     ],
     suitableVenues: [
@@ -1810,6 +1816,8 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Private terraces',
     ],
     optionalAddOns: [
+      'Organic chrome & pastel balloon garland',
+      'Cake pedestal & shimmer backdrop',
       'Cake-table styling',
       'Welcome signage',
       'Personalised name board',

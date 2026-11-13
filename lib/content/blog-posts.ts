@@ -244,6 +244,46 @@ export const BLOG_POSTS: BlogPost[] = [
       'To book your home setup anywhere in Bangalore, send 2–3 photos of your living room or terrace along with your event date and preferred theme on WhatsApp. We will provide an honest, itemized quote within minutes.',
     ],
   },
+  {
+    slug: 'nikah-walima-shukrana-decoration-cost-bangalore',
+    title: 'Nikah, Walima & Shukrana Decoration Cost in Bangalore (2026 Guide)',
+    description:
+      'Practical 2026 cost guide for Nikah, Walima & Shukrana decoration in Bangalore — Aqd signing tables, parda partitions, Shadi Mahal stages, and home setups from ₹5,000.',
+    datePublished: '2026-11-13',
+    readingTimeMinutes: 6,
+    authorName: 'We Decor Events',
+    featuredImage: '/work/wedding/wedding-reception-floral-backdrop-bangalore.webp',
+    relatedServiceHref: '/services/nikah-decoration',
+    relatedServiceLabel: 'Nikah & Walima Decorations',
+    tags: ['nikah decoration', 'walima stage', 'shukrana decor', 'bangalore', 'shadi mahal'],
+    paragraphs: [
+      'Planning an Islamic wedding celebration in Bangalore usually spans three distinct aesthetics: a serene morning or afternoon Nikah, an evening Walima (or Valima) reception, and an intimate family Shukrana dinner at home. Costs start from ₹5,000 for focused home setups and scale with stage span, floral density, and venue rules.',
+      'For a home or hall Nikah, the visual priority is the Aqd signing table and Rehal setup alongside respectful parda partitions where families request separate seating. A clean floral-and-drape backdrop behind the bride or groom seating, paired with fresh mogra or rose accents and soft warm lighting, keeps the ceremony dignified without crowding a living room or masjid-adjacent hall.',
+      'When moving to a Shadi Mahal or banquet hall for the reception, explore /services/valima-decoration for wide stage backdrops, chandeliers, and 3200K warm photography lighting. In larger Bangalore Shadi Mahals across Shivajinagar, Frazer Town, RT Nagar, and BTM Layout, stage widths typically run 16 to 24 feet, which requires deeper floral runners and framed entrance arches.',
+      'Shukrana thanksgiving gatherings are almost always hosted at home or in apartment clubhouses. See /services/shukrana-decoration for compact jasmine strings, brass urlis, and subtle fairy-light backdrops designed around dining movement and elder seating.',
+      'Instead of fixed package tiers that force unnecessary props, we quote strictly from your hall dimensions, floral choices, and setup window. Share your Shadi Mahal name or home photos on WhatsApp along with your ceremony date for an exact, itemized quote across /services/nikah-decoration, Walima, and Shukrana events.',
+    ],
+  },
+  {
+    slug: 'naming-ceremony-roka-decoration-cost-bangalore',
+    title: 'Naming Ceremony & Roka Decoration Cost in Bangalore (From ₹5,000)',
+    description:
+      'Honest 2026 pricing guide for Namakarana cradle decor, Godh Bharai, Roka, and Baat Pakki home setups in Bangalore with fresh flowers and backdrops from ₹5,000.',
+    datePublished: '2026-11-13',
+    readingTimeMinutes: 5,
+    authorName: 'We Decor Events',
+    featuredImage: '/services/engagement.webp',
+    relatedServiceHref: '/services/naming-ceremony-decoration',
+    relatedServiceLabel: 'Naming Ceremony Decorations',
+    tags: ['naming ceremony', 'namakarana', 'roka decoration', 'baat pakki', 'bangalore'],
+    paragraphs: [
+      'Home-hosted family milestones like Namakarana (cradle ceremony), Godh Bharai, Roka, and Baat Pakki have become Bangalore’s fastest-growing bespoke decor bookings. Because most take place in apartment living rooms or society clubhouses, custom home setups start from ₹5,000 without needing oversized banquet structures.',
+      'For a traditional Naming Ceremony, the focal point is always the cradle (thottil) wrapped in fresh jasmine, marigold, or pastel roses alongside a custom baby-name board. Check /services/naming-ceremony-decoration for apartment-safe frames that leave plenty of floor space for elders and morning rituals.',
+      'If you are combining or planning a maternity celebration beforehand, Godh Bharai setups pair a comfortable blessing chair with floral garlands, Oh Baby neon signs, or teddy-and-boho backdrops that double neatly for family group photos.',
+      'For pre-wedding family meetings, explore /services/roka-decoration and /services/baat-pakki-decoration. A Roka or Baat Pakki home setup focuses on an intimate couple-and-family sofa backdrop, warm 3200K lighting, brass urlis, and a neat gift-tray display corner rather than a full engagement stage.',
+      'Across JP Nagar, Jayanagar, Whitefield, Marathahalli, and HSR Layout, we review your living-room photos first so the backdrop fits ceiling height and sofa placement cleanly. Send 2–3 room photos and your ceremony date on WhatsApp for a transparent, custom quote.',
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
