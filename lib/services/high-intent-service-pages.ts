@@ -20,6 +20,11 @@ const CATEGORY_TO_SERVICE: Record<string, string> = {
   reception: 'reception-decoration',
   roka: 'roka-decoration',
   valima: 'valima-decoration',
+  mehndi: 'mehndi-decoration',
+  'bridal-shower': 'bridal-shower-decoration',
+  housewarming: 'housewarming-decoration',
+  'baat-pakki': 'baat-pakki-decoration',
+  shukrana: 'shukrana-decoration',
 };
 
 function img(category: string, index: number, caption: string) {
@@ -3332,6 +3337,923 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
           question: 'Do you set up inside Bangalore Shadi Mahals and community halls?',
           answer:
             'Yes, we regularly coordinate with Shadi Mahal and marriage hall managers across Bengaluru for timely setup and teardown.',
+        },
+      ],
+    },
+
+    'mehndi-decoration': {
+      slug: 'mehndi-decoration',
+      title: 'Mehndi Decoration in Bangalore — Colorful Home & Hall Setups ₹5,000',
+      description:
+        'Mehndi ceremony decoration in Bangalore from ₹5,000 — marigold backdrops, colorful drapes, cushion seating & terrace setups across Bengaluru. 4.9★ rated.',
+      serviceType: 'Mehndi decoration',
+      ogImage: SERVICE_IMAGES.haldi,
+      eyebrow: 'Mehndi · Sangeet · Home & Terrace · Bangalore',
+      headline: 'Mehndi Ceremony Decoration in Bangalore — Vibrant Setups from ₹5,000',
+      subheadline:
+        'Colorful drape canopies, marigold & floral swings, comfortable low cushion seating, and terrace fairy lighting styled for relaxed afternoon and evening Mehndi functions.',
+      storyTitle: 'Built for relaxed seating, music, and hours of henna',
+      storyParagraphs: [
+        'A Mehndi function runs for hours while guests chat, apply henna, and dance. Instead of stiff formal stages, we style vibrant floral backdrops with comfortable bridal seating, bolsters, and clear space for mehndi artists.',
+        'From compact apartment living rooms to breezy villa terraces and banquet lawns, our setups stay bright in afternoon sunlight and warm under evening fairy lights.',
+      ],
+      highlights: [
+        {
+          title: 'Vibrant drapes & floral pops',
+          description:
+            'Lime green, fuchsia, mustard, and marigold palettes with jasmine and rose garlands.',
+        },
+        {
+          title: 'Mehndi seating & bolsters',
+          description:
+            'Proportioned bridal seating zones with clear side space for mehndi artists and photographers.',
+        },
+        {
+          title: 'Terrace & courtyard ready',
+          description:
+            'Weighted canopies, pom-poms, kaleere hangings, and fairy lights built for open-air breezes.',
+        },
+        {
+          title: 'Home-to-venue flexibility',
+          description:
+            'Apartment-safe freestanding frames or full banquet lawn setups across Bangalore.',
+        },
+      ],
+      gallery: [
+        img('mehndi', 0, 'Vibrant Mehndi ceremony floral backdrop in Bangalore'),
+        img('mehndi', 1, 'Colorful home Mehndi drape and seating styling in Bengaluru'),
+        img('haldi', 0, 'Marigold and brass urli accents adaptable for daytime Mehndi rituals'),
+      ],
+      testimonial: {
+        quote:
+          'The terrace Mehndi looked festive from afternoon straight into the evening sangeet without a single drape coming loose.',
+        attribution: 'Mehndi ceremony · Indiranagar terrace',
+      },
+      trustSignals: ['From ₹5,000 packages', 'Apartment & terrace ready', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Mehndi decoration in Bangalore. Date: _____. Area: _____. Home, Terrace, or Hall: _____.',
+      whyChooseUsEyebrow: 'Why Bangalore brides book us for Mehndi',
+      whyChoose: [
+        {
+          title: 'Artist-friendly spacing',
+          text: 'We keep good light and comfortable reach around the bride’s chair or diwan.',
+        },
+        {
+          title: 'Day-to-night lighting',
+          text: 'Warm fairy lights keep the backdrop glowing once sunset hits.',
+        },
+        {
+          title: 'Combine with Haldi',
+          text: 'Bundle your Mehndi and Haldi decor with coordinated yet distinct colour themes.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Rajasthani / Boho drape & marigold',
+          description: 'Bright jewel-toned drapes, marigold strings, and brass urli bowls.',
+        },
+        {
+          title: 'Garden pastel & jasmine',
+          description: 'Mint, blush, and fresh jasmine garlands for breezy afternoon terraces.',
+        },
+        {
+          title: 'Gota patti & bangle backdrop',
+          description: 'Traditional festive hangings with mirror and floral highlights.',
+        },
+        {
+          title: 'Mehndi + Sangeet evening stage',
+          description: 'Wider backdrop with dance-floor clearances and warm uplighting.',
+        },
+      ],
+      idealOccasions: [
+        'Bridal Mehndi at home',
+        'Terrace & rooftop Mehndi parties',
+        'Combined Mehndi & Sangeet evenings',
+        'Apartment clubhouse Mehndi functions',
+      ],
+      included: [
+        'Backdrop frame & colourful fabric drapes',
+        'Fresh marigold / floral accents',
+        'Warm fairy lighting',
+        'On-time setup & post-event teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Outfit & seating check',
+          description: 'Match drapes and flowers to your green/yellow/pink Mehndi lehenga.',
+        },
+        {
+          title: 'Indoor vs. outdoor rigging',
+          description: 'Weighted outdoor stands for terraces; slim zero-drill frames for flats.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Home Mehndi focal corner',
+          description: 'Compact floral & drape backdrop starting from ₹5,000.',
+        },
+        {
+          title: 'Terrace / Lawn Mehndi canopy',
+          description: 'Full overhead canopy, bolsters, cushions, and entrance hangings.',
+        },
+      ],
+      suitableVenues: ['Apartments & flats', 'Villa terraces', 'Clubhouses', 'Banquet lawns'],
+      optionalAddOns: [
+        'Diwan & cushion seating',
+        'Floral jhoola accents',
+        'Entrance toran & umbrellas',
+      ],
+      budgetConsiderations: {
+        intro:
+          'Mehndi setups start from ₹5,000 for home backdrops and scale with canopy and seating coverage.',
+        points: [
+          {
+            title: 'Backdrop vs. full canopy',
+            description:
+              'A wall backdrop starts at ₹5,000; overhead terrace canopies and lounge seating scale up.',
+          },
+          {
+            title: 'Fresh vs. mixed florals',
+            description: 'Marigold and jasmine mixes keep costs efficient while looking lush.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Share venue & date',
+          detail: 'Send your date, locality, and space photo on WhatsApp.',
+        },
+        {
+          step: 'Pick your palette',
+          detail: 'Choose boho jewel tones, marigold yellow, or pastel garden.',
+        },
+        { step: 'Setup & enjoy', detail: 'Installed ahead of your mehndi artist’s arrival.' },
+      ],
+      setupTimeline: [
+        { step: 'Setup', detail: '90–150 minutes prior to event start.' },
+        { step: 'Teardown', detail: 'Scheduled after the event concludes.' },
+      ],
+      themes: [
+        {
+          name: 'Emerald & Marigold',
+          description: 'Lush green drapes with bright marigold and jasmine.',
+        },
+        {
+          name: 'Fuchsia & Tangerine Boho',
+          description: 'Festive jewel tones with pom-poms and fairy lights.',
+        },
+      ],
+      areasIntro: 'Serving homes, terraces, and party halls across all Bangalore localities.',
+      relatedHrefs: [
+        '/services/haldi-decoration',
+        '/services/bridal-shower-decoration',
+        '/services/wedding-setup',
+        '/services/terrace-decoration',
+      ],
+      ctaBody:
+        'Send your Mehndi date, area, and venue photo for a tailored Bangalore quote starting from ₹5,000.',
+      faqs: [
+        {
+          question: 'How much does Mehndi decoration cost in Bangalore?',
+          answer:
+            'Home Mehndi decoration in Bangalore starts from ₹5,000 for a colourful floral and drape backdrop, scaling up for terrace canopies, bolster seating, and larger hall stages.',
+        },
+        {
+          question: 'Can you do both Mehndi and Haldi decorations on consecutive days?',
+          answer:
+            'Yes. Many Bangalore families book both functions together with distinct palettes and coordinated teardown/re-setup scheduling.',
+        },
+        {
+          question: 'Do you provide cushion seating or jhoola styling for Mehndi?',
+          answer:
+            'Yes, we can add bolsters, floor cushions, rugs, or floral swing styling depending on your terrace or hall space.',
+        },
+      ],
+    },
+
+    'bridal-shower-decoration': {
+      slug: 'bridal-shower-decoration',
+      title: 'Bridal Shower & Bride-to-Be Decoration Bangalore — From ₹5,000',
+      description:
+        'Bridal shower, Bride-to-Be & bachelorette decoration in Bangalore from ₹5,000 — pastel balloon arches, neon signage, room & terrace setups. 4.9★ rated.',
+      serviceType: 'Bridal shower decoration',
+      ogImage: SERVICE_IMAGES.roomDecor,
+      eyebrow: 'Bridal Shower · Bride-to-Be · Bachelorette · Bangalore',
+      headline: 'Bridal Shower & Bride-to-Be Decoration in Bangalore — From ₹5,000',
+      subheadline:
+        'Pinterest-worthy pastel balloon arches, Bride-to-Be neon backdrops, hotel suite surprises, and terrace brunch setups styled across Bangalore.',
+      storyTitle: 'Designed for effortless group photos and surprise reveals',
+      storyParagraphs: [
+        'Whether bridesmaids are planning a secret hotel-room reveal, a living-room high tea, or a rooftop bachelorette dinner, the backdrop needs to pop in phone portraits and Reels.',
+        'We match chrome, pastel, or rose-gold balloons with fresh baby’s breath, shimmer curtains, and clean Bride-to-Be signage—installed fast before the bride walks in.',
+      ],
+      highlights: [
+        {
+          title: 'Bride-to-Be neon & ring arches',
+          description:
+            'Custom pastel, blush, pearl, and rose-gold organic balloon garlands with warm neon signs.',
+        },
+        {
+          title: 'Hotel, café & home ready',
+          description:
+            'Damage-free freestanding frames ideal for Bangalore hotels, private dining rooms, and flats.',
+        },
+        {
+          title: 'Dessert & mimosa table accents',
+          description:
+            'Coordinated cake plinths, table florals, and fairy lights around your celebration table.',
+        },
+        {
+          title: 'Quiet surprise execution',
+          description:
+            'Our team completes setup in 60–90 minutes so the reveal stays a true surprise.',
+        },
+      ],
+      gallery: [
+        img('bridal-shower', 0, 'Pastel Bride-to-Be balloon backdrop in Ulsoor, Bangalore'),
+        img('bridal-shower', 1, 'Bridal shower room and floral arch setup in Bengaluru'),
+        img('room decor', 0, 'Surprise bridal bedroom decoration with balloons and lights'),
+      ],
+      testimonial: {
+        quote:
+          'We surprised our best friend in her Indiranagar apartment—the pastel balloon arch and neon sign looked straight off Pinterest.',
+        attribution: 'Bridal shower · Indiranagar',
+      },
+      trustSignals: ['Hotel & home safe', '60–90 min surprise setup', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Bridal Shower / Bride-to-Be decoration in Bangalore. Date: _____. Area/Hotel: _____. Theme/Colours: _____.',
+      whyChooseUsEyebrow: 'Why bridesmaids book We Decor',
+      whyChoose: [
+        {
+          title: 'Zero wall marks',
+          text: 'Hotels and rented apartments stay damage-free with weighted stands and gentle clips.',
+        },
+        {
+          title: 'Custom colour palettes',
+          text: 'Sage & cream, blush & rose gold, lavender, or classic champagne white.',
+        },
+        {
+          title: 'Picture-ready lighting',
+          text: 'Warm fairy lights and ring backdrops balanced for evening indoor photos.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Blush & Rose-Gold Glam',
+          description:
+            'Organic pearl-pink and rose-gold balloons with shimmer backdrop and neon sign.',
+        },
+        {
+          title: 'Champagne & Baby’s Breath',
+          description: 'Soft ivory balloons paired with fresh floral clusters for classy brunches.',
+        },
+        {
+          title: 'Hotel Suite Surprise',
+          description: 'Bed-frame florals, ceiling balloons, fairy lights, and welcome easel.',
+        },
+        {
+          title: 'Rooftop Bachelorette Cabana',
+          description: 'Canopy tent with cushions, candles, and fairy lights for evening toasts.',
+        },
+      ],
+      idealOccasions: [
+        'Bride-to-Be surprise parties',
+        'Bridal shower brunches & high teas',
+        'Bachelorette hotel suite reveals',
+        'Mehendi-eve bridesmaids gatherings',
+      ],
+      included: [
+        'Backdrop frame or shimmer wall',
+        'Organic pastel / chrome balloon arch',
+        'Bride-to-Be signage & fairy lights',
+        'On-site installation & teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Dress-code matching',
+          description: 'Match balloon shades to the bridesmaids’ outfits or bride’s sash.',
+        },
+        {
+          title: 'Space-smart sizing',
+          description: 'Sized cleanly for hotel bedrooms, café corners, or 2BHK living rooms.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Home / Hotel Bride-to-Be backdrop',
+          description: 'Balloon ring or arch with neon sign and lights starting from ₹5,000.',
+        },
+        {
+          title: 'Full room + dessert table setup',
+          description: 'Backdrop, cake plinth, room balloons, and floral table accents.',
+        },
+      ],
+      suitableVenues: [
+        'Hotels & suites',
+        'Apartments',
+        'Cafés & private dining',
+        'Terraces & cabanas',
+      ],
+      optionalAddOns: ['Cake pedestal plinths', 'Fresh floral clusters', 'Custom bride name board'],
+      budgetConsiderations: {
+        intro: 'Bridal shower setups start from ₹5,000 across Bangalore.',
+        points: [
+          {
+            title: 'Fresh florals & shimmer walls',
+            description:
+              'Adding sequin shimmer panels or fresh roses scales above standard balloon rings.',
+          },
+          {
+            title: 'Cabana & furniture add-ons',
+            description: 'Rooftop canopy tents and low lounge seating adjust the final scope.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Send space photo',
+          detail: 'WhatsApp the room, hotel, or café photo with your date.',
+        },
+        { step: 'Pick colours', detail: 'Choose your palette and neon sign text.' },
+        { step: 'Surprise reveal', detail: 'We set up before the bride arrives.' },
+      ],
+      setupTimeline: [
+        { step: 'Setup', detail: '60–90 minutes before the bride’s arrival.' },
+        { step: 'Teardown', detail: 'Same night or next morning per hotel/home timing.' },
+      ],
+      themes: [
+        {
+          name: 'Pearl & Rose Gold',
+          description: 'Warm metallic chrome with blush pastel balloons.',
+        },
+        { name: 'Sage & Ivory', description: 'Clean botanical tones with soft white florals.' },
+      ],
+      areasIntro: 'Serving hotels, cafés, and apartments across all Bangalore neighbourhoods.',
+      relatedHrefs: [
+        '/services/room-decoration',
+        '/services/balloon-decoration',
+        '/services/proposal-decoration',
+        '/services/mehndi-decoration',
+      ],
+      ctaBody:
+        'Share your Bridal Shower date, Bangalore area, and colour palette for a quick quote.',
+      faqs: [
+        {
+          question:
+            'What is the starting price for Bride-to-Be / Bridal Shower decoration in Bangalore?',
+          answer:
+            'Bridal shower and Bride-to-Be setups start from ₹5,000 for a complete balloon arch, backdrop, lighting, and signage setup across Bangalore.',
+        },
+        {
+          question: 'Do Bangalore hotels allow your balloon & backdrop setups?',
+          answer:
+            'Yes. We use freestanding frames and hotel-safe non-marking adhesives so suites and private dining rooms stay 100% undamaged.',
+        },
+        {
+          question: 'Can you set up while we take the bride out for lunch?',
+          answer:
+            'Yes, just coordinate access with a friend or hotel concierge and we will complete the reveal setup within 60–90 minutes.',
+        },
+      ],
+    },
+
+    'housewarming-decoration': {
+      slug: 'housewarming-decoration',
+      title: 'Housewarming & Griha Pravesh Decoration Bangalore — From ₹5,000',
+      description:
+        'Griha Pravesh & housewarming flower decoration in Bangalore from ₹5,000 — fresh mango leaves, marigold doorways, staircase florals & puja backdrops. 4.9★.',
+      serviceType: 'Housewarming decoration',
+      ogImage: SERVICE_IMAGES.haldi,
+      eyebrow: 'Griha Pravesh · Housewarming · Fresh Florals · Bangalore',
+      headline: 'Housewarming & Griha Pravesh Flower Decoration in Bangalore',
+      subheadline:
+        'Auspicious fresh marigold, jasmine, and mango-leaf doorway torans, staircase garlands, and serene puja room floral framing installed early morning before your muhurat.',
+      storyTitle: 'Fresh blooms ready before your dawn Griha Pravesh muhurat',
+      storyParagraphs: [
+        'Griha Pravesh ceremonies in Bangalore often begin between 5:30 AM and 8:00 AM. Our floral team sources fresh marigold, jasmine, roses, and mango leaves and completes main-door, balcony, and puja room styling before your guests arrive.',
+        'Every garland is tied using gentle ribbons and soft hooks so newly painted walls, teakwood doors, and marble doorways remain spotless.',
+      ],
+      highlights: [
+        {
+          title: 'Main door & foyer torans',
+          description:
+            'Lush mango-leaf, marigold, and jasmine garlands framing your new entrance cleanly.',
+        },
+        {
+          title: 'Staircase & balcony garlands',
+          description:
+            'Coordinated floral drapes for duplex villas, independent homes, and apartment foyers.',
+        },
+        {
+          title: 'Puja room & homa backdrops',
+          description:
+            'Fragrant jasmine, rose, and banana-leaf accents framed around your altar without blocking smoke or space.',
+        },
+        {
+          title: 'Zero-mark fresh paint protection',
+          description:
+            'No nails, heavy tape, or dripping water—safe for brand-new paint and polished wood.',
+        },
+      ],
+      gallery: [
+        img('haldi', 0, 'Fresh marigold and traditional floral doorway setup in Bangalore'),
+        img('wedding', 0, 'Fresh jasmine and rose floral garlands for home ceremony entrances'),
+        img('haldi', 1, 'Traditional brass urli and fresh flower styling for housewarming pujas'),
+      ],
+      testimonial: {
+        quote:
+          'They arrived at 5:30 AM for our new flat’s Griha Pravesh in Whitefield and didn’t leave a single scratch on the fresh paint.',
+        attribution: 'Griha Pravesh · Whitefield villa',
+      },
+      trustSignals: ['Dawn muhurat slots', 'Fresh-paint safe', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Housewarming / Griha Pravesh flower decoration in Bangalore. Date: _____. Area: _____. Flat or Villa: _____.',
+      whyChooseUsEyebrow: 'Why new homeowners trust We Decor',
+      whyChoose: [
+        {
+          title: 'Fresh-paint safe mounting',
+          text: 'We use soft satin ties and zero-residue methods to protect newly finished walls and doors.',
+        },
+        {
+          title: 'Pre-dawn punctuality',
+          text: 'Available for early-morning Griha Pravesh muhurats across all Bangalore zones.',
+        },
+        {
+          title: 'Complete home coverage',
+          text: 'Main gate, foyer door, staircase railings, balcony, and puja area styled together.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Classic Marigold & Mango Leaf',
+          description: 'Bright orange/yellow marigold with fragrant mango leaves and jasmine tips.',
+        },
+        {
+          title: 'Jasmine & White Rose Elegance',
+          description: 'Serene South Indian floral framing for apartments and modern villas.',
+        },
+        {
+          title: 'Lotus, Banana Leaf & Urli',
+          description: 'Traditional ceremonial foyer and puja altar styling with brass urlis.',
+        },
+        {
+          title: 'Full Villa Gate-to-Staircase',
+          description:
+            'Compound gate arch, main door toran, staircase railing florals, and puja corner.',
+        },
+      ],
+      idealOccasions: [
+        'New apartment Griha Pravesh',
+        'Independent villa housewarming',
+        'Office / showroom opening pujas',
+        'Satyanarayana Puja & family blessings',
+      ],
+      included: [
+        'Fresh marigold, jasmine & mango-leaf garlands',
+        'Main-door toran & puja backdrop framing',
+        'Brass urli floral accents (as quoted)',
+        'Early-morning installation',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Doorway & staircase photos',
+          description:
+            'Send photos of your main door, foyer, and staircase so we measure exact garland lengths.',
+        },
+        {
+          title: 'Muhurat timing',
+          description: 'We schedule finish time 30–45 minutes before your priest’s arrival.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Apartment Griha Pravesh package',
+          description: 'Main door, balcony, and puja room fresh florals starting from ₹5,000.',
+        },
+        {
+          title: 'Full Villa & Staircase florals',
+          description: 'Gate arch, main entrance, staircase railings, and living-room urlis.',
+        },
+      ],
+      suitableVenues: [
+        'New apartments',
+        'Gated community villas',
+        'Independent houses',
+        'New offices',
+      ],
+      optionalAddOns: [
+        'Gate floral arch',
+        'Staircase railing drapes',
+        'Extra brass urlis & floating petals',
+      ],
+      budgetConsiderations: {
+        intro: 'Housewarming flower decoration starts from ₹5,000 for apartment setups.',
+        points: [
+          {
+            title: 'Apartment vs. multi-floor villa',
+            description:
+              'Covering 2-floor staircases and compound gates requires extra garland footage.',
+          },
+          {
+            title: 'Flower mix',
+            description:
+              'Adding lotus, orchids, or dense jasmine strings scales above marigold base packages.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Send home photos',
+          detail: 'Share photos of your main door, puja area, and muhurat time.',
+        },
+        {
+          step: 'Confirm floral plan',
+          detail: 'Pick marigold-jasmine or rose-lotus combinations.',
+        },
+        { step: 'Dawn setup', detail: 'Installed fresh and spotless before your ceremony starts.' },
+      ],
+      setupTimeline: [
+        { step: 'Early morning setup', detail: '60–90 minutes before your Griha Pravesh muhurat.' },
+      ],
+      themes: [
+        {
+          name: 'Auspicious Marigold & Mango',
+          description: 'Classic orange, yellow, and fresh green leaves.',
+        },
+        {
+          name: 'Ivory Jasmine & Lotus',
+          description: 'Fragrant white jasmine with pink lotus highlights.',
+        },
+      ],
+      areasIntro: 'Serving new homes and gated communities across all Bangalore areas.',
+      relatedHrefs: [
+        '/services/floral-decoration',
+        '/services/home-decoration',
+        '/services/haldi-decoration',
+        '/services/naming-ceremony-decoration',
+      ],
+      ctaBody:
+        'Send your Griha Pravesh date, area, and doorway photos for a fresh-paint-safe Bangalore quote.',
+      faqs: [
+        {
+          question:
+            'How much does Griha Pravesh / housewarming flower decoration cost in Bangalore?',
+          answer:
+            'Apartment housewarming decoration in Bangalore starts from ₹5,000 for main-doorway torans, puja room florals, and foyer accents, scaling for multi-floor villa staircases and gate arches.',
+        },
+        {
+          question: 'Can your team arrive at 5:30 AM or 6:00 AM for an early muhurat?',
+          answer:
+            'Yes. Dawn Griha Pravesh setups are routine for our Bangalore floral crew—we finish before your priest and family arrive.',
+        },
+        {
+          question: 'Will garlands stain or scratch newly painted walls?',
+          answer:
+            'No. We use soft satin ribbons and paint-safe fixing points with zero nails or harsh tape.',
+        },
+      ],
+    },
+
+    'baat-pakki-decoration': {
+      slug: 'baat-pakki-decoration',
+      title: 'Baat Pakki Decoration in Bangalore — Home Ceremony Setups ₹5,000',
+      description:
+        'Baat Pakki decoration at home in Bangalore from ₹5,000 — intimate living-room floral frames, sofa backdrops & zero-drill apartment setups. 4.9★ rated.',
+      serviceType: 'Baat Pakki decoration',
+      ogImage: SERVICE_IMAGES.engagement,
+      eyebrow: 'Baat Pakki · Home Ceremony · Bangalore',
+      headline: 'Baat Pakki Decoration in Bangalore — Elegant Home Setups',
+      subheadline:
+        'Compact, tasteful floral backdrops and shagun-corner styling tailored for living rooms and society clubhouses when both families come together.',
+      storyTitle: 'Warm, uncluttered backdrops for family milestones',
+      storyParagraphs: [
+        'Baat Pakki marks the formal union of two families, usually hosted inside a home living room or intimate dining space. Our designs frame the couple and elders gracefully without turning your home into a crowded banquet stage.',
+        'With freestanding weighted stands, fresh roses or marigolds, and warm fairy lighting, setup completes cleanly in 60–90 minutes.',
+      ],
+      highlights: [
+        {
+          title: 'Living-room proportions',
+          description: 'Slim frames sized cleanly behind 3-seater sofas without blocking walkways.',
+        },
+        {
+          title: 'Fresh roses & soft drapes',
+          description: 'Pastel floral rings, ivory drapes, or traditional marigold accents.',
+        },
+        {
+          title: 'Shagun & gift table styling',
+          description: 'Brass urlis, candle holders, and floral runners for family exchanges.',
+        },
+        {
+          title: 'Zero apartment damage',
+          description: 'No wall drilling, tape marks, or heavy rigging in your home.',
+        },
+      ],
+      gallery: [
+        img('engagement', 0, 'Intimate living-room floral backdrop for Baat Pakki in Bangalore'),
+        img('engagement', 1, 'Pastel floral ring setup behind home sofa seating'),
+        img('haldi', 0, 'Traditional brass urli and floral accents for morning family rituals'),
+      ],
+      testimonial: {
+        quote: 'Simple, classy, and fit our 3BHK living room perfectly for the Baat Pakki lunch.',
+        attribution: 'Baat Pakki · HSR Layout',
+      },
+      trustSignals: ['From ₹5,000 home setups', 'Zero wall damage', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Baat Pakki decoration at home in Bangalore. Date: _____. Area: _____. Living room photo attached.',
+      whyChooseUsEyebrow: 'Why families choose us for Baat Pakki',
+      whyChoose: [
+        {
+          title: 'Measured for apartments',
+          text: 'We fit your wall width and sofa height first so family portraits look balanced.',
+        },
+        {
+          title: 'Quick 60–90 min install',
+          text: 'Quiet, clean setup before the guests arrive and tidy teardown afterward.',
+        },
+        {
+          title: 'Upgradeable to Roka / Engagement',
+          text: 'Seamless experience if you book us for your Roka, Haldi, and Wedding too.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Pastel Ring & Fairy Lights',
+          description: 'Gold circular frame with blush roses and ivory drapes.',
+        },
+        {
+          title: 'Traditional Marigold & Urli',
+          description: 'Warm saffron and yellow florals for morning auspicious ceremonies.',
+        },
+        {
+          title: 'Botanical Arch Backdrop',
+          description: 'Eucalyptus greenery and cream roses for contemporary homes.',
+        },
+        {
+          title: 'Clubhouse Family Stage',
+          description: 'Wider 10ft–12ft frame for 30–60 guests in society halls.',
+        },
+      ],
+      idealOccasions: [
+        'Intimate home Baat Pakki',
+        'Roka & Tilak ceremonies',
+        'Family shagun exchange lunches',
+        'Small engagement announcements',
+      ],
+      included: [
+        'Freestanding backdrop frame & drapes',
+        'Fresh floral accents',
+        'Warm fairy lighting',
+        'Setup & teardown across Bangalore',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Room photo sizing',
+          description: 'Send a quick photo of your sofa wall to lock clean proportions.',
+        },
+        {
+          title: 'Colour coordination',
+          description: 'Match flowers with family outfits and home interiors.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Home sofa backdrop',
+          description: 'Complete living-room focal frame and lights from ₹5,000.',
+        },
+        {
+          title: 'Backdrop + entrance & table florals',
+          description: 'Includes main-door toran and shagun table floral bowls.',
+        },
+      ],
+      suitableVenues: [
+        '2BHK / 3BHK flats',
+        'Villas',
+        'Apartment clubhouses',
+        'Private dining rooms',
+      ],
+      optionalAddOns: ['Main-door toran', 'Brass urlis', 'Welcome board'],
+      budgetConsiderations: {
+        intro: 'Home Baat Pakki setups start from ₹5,000 across Bangalore.',
+        points: [
+          {
+            title: 'Floral coverage',
+            description:
+              'Corner floral pockets keep costs near ₹5,000; full-frame floral walls scale up.',
+          },
+        ],
+      },
+      bookingProcess: [
+        { step: 'Send wall photo', detail: 'Share your date, locality, and sofa wall photo.' },
+        { step: 'Pick a backdrop', detail: 'Select ring, arch, or drape style.' },
+        { step: 'Same-day setup', detail: 'Completed 60–90 minutes before guests arrive.' },
+      ],
+      setupTimeline: [
+        { step: 'Setup', detail: '60–90 minutes before the ceremony.' },
+        { step: 'Teardown', detail: 'Same evening or next day as convenient.' },
+      ],
+      themes: [
+        { name: 'Cream & Blush', description: 'Subtle pastel roses with warm fairy lights.' },
+        { name: 'Saffron & Brass', description: 'Traditional auspicious accents.' },
+      ],
+      areasIntro: 'Available across all Bangalore apartments and villas.',
+      relatedHrefs: [
+        '/services/roka-decoration',
+        '/services/engagement-decoration',
+        '/services/home-decoration',
+        '/services/wedding-setup',
+      ],
+      ctaBody:
+        'Send your Baat Pakki date and living-room photo on WhatsApp for a fast ₹5,000+ quote.',
+      faqs: [
+        {
+          question: 'How much does Baat Pakki decoration cost in Bangalore?',
+          answer:
+            'Intimate home Baat Pakki backdrops start from ₹5,000 across Bangalore, including freestanding backdrop frame, fresh floral pockets, lighting, and teardown.',
+        },
+        {
+          question: 'How much space is needed behind our living room sofa?',
+          answer:
+            'Only about 1.5–2 feet of depth behind your sofa is needed for our slim weighted backdrop stands.',
+        },
+      ],
+    },
+
+    'shukrana-decoration': {
+      slug: 'shukrana-decoration',
+      title: 'Shukrana Decoration in Bangalore — Home Prayer Setups ₹5,000',
+      description:
+        'Shukrana ceremony decoration in Bangalore from ₹5,000 — serene ivory & jasmine backdrops, brass urlis & family dining florals. 4.9★ rated.',
+      serviceType: 'Shukrana decoration',
+      ogImage: SERVICE_IMAGES.engagement,
+      eyebrow: 'Shukrana · Home Prayer & Gathering · Bangalore',
+      headline: 'Shukrana Decoration in Bangalore — Serene Home Setups',
+      subheadline:
+        'Graceful floral focal walls, fragrant white jasmine & rose urlis, and warm fairy lighting designed respectfully for family Shukrana prayers and celebratory dinners.',
+      storyTitle: 'Calm, dignified beauty for thanksgiving gatherings',
+      storyParagraphs: [
+        'A Shukrana gathering centres around gratitude, dua, and warm family hospitality. Rather than loud party props, we create serene ivory, cream, and botanical backdrops that elevate your living room while keeping prayer and elder seating unobstructed.',
+        'Every setup uses apartment-safe, zero-drill frames and fresh blooms styled on time across Bangalore.',
+      ],
+      highlights: [
+        {
+          title: 'Serene prayer focal backdrops',
+          description:
+            'Soft ivory drapes, white roses, and greenery that frame family gatherings gracefully.',
+        },
+        {
+          title: 'Fragrant jasmine & brass urlis',
+          description:
+            'Low floral centerpieces and rose-petal bowls placed cleanly away from walkways.',
+        },
+        {
+          title: 'Dining & dessert table accents',
+          description: 'Subtle floral runners and warm candlelight for post-dua family meals.',
+        },
+        {
+          title: 'Apartment-safe installation',
+          description: 'Freestanding frames with zero wall marks and quiet, punctual execution.',
+        },
+      ],
+      gallery: [
+        img('engagement', 0, 'Serene ivory and floral backdrop for home Shukrana in Bangalore'),
+        img('wedding', 0, 'Fresh white floral framing suited for Shukrana family gatherings'),
+        img('haldi', 1, 'Traditional brass urli floral bowls for welcoming entrances'),
+      ],
+      testimonial: {
+        quote:
+          'So peaceful and elegant. Our entire family loved the jasmine fragrance and subtle ivory backdrop.',
+        attribution: 'Shukrana gathering · Frazer Town / Benson Town',
+      },
+      trustSignals: ['From ₹5,000 setups', 'Respectful & serene', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Shukrana decoration at home in Bangalore. Date: _____. Area: _____.',
+      whyChooseUsEyebrow: 'Why families trust us for Shukrana',
+      whyChoose: [
+        {
+          title: 'Dignified aesthetics',
+          text: 'Subtle ivory, sage, and pearl florals that honour the spiritual mood of a Shukrana.',
+        },
+        {
+          title: 'Clear floor seating',
+          text: 'Slim backdrop footprints preserve generous floor and sofa space for elders and guests.',
+        },
+        {
+          title: 'Punctual & tidy',
+          text: 'Installed cleanly ahead of prayer timing and removed quietly afterward.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Ivory & Jasmine Serenity',
+          description: 'Cream drapes, fresh jasmine strings, and white rose accents.',
+        },
+        {
+          title: 'Emerald & Gold Subtle Frame',
+          description: 'Rich green foliage with warm fairy lights and brass urli bowls.',
+        },
+        {
+          title: 'Pastel Floral & Dining Runner',
+          description: 'Coordinated living-room backdrop plus dining table florals.',
+        },
+        {
+          title: 'Parda & Partition Styling',
+          description: 'Tasteful draped partitions with floral tie-backs when requested.',
+        },
+      ],
+      idealOccasions: [
+        'Home Shukrana dua & dinner',
+        'Post-Nikah / post-Umrah family welcome',
+        'Intimate Milad & blessing gatherings',
+        'New-home thanksgiving dinners',
+      ],
+      included: [
+        'Focal backdrop frame & drapes',
+        'Fresh white rose & jasmine florals',
+        'Warm fairy lighting',
+        'On-time install & teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Room & seating plan',
+          description: 'Share your living room layout so we keep dua and dining flow seamless.',
+        },
+        {
+          title: 'Parda / partition needs',
+          description: 'Optional matching fabric partitions if hosting separate seating.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Living-room Shukrana focal frame',
+          description: 'Complete serene backdrop, lighting, and entrance urli from ₹5,000.',
+        },
+        {
+          title: 'Full home + dining floral styling',
+          description: 'Includes backdrop, doorway florals, and dining table runners.',
+        },
+      ],
+      suitableVenues: [
+        'Apartments & flats',
+        'Independent homes',
+        'Community halls',
+        'Private dining spaces',
+      ],
+      optionalAddOns: [
+        'Parda partition drapes',
+        'Dining table floral runners',
+        'Extra brass urlis',
+      ],
+      budgetConsiderations: {
+        intro: 'Home Shukrana setups start from ₹5,000 across Bangalore.',
+        points: [
+          {
+            title: 'Fresh jasmine & rose density',
+            description: 'Full-width floral walls scale above focused backdrop accents.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Share room photo',
+          detail: 'Send your date, Bangalore area, and living-room photo.',
+        },
+        {
+          step: 'Pick ivory or pastel look',
+          detail: 'Confirm layout and any partition or dining accents.',
+        },
+        { step: 'Clean setup', detail: 'Finished 60–90 minutes prior to guests arriving.' },
+      ],
+      setupTimeline: [
+        { step: 'Setup', detail: '60–90 minutes before gathering start.' },
+        { step: 'Teardown', detail: 'Same night or next morning per family preference.' },
+      ],
+      themes: [
+        {
+          name: 'Pearl & Jasmine',
+          description: 'Crisp ivory drapes with fragrant jasmine garlands.',
+        },
+        { name: 'Sage & Cream', description: 'Botanical greenery with soft cream roses.' },
+      ],
+      areasIntro:
+        'Serving homes across Frazer Town, Benson Town, RT Nagar, Jayanagar, HSR & all Bangalore.',
+      relatedHrefs: [
+        '/services/nikah-decoration',
+        '/services/valima-decoration',
+        '/services/home-decoration',
+        '/services/floral-decoration',
+      ],
+      ctaBody:
+        'Send your Shukrana date and living-room photo on WhatsApp for a calm, custom ₹5,000+ plan.',
+      faqs: [
+        {
+          question: 'How much does home Shukrana decoration cost in Bangalore?',
+          answer:
+            'Home Shukrana decoration starts from ₹5,000 across Bangalore for a serene ivory/floral focal backdrop, warm lighting, and teardown.',
+        },
+        {
+          question: 'Can you provide matching parda partitions and dining florals?',
+          answer:
+            'Yes. We can add coordinated fabric partitions and fresh floral dining table runners tailored to your home layout.',
         },
       ],
     },

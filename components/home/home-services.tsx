@@ -62,6 +62,11 @@ const additionalServiceLinks = [
   { label: 'Wedding Reception Stage', href: '/services/reception-decoration' },
   { label: 'Roka & Baat Pakki Decor', href: '/services/roka-decoration' },
   { label: 'Naming Ceremony & Cradle', href: '/services/naming-ceremony-decoration' },
+  { label: 'Mehndi Ceremony Decor', href: '/services/mehndi-decoration' },
+  { label: 'Bridal Shower & Bride-to-Be', href: '/services/bridal-shower-decoration' },
+  { label: 'Housewarming & Griha Pravesh', href: '/services/housewarming-decoration' },
+  { label: 'Baat Pakki Home Decor', href: '/services/baat-pakki-decoration' },
+  { label: 'Shukrana Home Setups', href: '/services/shukrana-decoration' },
   { label: 'Wedding Car Decoration', href: '/services/car-decoration' },
   { label: 'Stage & Backdrop Styling', href: '/services/decoration' },
 ] as const;

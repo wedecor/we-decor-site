@@ -56,6 +56,11 @@ export async function GET() {
 | Wedding Reception Stage Decoration | ₹5,000 | Convention halls, hotels, choultries | ${base}/services/reception-decoration |
 | Roka & Baat Pakki Ceremony Decor | ₹5,000 | Homes, apartments, clubhouses | ${base}/services/roka-decoration |
 | Naming Ceremony & Cradle Decor | ₹5,000 | Homes, apartments, party halls | ${base}/services/naming-ceremony-decoration |
+| Mehndi Ceremony Decoration | ₹5,000 | Homes, terraces, banquet lawns | ${base}/services/mehndi-decoration |
+| Bridal Shower & Bride-to-Be Decor | ₹5,000 | Hotels, apartments, cafés, terraces | ${base}/services/bridal-shower-decoration |
+| Housewarming & Griha Pravesh Florals | ₹5,000 | New apartments, villas, offices | ${base}/services/housewarming-decoration |
+| Baat Pakki Home Decoration | ₹5,000 | Apartments, living rooms, clubhouses | ${base}/services/baat-pakki-decoration |
+| Shukrana Home Prayer Setup | ₹5,000 | Homes, apartments, community halls | ${base}/services/shukrana-decoration |
 | Terrace & Rooftop Decoration | ₹5,000 | Apartment terraces, villa rooftops, penthouses | ${base}/services/terrace-decoration |
 | Cabana Tent & Balloon Setup | ₹5,000 | Living rooms, balconies, terraces, lawns | ${base}/services/tent-balloon-setup |
 | Corporate Event & Office Decor | ₹5,000 | Tech parks, office floors, conference halls | ${base}/services/corporate-decoration |

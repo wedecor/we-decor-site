@@ -71,6 +71,40 @@ const SERVICES_CATALOG = [
       'Grand Walima reception stages for Shadi Mahals and serene Shukrana prayer home setups across Bangalore.',
   },
   {
+    name: 'Mehndi Ceremony Decoration',
+    price: 'From ₹5,000',
+    path: '/services/mehndi-decoration',
+    summary:
+      'Vibrant Mehndi drapes, marigold canopies, bolster seating, and terrace setups across Bangalore.',
+  },
+  {
+    name: 'Bridal Shower & Bride-to-Be Decoration',
+    price: 'From ₹5,000',
+    path: '/services/bridal-shower-decoration',
+    summary:
+      'Pastel balloon arches, Bride-to-Be neon backdrops, hotel suite reveals, and brunch styling.',
+  },
+  {
+    name: 'Housewarming & Griha Pravesh Flower Decoration',
+    price: 'From ₹5,000',
+    path: '/services/housewarming-decoration',
+    summary:
+      'Early-morning fresh mango-leaf, marigold, and jasmine doorway torans and puja backdrops.',
+  },
+  {
+    name: 'Baat Pakki Home Decoration',
+    price: 'From ₹5,000',
+    path: '/services/baat-pakki-decoration',
+    summary:
+      'Intimate living-room floral frames and shagun table accents for Baat Pakki ceremonies.',
+  },
+  {
+    name: 'Shukrana Home Prayer Decoration',
+    price: 'From ₹5,000',
+    path: '/services/shukrana-decoration',
+    summary: 'Serene ivory, jasmine, and brass urli focal setups for Shukrana family prayers.',
+  },
+  {
     name: 'Engagement, Roka & Baat Pakki Stage Decoration',
     price: 'From ₹5,000',
     path: '/services/engagement-decoration',

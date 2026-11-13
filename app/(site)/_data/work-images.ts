@@ -525,6 +525,11 @@ const SERVICE_FALLBACK_OCCASIONS: Record<string, readonly string[]> = {
   'reception-decoration': ['Reception', 'Wedding'],
   'roka-decoration': ['Engagement', 'Proposal'],
   'valima-decoration': ['Reception', 'Wedding'],
+  'mehndi-decoration': ['Mehndi', 'Haldi'],
+  'bridal-shower-decoration': ['Bridal shower', 'Bridal room'],
+  'housewarming-decoration': ['Haldi', 'Wedding'],
+  'baat-pakki-decoration': ['Engagement', 'Proposal'],
+  'shukrana-decoration': ['Wedding', 'Reception'],
 };
 
 export const workForService = (slug: string): WorkImage[] => {
@@ -540,6 +545,14 @@ export const workForService = (slug: string): WorkImage[] => {
   if (slug === 'reception-decoration') {
     const reception = WORK.filter((w) => w.occasion === 'Reception');
     return reception.length > 0 ? reception : WORK.filter((w) => w.occasion === 'Wedding');
+  }
+  if (slug === 'mehndi-decoration') {
+    const mehndi = WORK.filter((w) => w.occasion === 'Mehndi');
+    return mehndi.length > 0 ? mehndi : WORK.filter((w) => w.occasion === 'Haldi');
+  }
+  if (slug === 'bridal-shower-decoration') {
+    const bridal = WORK.filter((w) => w.occasion === 'Bridal shower');
+    return bridal.length > 0 ? bridal : WORK.filter((w) => w.occasion === 'Bridal room');
   }
   const occasions = SERVICE_FALLBACK_OCCASIONS[slug];
   if (occasions) {

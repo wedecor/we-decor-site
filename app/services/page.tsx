@@ -86,6 +86,11 @@ const moreDecorations = [
   { href: '/services/reception-decoration', label: 'Reception Stage Decorations' },
   { href: '/services/roka-decoration', label: 'Roka & Baat Pakki Decorations' },
   { href: '/services/valima-decoration', label: 'Valima & Shukrana Decorations' },
+  { href: '/services/mehndi-decoration', label: 'Mehndi Decorations' },
+  { href: '/services/bridal-shower-decoration', label: 'Bridal Shower Decorations' },
+  { href: '/services/housewarming-decoration', label: 'Housewarming & Griha Pravesh' },
+  { href: '/services/baat-pakki-decoration', label: 'Baat Pakki Decorations' },
+  { href: '/services/shukrana-decoration', label: 'Shukrana Decorations' },
 ] as const;
 
 /** Services we coordinate through trusted Bangalore partners */

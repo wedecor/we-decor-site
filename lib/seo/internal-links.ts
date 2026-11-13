@@ -110,6 +110,11 @@ export const RELATED_DECORATION_SERVICES = [
   { href: '/services/reception-decoration', label: 'Reception Decorations' },
   { href: '/services/roka-decoration', label: 'Roka & Baat Pakki Decorations' },
   { href: '/services/valima-decoration', label: 'Valima & Shukrana Decorations' },
+  { href: '/services/mehndi-decoration', label: 'Mehndi Decorations' },
+  { href: '/services/bridal-shower-decoration', label: 'Bridal Shower Decorations' },
+  { href: '/services/housewarming-decoration', label: 'Housewarming & Griha Pravesh Decorations' },
+  { href: '/services/baat-pakki-decoration', label: 'Baat Pakki Decorations' },
+  { href: '/services/shukrana-decoration', label: 'Shukrana Decorations' },
 ] as const;
 
 const LABEL_BY_HREF = Object.fromEntries(
@@ -232,6 +237,36 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
     '/services/reception-decoration',
     '/services/wedding-setup',
     '/services/car-decoration',
+  ],
+  '/services/mehndi-decoration': [
+    '/services/haldi-decoration',
+    '/services/bridal-shower-decoration',
+    '/services/wedding-setup',
+    '/services/terrace-decoration',
+  ],
+  '/services/bridal-shower-decoration': [
+    '/services/room-decoration',
+    '/services/balloon-decoration',
+    '/services/proposal-decoration',
+    '/services/mehndi-decoration',
+  ],
+  '/services/housewarming-decoration': [
+    '/services/floral-decoration',
+    '/services/home-decoration',
+    '/services/haldi-decoration',
+    '/services/naming-ceremony-decoration',
+  ],
+  '/services/baat-pakki-decoration': [
+    '/services/roka-decoration',
+    '/services/engagement-decoration',
+    '/services/home-decoration',
+    '/services/wedding-setup',
+  ],
+  '/services/shukrana-decoration': [
+    '/services/nikah-decoration',
+    '/services/valima-decoration',
+    '/services/home-decoration',
+    '/services/floral-decoration',
   ],
 };
 
@@ -575,6 +610,52 @@ export const SERVICE_LOCALITIES_BY_PATH: Record<string, readonly InternalLink[]>
     { href: '/locations/btm-layout', name: 'BTM Layout Valima stages' },
     { href: '/locations/wilson-garden', name: 'Wilson Garden Shukrana florals' },
     { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/mehndi-decoration': [
+    { href: '/locations/indiranagar', name: 'Mehndi decoration in Indiranagar' },
+    { href: '/locations/koramangala', name: 'Koramangala Mehndi setups' },
+    { href: '/locations/hsr-layout', name: 'HSR Layout terrace Mehndi' },
+    { href: '/locations/jayanagar', name: 'Jayanagar Mehndi florals' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar Mehndi canopies' },
+    { href: '/locations/whitefield', name: 'Whitefield Mehndi & Sangeet' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/bridal-shower-decoration': [
+    { href: '/locations/ulsoor', name: 'Bridal shower in Ulsoor' },
+    { href: '/locations/indiranagar', name: 'Indiranagar Bride-to-Be setups' },
+    { href: '/locations/koramangala', name: 'Koramangala bridal showers' },
+    { href: '/locations/bellandur', name: 'Bellandur bachelorette rooms' },
+    { href: '/locations/marathahalli', name: 'Marathahalli bridal surprises' },
+    { href: '/locations/whitefield', name: 'Whitefield hotel suite decor' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/housewarming-decoration': [
+    { href: '/locations/whitefield', name: 'Griha Pravesh in Whitefield' },
+    { href: '/locations/sarjapur-road', name: 'Sarjapur Road housewarming' },
+    { href: '/locations/electronic-city', name: 'Electronic City Griha Pravesh' },
+    { href: '/locations/yelahanka', name: 'Yelahanka housewarming florals' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar Griha Pravesh' },
+    { href: '/locations/marathahalli', name: 'Marathahalli home pujas' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/baat-pakki-decoration': [
+    { href: '/locations/hsr-layout', name: 'Baat Pakki in HSR Layout' },
+    { href: '/locations/koramangala', name: 'Koramangala Baat Pakki setups' },
+    { href: '/locations/indiranagar', name: 'Indiranagar home ceremonies' },
+    { href: '/locations/jayanagar', name: 'Jayanagar family setups' },
+    { href: '/locations/whitefield', name: 'Whitefield home Baat Pakki' },
+    { href: '/locations/sarjapur-road', name: 'Sarjapur Road apartment decor' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/shukrana-decoration': [
+    { href: '/locations/shanti-nagar', name: 'Shukrana setup in Shanti Nagar' },
+    { href: '/locations/richmond-town', name: 'Richmond Town Shukrana' },
+    { href: '/locations/rt-nagar', name: 'RT Nagar home prayer decor' },
+    { href: '/locations/chamrajpet', name: 'Chamrajpet Shukrana florals' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+    { href: '/locations/btm-layout', name: 'BTM Layout Shukrana florals' },
+    { href: '/locations/wilson-garden', name: 'Wilson Garden family setups' },
+    { href: '/locations/ashok-nagar', name: 'Ashok Nagar Shukrana decor' },
   ],
 };
 

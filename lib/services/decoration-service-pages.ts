@@ -56,7 +56,12 @@ export type HighIntentServiceSlug =
   | 'naming-ceremony-decoration'
   | 'reception-decoration'
   | 'roka-decoration'
-  | 'valima-decoration';
+  | 'valima-decoration'
+  | 'mehndi-decoration'
+  | 'bridal-shower-decoration'
+  | 'housewarming-decoration'
+  | 'baat-pakki-decoration'
+  | 'shukrana-decoration';
 
 export type DecorationServiceSlug = LegacyDecorationServiceSlug | HighIntentServiceSlug;
 
