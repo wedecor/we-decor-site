@@ -84,6 +84,10 @@ export const SERVICE_PATHS = {
   'floral-decoration': '/services/floral-decoration',
   'terrace-decoration': '/services/terrace-decoration',
   'car-decoration': '/services/car-decoration',
+  'naming-ceremony-decoration': '/services/naming-ceremony-decoration',
+  'reception-decoration': '/services/reception-decoration',
+  'roka-decoration': '/services/roka-decoration',
+  'valima-decoration': '/services/valima-decoration',
   decoration: '/services/decoration',
 } as const;
 

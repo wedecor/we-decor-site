@@ -16,6 +16,10 @@ const CATEGORY_TO_SERVICE: Record<string, string> = {
   'room decor': 'room-decoration',
   proposal: 'proposal-decoration',
   car: 'car-decoration',
+  'naming-ceremony': 'naming-ceremony-decoration',
+  reception: 'reception-decoration',
+  roka: 'roka-decoration',
+  valima: 'valima-decoration',
 };
 
 function img(category: string, index: number, caption: string) {
@@ -2519,6 +2523,815 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
           question: 'Can you match the car to our wedding stage colours?',
           answer:
             'Yes. Send the stage palette or invitation reference and we will propose flowers and ribbons that connect the arrival look to the celebration.',
+        },
+      ],
+    },
+
+    'naming-ceremony-decoration': {
+      slug: 'naming-ceremony-decoration',
+      title: 'Naming Ceremony Decoration Bangalore — Cradle Decor ₹5,000',
+      description:
+        'Naming ceremony (Namakarana) & cradle decoration in Bangalore from ₹5,000 — fresh jasmine, marigold, pastel balloon rings & apartment-safe home setups.',
+      serviceType: 'Naming ceremony decoration',
+      ogImage: SERVICE_IMAGES.engagement,
+      eyebrow: 'Namakarana · Cradle decor · Bangalore',
+      headline: 'Naming Ceremony & Cradle Decoration in Bangalore — From ₹5,000',
+      subheadline:
+        'Fresh jasmine and marigold cradle draping, pastel Oh Baby balloon rings, and traditional home puja backdrops styled across Bangalore apartments and party halls.',
+      storyTitle: 'Gentle styling around the cradle and morning ritual',
+      storyParagraphs: [
+        'A naming ceremony (Namakarana) brings elders, newborns, and close family into one compact space—usually a living room or clubhouse hall. Our setups frame the cradle without blocking puja mats, natural light, or photography sightlines.',
+        'Choose between traditional mango-leaf, marigold, and jasmine cradle accents or modern pastel balloon arcs with soft welcome signage, always installed with baby-safe, zero-drill fixtures.',
+      ],
+      highlights: [
+        {
+          title: 'Traditional & modern cradle florals',
+          description:
+            'Fresh jasmine strings, rose petals, and soft pastel drapes styled safely around wooden or brass cradles.',
+        },
+        {
+          title: 'Baby-safe & zero-drill mounting',
+          description:
+            'Hypoallergenic fresh flowers or low-odour setups with zero wall nails, heavy staples, or messy confetti.',
+        },
+        {
+          title: 'Apartment & morning-muhurat timing',
+          description:
+            'Early morning setups timed before the priest arrives, plus tidy post-lunch teardown.',
+        },
+        {
+          title: 'Matched backdrop + welcome board',
+          description:
+            'Coordinated name-reveal easel, photo backdrop, and brass urli accents in one seamless booking.',
+        },
+      ],
+      gallery: [
+        img(
+          'naming-ceremony',
+          0,
+          'Traditional Naming Ceremony cradle and backdrop in HSR Layout, Bangalore'
+        ),
+        img(
+          'naming-ceremony',
+          1,
+          'Namakarana floral stage and seating setup in Jayanagar, Bangalore'
+        ),
+        img(
+          'baby shower',
+          0,
+          'Pastel balloon ring and floral accents adaptable for naming ceremonies'
+        ),
+      ],
+      testimonial: {
+        quote:
+          'They finished our cradle florals by 7:30 AM before the priest arrived and left the living room spotless after lunch.',
+        attribution: 'Namakarana · Jayanagar home',
+      },
+      trustSignals: ['Early morning slots', 'Apartment-safe installs', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Naming Ceremony / Cradle decoration in Bangalore. Date: _____. Area: _____. Home or Hall: _____. Style (Traditional / Pastel): _____.',
+      whyChooseUsEyebrow: 'Why Bangalore parents trust us',
+      whyChoose: [
+        {
+          title: 'Morning muhurat punctuality',
+          text: 'Our crew arrives early enough to finish quietly before guests and priests gather.',
+        },
+        {
+          title: 'Cradle-safe attachments',
+          text: 'Soft ribbons and weighted bases keep florals secure around the baby without crowding the cradle.',
+        },
+        {
+          title: 'Compact apartment layouts',
+          text: 'Designed for standard 2BHK/3BHK living rooms so elders have comfortable seating around the ritual.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Jasmine & marigold Namakarana',
+          description:
+            'Traditional South Indian floral strings, brass urlis, and mango-leaf accents.',
+        },
+        {
+          title: 'Pastel cloud & balloon arch',
+          description:
+            'Soft sage, dusty blue, blush, or cream organic balloons with a wooden name easel.',
+        },
+        {
+          title: 'Ivory & rose floral ring',
+          description: 'Minimalist circular frame behind the cradle for clean family portraits.',
+        },
+        {
+          title: 'Clubhouse celebration wall',
+          description: 'Wider backdrop with cake table styling and entrance welcome stand.',
+        },
+      ],
+      idealOccasions: [
+        'Traditional Namakarana at home',
+        'Aqiqah & baby welcome gatherings',
+        'Cradle ceremony (Thottil) setups',
+        'Apartment clubhouse baby luncheons',
+      ],
+      included: [
+        'Cradle floral & ribbon styling',
+        'Main backdrop frame (floral or balloon)',
+        'Warm fairy lighting & drapes',
+        'On-time setup & post-event teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Cradle & room check',
+          description:
+            'Share a photo of your cradle and living room wall so we size the backdrop cleanly.',
+        },
+        {
+          title: 'Theme & name reveal',
+          description: 'Traditional florals, pastel balloons, or a custom baby-name welcome sign.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Home cradle + backdrop',
+          description:
+            'Complete living-room focal backdrop plus fresh floral cradle garlands from ₹5,000.',
+        },
+        {
+          title: 'Clubhouse naming stage',
+          description:
+            'Full photo wall, cradle corner, cake table accents, and entry welcome board.',
+        },
+      ],
+      suitableVenues: [
+        '2BHK / 3BHK apartments',
+        'Independent homes',
+        'Society clubhouses',
+        'Banquet halls',
+      ],
+      optionalAddOns: [
+        'Custom baby name board',
+        'Brass urli flower bowls',
+        'Entrance welcome arch',
+      ],
+      budgetConsiderations: {
+        intro: 'Naming ceremony packages start from ₹5,000 for home cradle and backdrop setups.',
+        points: [
+          {
+            title: 'Fresh florals vs. balloon backdrop',
+            description:
+              'Dense jasmine and orchid cradle work costs more than seasonal marigold or pastel balloons.',
+          },
+          {
+            title: 'Home vs. hall footprint',
+            description:
+              'Compact living-room walls stay in the ₹5,000–₹10,000 tier; full hall stages scale up.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Send cradle & room photo',
+          detail: 'WhatsApp your date, area, and living room or hall photo.',
+        },
+        {
+          step: 'Pick a style',
+          detail: 'Choose traditional floral, pastel balloon, or mixed cradle styling.',
+        },
+        {
+          step: 'Confirm slot',
+          detail: 'Lock your morning muhurat or afternoon celebration timing.',
+        },
+      ],
+      setupTimeline: [
+        { step: 'Morning setup', detail: '60–90 minutes before the ceremony begins.' },
+        { step: 'Teardown', detail: 'Scheduled after lunch or evening departure.' },
+      ],
+      themes: [
+        {
+          name: 'South Indian jasmine & marigold',
+          description: 'Fragrant white jasmine, yellow marigold, and brass accents.',
+        },
+        {
+          name: 'Pastel Sage & Cream',
+          description: 'Neutral organic balloons and soft baby-breath florals.',
+        },
+      ],
+      areasIntro: 'We style naming ceremonies across all Bangalore neighbourhoods.',
+      relatedHrefs: [
+        '/services/baby-shower-decoration',
+        '/services/birthday-decoration',
+        '/services/home-decoration',
+        '/services/floral-decoration',
+      ],
+      ctaBody:
+        'Send your Naming Ceremony date, area, and cradle photo for a fast Bangalore quote starting from ₹5,000.',
+      faqs: [
+        {
+          question: 'How much does naming ceremony decoration cost in Bangalore?',
+          answer:
+            'Naming ceremony (Namakarana) and cradle decoration in Bangalore starts from ₹5,000 for an apartment-friendly backdrop and fresh floral cradle styling, scaling with stage width and flower density.',
+        },
+        {
+          question: 'Can you finish the decoration early in the morning for a Namakarana muhurat?',
+          answer:
+            'Yes. We regularly complete home naming ceremony installations by 7:00–8:30 AM across Bangalore so everything is ready before the priest and elders arrive.',
+        },
+        {
+          question: 'Do you decorate both wooden cradles and modern baby bassinets?',
+          answer:
+            'Yes. We use soft satin ribbons and non-marking clips tailored to traditional wooden cradles, brass cradles, or modern bassinets without scratching finishes.',
+        },
+      ],
+    },
+
+    'reception-decoration': {
+      slug: 'reception-decoration',
+      title: 'Wedding Reception Stage Decoration Bangalore — From ₹5,000',
+      description:
+        'Wedding reception stage decoration in Bangalore from ₹5,000 — grand couple backdrops, fresh floral arches, LED lighting & banquet entrance decor. 4.9★ rated.',
+      serviceType: 'Wedding reception decoration',
+      ogImage: SERVICE_IMAGES.engagement,
+      eyebrow: 'Wedding Reception · Stage & Hall · Bangalore',
+      headline: 'Wedding Reception Stage Decoration in Bangalore — From ₹5,000',
+      subheadline:
+        'Statement couple stages, cascading floral frames, warm ambient chandeliers, and welcoming banquet entrances engineered for evening wedding photography.',
+      storyTitle: 'Built for evening lighting and couple portraits',
+      storyParagraphs: [
+        'A reception stage is photographed for hours under hall lights and camera flashes. We balance backdrop width, sofa placement, and warm LED uplighting so the couple stands out cleanly without harsh shadows.',
+        'Whether it is a 200-guest hotel banquet, a traditional choultry, or an intimate terrace dinner reception, we tailor the floral density and stage geometry to your exact hall dimensions.',
+      ],
+      highlights: [
+        {
+          title: 'Wide-frame couple stages',
+          description:
+            'Proportioned 12ft to 24ft backdrops with lush rose, hydrangea, and orchid focal pockets.',
+        },
+        {
+          title: 'Evening lighting & chandeliers',
+          description:
+            'Warm fairy curtains, crystal drops, and stage uplights balanced for DSLR & flash photography.',
+        },
+        {
+          title: 'Entrance arch & photo walkway',
+          description:
+            'Coordinated hall entry arches, welcome signage, and candlelit aisle stands.',
+        },
+        {
+          title: 'Banquet & choultry experience',
+          description:
+            'Smooth coordination with Bangalore convention halls, hotels, and clubhouses on load-in slots.',
+        },
+      ],
+      gallery: [
+        img('reception', 0, 'Evening wedding reception floral stage setup in Bangalore'),
+        img(
+          'reception',
+          1,
+          'Grand couple seating backdrop with warm lighting in Malleshwaram, Bangalore'
+        ),
+        img('reception', 2, 'Banquet reception stage and floral arch in Nagarbhavi, Bangalore'),
+      ],
+      testimonial: {
+        quote:
+          'Every single guest commented on the reception stage lighting and fresh flowers. Setup finished two hours before our entry.',
+        attribution: 'Reception · Malleshwaram banquet hall',
+      },
+      trustSignals: ['Free hall site visit', 'Photogenic evening lighting', '4.9★ (82 reviews)'],
+      waPrefill:
+        'Hi We Decor! I need Wedding Reception stage decoration in Bangalore. Date: _____. Venue/Hall: _____. Guest count: _____.',
+      whyChooseUsEyebrow: 'Why Bangalore couples book us for receptions',
+      whyChoose: [
+        {
+          title: 'Zero glare, rich depth',
+          text: 'We place florals and matte drapes around warm lighting so photographs never wash out.',
+        },
+        {
+          title: 'Reliable venue load-in',
+          text: 'Our crew coordinates directly with choultry and hotel managers so the stage is ready ahead of arrival.',
+        },
+        {
+          title: 'Custom couple seating',
+          text: 'Sofas, loveseats, and side floral pedestals matched to your reception outfits.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Ivory & gold chandelier stage',
+          description: 'Classic warm cream drapes, white roses, and suspended crystal accents.',
+        },
+        {
+          title: 'Crimson & champagne floral wall',
+          description: 'Rich evening palette suited for grand Indian wedding receptions.',
+        },
+        {
+          title: 'Botanical glasshouse frame',
+          description:
+            'Architectural arches with eucalyptus, white orchids, and warm Edison bulbs.',
+        },
+        {
+          title: 'Intimate terrace reception',
+          description: 'Fairy-lit canopy with floral couple backdrop for 50–120 guests.',
+        },
+      ],
+      idealOccasions: [
+        'Evening wedding reception stages',
+        'Walima & Valima banquet receptions',
+        'Post-wedding family dinner parties',
+        'Intimate terrace & lawn receptions',
+      ],
+      included: [
+        'Main reception stage frame & draping',
+        'Fresh or premium mixed floral arrangements',
+        'Warm stage lighting & uplighters',
+        'On-site install & late-night teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Stage width measurement',
+          description:
+            'We match stage span (10ft–24ft+) to your banquet hall and guest greeting queue.',
+        },
+        {
+          title: 'Outfit & theme sync',
+          description: 'Share your reception lehenga/sherwani or gown shade for tailored florals.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Intimate reception frame',
+          description: 'Compact floral couple backdrop and lighting for 50–100 guests from ₹5,000.',
+        },
+        {
+          title: 'Grand banquet stage + entry',
+          description: 'Full hall stage, couple seating, entrance arch, and welcome aisle.',
+        },
+      ],
+      suitableVenues: [
+        'Marriage halls & choultries',
+        'Hotel banquets',
+        'Resort lawns',
+        'Society clubhouses',
+      ],
+      optionalAddOns: [
+        'Couple sofa / loveseat',
+        'Entrance floral tunnel',
+        'Photo booth corner',
+        'Welcome LED board',
+      ],
+      budgetConsiderations: {
+        intro:
+          'Reception stage decoration starts from ₹5,000 for intimate backdrops and scales with hall stage width.',
+        points: [
+          {
+            title: 'Stage span & floral coverage',
+            description:
+              'Full 20ft+ fresh floral walls require significantly more stems and rigging than 10ft focal frames.',
+          },
+          {
+            title: 'Entrance & seating add-ons',
+            description:
+              'Adding banquet entrance arches, aisle stands, and sofa rentals adjusts the final package.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Share venue & date',
+          detail: 'Send the banquet hall name, date, and reference photos you like.',
+        },
+        {
+          step: 'Stage layout & quote',
+          detail: 'We propose stage dimensions, floral options, and clear pricing.',
+        },
+        {
+          step: 'Event-day execution',
+          detail: 'Completed ahead of guest arrival with post-event teardown.',
+        },
+      ],
+      setupTimeline: [
+        { step: 'Hall setup', detail: '3–5 hours prior to reception start.' },
+        { step: 'Teardown', detail: 'Same night after dinner concludes.' },
+      ],
+      themes: [
+        {
+          name: 'Royal Ivory & Gold',
+          description: 'Timeless cream drapes with warm chandeliers and white florals.',
+        },
+        {
+          name: 'Pastel Blush & Sage',
+          description: 'Soft garden-inspired romantic reception backdrop.',
+        },
+      ],
+      areasIntro: 'We style wedding reception stages at halls and hotels across Bengaluru.',
+      relatedHrefs: [
+        '/services/wedding-setup',
+        '/services/valima-decoration',
+        '/services/engagement-decoration',
+        '/services/car-decoration',
+      ],
+      ctaBody:
+        'Share your reception date and banquet hall name in Bangalore for a tailored stage quote.',
+      faqs: [
+        {
+          question:
+            'What is the starting price for wedding reception stage decoration in Bangalore?',
+          answer:
+            'Intimate reception backdrop setups start from ₹5,000, while full-width banquet hall stages with fresh floral arches, couple sofas, lighting, and entrance decor are custom quoted based on stage span and flower density.',
+        },
+        {
+          question: 'Do you provide couple sofas and hall entrance decoration together?',
+          answer:
+            'Yes. We can bundle couple seating, stage backdrop, entrance floral arch, and welcome standees into one coordinated reception package.',
+        },
+        {
+          question: 'How early does your team set up before an evening reception?',
+          answer:
+            'We typically begin setup 3–5 hours before the reception start time and finish ahead of couple photography.',
+        },
+      ],
+    },
+
+    'roka-decoration': {
+      slug: 'roka-decoration',
+      title: 'Roka & Baat Pakki Decoration in Bangalore — From ₹5,000',
+      description:
+        'Roka ceremony & Baat Pakki home decoration in Bangalore from ₹5,000 — intimate floral rings, living-room backdrops, sofa styling & apartment-safe installs.',
+      serviceType: 'Roka ceremony decoration',
+      ogImage: SERVICE_IMAGES.engagement,
+      eyebrow: 'Roka · Baat Pakki · Home Ceremony · Bangalore',
+      headline: 'Roka & Baat Pakki Decoration in Bangalore — Intimate Home Setups',
+      subheadline:
+        'Tasteful living-room floral arches, brass urlis, and warm fairy lighting designed for apartment Roka and Baat Pakki ceremonies without crowding your home.',
+      storyTitle: 'Tailored for close-family living room ceremonies',
+      storyParagraphs: [
+        'Roka and Baat Pakki ceremonies usually happen right at home or in an apartment clubhouse with 15 to 40 close relatives. Oversized wedding stages overwhelm a flat—our compact floral frames elevate your sofa wall while keeping seating comfortable.',
+        'We match fresh marigolds, pastel roses, or ivory drapes to your outfits and ensure zero wall marks or drill holes.',
+      ],
+      highlights: [
+        {
+          title: 'Living-room scaled frames',
+          description:
+            'Compact 6ft–10ft floral rings, hexagons, and drape backdrops built for 2BHK/3BHK flats.',
+        },
+        {
+          title: 'Zero-damage apartment installs',
+          description:
+            'Freestanding weighted frames with zero wall nails, tape residue, or floor scratches.',
+        },
+        {
+          title: 'Gift & shagun corner styling',
+          description:
+            'Coordinated floral accents around your shagun thal table and family seating.',
+        },
+        {
+          title: 'Same-day install & clean teardown',
+          description:
+            'Quick 90-minute morning or afternoon setup with tidy removal after guests leave.',
+        },
+      ],
+      gallery: [
+        img('engagement', 0, 'Intimate pastel floral frame for home Roka ceremony in Bangalore'),
+        img(
+          'engagement',
+          1,
+          'Apartment-friendly floral ring backdrop for Baat Pakki family photos'
+        ),
+        img('haldi', 0, 'Traditional marigold and urli styling adaptable for morning Roka rituals'),
+      ],
+      testimonial: {
+        quote:
+          'We wanted something classy for our daughter’s Roka in our Koramangala flat without blocking the sofa—they nailed the proportions.',
+        attribution: 'Roka ceremony · Koramangala apartment',
+      },
+      trustSignals: ['Apartment-safe frames', 'From ₹5,000 packages', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Roka / Baat Pakki decoration at home in Bangalore. Date: _____. Area: _____. Living room or Clubhouse: _____.',
+      whyChooseUsEyebrow: 'Why families choose us for Roka & Baat Pakki',
+      whyChoose: [
+        {
+          title: 'Proportioned for real homes',
+          text: 'We measure your sofa wall and ceiling height first so the decor photographs effortlessly.',
+        },
+        {
+          title: 'Fresh, fragrant blooms',
+          text: 'Roses, carnations, orchids, and jasmine styled fresh on the morning of your Roka.',
+        },
+        {
+          title: 'Society-friendly crew',
+          text: 'Quiet lift transport and punctual setup respecting apartment society rules.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Pastel floral ring + fairy lights',
+          description: 'Soft blush and white roses around a gold metallic ring behind your sofa.',
+        },
+        {
+          title: 'Ivory drape & marigold elegance',
+          description: 'Warm traditional touch with brass urlis and marigold garlands.',
+        },
+        {
+          title: 'Minimal botanical arch',
+          description: 'Eucalyptus greenery and cream florals for modern apartment aesthetics.',
+        },
+        {
+          title: 'Clubhouse Roka backdrop',
+          description: 'Wider 12ft frame with welcome board for 40–80 guests.',
+        },
+      ],
+      idealOccasions: [
+        'Home Roka ceremonies',
+        'Baat Pakki family meetings',
+        'Intimate Chunni Chadana setups',
+        'Small engagement & tilak functions',
+      ],
+      included: [
+        'Backdrop stand (ring, arch, or frame)',
+        'Fresh floral pockets & drapes',
+        'Warm fairy or LED accent lighting',
+        'Same-day setup and teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Wall & sofa photo check',
+          description:
+            'Send a quick living-room photo on WhatsApp so we fit the frame around your seating.',
+        },
+        {
+          title: 'Palette matching',
+          description: 'Coordinate florals with the bride and groom’s Roka outfits.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Compact home Roka backdrop',
+          description: 'Living-room floral ring or drape setup starting from ₹5,000.',
+        },
+        {
+          title: 'Home Roka + entrance & table accents',
+          description: 'Backdrop plus main-door toran, shagun table florals, and brass urlis.',
+        },
+      ],
+      suitableVenues: [
+        'Apartments & flats',
+        'Independent houses',
+        'Society clubhouses',
+        'Boutique restaurant rooms',
+      ],
+      optionalAddOns: ['Main-door floral toran', 'Brass urli centerpieces', 'Custom welcome easel'],
+      budgetConsiderations: {
+        intro: 'Home Roka and Baat Pakki backdrops start from ₹5,000 across Bangalore.',
+        points: [
+          {
+            title: 'Fresh flower density',
+            description:
+              'Focal floral pockets keep budgets near ₹5,000; full-ring rose coverage scales up.',
+          },
+          {
+            title: 'Additional zones',
+            description: 'Adding doorway florals or shagun table styling adjusts the final quote.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Send room photo',
+          detail: 'Share your date, Bangalore locality, and wall/sofa photo.',
+        },
+        {
+          step: 'Select design',
+          detail: 'Pick from floral ring, arch, or traditional drape concepts.',
+        },
+        {
+          step: 'Relax on Roka day',
+          detail: 'We set up cleanly in 60–90 minutes before relatives arrive.',
+        },
+      ],
+      setupTimeline: [
+        { step: 'Setup', detail: '60–90 minutes prior to family arrival.' },
+        { step: 'Teardown', detail: 'Same evening or next morning per your preference.' },
+      ],
+      themes: [
+        {
+          name: 'Blush & Gold Ring',
+          description: 'Soft pink roses, cream drapes, and warm fairy lights.',
+        },
+        {
+          name: 'Saffron & Jasmine',
+          description: 'Classic Indian auspicious tones with brass urlis.',
+        },
+      ],
+      areasIntro: 'Available for home Roka & Baat Pakki setups across all Bangalore localities.',
+      relatedHrefs: [
+        '/services/engagement-decoration',
+        '/services/haldi-decoration',
+        '/services/home-decoration',
+        '/services/wedding-setup',
+      ],
+      ctaBody:
+        'Share your Roka or Baat Pakki date and living-room photo on WhatsApp for a quick ₹5,000+ quote.',
+      faqs: [
+        {
+          question: 'How much does Roka or Baat Pakki decoration cost at home in Bangalore?',
+          answer:
+            'Intimate home Roka and Baat Pakki setups in Bangalore start from ₹5,000, including backdrop frame, drapes, fresh floral accents, lighting, and teardown.',
+        },
+        {
+          question: 'Will the decoration fit behind our living-room sofa without moving furniture?',
+          answer:
+            'Yes. We use slim freestanding frames that tuck cleanly behind most 3-seater sofas without damaging walls or requiring heavy furniture shifting.',
+        },
+        {
+          question: 'Can you include matching decor for the shagun/gift table and main entrance?',
+          answer:
+            'Yes, we can add brass urlis, small floral runners for the gift table, and a fresh floral doorway toran.',
+        },
+      ],
+    },
+
+    'valima-decoration': {
+      slug: 'valima-decoration',
+      title: 'Valima, Walima & Shukrana Stage Decoration Bangalore — ₹5,000',
+      description:
+        'Valima (Walima) reception & Shukrana decoration in Bangalore from ₹5,000 — grand floral couple stages, banquet lighting & serene home setups. 4.9★ rated.',
+      serviceType: 'Valima decoration',
+      ogImage: SERVICE_IMAGES.engagement,
+      eyebrow: 'Valima · Walima · Shukrana · Bangalore',
+      headline: 'Valima, Walima & Shukrana Stage Decoration in Bangalore',
+      subheadline:
+        'Grand Walima banquet reception stages and serene home Shukrana prayer setups—crafted with fresh floral arches, warm chandeliers, and respectful family seating.',
+      storyTitle: 'Honouring both grand receptions and quiet family prayers',
+      storyParagraphs: [
+        'A Valima (Walima) reception celebrates the newlyweds in style—calling for a statement couple stage, lush florals, and flattering evening lighting across Shadi Mahals and hotel banquets.',
+        'For a home Shukrana gathering, the mood shifts to warmth and gratitude: serene focal backdrops, fragrant jasmine and rose urlis, and unobstructed elder seating.',
+      ],
+      highlights: [
+        {
+          title: 'Grand Walima couple stages',
+          description:
+            'Wide floral arches, plush couple seating frames, chandeliers, and banquet entry decor.',
+        },
+        {
+          title: 'Serene Shukrana home setups',
+          description:
+            'Graceful living-room backdrops, brass urli centerpieces, and warm fairy lighting.',
+        },
+        {
+          title: 'Shadi Mahal & hotel coordination',
+          description:
+            'Experienced across Bangalore marriage halls, community centres, and hotel ballrooms.',
+        },
+        {
+          title: 'Custom colour palettes',
+          description:
+            'Ivory & gold, emerald & champagne, or soft pastel florals tailored to your Valima attire.',
+        },
+      ],
+      gallery: [
+        img('reception', 0, 'Grand Walima / Valima floral stage setup in Bangalore'),
+        img('wedding', 0, 'Ivory and rose reception backdrop for Valima celebration'),
+        img('engagement', 0, 'Intimate floral frame suited for home Shukrana gatherings'),
+      ],
+      testimonial: {
+        quote:
+          'Our Walima stage looked grand yet graceful, and the entrance florals welcomed over 400 guests seamlessly.',
+        attribution: 'Walima reception · Shivajinagar / Benson Town hall',
+      },
+      trustSignals: ['Shadi Mahal ready', 'From ₹5,000 setups', '4.9★ Bangalore rated'],
+      waPrefill:
+        'Hi We Decor! I need Valima / Walima or Shukrana decoration in Bangalore. Date: _____. Venue/Area: _____. Guest count: _____.',
+      whyChooseUsEyebrow: 'Why Bangalore families book us for Valima & Shukrana',
+      whyChoose: [
+        {
+          title: 'Respectful & photogenic',
+          text: 'Dignified layouts that keep family elders comfortable while giving couples a standout photo stage.',
+        },
+        {
+          title: 'Fresh, dense florals',
+          text: 'Roses, jasmine, orchids, and greenery installed fresh for evening receptions or daytime lunches.',
+        },
+        {
+          title: 'End-to-end execution',
+          text: 'From stage frame and lighting to hall entrance arches and prompt post-event clearance.',
+        },
+      ],
+      styles: [
+        {
+          title: 'Emerald & gold Walima stage',
+          description: 'Rich evening drapes, warm chandeliers, and ivory-gold floral clusters.',
+        },
+        {
+          title: 'Ivory rose & crystal backdrop',
+          description: 'Luminous white floral frame suited for hotel and Shadi Mahal receptions.',
+        },
+        {
+          title: 'Shukrana jasmine & urli home corner',
+          description: 'Intimate prayer and family dining backdrop with fresh fragrant blooms.',
+        },
+        {
+          title: 'Garden pastel reception arch',
+          description: 'Soft blush and greenery styling for daytime or lawn Walima events.',
+        },
+      ],
+      idealOccasions: [
+        'Grand Walima / Valima banquet receptions',
+        'Home Shukrana prayer & dinner gatherings',
+        'Shadi Mahal & community hall receptions',
+        'Intimate family Walima luncheons',
+      ],
+      included: [
+        'Stage backdrop frame & fabric draping',
+        'Fresh floral arrangements per selected plan',
+        'Ambient stage & chandelier lighting',
+        'Full setup and teardown',
+      ],
+      howWeCustomize: [
+        {
+          title: 'Hall or home sizing',
+          description: 'We size the backdrop to Shadi Mahal stages or compact home living rooms.',
+        },
+        {
+          title: 'Attire & menu flow',
+          description: 'Layouts ensure clear paths for stage greetings and dining areas.',
+        },
+      ],
+      popularDecorationOptions: [
+        {
+          title: 'Home Shukrana setup',
+          description: 'Intimate focal backdrop, urlis, and warm lighting from ₹5,000.',
+        },
+        {
+          title: 'Full Walima reception stage',
+          description: 'Wide couple stage, entrance floral arch, and banquet lighting.',
+        },
+      ],
+      suitableVenues: ['Shadi Mahals', 'Marriage halls', 'Hotel banquets', 'Homes & apartments'],
+      optionalAddOns: [
+        'Couple sofa seating',
+        'Banquet entrance arch',
+        'Aisle floral stands',
+        'Table centerpieces',
+      ],
+      budgetConsiderations: {
+        intro:
+          'Home Shukrana setups start from ₹5,000; full Walima banquet stages are custom-scoped by hall width.',
+        points: [
+          {
+            title: 'Stage width & hall height',
+            description:
+              'Larger Shadi Mahal stages require wider rigging and higher floral volume.',
+          },
+          {
+            title: 'Fresh floral varieties',
+            description:
+              'Orchids and imported roses scale above classic rose, carnation, and jasmine mixes.',
+          },
+        ],
+      },
+      bookingProcess: [
+        {
+          step: 'Share venue details',
+          detail: 'WhatsApp the hall name or home photo with your Valima date.',
+        },
+        { step: 'Design & quote', detail: 'Receive stage layout options tailored to your budget.' },
+        { step: 'On-time setup', detail: 'Installed ahead of guest arrival with clean teardown.' },
+      ],
+      setupTimeline: [
+        { step: 'Setup window', detail: '2–5 hours before event start depending on hall scale.' },
+        { step: 'Teardown', detail: 'Completed promptly after event conclusion.' },
+      ],
+      themes: [
+        {
+          name: 'Royal Emerald & Ivory',
+          description: 'Deep green richness balanced with crisp white florals and gold.',
+        },
+        {
+          name: 'Warm Pearl Shukrana',
+          description: 'Soft cream drapes, jasmine, and brass urli warmth.',
+        },
+      ],
+      areasIntro: 'Serving Shadi Mahals, banquet halls, and homes across Bangalore.',
+      relatedHrefs: [
+        '/services/nikah-decoration',
+        '/services/reception-decoration',
+        '/services/wedding-setup',
+        '/services/car-decoration',
+      ],
+      ctaBody:
+        'Send your Valima, Walima, or Shukrana date and venue in Bangalore for a tailored quote.',
+      faqs: [
+        {
+          question: 'What is the starting cost for Valima or Shukrana decoration in Bangalore?',
+          answer:
+            'Intimate home Shukrana and small Walima backdrops start from ₹5,000, while grand Shadi Mahal and banquet reception stages are custom quoted based on stage size and floral coverage.',
+        },
+        {
+          question: 'Can you decorate both our Nikah and Valima stages as a package?',
+          answer:
+            'Yes. Many Bangalore families book both Nikah and Walima stages together with distinct colour palettes for each day.',
+        },
+        {
+          question: 'Do you set up inside Bangalore Shadi Mahals and community halls?',
+          answer:
+            'Yes, we regularly coordinate with Shadi Mahal and marriage hall managers across Bengaluru for timely setup and teardown.',
         },
       ],
     },

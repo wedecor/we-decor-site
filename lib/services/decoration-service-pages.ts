@@ -52,7 +52,11 @@ export type HighIntentServiceSlug =
   | 'home-decoration'
   | 'floral-decoration'
   | 'terrace-decoration'
-  | 'car-decoration';
+  | 'car-decoration'
+  | 'naming-ceremony-decoration'
+  | 'reception-decoration'
+  | 'roka-decoration'
+  | 'valima-decoration';
 
 export type DecorationServiceSlug = LegacyDecorationServiceSlug | HighIntentServiceSlug;
 

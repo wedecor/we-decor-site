@@ -52,6 +52,10 @@ export async function GET() {
 | Fresh Floral Decoration | ₹5,000 | Pooja rooms, entrances, wedding stages, halls | ${base}/services/floral-decoration |
 | Home Event Decoration (Haldi, Engagement, Birthday, Puja) | ₹3,000 | Apartments, flats, independent houses, villas | ${base}/services/home-decoration |
 | Nikah, Walima & Shukrana Ceremony Decor | ₹5,000 | Shadi mahals, banquet halls, mosques, homes | ${base}/services/nikah-decoration |
+| Valima, Walima & Shukrana Stage Decor | ₹5,000 | Shadi mahals, banquet halls, homes | ${base}/services/valima-decoration |
+| Wedding Reception Stage Decoration | ₹5,000 | Convention halls, hotels, choultries | ${base}/services/reception-decoration |
+| Roka & Baat Pakki Ceremony Decor | ₹5,000 | Homes, apartments, clubhouses | ${base}/services/roka-decoration |
+| Naming Ceremony & Cradle Decor | ₹5,000 | Homes, apartments, party halls | ${base}/services/naming-ceremony-decoration |
 | Terrace & Rooftop Decoration | ₹5,000 | Apartment terraces, villa rooftops, penthouses | ${base}/services/terrace-decoration |
 | Cabana Tent & Balloon Setup | ₹5,000 | Living rooms, balconies, terraces, lawns | ${base}/services/tent-balloon-setup |
 | Corporate Event & Office Decor | ₹5,000 | Tech parks, office floors, conference halls | ${base}/services/corporate-decoration |

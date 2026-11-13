@@ -82,6 +82,10 @@ const moreDecorations = [
   { href: '/services/terrace-decoration', label: 'Terrace Decorations' },
   { href: '/services/nikah-decoration', label: 'Nikah Decorations' },
   { href: '/services/car-decoration', label: 'Wedding Car Decorations' },
+  { href: '/services/naming-ceremony-decoration', label: 'Naming Ceremony Decorations' },
+  { href: '/services/reception-decoration', label: 'Reception Stage Decorations' },
+  { href: '/services/roka-decoration', label: 'Roka & Baat Pakki Decorations' },
+  { href: '/services/valima-decoration', label: 'Valima & Shukrana Decorations' },
 ] as const;
 
 /** Services we coordinate through trusted Bangalore partners */

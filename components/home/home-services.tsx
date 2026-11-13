@@ -58,6 +58,10 @@ const additionalServiceLinks = [
   { label: 'Terrace & Rooftop Decor', href: '/services/terrace-decoration' },
   { label: 'Cabana Tent & Balloon Setup', href: '/services/tent-balloon-setup' },
   { label: 'Nikah Ceremony Decor', href: '/services/nikah-decoration' },
+  { label: 'Valima & Shukrana Stages', href: '/services/valima-decoration' },
+  { label: 'Wedding Reception Stage', href: '/services/reception-decoration' },
+  { label: 'Roka & Baat Pakki Decor', href: '/services/roka-decoration' },
+  { label: 'Naming Ceremony & Cradle', href: '/services/naming-ceremony-decoration' },
   { label: 'Wedding Car Decoration', href: '/services/car-decoration' },
   { label: 'Stage & Backdrop Styling', href: '/services/decoration' },
 ] as const;

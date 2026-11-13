@@ -106,6 +106,10 @@ export const RELATED_DECORATION_SERVICES = [
   { href: '/services/terrace-decoration', label: 'Terrace Decorations' },
   { href: '/services/nikah-decoration', label: 'Nikah Decorations' },
   { href: '/services/car-decoration', label: 'Car Decorations' },
+  { href: '/services/naming-ceremony-decoration', label: 'Naming Ceremony Decorations' },
+  { href: '/services/reception-decoration', label: 'Reception Decorations' },
+  { href: '/services/roka-decoration', label: 'Roka & Baat Pakki Decorations' },
+  { href: '/services/valima-decoration', label: 'Valima & Shukrana Decorations' },
 ] as const;
 
 const LABEL_BY_HREF = Object.fromEntries(
@@ -204,6 +208,30 @@ export const RELATED_SERVICES_BY_PATH: Record<string, readonly string[]> = {
     '/services/wedding-setup',
     '/services/nikah-decoration',
     '/services/floral-decoration',
+  ],
+  '/services/naming-ceremony-decoration': [
+    '/services/baby-shower-decoration',
+    '/services/birthday-decoration',
+    '/services/home-decoration',
+    '/services/floral-decoration',
+  ],
+  '/services/reception-decoration': [
+    '/services/wedding-setup',
+    '/services/valima-decoration',
+    '/services/engagement-decoration',
+    '/services/car-decoration',
+  ],
+  '/services/roka-decoration': [
+    '/services/engagement-decoration',
+    '/services/haldi-decoration',
+    '/services/home-decoration',
+    '/services/wedding-setup',
+  ],
+  '/services/valima-decoration': [
+    '/services/nikah-decoration',
+    '/services/reception-decoration',
+    '/services/wedding-setup',
+    '/services/car-decoration',
   ],
 };
 
@@ -507,6 +535,46 @@ export const SERVICE_LOCALITIES_BY_PATH: Record<string, readonly InternalLink[]>
     { href: '/locations/nagarbhavi', name: 'Nagarbhavi wedding car styling' },
     { href: '/locations/chamrajpet', name: 'Chamrajpet bridal car florals' },
     { href: '/locations/yeshwanthpur', name: 'Yeshwanthpur celebration décor' },
+  ],
+  '/services/naming-ceremony-decoration': [
+    { href: '/locations/hsr-layout', name: 'Naming ceremony in HSR Layout' },
+    { href: '/locations/jayanagar', name: 'Jayanagar cradle decoration' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar naming ceremony décor' },
+    { href: '/locations/btm-layout', name: 'BTM Layout Namakarana setup' },
+    { href: '/locations/marathahalli', name: 'Marathahalli cradle florals' },
+    { href: '/locations/bellandur', name: 'Bellandur naming ceremony' },
+    { href: '/locations/sarjapur-road', name: 'Sarjapur Road baby welcome' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/reception-decoration': [
+    { href: '/locations/malleshwaram', name: 'Reception stage in Malleshwaram' },
+    { href: '/locations/nagarbhavi', name: 'Nagarbhavi reception décor' },
+    { href: '/locations/indiranagar', name: 'Indiranagar banquet stages' },
+    { href: '/locations/whitefield', name: 'Whitefield reception florals' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar wedding receptions' },
+    { href: '/locations/marathahalli', name: 'Marathahalli banquet décor' },
+    { href: '/locations/bellandur', name: 'Bellandur reception setups' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/roka-decoration': [
+    { href: '/locations/koramangala', name: 'Roka decoration in Koramangala' },
+    { href: '/locations/indiranagar', name: 'Indiranagar Baat Pakki décor' },
+    { href: '/locations/hsr-layout', name: 'HSR Layout home Roka setup' },
+    { href: '/locations/whitefield', name: 'Whitefield Roka backdrop' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar intimate Roka' },
+    { href: '/locations/sarjapur-road', name: 'Sarjapur Road apartment Roka' },
+    { href: '/locations/bellandur', name: 'Bellandur Roka florals' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
+  ],
+  '/services/valima-decoration': [
+    { href: '/locations/shanti-nagar', name: 'Valima stage in Shanti Nagar' },
+    { href: '/locations/richmond-town', name: 'Richmond Town Walima décor' },
+    { href: '/locations/ashok-nagar', name: 'Ashok Nagar Shukrana setup' },
+    { href: '/locations/rt-nagar', name: 'RT Nagar Walima reception' },
+    { href: '/locations/chamrajpet', name: 'Chamrajpet Shadi Mahal décor' },
+    { href: '/locations/btm-layout', name: 'BTM Layout Valima stages' },
+    { href: '/locations/wilson-garden', name: 'Wilson Garden Shukrana florals' },
+    { href: '/locations/bangalore', name: 'Celebrations in Bangalore' },
   ],
 };
 

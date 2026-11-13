@@ -43,6 +43,34 @@ const SERVICES_CATALOG = [
       'Bespoke wedding stage backdrops, fresh floral mandaps, reception stages, and venue entrance arches across Bengaluru.',
   },
   {
+    name: 'Wedding Reception Stage Decoration',
+    price: 'From ₹5,000',
+    path: '/services/reception-decoration',
+    summary:
+      'Evening wedding reception couple stages, floral arches, warm chandeliers, and banquet entrance arches across Bangalore.',
+  },
+  {
+    name: 'Roka & Baat Pakki Home Decoration',
+    price: 'From ₹5,000',
+    path: '/services/roka-decoration',
+    summary:
+      'Intimate living-room floral rings, drapes, and apartment-safe backdrops for Roka and Baat Pakki ceremonies.',
+  },
+  {
+    name: 'Naming Ceremony & Cradle Decoration',
+    price: 'From ₹5,000',
+    path: '/services/naming-ceremony-decoration',
+    summary:
+      'Namakarana cradle floral draping with jasmine, marigold, or pastel balloon rings for Bangalore homes and halls.',
+  },
+  {
+    name: 'Valima, Walima & Shukrana Decoration',
+    price: 'From ₹5,000',
+    path: '/services/valima-decoration',
+    summary:
+      'Grand Walima reception stages for Shadi Mahals and serene Shukrana prayer home setups across Bangalore.',
+  },
+  {
     name: 'Engagement, Roka & Baat Pakki Stage Decoration',
     price: 'From ₹5,000',
     path: '/services/engagement-decoration',

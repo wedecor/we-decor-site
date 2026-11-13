@@ -16,7 +16,7 @@ export type BlogPost = {
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: 'birthday-decoration-ideas-home-bangalore',
-    title: 'Birthday Decoration at Home in Bangalore: What Actually Works',
+    title: 'Birthday Decoration at Home in Bangalore (From ₹3,000 · 2026)',
     description:
       'Honest tips for birthday décor at home in Bangalore — room size, balloons, cake table, society rules, and what to skip.',
     datePublished: '2026-01-15',
@@ -66,7 +66,7 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: 'wedding-decoration-budget-guide-bangalore',
-    title: 'Wedding Decor Budget in Bangalore: Where the Money Actually Goes',
+    title: 'Wedding Decor Budget Bangalore (2026 Price Guide from ₹5,000)',
     description:
       'Plain-English guide to wedding decoration costs in Bangalore — stage, flowers, labour, hidden fees, and where to spend.',
     datePublished: '2026-03-05',
