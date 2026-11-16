@@ -163,6 +163,37 @@ const nextConfig = {
         destination: '/services',
         permanent: true,
       },
+      // Malformed concatenated legacy URLs seen in Search Console 404 report
+      {
+        source: '/locations/thyagarajanagar-Thyagarajanagar',
+        destination: '/locations/thyagarajanagar',
+        permanent: true,
+      },
+      {
+        source: '/locations/whitefield-Whitefield',
+        destination: '/locations/whitefield',
+        permanent: true,
+      },
+      {
+        source: '/locations/peenya-Peenya',
+        destination: '/locations/peenya',
+        permanent: true,
+      },
+      {
+        source: '/faq-FAQ',
+        destination: '/faq',
+        permanent: true,
+      },
+      {
+        source: '/reviews-Reviews',
+        destination: '/reviews',
+        permanent: true,
+      },
+      {
+        source: '/locations-Locations',
+        destination: '/locations',
+        permanent: true,
+      },
     ];
 
     // Add redirects for mixed routing cleanup

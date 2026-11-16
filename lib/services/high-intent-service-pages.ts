@@ -2779,10 +2779,11 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       headline: 'Wedding Reception Stage Decoration in Bangalore — From ₹5,000',
       subheadline:
         'Statement couple stages, cascading floral frames, warm ambient chandeliers, and welcoming banquet entrances engineered for evening wedding photography.',
-      storyTitle: 'Built for evening lighting and couple portraits',
+      storyTitle: 'Built for evening lighting, guest queues, and couple portraits',
       storyParagraphs: [
-        'A reception stage is photographed for hours under hall lights and camera flashes. We balance backdrop width, sofa placement, and warm LED uplighting so the couple stands out cleanly without harsh shadows.',
-        'Whether it is a 200-guest hotel banquet, a traditional choultry, or an intimate terrace dinner reception, we tailor the floral density and stage geometry to your exact hall dimensions.',
+        'Unlike a morning muhurtham mandap, an evening wedding reception stage lives under chandelier illumination and DSLR camera flashes for four to five hours straight. We engineer backdrop width, matte drapery, floral height, and warm 3200K lighting so couple skin tones and attire stay rich without harsh white glare.',
+        'Across Bangalore choultries, Palace Grounds pavilions, and hotel banquets in Malleshwaram, Jayanagar, JP Nagar, Hebbal, and Whitefield, we coordinate load-in slots with venue managers and scale stages smoothly from 12ft intimate frames to grand 24ft+ banquet facades.',
+        'If your reception follows a morning wedding in the same hall, our crew executes rapid 2–3 hour stage turnovers—swapping traditional mandap columns for evening crystal chandeliers, fresh rose arches, and coordinated couple loveseats before guests return.',
       ],
       highlights: [
         {
@@ -2871,23 +2872,36 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       howWeCustomize: [
         {
-          title: 'Stage width measurement',
+          title: 'Stage width & sightline mapping',
           description:
-            'We match stage span (10ft–24ft+) to your banquet hall and guest greeting queue.',
+            'We match stage span (10ft–24ft+) to your banquet hall stage, buffet placement, and guest greeting queue.',
         },
         {
-          title: 'Outfit & theme sync',
-          description: 'Share your reception lehenga/sherwani or gown shade for tailored florals.',
+          title: 'Outfit & floral palette sync',
+          description:
+            'Share your reception lehenga, sherwani, saree, or gown shade for tailored rose, orchid, and drape hues.',
+        },
+        {
+          title: 'Morning mandap-to-reception flip',
+          description:
+            'Hosted both events in one choultry? We plan modular frames so the stage transforms smoothly between ceremonies.',
         },
       ],
       popularDecorationOptions: [
         {
           title: 'Intimate reception frame',
-          description: 'Compact floral couple backdrop and lighting for 50–100 guests from ₹5,000.',
+          description:
+            'Compact floral couple backdrop and 3200K lighting for 50–100 guests from ₹5,000.',
         },
         {
-          title: 'Grand banquet stage + entry',
-          description: 'Full hall stage, couple seating, entrance arch, and welcome aisle.',
+          title: 'Grand choultry & banquet stage + entry',
+          description:
+            'Full 18ft–24ft hall stage, couple seating, entrance arch, and welcome aisle.',
+        },
+        {
+          title: 'Open lawn & terrace cocktail reception',
+          description:
+            'Weather-weighted truss frame, fairy-light canopy, and evening cocktail table blooms.',
         },
       ],
       suitableVenues: [
@@ -2899,6 +2913,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       optionalAddOns: [
         'Couple sofa / loveseat',
         'Entrance floral tunnel',
+        '3200K portrait par lights',
         'Photo booth corner',
         'Welcome LED board',
       ],
@@ -2909,41 +2924,74 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
           {
             title: 'Stage span & floral coverage',
             description:
-              'Full 20ft+ fresh floral walls require significantly more stems and rigging than 10ft focal frames.',
+              'Full 20ft+ fresh floral walls require significantly more stems and rigging than 10ft–12ft focal frames.',
           },
           {
-            title: 'Entrance & seating add-ons',
+            title: 'Entrance, aisle & seating add-ons',
             description:
-              'Adding banquet entrance arches, aisle stands, and sofa rentals adjusts the final package.',
+              'Adding banquet entrance arches, candlelit aisle stands, couple loveseats, and welcome LED boards adjusts the final package.',
+          },
+          {
+            title: 'Same-day mandap flip & venue hours',
+            description:
+              'Fast 2-hour stage turnarounds between morning wedding rituals and evening receptions, or late-night hotel teardown windows, affect crew sizing.',
           },
         ],
       },
       bookingProcess: [
         {
           step: 'Share venue & date',
-          detail: 'Send the banquet hall name, date, and reference photos you like.',
+          detail:
+            'Send the choultry, hotel banquet, or lawn name, stage photo, and inspiration references.',
         },
         {
           step: 'Stage layout & quote',
-          detail: 'We propose stage dimensions, floral options, and clear pricing.',
+          detail:
+            'We propose exact stage dimensions (12ft–24ft+), floral varieties, and itemized pricing.',
+        },
+        {
+          step: 'Venue load-in check',
+          detail:
+            'We coordinate service-lift access, power points, and morning-to-evening turnover windows.',
         },
         {
           step: 'Event-day execution',
-          detail: 'Completed ahead of guest arrival with post-event teardown.',
+          detail:
+            'Stage, lighting, and entrance arches completed ahead of couple photography with same-night teardown.',
         },
       ],
       setupTimeline: [
-        { step: 'Hall setup', detail: '3–5 hours prior to reception start.' },
-        { step: 'Teardown', detail: 'Same night after dinner concludes.' },
+        {
+          step: 'Hall access & framing',
+          detail:
+            '4–5 hours prior for full banquet stages (or 2–3 hours for mandap-to-reception flips).',
+        },
+        {
+          step: 'Florals & 3200K lighting check',
+          detail: 'Finished 60 minutes before reception start for clean photography tests.',
+        },
+        {
+          step: 'Teardown',
+          detail: 'Completed the same night after dinner and family portraits wrap.',
+        },
       ],
       themes: [
         {
           name: 'Royal Ivory & Gold',
-          description: 'Timeless cream drapes with warm chandeliers and white florals.',
+          description: 'Timeless cream drapes with crystal chandeliers and white florals.',
         },
         {
           name: 'Pastel Blush & Sage',
-          description: 'Soft garden-inspired romantic reception backdrop.',
+          description: 'Soft garden-inspired romantic reception backdrop with warm fairy curtains.',
+        },
+        {
+          name: 'Crimson & Champagne Royale',
+          description: 'Deep red roses with champagne pleats and warm brass candle pedestals.',
+        },
+        {
+          name: 'Glasshouse Tropical Chic',
+          description:
+            'Architectural matte frames with white orchids, eucalyptus, and warm Edison bulbs.',
         },
       ],
       areasIntro: 'We style wedding reception stages at halls and hotels across Bengaluru.',
@@ -2960,35 +3008,52 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
           question:
             'What is the starting price for wedding reception stage decoration in Bangalore?',
           answer:
-            'Intimate reception backdrop setups start from ₹5,000, while full-width banquet hall stages with fresh floral arches, couple sofas, lighting, and entrance decor are custom quoted based on stage span and flower density.',
+            'Intimate reception backdrop setups start from ₹5,000, while full-width banquet hall stages (16ft–24ft) with fresh floral arches, couple sofas, lighting, and entrance decor are custom quoted based on stage span and flower density.',
+        },
+        {
+          question:
+            'Can you flip our morning wedding mandap into an evening reception stage at the same choultry?',
+          answer:
+            'Yes. We regularly perform same-day mandap-to-reception stage transformations within 2–3 hours at Bangalore choultries so your evening portraits look completely fresh.',
         },
         {
           question: 'Do you provide couple sofas and hall entrance decoration together?',
           answer:
-            'Yes. We can bundle couple seating, stage backdrop, entrance floral arch, and welcome standees into one coordinated reception package.',
+            'Yes. We can bundle couple loveseats, raised stage risers/carpeting (where venue permits), stage backdrop, entrance floral tunnel, and welcome standees into one coordinated reception package.',
+        },
+        {
+          question: 'What lighting do you use so reception photos don’t have harsh glare?',
+          answer:
+            'We pair matte drapery with warm 3200K par lights and focused uplighters balanced for camera flashes, avoiding harsh cool-white LEDs that wash out outfits.',
         },
         {
           question: 'How early does your team set up before an evening reception?',
           answer:
-            'We typically begin setup 3–5 hours before the reception start time and finish ahead of couple photography.',
+            'We typically begin setup 3–5 hours before the reception start time and finish at least an hour ahead of couple pre-reception photography.',
+        },
+        {
+          question:
+            'Do you handle open lawn and terrace receptions during Bangalore’s rainy season?',
+          answer:
+            'Yes. For outdoor resort lawns and clubhouses we use weighted truss frames and weather-secured florals, and work alongside your venue’s tent or covered backup plan.',
         },
       ],
     },
 
     'roka-decoration': {
       slug: 'roka-decoration',
-      title: 'Roka & Baat Pakki Decoration in Bangalore — From ₹5,000',
+      title: 'Roka Ceremony Decoration at Home in Bangalore — From ₹5,000',
       description:
-        'Roka ceremony & Baat Pakki home decoration in Bangalore from ₹5,000 — intimate floral rings, living-room backdrops, sofa styling & apartment-safe installs.',
+        'Roka ceremony, Chunni Chadana & Tilak decoration at home in Bangalore from ₹5,000 — pastel floral rings, sofa backdrops, shagun styling & zero-drill setups.',
       serviceType: 'Roka ceremony decoration',
       ogImage: SERVICE_IMAGES.engagement,
-      eyebrow: 'Roka · Baat Pakki · Home Ceremony · Bangalore',
-      headline: 'Roka & Baat Pakki Decoration in Bangalore — Intimate Home Setups',
+      eyebrow: 'Roka · Chunni Chadana · Home Ceremony · Bangalore',
+      headline: 'Roka Ceremony Decoration at Home in Bangalore — Intimate Setups',
       subheadline:
-        'Tasteful living-room floral arches, brass urlis, and warm fairy lighting designed for apartment Roka and Baat Pakki ceremonies without crowding your home.',
+        'Tasteful living-room floral arches, brass urlis, and warm fairy lighting designed for apartment Roka, Chunni Chadana, and Tilak ceremonies without crowding your home.',
       storyTitle: 'Tailored for close-family living room ceremonies',
       storyParagraphs: [
-        'Roka and Baat Pakki ceremonies usually happen right at home or in an apartment clubhouse with 15 to 40 close relatives. Oversized wedding stages overwhelm a flat—our compact floral frames elevate your sofa wall while keeping seating comfortable.',
+        'Roka and Chunni Chadana ceremonies usually happen right at home or in an apartment clubhouse with 15 to 40 close relatives. Oversized wedding stages overwhelm a flat—our compact floral frames elevate your sofa wall while keeping seating comfortable.',
         'We match fresh marigolds, pastel roses, or ivory drapes to your outfits and ensure zero wall marks or drill holes.',
       ],
       highlights: [
@@ -3018,7 +3083,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         img(
           'engagement',
           1,
-          'Apartment-friendly floral ring backdrop for Baat Pakki family photos'
+          'Apartment-friendly floral ring backdrop for Chunni Chadana family photos'
         ),
         img('haldi', 0, 'Traditional marigold and urli styling adaptable for morning Roka rituals'),
       ],
@@ -3029,8 +3094,8 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       },
       trustSignals: ['Apartment-safe frames', 'From ₹5,000 packages', '4.9★ Bangalore rated'],
       waPrefill:
-        'Hi We Decor! I need Roka / Baat Pakki decoration at home in Bangalore. Date: _____. Area: _____. Living room or Clubhouse: _____.',
-      whyChooseUsEyebrow: 'Why families choose us for Roka & Baat Pakki',
+        'Hi We Decor! I need Roka / Chunni Chadana decoration at home in Bangalore. Date: _____. Area: _____. Living room or Clubhouse: _____.',
+      whyChooseUsEyebrow: 'Why families choose us for Roka & Chunni Chadana',
       whyChoose: [
         {
           title: 'Proportioned for real homes',
@@ -3937,42 +4002,55 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
 
     'baat-pakki-decoration': {
       slug: 'baat-pakki-decoration',
-      title: 'Baat Pakki Decoration in Bangalore — Home Ceremony Setups ₹5,000',
+      title: 'Baat Pakki & Mangni Decoration in Bangalore — Home Setups ₹5,000',
       description:
-        'Baat Pakki decoration at home in Bangalore from ₹5,000 — intimate living-room floral frames, sofa backdrops & zero-drill apartment setups. 4.9★ rated.',
+        'Baat Pakki, Mangni & Nischayathartham home decoration in Bangalore from ₹5,000 — living-room sofa backdrops, shagun platter tables & zero-drill setups.',
       serviceType: 'Baat Pakki decoration',
       ogImage: SERVICE_IMAGES.engagement,
-      eyebrow: 'Baat Pakki · Home Ceremony · Bangalore',
-      headline: 'Baat Pakki Decoration in Bangalore — Elegant Home Setups',
+      eyebrow: 'Baat Pakki · Mangni · Home Ceremony · Bangalore',
+      headline: 'Baat Pakki & Mangni Decoration in Bangalore — Home Setups',
       subheadline:
-        'Compact, tasteful floral backdrops and shagun-corner styling tailored for living rooms and society clubhouses when both families come together.',
-      storyTitle: 'Warm, uncluttered backdrops for family milestones',
+        'Compact, tasteful floral backdrops and shagun-platter styling tailored for 2BHK/3BHK drawing rooms, villas, and private dining spaces when two families formalize a wedding alliance.',
+      storyTitle: 'Warm, uncluttered backdrops for formal family alliance milestones',
       storyParagraphs: [
-        'Baat Pakki marks the formal union of two families, usually hosted inside a home living room or intimate dining space. Our designs frame the couple and elders gracefully without turning your home into a crowded banquet stage.',
-        'With freestanding weighted stands, fresh roses or marigolds, and warm fairy lighting, setup completes cleanly in 60–90 minutes.',
+        'Baat Pakki (also celebrated as Mangni, Lagna Patrika, or Nischayathartham talks) marks the formal agreement between two families, almost always hosted inside a home drawing room, terrace apartment, or intimate private dining room.',
+        'Because elder blessings, mithai exchanges, and family photographs happen right in front of the main sofa, bulky engagement stages crowd the room. We design slim 6ft–10ft weighted backdrops paired with fresh roses, mogra strings, and brass urlis that sit flush behind existing seating.',
+        'Beyond the main wall, we style the shagun, dry-fruit, and platter table so family gifts and ceremonial items photograph cleanly without cluttering walkways or drilling into apartment walls.',
       ],
       highlights: [
         {
           title: 'Living-room proportions',
-          description: 'Slim frames sized cleanly behind 3-seater sofas without blocking walkways.',
+          description:
+            'Slim weighted frames sized cleanly behind 3-seater sofas without blocking balcony doors or walkways.',
         },
         {
-          title: 'Fresh roses & soft drapes',
-          description: 'Pastel floral rings, ivory drapes, or traditional marigold accents.',
+          title: 'Fresh roses, mogra & soft drapes',
+          description:
+            'Pastel floral rings, ivory chiffon drapes, or traditional saffron marigold and mango-leaf accents.',
         },
         {
-          title: 'Shagun & gift table styling',
-          description: 'Brass urlis, candle holders, and floral runners for family exchanges.',
+          title: 'Shagun & platter table styling',
+          description:
+            'Brass urlis, floating rose petals, tealight holders, and floral runners for ceremonial gift exchanges.',
         },
         {
           title: 'Zero apartment damage',
-          description: 'No wall drilling, tape marks, or heavy rigging in your home.',
+          description:
+            'Freestanding bases with protective floor pads — no wall drilling, tape marks, or heavy rigging.',
         },
       ],
       gallery: [
-        img('engagement', 0, 'Intimate living-room floral backdrop for Baat Pakki in Bangalore'),
-        img('engagement', 1, 'Pastel floral ring setup behind home sofa seating'),
-        img('haldi', 0, 'Traditional brass urli and floral accents for morning family rituals'),
+        img(
+          'engagement',
+          2,
+          'Intimate living-room floral backdrop for Baat Pakki and Mangni in Bangalore'
+        ),
+        img('engagement', 3, 'Warm draped sofa backdrop for home family alliance ceremony'),
+        img(
+          'haldi',
+          1,
+          'Traditional marigold and brass urli corner for auspicious Baat Pakki rituals'
+        ),
       ],
       testimonial: {
         quote: 'Simple, classy, and fit our 3BHK living room perfectly for the Baat Pakki lunch.',
@@ -3980,103 +4058,165 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       },
       trustSignals: ['From ₹5,000 home setups', 'Zero wall damage', '4.9★ Bangalore rated'],
       waPrefill:
-        'Hi We Decor! I need Baat Pakki decoration at home in Bangalore. Date: _____. Area: _____. Living room photo attached.',
-      whyChooseUsEyebrow: 'Why families choose us for Baat Pakki',
+        'Hi We Decor! I need Baat Pakki / Mangni decoration at home in Bangalore. Date: _____. Area: _____. Living room photo attached.',
+      whyChooseUsEyebrow: 'Why families choose us for Baat Pakki & Mangni',
       whyChoose: [
         {
-          title: 'Measured for apartments',
-          text: 'We fit your wall width and sofa height first so family portraits look balanced.',
+          title: 'Measured for apartments & villas',
+          text: 'We fit your wall width, sofa height, and ceiling fan clearance first so family portraits look balanced.',
         },
         {
           title: 'Quick 60–90 min install',
-          text: 'Quiet, clean setup before the guests arrive and tidy teardown afterward.',
+          text: 'Quiet, clean setup before the visiting family arrives and tidy teardown afterward.',
         },
         {
-          title: 'Upgradeable to Roka / Engagement',
-          text: 'Seamless experience if you book us for your Roka, Haldi, and Wedding too.',
+          title: 'Private dining & clubhouse ready',
+          text: 'Easy to adapt for boutique restaurant private rooms across Indiranagar, MG Road, and Whitefield.',
         },
       ],
       styles: [
         {
           title: 'Pastel Ring & Fairy Lights',
-          description: 'Gold circular frame with blush roses and ivory drapes.',
+          description: 'Gold circular frame with blush roses, baby’s breath, and ivory drapes.',
         },
         {
           title: 'Traditional Marigold & Urli',
-          description: 'Warm saffron and yellow florals for morning auspicious ceremonies.',
+          description:
+            'Warm saffron and yellow florals with brass urlis for auspicious morning talks.',
         },
         {
           title: 'Botanical Arch Backdrop',
-          description: 'Eucalyptus greenery and cream roses for contemporary homes.',
+          description: 'Eucalyptus greenery and cream roses for contemporary homes and terraces.',
         },
         {
-          title: 'Clubhouse Family Stage',
-          description: 'Wider 10ft–12ft frame for 30–60 guests in society halls.',
+          title: 'Clubhouse & Private Dining Frame',
+          description:
+            'Wider 10ft–12ft draped wall with welcome easel for 30–60 guests in society halls.',
         },
       ],
       idealOccasions: [
         'Intimate home Baat Pakki',
-        'Roka & Tilak ceremonies',
-        'Family shagun exchange lunches',
-        'Small engagement announcements',
+        'Mangni & ring-announcement lunches',
+        'Lagna Patrika & Nischayathartham gatherings',
+        'Family shagun & mithai exchanges',
       ],
       included: [
-        'Freestanding backdrop frame & drapes',
-        'Fresh floral accents',
-        'Warm fairy lighting',
-        'Setup & teardown across Bangalore',
+        'Freestanding backdrop frame & matte drapes',
+        'Fresh floral accents & jasmine strings',
+        'Warm 3200K fairy or LED accent lighting',
+        'Delivery, setup & teardown across Bangalore',
       ],
       howWeCustomize: [
         {
-          title: 'Room photo sizing',
-          description: 'Send a quick photo of your sofa wall to lock clean proportions.',
+          title: 'Room photo & sofa sizing',
+          description:
+            'Send a quick photo of your sofa wall so we lock clean proportions around existing furniture.',
         },
         {
-          title: 'Colour coordination',
-          description: 'Match flowers with family outfits and home interiors.',
+          title: 'Outfit & floral matching',
+          description:
+            'Coordinate rose, carnation, and drape tones with the couple’s attire and home interiors.',
+        },
+        {
+          title: 'Platter & doorway extras',
+          description:
+            'Add a shagun display corner, main-door floral toran, or entrance brass urlis as needed.',
         },
       ],
       popularDecorationOptions: [
         {
           title: 'Home sofa backdrop',
-          description: 'Complete living-room focal frame and lights from ₹5,000.',
+          description: 'Complete living-room focal frame, drapes, florals, and lights from ₹5,000.',
         },
         {
-          title: 'Backdrop + entrance & table florals',
-          description: 'Includes main-door toran and shagun table floral bowls.',
+          title: 'Backdrop + entrance & platter florals',
+          description:
+            'Includes main-door toran, brass urlis, and shagun/mithai table floral bowls.',
+        },
+        {
+          title: 'Clubhouse or PDR alliance setup',
+          description:
+            'Scaled 10ft–12ft frame with welcome signage for joint family dining venues.',
         },
       ],
       suitableVenues: [
         '2BHK / 3BHK flats',
-        'Villas',
+        'Independent houses & villas',
         'Apartment clubhouses',
-        'Private dining rooms',
+        'Hotel private dining rooms',
       ],
-      optionalAddOns: ['Main-door toran', 'Brass urlis', 'Welcome board'],
+      optionalAddOns: [
+        'Main-door floral toran',
+        'Brass urlis & floating petals',
+        'Shagun platter table styling',
+        'Custom welcome board',
+      ],
       budgetConsiderations: {
         intro: 'Home Baat Pakki setups start from ₹5,000 across Bangalore.',
         points: [
           {
-            title: 'Floral coverage',
+            title: 'Floral coverage & stem mix',
             description:
-              'Corner floral pockets keep costs near ₹5,000; full-frame floral walls scale up.',
+              'Corner rose and jasmine pockets keep budgets near ₹5,000; full-frame floral coverage scales up.',
+          },
+          {
+            title: 'Separate gift & entrance corners',
+            description:
+              'Styling an apartment main door, foyer urli console, and mithai table alongside the sofa backdrop adjusts material scope.',
+          },
+          {
+            title: 'Apartment vs banquet access',
+            description:
+              'Ground-floor flats and service-lift apartments install fastest; multi-flight stair carry or hotel slots may affect scheduling.',
           },
         ],
       },
       bookingProcess: [
-        { step: 'Send wall photo', detail: 'Share your date, locality, and sofa wall photo.' },
-        { step: 'Pick a backdrop', detail: 'Select ring, arch, or drape style.' },
-        { step: 'Same-day setup', detail: 'Completed 60–90 minutes before guests arrive.' },
+        {
+          step: 'Send wall photo',
+          detail: 'Share your date, Bangalore locality, and photo of the sofa wall or dining room.',
+        },
+        {
+          step: 'Pick a backdrop direction',
+          detail: 'Select pastel ring, arch, or traditional marigold-and-urli styling.',
+        },
+        {
+          step: 'Approve transparent quote',
+          detail: 'Lock exact dimensions, floral colours, and optional add-ons via WhatsApp.',
+        },
+        {
+          step: 'Same-day setup',
+          detail: 'Completed quietly in 60–90 minutes before the visiting family arrives.',
+        },
       ],
       setupTimeline: [
-        { step: 'Setup', detail: '60–90 minutes before the ceremony.' },
-        { step: 'Teardown', detail: 'Same evening or next day as convenient.' },
+        {
+          step: 'Pre-event confirmation',
+          detail: 'Confirm apartment gate entry, lift timing, and room arrangement a day prior.',
+        },
+        { step: 'Setup window', detail: '60–90 minutes completed ahead of family arrival.' },
+        { step: 'Teardown', detail: 'Same evening or next morning at your convenience.' },
       ],
       themes: [
-        { name: 'Cream & Blush', description: 'Subtle pastel roses with warm fairy lights.' },
-        { name: 'Saffron & Brass', description: 'Traditional auspicious accents.' },
+        {
+          name: 'Cream & Blush',
+          description: 'Subtle pastel roses, white drapes, and warm fairy lights.',
+        },
+        {
+          name: 'Saffron & Brass',
+          description: 'Traditional auspicious marigold garlands with brass urli bowls.',
+        },
+        {
+          name: 'Ivory & Mogra',
+          description:
+            'Fragrant jasmine strands paired with clean cream backdrops for home rituals.',
+        },
+        {
+          name: 'Sage & Peach Minimal',
+          description: 'Modern foliage and soft peach blooms for understated drawing-room photos.',
+        },
       ],
-      areasIntro: 'Available across all Bangalore apartments and villas.',
+      areasIntro: 'Available across apartments, villas, and private dining venues in Bengaluru.',
       relatedHrefs: [
         '/services/roka-decoration',
         '/services/engagement-decoration',
@@ -4089,12 +4229,28 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         {
           question: 'How much does Baat Pakki decoration cost in Bangalore?',
           answer:
-            'Intimate home Baat Pakki backdrops start from ₹5,000 across Bangalore, including freestanding backdrop frame, fresh floral pockets, lighting, and teardown.',
+            'Intimate home Baat Pakki and Mangni backdrops start from ₹5,000 across Bangalore, including freestanding backdrop frame, fresh floral pockets, warm lighting, and teardown.',
+        },
+        {
+          question: 'How does Baat Pakki decor differ from a full Roka or Engagement setup?',
+          answer:
+            'Baat Pakki setups are designed specifically to leave living-room sofas, dining walkways, and elder seating open for family conversation and shagun exchanges rather than replacing home furniture with a formal stage.',
         },
         {
           question: 'How much space is needed behind our living room sofa?',
           answer:
-            'Only about 1.5–2 feet of depth behind your sofa is needed for our slim weighted backdrop stands.',
+            'Only about 1.5–2 feet of depth behind your sofa is needed for our slim weighted backdrop stands, with zero wall drilling or tape.',
+        },
+        {
+          question:
+            'Can you style hotel private dining rooms in Indiranagar, MG Road, or Whitefield?',
+          answer:
+            'Yes. We regularly set up compact, zero-rigging backdrops inside restaurant private dining rooms and boutique hotel lounges across central and east Bangalore.',
+        },
+        {
+          question: 'Do you also decorate the shagun and mithai gift table?',
+          answer:
+            'Yes. We can add brass urlis, rose petals, tealight holders, and floral table runners to frame shagun envelopes, fruit baskets, and traditional gifts neatly.',
         },
       ],
     },
