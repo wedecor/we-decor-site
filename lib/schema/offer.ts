@@ -1,5 +1,7 @@
 import { SCHEMA_IDS } from '@/lib/local-seo/constants';
-import { PRICING_TIERS } from '@/lib/content/pricing-tiers';
+import { PRICING_PACKAGES } from '@/lib/content/pricing-tiers';
+import { absoluteUrl } from '@/lib/metadata';
+import { bangaloreAreaServed } from './_helpers';
 import type { JsonLdNode } from './types';
 
 export function buildServiceOffer(options: {
@@ -24,41 +26,40 @@ export function buildServiceOffer(options: {
   };
 }
 
-function offerIdSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-}
-
 export function buildPricingOfferCatalog(pageUrl: string): JsonLdNode {
+  const baseId = pageUrl.replace(/\/+$/, '');
   return {
     '@type': 'OfferCatalog',
-    '@id': `${pageUrl.replace(/\/+$/, '')}#offer-catalog`,
-    name: 'Event decoration starting prices',
+    '@id': `${baseId}#offer-catalog`,
+    name: 'Decoration Packages',
     url: pageUrl,
-    itemListElement: PRICING_TIERS.map((tier, index) => ({
-      '@type': 'Offer',
-      '@id': `${pageUrl.replace(/\/+$/, '')}#offer-${offerIdSlug(tier.name)}`,
-      position: index + 1,
-      name: tier.name,
-      description: tier.description,
-      url: pageUrl,
-      priceCurrency: 'INR',
-      price: String(tier.lowPrice),
-      priceSpecification: {
-        '@type': 'PriceSpecification',
+    itemListElement: PRICING_PACKAGES.map((pkg, index) => {
+      const serviceUrl = absoluteUrl(pkg.servicePageHref);
+      return {
+        '@type': 'Offer',
+        '@id': `${baseId}#offer-${pkg.slug}`,
+        position: index + 1,
+        name: pkg.name,
+        description: pkg.description,
+        url: serviceUrl,
         priceCurrency: 'INR',
-        minPrice: tier.lowPrice,
-        price: tier.lowPrice,
-      },
-      availability: 'https://schema.org/InStock',
-      seller: { '@id': SCHEMA_IDS.localBusiness },
-      itemOffered: {
-        '@type': 'Service',
-        name: tier.name,
-        provider: { '@id': SCHEMA_IDS.localBusiness },
-      },
-    })),
+        price: String(pkg.priceFrom),
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'INR',
+          minPrice: pkg.priceFrom,
+          price: pkg.priceFrom,
+        },
+        availability: 'https://schema.org/InStock',
+        seller: { '@id': SCHEMA_IDS.localBusiness },
+        itemOffered: {
+          '@type': 'Service',
+          name: pkg.name,
+          url: serviceUrl,
+          areaServed: bangaloreAreaServed(),
+          provider: { '@id': SCHEMA_IDS.localBusiness },
+        },
+      };
+    }),
   };
 }

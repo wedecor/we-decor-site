@@ -2,7 +2,8 @@ import { absoluteUrl } from '@/lib/metadata';
 import { CORE_DECORATION_SERVICES, NAP, SCHEMA_IDS } from '@/lib/local-seo/constants';
 import { SITE_FAQS, HOME_PAGE_FAQS } from '@/lib/content/site-faq';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
-import { asGraph, buildAreaServedEntities, pageId } from './_helpers';
+import { PRICING_FAQS } from '@/lib/content/pricing-tiers';
+import { asGraph, buildAreaServedEntities, buildBusinessReferenceNode, pageId } from './_helpers';
 import { buildLocalBusiness } from './local-business';
 import { buildWebSite } from './website';
 import { buildWebPage } from './webpage';
@@ -90,14 +91,23 @@ export function buildPricingPageGraph(options: {
 }): GraphDocument {
   const url = absoluteUrl('/pricing');
   const catalog = buildPricingOfferCatalog(url);
+  const faq = buildFaqPageNode([...PRICING_FAQS], url);
+  const business = {
+    ...buildBusinessReferenceNode(),
+    hasOfferCatalog: { '@id': catalog['@id'] as string },
+  };
   return asGraph(
     buildWebPage({
       name: options.name,
       description: options.description,
       url,
       mainEntity: { '@id': catalog['@id'] as string },
+      hasPart: faq ? { '@id': faq['@id'] as string } : undefined,
     }),
-    catalog
+    business,
+    ...buildAreaServedEntities(),
+    catalog,
+    faq
   );
 }
 

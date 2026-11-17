@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { CONTACT } from '@/lib/contact';
-import { PRICING_SUMMARY } from '@/lib/content/pricing-tiers';
+import { getStartingPriceForServiceSlug, PRICING_SUMMARY } from '@/lib/content/pricing-tiers';
 import type { DecorationServicePageConfig } from '@/lib/services/decoration-service-pages';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
 import TrackedPhoneLink from '@/components/analytics/TrackedPhoneLink';
@@ -109,6 +109,7 @@ function relatedFor(config: DecorationServicePageConfig, servicePath: string): E
 export default function DecorationServicePage({ config }: Props) {
   const whatsappHref = CONTACT.waUrl(config.waPrefill);
   const phoneHref = `tel:${CONTACT.PRIMARY_NUMBER}`;
+  const startingPrice = getStartingPriceForServiceSlug(config.slug);
   const occasions = idealOccasionsFor(config);
   const source = `service:${config.slug}`;
   const servicePath = `/services/${config.slug}`;
@@ -171,7 +172,20 @@ export default function DecorationServicePage({ config }: Props) {
               Enquire online
             </Link>
           </div>
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-2 text-sm text-lux-muted">
+          <p className="mt-6 text-sm text-lux-muted">
+            Starting from{' '}
+            <span className="text-lux-gold font-medium">
+              ₹{startingPrice.toLocaleString('en-IN')}
+            </span>{' '}
+            —{' '}
+            <Link
+              href="/pricing"
+              className="underline decoration-lux-gold/60 underline-offset-4 hover:text-lux-ivory transition-colors"
+            >
+              see all prices
+            </Link>
+          </p>
+          <ul className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-sm text-lux-muted">
             {config.trustSignals.map((signal) => (
               <li key={signal} className="flex items-center gap-2">
                 <span className="h-1 w-1 rounded-full bg-lux-gold/80" aria-hidden />

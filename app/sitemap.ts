@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/services`, priority: 0.9 },
     { url: `${base}/gallery`, priority: 0.8 },
     { url: `${base}/blog`, priority: 0.7 },
-    { url: `${base}/pricing`, priority: 0.7 },
+    { url: `${base}/pricing`, priority: 0.9 },
     { url: `${base}/faq`, priority: 0.6 },
     { url: `${base}/contact`, priority: 0.5 },
     { url: `${base}/reviews`, priority: 0.7 },

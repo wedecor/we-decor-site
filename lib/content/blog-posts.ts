@@ -284,6 +284,66 @@ export const BLOG_POSTS: BlogPost[] = [
       'Across JP Nagar, Jayanagar, Whitefield, Marathahalli, and HSR Layout, we review your living-room photos first so the backdrop fits ceiling height and sofa placement cleanly. Send 2–3 room photos and your ceremony date on WhatsApp for a transparent, custom quote.',
     ],
   },
+  {
+    slug: 'wedding-car-decoration-cost-bangalore',
+    title: 'Wedding Car Decoration Cost in Bangalore (From ₹2,500 · 2026)',
+    description:
+      '2026 price guide for wedding car decoration in Bangalore — fresh rose bonnets, orchid ribbons, paint-safe doorstep setup from ₹2,500 by We Decor Events.',
+    datePublished: '2026-11-17',
+    readingTimeMinutes: 5,
+    authorName: 'We Decor Events',
+    featuredImage: '/work/car/wedding-car-floral-decoration-bangalore.webp',
+    relatedServiceHref: '/services/car-decoration',
+    relatedServiceLabel: 'Wedding Car Decorations',
+    tags: ['car decoration', 'wedding car', 'florals', 'bangalore', 'pricing'],
+    paragraphs: [
+      'Wedding car decoration in Bangalore starts from ₹2,500 for clean, paint-safe ribbon and fresh floral bonnet accents installed directly at your home, hotel portico, or choultry parking area. Understanding what shifts the quote helps you get crisp photos without overpaying or risking paint scratches.',
+      'At the ₹2,500 starting floor, setups feature a coordinated organza or satin ribbon V-drape across the hood with fresh rose and baby’s breath clusters on the front grill and door handles. This suits sedans, SUVs, and luxury wedding cars heading straight from the venue to the reception.',
+      'Stepping up to full fresh-rose bonnet hearts, white and purple Thai orchids, floral mirror garlands, and rear windshield accents raises the flower stem count and installation time. Choosing seasonal blooms over imported stems keeps the car looking lush even in afternoon Bengaluru traffic.',
+      'Just as important as aesthetics is car paint protection: we never use cello tape, superglue, or rough metal wires on clear-coat paint. Soft foam-backed suction anchors and clean silk ties stay secure at city speeds and lift off cleanly after the bidaai.',
+      'Check full style options on /services/car-decoration or compare event starting rates on /pricing. Share your car model, wedding date, and pickup neighbourhood on WhatsApp for an exact quote.',
+    ],
+  },
+  {
+    slug: 'haldi-mehndi-decoration-cost-bangalore',
+    title: 'Haldi & Mehndi Decoration Cost in Bangalore (From ₹5,000 · 2026)',
+    description:
+      'Practical 2026 pricing guide for home and terrace Haldi & Mehndi decoration in Bangalore — marigold backdrops, brass urlis & canopies starting from ₹5,000.',
+    datePublished: '2026-11-17',
+    readingTimeMinutes: 6,
+    authorName: 'We Decor Events',
+    featuredImage: '/services/haldi.webp',
+    relatedServiceHref: '/services/haldi-decoration',
+    relatedServiceLabel: 'Haldi & Mehndi Decorations',
+    tags: ['haldi decoration', 'mehndi', 'home decoration', 'bangalore', 'marigold'],
+    paragraphs: [
+      'Home and terrace Haldi and Mehndi decoration in Bangalore starts from ₹5,000 for intimate focal backdrops paired with marigold garlands, brass urlis, and warm low seating. Whether you are hosting 20 family members inside an apartment living room or 80 guests on an open clubhouse lawn, a few practical choices drive the cost.',
+      'For compact 2BHK and 3BHK apartments, a focused 6ft–8ft marigold and mogra frame with floor drop-cloth protection leaves plenty of room for turmeric rituals without staining tiles or carpets. See /services/haldi-decoration for turmeric-safe mats, brass urlis, and flower-petal bowl layouts.',
+      'For afternoon Mehndi gatherings, costs depend on whether you need a colourful Rajasthani drape umbrella canopy, gota patti backdrops, bolsters, and extra shade over artist seating. Combining Haldi in the morning and Mehndi in the evening on the same base structure is one of the smartest ways to save on /services/mehndi-decoration.',
+      'Outdoor terraces and farmhouses require weighted truss frames so Bangalore afternoon winds do not disturb drapes or floral strings. Let us know if the setup is open-sky or covered so we quote the right rigging from the start.',
+      'See all starting prices on /pricing or send 2–3 photos of your living room, terrace, or lawn along with your date on WhatsApp for an itemized quote.',
+    ],
+  },
+  {
+    slug: 'birthday-balloon-decoration-cost-bangalore',
+    title: 'Birthday & Balloon Decoration Cost in Bangalore (From ₹3,000)',
+    description:
+      'Transparent 2026 cost guide for birthday and balloon decoration in Bangalore — organic pastel arches, neon backdrops & cake plinths at home from ₹3,000.',
+    datePublished: '2026-11-17',
+    readingTimeMinutes: 5,
+    authorName: 'We Decor Events',
+    featuredImage: '/services/birthday.webp',
+    relatedServiceHref: '/services/birthday-decoration',
+    relatedServiceLabel: 'Birthday & Balloon Decorations',
+    tags: ['birthday decoration', 'balloon arch', 'home setup', 'bangalore', 'pricing'],
+    paragraphs: [
+      'Birthday and balloon decoration at home in Bangalore starts from ₹3,000 for a custom wall backdrop, air-filled organic pastel or chrome balloon garland, and neat cake-table framing. Because pricing scales with wall span and props rather than fixed one-size packages, knowing what moves the cost keeps your party on budget.',
+      'A classic home setup around ₹3,000 covers a clean 6ft–8ft living-room focal zone where the cake cutting and family photos happen. Apartment-safe weighted stands mean zero drilling or wall-paint peeling when balloons come down after the party.',
+      'Adding metallic chrome double-stuffed balloons, custom name neon signs, shimmer sequin panels, cake pedestal plinths, or kids theme cutouts increases material and fabrication work—popular for first birthdays and 25th/30th/50th milestones showcased on /services/birthday-decoration and /services/balloon-decoration.',
+      'If you are booking an apartment clubhouse in Whitefield, Bellandur, Sarjapur Road, or Yelahanka, confirm your hall access slot early so our crew can complete inflation and framing 2 hours before guests arrive.',
+      'Compare starting prices across every celebration on /pricing or message us on WhatsApp with your room photo, preferred colour palette, and party date for a transparent quote.',
+    ],
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPost | undefined {
