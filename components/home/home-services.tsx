@@ -5,69 +5,69 @@ import { SERVICE_IMAGES } from '@/lib/images';
 
 const services = [
   {
-    title: 'Birthday',
-    tag: 'At home & venues',
+    title: 'Birthday Decoration',
+    tag: 'From ₹3,000 · Home & venues',
     image: SERVICE_IMAGES.birthday,
     href: '/services/birthday-decoration',
     alt: 'Birthday balloon and cake-table decoration in a Bangalore home',
   },
   {
-    title: 'Haldi',
-    tag: 'Marigold & gold',
+    title: 'Haldi Decoration',
+    tag: 'From ₹5,000 · Marigold & urli',
     image: SERVICE_IMAGES.haldi,
     href: '/services/haldi-decoration',
     alt: 'Marigold and gold haldi ceremony backdrop in Bengaluru',
   },
   {
-    title: 'Engagement',
-    tag: 'Romantic stages',
+    title: 'Engagement Stage',
+    tag: 'From ₹5,000 · Ring ceremony & Roka',
     image: SERVICE_IMAGES.engagement,
     href: '/services/engagement-decoration',
     alt: 'Romantic engagement stage with florals and soft lighting in Bangalore',
   },
   {
-    title: 'Wedding',
-    tag: 'Mandap & reception',
+    title: 'Wedding Decorators',
+    tag: 'From ₹5,000 · Mandap & reception',
     image: '/home-preview/reception.webp',
     href: '/services/wedding-setup',
     alt: 'Wedding reception stage décor with floral backdrop in Bengaluru',
   },
   {
-    title: 'Corporate',
-    tag: 'Brand celebrations',
-    image: SERVICE_IMAGES.corporate,
-    href: '/services/corporate-decoration',
-    alt: 'Corporate event stage and brand backdrop decoration in Bangalore',
+    title: 'Baby Shower & Seemantham',
+    tag: 'From ₹5,000 · Cradle & blessing nook',
+    image: SERVICE_IMAGES.engagement,
+    href: '/services/baby-shower-decoration',
+    alt: 'Baby shower and Seemantham floral backdrop decoration in Bangalore',
   },
   {
-    title: 'Room decor',
-    tag: 'Surprise setups',
-    image: SERVICE_IMAGES.roomDecor,
-    href: '/services/room-decoration',
-    alt: 'Surprise bedroom decoration with balloons and lights in Bangalore',
+    title: 'Wedding Car Decoration',
+    tag: 'From ₹2,500 · Doorstep rose & orchid',
+    image: '/work/car/wedding-car-floral-decoration-bangalore.webp',
+    href: '/services/car-decoration',
+    alt: 'Wedding car fresh flower decoration in Bangalore from ₹2,500',
   },
 ] as const;
 
 const additionalServiceLinks = [
-  { label: 'Balloon Decoration', href: '/services/balloon-decoration' },
+  { label: 'Corporate Event Decor', href: '/services/corporate-decoration' },
+  { label: 'Bridal & Surprise Room Decor', href: '/services/room-decoration' },
+  { label: 'Balloon Decoration (From ₹3,000)', href: '/services/balloon-decoration' },
   { label: 'Fresh Flower Decoration', href: '/services/floral-decoration' },
-  { label: 'Baby Shower & Seemantham', href: '/services/baby-shower-decoration' },
+  { label: 'Wedding Reception Stage', href: '/services/reception-decoration' },
+  { label: 'Nikah Ceremony Decor', href: '/services/nikah-decoration' },
+  { label: 'Valima & Shukrana Stages', href: '/services/valima-decoration' },
+  { label: 'Roka Ceremony Decor', href: '/services/roka-decoration' },
+  { label: 'Baat Pakki & Mangni Decor', href: '/services/baat-pakki-decoration' },
+  { label: 'Naming Ceremony & Cradle', href: '/services/naming-ceremony-decoration' },
+  { label: 'Mehndi Ceremony Decor', href: '/services/mehndi-decoration' },
+  { label: 'Bridal Shower & Bride-to-Be', href: '/services/bridal-shower-decoration' },
+  { label: 'Housewarming & Griha Pravesh', href: '/services/housewarming-decoration' },
   { label: 'Anniversary Setups', href: '/services/anniversary-decoration' },
   { label: 'Romantic Proposals', href: '/services/proposal-decoration' },
   { label: 'Home Celebrations', href: '/services/home-decoration' },
   { label: 'Terrace & Rooftop Decor', href: '/services/terrace-decoration' },
   { label: 'Cabana Tent & Balloon Setup', href: '/services/tent-balloon-setup' },
-  { label: 'Nikah Ceremony Decor', href: '/services/nikah-decoration' },
-  { label: 'Valima & Shukrana Stages', href: '/services/valima-decoration' },
-  { label: 'Wedding Reception Stage', href: '/services/reception-decoration' },
-  { label: 'Roka & Baat Pakki Decor', href: '/services/roka-decoration' },
-  { label: 'Naming Ceremony & Cradle', href: '/services/naming-ceremony-decoration' },
-  { label: 'Mehndi Ceremony Decor', href: '/services/mehndi-decoration' },
-  { label: 'Bridal Shower & Bride-to-Be', href: '/services/bridal-shower-decoration' },
-  { label: 'Housewarming & Griha Pravesh', href: '/services/housewarming-decoration' },
-  { label: 'Baat Pakki Home Decor', href: '/services/baat-pakki-decoration' },
   { label: 'Shukrana Home Setups', href: '/services/shukrana-decoration' },
-  { label: 'Wedding Car Decoration', href: '/services/car-decoration' },
   { label: 'Stage & Backdrop Styling', href: '/services/decoration' },
 ] as const;
 
@@ -136,11 +136,14 @@ export default function HomeServices() {
               </li>
             ))}
           </ul>
-          <p className="mt-8">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/services" className="lux-btn-secondary text-sm">
               All services
             </Link>
-          </p>
+            <Link href="/pricing" className="lux-btn-primary text-sm">
+              See all package prices
+            </Link>
+          </div>
         </div>
       </div>
     </section>

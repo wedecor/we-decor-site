@@ -1,16 +1,22 @@
 import Link from 'next/link';
 import { HOME_PAGE_FAQS } from '@/lib/content/site-faq';
 
-const faqs = [
-  {
-    ...HOME_PAGE_FAQS[0],
-    link: { href: '/pricing', label: 'View full pricing' },
+const FAQ_LINKS: Record<string, { href: string; label: string }> = {
+  [HOME_PAGE_FAQS[0].question]: { href: '/pricing', label: 'View full pricing' },
+  [HOME_PAGE_FAQS[5].question]: {
+    href: '/services/haldi-decoration',
+    label: 'Explore haldi decoration',
   },
-  HOME_PAGE_FAQS[1],
-  HOME_PAGE_FAQS[2],
-  HOME_PAGE_FAQS[3],
-  HOME_PAGE_FAQS[4],
-] as const;
+  [HOME_PAGE_FAQS[6].question]: {
+    href: '/services/birthday-decoration',
+    label: 'Explore birthday decoration',
+  },
+};
+
+const faqs = HOME_PAGE_FAQS.map((item) => ({
+  ...item,
+  link: FAQ_LINKS[item.question],
+}));
 
 export default function HomeFaq() {
   return (

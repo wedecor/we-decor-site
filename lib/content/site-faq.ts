@@ -79,5 +79,5 @@ export const SITE_FAQS = [
   },
 ] as const;
 
-/** The five questions rendered on the homepage FAQ section. */
-export const HOME_PAGE_FAQS = SITE_FAQS.slice(0, 5);
+/** The seven core & pricing questions rendered on the homepage FAQ section. */
+export const HOME_PAGE_FAQS = [...SITE_FAQS.slice(0, 5), SITE_FAQS[6], SITE_FAQS[7]] as const;
