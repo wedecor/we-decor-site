@@ -25,6 +25,8 @@ export type PartnerServiceConfig = {
   highlightTitle: string;
   highlightBody: string;
   highlightNote: string;
+  sections?: ReadonlyArray<{ heading: string; body: string }>;
+  faqs?: ReadonlyArray<{ question: string; answer: string }>;
   ctaTitle: string;
   ctaBody: string;
 };
@@ -88,6 +90,43 @@ export default function PartnerServicePage({
                 </div>
               </FadeIn>
             </div>
+
+            {config.sections?.length ? (
+              <div className="grid md:grid-cols-2 gap-8 md:gap-10 mb-20">
+                {config.sections.map((sec) => (
+                  <div key={sec.heading} className="lux-surface p-8 md:p-10">
+                    <h2 className="font-display text-xl md:text-2xl text-lux-ivory mb-4">
+                      {sec.heading}
+                    </h2>
+                    <p className="text-sm md:text-base text-lux-muted leading-relaxed">
+                      {sec.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+
+            {config.faqs?.length ? (
+              <div className="lux-surface p-8 md:p-12 mb-20">
+                <p className="lux-eyebrow mb-3">Frequently asked questions</p>
+                <h2 className="lux-heading-sm mb-8">
+                  Questions about stage &amp; backdrop styling
+                </h2>
+                <dl className="space-y-6">
+                  {config.faqs.map((faq) => (
+                    <div
+                      key={faq.question}
+                      className="border-b border-white/[0.08] pb-6 last:border-b-0"
+                    >
+                      <dt className="font-display text-lg text-lux-ivory mb-2">{faq.question}</dt>
+                      <dd className="text-sm md:text-base text-lux-muted leading-relaxed">
+                        {faq.answer}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ) : null}
 
             <FadeIn delay={0.1}>
               <CoreExploreLinks

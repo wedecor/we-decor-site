@@ -5,19 +5,20 @@ import { BLOG_POSTS } from '@/lib/content/blog-posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE_URL.replace(/\/+$/, '');
+  const siteLastModified = new Date('2026-11-19T00:00:00Z');
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: `${base}/`, priority: 1.0 },
-    { url: `${base}/about`, priority: 0.7 },
-    { url: `${base}/services`, priority: 0.9 },
-    { url: `${base}/gallery`, priority: 0.8 },
-    { url: `${base}/blog`, priority: 0.7 },
-    { url: `${base}/pricing`, priority: 0.9 },
-    { url: `${base}/faq`, priority: 0.6 },
-    { url: `${base}/contact`, priority: 0.5 },
-    { url: `${base}/reviews`, priority: 0.7 },
-    { url: `${base}/locations`, priority: 0.8 },
-    { url: `${base}/privacy`, priority: 0.2 },
+    { url: `${base}/`, lastModified: siteLastModified, priority: 1.0 },
+    { url: `${base}/about`, lastModified: siteLastModified, priority: 0.7 },
+    { url: `${base}/services`, lastModified: siteLastModified, priority: 0.9 },
+    { url: `${base}/gallery`, lastModified: siteLastModified, priority: 0.8 },
+    { url: `${base}/blog`, lastModified: siteLastModified, priority: 0.7 },
+    { url: `${base}/pricing`, lastModified: siteLastModified, priority: 0.9 },
+    { url: `${base}/faq`, lastModified: siteLastModified, priority: 0.6 },
+    { url: `${base}/contact`, lastModified: siteLastModified, priority: 0.5 },
+    { url: `${base}/reviews`, lastModified: siteLastModified, priority: 0.7 },
+    { url: `${base}/locations`, lastModified: siteLastModified, priority: 0.8 },
+    { url: `${base}/privacy`, lastModified: siteLastModified, priority: 0.2 },
     // `/thank-you` is deliberately absent — it is noindex, and a confirmation
     // page reached without submitting anything is a poor search result.
     //
@@ -30,12 +31,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const servicePages: MetadataRoute.Sitemap = INDEXABLE_SERVICE_PATHS.map((path) => ({
     url: `${base}${path}`,
+    lastModified: siteLastModified,
     changeFrequency: 'monthly' as const,
     priority: 0.75,
   }));
 
   const locationPages: MetadataRoute.Sitemap = AREAS.map((a) => ({
     url: `${base}/locations/${a.slug}`,
+    lastModified: siteLastModified,
     changeFrequency: 'monthly' as const,
     priority: a.slug === 'bangalore' ? 0.8 : 0.7,
   }));

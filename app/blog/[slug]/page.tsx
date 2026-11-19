@@ -76,6 +76,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(slug);
   const url = absoluteUrl(`/blog/${slug}`);
+  const wordCount = post.paragraphs.join(' ').split(/\s+/).filter(Boolean).length;
   const crumbs = [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },
@@ -93,6 +94,8 @@ export default async function BlogPostPage({ params }: PageProps) {
             image: post.featuredImage,
             datePublished: post.datePublished,
             dateModified: post.dateModified,
+            wordCount,
+            keywords: post.tags,
           }),
           siteBreadcrumbsToSchemaItems(crumbs)
         )}
@@ -132,10 +135,52 @@ export default async function BlogPostPage({ params }: PageProps) {
         >
           <div className="lux-container lux-measure lux-measure-4xl">
             <div className="space-y-7 text-[1.0625rem] md:text-lg text-lux-secondary font-light leading-[1.88]">
-              {post.paragraphs.map((paragraph, index) => (
-                <p key={index}>{renderParagraphWithLinks(paragraph)}</p>
-              ))}
+              {post.paragraphs.map((paragraph, index) => {
+                const headingMatch = paragraph.match(/^([A-Z][^:.!?]{4,72}):\s+([\s\S]+)$/);
+                if (headingMatch && index > 0) {
+                  return (
+                    <div key={index} className="pt-3">
+                      <h2 className="font-display text-xl md:text-2xl text-lux-ivory mb-3">
+                        {headingMatch[1]}
+                      </h2>
+                      <p>{renderParagraphWithLinks(headingMatch[2])}</p>
+                    </div>
+                  );
+                }
+                return <p key={index}>{renderParagraphWithLinks(paragraph)}</p>;
+              })}
             </div>
+
+            <aside
+              className="mt-12 lux-surface p-6 md:p-8 border border-lux-gold/20"
+              aria-label="Quick service and pricing summary"
+            >
+              <p className="lux-eyebrow mb-2">Bengaluru pricing &amp; availability</p>
+              <h2 className="font-display text-xl text-lux-ivory mb-3">
+                Planning {post.relatedServiceLabel.toLowerCase()} in Bangalore?
+              </h2>
+              <p className="text-sm md:text-base text-lux-muted leading-relaxed">
+                We Decor Events styles homes, apartments, clubhouses, choultries, and banquet halls
+                across all 50+ Bangalore neighbourhoods — wedding car decor from ₹2,500, birthday
+                &amp; balloon setups from ₹3,000, and floral &amp; stage ceremonies from ₹5,000 with
+                a free site visit.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-4 text-sm">
+                <Link
+                  href={post.relatedServiceHref}
+                  className="text-lux-gold hover:underline underline-offset-4 font-medium"
+                >
+                  Explore {post.relatedServiceLabel} →
+                </Link>
+                <Link
+                  href="/pricing"
+                  className="text-lux-ivory hover:text-lux-gold transition-colors"
+                >
+                  Compare all 25 package prices →
+                </Link>
+              </div>
+            </aside>
+
             {post.tags.length > 0 ? (
               <ul className="mt-12 flex flex-wrap gap-2 list-none p-0 m-0" aria-label="Tags">
                 {post.tags.map((tag) => (

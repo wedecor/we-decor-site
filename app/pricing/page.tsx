@@ -51,9 +51,15 @@ export default function PricingPage() {
         title="Decoration Packages & Prices in Bangalore"
         description="Transparent starting prices. Free site visit. Serving all of Bangalore."
       >
+        <p className="mt-4 text-xs md:text-sm text-lux-muted">
+          <span className="text-lux-gold font-medium">4.9★ (82 Google reviews)</span> · Open 24
+          hours · Free site visit across all 50+ Bengaluru neighbourhoods
+        </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
           <TrackedWhatsAppLink
-            href={CONTACT.waUrl()}
+            href={CONTACT.waUrl(
+              'Hi We Decor! I saw your pricing page and want a quote for ___ (event) on ___ (date) in ___ (area).'
+            )}
             source="pricing_hero"
             target="_blank"
             rel="noopener noreferrer"
@@ -179,7 +185,9 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <TrackedWhatsAppLink
-                href={CONTACT.waUrl()}
+                href={CONTACT.waUrl(
+                  'Hi We Decor! I checked your packages on /pricing and need a quote for ___ (event) on ___ (date) in ___ (area).'
+                )}
                 source="pricing_page_bottom"
                 target="_blank"
                 rel="noopener noreferrer"

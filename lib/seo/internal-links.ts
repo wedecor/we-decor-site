@@ -829,15 +829,7 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/jayanagar', name: 'Jayanagar decorations' },
     { href: '/locations/koramangala', name: 'Events in Koramangala' },
   ],
-  'blog-wedding-car-decoration-cost-bangalore': [
-    { href: '/locations/jp-nagar', name: 'JP Nagar' },
-    { href: '/locations/jayanagar', name: 'Décor in Jayanagar' },
-    { href: '/locations/basavanagudi', name: 'Basavanagudi events' },
-    { href: '/locations/whitefield', name: 'Whitefield setups' },
-    { href: '/locations/marathahalli', name: 'Marathahalli celebrations' },
-    { href: '/locations/indiranagar', name: 'Indiranagar decorations' },
-  ],
-  'blog-haldi-mehndi-decoration-cost-bangalore': [
+  'blog-haldi-decoration-cost-bangalore': [
     { href: '/locations/jp-nagar', name: 'JP Nagar' },
     { href: '/locations/hsr-layout', name: 'Décor in HSR Layout' },
     { href: '/locations/bellandur', name: 'Bellandur events' },
@@ -845,7 +837,31 @@ export const EXPLORE_LOCALITIES_BY_PAGE: Record<string, readonly InternalLink[]>
     { href: '/locations/whitefield', name: 'Whitefield setups' },
     { href: '/locations/koramangala', name: 'Events in Koramangala' },
   ],
-  'blog-birthday-balloon-decoration-cost-bangalore': [
+  'blog-baby-shower-seemantham-decoration-cost-bangalore': [
+    { href: '/locations/jayanagar', name: 'Jayanagar' },
+    { href: '/locations/basavanagudi', name: 'Décor in Basavanagudi' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar events' },
+    { href: '/locations/whitefield', name: 'Whitefield setups' },
+    { href: '/locations/marathahalli', name: 'Marathahalli celebrations' },
+    { href: '/locations/hsr-layout', name: 'Events in HSR Layout' },
+  ],
+  'blog-engagement-ring-ceremony-decoration-cost-bangalore': [
+    { href: '/locations/koramangala', name: 'Koramangala' },
+    { href: '/locations/indiranagar', name: 'Décor in Indiranagar' },
+    { href: '/locations/whitefield', name: 'Whitefield events' },
+    { href: '/locations/jp-nagar', name: 'JP Nagar setups' },
+    { href: '/locations/jayanagar', name: 'Jayanagar celebrations' },
+    { href: '/locations/hebbal', name: 'Events in Hebbal' },
+  ],
+  'blog-bridal-room-first-night-car-decoration-cost-bangalore': [
+    { href: '/locations/jp-nagar', name: 'JP Nagar' },
+    { href: '/locations/jayanagar', name: 'Décor in Jayanagar' },
+    { href: '/locations/basavanagudi', name: 'Basavanagudi events' },
+    { href: '/locations/whitefield', name: 'Whitefield setups' },
+    { href: '/locations/marathahalli', name: 'Marathahalli celebrations' },
+    { href: '/locations/indiranagar', name: 'Indiranagar decorations' },
+  ],
+  'blog-home-decoration-ideas-bangalore-haldi-engagement-birthday': [
     { href: '/locations/whitefield', name: 'Whitefield' },
     { href: '/locations/marathahalli', name: 'Décor in Marathahalli' },
     { href: '/locations/bellandur', name: 'Bellandur events' },

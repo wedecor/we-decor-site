@@ -194,6 +194,22 @@ const nextConfig = {
         destination: '/locations',
         permanent: true,
       },
+      // Consolidate duplicate cost-guide blog slugs into authoritative posts
+      {
+        source: '/blog/haldi-mehndi-decoration-cost-bangalore',
+        destination: '/blog/haldi-decoration-cost-bangalore',
+        permanent: true,
+      },
+      {
+        source: '/blog/birthday-balloon-decoration-cost-bangalore',
+        destination: '/blog/birthday-decoration-ideas-home-bangalore',
+        permanent: true,
+      },
+      {
+        source: '/blog/wedding-car-decoration-cost-bangalore',
+        destination: '/blog/bridal-room-first-night-car-decoration-cost-bangalore',
+        permanent: true,
+      },
     ];
 
     // Add redirects for mixed routing cleanup

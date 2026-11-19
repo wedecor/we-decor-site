@@ -68,9 +68,15 @@ export default async function ContactPage() {
             <address className="lux-body-sm mt-6 not-italic text-lux-secondary">
               {formatPostalAddressText()}
             </address>
+            <p className="mt-3 text-xs md:text-sm text-lux-muted">
+              <span className="text-lux-gold font-medium">4.9★ (82 Google reviews)</span> · Open 24
+              hours · Free site visit across Bengaluru
+            </p>
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <TrackedWhatsAppLink
-                href={CONTACT.waUrl()}
+                href={CONTACT.waUrl(
+                  'Hi We Decor! I would like a decoration quote for ___ (event) on ___ (date) in ___ (area).'
+                )}
                 source="contact_page_hero"
                 className="lux-btn-whatsapp"
                 target="_blank"
@@ -100,7 +106,9 @@ export default async function ContactPage() {
           <p className="lux-body-sm mt-12 max-w-2xl">
             Prefer a direct line?{' '}
             <TrackedWhatsAppLink
-              href={CONTACT.waUrl()}
+              href={CONTACT.waUrl(
+                'Hi We Decor! I would like a decoration quote for ___ (event) on ___ (date) in ___ (area).'
+              )}
               source="contact_page"
               className="text-lux-gold hover:text-lux-gold-soft transition-colors duration-500"
               target="_blank"

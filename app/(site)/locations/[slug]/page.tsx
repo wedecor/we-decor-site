@@ -96,6 +96,54 @@ const SERVICE_LINKS: Record<ServiceKey, { href: string; label: string; price: st
   },
 };
 
+const ADDITIONAL_CEREMONY_LINKS: ReadonlyArray<{ href: string; label: string; price: string }> = [
+  {
+    href: '/services/reception-decoration',
+    label: 'Wedding Reception Stage',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/roka-decoration',
+    label: 'Roka Ceremony Decoration',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/baat-pakki-decoration',
+    label: 'Baat Pakki & Mangni Decoration',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/valima-decoration',
+    label: 'Valima & Walima Stage',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/shukrana-decoration',
+    label: 'Shukrana Home Decoration',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/naming-ceremony-decoration',
+    label: 'Naming Ceremony (Namakarana)',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/mehndi-decoration',
+    label: 'Mehndi & Sangeet Decoration',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/bridal-shower-decoration',
+    label: 'Bridal Shower & Bride-to-Be',
+    price: 'From ₹5,000',
+  },
+  {
+    href: '/services/housewarming-decoration',
+    label: 'Housewarming (Gruhapravesha)',
+    price: 'From ₹5,000',
+  },
+];
+
 const MAX_NEARBY_AREAS = 5;
 
 interface LocationPageProps {
@@ -217,7 +265,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
               {heroTagline
                 ? `${heroTagline}. `
                 : `Professional decoration services in ${area.name}. `}
-              From birthday parties to weddings, we bring creativity to every celebration.
+              {area.landmarks && area.landmarks.length > 0
+                ? `Serving homes, apartments, clubhouses, and banquet venues near ${area.landmarks.slice(0, 3).join(', ')}.`
+                : `Doorstep setup and teardown across ${area.name} homes, clubhouses, and banquet halls.`}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <TrackedPhoneLink
@@ -228,7 +278,10 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 Call {CONTACT.primary.display}
               </TrackedPhoneLink>
               <TrackedWhatsAppLink
-                href={CONTACT.waUrl(waPrefill ?? `Hi! I need decoration services in ${area.name}`)}
+                href={CONTACT.waUrl(
+                  waPrefill ??
+                    `Hi We Decor! I need decoration in ${area.name} for ___ (event) on ___ (date).`
+                )}
                 source={`location:${slug}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -237,6 +290,11 @@ export default async function LocationPage({ params }: LocationPageProps) {
                 WhatsApp us to book
               </TrackedWhatsAppLink>
             </div>
+            <p className="mt-6 text-xs md:text-sm text-lux-muted">
+              <span className="text-lux-gold font-medium">4.9★ (82 Google reviews)</span> · Car
+              decor from ₹2,500 · Birthday from ₹3,000 · Floral &amp; stage from ₹5,000 · Free site
+              visit in {area.name}
+            </p>
           </div>
         </div>
 
@@ -404,16 +462,18 @@ export default async function LocationPage({ params }: LocationPageProps) {
                   Services in {areaName}
                 </h3>
                 <ul className="list-none p-0 m-0">
-                  {Object.values(SERVICE_LINKS).map((link, index) => (
-                    <li key={`${link.href}-${link.label}`}>
-                      <Link
-                        href={link.href}
-                        className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
-                      >
-                        {exploreServiceAnchor(link.label, index)}
-                      </Link>
-                    </li>
-                  ))}
+                  {[...Object.values(SERVICE_LINKS), ...ADDITIONAL_CEREMONY_LINKS].map(
+                    (link, index) => (
+                      <li key={`${link.href}-${link.label}`}>
+                        <Link
+                          href={link.href}
+                          className="inline-flex min-h-[44px] items-center text-lux-gold hover:underline font-medium"
+                        >
+                          {exploreServiceAnchor(link.label, index)}
+                        </Link>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
               <div>

@@ -11,6 +11,8 @@ export function buildBlogPostingGraph(options: {
   image: string;
   datePublished: string;
   dateModified?: string;
+  wordCount?: number;
+  keywords?: ReadonlyArray<string>;
 }): GraphDocument {
   const url = options.url.replace(/\/+$/, '') || options.url;
   const imageUrl = options.image.startsWith('http') ? options.image : absoluteUrl(options.image);
@@ -35,8 +37,15 @@ export function buildBlogPostingGraph(options: {
     },
     datePublished: options.datePublished,
     ...(options.dateModified ? { dateModified: options.dateModified } : {}),
+    ...(typeof options.wordCount === 'number' && options.wordCount > 0
+      ? { wordCount: options.wordCount }
+      : {}),
+    ...(options.keywords && options.keywords.length > 0
+      ? { keywords: options.keywords.join(', ') }
+      : {}),
     author,
     publisher: { '@id': SCHEMA_IDS.localBusiness },
+    about: { '@id': SCHEMA_IDS.localBusiness },
     inLanguage: 'en-IN',
     isPartOf: { '@id': SCHEMA_IDS.website },
   };

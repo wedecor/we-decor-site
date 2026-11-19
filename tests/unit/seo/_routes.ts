@@ -107,6 +107,9 @@ export const REDIRECT_ONLY_PATHS = [
   '/areas',
   '/sentry-example-page',
   '/api/sitemap.xml',
+  '/blog/haldi-mehndi-decoration-cost-bangalore',
+  '/blog/birthday-balloon-decoration-cost-bangalore',
+  '/blog/wedding-car-decoration-cost-bangalore',
 ];
 
 /** Pull a plain string title out of Next's Metadata title union. */

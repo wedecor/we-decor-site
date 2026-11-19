@@ -758,6 +758,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
         'Small banquet rooms',
       ],
       optionalAddOns: [
+        'Welcome baby decoration at home in Bangalore',
         'Oh Baby neon backdrop',
         'Godh Bharai traditional floral accents',
         'Mum-to-be chair accents',
@@ -1020,9 +1021,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       popularDecorationOptions: [
         {
-          title: 'Private dining corner',
+          title: 'Candlelight dinner setup at home & terrace',
           description:
-            'A styled table with lighting and restrained florals for two or a small family.',
+            'A styled candlelight table with warm lighting and restrained florals for two or a small family in Bangalore.',
         },
         {
           title: 'Balcony reveal',
@@ -1289,8 +1290,9 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       popularDecorationOptions: [
         {
-          title: 'Intimate focal corner',
-          description: 'A compact floral and lighting moment for a home or private dining setting.',
+          title: 'Intimate focal corner & candlelight dinner setup',
+          description:
+            'A compact floral, petal, and candlelight dinner setup for a home, terrace, or private dining setting in Bangalore.',
         },
         {
           title: 'Petal pathway',
@@ -2653,6 +2655,7 @@ export const HIGH_INTENT_SERVICE_PAGES: Record<HighIntentServiceSlug, Decoration
       ],
       idealOccasions: [
         'Traditional Namakarana at home',
+        'Welcome baby decoration at home in Bangalore',
         'Aqiqah & baby welcome gatherings',
         'Cradle ceremony (Thottil) setups',
         'Apartment clubhouse baby luncheons',

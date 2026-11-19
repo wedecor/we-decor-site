@@ -259,6 +259,7 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Rooftop terraces',
     ],
     optionalAddOns: [
+      'Traditional Chappara decoration & coconut/banana leaf entrance backdrop',
       'Turmeric-safe floor drop-cloth protection',
       'Brass urlis and flower-petal bowls',
       'Family portrait seating',
@@ -1131,9 +1132,9 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
     ],
     popularDecorationOptions: [
       {
-        title: 'Romantic soft-light setting',
+        title: 'Hotel room surprise decoration in Bangalore',
         description:
-          'Warm lighting, florals, and gentle colour for an anniversary or spouse surprise.',
+          'Warm lighting, rose petals, and gentle colour for an anniversary, honeymoon suite, or spouse surprise.',
       },
       {
         title: 'Birthday message wall',
@@ -1373,6 +1374,7 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Private villas',
     ],
     optionalAddOns: [
+      'Traditional Chappara & banana-leaf mandap entrance',
       'Welcome entry styling',
       'Aisle details',
       'Couple seating',
@@ -1816,6 +1818,7 @@ const LEGACY_DECORATION_SERVICE_PAGES: Record<
       'Private terraces',
     ],
     optionalAddOns: [
+      'First birthday decoration in Bangalore (1st birthday themes & cake pedestals)',
       'Organic chrome & pastel balloon garland',
       'Cake pedestal & shimmer backdrop',
       'Cake-table styling',
