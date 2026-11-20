@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { getAllAreaSlugs } from '@/app/(site)/_data/locations';
 import { GENERATED_LOCATIONS } from '@/app/(site)/_data/locations.generated';
 import { WORK, workForService, workHeading, workShownOn } from '@/app/(site)/_data/work-images';
+import { diversifyWorkImages } from '@/lib/work-tiles';
 
 /**
  * A photograph may be DISPLAYED on any locality page. It may only be CLAIMED
@@ -94,5 +95,17 @@ describe('workShownOn locality grids', () => {
       }
     }
     expect(named).toBe(33);
+  });
+
+  it('diversifyWorkImages preserves all photos while separating consecutive angles of the same shoot', () => {
+    const diversified = diversifyWorkImages(WORK);
+    expect(diversified).toHaveLength(WORK.length);
+    // The first 40 tiles should not have 4 consecutive photos from the exact same shoot
+    const first40Keys = diversified
+      .slice(0, 40)
+      .map((w) => w.file.replace(/-\d+(\.[a-z0-9]+)$/i, '$1'));
+    for (let i = 1; i < first40Keys.length; i += 1) {
+      expect(first40Keys[i]).not.toBe(first40Keys[i - 1]);
+    }
   });
 });

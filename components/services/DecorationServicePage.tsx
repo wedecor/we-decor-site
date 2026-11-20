@@ -11,7 +11,7 @@ import { getServiceLocalitiesFor, RELATED_DECORATION_SERVICES } from '@/lib/seo/
 import type { ExploreLink } from '@/lib/seo/core-explore-links';
 import { SERVICE_PAGE_FAQS } from '@/lib/content/service-faq';
 import { workForService } from '@/app/(site)/_data/work-images';
-import { workTiles } from '@/lib/work-tiles';
+import { diversifyWorkImages, workTiles } from '@/lib/work-tiles';
 import LocationGallery from '@/components/LocationGallery';
 
 /**
@@ -117,7 +117,7 @@ export default function DecorationServicePage({ config }: Props) {
   const serviceLocalities = getServiceLocalitiesFor(servicePath);
   const whyChoose = config.whyChoose ?? DEFAULT_WHY_CHOOSE;
   const faqs = faqsFor(config);
-  const workPhotos = workTiles(workForService(config.slug).slice(0, 12));
+  const workPhotos = workTiles(diversifyWorkImages(workForService(config.slug)).slice(0, 12));
   const isLongForm = Boolean(
     config.styles?.length ||
     config.included?.length ||
