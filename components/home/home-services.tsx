@@ -99,6 +99,14 @@ export default function HomeServices() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                       quality={70}
                       loading="lazy"
+                      /*
+                        The car file is already a 107KB WebP. Sending it through
+                        /_next/image 402s while the free transformation quota
+                        is exhausted, and this photo was never cached, so the
+                        card renders its alt text on an empty panel. The other
+                        five cards still hit previously cached optimizer URLs.
+                      */
+                      unoptimized={service.image.startsWith('/work/')}
                     />
                     <div className="absolute inset-0 lux-overlay-cinematic opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute bottom-0 inset-x-0 p-6">
