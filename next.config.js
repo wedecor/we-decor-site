@@ -210,6 +210,62 @@ const nextConfig = {
         destination: '/blog/bridal-room-first-night-car-decoration-cost-bangalore',
         permanent: true,
       },
+      // Legacy Google Business Profile product landing page URLs → canonical service pages
+      {
+        source: '/haldi-mehndi-decorations',
+        destination: '/services/haldi-decoration',
+        permanent: true,
+      },
+      {
+        source: '/wedding-decorations',
+        destination: '/services/wedding-setup',
+        permanent: true,
+      },
+      {
+        source: '/birthday-decorations',
+        destination: '/services/birthday-decoration',
+        permanent: true,
+      },
+      {
+        source: '/engagement-decorations',
+        destination: '/services/engagement-decoration',
+        permanent: true,
+      },
+      {
+        source: '/baby-shower-decorations',
+        destination: '/services/baby-shower-decoration',
+        permanent: true,
+      },
+      {
+        source: '/bridal-room-decorations',
+        destination: '/services/room-decoration',
+        permanent: true,
+      },
+      {
+        source: '/proposal-decorations',
+        destination: '/services/proposal-decoration',
+        permanent: true,
+      },
+      {
+        source: '/nikah-decorations',
+        destination: '/services/nikah-decoration',
+        permanent: true,
+      },
+      {
+        source: '/car-decorations',
+        destination: '/services/car-decoration',
+        permanent: true,
+      },
+      {
+        source: '/naming-ceremony-decorations',
+        destination: '/services/naming-ceremony-decoration',
+        permanent: true,
+      },
+      {
+        source: '/housewarming-decorations',
+        destination: '/services/housewarming-decoration',
+        permanent: true,
+      },
     ];
 
     // Add redirects for mixed routing cleanup

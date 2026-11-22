@@ -110,6 +110,17 @@ export const REDIRECT_ONLY_PATHS = [
   '/blog/haldi-mehndi-decoration-cost-bangalore',
   '/blog/birthday-balloon-decoration-cost-bangalore',
   '/blog/wedding-car-decoration-cost-bangalore',
+  '/haldi-mehndi-decorations',
+  '/wedding-decorations',
+  '/birthday-decorations',
+  '/engagement-decorations',
+  '/baby-shower-decorations',
+  '/bridal-room-decorations',
+  '/proposal-decorations',
+  '/nikah-decorations',
+  '/car-decorations',
+  '/naming-ceremony-decorations',
+  '/housewarming-decorations',
 ];
 
 /** Pull a plain string title out of Next's Metadata title union. */
