@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { INDEXABLE_SERVICE_PATHS, SITE_URL } from '@/lib/site';
 import { getAllAreaSlugs } from '@/app/(site)/_data/locations';
+import { BLOG_POSTS } from '@/lib/content/blog-posts';
+import { diversifyWorkImages } from '@/lib/work-tiles';
 import {
   WORK,
   workForService,
@@ -57,7 +59,15 @@ export async function GET() {
 
   const serviceBlocks = INDEXABLE_SERVICE_PATHS.map((path) => {
     const slug = path.replace(/^\/services\//, '');
-    return urlBlock(`${base}${path}`, workForService(slug).slice(0, 12), base);
+    return urlBlock(`${base}${path}`, diversifyWorkImages(workForService(slug)).slice(0, 12), base);
+  });
+
+  const blogBlocks = BLOG_POSTS.map((post) => {
+    const serviceSlug = post.relatedServiceHref.startsWith('/services/')
+      ? post.relatedServiceHref.replace(/^\/services\//, '')
+      : 'haldi-decoration';
+    const photos = diversifyWorkImages(workForService(serviceSlug)).slice(0, 6);
+    return urlBlock(`${base}/blog/${post.slug}`, photos, base);
   });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -66,6 +76,7 @@ export async function GET() {
 ${urlBlock(`${base}/gallery`, WORK, base)}
 ${localityBlocks.join('')}
 ${serviceBlocks.join('')}
+${blogBlocks.join('')}
 </urlset>`;
 
   return new NextResponse(xml, {

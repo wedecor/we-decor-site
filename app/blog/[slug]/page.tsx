@@ -8,6 +8,9 @@ import SiteBreadcrumbs, { siteBreadcrumbsToSchemaItems } from '@/components/seo/
 import CoreExploreLinks from '@/components/seo/CoreExploreLinks';
 import SchemaScript from '@/components/seo/SchemaScript';
 import TrackedWhatsAppLink from '@/components/analytics/TrackedWhatsAppLink';
+import LocationGallery from '@/components/LocationGallery';
+import { workForService } from '@/app/(site)/_data/work-images';
+import { diversifyWorkImages, workTiles } from '@/lib/work-tiles';
 import { buildBlogPostingGraph, withBreadcrumb } from '@/lib/schema';
 import { getAllBlogSlugs, getBlogPost, getRelatedPosts } from '@/lib/content/blog-posts';
 import { RELATED_DECORATION_SERVICES } from '@/lib/seo/internal-links';
@@ -77,6 +80,10 @@ export default async function BlogPostPage({ params }: PageProps) {
   const relatedPosts = getRelatedPosts(slug);
   const url = absoluteUrl(`/blog/${slug}`);
   const wordCount = post.paragraphs.join(' ').split(/\s+/).filter(Boolean).length;
+  const serviceSlug = post.relatedServiceHref.startsWith('/services/')
+    ? post.relatedServiceHref.replace(/^\/services\//, '')
+    : 'haldi-decoration';
+  const blogGalleryItems = workTiles(diversifyWorkImages(workForService(serviceSlug)).slice(0, 6));
   const crumbs = [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },
@@ -115,6 +122,13 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span>{post.readingTimeMinutes} min read</span>
               <span aria-hidden>·</span>
               <span>{post.authorName}</span>
+              <span aria-hidden>·</span>
+              <Link
+                href={post.relatedServiceHref}
+                className="text-lux-gold hover:underline underline-offset-4 font-medium"
+              >
+                {post.relatedServiceLabel} →
+              </Link>
             </div>
             <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-sm">
               <Image
@@ -150,6 +164,26 @@ export default async function BlogPostPage({ params }: PageProps) {
                 return <p key={index}>{renderParagraphWithLinks(paragraph)}</p>;
               })}
             </div>
+
+            {blogGalleryItems.length > 0 ? (
+              <div className="mt-14 pt-10 border-t border-white/[0.08]">
+                <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+                  <div>
+                    <p className="lux-eyebrow mb-2">Real event setups</p>
+                    <h2 className="font-display text-2xl text-lux-ivory">
+                      Recent {post.relatedServiceLabel} in Bangalore
+                    </h2>
+                  </div>
+                  <Link
+                    href={post.relatedServiceHref}
+                    className="text-sm text-lux-gold hover:underline underline-offset-4 font-medium shrink-0"
+                  >
+                    View all {post.relatedServiceLabel} →
+                  </Link>
+                </div>
+                <LocationGallery items={blogGalleryItems} source={`blog_gallery:${slug}`} />
+              </div>
+            ) : null}
 
             <aside
               className="mt-12 lux-surface p-6 md:p-8 border border-lux-gold/20"

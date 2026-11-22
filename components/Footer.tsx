@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="absolute inset-x-0 top-0 h-px bg-lux-gold/20" aria-hidden />
       <div className="lux-container py-20 md:py-28 relative z-[1]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
-          <div className="md:col-span-5 space-y-7">
+          <div className="md:col-span-4 space-y-7">
             <BrandLockup variant="footer" asLink />
             <p className="font-display text-xl md:text-2xl font-light text-lux-ivory/95 italic leading-relaxed max-w-sm">
               Designed for unforgettable celebrations.
@@ -42,7 +42,7 @@ export default function Footer() {
             </a>
           </div>
 
-          <nav className="md:col-span-3" aria-label="Footer navigation">
+          <nav className="md:col-span-2" aria-label="Footer navigation">
             <p className="lux-eyebrow mb-5">Explore</p>
             <ul className="space-y-3.5 text-sm font-light">
               {[
@@ -64,7 +64,30 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <div className="md:col-span-4">
+          <nav className="md:col-span-3" aria-label="Core celebration services">
+            <p className="lux-eyebrow mb-5">Celebrations</p>
+            <ul className="space-y-3.5 text-sm font-light">
+              {[
+                ['Haldi Decoration', '/services/haldi-decoration'],
+                ['Mehndi Ceremony', '/services/mehndi-decoration'],
+                ['Engagement Stage', '/services/engagement-decoration'],
+                ['Wedding & Mandap', '/services/wedding-setup'],
+                ['Reception Stage', '/services/reception-decoration'],
+                ['Nikah & Walima', '/services/nikah-decoration'],
+                ['Birthday & Balloon', '/services/birthday-decoration'],
+                ['Baby Shower & Seemantham', '/services/baby-shower-decoration'],
+                ['Bridal Room Decor', '/services/room-decoration'],
+              ].map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href} className="lux-footer-link">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="md:col-span-3">
             <p className="lux-eyebrow mb-5">Enquire</p>
             <ul className="space-y-3.5 text-sm font-light">
               <li>
