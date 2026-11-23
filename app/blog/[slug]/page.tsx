@@ -91,7 +91,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   ];
 
   return (
-    <div className="lux-page">
+    <div className="lux-page" data-has-sticky-wa>
       <SchemaScript
         data={withBreadcrumb(
           buildBlogPostingGraph({
@@ -300,6 +300,20 @@ export default async function BlogPostPage({ params }: PageProps) {
         pageKey={`blog-${slug}`}
         heading="Explore more"
       />
+
+      <div className="fixed bottom-0 inset-x-0 z-40 md:hidden border-t border-white/[0.08] bg-lux-bg/95 backdrop-blur-md px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <TrackedWhatsAppLink
+          href={CONTACT.waUrl(
+            `Hi We Decor! I'm looking for ${post.relatedServiceLabel} in Bangalore. Event date: _____. Area/Venue: _____.`
+          )}
+          source={`blog_sticky:${slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="lux-btn-primary w-full py-3 text-center text-sm"
+        >
+          WhatsApp for {post.relatedServiceLabel} Quote
+        </TrackedWhatsAppLink>
+      </div>
     </div>
   );
 }

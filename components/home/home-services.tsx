@@ -5,13 +5,6 @@ import { SERVICE_IMAGES } from '@/lib/images';
 
 const services = [
   {
-    title: 'Birthday Decoration',
-    tag: 'From ₹3,000 · Home & venues',
-    image: SERVICE_IMAGES.birthday,
-    href: '/services/birthday-decoration',
-    alt: 'Birthday balloon and cake-table decoration in a Bangalore home',
-  },
-  {
     title: 'Haldi Decoration',
     tag: 'From ₹5,000 · Marigold & urli',
     image: SERVICE_IMAGES.haldi,
@@ -31,6 +24,13 @@ const services = [
     image: '/home-preview/reception.webp',
     href: '/services/wedding-setup',
     alt: 'Wedding reception stage décor with floral backdrop in Bengaluru',
+  },
+  {
+    title: 'Birthday Decoration',
+    tag: 'From ₹3,000 · Home & venues',
+    image: SERVICE_IMAGES.birthday,
+    href: '/services/birthday-decoration',
+    alt: 'Birthday balloon and cake-table decoration in a Bangalore home',
   },
   {
     title: 'Baby Shower & Seemantham',
