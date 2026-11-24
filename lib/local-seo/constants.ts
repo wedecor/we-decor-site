@@ -54,6 +54,8 @@ export const DEFAULT_GOOGLE_PLACE_ID = 'ChIJCac5p8MVrjsRge3h_FhBR70';
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
   facebook: 'https://www.facebook.com/we.decor.events/',
+  youtube: 'https://www.youtube.com/@wedecor',
+  pinterest: 'https://in.pinterest.com/wedecorevents/',
   justdial:
     'https://www.justdial.com/Bangalore/Wedecor-Events-Near-Rizwan-Masjid-Jp-Nagar/080PXX80-XX80-250506142813-D2D3_BZDET',
   wedeazzy: 'https://wedeazzy.com/vendor/we-decor-events-bangalore',
@@ -70,6 +72,8 @@ export function getSameAsLinks(): string[] {
   const links: string[] = [
     SOCIAL_PROFILES.instagram,
     SOCIAL_PROFILES.facebook,
+    SOCIAL_PROFILES.youtube,
+    SOCIAL_PROFILES.pinterest,
     SOCIAL_PROFILES.justdial,
     SOCIAL_PROFILES.wedeazzy,
     SOCIAL_PROFILES.instavendor,

@@ -121,6 +121,7 @@ export const REDIRECT_ONLY_PATHS = [
   '/car-decorations',
   '/naming-ceremony-decorations',
   '/housewarming-decorations',
+  '/Royal',
 ];
 
 /** Pull a plain string title out of Next's Metadata title union. */

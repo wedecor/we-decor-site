@@ -266,6 +266,12 @@ const nextConfig = {
         destination: '/services/housewarming-decoration',
         permanent: true,
       },
+      // Malformed Wedeazzy directory backlink (concatenated street address "Royal Manor")
+      {
+        source: '/Royal',
+        destination: '/',
+        permanent: true,
+      },
     ];
 
     // Add redirects for mixed routing cleanup
