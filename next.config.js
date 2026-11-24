@@ -272,6 +272,12 @@ const nextConfig = {
         destination: '/',
         permanent: true,
       },
+      // Common /services/haldi-mehendi-decoration alias -> canonical /services/haldi-decoration
+      {
+        source: '/services/haldi-mehendi-decoration',
+        destination: '/services/haldi-decoration',
+        permanent: true,
+      },
     ];
 
     // Add redirects for mixed routing cleanup

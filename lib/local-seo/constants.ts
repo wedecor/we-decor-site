@@ -67,6 +67,9 @@ export const SOCIAL_PROFILES = {
   eventsplace: 'https://eventsplace.in/vendors/we-decor-events',
   linktree: 'https://linktr.ee/wedecorevents',
   taplink: 'https://wedecorevents.taplink.bio/',
+  bharathlisting:
+    'https://bharathlisting.com/listing/karnataka/bangalore/event-planners/we-decor-events',
+  addyp: 'https://addyp.com/listing/karnataka/bangalore/event-planners/we-decor-events',
   googleMaps: (placeId?: string) =>
     placeId ? `https://www.google.com/maps/place/?q=place_id:${placeId}` : undefined,
 } as const;
@@ -87,6 +90,8 @@ export function getSameAsLinks(): string[] {
     SOCIAL_PROFILES.eventsplace,
     SOCIAL_PROFILES.linktree,
     SOCIAL_PROFILES.taplink,
+    SOCIAL_PROFILES.bharathlisting,
+    SOCIAL_PROFILES.addyp,
   ];
   const maps = SOCIAL_PROFILES.googleMaps(placeId);
   if (maps) links.push(maps);
