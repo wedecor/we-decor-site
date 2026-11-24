@@ -63,6 +63,7 @@ export const SOCIAL_PROFILES = {
   magicpin:
     'https://magicpin.in/Bangalore/Kanakapura/Other/We-Decor-Event-Planner-Decorator-In-Bangalore/store/185b927',
   servicescorpo: 'https://servicescorpo.com/ad/We-Decor/8250',
+  indiaonline: 'https://www.indiaonline.in/bengaluru/business/we-decor-events-121535',
   googleMaps: (placeId?: string) =>
     placeId ? `https://www.google.com/maps/place/?q=place_id:${placeId}` : undefined,
 } as const;
@@ -79,6 +80,7 @@ export function getSameAsLinks(): string[] {
     SOCIAL_PROFILES.instavendor,
     SOCIAL_PROFILES.magicpin,
     SOCIAL_PROFILES.servicescorpo,
+    SOCIAL_PROFILES.indiaonline,
   ];
   const maps = SOCIAL_PROFILES.googleMaps(placeId);
   if (maps) links.push(maps);
