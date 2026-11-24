@@ -57,7 +57,6 @@ export const SOCIAL_PROFILES = {
   youtube: 'https://www.youtube.com/@wedecor',
   pinterest: 'https://in.pinterest.com/wedecorevents/',
   linkedin: 'https://www.linkedin.com/company/we-decor-events-bangalore/',
-  linkedinFounder: 'https://www.linkedin.com/in/we-decor-events-bangalore/',
   justdial:
     'https://www.justdial.com/Bangalore/Wedecor-Events-Near-Rizwan-Masjid-Jp-Nagar/080PXX80-XX80-250506142813-D2D3_BZDET',
   wedeazzy: 'https://wedeazzy.com/vendor/we-decor-events-bangalore',
@@ -84,7 +83,6 @@ export function getSameAsLinks(): string[] {
     SOCIAL_PROFILES.youtube,
     SOCIAL_PROFILES.pinterest,
     SOCIAL_PROFILES.linkedin,
-    SOCIAL_PROFILES.linkedinFounder,
     SOCIAL_PROFILES.justdial,
     SOCIAL_PROFILES.wedeazzy,
     SOCIAL_PROFILES.instavendor,
