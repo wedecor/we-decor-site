@@ -89,13 +89,22 @@ export async function GET() {
 - **Address**: ${NAP.streetAddress}, ${NAP.addressLocality}, ${NAP.addressRegion} ${NAP.postalCode}
 - **Phone / WhatsApp**: ${NAP.telephoneDisplay}
 - **Google Maps**: ${mapsUrl}
-- **Justdial**: ${SOCIAL_PROFILES.justdial}
 - **Instagram**: ${SOCIAL_PROFILES.instagram}
 - **Facebook**: ${SOCIAL_PROFILES.facebook}
+- **YouTube**: ${SOCIAL_PROFILES.youtube}
+- **Pinterest**: ${SOCIAL_PROFILES.pinterest}
+- **LinkedIn**: ${SOCIAL_PROFILES.linkedin}
+- **Justdial**: ${SOCIAL_PROFILES.justdial}
 - **WedEazzy**: ${SOCIAL_PROFILES.wedeazzy}
 - **InstaVendor**: ${SOCIAL_PROFILES.instavendor}
 - **Magicpin**: ${SOCIAL_PROFILES.magicpin}
 - **ServicesCorpo**: ${SOCIAL_PROFILES.servicescorpo}
+- **IndiaOnline**: ${SOCIAL_PROFILES.indiaonline}
+- **EventsPlace**: ${SOCIAL_PROFILES.eventsplace}
+- **BharathListing**: ${SOCIAL_PROFILES.bharathlisting}
+- **AddYP**: ${SOCIAL_PROFILES.addyp}
+- **Linktree**: ${SOCIAL_PROFILES.linktree}
+- **Taplink**: ${SOCIAL_PROFILES.taplink}
 
 ## Detailed Coverage Across 50 Bangalore Localities
 ${localityDetails}

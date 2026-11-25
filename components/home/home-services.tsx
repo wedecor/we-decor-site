@@ -35,7 +35,7 @@ const services = [
   {
     title: 'Baby Shower & Seemantham',
     tag: 'From ₹5,000 · Cradle & blessing nook',
-    image: SERVICE_IMAGES.engagement,
+    image: '/work/baby-shower/baby-shower-seemantham-marigold-decoration-bangalore.webp',
     href: '/services/baby-shower-decoration',
     alt: 'Baby shower and Seemantham floral backdrop decoration in Bangalore',
   },

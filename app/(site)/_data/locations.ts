@@ -206,7 +206,7 @@ export const AREAS: Area[] = [
     vibe: 'city-wide',
     landmarks: ['MG Road', 'Cubbon Park', 'UB City'],
     venueTypes: ['apartments', 'banquet halls', 'rooftops', 'villas'],
-    heroTagline: 'Top-Rated Event Decorators in Bangalore',
+    heroTagline: 'In-House Event & Wedding Décor Across Bengaluru',
     waPrefill: 'Hi We Decor! I need event decoration in Bangalore. Occasion: _____. Date: _____.',
   },
   {
@@ -284,7 +284,7 @@ export const AREAS: Area[] = [
     vibe: 'residential sprawl',
     landmarks: ['RT Nagar Main Road', 'Ganganagar', 'Hebbal'],
     venueTypes: ['apartments', 'community halls', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in RT Nagar',
+    heroTagline: 'Graceful Family & Nikah Setups in RT Nagar',
     waPrefill: 'Hi We Decor! I need event decoration in RT Nagar. Occasion: _____. Date: _____.',
   },
   {
@@ -293,7 +293,7 @@ export const AREAS: Area[] = [
     vibe: 'lakeside views',
     landmarks: ['Hebbal Lake', 'Manyata Flyover', 'Manyata Tech Park'],
     venueTypes: ['apartments', 'clubhouses', 'lakeside venues'],
-    heroTagline: 'Top-Rated Event Decorators in Hebbal',
+    heroTagline: 'Lakeside & North Bengaluru Event Styling in Hebbal',
     waPrefill: 'Hi We Decor! I need event decoration in Hebbal. Occasion: _____. Date: _____.',
   },
   {
@@ -315,7 +315,7 @@ export const AREAS: Area[] = [
     vibe: 'student & family mix',
     landmarks: ['Silk Board', 'Mico Layout', 'BTM Lake'],
     venueTypes: ['apartments', 'rooftops', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in BTM Layout',
+    heroTagline: 'Apartment-Friendly Celebrations Across BTM Layout',
     waPrefill: 'Hi We Decor! I need event decoration in BTM Layout. Occasion: _____. Date: _____.',
   },
   {
@@ -358,7 +358,7 @@ export const AREAS: Area[] = [
     vibe: 'mixed commercial',
     landmarks: ['Domlur Bridge', 'Indiranagar Metro', 'Old Airport Road'],
     venueTypes: ['apartments', 'offices', 'restaurants'],
-    heroTagline: 'Top-Rated Event Decorators in Domlur',
+    heroTagline: 'Refined Home & Terrace Décor in Domlur',
     waPrefill: 'Hi We Decor! I need event decoration in Domlur. Occasion: _____. Date: _____.',
   },
   {
@@ -367,7 +367,7 @@ export const AREAS: Area[] = [
     vibe: 'lakeside & cantonment',
     landmarks: ['Ulsoor Lake', 'Halasuru', 'MG Road Metro'],
     venueTypes: ['apartments', 'banquet halls', 'lakeside venues'],
-    heroTagline: 'Top-Rated Event Decorators in Ulsoor',
+    heroTagline: 'Calm, Photogenic Celebrations Around Ulsoor',
     waPrefill: 'Hi We Decor! I need event decoration in Ulsoor. Occasion: _____. Date: _____.',
   },
   {
@@ -376,7 +376,7 @@ export const AREAS: Area[] = [
     vibe: 'colonial charm',
     landmarks: ['Richmond Road', 'Langford Road', "St Mark's Road"],
     venueTypes: ['banquet halls', 'restaurants', 'heritage venues'],
-    heroTagline: 'Top-Rated Event Decorators in Richmond Town',
+    heroTagline: 'Understated Heritage & Bungalow Décor in Richmond Town',
     waPrefill:
       'Hi We Decor! I need event decoration in Richmond Town. Occasion: _____. Date: _____.',
   },
@@ -386,7 +386,7 @@ export const AREAS: Area[] = [
     vibe: 'heritage residential',
     landmarks: ['Ashok Nagar Main Road', 'Richmond Circle', "St Joseph's"],
     venueTypes: ['apartments', 'community halls', 'churches'],
-    heroTagline: 'Top-Rated Event Decorators in Ashok Nagar',
+    heroTagline: 'Central Bengaluru Celebrations Styled in Ashok Nagar',
     waPrefill: 'Hi We Decor! I need event decoration in Ashok Nagar. Occasion: _____. Date: _____.',
   },
   {
@@ -395,7 +395,7 @@ export const AREAS: Area[] = [
     vibe: 'large residential blocks',
     landmarks: ['BSK 2nd Stage', 'Banashankari Temple', 'BSK 3rd Stage'],
     venueTypes: ['community halls', 'apartments', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Banashankari',
+    heroTagline: 'Traditional & Modern Family Décor in Banashankari',
     waPrefill:
       'Hi We Decor! I need event decoration in Banashankari. Occasion: _____. Date: _____.',
   },
@@ -405,7 +405,7 @@ export const AREAS: Area[] = [
     vibe: 'classic Bengaluru',
     landmarks: ['Bugle Rock', 'Gandhi Bazaar', 'Bull Temple'],
     venueTypes: ['community halls', 'apartments', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Basavanagudi',
+    heroTagline: 'Heritage Florals & Family Setups from Our Basavanagudi Studio',
     waPrefill:
       'Hi We Decor! I need event decoration in Basavanagudi. Occasion: _____. Date: _____.',
   },
@@ -415,7 +415,7 @@ export const AREAS: Area[] = [
     vibe: 'family residential neighbourhood with green gathering spaces',
     landmarks: ['JP Nagar Mini Forest', 'JP Nagar Metro Station', 'Sarakki Signal'],
     venueTypes: ['family homes', 'community halls', 'banquet halls', 'apartments'],
-    heroTagline: 'Top-Rated Event Decorators in JP Nagar',
+    heroTagline: 'Warm Home & Hall Décor Across JP Nagar',
     waPrefill: 'Hi! JP Nagar family celebration — need warm custom decor for home/hall.',
   },
   {
@@ -424,7 +424,7 @@ export const AREAS: Area[] = [
     vibe: 'green & educational',
     landmarks: ['Bannerghatta National Park', 'JP Nagar', 'IIM Bangalore'],
     venueTypes: ['apartments', 'villas', 'educational institutions'],
-    heroTagline: 'Top-Rated Event Decorators in Bannerghatta Road',
+    heroTagline: 'Clubhouse & Apartment Celebrations Along Bannerghatta Road',
     waPrefill:
       'Hi We Decor! I need event decoration in Bannerghatta Road. Occasion: _____. Date: _____.',
   },
@@ -434,7 +434,7 @@ export const AREAS: Area[] = [
     vibe: 'developing residential',
     landmarks: ['Bannerghatta Road', 'JP Nagar', 'Kanakapura Junction'],
     venueTypes: ['apartments', 'villas', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in Kanakapura Road',
+    heroTagline: 'Villa & Township Event Décor on Kanakapura Road',
     waPrefill:
       'Hi We Decor! I need event decoration in Kanakapura Road. Occasion: _____. Date: _____.',
   },
@@ -444,7 +444,7 @@ export const AREAS: Area[] = [
     vibe: 'heritage pockets',
     landmarks: ['8th Cross', 'Sankey Tank', 'Malleshwaram Metro'],
     venueTypes: ['community halls', 'apartments', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Malleshwaram',
+    heroTagline: 'Classic Jasmine & Marigold Styling in Malleshwaram',
     waPrefill:
       'Hi We Decor! I need event decoration in Malleshwaram. Occasion: _____. Date: _____.',
   },
@@ -454,7 +454,7 @@ export const AREAS: Area[] = [
     vibe: 'old & new mix',
     landmarks: ['Orion Mall', 'World Trade Center', 'Rajajinagar Metro'],
     venueTypes: ['banquet halls', 'apartments', 'malls'],
-    heroTagline: 'Top-Rated Event Decorators in Rajajinagar',
+    heroTagline: 'Thoughtful Hall & Home Décor in Rajajinagar',
     waPrefill: 'Hi We Decor! I need event decoration in Rajajinagar. Occasion: _____. Date: _____.',
   },
   {
@@ -463,7 +463,7 @@ export const AREAS: Area[] = [
     vibe: 'traditional residential',
     landmarks: ['Vijayanagar Metro', 'Rajajinagar', 'Malleshwaram'],
     venueTypes: ['apartments', 'community halls', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Vijayanagar',
+    heroTagline: 'Ceremonial & Community Hall Décor in Vijayanagar',
     waPrefill: 'Hi We Decor! I need event decoration in Vijayanagar. Occasion: _____. Date: _____.',
   },
   {
@@ -472,7 +472,7 @@ export const AREAS: Area[] = [
     vibe: 'airy layouts',
     landmarks: ['Allalasandra Lake', 'Yelahanka New Town', 'Airport Road'],
     venueTypes: ['villas', 'apartments', 'lakeside venues'],
-    heroTagline: 'Top-Rated Event Decorators in Yelahanka',
+    heroTagline: 'Spacious Villa & Campus Celebrations in Yelahanka',
     waPrefill: 'Hi We Decor! I need event decoration in Yelahanka. Occasion: _____. Date: _____.',
   },
   {
@@ -481,7 +481,7 @@ export const AREAS: Area[] = [
     vibe: 'quiet residential',
     landmarks: ['Hebbal', 'RT Nagar', 'Yelahanka'],
     venueTypes: ['apartments', 'community halls', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Sahakarnagar',
+    heroTagline: 'Neighbourhood Home & Terrace Décor in Sahakarnagar',
     waPrefill:
       'Hi We Decor! I need event decoration in Sahakarnagar. Occasion: _____. Date: _____.',
   },
@@ -491,7 +491,7 @@ export const AREAS: Area[] = [
     vibe: 'student area',
     landmarks: ['Yeshwanthpur', 'Rajajinagar', 'Mathikere Lake'],
     venueTypes: ['apartments', 'community halls', 'educational institutions'],
-    heroTagline: 'Top-Rated Event Decorators in Mathikere',
+    heroTagline: 'Clean, Compact Event Styling in Mathikere',
     waPrefill: 'Hi We Decor! I need event decoration in Mathikere. Occasion: _____. Date: _____.',
   },
   {
@@ -500,7 +500,7 @@ export const AREAS: Area[] = [
     vibe: 'industrial residential',
     landmarks: ['Peenya', 'Rajajinagar', 'Yeshwanthpur Metro'],
     venueTypes: ['apartments', 'community halls', 'industrial areas'],
-    heroTagline: 'Top-Rated Event Decorators in Yeshwanthpur',
+    heroTagline: 'Practical Hall & Family Event Décor in Yeshwanthpur',
     waPrefill:
       'Hi We Decor! I need event decoration in Yeshwanthpur. Occasion: _____. Date: _____.',
   },
@@ -510,7 +510,7 @@ export const AREAS: Area[] = [
     vibe: 'industrial belt',
     landmarks: ['Peenya Industrial Area', 'Jalahalli', 'Yeshwanthpur'],
     venueTypes: ['community halls', 'offices', 'industrial venues'],
-    heroTagline: 'Top-Rated Event Decorators in Peenya',
+    heroTagline: 'Milestone & Family Celebrations Around Peenya',
     waPrefill: 'Hi We Decor! I need event decoration in Peenya. Occasion: _____. Date: _____.',
   },
   {
@@ -519,7 +519,7 @@ export const AREAS: Area[] = [
     vibe: 'older residential',
     landmarks: ['Hanumanthanagar Circle', 'Gali Anjaneya Temple', 'Chord Road'],
     venueTypes: ['community halls', 'apartments', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Hanumanthanagar',
+    heroTagline: 'Intimate Home & Puja Florals in Hanumanthanagar',
     waPrefill:
       'Hi We Decor! I need event decoration in Hanumanthanagar. Occasion: _____. Date: _____.',
   },
@@ -529,7 +529,7 @@ export const AREAS: Area[] = [
     vibe: 'traditional streets',
     landmarks: ['Thyagaraja Nagar Market', 'Madhavan Park', 'South End Circle'],
     venueTypes: ['community halls', 'apartments', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Thyagarajanagar',
+    heroTagline: 'Traditional Living-Room & Hall Décor in Thyagarajanagar',
     waPrefill:
       'Hi We Decor! I need event decoration in Thyagarajanagar. Occasion: _____. Date: _____.',
   },
@@ -539,7 +539,7 @@ export const AREAS: Area[] = [
     vibe: 'lakeside apartments',
     landmarks: ['Puttenahalli Lake', 'Brigade Millennium', 'JP Nagar 7th Phase'],
     venueTypes: ['apartments', 'clubhouses', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in Puttenahalli',
+    heroTagline: 'Apartment & Lake-View Party Styling in Puttenahalli',
     waPrefill:
       'Hi We Decor! I need event decoration in Puttenahalli. Occasion: _____. Date: _____.',
   },
@@ -549,7 +549,7 @@ export const AREAS: Area[] = [
     vibe: 'heritage quarter',
     landmarks: ['Makkala Koota Park', 'Fort High School', 'Albert Victor Road'],
     venueTypes: ['community halls', 'independent homes', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Chamrajpet',
+    heroTagline: 'Classic Choultry & Home Ceremonies in Chamrajpet',
     waPrefill: 'Hi We Decor! I need event decoration in Chamrajpet. Occasion: _____. Date: _____.',
   },
   {
@@ -558,7 +558,7 @@ export const AREAS: Area[] = [
     vibe: 'quiet layouts',
     landmarks: ['ISRO Layout Main Road', 'RBI Layout', 'Jaraganahalli'],
     venueTypes: ['apartments', 'independent homes', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in ISRO Layout',
+    heroTagline: 'Warm Neighbourhood Celebrations in ISRO Layout',
     waPrefill: 'Hi We Decor! I need event decoration in ISRO Layout. Occasion: _____. Date: _____.',
   },
   {
@@ -567,7 +567,7 @@ export const AREAS: Area[] = [
     vibe: 'central residential',
     landmarks: ['Hombegowda Nagar', 'Lalbagh West Gate', 'Double Road'],
     venueTypes: ['apartments', 'community halls', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Wilson Garden',
+    heroTagline: 'Garden-Side & Home Event Décor in Wilson Garden',
     waPrefill:
       'Hi We Decor! I need event decoration in Wilson Garden. Occasion: _____. Date: _____.',
   },
@@ -577,7 +577,7 @@ export const AREAS: Area[] = [
     vibe: 'inner city',
     landmarks: ['Shanti Nagar Bus Station', 'Richmond Circle', 'Double Road'],
     venueTypes: ['hotels', 'banquet halls', 'apartments'],
-    heroTagline: 'Top-Rated Event Decorators in Shanti Nagar',
+    heroTagline: 'Central Venue & Family Event Styling in Shanti Nagar',
     waPrefill:
       'Hi We Decor! I need event decoration in Shanti Nagar. Occasion: _____. Date: _____.',
   },
@@ -587,7 +587,7 @@ export const AREAS: Area[] = [
     vibe: 'apartment corridor',
     landmarks: ['IIM Bangalore', 'Arekere Gate', 'Bannerghatta Road'],
     venueTypes: ['apartments', 'gated communities', 'clubhouses'],
-    heroTagline: 'Top-Rated Event Decorators in Bilekahalli',
+    heroTagline: 'Society Clubhouse & Home Décor in Bilekahalli',
     waPrefill: 'Hi We Decor! I need event decoration in Bilekahalli. Occasion: _____. Date: _____.',
   },
   {
@@ -596,7 +596,7 @@ export const AREAS: Area[] = [
     vibe: 'settled layouts',
     landmarks: ['Girinagar Main Road', 'Banashankari Temple', 'Hosakerehalli'],
     venueTypes: ['apartments', 'community halls', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Girinagar',
+    heroTagline: 'Quiet, Traditional Family Setups in Girinagar',
     waPrefill: 'Hi We Decor! I need event decoration in Girinagar. Occasion: _____. Date: _____.',
   },
   {
@@ -605,7 +605,7 @@ export const AREAS: Area[] = [
     vibe: 'lakeside layouts',
     landmarks: ['Arekere Lake', 'Arekere Gate', 'Bannerghatta Road'],
     venueTypes: ['apartments', 'gated communities', 'clubhouses'],
-    heroTagline: 'Top-Rated Event Decorators in Arekere',
+    heroTagline: 'High-Rise Apartment & Clubhouse Décor in Arekere',
     waPrefill: 'Hi We Decor! I need event decoration in Arekere. Occasion: _____. Date: _____.',
   },
   {
@@ -614,7 +614,7 @@ export const AREAS: Area[] = [
     vibe: 'college belt',
     landmarks: ['Dayananda Sagar College', 'Chunchughatta', 'Kumaraswamy Layout Main Road'],
     venueTypes: ['apartments', 'community halls', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Kumaraswamy Layout',
+    heroTagline: 'Home Birthdays & Family Rituals in Kumaraswamy Layout',
     waPrefill:
       'Hi We Decor! I need event decoration in Kumaraswamy Layout. Occasion: _____. Date: _____.',
   },
@@ -624,7 +624,7 @@ export const AREAS: Area[] = [
     vibe: 'family layouts',
     landmarks: ['Padmanabhanagar Main Road', 'Kadirenahalli', 'Yarab Nagar'],
     venueTypes: ['community halls', 'apartments', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Padmanabhanagar',
+    heroTagline: 'Custom Living-Room & Terrace Décor in Padmanabhanagar',
     waPrefill:
       'Hi We Decor! I need event decoration in Padmanabhanagar. Occasion: _____. Date: _____.',
   },
@@ -634,7 +634,7 @@ export const AREAS: Area[] = [
     vibe: 'temple-side streets',
     landmarks: ['Katriguppe Main Road', 'Banashankari Temple', 'Vidyapeetha Circle'],
     venueTypes: ['community halls', 'apartments', 'temples'],
-    heroTagline: 'Top-Rated Event Decorators in Katriguppe',
+    heroTagline: 'South Bengaluru Home & Hall Styling in Katriguppe',
     waPrefill: 'Hi We Decor! I need event decoration in Katriguppe. Occasion: _____. Date: _____.',
   },
   {
@@ -643,7 +643,7 @@ export const AREAS: Area[] = [
     vibe: 'mall-side apartments',
     landmarks: ['Hulimavu Lake', 'Meenakshi Mall', 'Bannerghatta Road'],
     venueTypes: ['apartments', 'gated communities', 'banquet halls'],
-    heroTagline: 'Top-Rated Event Decorators in Hulimavu',
+    heroTagline: 'Lakeside Apartment & Family Event Décor in Hulimavu',
     waPrefill: 'Hi We Decor! I need event decoration in Hulimavu. Occasion: _____. Date: _____.',
   },
   {
@@ -652,7 +652,7 @@ export const AREAS: Area[] = [
     vibe: 'newer layouts',
     landmarks: ['Konanakunte Cross', 'Vajarahalli', 'Kanakapura Road'],
     venueTypes: ['apartments', 'independent homes', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in Konanakunte',
+    heroTagline: 'Modern Apartment & Terrace Setups in Konanakunte',
     waPrefill: 'Hi We Decor! I need event decoration in Konanakunte. Occasion: _____. Date: _____.',
   },
   {
@@ -661,7 +661,7 @@ export const AREAS: Area[] = [
     vibe: 'suburban layouts',
     landmarks: ['Uttarahalli Main Road', 'Subramanyapura', 'Chikkalasandra'],
     venueTypes: ['community halls', 'apartments', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Uttarahalli',
+    heroTagline: 'Fresh Floral & Balloon Celebrations in Uttarahalli',
     waPrefill: 'Hi We Decor! I need event decoration in Uttarahalli. Occasion: _____. Date: _____.',
   },
   {
@@ -670,7 +670,7 @@ export const AREAS: Area[] = [
     vibe: 'quiet suburbs',
     landmarks: ['Vasanthapura Main Road', 'Thalaghattapura', 'Uttarahalli'],
     venueTypes: ['apartments', 'independent homes', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in Vasanthapura',
+    heroTagline: 'Intimate Home & Temple-Side Décor in Vasanthapura',
     waPrefill:
       'Hi We Decor! I need event decoration in Vasanthapura. Occasion: _____. Date: _____.',
   },
@@ -680,7 +680,7 @@ export const AREAS: Area[] = [
     vibe: 'lake-side suburbs',
     landmarks: ['Gottigere Lake', 'Bannerghatta Road', 'Hulimavu Gate'],
     venueTypes: ['apartments', 'independent homes', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in Gottigere',
+    heroTagline: 'Villa & Weekend Event Styling Around Gottigere',
     waPrefill: 'Hi We Decor! I need event decoration in Gottigere. Occasion: _____. Date: _____.',
   },
   {
@@ -689,7 +689,7 @@ export const AREAS: Area[] = [
     vibe: 'lake suburbs',
     landmarks: ['Begur Lake', 'Naganathapura', 'Begur Road'],
     venueTypes: ['apartments', 'gated communities', 'community halls'],
-    heroTagline: 'Top-Rated Event Decorators in Begur',
+    heroTagline: 'Gated-Community & Clubhouse Décor in Begur',
     waPrefill: 'Hi We Decor! I need event decoration in Begur. Occasion: _____. Date: _____.',
   },
   {
@@ -698,7 +698,7 @@ export const AREAS: Area[] = [
     vibe: 'university belt',
     landmarks: ['Nagarbhavi Circle', 'Bangalore University', 'Chandra Layout'],
     venueTypes: ['community halls', 'apartments', 'independent homes'],
-    heroTagline: 'Top-Rated Event Decorators in Nagarbhavi',
+    heroTagline: 'West Bengaluru Home & Hall Celebrations in Nagarbhavi',
     waPrefill: 'Hi We Decor! I need event decoration in Nagarbhavi. Occasion: _____. Date: _____.',
   },
 ];
