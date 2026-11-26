@@ -53,6 +53,7 @@ export const DEFAULT_GOOGLE_PLACE_ID = 'ChIJCac5p8MVrjsRge3h_FhBR70';
 /** Canonical social & entity URLs — align with live profiles */
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
+  threads: 'https://www.threads.com/@wedecorbangalore',
   facebook: 'https://www.facebook.com/people/We-Decor-Events/61592091312020/',
   youtube: 'https://www.youtube.com/@wedecor',
   pinterest: 'https://in.pinterest.com/wedecorevents/',
@@ -79,6 +80,7 @@ export function getSameAsLinks(): string[] {
   const placeId = process.env.NEXT_PUBLIC_GOOGLE_PLACE_ID?.trim() || DEFAULT_GOOGLE_PLACE_ID;
   const links: string[] = [
     SOCIAL_PROFILES.instagram,
+    SOCIAL_PROFILES.threads,
     SOCIAL_PROFILES.facebook,
     SOCIAL_PROFILES.youtube,
     SOCIAL_PROFILES.pinterest,
