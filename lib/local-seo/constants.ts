@@ -53,10 +53,10 @@ export const DEFAULT_GOOGLE_PLACE_ID = 'ChIJCac5p8MVrjsRge3h_FhBR70';
 /** Canonical social & entity URLs — align with live profiles */
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/wedecorbangalore/',
-  facebook: 'https://www.facebook.com/we.decor.events/',
+  facebook: 'https://www.facebook.com/people/We-Decor-Events/61592091312020/',
   youtube: 'https://www.youtube.com/@wedecor',
   pinterest: 'https://in.pinterest.com/wedecorevents/',
-  linkedin: 'https://www.linkedin.com/company/we-decor-events-bangalore/',
+  linkedin: 'https://www.linkedin.com/company/wedecorevents/',
   justdial:
     'https://www.justdial.com/Bangalore/Wedecor-Events-Near-Rizwan-Masjid-Jp-Nagar/080PXX80-XX80-250506142813-D2D3_BZDET',
   wedeazzy: 'https://wedeazzy.com/vendor/we-decor-events-bangalore',
