@@ -194,6 +194,11 @@ const nextConfig = {
         destination: '/locations',
         permanent: true,
       },
+      {
+        source: '/&',
+        destination: '/',
+        permanent: true,
+      },
       // Consolidate duplicate cost-guide blog slugs into authoritative posts
       {
         source: '/blog/haldi-mehndi-decoration-cost-bangalore',
